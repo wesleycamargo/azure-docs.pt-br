@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/22/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos
@@ -67,4 +67,4 @@ Estes links serão úteis na exploração em profundidade do serviço:
 
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

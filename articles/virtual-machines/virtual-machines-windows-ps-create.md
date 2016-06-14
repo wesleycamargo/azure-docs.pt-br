@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="06/07/2016"
 	ms.author="davidmu"/>
 
 # Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell
@@ -120,7 +120,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    A senha deve ter entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
+    A senha deve ter entre 12 e 123 caracteres e ter pelo menos um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
         
 2. Substitua o valor **$vmName** por um nome para a máquina virtual. Crie a variável e a configuração da máquina virtual.
 
@@ -170,4 +170,4 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 - Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

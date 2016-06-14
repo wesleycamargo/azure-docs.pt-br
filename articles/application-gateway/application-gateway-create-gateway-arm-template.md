@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 	- **name**. Nome do recurso. Observe o uso de **[parameters('applicationGatewayName')]**, que significa o nome que será fornecido como entrada pelo usuário ou um arquivo de parâmetro durante a implantação.
 	- **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo.
 
-7. Navegue de volta para https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
+7. Navegue de volta para [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Clique em **azuredeploy-paremeters.json** e em **RAW**.
 9. Salve o arquivo em uma pasta local do computador.
 10. Abra o arquivo que acabou de salvar e edite os valores dos parâmetros. Use os valores abaixo para implantar o gateway de aplicativo descrito em nosso cenário.
@@ -112,11 +112,11 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
     	}
 		}
 
-11. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como o [JSlint.com](http://www.jslint.com/).
+11. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como [JSlint.com](http://www.jslint.com/).
 
 ## Implantar o modelo do Gerenciador de Recursos do Azure usando o PowerShell
 
-Se você nunca tiver usado o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+Se você nunca tiver usado o Azure PowerShell, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
 ### Etapa 1
 
@@ -191,7 +191,7 @@ A saída gerada pela linha de comando será a seguinte:
 
 Para implantar o modelo do Gerenciador de Recursos do Azure baixado usando a CLI do Azure, siga as etapas abaixo:
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -200,13 +200,13 @@ Este é o resultado esperado para o comando descrito acima:
 
 		info:	New mode is arm
 
-3. Se necessário, execute o comando **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+3. Se necessário, execute o comando **azure group create** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. Nome do novo grupo de recursos. Para o nosso cenário, é *appgatewayRG*.
+**-n (or --name)**. Nome do novo grupo de recursos. Para nosso cenário, é *appgatewayRG*.
 
-**-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para o nosso cenário, é *eastus*.
+**-l (ou --location)**. Região do Azure em que o novo grupo de recursos será criado. Para nosso cenário, é *eastus*.
 
 4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
@@ -275,13 +275,13 @@ Na folha Implantação personalizada, clique em **Criar**.
 
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, confira [Configurar um application gateway para descarregamento SSL](application-gateway-ssl.md).
+Para configurar o descarregamento SSL, confira [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, veja [Criar um application gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Para configurar um Application Gateway para usar com um balanceador de carga interno, veja [Criar um Application Gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

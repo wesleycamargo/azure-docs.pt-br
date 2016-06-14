@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="06/07/2016"
     ms.author="magoedte"/>
 
 # Autenticar runbooks com uma conta Executar como do Azure
-Este tópico mostra como configurar uma conta de Automação no portal do Azure usando o novo recurso de conta Executar como (também conhecido como uma entidade de serviço) para acessar recursos do Azure Resource Manager (ARM) em sua assinatura com runbooks de Automação. Quando você cria uma nova conta de Automação no portal do Azure, ele cria automaticamente uma nova entidade de serviço e é atribuída por padrão à função do controle de acesso baseado em função do Colaborador na assinatura. Isso simplifica o processo para você e o ajuda a começar a criar e a implantar rapidamente os runbooks para dar suporte às suas necessidades de automação.
+Este tópico mostra como configurar uma conta de Automação no portal do Azure usando o novo recurso de conta Executar como (também conhecido como uma entidade de serviço) para acessar recursos do Azure Resource Manager em sua assinatura com runbooks de Automação. Quando você cria uma nova conta de Automação no portal do Azure, ele cria automaticamente uma nova entidade de serviço e é atribuída por padrão à função do controle de acesso baseado em função do Colaborador na assinatura. Isso simplifica o processo para você e o ajuda a começar a criar e a implantar rapidamente os runbooks para dar suporte às suas necessidades de automação.
 
 Ao usar uma entidade de serviço, você pode:
 
-* Fornecer uma maneira padronizada de autenticar com o Azure ao gerenciar recursos do Azure ARM usando runbooks
+* Fornecer uma maneira padronizada de autenticar com o Azure ao gerenciar recursos do Azure Resource Manager usando runbooks
 * Automatizar o uso de runbooks globais configurados em Alertas do Azure
 
 
@@ -45,7 +45,7 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 
     ![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] Se você optar por não criar a conta Executar como ao selecionar a opção **Não**, verá uma mensagem de aviso na folha **Adicionar Conta de Automação**. Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura. Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do ARM.
+    >[AZURE.NOTE] Se você optar por não criar a conta Executar como ao selecionar a opção **Não**, verá uma mensagem de aviso na folha **Adicionar Conta de Automação**. Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura. Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do Azure Resource Manager.
 
     ![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
@@ -85,7 +85,7 @@ O script do PowerShell irá configurar o seguinte:
 1. Salve o script a seguir em seu computador. Neste exemplo, salve-o com o nome de arquivo **New-AzureServicePrincipal.ps1**.  
 
     ```
-    #Requires - RunAsAdministrator
+    #Requires -RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
     [String] $ResourceGroup,
@@ -97,7 +97,7 @@ O script do PowerShell irá configurar o seguinte:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
-    [String] $SubscriptionName,
+    [String] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
@@ -108,7 +108,7 @@ O script do PowerShell irá configurar o seguinte:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -143,14 +143,14 @@ O script do PowerShell irá configurar o seguinte:
     {
       # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
       Sleep 5
-      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose
+      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
       Sleep 5
       $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
       $Retries++;
     }
 
     # Get the tenant id for this subscription
-    $SubscriptionInfo = Get-AzureRmSubscription
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
@@ -158,20 +158,19 @@ O script do PowerShell irá configurar o seguinte:
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
-    $SubscriptionId = $SubscriptionInfo | Select SubscriptionId -First 1
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
 2. Em seu computador, inicie o **Windows PowerShell** na tela **Iniciar** com direitos de usuário elevados.
-3. No shell da linha de comando elevado do PowerShell, navegue até a pasta que contém o script criado na Etapa 1 e execute o script alterando os valores dos parâmetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* e *-CertPlainPassword*.<br>
+3. No shell da linha de comando elevado do PowerShell, navegue até a pasta que contém o script criado na Etapa 1 e execute o script alterando os valores dos parâmetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* e *-CertPlainPassword*.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -204,9 +203,9 @@ Em seguida, executaremos um pequeno teste para confirmar que você é capaz de s
 13. Feche a folha **Editar Runbook do PowerShell**.
 14. Feche a folha **Test-SecPrin-Runbook**.
 
-## Código de exemplo para autenticação com recursos ARM
+## Código de exemplo para autenticação com recursos Resource Manager
 
-Você pode usar o código de exemplo atualizado abaixo, obtido do runbook AzureAutomationTutorial de exemplo, para autenticação usando a conta Executar como para gerenciar os recursos ARM com seus runbooks.
+Você pode usar o código de exemplo atualizado abaixo, obtido do runbook AzureAutomationTutorial de exemplo, para autenticação usando a conta Executar como para gerenciar os recursos do Resource Manager com seus runbooks.
 
    ```
    $connectionName = "AzureRunAsConnection"
@@ -243,4 +242,4 @@ O script inclui duas linhas adicionais de código para oferecer suporte à refer
 - Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
 - Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, veja [Controle de acesso baseado em função na Automação do Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

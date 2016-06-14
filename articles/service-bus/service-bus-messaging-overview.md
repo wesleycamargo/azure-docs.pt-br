@@ -52,8 +52,8 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
-- [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 - [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

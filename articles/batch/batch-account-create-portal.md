@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/26/2016"
+	ms.date="06/01/2016"
 	ms.author="marsma"/>
 
 # Criar e gerenciar uma conta do Lote do Azure no portal do Azure
@@ -34,11 +34,7 @@ O [portal do Azure][azure_portal] fornece as ferramentas necessárias para criar
 
 	![Lote no Marketplace][marketplace_portal]
 
-3. Examine as informações na folha **Serviço em Lotes** e clique em **Criar**. Observe que o Lote usa somente o modelo de implantação do Resource Manager.
-
-	![Folha de criação do serviço em Lotes no portal do Azure][3]
-
-4. A folha **Nova Conta do Lote** é exibida. Veja os itens *a* até *e* abaixo para obter descrições de cada elemento da folha.
+3. A folha **Nova Conta do Lote** é exibida. Veja os itens *a* até *e* abaixo para obter descrições de cada elemento da folha.
 
     ![Criar uma conta do Batch][account_portal]
 
@@ -46,17 +42,17 @@ O [portal do Azure][azure_portal] fornece as ferramentas necessárias para criar
 
 	b. **Assinatura** -- uma assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
 
-	c. **Grupo de recursos** – um recurso de grupos para sua nova conta do Lote ou, opcionalmente, crie um novo.
+	c. **Grupo de recursos** – um grupo de recursos para sua nova conta do Lote ou, opcionalmente, crie um novo.
 
 	d. **Local** -- uma região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos serão exibidas como opções.
 
     e. **Conta de Armazenamento** (opcional) -- uma conta de armazenamento de **finalidade geral** que você associa à sua nova conta do Lote. O recurso [pacotes de aplicativos](batch-application-packages.md) do Lote usará a conta de armazenamento vinculada para o armazenamento e a recuperação de pacotes de aplicativos. Confira [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md) para saber mais sobre esse recurso.
 
-     > [AZURE.TIP] A regeneração de chaves em uma conta de Armazenamento vinculada requer considerações especiais. Confira [Considerações sobre contas do Lote](#considerations-for-batch-accounts) abaixo para obter mais detalhes.
+     > [AZURE.IMPORTANT] A regeneração de chaves em uma conta de Armazenamento vinculada requer considerações especiais. Confira [Considerações sobre contas do Lote](#considerations-for-batch-accounts) abaixo para obter mais detalhes.
 
-5. Clique em **Criar** para criar a conta.
+4. Clique em **Criar** para criar a conta.
 
-  O portal indicará que está **Implantando** a conta e, após a conclusão, a folha Conta do Lote será exibida.
+  O portal indicará que ele está **Implantando** a conta e, após a conclusão, uma notificação **Implantações bem-sucedidas** aparecerá em *Notificações*.
 
 ## Exibir propriedades de conta do Lote
 
@@ -102,11 +98,10 @@ A folha Conta do Lote exibe várias propriedades para a conta, bem como oferece 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[3]: ./media/batch-account-create-portal/batch_acct_03.png "Folha de criação do serviço em Lotes no portal do Azure"
 [4]: ./media/batch-account-create-portal/batch_acct_04.png "Regeneração de chaves da conta de armazenamento"
 [5]: ./media/batch-account-create-portal/batch_acct_05.png "Folhas de propriedades e de configurações da conta do Lote"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

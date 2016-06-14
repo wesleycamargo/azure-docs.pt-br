@@ -23,6 +23,8 @@
 
 Este artigo mostra como usar o [Portal do Azure](https://portal.azure.com/) para criar uma Máquina Virtual do Linux rapidamente. Os únicos requisitos são [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/) e [arquivos de chave públicos e privados SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
+[AZURE.NOTE] Se você optar por usar uma senha para proteger o acesso à sua VM, a senha deverá ter mais do que 12 caracteres e ter pelo menos um caractere maiúsculo, pelo menos um caractere minúsculo, pelo menos um caractere especial e pelo menos um número.
+
 
 1. Conectado ao Portal do Azure com sua identidade de conta do Azure, clique em **+ Novo** no canto superior esquerdo:
 
@@ -35,19 +37,19 @@ Este artigo mostra como usar o [Portal do Azure](https://portal.azure.com/) para
 3. Na página **Noções Básicas**, insira:
     - um nome para a máquina virtual
     - um nome de usuário para o usuário administrador
-    - o Tipo de Autenticação definido para **chave pública SSH**
-    - sua chave pública SSH como uma cadeia de caracteres (por padrão, de seu diretório `~/.ssh/`)
+    - o Tipo de Autenticação definido como **chave pública SSH**
+    - sua Chave pública SSH como uma cadeia de caracteres (por padrão, de seu diretório `~/.ssh/`)
     - um nome de grupo de recursos (para criar um novo grupo de implantação) ou selecione um grupo existente
 
     e clique em **OK** para continuar e escolher o tamanho da VM. Ela deve ter a seguinte aparência:
 
     ![tela3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-4. Escolha o tamanho **DS1**, que instala o Ubuntu em um SSD Premium, e clique em **Selecionar** para definir as configurações.
+4. Escolha o tamanho **DS1**, que instala o Ubuntu em uma SSD Premium, e clique em **Selecionar** para definir as configurações.
 
     ![tela4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. Em **Configurações**, mantenha os valores Armazenamento e Rede como padrão, e clique em **OK** para exibir o resumo. Observe que o tipo de disco foi definido para SSD Premium escolhendo DS1; o **S** indica SSD.
+5. Em **Configurações**, mantenha os valores Armazenamento e Rede como padrão e clique em **OK** para exibir o resumo. Observe que o tipo de disco foi definido para SSD Premium escolhendo DS1; o **S** indica SSD.
 
     ![tela5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
@@ -79,4 +81,4 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 
 Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

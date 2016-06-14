@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth" />
 
 # Provisionar uma máquina virtual do SQL Server no Portal do Azure
@@ -53,7 +53,9 @@ Neste tutorial, você irá:
 
 1. Cada modelo identifica uma versão do SQL Server e um sistema operacional. Selecione uma dessas imagens da lista. Examine a folha de detalhes que fornece uma descrição da imagem da máquina virtual.
 
-1. Em **Selecionar um modelo de implantação**, verifique se **Resource Manager** está selecionado e clique em **Criar**.
+	>[AZURE.NOTE] As imagens de VM do SQL incluem os custos de licenciamento para o SQL Server no preço por minuto da VM que você cria. Há outra opção de BYOL (traga sua própria licença) e pagar apenas pela VM. Os nomes de imagem têm o prefixo {BYOL}. Para saber mais sobre essa opção, confira [Introdução ao SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. Em **Selecionar um modelo de implantação**, verifique se **Resource Manager** está selecionado. Resource Manager é o modelo de implantação recomendado para novas máquinas virtuais. Clique em **Criar**.
 
 	![Criar VM do SQL com o Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -131,7 +133,7 @@ Em **Conectividade SQL**, especifique o tipo de acesso desejado para a instânci
 
 Para conectar-se ao SQL Server pela Internet, você precisará habilitar a Autenticação do SQL Server, que está descrita na próxima seção.
 
->[AZURE.NOTE] É possível adicionar mais restrições às comunicações de rede com a VM do SQL Server. Faça isso editando o Grupo de Segurança de Rede após a criação da VM. Para obter mais informações, consulte [O que é NSG (Grupo de Segurança da Rede)?](../virtual-network/virtual-networks-nsg.md)
+>[AZURE.NOTE] É possível adicionar mais restrições às comunicações de rede com a VM do SQL Server. Faça isso editando o Grupo de Segurança de Rede após a criação da VM. Para saber mais, confira [O que é NSG (Grupo de Segurança da Rede)?](../virtual-network/virtual-networks-nsg.md)
 
 Se você preferir não permitir conexões com o Mecanismo de Banco de Dados pela internet, escolha uma das seguintes opções:
 
@@ -140,7 +142,7 @@ Se você preferir não permitir conexões com o Mecanismo de Banco de Dados pela
 
 Em geral, melhore a segurança escolhendo a conectividade mais restritiva que seu cenário permite. No entanto, todas as opções são protegidas por meio de regras do Grupo de Segurança de Rede e por meio da Autenticação do SQL/Windows.
 
-A **porta** usada por padrão é 1433. Você pode especificar um número de porta diferente. Para saber mais, consulte [Conectar uma Máquina Virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+A **Porta** usada por padrão é 1433. Você pode especificar um número de porta diferente. Para saber mais, consulte [Conectar uma Máquina Virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 ### Autenticação
 Se você precisar da Autenticação do SQL Server, clique em **Habilitar** em **Autenticação do SQL**.
@@ -238,7 +240,7 @@ O acesso à máquina permite que você altere diretamente as configurações da 
 
 Neste tutorial, selecionamos o acesso **Público** para a máquina virtual e a **Autenticação do SQL Server**. Essas configurações definiram automaticamente a máquina virtual para permitir conexões do SQL Server de qualquer cliente pela internet (supondo que o logon do SQL esteja correto).
 
->[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, consulte [Conectar uma Máquina Virtual do SQL Server](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar uma Máquina Virtual do SQL Server](virtual-machines-windows-sql-connect.md).
 
 As seções a seguir mostram como se conectar à instância do SQL Server em sua VM de um computador diferente pela internet.
 
@@ -249,4 +251,4 @@ Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas 
 
 Para obter uma visão geral em vídeo do SQL Server nas máquinas virtuais do Azure, assista ao vídeo [A VM do Azure é a melhor plataforma para o SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-<!----HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
