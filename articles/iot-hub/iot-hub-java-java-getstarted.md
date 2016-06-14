@@ -190,7 +190,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     import java.util.logging.*;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{namespacecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **namespacexyz** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal):
+7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{namespacecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **namespacexyz** (em outras palavras, remova o prefixo **sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal):
 
     ```
     private static String namespaceName = "{youreventhubcompatiblenamespace}";

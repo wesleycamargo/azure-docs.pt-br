@@ -64,7 +64,7 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 
 1.	Entrar no [portal clássico do Azure](https://manage.windowsazure.com) usando a conta de Administrador de Serviços da assinatura do Azure (neste exemplo, msmith@hotmail.com).
 2.	Transferir a assinatura para o diretório Contoso: clique em **Configurações** > **Assinaturas** > selecione a assinatura > **Editar diretório** > selecione **Contoso (Contoso.com)**. Como parte da transferência, qualquer conta corporativa ou de estudante que atua como coadministrador da assinatura é removida.
-3.	Adicionar Brenda Fernandes como coadministradora da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite ****JohnDoe@Contoso.com**.
+3.	Adicionar Brenda Fernandes como coadministradora da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite **JohnDoe@Contoso.com**.
 
 ## Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
