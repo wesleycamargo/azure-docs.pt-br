@@ -36,9 +36,7 @@ Para fazer isso, você precisa:
 
 O código para este tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Para acompanhá-lo, você pode [baixar o esqueleto do aplicativo como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 O aplicativo completo é fornecido no fim deste tutorial.
 
@@ -413,9 +411,7 @@ Registre-se ou entre no aplicativo usando o email ou o Facebook. Saia e entre no
 
 Para referência, o exemplo concluído (sem seus valores de configuração) [é fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Você também pode cloná-lo do GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
 
 Agora você pode ir para tópicos mais avançados. Você pode experimentar:
 
