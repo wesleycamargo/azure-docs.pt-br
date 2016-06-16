@@ -142,4 +142,4 @@ Usando a CLI do Azure, você pode excluir o cluster ou excluir o grupo de recurs
 - [Personalizar clusters HDInsight baseados em Linux usando a Ação de Scrip](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 - [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do ARM para criar clusters HDInsight.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

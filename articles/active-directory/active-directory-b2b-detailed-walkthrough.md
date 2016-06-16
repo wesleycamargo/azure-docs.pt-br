@@ -96,4 +96,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
