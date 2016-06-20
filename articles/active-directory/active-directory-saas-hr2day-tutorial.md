@@ -169,7 +169,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 5. Para configurar o SSO para seu aplicativo, entre em contato com sua equipe de suporte do HR2day by Merces por meio do email [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
 
 
-> [AZURE.NOTE] Mencione à equipe da Merces que essa integração precisa da configuração da ID da Entidade com este padrão ****https://hr2day.force.com/INSTANCENAME**
+> [AZURE.NOTE] Mencione à equipe da Merces que essa integração precisa da configuração da ID da Entidade com este padrão **https://hr2day.force.com/INSTANCENAME**
 
 
 

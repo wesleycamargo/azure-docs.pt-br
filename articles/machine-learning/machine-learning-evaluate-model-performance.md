@@ -72,7 +72,7 @@ O coeficiente de determinação, que também é conhecido como R ao quadrado, ta
 Figura 2. Métrica de avaliação de regressão linear.
 
 ###Usando Validação Cruzada###
-Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Tudo o que você precisa nesse caso é um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Observe que você precisa definir a coluna de rótulo como *preço* nas propriedades do módulo [Modelo de Validação Cruzada][cross-validate-model].
+Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Tudo o que você precisa nesse caso é um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] \(veja a figura abaixo). Observe que você precisa definir a coluna de rótulo como *preço* nas propriedades do módulo [Modelo de Validação Cruzada][cross-validate-model].
 
 ![Validação cruzada de um modelo de regressão](media/machine-learning-evaluate-model-performance/3.png)
 
@@ -151,7 +151,7 @@ Configure o índice da coluna Rótulo do módulo [Treinar Modelo][train-model] c
 
 Clique no módulo [Importar Dados][import-data] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP* e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados][split] (0,7, por exemplo).
+Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados]\[split] \(0,7, por exemplo).
  
 ![Avaliar um classificador Multiclass](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -165,7 +165,7 @@ Execute o experimento e clique na porta de saída de [Avaliar Modelo][evaluate-m
 Figura 11. Resultados da avaliação de classificação multiclass.
 
 ###Usando Validação Cruzada###
-Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Você precisará de um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Novamente, você precisa definir a coluna de rótulo do módulo [Modelo de Avaliação Cruzada][cross-validate-model] (índice de coluna 5 neste caso). Após executar o experimento e clicar na porta de saída à direita do [Modelo de Validação Cruzada][cross-validate-model], você pode inspecionar os valores de métrica para cada partição, além da média e do desvio padrão. As métricas exibidas aqui são semelhantes àquelas discutidas no caso de classificação binária. No entanto, observe que em classificação multiclass, os verdadeiros positivos/negativos e falsos positivos/negativos de computação são feitos baseados em uma base por classe, pois não há nenhuma classe geral positiva ou negativa. Por exemplo, ao computar a precisão ou o cancelamento da classe ‘Iris-setosa’, supõe-se que essa seja a classe positiva e todas as outras sejam negativas.
+Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Você precisará de um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] \(veja a figura abaixo). Novamente, você precisa definir a coluna de rótulo do módulo [Modelo de Avaliação Cruzada][cross-validate-model] (índice de coluna 5 neste caso). Após executar o experimento e clicar na porta de saída à direita do [Modelo de Validação Cruzada][cross-validate-model], você pode inspecionar os valores de métrica para cada partição, além da média e do desvio padrão. As métricas exibidas aqui são semelhantes àquelas discutidas no caso de classificação binária. No entanto, observe que em classificação multiclass, os verdadeiros positivos/negativos e falsos positivos/negativos de computação são feitos baseados em uma base por classe, pois não há nenhuma classe geral positiva ou negativa. Por exemplo, ao computar a precisão ou o cancelamento da classe ‘Iris-setosa’, supõe-se que essa seja a classe positiva e todas as outras sejam negativas.
  
 ![Validação cruzada de um modelo de classificação multiclass](media/machine-learning-evaluate-model-performance/12.png)
 

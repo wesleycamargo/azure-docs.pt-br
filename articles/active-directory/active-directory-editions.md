@@ -163,7 +163,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicativos por usuário [1] (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [1] (camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [2] (gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [1] (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
+| 10 aplicativos por usuário [1]\(aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [1]\(camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [2]\(gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [1] \(aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
 
 [1] Com o AD do Azure Gratuito e o AD do Azure Básico, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
 

@@ -21,7 +21,7 @@ Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](ht
 
 ## Estender a classe RoleEntryPoint
 
-A classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) inclui métodos chamados pelo Azure quando ele **inicia****executa** ou **para** uma função Web ou de trabalho. Opcionalmente, você pode substituir esses métodos para gerenciar a inicialização de função, as sequências de desligamento de função ou o thread de execução da função.
+A classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) inclui métodos chamados pelo Azure quando ele **inicia** **executa** ou **para** uma função Web ou de trabalho. Opcionalmente, você pode substituir esses métodos para gerenciar a inicialização de função, as sequências de desligamento de função ou o thread de execução da função.
 
 Ao estender **RoleEntryPoint**, você deverá estar ciente dos seguintes comportamentos dos métodos:
 

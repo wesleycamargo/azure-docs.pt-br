@@ -204,7 +204,8 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Protocolo de gerenciamento|**REST por HTTP/HTTPS**|**REST por HTTPS**|
-|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| |API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
+|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 Padrão (TCP com TLS)**|
+|API .NET Gerenciada|**Sim**<br/><br/>(API de Cliente de Armazenamento Gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
 |C++ nativo|**Sim**|**Não**|
 |API Java|**Sim**|**Sim**|
 |API PHP|**Sim**|**Sim**|

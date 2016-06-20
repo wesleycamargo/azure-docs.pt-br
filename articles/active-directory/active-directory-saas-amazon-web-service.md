@@ -224,7 +224,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 	![Configurar o logon único][24]
 
-    a. Na caixa de texto **Nome do Atributo**, digite ****https://aws.amazon.com/SAML/Attributes/Role**.
+    a. Na caixa de texto **Nome do Atributo**, digite **https://aws.amazon.com/SAML/Attributes/Role**.
 
     b. Na caixa de texto **Valor do atributo**, digite **[o valor da função ARN], [o valor ARN de entidade confiável]**.
 
@@ -242,7 +242,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 	![Configurar o logon único][25]
 
 
-     a. Na caixa de texto **Nome do Atributo**, digite ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     a. Na caixa de texto **Nome do Atributo**, digite **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
      b. Na caixa de texto **Valor do atributo**, digite **userprincipalname**.
 

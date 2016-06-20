@@ -88,7 +88,7 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 
     ![Aplicativo recebendo mensagens][22]
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] (Tratamento de falhas transitórias) do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] \(Tratamento de falhas transitórias) do MSDN.
 
 <!-- Links -->
 

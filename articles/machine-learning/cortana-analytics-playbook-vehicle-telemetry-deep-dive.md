@@ -336,7 +336,7 @@ Nesta seção, você verá como usamos a combinação do Azure Stream Analytics,
 
 Nosso objetivo aqui é prever os veículos que exigem manutenção ou recall com base em determinadas estatísticas de integridade. Podemos fazer as seguintes suposições
 
-- Os veículos exigirão ** manutenção** se uma das três condições a seguir for verdadeira:
+- Os veículos exigirão **manutenção** se uma das três condições a seguir for verdadeira:
 	- A pressão do pneu está baixa
 	- O nível de óleo do motor está baixo
 	- A temperatura do motor está alta
@@ -387,7 +387,7 @@ Esse padrão também é aplicável em situações nas quais você deseja integra
 
 Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para baixar a solução RealtimeDashboardApp do Visual Studio para as personalizações.
 
-****Para executar o Aplicativo do Painel em Tempo Real **
+**Para executar o Aplicativo do Painel em Tempo Real**
 
 1.	Clique no nó do PowerBI na exibição de diagrama e clique no link “Baixar Aplicativo do Painel em Tempo Real” no painel de propriedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17 – Instruções de instalação do painel do PowerBI*
 2.	Extrair e salvar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 18 – Pasta RealtimeDashboardApp*

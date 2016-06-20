@@ -158,7 +158,7 @@ Para executar o U-SQL, abra o Visual Studio, clique em **Arquivo --> Novo --> Pr
 
 ### <a name="ingest"></a>Ingestão de dados: dados de leitura de blob público
 
-A localização dos dados no blob do Azure é referenciada como ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraída usando **Extractors.Csv()**. Substitua seu próprio nome do contêiner e o nome da conta de armazenamento nos scripts a seguir para container_name@blob_storage_account_name no endereço wasb. Como os nomes de arquivo estão mesmo formato, podemos usar **trip\_data\_{*}.csv** para ler todos os 12 arquivos de corrida.
+A localização dos dados no blob do Azure é referenciada como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraída usando **Extractors.Csv()**. Substitua seu próprio nome do contêiner e o nome da conta de armazenamento nos scripts a seguir para container_name@blob_storage_account_name no endereço wasb. Como os nomes de arquivo estão mesmo formato, podemos usar **trip\_data\_{*}.csv** para ler todos os 12 arquivos de corrida.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ A localização dos dados no blob do Azure é referenciada como ****wasb://conta
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Como há cabeçalhos na primeira linha, é necessário remover os cabeçalhos e alterar os tipos de coluna para aqueles apropriados. É possível salvar os dados processados no Armazenamento do Azure Data Lake usando ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou na conta de armazenamento de Blobs do Azure usando ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Como há cabeçalhos na primeira linha, é necessário remover os cabeçalhos e alterar os tipos de coluna para aqueles apropriados. É possível salvar os dados processados no Armazenamento do Azure Data Lake usando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou na conta de armazenamento de Blobs do Azure usando **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Em seguida, clique em **Painel** ao lado do botão **Configurações** e uma jan
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Cole os scripts de Hive a seguir para criar uma tabela. A localização da fonte de dados está na referência do Repositório Azure Data Lake desta maneira: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Cole os scripts de Hive a seguir para criar uma tabela. A localização da fonte de dados está na referência do Repositório Azure Data Lake desta maneira: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(

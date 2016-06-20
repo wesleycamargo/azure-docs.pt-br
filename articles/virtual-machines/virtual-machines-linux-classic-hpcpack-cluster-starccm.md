@@ -286,7 +286,7 @@ Substitua **runner.java** por seu código de registro em log e código do inicia
     exit ${RTNSTS}
 ```
 
-Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD\_LICENSE\_FILE** como ****1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
+Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD\_LICENSE\_FILE** como **1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
 
 Após a inicialização, o script extrai de **$CCP\_NODES\_CORES** as variáveis de ambiente definidas pelo HPC Pack, a lista de nós para criar um arquivo de host usado pelo iniciador de MPI. Esse arquivo de host conterá a lista de nomes dos nós de computação que são usados para o trabalho, um nome por linha.
 

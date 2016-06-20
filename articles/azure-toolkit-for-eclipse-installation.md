@@ -36,7 +36,7 @@ As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Ec
 
     ![Instalação do Kit de Ferramentas do Azure para o Eclipse][01]
 
-1. Na caixa de diálogo **Software Disponível**, dentro da caixa de texto **Trabalhar com**, digite ****http://dl.microsoft.com/eclipse** seguido da tecla **Enter**.
+1. Na caixa de diálogo **Software Disponível**, dentro da caixa de texto **Trabalhar com**, digite **http://dl.microsoft.com/eclipse** seguido da tecla **Enter**.
 
 1. No painel **Nome**, marque **Kit de Ferramentas do Azure para o Eclipse** e desmarque **Entrar em contato com todos os sites de atualização durante a instalação para encontrar o software necessário**. Sua tela será semelhante à seguinte:
 

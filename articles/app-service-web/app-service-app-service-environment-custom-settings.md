@@ -76,7 +76,7 @@ O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSetting
         ],
 
 ## Mudar a ordem do pacote de criptografia TLS ##
-Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {

@@ -41,7 +41,7 @@ Os Hubs de Notificação do Azure fornecem uma infraestrutura de várias platafo
 
 ##Criar um aplicativo Node.js
 
-A primeira etapa deste tutorial é a criação de um novo aplicativo Node. js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um Site do Azure][nodejswebsite], [Serviço de Nuvem do Node.js][Node.js Cloud Service] (usando o Windows PowerShell) ou [Site com o WebMatrix].
+A primeira etapa deste tutorial é a criação de um novo aplicativo Node. js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um Site do Azure][nodejswebsite], [Serviço de Nuvem do Node.js][Node.js Cloud Service] \(usando o Windows PowerShell) ou [Site com o WebMatrix].
 
 ##Configurar seu aplicativo para usar os Hubs de Notificação
 

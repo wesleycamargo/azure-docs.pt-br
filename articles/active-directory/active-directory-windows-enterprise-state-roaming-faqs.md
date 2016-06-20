@@ -67,7 +67,7 @@ Quando houver várias contas do AD do Azure de diferentes locatários do AD do A
 
 1. Primeiro, é necessário o GUID de cada locatário do AD do Azure. Abra o portal clássico do Azure e escolha um locatário do AD do Azure. O GUID do locatário é a URL na barra de endereços do navegador, como a seguir: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Depois que tiver o GUID, você deverá adicionar a seguinte chave do Registro: **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\SettingSync\\WinMSIPC<GUID de ID de locatário>** Na chave <**GUID de ID de locatário**>, crie um novo Valor de Cadeia de Caracteres Múltipla (REG-MULTI-SZ) chamado **AllowedRMSServerUrl**s e, para seus dados, especifique as URLs de ponto de distribuição de licenciamento dos outros locatários do Azure que o dispositivo acessa.
-3. Você pode encontrar as URLs de ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration**. Se os valores de **LicensingIntranetDistributionPointUrl ** e de **LicenseingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
+3. Você pode encontrar as URLs de ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration**. Se os valores de **LicensingIntranetDistributionPointUrl** e de **LicenseingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
 
 
 ## Quais são as opções para configurações de roaming para aplicativos da área de trabalho do Windows existentes?

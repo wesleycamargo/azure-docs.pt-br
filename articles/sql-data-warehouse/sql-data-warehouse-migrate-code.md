@@ -35,7 +35,7 @@ A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Dat
 - funções definidas pelo usuário embutidas
 - funções com várias instruções
 - [expressões de tabela comuns](#Common-table-expressions)
-- [CTE (expressão de tabela comum) recursiva] (#Recursive-common-table-expressions-(CTE)
+- [CTE (expressão de tabela comum) recursiva](#Recursive-common-table-expressions-(CTE)
 - procedimentos e funções CLR
 - função $partition
 - variáveis de tabela
