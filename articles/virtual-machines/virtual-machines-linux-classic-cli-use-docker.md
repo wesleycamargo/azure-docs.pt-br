@@ -23,11 +23,11 @@
 
 
 
-Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker do [Agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker e o [Agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 
 ##Como usar a Extensão de VM Docker com o Azure
-Para usar a extensão de VM do Docker com o Azure, você deve instalar a versão da [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat) (CLI do Azure) superior à 0.8.6 (até o momento da redação deste artigo, a versão atual é 0.8.10). Você pode instalar a CLI do Azure no Mac, Linux e Windows.
+Para usar a extensão de VM do Docker com o Azure, você deve instalar a versão da [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat) (CLI do Azure) superior à 0.8.6 (até o momento da redação deste artigo, a versão atual é 0.10.0). Você pode instalar a CLI do Azure no Mac, Linux e Windows.
 
 
 O processo completo para usar o Docker no Azure é simples:
@@ -41,7 +41,7 @@ O processo completo para usar o Docker no Azure é simples:
 
 Para instalar e configurar a CLI do Azure, confira [Como instalar a Interface de Linha de Comando do Azure](../xplat-cli-install.md). Para confirmar a instalação, digite `azure` no prompt de comando e, após um breve momento, você deverá ver a arte ASCII da CLI do Azure, que lista os comandos básicos disponíveis. Se a instalação for bem-sucedida, você deverá poder digitar `azure help vm` e ver que um dos comandos listados é “docker”.
 
-> [AZURE.NOTE] O Docker tem um programa de instalação para Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), que também pode ser usado para automatizar a criação de um cliente docker que você pode usar para trabalhar com VMs do Azure como hosts do docker.
+> [AZURE.NOTE] O Docker tem ferramentas para Windows, o [Computador do Docker](https://docs.docker.com/installation/windows/), que também pode ser usado para automatizar a criação de um cliente docker que você pode usar para trabalhar com VMs do Azure como hosts do docker.
 
 ### Conectar a CLI do Azure à sua conta do Azure
 Antes de poder usar a CLI do Azure, você deve associar as credenciais de conta do Azure com a CLI do Azure em sua plataforma. A seção [Como se conectar à assinatura do Azure](../xplat-cli-connect.md) explica como baixar e importar o arquivo **.publishsettings** ou associar a linha de comando da CLI do Azure a uma ID organizacional.
@@ -63,10 +63,10 @@ Em uma sessão bash ou de terminal, use o comando da CLI do Azure a seguir para 
 
 `azure vm image list | grep Ubuntu-14_04`
 
-e selecione um dos nomes da imagens, como `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-pt-BR-30GB`, e use o comando a seguir para criar uma nova máquina virtual usando essa imagem.
+e selecione um dos nomes da imagens, como `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-pt-BR-30GB`, e use o comando a seguir para criar uma nova máquina virtual usando essa imagem.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-pt-BR-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-pt-BR-30GB" <username> <password>
 ```
 
 onde:
@@ -173,4 +173,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

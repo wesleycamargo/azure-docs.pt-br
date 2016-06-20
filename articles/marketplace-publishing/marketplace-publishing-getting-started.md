@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="06/01/2016"
    ms.author="hascipio" />
 
 # Como publicar uma oferta no Azure Marketplace
@@ -37,18 +37,19 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 | **Obter a aprovação prévia** | [Microsoft Azure Certified][link-certification] | Visualização particular | n/d | [Microsoft Azure Certified][link-certification] |
 | **Etapa 1: registrar sua conta de desenvolvedor** | [Conta do Microsoft Developer: criação e registro][link-accts] | Visualização particular | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] |
 |**Etapa 2: criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| Visualização particular | [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-||[Pré-requisitos técnicos de VM][link-single-vm-prereq] | Visualização particular | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Pré-requisitos técnicos de VM][link-single-vm-prereq] | Visualização particular | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[Guia de publicação de imagem de VM][link-single-vm] | Visualização particular | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
-||[Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | Visualização particular | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
+|| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | Visualização particular | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
 | **Etapa 3: enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Visualização particular | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 | **Etapa 4: implantar a oferta no Marketplace** | [Implantar a oferta no Marketplace][link-pushprod] | Visualização particular | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] |
 
 ## Suporte
-- [Obtenha suporte como um editor][suppt-general]
+- [Guia de pós-produção para ofertas de máquina virtual](marketplace-publishing-vm-image-post-publishing.md)
 - [Entendendo o relatório de percepções do vendedor][suppt-rpt-insights]
 - [Entendendo os relatórios de pagamento][suppt-rpt-payouts]
 - [Como alterar seu incentivo ao revendedor de Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
 - [Solução de problemas comuns de publicação no Marketplace][suppt-common]
+- [Obtenha suporte como um editor][suppt-general]
 
 ## Recursos adicionais
 - Para saber mais sobre os portais usados, veja [Portais necessários](marketplace-publishing-portals.md).
@@ -82,4 +83,4 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

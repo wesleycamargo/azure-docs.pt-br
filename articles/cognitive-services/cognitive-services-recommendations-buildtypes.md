@@ -21,12 +21,15 @@
 <a name="TypeofBuilds"></a>
 ## Que tipo de build de recomendações devo usar? ##
 
-No momento, damos suporte a dois tipos de build: builds de *Recomendação* e *FBT*. Cada um deles é criado usando algoritmos diferentes e tem diferentes vantagens.
+No momento, damos suporte a dois tipos de build: builds de *Recomendação* e *FBT*. Cada um deles é criado usando algoritmos diferentes e tem diferentes vantagens. Este documento descreve cada uma dessas compilações, bem como as técnicas para comparar a qualidade dos modelos gerados.
+
+
+> Se você ainda não fez isso, incentivamos que termine o [guia de início rápido](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Tipo de build de recomendação ###
 
-O tipo de build de *recomendação* usa a fatoração de matriz para fornecer recomendações. A versão curta é que ele usará as transações do usuário para gerar vetores de [funcionalidade latente](https://en.wikipedia.org/wiki/Latent_variable) para descrever cada item e, em seguida, usar esses vetores latentes para comparar itens semelhantes.
+O tipo de build de *recomendação* usa a fatoração de matriz para fornecer recomendações. A versão curta é que ele usará as transações do usuário para gerar vetores de [recurso latente](https://en.wikipedia.org/wiki/Latent_variable) para descrever cada item e, em seguida, usará esses vetores latentes para comparar itens semelhantes.
 
 Supondo que você treina o modelo com base em compras feitas em sua loja de eletrônicos e no momento da pontuação você fornece um telefone Lumia 650 como a entrada para o modelo, ele retornará um conjunto de itens que tendem a ser comprados pelas pessoas que têm probabilidade comprar um telefone Lumia 650. Observe que os itens podem não ser complementares. Por exemplo, neste exemplo, é possível que outros telefones sejam retornados, uma vez que as pessoas que gostam do Lumia 650 podem gostar de outros telefones.
 
@@ -52,11 +55,11 @@ O build de recomendação tem duas funcionalidades que o tornam atraente:
 |------------------     |-----------
 |useFeaturesInModel | Definido como true. Indica se os recursos podem ser usados para aperfeiçoar o modelo de recomendação. 
 |allowColdItemPlacement | Definido como true. Indica se a recomendação também enviar itens sem interesse através da similaridade de recursos.
-| modelingFeatureList | Lista separada por vírgulas de nomes de recursos a serem usados na compilação de recomendação a fim de melhorar as recomendações. Por exemplo "Language,Storage" no exemplo acima.
+| modelingFeatureList | Lista separada por vírgulas de nomes de recursos a serem usados na compilação de recomendação a fim de melhorar as recomendações. Para a instância “Language,Storage” no exemplo acima.
 
--	Ele dá suporte a recomendações de usuário.
+-	Ele dá suporte para as recomendações de usuário.
 
- Um build de Recomendação dá suporte a [recomendações de usuário.](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd) Isso significa que ele pode usar o histórico de transações de um usuário para fornecer recomendações personalizadas para esse usuário. Para obter recomendações de usuário, você pode fornecer a ID de usuário e/ou o histórico recente de transações desse usuário.
+ Um build de Recomendação dá suporte para as [recomendações de usuário](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Isso significa que ele pode usar o histórico de transações de um usuário para fornecer recomendações personalizadas para esse usuário. Para obter recomendações de usuário, você pode fornecer a ID de usuário e/ou o histórico recente de transações desse usuário.
 
  Um exemplo clássico em que você talvez queira aplicar recomendações de usuário é quando o usuário primeiro faz logon em seu site/loja na página de boas-vindas. Lá você pode promover o conteúdo que se aplica ao usuário específico.
  
@@ -153,7 +156,7 @@ As métricas offline de diversidade e precisão podem ser úteis para você na s
 No momento do build, como parte dos parâmetros de build de Recomendação ou FBT:
 1.	Defina o parâmetro de build enableModelingInsights como true.
 
-2.	Opcionalmente, você pode selecionar o *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* divide os dados de uso nos conjuntos de dados de teste e de treinamento com base na porcentagem de teste *randomSplitterParameters* determinada e em valores de semente aleatórios. *LastEventSplitter* divide os dados de uso nos conjuntos de dados de treinamento e de teste com base na última transação de cada usuário.
+2.	Como alternativa, você pode selecionar o *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* divide os dados de uso nos conjuntos de dados de teste e de treinamento com base na porcentagem de teste *randomSplitterParameters* determinada e em valores de semente aleatórios. *LastEventSplitter* divide os dados de uso nos conjuntos de dados de treinamento e de teste com base na última transação de cada usuário.
 
 Isso vai disparar um build que usa apenas um subconjunto dos dados para treinamento e o restante dos dados é usado para calcular métricas de avaliação. Após o build ser concluído, para obter a saída da avaliação, você apenas precisa chamar a [API para obter métricas de build](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console), passando as respectivas *modelId* e *buildId*.
 
@@ -238,4 +241,4 @@ Isso vai disparar um build que usa apenas um subconjunto dos dados para treiname
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

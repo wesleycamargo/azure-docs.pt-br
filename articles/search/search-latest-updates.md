@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
+	ms.date="06/05/2016"
 	ms.author="heidist"/>
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
@@ -24,7 +24,8 @@ A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem do Microsoft A
 
 Recurso|Lançamento|Status|Detalhes
 -------|--------|------|-------
-[SDK do .NET 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Fevereiro de 2016|GA|Esta é a primeira versão disponível da biblioteca de cliente .NET, `Microsoft.Azure.Search.dll`. Essa versão introduz mudanças significativas. Confira [Upgrading to the Azure Search .NET SDK version 1.1 (Atualizando para o SDK do .NET da Pesquisa do Azure versão 1.1)](search-dotnet-sdk-migration.md) para obter diretrizes sobre migração.
+[atualizações SKU](search-limits-quotas-capacity.md)|Junho de 2016|Preview e DG|SKUs Básico e Standard 2 (S2), que estavam em preview em março de 2016 e agora estão em Disponibilidade Geral. <br/><br/>Versões Preview de novos SKUs Standard 3 (S3) e S3 de Alta Densidade (S3 HD) são introduzidas nesta atualização. Consulte [Escolher uma camada ou SKU para a Pesquisa do Azure](search-sku-tier.md) para obter uma comparação.
+[SDK do .NET 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Fevereiro de 2016|GA|Esta é a primeira versão disponível da biblioteca de cliente .NET, `Microsoft.Azure.Search.dll`. Essa versão introduz mudanças significativas. Confira [Atualizando para o SDK do .NET da Pesquisa do Azure versão 1.1](search-dotnet-sdk-migration.md) para obter diretrizes sobre migração.
 [Suporte à sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Fevereiro de 2016|[GA](search-api-2015-02-28-preview.md)|A sintaxe da consulta Lucene agora está disponível na API REST e no SDK .NET. Defina o parâmetro `queryType` como `full` na API REST e a propriedade `SearchParameters.QueryType` como `QueryType.Full` no SDK .NET para habilitar a sintaxe Lucene.
 [Analisadores Personalizados](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|Janeiro de 2016|[Visualização](search-api-2015-02-28-preview.md)|Configurações definidas pelo usuário dos criadores de token e filtros de token. Confira [Análise na Pesquisa do Azure](https://msdn.microsoft.com/library/azure/mt605304.aspx) no MSDN.
 [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)|Janeiro de 2016|[Visualização](search-api-2015-02-28-preview.md)|PDF, documentos do Office, XML, HTML ou até mesmo arquivos de vídeo e áudio podem ser mesclados ou incluídos em um índice de Pesquisa do Azure.
@@ -66,9 +67,9 @@ Os recursos são lançados separadamente ou em conjunto por meio da [API REST](h
 
 Os recursos da versão GA (disponibilidade geral) e preview estão ligados a uma versão da API da mesma categoria.
 
-- Os recursos da versão preview são experimentais e podem ser alterados ou até mesmo descartados antes de passarem para a versão GA. Os recursos da versão preview estão sempre disponíveis na [versão de visualização da API REST](search-api-2015-02-28-preview.md) e, às vezes, no [SDK do .NET](http://go.microsoft.com/fwlink/?LinkId=528216). A documentação do recurso sempre explicará como acessar o recurso em questão.
+- Os recursos da versão preview são experimentais e podem ser alterados ou até mesmo descartados antes de passarem para a versão GA. Os recursos da versão preview estão sempre disponíveis na [versão preview da API REST](search-api-2015-02-28-preview.md) e, às vezes, no [SDK do .NET](http://go.microsoft.com/fwlink/?LinkId=528216). A documentação do recurso sempre explicará como acessar o recurso em questão.
 - Os recursos da versão GA são estáveis e é improvável que mudem. Qualquer alteração em um recurso da GA é anunciada como uma mudança significativa.
 
 Os recursos exclusivamente do portal ou baseados em ferramenta podem mudar ao longo do tempo e não são classificados nem como da versão de visualização, nem da GA.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

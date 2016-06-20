@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de capacidade do SQL Data Warehouse
@@ -35,7 +35,7 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Banco de dados | Tamanho máx. | 60 TB compactados em disco<br/><br/>O SQL Data Warehouse permite até 60 TB de espaço em disco bruto por banco de dados. O espaço em disco é o tamanho compactado para tabelas permanentes. Esse espaço é independente do espaço de tempdb ou de log e, portanto, esse espaço é dedicado a tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 300 TB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão). O limite de 60 TB aumentará para 240 TB no final da visualização pública, que permitirá que a maioria dos bancos de dados aumente para mais de 1 PB de dados não compactados.|
+| Banco de dados | Tamanho máx. | 240 TB compactados em disco<br/><br/>Esse espaço é independente do espaço de tempdb ou de log e, portanto, é dedicado a tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 1 PB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão).|
 | Tabela | Tamanho máx. | 60 TB compactados em disco |
 | Tabela | Tabelas por banco de dados | 2 bilhões |
 | Tabela | Colunas por tabela | 1024 colunas |
@@ -109,4 +109,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Erro interno: foi atingido um limite de serviços de expressão]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig com Hadoop no HDInsight usando o Curl
@@ -58,7 +58,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
     * **-u**: o nome de usuário e a senha usados para autenticar a solicitação
     * **-G**: indica que se trata de uma solicitação GET
 
-    O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
+    O início da URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
 2. Use o seguinte para enviar um trabalho de Pig Latin para o cluster:
 
@@ -88,7 +88,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 ##<a id="results"></a>Exibir resultados
 
-Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blob do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, **wasb:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
+Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blob do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
 
 Você pode listar e baixar esses arquivos usando a [CLI do Azure](../xplat-cli-install.md). Por exemplo, para listar arquivos em **exemplo/pigcurl**, use o seguinte comando:
 
@@ -118,4 +118,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

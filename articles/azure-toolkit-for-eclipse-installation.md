@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -36,7 +36,7 @@ As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Ec
 
     ![Instalação do Kit de Ferramentas do Azure para o Eclipse][01]
 
-1. Na caixa de diálogo **Software Disponível**, dentro da caixa de texto **Trabalhar com**, digite **http://dl.microsoft.com/eclipse** seguido da tecla **Enter**.
+1. Na caixa de diálogo **Software Disponível**, dentro da caixa de texto **Trabalhar com**, digite ****http://dl.microsoft.com/eclipse** seguido da tecla **Enter**.
 
 1. No painel **Nome**, marque **Kit de Ferramentas do Azure para o Eclipse** e desmarque **Entrar em contato com todos os sites de atualização durante a instalação para encontrar o software necessário**. Sua tela será semelhante à seguinte:
 
@@ -74,20 +74,28 @@ As etapas a seguir mostram como instalar o Kit de Ferramentas do Azure para o Ec
 
 ## Consulte também
 
-[Kit de ferramentas do Azure para Eclipse]
+Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
-[Criar um aplicativo Web Hello World para o Azure no Eclipse]
-
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]
+- [Kit de ferramentas do Azure para Eclipse]
+  - *Instalação do Kit de Ferramentas do Azure para o Eclipse (Este artigo)*
+  - [Criar um aplicativo Web Hello World para o Azure no Eclipse]
+  - [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+- [Kit de Ferramentas do Azure para IntelliJ]
+  - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
+  - [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
 <!-- URL List -->
 
 [Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
-[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
+[Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -98,4 +106,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

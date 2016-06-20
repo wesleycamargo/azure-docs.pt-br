@@ -46,25 +46,25 @@ A próxima etapa neste passo a passo é criar um novo teste no Estúdio de Apren
 
 Como o arquivo de dados não foi fornecido com títulos de coluna, o Estúdio forneceu títulos genéricos (Col1, Col2 *etc.*). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Também, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.
 
-Podemos adicionar títulos de coluna usando o módulo [Editor de metadados][metadata-editor]. Você usa o módulo [Editor de metadados][metadata-editor] para alterar os metadados associados a um conjunto de dados. Nesse caso, ele pode fornecer nomes mais amigáveis para títulos de coluna.
+Podemos adicionar títulos de coluna usando o módulo [Editar Metadados][edit-metadata]. Você usa o módulo [Editar Metadados][edit-metadata] para alterar os metadados associados a um conjunto de dados. Nesse caso, ele pode fornecer nomes mais amigáveis para títulos de coluna.
 
-Para usar o [Editor de Metadados][metadata-editor], você deve determinar quais colunas deseja modificar (nesse caso, todas) e especificar a ação a ser executada nessas colunas (nesse caso, alterar os títulos).
+Para usar [Editar Metadados][edit-metadata], você deve determinar quais colunas deseja modificar (nesse caso, todas) e especificar a ação a ser executada nessas colunas (nesse caso, alterar os títulos).
 
-1.	Na paleta de módulo, digite "metadados" na caixa **Pesquisar**. Você verá o [Editor de Metadados][metadata-editor] na lista de módulos.
-2.	Clique e arraste o módulo [Editor de Metadados][metadata-editor] nas telas e arraste-o para baixo do conjunto de dados que adicionamos anteriormente.
-3.	Conecte o conjunto de dados ao [Editor de Metadados][metadata-editor]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editor de Metadados][metadata-editor] (o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
+1.	Na paleta de módulo, digite "metadados" na caixa **Pesquisar**. Você verá o [Editor de Metadados][edit-metadata] na lista de módulos.
+2.	Clique e arraste o módulo [Editar Metadados][edit-metadata] nas telas e solte-o abaixo do conjunto de dados que adicionamos anteriormente.
+3.	Conecte o conjunto de dados a [Editar Metadados][edit-metadata]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] (o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
 
     O teste deve se parecer como o seguinte:
 
-    ![Adicionando Editor de metadados][2]
+    ![Adicionar Editar Metadados][2]
     
     O ponto de exclamação vermelho indica que não definimos as propriedades deste módulo ainda. Faremos isso em seguida.
     
-    > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Editor de Metadados][metadata-editor] e digite o comentário "Adicionar títulos de coluna". Clique em qualquer lugar na tela para fechar a caixa de texto. Clique na seta para baixo no módulo para exibir o comentário.
+    > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Editar Metadados][edit-metadata] e digite o comentário "Adicionar títulos de coluna". Clique em qualquer lugar na tela para fechar a caixa de texto. Clique na seta para baixo no módulo para exibir o comentário.
 
-4.	Selecione [Editor de Metadados][metadata-editor] e, no painel **Propriedades** à direita da tela, clique em **Iniciar seletor de colunas**.
+4.	Selecione [Editar Metadados][edit-metadata] e, no painel **Propriedades** à direita da tela, clique em **Iniciar seletor de colunas**.
 5.	Na caixa de diálogo **Selecionar colunas**, configure o campo **Começar com** para "Todas as colunas".
-6.	A linha abaixo **Começar com** permite incluir ou excluir colunas específicas para o [Editor de Metadados][metadata-editor] modificar. Como queremos modificar *todas* as colunas, exclua essa linha clicando no sinal de menos ("-") à direita da linha. A caixa de diálogo deve ter esta aparência: ![Seletor de coluna com todas as colunas selecionadas][4]
+6.	A linha abaixo **Começar com** permite incluir ou excluir colunas específicas para [Editar Metadados][edit-metadata] modificar. Como queremos modificar *todas* as colunas, exclua essa linha clicando no sinal de menos ("-") à direita da linha. A caixa de diálogo deve ter esta aparência: ![Seletor de coluna com todas as colunas selecionadas][4]
 7.	Clique na marca de seleção **OK**.
 8.	Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:  
 
@@ -72,16 +72,16 @@ Para usar o [Editor de Metadados][metadata-editor], você deve determinar quais 
 
     O painel de Propriedades ficará semelhante a este:
 
-    ![Propriedades do Editor de metadados][1]
+    ![Propriedades de Editar Metadados][1]
 
-> [AZURE.TIP] Se quer verificar os títulos de coluna, execute o teste (clique em **EXECUTAR** abaixo da tela do teste). Quando ele terminar a execução (uma marca de seleção verde aparecerá na [Editor de Metadados][metadata-editor]), clique na porta de saída do módulo [Editor de Metadados][metadata-editor] e selecione **Visualizar**. Você pode exibir a saída de qualquer módulo da mesma maneira para exibir o progresso dos dados durante o teste.
+> [AZURE.TIP] Se quer verificar os títulos de coluna, execute o teste (clique em **EXECUTAR** abaixo da tela do teste). Quando ele terminar a execução (uma marca de seleção verde aparecerá em [Editar Metadados][edit-metadata]), clique na porta de saída do módulo [Editar Metadados][edit-metadata] e selecione **Visualizar**. Você pode exibir a saída de qualquer módulo da mesma maneira para exibir o progresso dos dados durante o teste.
 
 ##Criar conjuntos de dados de treinamento e teste
 A próxima etapa do teste é gerar conjuntos de dados separados que serão utilizados para treinamento e teste de nosso modelo.
 
 Para isso, usamos o módulo [Dividir Dados][split].
 
-1.	Localize o módulo [Dividir Dados][split], arraste-o nas telas e conecte-o ao último módulo do [Editor de metadados][metadata-editor].
+1.	Localize o módulo [Dividir Dados][split], arraste-o nas telas e conecte-o ao último módulo [Editar Metadados][edit-metadata].
 2.	Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo de [Dividir Dados][split], e a outra metade sairá por outra porta. Você pode ajustar isso, bem como o parâmetro **Semente aleatória**, para alterar a divisão entre dados de treinamento e teste. Para este exemplo, deixaremos como está.
 	> [AZURE.TIP] A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à esquerda. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
 3. Clique duas vezes no módulo [Dividir Dados][split] e insira o comentário, "Dividir dados de treinamento/teste em 50%". 
@@ -128,7 +128,7 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

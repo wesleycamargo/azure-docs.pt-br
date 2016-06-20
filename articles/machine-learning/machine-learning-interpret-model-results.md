@@ -79,7 +79,7 @@ Depois de os resultados da previsão serem compreendidos e parecem julgados, a e
 
 Figura 3 Experimento de pontuação de problema de classificação de duas classes da íris
 
-Agora, precisamos definir a entrada e a saída para o serviço Web. Obviamente, a entrada é a porta de entrada certa do [Modelo de pontuação][score-model], que é a entrada de recursos de flor de íris. A escolha da saída depende se estamos interessados na classe prevista (Rótulo pontuado), na probabilidade pontuada ou em ambas. Aqui, supõe-se que estamos interessados em ambas. Para selecionar as colunas de saída desejadas, precisamos usar um módulo de [Colunas do projeto][project-columns]. Clicamos no módulo [Colunas do projeto][project-columns], depois no **Seletor de colunas de inicialização** no painel direito e selecionamos **Rótulos pontuados** e **Probabilidades pontuadas**. Depois de configurarmos a porta de saída do módulo [Colunas do projeto][project-columns] e a executarmos novamente, devemos estar prontos para publicar a pontuação do teste como um serviço Web, clicando no botão **PUBLICAR SERVIÇO WEB** na parte inferior. O teste final se parece com a Figura 4.
+Agora, precisamos definir a entrada e a saída para o serviço Web. Obviamente, a entrada é a porta de entrada certa do [Modelo de pontuação][score-model], que é a entrada de recursos de flor de íris. A escolha da saída depende se estamos interessados na classe prevista (Rótulo pontuado), na probabilidade pontuada ou em ambas. Aqui, supõe-se que estamos interessados em ambas. Para selecionar as colunas de saída desejadas, precisamos usar um módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. Clicamos no módulo [Selecionar Colunas no Conjunto de Dados][select-columns], depois no **Seletor de colunas de inicialização** no painel direito e selecionamos **Rótulos Pontuados** e **Probabilidades Pontuadas**. Depois de configurarmos a porta de saída do módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e a executarmos novamente, devemos estar prontos para publicar o teste de pontuação como um serviço Web, clicando no botão **PUBLICAR SERVIÇO WEB** na parte inferior. O teste final se parece com a Figura 4.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -116,7 +116,7 @@ As colunas dezesseis à esquerda representam os valores do recurso do conjunto d
 
 **Publicação de serviço Web**
 
-Desta vez, em vez de usar as [Colunas do projeto][project-columns] para selecionar algumas colunas como a saída do nosso serviço Web, gostaríamos de obter o rótulo pontuado para cada entrada e a probabilidade do rótulo pontuado. A lógica básica é encontrar a maior probabilidade dentre todas as probabilidades pontuadas. Para fazer isso, precisamos usar o módulo [Executar Script R][execute-r-script]. O código R é mostrado na Figura 8 e o teste é semelhante à Figura 9.
+Desta vez, em vez de usar [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar algumas colunas como a saída do nosso serviço Web, gostaríamos de obter o rótulo pontuado para cada entrada e a probabilidade do rótulo pontuado. A lógica básica é encontrar a maior probabilidade dentre todas as probabilidades pontuadas. Para fazer isso, precisamos usar o módulo [Executar Script R][execute-r-script]. O código R é mostrado na Figura 8 e o teste é semelhante à Figura 9.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -302,11 +302,11 @@ Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

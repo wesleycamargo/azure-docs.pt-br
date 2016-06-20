@@ -36,13 +36,13 @@ Vamos usar um [teste de treinamento](https://gallery.cortanaintelligence.com/Exp
 
 >[AZURE.NOTE] Para acompanhar este exemplo, talvez você queira usar um espaço de trabalho padrão em vez de um espaço de trabalho gratuito. Criaremos um ponto de extremidade para cada cliente – para um total de 10 pontos de extremidade – e isso exigirá um espaço de trabalho padrão, pois um espaço de trabalho gratuito é limitado a 3 pontos de extremidade. Se você tiver apenas um espaço de trabalho gratuito, basta modificar os scripts abaixo para permitir apenas 3 locais.
 
-O teste usa um módulo **Leitor** para importar o conjunto de dados de treinamento *customer001.csv* de uma conta de armazenamento do Azure. Vamos supor que coletamos conjuntos de dados de treinamento de todos os locais de aluguel de bicicletas e os armazenamos no mesmo local que o armazenamento de blobs com nomes de arquivo que vão de *rentalloc001.csv* a *rentalloc10.csv*.
+O teste usa um módulo **Importar Dados** para importar o conjunto de dados de treinamento *customer001.csv* de uma conta de armazenamento do Azure. Vamos supor que coletamos conjuntos de dados de treinamento de todos os locais de aluguel de bicicletas e os armazenamos no mesmo local que o armazenamento de blobs com nomes de arquivo que vão de *rentalloc001.csv* a *rentalloc10.csv*.
 
 ![imagem](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 Observe que um módulo **Saída do Serviço Web** foi adicionado ao módulo **Treinar Modelo**. Quando esse teste for implantado como um serviço Web, o ponto de extremidade associado a essa saída retornará o modelo treinado no formato de um arquivo .ilearner.
 
-Observe também que configuramos um parâmetro de serviço Web para a URL usada pelo módulo **Leitor**. Isso nos permite usar o parâmetro para especificar conjuntos de dados de treinamento individuais para treinar o modelo para cada local. Existem outras maneiras pelas quais poderíamos ter feito isso, como usar uma consulta SQL com um parâmetro de serviço Web para obter dados de um banco de dados SQL Azure ou usando apenas um módulo **Entrada do Serviço Web** para transmitir um conjunto de dados para o serviço Web.
+Observe também que configuramos um parâmetro de serviço Web para a URL usada pelo módulo **Importar Dados**. Isso nos permite usar o parâmetro para especificar conjuntos de dados de treinamento individuais para treinar o modelo para cada local. Existem outras maneiras pelas quais poderíamos ter feito isso, como usar uma consulta SQL com um parâmetro de serviço Web para obter dados de um banco de dados SQL Azure ou usando apenas um módulo **Entrada do Serviço Web** para transmitir um conjunto de dados para o serviço Web.
 
 ![imagem](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -159,4 +159,4 @@ Esta é a listagem do código-fonte completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

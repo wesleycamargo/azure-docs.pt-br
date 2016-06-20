@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Gerenciar e monitorar backups de máquinas virtuais do Azure | Microsoft Azure"
-	description="Saiba como gerenciar e monitorar backups de uma máquina virtual do Azure"
+	pageTitle="Gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos | Microsoft Azure"
+	description="Saiba como gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -14,165 +14,212 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+	ms.date="06/03/2016"
+	ms.author="jimpark; markgal;"/>
 
 # Gerenciar e monitorar backups de máquinas virtuais do Azure
 
-## Gerenciar máquinas virtuais protegidas
+> [AZURE.SELECTOR]
+- [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
+- [Gerenciar backups da VM Clássica](backup-azure-manage-vms-classic.md)
 
-Para gerenciar máquinas virtuais protegidas:
+Este artigo fornece orientação sobre como gerenciar os backups de suas máquinas virtuais (VM), bem como explica as informações de backup disponíveis no painel do portal. As diretrizes neste artigo se aplicam ao uso das VMs com cofres dos Serviços de Recuperação. Este artigo não aborda a criação das máquinas virtuais, nem explica como protegê-las. Para ter instruções elementares sobre como proteger as VMs implantadas pelo Azure Resource Manager no Azure com um cofre dos Serviços de Recuperação, consulte [Primeiro examinar: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
 
-1. Para exibir e gerenciar as configurações de backup de uma máquina virtual, clique na guia **Itens Protegidos**.
+## Acessar cofres e máquinas virtuais protegidas
 
-2. Clique no nome de um item protegido para ver a guia **Detalhes de Backup**, que mostra informações sobre o último backup.
+No portal do Azure, o painel do cofre dos Serviços de Recuperação fornece acesso a informações sobre o cofre, inclusive:
 
-    ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-vmdetails.png)
+- o instantâneo de backup mais recente, que também é o ponto de restauração mais recente <br>
+- política de backup <br>
+- tamanho total de todos os instantâneos do backup <br>
+- número de máquinas virtuais que são protegidas com o cofre <br>
 
-3. Para exibir e gerenciar as configurações de política de backup de uma máquina virtual, clique na guia **Políticas**.
+Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrindo o cofre no painel de controle. No entanto, como os cofres podem ser usados para proteger vários itens (ou várias máquinas virtuais), para exibir os detalhes sobre uma máquina virtual específica, você precisa abrir o painel do item do cofre. O procedimento a seguir mostra como abrir o *painel do cofre*, em seguida, ir para o *painel do item do cofre*. Há "dicas" em ambos os procedimentos que mostram como adicionar o cofre e o item do cofre ao painel do Azure usando o Pin no comando do painel. Fixar no painel é uma maneira de criar um atalho para o cofre ou o item. Você também pode executar os comandos comuns a partir do atalho.
 
-    ![Política de máquina virtual](./media/backup-azure-manage-vms/manage-policy-settings.png)
+>[AZURE.TIP] Se você tiver vários painéis e folhas abertos, poderá usar o controle azul escuro na parte inferior da janela para deslizar a exibição no painel do Azure.
 
-    A guia **Políticas de Backup** exibe a política existente. Você pode modificar conforme necessário. Se você precisar criar uma nova política, clique em **Criar** na página **Políticas**. Se você quiser remover uma política, ela não deve ter nenhuma máquina virtual associada a ela.
+![Exibição completa com controle deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
-    ![Política de máquina virtual](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+### Abra um cofre dos Serviços de Recuperação no painel:
 
-4. Você pode obter mais informações sobre ações ou status de uma máquina virtual na página **Trabalhos**. Clique em um trabalho na lista para obter mais detalhes ou filtrar trabalhos para uma máquina virtual específica.
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-    ![Trabalhos](./media/backup-azure-manage-vms/backup-job.png)
+2. No menu Hub, clique em **Procurar** e na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
+
+    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+
+    A lista de cofres de Serviços de Recuperação será exibida.
+
+    ![Listar cofres de Serviços de Recuperação](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+
+    >[AZURE.TIP] Se você fixar um cofre no Painel do Azure, esse cofre ficará imediatamente acessível quando você abrir o portal do Azure. Para fixar um cofre no painel, na lista de cofres, clique com o botão direito no cofre e selecione **Fixar no painel**.
+
+3. Na lista de cofres, escolha o cofre para abrir seu painel. Quando você seleciona o cofre, o painel do cofre e a folha **Configurações** são abertos. Na imagem a seguir, o painel **Cofre Contoso** é destacado.
+
+    ![Abrir o painel do cofre e a folha de Configurações](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+
+### Abra o painel do item do cofre
+
+No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do item do cofre:
+
+1. No painel do cofre, no bloco **Itens de Backup**, clique em **Máquinas Virtuais do Azure**.
+
+    ![Bloco Abrir itens de backup](./media/backup-azure-manage-vms/contoso-vault.png)
+
+    A folha **Itens de Backup** lista o último trabalho de backup de cada item. Neste exemplo, há uma máquina virtual, demovm-markgal, protegida por esse cofre.
+
+    ![Bloco Itens de backup](./media/backup-azure-manage-vms/backup-items-blade.png)
+
+    >[AZURE.TIP] Para facilitar o acesso, você pode fixar um item do cofre no Painel do Azure. Para fixar um item do cofre, na lista de itens do cofre, clique com o botão direito no item e selecione **Fixar no painel**.
+
+2. Na folha **Itens de Backup**, clique no item para abrir o painel do item do cofre.
+
+    ![Bloco Itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+    O painel do item do cofre e sua folha **Configurações** são abertos.
+
+    ![Painel dos itens de backup com a folha Configurações](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+
+    No painel de itens do cofre, você pode executar muitas tarefas de gerenciamento principais, como:
+
+    - alterar as políticas ou criar uma nova política de backup <br>
+	- exibir pontos de restauração e ver seu estado de consistência <br>
+	- fazer um backup sob demanda de uma máquina virtual <br>
+	- interromper a proteção das máquinas virtuais <br>
+	- retomar a proteção de uma máquina virtual <br>
+	- excluir os dados do backup (ou ponto de recuperação) <br>
+	- [restaurar um backup (ou o ponto de recuperação)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br>
+
+Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre.
+
+## Alterar as políticas ou Criar uma nova política de backup
+
+1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Todas as Configurações** para abrir a folha **Configurações**.
+
+    ![Folha Política de backup](./media/backup-azure-manage-vms/all-settings-button.png)
+
+2. Na folha **Configurações**, clique em **Política de backup** para abrir essa folha.
+
+    Na folha, são mostrados os detalhes do intervalo de retenção e da frequência dos backups.
+
+    ![Folha Política de backup](./media/backup-azure-manage-vms/backup-policy-blade.png)
+
+3. No menu **Escolher política de backup**:
+    - Para alterar as políticas, selecione uma política diferente e clique em **Salvar**. A nova política será aplicada imediatamente no cofre. <br>
+    - Para criar uma nova política, selecione **Criar Nova**.
+
+    ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+
+    Para obter instruções sobre como criar uma política de backup, consulte [Definindo uma política de backup](backup-azure-manage-vms.md#defining-a-backup-policy).
+
 
 ## Backup sob demanda de uma máquina virtual
-Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre de backup do Azure. Se o primeiro backup for concluído, o backup sob demanda enviará apenas as alterações de backup anterior para o cofre de backup do Azure, ou seja, sempre é incremental.
+Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre dos Serviços de Recuperação. Se o backup inicial for concluído, um backup sob demanda enviará apenas as alterações do instantâneo anterior para o cofre dos Serviços de Recuperação, ou seja, é sempre incremental.
 
->[AZURE.NOTE] Período de retenção de um backup sob demanda é definido como o valor de retenção especificado para retenção diária na política de backup correspondente à máquina virtual.
+>[AZURE.NOTE] O intervalo de retenção para um backup sob demanda é o valor de retenção especificado para o ponto de backup Diário na política. Se nenhum ponto de backup Diário for selecionado, o ponto de backup Semanal será usado.
 
-Para fazer backup sob demanda de uma máquina virtual:
+Para inicializar um backup sob demanda de uma máquina virtual:
 
-1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como **Tipo** (se ainda não estiver selecionada) e clique no botão **Selecionar**.
+1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Fazer backup agora**.
 
-    ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
+    ![Botão Fazer backup agora](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. Selecione a máquina virtual na qual você deseja fazer um backup sob demanda e clique no botão **Backup agora** na parte inferior da página.
+    O portal verificará você deseja iniciar um trabalho de backup sob demanda. Clique em **Sim** para iniciar o trabalho de backup.
 
-    ![Fazer backup agora](./media/backup-azure-manage-vms/backup-now.png)
+    ![Botão Fazer backup agora](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    Isso criará um trabalho de backup na máquina virtual selecionada. O período de retenção do ponto de recuperação criado por esse trabalho será o mesmo que o especificado na política associada à máquina virtual.
+    O trabalho de backup cria um novo ponto de recuperação. O intervalo de retenção do ponto de recuperação criado é o mesmo do especificado na política associada à máquina virtual. Para acompanhar o progresso do trabalho, no painel do cofre, clique no bloco **Trabalhos de Backup**.
 
-    ![Criando um trabalho de backup](./media/backup-azure-manage-vms/creating-job.png)
-
-    >[AZURE.NOTE] Para exibir a política associada a uma máquina virtual, faça uma busca detalhada na máquina virtual na página **Itens protegidos** e vá para a guia da política de backup.
-
-3. Depois que o trabalho é criado, você pode clicar no botão **Exibir trabalho** na barra de notificação do sistema para ver o trabalho correspondente na página de trabalhos.
-
-    ![Trabalho de backup criado](./media/backup-azure-manage-vms/created-job.png)
-
-4. Depois da conclusão bem-sucedida do trabalho, um ponto de recuperação será criado, o qual você poderá usar para restaurar a máquina virtual. Isso também incrementará o valor da coluna do ponto de recuperação em 1 na página **Itens protegidos**.
 
 ## Interromper a proteção de máquinas virtuais
-Você pode optar por parar os futuros backups de uma máquina virtual com as seguintes opções:
-
-- Reter dados de backup associados à máquina virtual no cofre de Backup do Azure
-- Excluir dados de backup associados à máquina virtual
-
-Se você tiver optado por reter dados de backup associados à máquina virtual, você pode usar os dados de backup para restaurá-la. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](https://azure.microsoft.com/pricing/details/backup/).
+Se você optar por interromper a proteção de uma máquina virtual, será perguntado se deseja manter os pontos de recuperação. Há duas maneiras de interromper a proteção das máquinas virtuais: parar todos os futuros trabalhos de backup e excluir todos os pontos de recuperação, ou interromper todos os futuros trabalhos de backup, mas deixar os pontos de recuperação. Há um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar a máquina virtual mais tarde, se desejado. Para obter detalhes de preço dessas máquinas virtuais, clique [aqui](https://azure.microsoft.com/pricing/details/backup/). Se você optar por excluir todos os pontos de recuperação, não haverá nenhuma opção para restaurar a máquina virtual.
 
 Para interromper a proteção para uma máquina virtual:
 
-1. Navegue até a página **Itens Protegidos**, selecione **Máquina virtual do Azure** como o tipo de filtro (se ainda não estiver selecionada) e clique no botão **Selecionar**.
+1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Interromper backup**.
 
-    ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
+    ![Botão Interromper backup](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-2. Selecione a máquina virtual e clique em **Parar proteção** na parte inferior da página.
+    A folha Interromper Backup é aberta.
 
-    ![Parar a proteção](./media/backup-azure-manage-vms/stop-protection.png)
+    ![Folha Interromper backup](./media/backup-azure-manage-vms/stop-backup-blade.png)
 
-3. Por padrão, o Backup do Azure não exclui os dados de backup associados à Máquina virtual.
+2. Na folha **Interromper Backup**, escolha se deseja manter ou excluir os dados do backup. A caixa de informações fornece detalhes sobre sua escolha.
 
-    ![Confirmar a interrupção da proteção](./media/backup-azure-manage-vms/confirm-stop-protection.png)
+    ![Parar a proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-    Se você deseja excluir os dados de backup, marque a caixa de seleção.
+3. Se você escolheu manter os dados do backup, vá para a etapa 4. Se escolheu excluir os dados do backup, confirme se deseja interromper os trabalhos de backup e excluir os pontos de recuperação - digite o nome do item.
 
-    ![Caixa de seleção](./media/backup-azure-manage-vms/checkbox.png)
+    ![Interromper verificação](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    Selecione um motivo para interromper o backup. Embora seja opcional, fornecer um motivo ajudará o Backup do Azure a trabalhar com os comentários e priorizar os cenários do cliente.
+    Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Interromper Backup** na parte superior da folha.
 
-4. Clique no botão **Enviar** para enviar o trabalho **Interromper proteção**. Clique em **Exibir trabalho** para ver o trabalho correspondente na página **Trabalhos**.
+4. Como opção, forneça um **Motivo** ou **Comentário**.
 
-    ![Parar a proteção](./media/backup-azure-manage-vms/stop-protect-success.png)
+5. Para interromper o trabalho de backup do item atual, clique em ![Botão Interromper backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
-    Se você não selecionou a opção **Excluir dados de backup associados** durante o assistente **Parar proteção**, então, poste a conclusão do trabalho, as alterações de status de proteção para **Proteção interrompida**. Os dados permanecem com o Backup do Azure até que sejam explicitamente excluídos. Você sempre pode excluir os dados selecionando a máquina virtual na página **Itens protegidos** e clicando em **Excluir**.
+    Uma mensagem de notificação permite que você conheça os trabalhos de backup que foram interrompidos.
 
-    ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-status.png)
+    ![Confirmar a interrupção da proteção](./media/backup-azure-manage-vms/stop-message.png)
 
-    Se você tiver selecionado a opção **Excluir dados de backup associados**, a máquina virtual não fará parte da página **Itens Protegidos**.
 
-## Proteger novamente a Máquina virtual
-Se você não selecionou a opção **Excluir dados de backup associados** em **Parar proteção**, você pode proteger novamente a máquina virtual seguindo as etapas semelhantes para fazer backup de máquinas virtuais registradas. Depois de protegida, essa máquina virtual terá os dados de backup retidos antes da interrupção da proteção e os pontos de recuperação serão criados após a nova proteção.
+## Retomar a proteção de uma máquina virtual
+Se a opção **Reter Dados do Backup** foi selecionada quando a proteção da máquina virtual foi interrompida, será possível retomar a proteção. Se a opção **Excluir Dados do Backup** foi escolhida, então, a proteção da máquina virtual não poderá retomar.
 
-Após proteger novamente, o status de proteção da máquina virtual será alterado para **Protegido** se houver pontos de recuperação anteriores a **Parar proteção**.
+Retomar a proteção da máquina virtual
 
-  ![Máquina virtual protegida novamente](./media/backup-azure-manage-vms/reprotected-status.png)
+1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Retomar backup**.
 
->[AZURE.NOTE] Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
+    ![Retomar proteção](./media/backup-azure-manage-vms/resume-backup-button.png)
 
-## Cancelar o registro das máquinas virtuais
+    A folha Política de Backup será aberta.
 
-Se você quiser remover a máquina virtual do cofre de backup:
+    >[AZURE.NOTE] Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
 
-1. Clique no botão **CANCELAR REGISTRO**, na parte inferior da página.
+2. Siga as etapas em [Alterar políticas ou Criar uma nova política de backup](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy), para atribuir a política da máquina virtual.
 
-    ![Desabilitar a proteção](./media/backup-azure-manage-vms/unregister-button.png)
+    Depois da política de backup ser aplicada à máquina virtual, você verá a seguinte mensagem.
 
-    Uma notificação do sistema será exibida na parte inferior da tela solicitando confirmação. Clique em **SIM** para continuar.
-
-    ![Desabilitar a proteção](./media/backup-azure-manage-vms/confirm-unregister.png)
+    ![VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
 
 ## Excluir dados de backup
-Você pode excluir os dados de backup associados a uma máquina virtual, ou:
+Você pode excluir os dados de backup associados a uma máquina virtual durante o trabalho **Interromper backup** a qualquer momento depois dos backups terem sido interrompidos. Se for útil permitir a interrupção do trabalho de backup para uma máquina virtual e aguardar dias ou semanas antes de decidir se deseja excluir os pontos de recuperação, então, isso será possível. Ao contrário de restaurar os pontos de recuperação, ao excluir os dados do backup, você não pode escolher os pontos de recuperação específicos para excluir. Se você escolher excluir, apagará todos os pontos de recuperação associados ao item.
 
-- Durante a interrupção do trabalho da proteção
-- Após uma interrupção no trabalho de proteção ser concluída em uma máquina virtual
+O procedimento a seguir pressupõe que o trabalho de Backup da máquina virtual foi interrompido ou desabilitado. Apenas quando o trabalho de Backup foi desabilitado, as opções **Retomar backup** e **Excluir backup** estarão disponíveis no painel de itens do cofre.
 
-Para excluir dados de backup em uma máquina virtual, que está no estado *Proteção Interrompida*, poste a conclusão bem-sucedida do trabalho em **Parar Backup**:
+![Botões para retomar e excluir](./media/backup-azure-manage-vms/resume-delete-buttons.png)
 
-1. Navegue até a página **Itens Protegidos** e selecione **Máquina Virtual do Azure** como o *tipo* e clique no botão **Selecionar**.
+Para excluir os dados de backup em uma máquina virtual com o *Backup desabilitado*:
 
-    ![Tipo de VM](./media/backup-azure-manage-vms/vm-type.png)
+1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Excluir backup**.
 
-2. Selecione a máquina virtual. A máquina virtual estará no estado **Proteção interrompida**.
+    ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Proteção interrompida](./media/backup-azure-manage-vms/protection-stopped-b.png)
+    A folha **Excluir Dados do Backup** será aberta.
 
-3. Clique no botão **EXCLUIR** na parte inferior da página.
+    ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-blade.png)
 
-    ![Excluir backup](./media/backup-azure-manage-vms/delete-backup.png)
+2. Você deve digitar o nome do item para confirmar que deseja excluir os pontos de recuperação.
 
-4. No assistente **Excluir dados de backup**, selecione um motivo para a exclusão de dados de backup (altamente recomendado) e clique em **Enviar**.
+    ![Interromper verificação](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data.png)
+    Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Excluir Dados do Backup** na parte superior da folha.
 
-5. Isso criará um trabalho para excluir os dados de backup da máquina virtual selecionada. Clique em **Exibir trabalho** para ver o trabalho correspondente na página Trabalhos.
+3. Como opção, forneça um **Motivo** ou **Comentário**.
 
-    ![Exclusão de dados bem-sucedida](./media/backup-azure-manage-vms/delete-data-success.png)
+4. Para excluir os dados do backup do item atual, clique em ![Botão Interromper backup](./media/backup-azure-manage-vms/delete-button.png)
 
-    Depois que o trabalho for concluído, a entrada correspondente à máquina virtual será removida da página **Itens protegidos**.
-
-## Painel
-Na página **Painel**, você pode examinar informações sobre máquinas virtuais do Azure, o armazenamento delas e os trabalhos associados a elas nas últimas 24 horas. Você pode exibir o status de backup e quaisquer erros de backup associados.
-
-![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
-
->[AZURE.NOTE] Os valores no painel são atualizados a cada 24 horas.
+    Uma mensagem de notificação permite que você conheça os dados do backup que foram excluídos.
 
 ## Operações de auditoria
-O backup do Azure oferece análise dos “logs de operação” das operações de backup disparadas pelo cliente que facilita ver exatamente quais operações de gerenciamento foram realizadas no cofre de backup. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup.
+Você pode examinar a operação e os logs de evento para ver as operações de gerenciamento executadas no cofre dos Serviços de Recuperação. Os logs de operações permitem um ótimo suporte a auditoria e análise posterior das operações de backup. Pode usar o recurso logs de Auditoria para exibir os logs para todas as operações *na assinatura*. Para obter informações adicionais sobre os eventos, operações e logs de auditoria, consulte o artigo [Exibir eventos e logs de auditoria](../azure-portal/insights-debugging-with-events.md). Use a configuração **Logs de auditoria** para exibir os eventos e os logs das operações específicos de um cofre dos Serviços de Recuperação ou um item do cofre.
 
-As seguintes operações são registradas nos logs de operação:
+As seguintes operações são registradas nos logs de Auditoria:
 
 - Registrar
 - Cancelar o registro
 - Configurar a proteção
-- Backup (tanto as agendadas quanto as sob demanda por meio do BackupNow)
+- Backup (backup agendado ou sob demanda)
 - Restaurar
 - Parar a proteção
 - Excluir dados de backup
@@ -181,58 +228,77 @@ As seguintes operações são registradas nos logs de operação:
 - Atualizar política
 - Cancelar trabalho
 
-Para exibir logs de operação correspondentes a um cofre de backup:
+Para exibir os logs de evento para um cofre dos Serviços de Recuperação:
 
-1. Navegue até **Serviços de gerenciamento** no portal do Azure e clique na guia **Logs de Operação**.
+1. No [painel do cofre](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), procure e clique em **Logs de Auditoria** para abrir a folha **Eventos**.
 
-    ![Logs de operação](./media/backup-azure-manage-vms/ops-logs.png)
+    ![Logs de Auditoria](./media/backup-azure-manage-vms/audit-logs.png)
 
-2. Em filtros, selecione **Backup** como *Tipo*, especifique o nome do cofre de backup em *nome do serviço* e clique em **Enviar**.
+    A folha Eventos será aberta para os eventos operacionais filtrados apenas para o cofre atual. A folha mostra a lista de eventos Crítico, Erro, Aviso e Informativo na última semana. O período de tempo é um valor padrão definido nas configurações **Filtro**. A folha **Eventos** também mostra um gráfico de barras controlando quando os eventos ocorreram. Se você não quiser ver o gráfico de barras no menu **Eventos**, clique em **Mostrar gráfico** para desativar o gráfico.
 
-    ![Filtro de logs de operação](./media/backup-azure-manage-vms/ops-logs-filter.png)
+    ![Filtro de Logs da Auditoria](./media/backup-azure-manage-vms/audit-logs-filter.png)
 
-3. Nos logs de operações, selecione qualquer operação e clique em **Detalhes** para ver os detalhes correspondentes a uma operação.
+2. Para obter informações adicionais sobre uma determinada operação, na lista de Operações, clique nessa operação para abrir sua folha. A folha contém informações detalhadas sobre a operação e uma lista dos Eventos ocorridos no Período de tempo.
 
-    ![Detalhes de busca de logs de operação](./media/backup-azure-manage-vms/ops-logs-details.png)
+    ![Detalhes da Operação](./media/backup-azure-manage-vms/audit-logs-details-window.png)
 
-    O **Assistente de detalhes** contém informações sobre a operação disparada, a Id do trabalho, o recurso em que essa operação é disparada e a hora de início da operação.
+3. Para exibir informações detalhadas sobre um evento específico, na lista de eventos, clique na operação para abrir sua folha Detalhes.
 
-    ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
+    ![Detalhes do Evento](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
+
+    As informações no nível do Evento são tão detalhadas quanto as informações obtidas. O restante deste procedimento explica como editar ou alterar as informações disponíveis.
+
+4. Para editar a lista de filtros disponíveis, no menu **Eventos**, clique em **Filtrar** abrir essa folha.
+
+    ![abrir folha do filtro](./media/backup-azure-manage-vms/audi-logs-filter-button.png)
+
+5. Na folha **Filtrar**, ajustar os filtros **Nível**, **Período** e **Chamador**. Os outros filtros não estão disponíveis depois que foram definidos para fornecer as informações atuais para o cofre dos Serviços de Recuperação.
+
+    ![Detalhes da consulta dos Logs de Auditoria](./media/backup-azure-manage-vms/filter-blade.png)
+
+    Você pode especificar o **Nível** do evento: Crítico, Erro, Aviso ou Informativo. Você pode escolher qualquer combinação de Níveis de evento, mas deve ter, pelo menos, um Nível selecionado. Ative ou desative o Nível. O filtro **Período** permite que você especifique o período de tempo para capturar os eventos. Se você usar um Período personalizado, pode definir as horas de início e término.
+
+6. Quando estiver pronto para consultar os logs de operações usando o filtro, clique em **Atualizar**. Os resultados serão exibidos na folha **Eventos**.
+
+    ![Detalhes da Operação](./media/backup-azure-manage-vms/edited-list-of-events.png)
+
 
 ## Notificações de alerta
-Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é feito definindo regras de alerta do PowerShell baseadas em eventos de logs operacionais. É recomendável usar *PowerShell versão 1.3.0 ou superior*.
+Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Para obter esses trabalhos, defina regras de alerta baseadas no PowerShell nos eventos de logs operacionais. Use o *PowerShell versão 1.3.0 ou posterior*.
 
-Para definir uma notificação personalizada para o alerta de falhas de backup, um comando de exemplo terá a seguinte aparência:
+Para definir uma notificação personalizada para o alerta das falhas de backup, use um comando como este:
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
+**ResourceId**: você pode obter essas informações nos logs de Auditoria. O ResourceId é fornecido na coluna Recurso dos logs de Operação.
 
 **OperationName**: isto terá o formato  
-"Microsoft.Backup/backupvault/<EventName>" em que EventName é um de: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+"Microsoft.RecoveryServices/recoveryServicesVault/<EventName>" em que EventName é um Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
 
 **Status**: os valores com suporte são Started, Succeeded e Failed.
 
-**ResourceGroup**: ResourceGroup do recurso em que a operação é disparada. Você pode obter isso do valor ResourceId. O valor entre os campos */resourceGroups/* e */providers/* em um valor ResourceId é o valor para ResourceGroup.
+**ResourceGroup** : esse é o Grupo de Recursos ao qual o recurso pertence. Você pode adicionar a coluna Grupo de Recursos aos logs gerados. O Grupo de Recursos é um dos tipos disponíveis das informações dos eventos.
 
-**Name**: nome da regra de alerta.
+**Name**: o nome da Regra de Alerta.
 
-**CustomEmail**: especifique o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
+**CustomEmail**: especifica o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
 
 **SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Ele pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
 
 ### Limitações sobre alertas
-Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
+Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
-1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
-2. Esse recurso está na visualização. [Saiba mais](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
-3. Você receberá alertas de "alerts-noreply@mail.windowsazure.com". No momento, você não pode modificar o remetente do email. 
+1. Os alertas são disparados em todas as máquinas virtuais no cofre dos Serviços de Recuperação. Não é possível personalizar o alerta para um conjunto específico de máquinas virtuais em um cofre dos Serviços de Recuperação.
+2. Esse recurso está na Visualização. [Saiba mais](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+3. Os alertas são enviados de "alerts-noreply@mail.windowsazure.com". No momento, você não pode modificar o remetente do email.
+
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Próximas etapas
 
-- [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
+Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeiro examinar: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

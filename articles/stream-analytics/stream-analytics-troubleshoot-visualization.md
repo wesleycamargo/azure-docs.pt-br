@@ -30,7 +30,7 @@ No painel de visualização, as entradas são visíveis, bem como a consulta que
 
 Para acessar esse visualizador, basta clicar no botão "Diagrama de diagnóstico" na folha de "Configurações" do trabalho do Stream Analytics.
 
-![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 Cada entrada e saída é codificadas por cores para indicar o estado atual desse componente, conforme mostrado abaixo.
 
@@ -51,4 +51,4 @@ Quando o usuário desejar examinar as etapas de consulta intermediárias para en
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

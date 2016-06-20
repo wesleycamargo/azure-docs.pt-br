@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tdykstra"/>
 
 # O que é o SDK de Trabalhos Web do Azure
@@ -22,7 +22,7 @@
 
 Este artigo explica o que é o SDK de Trabalhos Web, analisa alguns cenários comuns em que ele é útil e oferece uma visão geral de como usá-lo em seu código.
 
-[WebJobs](websites-webjobs-resources.md) é um recurso do Serviço de Aplicativo do Azure que permite que você execute um programa ou script no mesmo contexto que um aplicativo Web, aplicativo de API ou aplicativo móvel. A finalidade do [WebJobs SDK](websites-webjobs-resources.md) é simplificar o código escrito para tarefas comuns que um WebJob pode executar, como o processamento de imagens, o processamento de filas, a agregação de RSS, a manutenção de arquivos e o envio de emails. O SDK do WebJobs tem recursos internos para trabalhar com o Armazenamento do Azure e o Barramento de Serviço, para o agendamento de tarefas e o tratamento de erros e de muitos outros cenários comuns. Além disso, ele foi projetado para ser extensível e há um [repositório de software livre para extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+[WebJobs](websites-webjobs-resources.md) é um recurso do Serviço de Aplicativo do Azure que permite que você execute um programa ou script no mesmo contexto que um aplicativo Web, aplicativo de API ou aplicativo móvel. A finalidade do [WebJobs SDK](websites-webjobs-resources.md) é simplificar o código escrito para tarefas comuns que um WebJob pode executar, como o processamento de imagens, o processamento de filas, a agregação de RSS, a manutenção de arquivos e o envio de emails. O SDK do WebJobs tem recursos internos para trabalhar com o Armazenamento do Azure e o Barramento de Serviço, para o agendamento de tarefas e o tratamento de erros e de muitos outros cenários comuns. Além disso, ele foi projetado para ser extensível. O [SDK do Web Jobs é um software livre](https://github.com/Azure/azure-webjobs-sdk/), e há um [repositório de softwares livres para extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 O SDK de Trabalhos Web inclui os seguintes componentes:
 
@@ -180,4 +180,4 @@ Para obter mais informações sobre o SDK de Trabalhos Web, consulte [Recursos r
 Para saber mais sobre os aprimoramentos mais recentes do WebJobs SDK, confira as [Notas de versão](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

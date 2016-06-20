@@ -64,7 +64,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 6.  Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-7.  Leia os dados dos blobs do Azure usando o módulo de [Leitor][reader].
+7.  Leia os dados dos blobs do Azure usando o módulo [Importar Dados][import-data].
 
 8. Crie um fluxo experimental do Aprendizado de Máquina do Azure começando com os conjuntos de dados ingeridos.
 
@@ -90,7 +90,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 8. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-9. Leia os dados dos blobs do Azure usando o módulo de [Leitor][reader].
+9. Leia os dados dos blobs do Azure usando o módulo [Importar Dados][import-data].
 
 10. Crie um fluxo experimental do AM do Azure, começando com os conjuntos de dados ingeridos.
 
@@ -132,7 +132,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 9. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-10. Leia os dados diretamente do SQL Server usando o módulo de [Leitor][reader]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta do [Leitor][reader].
+10. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
 11. Crie um fluxo experimental do AM do Azure, começando com os conjuntos de dados ingeridos.
 
@@ -176,7 +176,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 7.  Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-8. Leia os dados diretamente do SQL Server usando o módulo de [Leitor][reader]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta do [Leitor][reader].
+8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
 9. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados ingeridos
 
@@ -216,7 +216,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 7.  Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-8. Leia os dados diretamente do SQL Server usando o módulo de [Leitor][reader]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta do [Leitor][reader].
+8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
 9. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados carregados.
 
@@ -280,7 +280,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 
 8.  Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 
-9. Leia os dados diretamente do `Hive Queries` usando o módulo de [Leitor][reader]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta do [Leitor][reader].
+9. Leia os dados diretamente do `Hive Queries` usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
 10. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados carregados.
 
@@ -312,6 +312,6 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -81,6 +81,6 @@ Confira os artigos a seguir para obter mais informações sobre as filas do Barr
 - [Amostra de encaminhamento automático](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Amostra de Transações atômicas com o Barramento de Serviço](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

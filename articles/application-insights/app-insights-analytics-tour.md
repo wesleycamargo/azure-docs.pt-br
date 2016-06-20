@@ -208,19 +208,24 @@ Observe que você pode usar `name=` para definir o nome de uma coluna de resulta
 
 ## Contando dados de amostra
 
-`sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Mas quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como um ponto de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos. Portanto, a soma de itemCount dá uma boa estimativa do número original de eventos.
+`sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Mas quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como pontos de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos.
+
+Por exemplo, se a amostragem descartar 75% dos eventos originais, itemCount == 4 nos registros retidos - ou seja, para cada registro retido, houve quatro registros originais.
+
+A amostragem adaptável fará com que itemCount seja maior durante períodos em que seu aplicativo estiver sendo muito usado.
+
+Portanto, a soma de itemCount dá uma boa estimativa do número original de eventos.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente queira contar o número de linhas em um grupo.
+Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente quiser contar o número de linhas em um grupo.
 
 
 Há uma série de [funções de agregação](app-insights-analytics-reference.md#aggregations).
 
 
 ## Colocando os resultados em gráficos
-
 
 
 ```AIQL
@@ -469,4 +474,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

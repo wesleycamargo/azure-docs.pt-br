@@ -46,7 +46,7 @@ Após a atualização para V12, as [recomendações de camada de serviço](sql-d
 ## Prepare-se para atualizar
 
 - **Atualizar todos os bancos de dados da Web e Business**: veja a seção [Atualize todos os bancos de dados da Web e Empresarial](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) abaixo ou veja [Monitorar e gerenciar um pool de banco de dados elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
-- **Examinar e suspender a replicação geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para replicação geográfica, você deverá documentar sua configuração atual e [parar a replicação geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para replicação geográfica.
+- **Examinar e suspender a Replicação Geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para Replicação Geográfica, você deverá documentar sua configuração atual e [parar a Replicação Geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para Replicação Geográfica.
 - **Abra estas portas se você tiver clientes em uma VM do Azure**: se o seu programa cliente se conectar ao Banco de Dados SQL V12 enquanto seu cliente for executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM. Para obter detalhes, confira [Portas para Banco de dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -167,4 +167,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

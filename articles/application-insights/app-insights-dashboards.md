@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Painéis no portal do Application Insights"
-	description="Exibir a telemetria de vários componentes do seu aplicativo em um painel."
+	pageTitle="Usando o portal do Application Insights"
+	description="Métrica, pesquisa, painéis e configurações no portal do Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Navegação e painéis no portal do Application Insights
@@ -34,11 +34,12 @@ A folha (página) de visão geral para seu aplicativo mostra um resumo das princ
 
 Clique em:
 
-* **Qualquer gráfico ou bloco** para ver mais detalhes.
-* **Configurações** para acessar as páginas predefinidas de outras métricas.
+* **Qualquer gráfico ou bloco** para ver mais detalhes sobre o que é exibido no gráfico.
+* **Configurações** para obter as lâminas predefinidas de outras métricas, bem como as páginas de configuração.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) para criar páginas de métricas de sua própria escolha.
 * [**Pesquisa**](app-insights-diagnostic-search.md) para investigar instâncias específicas de eventos, como solicitações, exceções ou log de rastreamento.
 * [**Análise**](app-insights-analytics.md) para consultas avançadas na sua telemetria.
+* [**Live Stream**](app-insights-metrics-explorer.md#live-stream) para ver um conjunto fixo de métricas quase instantâneas, úteis ao implantar um novo build ou depurar.
 
 
 ![Rotas principais para exibir sua telemetria](./media/app-insights-dashboards/010-oview.png)
@@ -52,7 +53,7 @@ Escolha o que deseja ver na visão geral. Em Personalizar, você pode inserir t�
 
 ## Painéis
 
-A primeira coisa que você vê depois de entrar no [Portal do Microsoft Azure](https://portal.azure.com) é um painel. Aqui você pode reunir os gráficos que são mais importantes para você em todos os seus recursos do Azure, incluindo a telemetria do [Visual Studio Application Insights](app-insights-overview.md).
+A primeira coisa que você vê depois de entrar no [Portal do Microsoft Azure](https://portal.azure.com) é um painel. Aqui, você pode reunir os gráficos que são mais importantes para você em todos os seus recursos do Azure, incluindo a telemetria do [Visual Studio Application Insights](app-insights-overview.md).
  
 
 ![Um painel personalizado.](./media/app-insights-dashboards/30.png)
@@ -109,4 +110,4 @@ Quando você tiver criado um painel, poderá compartilhá-lo com outros usuário
 
 Saiba mais sobre [Funções e controle de acesso](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

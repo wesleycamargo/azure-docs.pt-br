@@ -48,12 +48,12 @@ O módulo [Partição e Exemplo][partition-and-sample] pode ser usado para atrib
 
 
 ## Definir Métrica
-O módulo [Limpar Parâmetros][sweep-parameters] dá suporte à escolha empírica do melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. O painel de propriedades deste módulo inclui, além de outras informações sobre o treinamento do modelo, a medida a ser usada para determinar o melhor conjunto de parâmetros. Ele tem duas listas suspensas diferentes para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em questão for um algoritmo de classificação, a métrica de regressão é ignorada e vice-versa. Neste exemplo específico, escolhemos **Precisão** como métrica.
+O módulo [Ajustar Hiperparâmetros do Modelo][tune-model-hyperparameters] dá suporte à escolha empírica do melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. O painel de propriedades deste módulo inclui, além de outras informações sobre o treinamento do modelo, a medida a ser usada para determinar o melhor conjunto de parâmetros. Ele tem duas listas suspensas diferentes para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em questão for um algoritmo de classificação, a métrica de regressão é ignorada e vice-versa. Neste exemplo específico, escolhemos **Precisão** como métrica.
  
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Treinar, avaliar e comparar  
-O mesmo módulo [Limpar Parâmetros][sweep-parameters] treina todos os modelos correspondentes ao conjunto de parâmetros, avalia diversas métricas e gera o melhor modelo treinado com base na métrica escolhida pelo usuário. Este módulo tem duas entradas obrigatórias
+O mesmo módulo [Ajustar Hiperparâmetros do Modelo][tune-model-hyperparameters] treina todos os modelos correspondentes ao conjunto de parâmetros, avalia diversas métricas e gera o melhor modelo treinado com base na métrica escolhida pelo usuário. Este módulo tem duas entradas obrigatórias
 
 * o aprendiz não treinado 
 * o conjunto de dados 
@@ -67,7 +67,7 @@ Podemos ver os parâmetros exatos escolhidos visualizando a porta de saída à d
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

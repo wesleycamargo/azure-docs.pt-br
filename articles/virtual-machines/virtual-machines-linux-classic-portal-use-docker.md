@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="05/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -45,12 +45,12 @@ Crie os arquivos de certificado e de chave para comunicação do Docker de acord
 Na linha de comando, use **`base64`** ou outra ferramenta de codificação de sua preferência para criar tópicos codificados em base64. Para executar essas ações com um conjunto simples de arquivos de certificado e de chave, use um código parecido com este:
 
 ```
- ~/.docker$ l
+ ~/.docker$ ls
  ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
  ~/.docker$ base64 ca.pem > ca64.pem
  ~/.docker$ base64 server-cert.pem > server-cert64.pem
  ~/.docker$ base64 server-key.pem > server-key64.pem
- ~/.docker$ l
+ ~/.docker$ ls
  ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
@@ -79,11 +79,11 @@ Nos campos do formulário, insira as versões codificadas em base64 do certifica
 > [AZURE.NOTE] Observe que (como na imagem anterior) 2376 é preenchido por padrão. Você pode inserir qualquer ponto de extremidade nesse campo, mas precisará abrir o ponto de extremidade correspondente na próxima etapa. Se alterar o padrão, lembre-se de abrir o ponto de extremidade correspondente na etapa seguinte.
 
 ## Adicionar o ponto de extremidade de comunicação do Docker
-Ao visualizar sua máquina virtual no grupo de recursos que você criou, navegue para clicar em **Pontos de extremidade** e visualizar os pontos na máquina virtual, como mostramos abaixo.
+Ao exibir o grupo de recursos que você criou, selecione o grupo de segurança de rede associado com sua VM e clique em **Regras de Segurança de Entrada** para exibir as regras, como mostrado aqui.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
-Clique em **+ Adicionar** para adicionar outro ponto de extremidade. No caso padrão, insira o nome do ponto de extremidade (neste exemplo, **docker**) e informe 2376 como porta privada e pública. Selecione **TCP** como valor do protocolo e clique em **OK** para criar o ponto de extremidade.
+Clique em **+ Adicionar** para adicionar outra regra e, no caso padrão, insira o nome do ponto de extremidade (neste exemplo, **Docker**), e 'Intervalo de Portas de Destino' 2376. Defina o valor do protocolo mostrando **TCP** e clique em **OK** para criar a regra.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
@@ -148,4 +148,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Executando Docker com https]: http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

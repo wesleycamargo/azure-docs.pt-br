@@ -26,7 +26,7 @@ Este Guia de Instruções explica como usar os recursos de mensagens agenciadas 
 
 ## Introdução ao Barramento de serviço
 
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md).
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 ### Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
@@ -329,7 +329,7 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
 * [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Guia do desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
-* [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+* [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

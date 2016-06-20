@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="05/29/2016" 
  ms.author="dobett"/>
 
 # Guia do desenvolvedor do Hub IoT do Azure
@@ -47,11 +47,13 @@ A seguir, uma descrição dos pontos de extremidade:
 * **Pontos de extremidade do dispositivo**. Para cada dispositivo provisionado no registro de identidade do dispositivo, o Hub IoT expõe um conjunto de pontos de extremidade que pode ser usado por um dispositivo para enviar e receber mensagens:
     - *Enviar mensagens do dispositivo para a nuvem*. Use este ponto de extremidade para enviar mensagens do dispositivo para a nuvem. Para saber mais, consulte [Sistema de mensagens do dispositivo para a nuvem](#d2c).
     - *Receber mensagens da nuvem para o dispositivo*. Um dispositivo usa este ponto de extremidade para receber mensagens direcionadas da nuvem para o dispositivo. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
+    - *Inicie os uploads de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do Armazenamento do Azure do Hub IoT para carregar um arquivo. Para saber mais, veja [Carregamentos de arquivo](#fileupload). 
 
-    Esses pontos de extremidade são expostos usando os protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível em [WebSockets][lnk-websockets] na porta 443.
+    Esses pontos de extremidade são expostos usando os protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível sobre [WebSockets][lnk-websockets] na porta 443.
 * **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade que o seu back-end de aplicativo pode usar para se comunicar com seus dispositivos. Atualmente, esses pontos de extremidade são expostos apenas com o protocolo [AMQP][lnk-amqp].
     - *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [Hubs de Eventos do Azure][lnk-event-hubs]. Um serviço de back-end pode usá-lo para ler todas as mensagens do dispositivo para a nuvem enviadas por seus dispositivos. Para saber mais, consulte [Sistema de mensagens do dispositivo para a nuvem](#d2c).
     - *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de aplicativo envie mensagens confiáveis da nuvem para o dispositivo e receba confirmações de entrega ou de vencimento correspondentes. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
+    - *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo. 
 
 O artigo [APIs e SDKs do Hub IoT][lnk-apis-sdks] descreve as várias maneiras de acessar esses pontos de extremidade.
 
@@ -63,12 +65,12 @@ Ao usar o [SDK do Barramento de Serviço do Azure para .NET](https://www.nuget.o
 
 Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, será necessário recuperar um ponto de extremidade compatível com os Hubs de Eventos e o nome do Hub de Evento das configurações do Hub IoT no [Portal do Azure][]\:
 
-1. Na folha do Hub IoT, clique em **Configurações** > **Sistema de Mensagens**.
+1. Na folha do hub IoT, clique em **Configurações** > **Sistema de Mensagens**.
 2. Na seção **Configurações de dispositivo para a nuvem**, você encontrará os seguintes valores: **Ponto de extremidade compatível com o Hub de Eventos**, **Nome compatível com o Hub de Eventos** e **Partições**.
 
     ![Configurações de dispositivo para a nuvem][img-eventhubcompatible]
 
-> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -92,7 +94,7 @@ Em um alto nível, o registro de identidade do dispositivo é uma coleção comp
 
 > [AZURE.NOTE] Para obter mais detalhes sobre o protocolo HTTP e os SDKs que podem ser usados para interagir com o registro de identidade do dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
 
-### Propriedades de identidade do dispositivo <a id="deviceproperties"></a>
+### Propriedades de identidade de dispositivo <a id="deviceproperties"></a>
 
 As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades.
 
@@ -196,7 +198,7 @@ As credenciais de segurança, como as chaves simétricas, nunca são enviadas pe
 
 > [AZURE.NOTE] O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Gerenciador de Recursos do Azure][lnk-azure-resource-manager].
 
-Para obter mais informações sobre como construir e usar os tokens de segurança, consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens].
+Para saber mais sobre como construir e usar os tokens de segurança, consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens].
 
 #### Especificações de protocolo
 
@@ -238,7 +240,7 @@ Ao usar o SASL PLAIN, um cliente que está se conectando a um hub IoT pode usar 
 
 Você pode definir o escopo das políticas de segurança no nível do hub por meio da criação de tokens com um URI de recursos restrito. Por exemplo, o ponto de extremidade para enviar mensagens do dispositivo para a nuvem é **/devices/{deviceId}/messages/events**. Você também pode usar uma política de acesso compartilhado no nível do hub com permissões **DeviceConnect** para assinar um token cujo resourceURI é **/devices/{deviceId}**. Isso cria um token que pode ser usado somente para enviar os dispositivos em nome do **deviceId** do dispositivo.
 
-Esse mecanismo é semelhante à [política de editor dos Hubs de Eventos][lnk-event-hubs-publisher-policy] e permite implementar métodos de autenticação personalizados. Para obter mais informações, consulte a seção de segurança [Projetar sua solução][lnk-guidance-security].
+Esse mecanismo é semelhante à [política de editor dos Hubs de Eventos][lnk-event-hubs-publisher-policy] e permite implementar métodos de autenticação personalizados. Para saber mais, veja a seção de segurança [Projetar sua solução][lnk-guidance-security].
 
 ## Mensagens
 
@@ -246,6 +248,7 @@ O Hub IoT oferece primitivos de mensagens para comunicar:
 
 - [Da nuvem para o dispositivo](#c2d) de um back-end de aplicativo (*serviço* ou *nuvem*).
 - [Do dispositivo para a nuvem](#d2c) de um dispositivo para um back-end de aplicativo.
+- [Carregamentos de arquivos](#fileupload) de um dispositivo para uma conta do Armazenamento do Azure associada. 
 
 As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confiabilidade e a durabilidade das mensagens. Isso permite a adaptação à conectividade intermitente no lado do dispositivo e a picos de carga no processamento de eventos no lado da nuvem. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
 
@@ -259,7 +262,7 @@ As mensagens do Hub IoT são formadas por:
 * Um conjunto de *propriedades do aplicativo*. É um dicionário de propriedades de cadeia de caracteres que o aplicativo pode definir e acessar sem precisar desserializar o corpo da mensagem. O Hub IoT nunca modifica essas propriedades.
 * Um corpo de binário opaco.
 
-Para obter mais informações sobre como a mensagem é codificada em protocolos diferentes, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
+Para saber mais sobre como a mensagem é codificada em protocolos diferentes, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
 
 Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
@@ -275,7 +278,7 @@ Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 | Ack | Um gerador de mensagem de comentários. Essa propriedade é usada em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorrerá o recebimento de uma mensagem de comentários, se a mensagem estiver completa, **negativo**: ocorrerá o recebimento de uma mensagem de comentários, se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo ou **total**: positivos e negativos. Para saber mais, consulte [Comentários sobre a mensagem](#feedback). |
 | ConnectionDeviceId | Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **deviceId** do dispositivo que enviou a mensagem. |
 | ConnectionDeviceGenerationId | Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **generationId** (de acordo com as [Propriedades de identidade de dispositivo](#deviceproperties)) do dispositivo que enviou a mensagem. |
-| ConnectionAuthMethod | Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. Para obter mais informações, consulte [Antifalsificação do dispositivo para a nuvem](#antispoofing).|
+| ConnectionAuthMethod | Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. Para saber mais, consulte [Antifalsificação do dispositivo para a nuvem](#antispoofing).|
 
 ### Escolha seu protocolo de comunicação <a id="amqpvshttp"></a>
 
@@ -298,7 +301,7 @@ O Hub IoT implementa o protocolo MQTT v3.1.1 com as seguintes limitações e com
   * **Não há suporte para QoS 2**. Quando um cliente de dispositivo publica uma mensagem com o **QoS 2**, o Hub IoT fecha a conexão de rede. Quando um cliente de dispositivo assina um tópico com o **QoS 2**, o Hub IoT concede, no máximo, o nível 1 do QoS no pacote **SUBACK**.
   * **Mensagens marcadas como Retain não permanecem**. Se um dispositivo publica uma mensagem com o sinalizador RETAIN definido como 1, o Hub IoT adiciona a propriedade de aplicativo **x-opt-retain** à mensagem. Isso significa que o Hub IoT não mantém a mensagem retain, mas a transmite ao aplicativo back-end.
 
-Para obter mais informações, consulte [Suporte ao MQTT do Hub IoT][lnk-mqtt-support].
+Para saber mais, consulte [Suporte ao MQTT do Hub IoT][lnk-mqtt-support].
 
 Como uma consideração final, você deve examinar o [Gateway de protocolo IoT do Azure][lnk-azure-protocol-gateway]. Isso permite que você implante um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. Essa abordagem exige, no entanto, que você hospede internamente e opere um gateway de protocolo personalizado.
 
@@ -310,7 +313,7 @@ O Hub IoT implementa um sistema de mensagens do dispositivo para a nuvem de mane
 
 Esta implementação tem as seguintes implicações:
 
-* Assim como nos eventos dos Hubs de Eventos, as mensagens do dispositivo para a nuvem são duráveis e mantidas em um Hub IoT por sete dias (consulte [Opções de configuração do dispositivo para a nuvem](#d2cconfiguration)).
+* Assim como nos eventos dos Hubs de Eventos, as mensagens do dispositivo para a nuvem são duráveis e mantidas em um Hub IoT por sete dias (veja [Opções de configuração do dispositivo para a nuvem](#d2cconfiguration)).
 * As mensagens do dispositivo para a nuvem são particionadas em um conjunto fixo de partições definido no momento da criação (confira [Opções de configuração do dispositivo para a nuvem](#d2cconfiguration)).
 * Assim como nos Hubs de Eventos, os clientes que leem mensagens do dispositivo para a nuvem devem lidar com partições e pontos de verificação. Consulte [Hubs de Eventos - consumindo eventos][lnk-event-hubs-consuming-events].
 * Assim como os eventos dos Hubs de Eventos, as mensagens do dispositivo para a nuvem podem ter no máximo 256 KB e podem ser agrupadas em lotes para otimizar os envios. Os lotes podem ter no máximo 256 KB e no máximo 500 mensagens.
@@ -322,7 +325,7 @@ No entanto, há algumas distinções importantes entre as mensagens do dispositi
 * O Hub IoT não permite o particionamento arbitrário usando uma **PartitionKey**. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId** de origem.
 * O dimensionamento do Hub IoT é um pouco diferente do para Hubs de Eventos. Para saber mais, consulte [Dimensionando o Hub IoT][lnk-guidance-scale].
 
-Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para obter mais informações, confira *Partições* na [Visão geral dos Hubs de Eventos do Azure][lnk-eventhub-partitions].
+Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para saber mais, confira *Partições* na [Visão geral dos Hubs de Eventos do Azure][lnk-eventhub-partitions].
 
 Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
 
@@ -332,7 +335,7 @@ Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, co
 
 Em muitos casos, além dos pontos de dados de telemetria, os dispositivos também enviam mensagens e solicitações que exigem a execução e a manipulação da camada de lógica de negócios do aplicativo. Por exemplo, os alertas críticos que devem disparar uma ação específica no back-end ou as respostas de dispositivo a comandos enviados do back-end.
 
-Para obter mais informações sobre a melhor maneira de processar esses tipos de mensagem, consulte [Processamento do dispositivo para a nuvem][lnk-guidance-d2c-processing].
+Para saber mais sobre a melhor maneira de processar esses tipos de mensagem, consulte [Processamento do dispositivo para a nuvem][lnk-guidance-d2c-processing].
 
 #### Opções de configuração do dispositivo para a nuvem <a id="d2cconfiguration"></a>
 
@@ -468,7 +471,68 @@ Cada hub IoT expõe as seguintes opções de configuração para mensagens da nu
 | feedback.ttlAsIso8601 | Retenção de mensagens informativas do serviço associado. | Intervalo ISO\_8601 de até 2D (mínimo de 1 minuto). Padrão: 1 hora. |
 | feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários. | 1 a 100. Padrão: 100. |
 
-Para obter mais informações, consulte [Gerenciar Hubs IoT][lnk-manage].
+Para saber mais, consulte [Gerenciar Hubs IoT][lnk-manage].
+
+### Carregamentos de arquivos <a id="fileupload"></a>
+
+Como detalhado na seção [Pontos de extremidade](#endpoints), os dispositivos podem iniciar uploads enviando uma notificação por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{Iddodispositivo}/arquivos**). Quando um dispositivo notifica o Hub IoT de um upload concluído, o Hub IoT gera notificações de upload de arquivo que você pode receber por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/filenotifications**) como mensagens.
+
+Em vez da corretagem mensagens por meio do próprio Hub IoT, o Hub IoT age como um distribuidor para uma conta do Armazenamento do Azure associada. Um dispositivo solicita um token de armazenamento do Hub IoT específico para o arquivo que o dispositivo deseja carregar. O dispositivo usa o URI de SAS para carregar o arquivo de armazenamento e, quando o upload for concluído, o dispositivo enviará uma notificação de conclusão para o Hub IoT. O Hub IoT verifica se o arquivo foi carregado e adiciona uma notificação de upload de arquivo ao novo ponto de extremidade de mensagens de notificação de arquivo voltado para o serviço.
+
+#### Associação de uma conta do Armazenamento do Azure com o Hub IoT
+
+Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode fazer isso por meio do [portal do Azure][lnk-management-portal] ou programaticamente por meio do [Hub IoT do Azure - APIs do provedor de recursos][lnk-resource-provider-apis]. Depois de ter associado a uma conta de armazenamento ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo inicia uma solicitação de upload de arquivos.
+
+> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure][lnk-apis-sdks] tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
+
+#### Inicializar um upload de arquivo
+
+O Hub IoT tem dois pontos de extremidade REST para dar suporte ao upload de arquivo, um para obter o URI de SAS para armazenamento e o outro para notificar o hub IoT de um upload concluído. O dispositivo inicia o processo de upload de arquivo, enviando um GET para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. O hub retorna um URI de SAS específico para o arquivo a ser carregado, bem como uma ID de correlação a ser usada quando o upload for concluído.
+
+#### Notificar o Hub IoT de um upload de arquivo concluído
+
+O dispositivo é responsável por carregar o arquivo para o armazenamento usando os SDKs do Armazenamento do Azure. Quando o upload for concluído, o dispositivo envia um POST para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` usando a ID de correlação recebida do GET inicial.
+
+#### Notificações de upload de arquivo
+
+Quando um dispositivo carrega um arquivo e notifica o Hub IoT da conclusão do upload, o serviço gera opcionalmente uma mensagem de notificação com o local de armazenamento e o nome do arquivo.
+
+Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento das notificações de upload de arquivos é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
+
+| Propriedade | Descrição |
+| -------- | ----------- |
+| EnqueuedTimeUtc | Carimbo de data/hora que indica quando a notificação foi criada. |
+| DeviceId | **DeviceId** do dispositivo que carregou o arquivo. |
+| BlobUri | URI do arquivo carregado. |
+| BlobName | Nome do arquivo carregado. |
+| LastUpdatedTime | Carimbo de data/hora que indica quando o arquivo foi atualizado pela última vez. |
+| BlobSizeInBytes | Tamanho do arquivo carregado. |
+
+**Exemplo**. Este é um exemplo de corpo de uma mensagem de notificação de upload de arquivos.
+
+```
+{
+	"deviceId":"mydevice",
+	"blobUri":"https://{storage account}.blob.core.windows.net/{container name}/mydevice/myfile.jpg",
+	"blobName":"mydevice/myfile.jpg",
+	"lastUpdatedTime":"2016-06-01T21:22:41+00:00",
+	"blobSizeInBytes":1234,
+	"enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
+}
+```
+
+#### Opções de configuração de notificação de upload de arquivo <a id="c2dconfiguration"></a>
+
+Cada hub IoT expõe as seguintes opções de configuração para notificações de upload de arquivos:
+
+| Propriedade | Descrição | Intervalo e padrão |
+| -------- | ----------- | ----------------- |
+| **enableFileUploadNotifications** | Controla se as notificações de upload de arquivos serão ou não gravadas no ponto de extremidade de notificações de arquivo. | Bool. Padrão: True. |
+| **fileNotifications.ttlAsIso8601** | TTL padrão para notificações de upload de arquivos. | Intervalo ISO\_8601 de até 48H (mínimo de um minuto). Padrão: 1 hora. |
+| **fileNotifications.lockDuration** | Duração de bloqueio para a fila de notificações de upload de arquivos. | 5 a 300 segundos (mínimo de cinco segundos). Padrão: 60 segundos. |
+| **fileNotifications.maxDeliveryCount** | Contagem máxima de entregas para a fila de notificação de upload de arquivos. | 1 a 100. Padrão: 100. |
+
+Para saber mais, confira [Gerenciar hubs IoT][lnk-manage].
 
 ## Cotas e limitação <a id="throttling"></a>
 
@@ -491,12 +555,13 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 | Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 contêm 2*12 = 24/s, mas você terá, pelo menos, 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9*12) em suas unidades. |
 | Envios da nuvem para o dispositivo | 100/min/unidade. |
 | Recebimentos da nuvem para o dispositivo | 1000/min/unidade. |
+| Operações de upload de arquivo | 100 notificações de upload de arquivos/min/unidade <br/> 10000 URIs de SAS podem ser enviados para uma conta de armazenamento ao mesmo tempo <br/> 10 URIs de /dispositivo podem ser enviados de uma só vez | 
 
 É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT e não o número máximo de dispositivos conectados simultaneamente. A restrição depende do número de unidades provisionadas para o hub.
 
 Por exemplo, se você comprar uma única unidade S1, obterá uma restrição de 100 conexões por segundo. Isso significa que serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade do dispositivo.
 
-Para uma discussão aprofundada do comportamento de limitação do Hub IoT, consulte a postagem do blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitação do Hub IoT e você).
+Para uma discussão aprofundada do comportamento de limitação do Hub IoT, veja a postagem do blog [Hub IoT throttling and you][lnk-throttle-blog] (A limitação do Hub IoT e você).
 
 >[AZURE.NOTE] A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
@@ -559,4 +624,4 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

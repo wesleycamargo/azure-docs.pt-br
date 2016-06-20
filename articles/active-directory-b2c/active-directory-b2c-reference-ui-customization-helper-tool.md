@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página
@@ -91,4 +91,4 @@ Agora que você carregou o conteúdo de exemplo em sua própria conta de armazen
 
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo; você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blobs do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, confira o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

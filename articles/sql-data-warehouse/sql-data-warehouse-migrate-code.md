@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
 
@@ -80,7 +80,7 @@ As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, 
 
 As CTEs recursivas não têm suporte no SQL Data Warehouse. A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
 
-### Funções do sistema
+## Funções do sistema
 
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
 
@@ -103,34 +103,35 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## Próximas etapas
-Para obter orientação sobre como desenvolver seu código, confira a [visão geral sobre desenvolvimento][].
+Para obter uma lista completa de todas as instruções T-SQL com suporte, consulte [Tópicos do Transact-SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Junções ANSI em atualizações]: sql-data-warehouse-develop-ctas.md
-[Junções ANSI em exclusões]: sql-data-warehouse-develop-ctas.md
-[instrução merge]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[Junções ANSI em atualizações]: ./sql-data-warehouse-develop-ctas.md
+[Junções ANSI em exclusões]: ./sql-data-warehouse-develop-ctas.md
+[instrução merge]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Tópicos do Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[cursores]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento]: sql-data-warehouse-develop-group-by-options.md
-[cláusula group by com as opções rollup/cube/grouping sets]: sql-data-warehouse-develop-group-by-options.md
-[níveis de aninhamento superiores a 8]: sql-data-warehouse-develop-transactions.md
-[atualizando por meio de exibições]: sql-data-warehouse-develop-views.md
-[uso de select para atribuição de variável]: sql-data-warehouse-develop-variable-assignment.md
-[nenhum tipo de dados MAX para cadeias de caracteres SQL dinâmicas]: sql-data-warehouse-develop-dynamic-sql.md
-[visão geral sobre desenvolvimento]: sql-data-warehouse-overview-develop.md
+[cursores]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento]: ./sql-data-warehouse-develop-group-by-options.md
+[cláusula group by com as opções rollup/cube/grouping sets]: ./sql-data-warehouse-develop-group-by-options.md
+[níveis de aninhamento superiores a 8]: ./sql-data-warehouse-develop-transactions.md
+[atualizando por meio de exibições]: ./sql-data-warehouse-develop-views.md
+[uso de select para atribuição de variável]: ./sql-data-warehouse-develop-variable-assignment.md
+[nenhum tipo de dados MAX para cadeias de caracteres SQL dinâmicas]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

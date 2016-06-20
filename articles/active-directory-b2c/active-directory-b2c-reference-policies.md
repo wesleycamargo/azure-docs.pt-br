@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: estrutura de política extensível
@@ -161,4 +161,4 @@ Para habilitar a redefinição de senha refinada, você precisará criar uma pol
 
 - [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

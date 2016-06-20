@@ -78,7 +78,7 @@ Quando você clica em **Implantar Serviço Web**, várias coisas acontecem:
 
 > [AZURE.NOTE] O teste foi salvo em duas partes em guias que foram adicionados na parte superior da tela do teste: o teste de treinamento original está sob a guia **Teste de treinamento** e o teste de previsão recém-criado está em **Teste de previsão**.
 
-É necessário executar uma etapa adicional com esse teste específico. Adicionamos dois módulos [Executar Script R][execute-r-script] para fornecer uma função importante aos dados de treinamento e teste. Não precisamos fazer isso no modelo final. O Estúdio de Aprendizado de Máquina removeu um módulo [Executar Script R][execute-r-script] quando removeu o Módulo [Dividir][split], portanto, agora podemos remover o outro e conectar o [Editor de Metadados][metadata-editor] diretamente ao [Modelo de Pontuação][score-model].
+É necessário executar uma etapa adicional com esse teste específico. Adicionamos dois módulos [Executar Script R][execute-r-script] para fornecer uma função importante aos dados de treinamento e teste. Não precisamos fazer isso no modelo final. O Estúdio de Aprendizado de Máquina removeu um módulo [Executar Script R][execute-r-script] quando removeu o Módulo [Dividir][split], portanto, agora podemos remover o outro e conectar o [Editar Metadados][edit-metadata] diretamente ao [Modelo de Pontuação][score-model].
 
 Agora o teste deve se parecer como isto:
 
@@ -108,9 +108,9 @@ Na página **PAINEL**, clique no botão **Testar** em **Ponto de extremidade pad
 
 Insira um conjunto de dados e clique em **OK**.
 
-No serviço Web, os dados entram por meio do módulo **Entrada do serviço Web**, por meio do módulo [Editor de Metadados][metadata-editor] e para o [Modelo de Pontuação][score-model], onde é pontuado. Os resultados saem, então, do serviço Web por meio da **saída do serviço Web**.
+No serviço Web, os dados entram por meio do módulo **Entrada do serviço Web**, por meio do módulo [Editar Metadados][edit-metadata] e para o [Modelo de Pontuação][score-model], em que é pontuado. Os resultados saem, então, do serviço Web por meio da **saída do serviço Web**.
 
-> [AZURE.TIP] Da maneira como configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] são retornados. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Se deseja retornar algo diferente - por exemplo, apenas o valor do risco de crédito-, você pode inserir um módulo [Colunas do Projeto][project-columns] entre [Modelo de Pontuação][score-model] e a **Saída do serviço Web** para eliminar colunas que você não deseja que o serviço Web retorne.
+> [AZURE.TIP] Da maneira como configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] são retornados. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Se desejar retornar algo diferente, como apenas o valor do risco de crédito, você poderá inserir um módulo [Selecionar Colunas no Conjunto de Dados][select-columns] entre [Modelo de Pontuação][score-model] e a **Saída do serviço Web** para eliminar colunas que você não deseja que o serviço Web retorne.
 
 ## Gerenciar o serviço Web
 Assim que tiver implantado o serviço Web, você pode gerenciá-lo do [portal clássico do Azure](https://manage.windowsazure.com).
@@ -145,13 +145,13 @@ Para obter mais informações, consulte:
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/pt-BR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/pt-BR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

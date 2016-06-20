@@ -45,7 +45,7 @@ As extensões nesta seção fornecem recursos de segurança críticos para as VM
 |**McAfeeEndpointSecurity**|Protege sua VM de software mal-intencionado.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
 |**TrendMicroDSA**|Habilita o suporte de plataforma de Deep Security da TrendMicro para fornecer detecção de intrusão e prevenção, firewall, antimalware, reputação de web, inspeção de log e monitoramento de integridade.|[Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md)|
 |**PortalProtectExtension**|Protege contra ameaças ao seu ambiente do Microsoft SharePoint.|[Protegendo sua implantação do SharePoint no Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|O antimalware da Microsoft para serviços de nuvem do Azure e máquinas virtuais é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando se sabe que software mal-intencionado ou indesejado tenta se instalar ou executar no seu sistema.|[Baixe a documentação antimalware](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**IaaSAntimalware**|O antimalware da Microsoft para serviços de nuvem do Azure e máquinas virtuais é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando se sabe que software mal-intencionado ou indesejado tenta se instalar ou executar no seu sistema.|[Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../articles/azure-security-antimalware.md)|
 |**SymantecEndpointProtection**|O Symantec Endpoint Protection 12.1.4 permite a segurança e o desempenho em sistemas físicos e virtuais.|[Como instalar e configurar o Symantec Endpoint Protection em uma VM do Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 
 ##Gerenciamento e operações de VM
@@ -78,7 +78,7 @@ Essas extensões dão suporte para outros recursos VM que podem ser úteis.
 
 |Nome da extensão da VM|Descrição do recurso|Mais informações|
 |---|---|---|
-|**BGInfo**|Apresenta uma visão consolidada útil das informações do servidor na área de trabalho ao usar o RDP.|[Extensão BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**BGInfo**|Apresenta uma visão consolidada útil das informações do servidor na área de trabalho ao usar o RDP.|[Extensão BGInfo](https://msdn.microsoft.com/library/mt589195.aspx)|
 |**HpcVmDrivers**|Instala, configura e mantém os drivers de dispositivo de rede de acesso remoto direto à memória (RDMA) em uma VM de tamanho A8 ou A9 que executa o Windows Server 2012 R2 ou o Windows Server 2012. Habilita VMs A8 ou A9 clusterizadas para usar a rede RDMA ao executar aplicativos MPI paralelos.|[Sobre as instâncias de computação intensiva A8, A9, A10 e A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

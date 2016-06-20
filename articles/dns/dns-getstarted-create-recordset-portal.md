@@ -19,7 +19,7 @@
 
 
 
-# Criar registros e conjuntos de registros DNS usando o Portal do Azure
+# Criar registros e conjuntos de registros DNS usando o portal do Azure
 
 
 > [AZURE.SELECTOR]
@@ -28,40 +28,40 @@
 - [CLI do Azure](dns-getstarted-create-recordset-cli.md)
 
 
-Este artigo o guiará durante a criação de registros e conjuntos de registros usando o Portal do Azure. Depois de criar a zona DNS, você precisa adicionar os registros DNS para seu domínio. Para fazer isso, primeiro você precisa entender os registros DNS e os conjuntos de registros.
+Este artigo o guiará durante o processo de criação de registros e conjuntos de registros usando o portal do Azure. Depois de criar sua zona DNS, você adiciona os registros DNS para seu domínio. Para fazer isso, primeiro você precisa entender os registros DNS e conjuntos de registros.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
 ## Criar registro e um conjunto de registros
 
-O exemplo a seguir explica como criar um conjunto de registros e registros usando o portal do Azure. Usaremos o tipo de registro de DNS 'A'.
+O exemplo a seguir explica o processo de criação de um registro e conjunto de registros usando o portal do Azure. Usaremos o tipo de registro DNS “A”.
 
-1. Faça logon no Portal do Azure.
+1. Entre no portal.
 
-2. Navegue até a folha da **zona do DNS** na qual você deseja criar um conjunto de registros.
+2. Vá para a folha da **zona DNS** na qual você deseja criar um conjunto de registros.
 
-3. Na folha da zona do DNS, na parte superior da folha, clique em **Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
- 
-	![novo conjunto de registros](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+3. Na parte superior da folha **zona DNS**, selecione **Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
 
-4. Na folha **Adicionar conjunto de registros**, nomeie o conjunto de registros. Por exemplo, você poderia nomear o conjunto de registros como "**www**".
-  
-	![adicionar conjunto de registros](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+	![Novo conjunto de registros](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-5. Selecione o tipo de registro que deseja criar. Por exemplo, **A**.
+4. Na folha **Adicionar conjunto de registros**, nomeie o conjunto de registros. Por exemplo, você pode nomear o conjunto de registros “**www**”.
 
-6. Defina o **TTL**. O padrão no portal é 1 hora.
+	![Adicionar conjunto de registros](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-7. Adicione os endereços IP, um endereço IP por linha. O uso do nome de conjunto de registros e do tipo de registro sugeridos acima adiciona os endereços IP IPv4 ao registro para o conjunto de registros www.
+5. Selecione o tipo de registro que você deseja criar. Por exemplo, selecione **A**.
 
-8. Ao terminar de adicionar endereços IP, clique em **OK** na parte inferior da folha. O conjunto de registros DNS será criado.
+6. Defina o **TTL**. A vida útil padrão no portal é de uma hora.
+
+7. Adicione os endereços IP, um endereço IP por linha. Quando você usa o nome do conjunto de registros e o tipo de registro sugeridos descritos anteriormente, você adiciona os endereços IP IPv4 ao registro **A** ao conjunto de registros www.
+
+8. Depois de concluir a inclusão de endereços IP, selecione **OK** na parte inferior da folha. O conjunto de registros DNS será criado.
 
 
 ## Próximas etapas
 
-Para gerenciar seus registros e conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando o Portal do Azure](dns-operations-recordsets-portal.md).
+Para gerenciar seus registros e seu conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando o portal do Azure](dns-operations-recordsets-portal.md).
 
-Para saber mais sobre o Azure DNS, confira [Visão geral do Azure DNS](dns-overview.md).
+Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar clusters Hadoop do HDInsight com Repositório Data Lake do Azure usando o portal | Azure"
-   description="Usar o Portal do Azure para criar e usar clusters HDInsight Hadoop com o Repositório Azure Data Lake"
+   pageTitle="Criar clusters HDInsight com o Repositório Azure Data Lake usando o portal | Azure"
+   description="Usar o Portal do Azure para criar e usar clusters HDInsight com o Repositório Azure Data Lake"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
@@ -23,15 +23,15 @@
 - [Usando o PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase, Spark ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
 
-* **Para clusters Hadoop (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+* **Para clusters Spark (Linux) e Hadoop (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
 
 * **Para clusters Storm (Windows e Linux)**, o Repositório Data Lake pode ser usado para gravar dados de uma topologia do Storm. O Repositório Data Lake também pode ser usado para armazenar dados de referência que podem ser lidos por uma topologia do Storm. Para saber mais, confira [Usar o Repositório Data Lake em uma topologia do Storm](#use-data-lake-store-in-a-storm-topology).
 
 * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional. Para saber mais, confira [Usar Repositório Data Lake com clusters HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versão 3.2 (para Windows, bem como Linux).
+> [AZURE.NOTE] A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versões 3.2 e 3.4 (para clusters Hadoop, HBase e Storm no Windows e no Linux). Para clusters Spark no Linux, esta opção só está disponível em clusters HDInsight 3.4.
 
 
 ## Pré-requisitos
@@ -258,4 +258,4 @@ Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamen
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

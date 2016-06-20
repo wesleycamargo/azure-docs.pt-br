@@ -543,20 +543,20 @@ Assim, para ver o conteúdo de um determinado arquivo, digamos 000000\_0, usamos
 
 **Aviso:** `copyToLocal` pode ser muito lento para arquivos grandes e não é recomendado para uso com eles.
 
-A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Aprendizado de Máquina do Azure usando o módulo [Leitor][reader].
+A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Aprendizado de Máquina do Azure usando o módulo [Importar Dados][import-data].
 
 
 ## <a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
 
 **Observação**: essa é normalmente é uma tarefa de **Cientista de Dados**.
 
-Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Aprendizado de Máquina do Azure. Nesta seção, mostraremos como usar uma consulta de Hive para reduzir os dados, que são acessados do módulo [Leitor][reader] no Aprendizado de Máquina do Azure.
+Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Aprendizado de Máquina do Azure. Nesta seção, mostraremos como usar uma consulta de Hive para reduzir os dados, que são acessados do módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure.
 
 ### Reduzindo os dados
 
 Há duas etapas neste procedimento. Primeiro, unimos as tabelas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves presentes em todos os registros: "medallion", "hack\_license" e "pickup\_datetime". Então geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
 
-Para poder usar a busca dados diretamente no módulo [Leitor][reader] no Aprendizado de Máquina do Azure, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
+Para poder usar a busca dados diretamente no módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
 
 A consulta se aplica a funções Hive padrão diretamente para gerar a hora do dia, a semana do ano, o dia da semana (1 significa segunda-feira e 7 representa domingo) dos campos de "pickup\_datetime" e a distância direta entre os locais de subida e descida. Os usuários podem consultar [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) para ver uma lista de tais funções.
 
@@ -689,13 +689,13 @@ Para executar essa consulta, no prompt do diretório do Hive:
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Agora temos uma tabela interna "nyctaxidb.nyctaxi\_downsampled\_dataset", que pode ser acessada usando o módulo [Leitor][reader] de Aprendizado de Máquina do Azure. Além disso, podemos usar esse conjunto de dados para criar modelos de Aprendizado de Máquina.
+Agora temos uma tabela interna "nyctaxidb.nyctaxi\_downsampled\_dataset", que pode ser acessada usando o módulo [Importar Dados][import-data] de Aprendizado de Máquina do Azure. Além disso, podemos usar esse conjunto de dados para criar modelos de Aprendizado de Máquina.
 
-### Use o módulo Leitor no Aprendizado de Máquina do Azure para acessar os dados reduzidos
+### Use o módulo Importar Dados no Aprendizado de Máquina do Azure para acessar os dados reduzidos
 
-Como pré-requisitos para a emissão de consultas Hive no módulo [Leitor][reader] do Aprendizagem de Máquina do Azure, precisamos de acesso a um espaço de trabalho de Aprendizado de Máquina do Azure e acesso às credenciais do cluster e sua conta de armazenamento associada.
+Como pré-requisitos para a emissão de consultas Hive no módulo [Importar Dados][import-data] do Aprendizagem de Máquina do Azure, precisamos de acesso a um espaço de trabalho de Aprendizado de Máquina do Azure e acesso às credenciais do cluster e sua conta de armazenamento associada.
 
-Alguns detalhes sobre o módulo [Leitor][reader] e os parâmetros de entrada:
+Alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros de entrada:
 
 **O URI do servidor HCatalog**: se o nome do cluster for abc123, é simplesmente: https://abc123.azurehdinsight.net
 
@@ -709,7 +709,7 @@ Alguns detalhes sobre o módulo [Leitor][reader] e os parâmetros de entrada:
 
 **Nome do contêiner do Azure**: pe o nome do contêiner padrão para o cluster e normalmente o mesmo que o nome do cluster. Para um cluster chamado "abc123", é simplesmente abc123.
 
-**Observação importante:** **qualquer tabela que desejamos consultar usando o módulo [Leitor][reader] no Aprendizado de Máquina do Azure deve ser uma tabela interna.** Uma dica para determinar se uma tabela T em um banco de dados D.db é uma tabela interna é a seguinte:
+**Observação importante:** **qualquer tabela que desejamos consultar usando o módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure deve ser uma tabela interna.** Uma dica para determinar se uma tabela T em um banco de dados D.db é uma tabela interna é a seguinte:
 
 No prompt do diretório Hive, emita o comando a seguir:
 
@@ -717,7 +717,7 @@ No prompt do diretório Hive, emita o comando a seguir:
 
 Se a tabela for uma tabela interna e preenchida, seu conteúdo deverá aparecer aqui. Outra maneira de determinar se uma tabela é uma tabela interna é usar o Azure Storage Explorer. Use-o para navegar até o nome do contêiner padrão do cluster e, em seguida, filtre pelo nome da tabela. Se a tabela e seu conteúdo aparecerem, isso confirma que ela é uma tabela interna.
 
-Este é um instantâneo da consulta Hive e do módulo [Leitor][reader]\:
+Este é um instantâneo da consulta Hive e do módulo [Importar Dados][import-data]\:
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -733,7 +733,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 **Aprendiz usado:** regressão logística de classe dois
 
-a. Para esse problema, nosso rótulo (ou classe) de destino é "tipped". Nosso conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular: tip\_class, tip\_amount e total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos deixar de considerar essas colunas usando o módulo [Colunas do Projeto][project-columns].
+a. Para esse problema, nosso rótulo (ou classe) de destino é "tipped". Nosso conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular: tip\_class, tip\_amount e total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos deixar de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 O instantâneo abaixo mostra o nosso teste para prever se uma gorjeta será paga ou não uma determinada corrida.
 
@@ -753,7 +753,7 @@ Como resultado, obtemos um AUC de 0,987, conforme mostrado na figura abaixo.
 
 **Aprendiz usado:** regressão logística de várias classes
 
-a. Para esse problema, nosso rótulo de destino (ou classe) é "tip\_class", que pode ter um dos cinco valores (0,1,2,3,4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular: tipped, tip\_amount, total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos remover essas colunas usando o módulo [Colunas do Projeto][project-columns].
+a. Para esse problema, nosso rótulo de destino (ou classe) é "tip\_class", que pode ter um dos cinco valores (0,1,2,3,4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular: tipped, tip\_amount, total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 O instantâneo a seguir mostra a nossa experiência para prever em qual bin uma gorjeta provavelmente ficará (Classe 0: tip = $0, classe 1 : gorjeta > $0 e gorjeta <= $5, Classe 2 : gorjeta > $5 e gorjeta <= $10, Classe 3 : gorjeta > $10 e gorjeta <= $20, Classe 4 : gorjeta > $20)
 
@@ -774,7 +774,7 @@ Observe que, embora as precisões de classe nas classes predominantes sejam muit
 
 **Aprendiz usado:** árvore de decisão aprimorada
 
-a. Para esse problema, nosso rótulo (ou classe) de destino é "tip\_amount". Nesse caso, nossos vazamentos de destino são: tipped, tip\_class, total\_amount; todas essas variáveis revelam informações sobre a quantidade de gorjeta normalmente indisponível no momento de teste. Podemos remover essas colunas usando o módulo [Colunas do Projeto][project-columns].
+a. Para esse problema, nosso rótulo (ou classe) de destino é "tip\_amount". Nesse caso, nossos vazamentos de destino são: tipped, tip\_class, total\_amount; todas essas variáveis revelam informações sobre a quantidade de gorjeta normalmente indisponível no momento de teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 O instantâneo abaixo mostra nossa experiência para prever o valor da gorjeta dada.
 
@@ -794,9 +794,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -807,7 +805,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -204,8 +204,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Protocolo de gerenciamento|**REST por HTTP/HTTPS**|**REST por HTTPS**|
-|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| 
-|API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
+|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| |API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
 |C++ nativo|**Sim**|**Não**|
 |API Java|**Sim**|**Sim**|
 |API PHP|**Sim**|**Sim**|
@@ -301,7 +300,7 @@ Como as filas do Barramento de Serviço fornecem vários recursos avançados, co
 
 Os artigos a seguir fornecem mais orientação e informações sobre como usar as Filas do Azure ou as filas do Barramento de Serviço.
 
-- [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- [Como usar as filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 - [Como usar o serviço Armazenamento de Fila](../storage/storage-dotnet-how-to-use-queues.md)
 - [Melhores práticas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](service-bus-performance-improvements.md)
 - [Introdução a filas e tópicos no Barramento de Serviço do Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
@@ -314,4 +313,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 [portal clássico do Azure]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

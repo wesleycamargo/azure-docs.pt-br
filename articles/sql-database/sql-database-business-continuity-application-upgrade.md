@@ -25,11 +25,11 @@ Ao desenvolver o processo de atualização do aplicativo, a meta principal deve 
 1.	Tempo máximo aceitável quando o aplicativo terá o recurso reduzido 
 2.	Conjunto mínimo de recursos que estarão disponíveis durante o processo de atualização
 3.	Recurso de reversão em caso de erros durante a atualização.
-4.	Custo total envolvido. Inclui o custo de componentes de aplicativo adicionais necessários para criar uma cópia temporária (como bancos de dados premium adicionais para replicação geográfica ativa) e custos incrementais para implantações temporárias usadas pelo processo de atualização. 
+4.	Custo total envolvido. Inclui o custo de componentes de aplicativo adicionais necessários para criar uma cópia temporária (como bancos de dados adicionais para replicação geográfica ativa) e custos incrementais para implantações temporárias usadas pelo processo de atualização. 
 
 Se o aplicativo puder operar temporariamente no modo somente leitura, o fluxo de trabalho de atualização poderá ser projetado para eliminar efetivamente o tempo de inatividade no geral. Para entender como implementar o fluxo de trabalho atualização para a sua topologia de aplicativo específica, consulte [Gerenciando atualizações sem interrupção de aplicativos de nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL](sql-database-manage-application-rolling-upgrade.md).
  
  
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

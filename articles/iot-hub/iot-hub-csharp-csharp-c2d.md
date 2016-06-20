@@ -20,24 +20,24 @@
 
 ## Introdução
 
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. O tutorial [Introdução ao Hub IoT] mostra como criar um hub IoT, provisionar uma identidade do dispositivo e codificar um dispositivo simulado que envia mensagens do dispositivo para a nuvem.
+O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. O tutorial [Introdução ao Hub IoT] mostra como criar um hub IoT, provisionar uma identidade do dispositivo e codificar um dispositivo simulado que envia mensagens do dispositivo para a nuvem.
 
-Este tutorial se baseia na [Introdução ao Hub IoT] e mostra como enviar mensagens da nuvem para o dispositivo a um único dispositivo, como solicitar o reconhecimento de entrega (*comentários*) do Hub IoT e recebê-lo de seu back-end da nuvem do aplicativo.
+Esse tutorial se baseia na [Introdução ao Hub IoT]. Ele mostra como enviar mensagens da nuvem para o dispositivo para um único dispositivo, como solicitar a confirmação de entrega (*comentários*) do Hub IoT e recebê-lo de seu back-end da nuvem do aplicativo.
 
 Encontre mais informações sobre as mensagens da nuvem para o dispositivo no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
 No final deste tutorial, você executará dois aplicativos de console do Windows:
 
 * **SimulatedDevice**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu hub IoT e recebe mensagens da nuvem para o dispositivo.
-* **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo para dispositivo simulado por meio do Hub IoT e, em seguida, recebe seu reconhecimento de entrega.
+* **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo simulado por meio do Hub IoT e recebe sua confirmação de entrega.
 
-> [AZURE.NOTE] O Hub IoT tem suporte SDK para várias plataformas de dispositivo e idiomas (incluindo C, Java e Javascript) no entanto, SDKs de dispositivo IoT do Azure. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, do Hub IoT do Azure. SDKs de serviço de IoT do Azure para Jave e Node estarão disponíveis em breve.
+> [AZURE.NOTE] O Hub IoT tem suporte a SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e Javascript) nos SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, consulte o [Centro de Desenvolvedores do IoT do Azure].
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir esse tutorial, você precisará do seguinte:
 
-+ Microsoft Visual Studio 2015,
++ Microsoft Visual Studio 2015
 
-+ Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Uma conta ativa do Azure <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -48,7 +48,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. Você pode continuar explorando os recursos e cenários de Hub IoT com os seguintes tutoriais:
 
-- [Mensagens do processo de dispositivo para nuvem], mostra como processar de forma confiável a telemetria e mensagens interativas provenientes dos dispositivos.
+- [Processar mensagens do Dispositivo para a Nuvem] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
 - [Carregando arquivos de dispositivos], descreve um padrão que faz uso das mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
 
 Informações adicionais sobre o Hub IoT:
@@ -70,7 +70,7 @@ Informações adicionais sobre o Hub IoT:
 [Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Mensagens do processo de dispositivo para nuvem]: iot-hub-csharp-csharp-process-d2c.md
+[Processar mensagens do Dispositivo para a Nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
@@ -81,4 +81,4 @@ Informações adicionais sobre o Hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

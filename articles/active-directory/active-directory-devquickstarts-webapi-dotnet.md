@@ -125,9 +125,8 @@ Antes de poder ver o serviço de lista de tarefas em ação, você precisa confi
 - Crie um novo aplicativo no locatário do AD do Azure e selecione **aplicativo cliente nativo** no prompt resultante.
     -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	Digite `http://TodoListClient/` para o valor **URI de redirecionamento**.
-- Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma **ID do Aplicativo** única. Você precisará desse valor nas próximas seções, então, copie-o da guia Configurar.
--	Depois de concluir o registro, navegue até a guia **Configurar** e localize o campo **URI de ID do aplicativo**. Insira um identificador específico do locatário para esse valor, por exemplo, `https://contoso.onmicrosoft.com/TodoListService`
-- Também na guia **Configurar**, clique na seção “Permissões para outros aplicativos”. Clique em “Adicionar aplicativo.” Selecione “Outros” na lista suspensa “Mostrar” e clique na marca de seleção superior. Localize e clique no seu serviço de lista de tarefas e clique na marca de seleção da parte inferior para adicionar o aplicativo. Selecione “Acessar serviço de lista de tarefas” na lista suspensa “Permissões delegadas” e salve a configuração.
+- Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma **ID de cliente** exclusiva. Você precisará desse valor nas próximas seções, então, copie-o da guia Configurar.
+- Também na guia **Configurar**, clique na seção “Permissões para outros aplicativos”. Clique em “Adicionar aplicativo.” Selecione “Todos os Aplicativos” na lista suspensa “Mostrar” e clique na marca de seleção superior. Localize e clique no seu serviço de lista de tarefas e clique na marca de seleção da parte inferior para adicionar o aplicativo. Selecione “Acessar serviço de lista de tarefas” na lista suspensa “Permissões delegadas” e salve a configuração.
 
 
 - No Visual Studio, abra `App.config` no projeto TodoListClient e insira seus valores de configuração na seção `<appSettings>`.
@@ -141,4 +140,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jeffstok"/>
 
 
@@ -31,7 +31,9 @@ Para incluir o Servidor R em um cluster HDInsight, você deve criar um cluster H
 
 ## Opções de armazenamento de dados
 
-O armazenamento padrão para clusters HDInsight fica nos Blobs do Azure (WASB) com o sistema de arquivos HDFS mapeado para um contêiner de blob. Isso assegura que os dados que são carregados para o armazenamento de cluster ou gravados no armazenamento do cluster durante a análise sejam persistentes. Um método conveniente de copiar dados de blob ou para ele é usar o utilitário [AzCopy](../storage/storage-use-azcopy/).
+O armazenamento padrão para clusters HDInsight fica nos Blobs do Azure (WASB) com o sistema de arquivos HDFS mapeado para um contêiner de blob. Isso assegura que os dados que são carregados para o armazenamento de cluster ou gravados no armazenamento do cluster durante a análise sejam persistentes. Um método conveniente de copiar dados do blob e para ele é usar o utilitário [AzCopy](../storage/storage-use-azcopy.md).
+
+Além do Blob, há a opção de adicionar o uso do ADLS ([Armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)) ao seu cluster. Se você adicionar o uso do ADLS, você poderá combinar o uso do Blob e do ADLS para armazenamento HDFS.
 
 Você também pode usar os [Arquivos do Azure](../storage/storage-how-to-use-files-linux.md) como uma opção de armazenamento para uso no nó de borda. Os Arquivos do Azure permitem montar um compartilhamento de arquivos criado em uma conta de Armazenamento do Azure para o sistema de arquivos do Linux. Para obter mais informações sobre as opções de armazenamento de dados para o Servidor R no cluster HDInsight, consulte [Opções de armazenamento para o Servidor R em clusters HDInsight](hdinsight-hadoop-r-server-storage.md).
   
@@ -53,7 +55,7 @@ Para pontuar no HDInsight, você poderia criar uma função R que chama o modelo
 
 ### Pontuação no Aprendizado de Máquina do Azure 
 
-Para pontuar usando um serviço Web de Aprendizado de Máquina do Azure, você poderia usar o [pacote R de Aprendizado de Máquina do Azure de software livre](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) para [publicar seu modelo como um serviço Web do Azure](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/), usar os recursos no Aprendizado de Máquina do Azure para criar uma interface do usuário para o serviço Web e depois chamar o serviço Web conforme necessário para a pontuação. Se você escolher essa opção, será necessário converter os objetos de modelo do ScaleR para um objeto de modelo de software livre equivalente para usar com o serviço Web. Isso pode ser feito usando as funções de coerção do ScaleR, tal como `as.randomForest()`, para modelos baseados em união.
+Para pontuar usando um serviço Web de Aprendizado de Máquina do Azure, você poderia usar o [pacote R de Aprendizado de Máquina do Azure de software livre](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) para [publicar seu modelo como um serviço Web do Azure](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/), use os recursos no Aprendizado de Máquina do Azure para criar uma interface do usuário para o serviço Web e depois chamar o serviço Web conforme necessário para a pontuação. Se você escolher essa opção, será necessário converter os objetos de modelo do ScaleR para um objeto de modelo de software livre equivalente para usar com o serviço Web. Isso pode ser feito usando as funções de coerção do ScaleR, tal como `as.randomForest()`, para modelos baseados em união.
   
 ### Pontuação local
 
@@ -69,7 +71,7 @@ Na maioria dos casos, você não precisará instalar pacotes R adicionais em nó
   
 ### Alterar as configurações de memória do Hadoop Map Reduce 
 
-Um cluster pode ser modificado para alterar a quantidade de memória disponível para o Servidor R ao executar um trabalho do Map Reduce. Para fazer isso, use a interface do usuário do Ambari disponível por meio da folha do Portal do Azure para seu cluster. Para obter instruções sobre como acessar a interface de usuário do Ambari para o seu cluster, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
+Um cluster pode ser modificado para alterar a quantidade de memória disponível para o Servidor R ao executar um trabalho do Map Reduce. Para fazer isso, use a interface do usuário do Ambari disponível por meio da folha do Portal do Azure para seu cluster. Para obter instruções sobre como acessar a interface de usuário do Ambari para seu cluster, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
 
 Também é possível alterar a quantidade de memória disponível para o Servidor R usando opções do Hadoop na chamada para o **RxHadoopMR**, conforme mostrado abaixo.
  
@@ -89,11 +91,11 @@ O nó de borda do Linux de um cluster HDInsight Premium é a zona de aterrissage
   
 Uma etapa mais avançada do que um simples editor de texto para o desenvolvimento do seu script R é usar um IDE com base em R na área de trabalho, tal como o recém-anunciado [RTVS (R Tools para Visual Studio)](https://www.visualstudio.com/pt-BR/features/rtvs-vs.aspx) da Microsoft, uma família de ferramentas de área de trabalho e servidor do [RStudio](https://www.rstudio.com/products/rstudio-server/) ou o [StatET](http://www.walware.de/goto/statet) baseado em Eclipse da Walware.
   
-Outra opção é instalar um IDE no próprio nó de borda do Linux. Uma opção popular nesses casos é o [RStudio Server](https://www.rstudio.com/products/rstudio-server/), que fornece um IDE baseado em navegador para usar em clientes remotos. Instalar o RStudio Server no nó de borda de um cluster HDInsight Premium fornece uma experiência completa de IDE para o desenvolvimento e a execução de scripts R com o Servidor R no cluster, além de poder ser consideravelmente mais produtivo do que o uso padrão do Console R. Se desejar usar o RStudio Server, consulte [Instalar o RStudio Server em clusters HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
+Outra opção é instalar um IDE no próprio nó de borda do Linux. Uma opção popular nesses casos é o [RStudio Server](https://www.rstudio.com/products/rstudio-server/), que fornece um IDE baseado em navegador para o uso por clientes remotos. Instalar o RStudio Server no nó de borda de um cluster HDInsight Premium fornece uma experiência completa de IDE para o desenvolvimento e a execução de scripts R com o Servidor R no cluster, além de poder ser consideravelmente mais produtivo do que o uso padrão do Console R. Se desejar usar o RStudio Server, consulte [Instalar o RStudio Server em clusters HDInsight](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## Preços
  
-As taxas associadas a um cluster HDInsight Premium com o Servidor R são estruturadas de forma semelhante aos clusters HDInsight padrão e baseiam-se no dimensionamento das VMs subjacentes entre os nós de nome, dados e borda, com a adição de uma elevação do núcleo-hora para o Premium. Para obter mais informações sobre os preços do HDInsight Premium, incluindo os preços durante a Preview Pública e a disponibilidade de uma avaliação gratuita de 30 dias, consulte os [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+As taxas associadas a um cluster HDInsight Premium com o Servidor R são estruturadas de forma semelhante aos clusters HDInsight padrão e baseiam-se no dimensionamento das VMs subjacentes entre os nós de nome, dados e borda, com a adição de uma elevação do núcleo-hora para o Premium. Para obter mais informações sobre os preços do HDInsight Premium, incluindo os preços durante a Preview Pública e a disponibilidade de uma avaliação gratuita de 30 dias, consulte os [Preço do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Próximas etapas
 
@@ -109,4 +111,4 @@ Siga os links abaixo para saber mais sobre como usar o Servidor R com clusters H
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -60,7 +60,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-Usar diretamente as consultas de exemplo acima no módulo do leitor Azure ML para buscar os dados dinamicamente e colocá-los em um experimento ML do Azure. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
+Usar diretamente as consultas de exemplo acima no módulo Importar Dados do AM do Azure para buscar os dados dinamicamente e colocá-los em um experimento do AM do Azure. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
    
 ![sql leitor][1]
 
@@ -83,7 +83,7 @@ Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas.
 
 ###<a name="python-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um experimento de AM do Azure usando o *Modulo Leitor*. As etapas são as seguintes:
+Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um experimento de AM do Azure usando o *Módulo Importar Dados*. As etapas são as seguintes:
 
 1. Gravar o quadro de dados Pandas em um arquivo local
 
@@ -111,7 +111,7 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leia dados do blob do Azure usando o *Módulo Leitor* do AM do Azure, como mostra a captura de tela abaixo:
+3. Leia dados do blob do Azure usando o *Módulo Importar Dados* do AM do Azure, como mostra a captura de tela abaixo:
  
 ![blob de leitor][2]
 
@@ -124,4 +124,4 @@ Para obter um exemplo passo a passo completo do Processo de Análise da Cortana 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

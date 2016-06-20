@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Usar notebooks do Zeppelin com cluster Spark no HDInsight Linux (Preview)
+# Usar notebooks Zeppelin com cluster Apache Spark no HDInsight Linux
 
-Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como usar esses blocos de anotações.
+Saiba como instalar notebooks Zeppelin em clusters Apache Spark e como usar esses notebooks para executar trabalhos do Spark.
 
 > [AZURE.IMPORTANT] O bloco de anotações do Zeppelin para o cluster HDInsight Spark é uma oferta para demonstrar como usar o Zeppelin em um ambiente do Azure HDInsight Spark. Se você quiser usar blocos de anotações para trabalhar com o HDInsight Spark, recomendamos que você use os blocos de anotações do Jupyter. Os blocos de anotações do Jupyter também oferecem opções diferentes de kernel, como o Scala, e continuarão a ter melhorias de recursos. Para obter instruções sobre como usar os blocos de anotações do Jupyter com o HDInsight Spark, veja [Executar consultas SQL do Spark usando um bloco de anotações do Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Pré-requisitos:**
 
 * Antes de começar este tutorial, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Um cluster do Apache Spark. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Um cluster do Apache Spark. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Um cliente SSH. Para distribuições Linux e Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 	> [AZURE.NOTE] Se você quiser usar um cliente SSH diferente de `ssh` ou PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
@@ -37,9 +37,9 @@ Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como u
 
 	> [AZURE.WARNING] Sem um plug-in como o FoxyProxy, todas as solicitações feitas por meio do navegador poderão ser roteadas pelo túnel. Isso pode resultar em um carregamento mais lento de páginas da Web em seu navegador.
 
-## Instalar o Zeppelin como parte da criação do cluster
+## Instalar Zeppelin em um cluster do Spark
 
-Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. Você pode usar o script personalizado para instalar o Zeppelin do Portal do Azure, usando o SDK do .NET do HDInsight ou usando o Azure PowerShell.
+Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. Você pode usar o script personalizado para instalar o Zeppelin do Portal do Azure, usando o SDK do .NET do HDInsight ou usando o Azure PowerShell. Você pode usar o script para instalar o Zeppelin como parte da criação do cluster ou depois que o cluster estiver em funcionamento. Os links nas seções a seguir fornecem as instruções sobre como fazer isso.
 
 ### Usando o Portal do Azure
 
@@ -201,7 +201,7 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **zeppelinnotebook** – apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – **\*hn0\*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
+	* **Padrão de URL** – ***hn0*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
 
 		![padrão do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -325,11 +325,19 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Kernels disponíveis para o bloco de anotações do Jupyter no cluster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
+* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gerenciar recursos
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -342,4 +350,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

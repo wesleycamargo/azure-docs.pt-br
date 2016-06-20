@@ -41,7 +41,7 @@ Associe o Grupo de Segurança de Rede à interface de rede de sua VM:
 azure network nic set --resource-group TestRG --name TestNIC --network-security-group-name TestNSG
 ```
 
-Você também pode associar o Grupo de Segurança de Rede à sub-rede de uma rede virtual, e não apenas à interface de rede em uma única VM:
+Você também pode associar o Grupo de Segurança de Rede à sub-rede de uma rede virtual, e não apenas à adaptador de rede em uma única VM:
 
 ```
 azure network vnet subnet set --resource-group TestRG --name TestSubnet --network-security-group-name TestNSG
@@ -52,7 +52,7 @@ Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o
 
 Os Grupos de Segurança de Rede e as regras ACL também podem ser definidos como parte dos modelos do Azure Resource Manager. Leia mais sobre a [criação de Grupos de Segurança de Rede com modelos](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Se precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, você precisará usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga para a Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+Se você precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, será necessário usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga para a Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
@@ -61,4 +61,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 - [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
 - [Visão geral do Azure Resource Manager para balanceadores de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

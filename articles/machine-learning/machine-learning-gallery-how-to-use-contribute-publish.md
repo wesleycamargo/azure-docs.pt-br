@@ -122,7 +122,7 @@ As imagens que você enviar com seu experimento serão usadas para criar um bloc
 
 Se o conjunto de dados fizer parte se seu teste e não for importado por meio de um módulo de leitor, ele é publicado na Galeria com o teste. Por esse motivo, verifique se o conjunto de dados que você está publicando com o teste tem os termos de licenciamento apropriados, que permitam que qualquer pessoa possa compartilhar e baixá-los.
 
-**Eu tenho um experimento que usa um módulo de leitor para puxar do HDInsight ou do SQL. Ele usa minhas credenciais para recuperar os dados. Como publicar um experimento desse tipo e ser ter certeza de que minhas credenciais não serão compartilhadas?**
+**Eu tenho um experimento que usa um módulo Importar Dados para puxar do HDInsight ou do SQL. Ele usa minhas credenciais para recuperar os dados. Como publicar um experimento desse tipo e ser ter certeza de que minhas credenciais não serão compartilhadas?**
 
 No momento, não permitimos a publicação de experimentos que usam credenciais.
 
@@ -136,4 +136,4 @@ A renderização de descrição avançada não está disponível para todos os u
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

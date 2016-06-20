@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="05/05/2016"
-   ms.author="eslesar"/>
+   ms.date="06/06/2016"
+   ms.author="magoedte;eslesar"/>
    
 
 # Introdução ao DSC de Automação do Azure
@@ -27,7 +27,7 @@ Este tópico fornece um guia passo a passo para usar o DSC de Automação do Azu
 
 Para concluir os exemplos neste tópico, são necessários:
 
-- Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta de Automação do Azure, consulte [Configurando a Automação do Azure](automation-configuring.md).
+- Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar como da Automação do Azure, consulte [Conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).
 - Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para encontrar instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Criando uma configuração de DSC
@@ -266,4 +266,4 @@ Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

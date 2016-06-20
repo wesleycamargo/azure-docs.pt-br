@@ -40,10 +40,11 @@ Veja um vídeo que demonstra como criar e usar compartilhamentos de arquivos do 
 
 Ao criar uma máquina virtual do Linux no Azure, é possível especificar uma imagem do Linux que dá suporte ao SMB 2.1 ou posterior por meio da galeria de imagens do Azure. Veja abaixo uma lista das imagens do Linux recomendadas:
 
-- Ubuntu Server 14.04
-- Ubuntu Server 15.04
-- CentOS 7.1
-- Open SUSE 13.2
+- Ubuntu Server 14.04+
+- RHEL 7+
+- CentOS 7+
+- Debian 8
+- openSUSE 13.2+
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -139,4 +140,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

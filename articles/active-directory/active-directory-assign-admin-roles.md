@@ -28,7 +28,11 @@ As seguintes funções de administrador estão disponíveis:
 
 - **Administrador global**: tem acesso a todos os recursos administrativos. A pessoa que se inscreve para a conta do Azure torna-se um administrador global. Somente os administradores globais podem atribuir outras funções de administrador. Pode haver mais de um administrador global na sua empresa.
 
+	> [AZURE.NOTE] Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Empresa".
+
 - **Administrador de senha**: redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Administradores de senha podem redefinir senhas somente para os usuários e outros administradores de senha.
+
+	> [AZURE.NOTE] Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Assistência Técnica".
 
 - **Administrador de serviço**: gerencia as solicitações de serviço e monitora a integridade do serviço.
 
@@ -90,7 +94,7 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 ## Próximas etapas
 
-- Para saber mais sobre como alterar administradores para uma assinatura do Azure, confira [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
+- Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 
 - Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
 
@@ -102,4 +106,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

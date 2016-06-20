@@ -80,7 +80,7 @@ Atualmente, damos suporte a um RPO de 5 segundos e o retardo de replicação tem
 ## Qual é o retardo de replicação esperado quando o secundário geográfico é criado na mesma região do banco de dados primário?  
 Com base em dados empíricos, não há muita diferença entre o retardo de replicação intra e entre regiões quando a região emparelhada recomendada pelo Azure é usada.
 
-## Se houver uma falha de rede entre duas regiões, como a lógica de repetição funciona quando a replicação geográfica é configurada?  
+## Se houver uma falha de rede entre duas regiões, como a lógica de repetição funcionará quando a Replicação Geográfica estiver configurada?  
 Se houver uma desconexão, haverá uma repetição a cada 10 segundos para restabelecer as conexões.
 
 ## O que posso fazer para garantir que uma alteração crítica no banco de dados primário seja replicada?
@@ -89,4 +89,4 @@ O secundário geográfico é uma réplica assíncrona e não tentamos mantê-la 
 ## Quais ferramentas estão disponíveis para monitorar o retardo de replicação entre o banco de dados primário e o secundário geográfico?
 Expomos o retardo de replicação em tempo real entre o banco de dados primário e o secundário geográfico por meio de um DMV. Para obter detalhes, veja [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

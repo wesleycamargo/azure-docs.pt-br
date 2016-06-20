@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Protocolo SAML de Logon Único
@@ -303,4 +303,4 @@ Esse elemento declara que o assunto de asserção foi autenticado por um meio es
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -336,7 +336,7 @@ Nesta seção, você verá como usamos a combinação do Azure Stream Analytics,
 
 Nosso objetivo aqui é prever os veículos que exigem manutenção ou recall com base em determinadas estatísticas de integridade. Podemos fazer as seguintes suposições
 
-- Os veículos exigirão **manutenção** se uma das três condições a seguir for verdadeira:
+- Os veículos exigirão ** manutenção** se uma das três condições a seguir for verdadeira:
 	- A pressão do pneu está baixa
 	- O nível de óleo do motor está baixo
 	- A temperatura do motor está alta
@@ -347,7 +347,7 @@ Nosso objetivo aqui é prever os veículos que exigem manutenção ou recall com
 
 Com base nos requisitos acima, criamos dois modelos separados para detectar anomalias, um para a detecção de manutenção do veículo e outro para a detecção de recall do veículo. Em ambos os modelos, o algoritmo interno Análise do Componente Principal (PCA) é usado para a detecção de anomalias.
 
-**Modelo de detecção de manutenção** No modelo de detecção de manutenção, o modelo irá relatar uma anomalia se um dos três indicadores - pressão do pneu, óleo do motor ou temperatura do motor - atender sua respectiva condição. Como resultado, só precisamos considerar essas três variáveis para criar o modelo. Em nosso teste no Aprendizado de Máquina do Azure, primeiro usamos um módulo **Colunas do Projeto** para extrair essas três variáveis. Em seguida, usamos o módulo de detecção de anomalias com base no PCA para criar o modelo de detecção de anomalias.
+**Modelo de detecção de manutenção** No modelo de detecção de manutenção, o modelo irá relatar uma anomalia se um dos três indicadores - pressão do pneu, óleo do motor ou temperatura do motor - atender sua respectiva condição. Como resultado, só precisamos considerar essas três variáveis para criar o modelo. Em nosso teste no Aprendizado de Máquina do Azure, primeiro usamos um módulo **Colunas no Conjunto de Dados** para extrair essas três variáveis. Em seguida, usamos o módulo de detecção de anomalias com base no PCA para criar o modelo de detecção de anomalias.
 
 A Análise do Componente Principal (PCA) é uma técnica estabelecida no aprendizado de máquina que pode ser aplicada na seleção de recursos, classificação e detecção de anomalias. O PCA converte um conjunto de casos contendo variáveis possivelmente correlacionadas em um conjunto de valores chamado de componentes principais. A ideia-chave da modelagem baseada no PCA é projetar os dados em um espaço dimensional inferior para que os recursos e as anomalias possam ser identificados com mais facilidade.
  
@@ -355,7 +355,7 @@ No caso da detecção de anomalias, para cada nova entrada, o detector de anomal
 
 No problema de detecção da manutenção, cada registro pode ser considerado como um ponto em um espaço tridimensional definido pelas coordenadas da pressão do pneu, óleo do motor e temperatura do motor. Para capturar essas anomalias, podemos projetar os dados originais no espaço tridimensional em um espaço bidimensional usando o PCA. Assim, definimos o parâmetro Número de componentes a usar no PCA como sendo 2. Esse parâmetro desempenha um papel importante na aplicação da detecção de anomalias com base no PCA. Depois de projetar os dados usando o PCA, podemos identificar essas anomalias mais facilmente.
 
-**Modelo de detecção de anomalias de recall** No modelo de detecção de anomalias de recall, usamos as Colunas do Projeto e os módulos de detecção de anomalias com base no PCA de maneira semelhante. Especificamente, primeiro extraímos três variáveis - temperatura do motor, temperatura externa e velocidade - usando o módulo **Colunas do Projeto**. Também incluímos a variável de velocidade uma vez que a temperatura do motor normalmente está correlacionada à velocidade. Em seguida, usamos o módulo de detecção de anomalias com base no PCA para projetar os dados do espaço tridimensional em um espaço bidimensional. Os critérios de recall são atendidos, portanto, o veículo requer um recall quando a temperatura do motor e a temperatura externa são correlacionadas de modo alto e negativo. Usando o algoritmo de detecção de anomalias com base no PCA, podemos capturar as anomalias depois de executar o PCA.
+**Modelo de detecção de anomalias de recall** No modelo de detecção de anomalias de recall, usamos as Colunas selecionadas no Conjunto de Dados e os módulos de detecção de anomalias com base no PCA de maneira semelhante. Especificamente, primeiro extraímos três variáveis - temperatura do motor, temperatura externa e velocidade - usando o módulo **Colunas selecionadas no Conjunto de Dados**. Também incluímos a variável de velocidade uma vez que a temperatura do motor normalmente está correlacionada à velocidade. Em seguida, usamos o módulo de detecção de anomalias com base no PCA para projetar os dados do espaço tridimensional em um espaço bidimensional. Os critérios de recall são atendidos, portanto, o veículo requer um recall quando a temperatura do motor e a temperatura externa são correlacionadas de modo alto e negativo. Usando o algoritmo de detecção de anomalias com base no PCA, podemos capturar as anomalias depois de executar o PCA.
 
 Observe que no treinamento de qualquer modelo, precisamos usar dados normais que não requerem manutenção nem recall como os dados de entrada para treinar o modelo de detecção de anomalias com base no PCA. No teste de pontuação usamos o modelo de detecção de anomalias treinado para detectar se o veículo requer manutenção ou recall.
 
@@ -387,7 +387,7 @@ Esse padrão também é aplicável em situações nas quais você deseja integra
 
 Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para baixar a solução RealtimeDashboardApp do Visual Studio para as personalizações.
 
-**Para executar o Aplicativo do Painel em Tempo Real**
+****Para executar o Aplicativo do Painel em Tempo Real **
 
 1.	Clique no nó do PowerBI na exibição de diagrama e clique no link “Baixar Aplicativo do Painel em Tempo Real” no painel de propriedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17 – Instruções de instalação do painel do PowerBI*
 2.	Extrair e salvar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 18 – Pasta RealtimeDashboardApp*
@@ -706,4 +706,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

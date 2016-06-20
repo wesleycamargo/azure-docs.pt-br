@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Adicionar uma VM com artefatos a um laboratório
 
-> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [Como criar VMs com artefatos em um laboratório](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
+> [AZURE.NOTE] Assista ao vídeo que acompanha este artigo: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) (Como criar VMs com artefatos em um laboratório)
 
 ## Visão geral
 
@@ -36,11 +36,11 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
 
-1. Na lista de laboratórios, toque no laboratório no qual deseja criar a nova VM.
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a nova VM.
 
-1. Na folha do laboratório, toque em **+ VM do Laboratório**, como mostra a figura a seguir. ![Adicionar botão VM de Laboratório](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. Na folha do laboratório, selecione **+ VM do Laboratório**, como mostra a figura a seguir. ![Adicionar botão VM de Laboratório](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
 1. Na folha **Escolher uma base**, selecione uma base para a VM.
 
@@ -54,19 +54,19 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 1. Dependendo do tipo de autenticação especificado, insira uma senha ou a chave pública SSH.
 
-1. Toque **Tamanho da VM** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
+1. Selecione **Tamanho da VM** e um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
 
-1. Toque em **Rede virtual** e selecione a rede virtual desejada.
+1. Selecione **Rede virtual** e escolha a rede virtual desejada.
 
-1. Toque em **Sub-rede** e selecione a sub-rede.
+1. Selecione **Sub-rede** e escolha a sub-rede.
 
 1. Se a política de laboratório for definida para permitir endereços IP públicos para a sub-rede selecionada, especifique se você deseja ou não que o endereço IP seja público selecionando **Sim** ou **Não**. Caso contrário, essa opção será desabilitada e selecionada como **Não**.
 
-1. Toque em **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base. **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, vá para a seção [Adicionar um artefato existente a uma VM](#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
+1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base. **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, vá para a seção [Adicionar um artefato existente a uma VM](#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
 
 1. Para exibir ou copiar o modelo de ARM, vá para a seção [Salvar modelo de ARM](#save-arm-template) e retorne aqui quando terminar.
 
-1. Toque em **Criar** para adicionar a VM especificada ao laboratório.
+1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
 
 1. A folha do laboratório exibe o status da criação da VM; primeiro como **Criando** e como **Executando** após a inicialização da VM.
 
@@ -76,15 +76,15 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada laboratório inclui artefatos do Repositório Público de Artefatos de Laboratórios de Desenvolvimento/Teste, bem como artefatos criados e adicionados por você a seu próprio Repositório de Artefatos. Para saber como criar artefatos, confira o artigo [Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 
-1. Na folha **VM do Laboratório**, toque em **Artefatos**. 
+1. Na folha **VM do Laboratório**, selecione **Artefatos**. 
 
-1. Na folha **Adicionar Artefatos**, toque no artefato desejado.
+1. Na folha **Adicionar Artefatos**, selecione o artefato desejado.
 
 ![Folha Adicionar Artefatos](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.  
 
-1. Toque em **Adicionar** para adicionar o artefato e retornar à folha **Adicionar Artefatos**.
+1. Selecione **Adicionar** para adicionar o artefato e retornar à folha **Adicionar Artefatos**.
 
 1. Continue adicionando artefatos à sua VM conforme o necessário.
 
@@ -94,39 +94,39 @@ Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada l
 
 Por padrão, as ações dos artefatos são executadas na ordem em que eles são adicionados à VM. As etapas a seguir ilustram como alterar a ordem de execução dos artefatos.
 
-1. Na parte superior da folha **Adicionar Artefatos**, toque no link que indica o número de artefatos adicionadas à VM.
+1. Na parte superior da folha **Adicionar Artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
 
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Arraste e solte os artefatos na lista para refletir a ordem desejada. **Observação:** se tiver problemas ao arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato.
 
-1. Toque em **OK** quando terminar.
+1. Selecione **OK** quando tiver concluído.
 
 ## Exibir ou modificar um artefato
 
 As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefato:
 
-1. Na parte superior da folha **Adicionar Artefatos**, toque no link que indica o número de artefatos adicionadas à VM.
+1. Na parte superior da folha **Adicionar Artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
 
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Na folha **Artefatos Selecionados**, toque no artefato que você deseja exibir ou editar.
+1. Na folha **Artefatos Selecionados**, selecione o artefato que você deseja exibir ou editar.
 
-1. Na folha **Adicionar Artefato**, faça as alterações necessárias e toque em **OK** para fechar a folha **Adicionar Artefato**.
+1. Na folha **Adicionar Artefato**, faça as alterações necessárias e selecione **OK** para fechar a folha **Adicionar Artefato**.
 
-1. Toque em **OK** para fechar a folha **Artefatos Selecionados**.
+1. Selecione **OK** para fechar a folha **Artefatos Selecionados**.
 
 ## Salvar o modelo de ARM
 
-Um modelo de ARM fornece uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo de ARM para a VM que está sendo criada. Uma vez salvo, você pode usar o modelo de ARM para [implantar novas VMs com o Azure PowerShell](../resource-group-overview/#template-deployment).
+Um modelo de ARM fornece uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo de ARM para a VM que está sendo criada. Depois de salvo, você pode usar o modelo ARM para [implantar novas VMs com o Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. Na folha **VM de laboratório**, toque em **Exibir Modelo de ARM**.
+1. Na folha **VM do Laboratório**, selecione **Exibir Modelo ARM**.
 
 1. Na **folha Exibir o Modelo do Azure Resource Manager**, selecione todo o texto do modelo.
 
 1. Copie o texto selecionado para a área de transferência.
 
-1. Toque em **OK** para fechar a **folha Exibir o Modelo do Azure Resource Manager**.
+1. Selecione **OK** para fechar a **folha Exibir Modelo do Azure Resource Manager**.
 
 1. Abra um editor de texto.
 
@@ -136,8 +136,8 @@ Um modelo de ARM fornece uma forma declarativa de definir uma implantação repe
 
 ## Próximas etapas
 
-- Após a criação da VM, você poderá se conectar à VM tocando em **Conectar** na folha da VM.
+- Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
 - Saiba como [criar artefatos personalizados para sua VM de Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 - Explore a [galeria de modelos de Início Rápido de ARM de Laboratórios de Desenvolvimento/Teste](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

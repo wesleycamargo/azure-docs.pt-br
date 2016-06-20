@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
@@ -36,7 +36,7 @@ Há alguns detalhes importantes referentes a cada um desses itens.
 - Todos os aplicativos feitos em um ASE estarão na mesma assinatura que o próprio ASE
 - Se você não tiver acesso à assinatura usada para fazer o ASE, o ASE não poderá ser usado para criar aplicativos
 - Redes Virtuais usadas para hospedar um ASE devem ser Redes Virtuais Regionais clássicas “v1” 
-- A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação
+- **A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação**
 - Somente um ASE pode existir em uma sub-rede
 - Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
 
@@ -165,4 +165,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -18,7 +18,7 @@
 
 # Cmdlets do PowerShell e as APIs REST para SQL Data Warehouse
 
-Diversas tarefas de administração do SQL Data Warehouse podem ser gerenciadas usando APIs REST ou cmdlets do Azure PowerShell. Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns no SQL Data Warehouse. Para obter alguns exemplos bons de REST, consulte o artigo [Gerenciar escalabilidade com REST][].
+Diversas tarefas de administração do SQL Data Warehouse podem ser gerenciadas usando APIs REST ou cmdlets do Azure PowerShell. Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns no SQL Data Warehouse. Para obter alguns bons exemplos de REST, consulte o artigo [Gerenciar escalabilidade com REST][].
 
 > [AZURE.NOTE]  Para usar o Azure Powershell com o SQL Data Warehouse, você precisará instalar a versão 1.0.3 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
@@ -84,19 +84,17 @@ Esses cmdlets do PowerShell são usados com frequência com o SQL Data Warehouse
 Para obter mais exemplos do PowerShell, consulte:
 
 - [Criar um SQL Data Warehouse usando o PowerShell][]
-- [Restaurar do instantâneo][]
-- [Restauração geográfica do instantâneo][]
+- [Restauração do banco de dados][]
 
-Para obter uma lista de todas as tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdlets do Banco de Dados SQL do Azure][]. Para obter uma lista de tarefas que podem ser automatizadas com o REST, consulte [Operações para Banco de Dados SQL do Azure][].
+Para obter uma lista de todas as tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdlets do Banco de Dados SQL do Azure][]. Para obter uma lista de tarefas que podem ser automatizadas com REST, consulte [Operações para Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 [Criar um SQL Data Warehouse usando o PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restaurar do instantâneo]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Restauração geográfica do instantâneo]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Gerenciar escalabilidade com REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[Restauração do banco de dados]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Gerenciar escalabilidade com REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
 [Cmdlets do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -116,4 +114,4 @@ Para obter uma lista de todas as tarefas que podem ser automatizadas com o Power
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

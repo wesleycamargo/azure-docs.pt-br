@@ -51,7 +51,7 @@ Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho 
 Seguimos estas etapas para criar nosso experimento no Azure ML:
 
 1.	Carregamos o conjunto de dados como um arquivo csv para o Azure ML (arquivo muito pequeno)
-2.	Criamos um novo experimento e usamos o módulo [Colunas do Projeto][project-columns] para selecionar os mesmos recursos de dados usados no Excel   
+2.	Criamos um novo experimento e usamos o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar os mesmos recursos de dados usados no Excel   
 3.	Usamos o módulo [Dividir Dados][split] (com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel  
 4.	Experimentamos o módulo de [Regressão Linear][linear-regression] (somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
 
@@ -155,8 +155,8 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 [boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

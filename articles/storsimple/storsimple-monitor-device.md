@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
@@ -31,7 +31,7 @@ A tabela abaixo mostra as E/Ss para o iniciador do dispositivo para todos os vol
 
 ![Desempenho de E/S do iniciador para o dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-Para o mesmo dispositivo, as E/Ss são plotadas para dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Como consequência, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência à qual a pulsação é verificada entre o dispositivo e o serviço.
+Para o mesmo dispositivo, as E/Ss são plotadas para os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Como consequência, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência à qual a pulsação é verificada entre o dispositivo e o serviço.
 
 ![Desempenho de E/S do dispositivo para a nuvem](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
@@ -76,9 +76,9 @@ Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal 
 
 ![Utilização da capacidade primária após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-Se estiver executando a Atualização 2 ou superior, você poderá dividir a utilização da capacidade principal do armazenamento por um volume individual, todos os volumes, todos os volumes em camadas e todos os volumes locais, conforme mostrado abaixo. Dividir por todos os volumes locais permitirá que você verifique rapidamente o volume da camada local que foi usado.
+Se estiver executando a Atualização 2 ou superior, você poderá dividir a utilização da capacidade principal do armazenamento por um volume individual, todos os volumes, todos os volumes em camadas e todos os volumes fixados localmente, conforme mostrado abaixo. Dividir por todos os volumes fixados localmente permitirá que você verifique rapidamente o volume da camada local que foi usado.
 
-![Utilização da capacidade principal para todos os volumes locais](./media/storsimple-monitor-device/localvolumes.png)
+![Utilização da capacidade principal para todos os volumes fixados localmente](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilização da capacidade de armazenamento em nuvem
@@ -126,4 +126,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

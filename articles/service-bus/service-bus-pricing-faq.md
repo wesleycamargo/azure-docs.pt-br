@@ -112,8 +112,8 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

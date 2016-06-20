@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Criar uma imagem personalizada do Laboratórios de Desenvolvimento/Teste de um arquivo VHD
@@ -26,17 +26,17 @@ Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [ad
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
 
-1. Na lista de laboratórios, toque no laboratório desejado.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
 1. A folha **Configurações** do laboratório selecionado será exibida.
 
-1. Na folha **Configurações** do laboratório, toque em **Imagens Personalizadas**.
+1. Na folha **Configurações** do laboratório, selecione **Imagens personalizadas**.
 
     ![Opção Imagens Personalizadas](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-1. Na folha **Imagens personalizadas**, toque em **+ Imagem Personalizada**.
+1. Na folha **Imagens personalizadas**, selecione **+ Imagem personalizada**.
 
     ![Imagem de Adicionar Personalizado](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -44,23 +44,23 @@ Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [ad
 
 1. Insira a descrição da imagem personalizada. Essa descrição é exibida na lista de imagens base durante a criação de uma nova VM.
 
-1. Toque em **Arquivo VHD**.
+1. Selecione **Arquivo VHD**.
 
 1. Se você tiver acesso a um arquivo VHD que não esteja listado, adicione-o seguindo as instruções da seção [Carregar um arquivo VHD](#upload-a-vhd-file) e volte para cá quando terminar.
 
 1. Selecione o arquivo VHD desejado.
 
-1. Toque em **OK** para fechar a folha **Arquivo VHD**.
+1. Selecione **OK** para fechar a folha **Arquivo VHD**.
 
-1. Toque em **Configuração do SO**.
+1. Selecione **Configuração do SO**.
 
 1. Na guia **Configuração do SO**, selecione **Windows** ou **Linux**.
 
 1. Se **Windows** for selecionado, especifique por meio da caixa de seleção se o *Sysprep* foi executado na máquina.
 
-1. Toque em **OK** para fechar a folha **Configuração do SO**.
+1. Selecione **OK** para fechar a folha **Configuração do SO**.
 
-1. Toque em **OK** para criar a imagem personalizada.
+1. Selecione **OK** para criar a imagem personalizada.
 
 1. Acesse a seção [Próximas etapas](#next-steps).
 
@@ -68,7 +68,7 @@ Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [ad
 
 Para adicionar uma nova imagem personalizada, você precisará ter acesso a um arquivo VHD.
 
-1. Na folha **Arquivo VHD**, toque em **Carregar um arquivo VHD usando o PowerShell**.
+1. Na folha **Arquivo VHD**, selecione **Carregar um arquivo VHD usando o PowerShell**.
 
     ![Carregar imagem](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
@@ -78,4 +78,4 @@ Para adicionar uma nova imagem personalizada, você precisará ter acesso a um a
 
 Depois de adicionar uma imagem personalizada para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

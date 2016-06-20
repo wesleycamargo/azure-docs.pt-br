@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -454,6 +454,20 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | | | ![Verificação][12]| |
 
 
+#### Enterprise State Roaming
+
+**Tipo:** Ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Verificação][12]| |
+
+**Mais detalhes:**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Recursos de visualização do AD do Azure
@@ -465,7 +479,6 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 - [Unidades Administrativas](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

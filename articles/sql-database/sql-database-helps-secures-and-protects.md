@@ -27,7 +27,7 @@ O Banco de dados SQL do Azure dá suporte a milhões de bancos de dados essencia
 
 ## Estamos aqui para protegê-lo
 
-Sempre torcemos para não precisa acessar os backups antigos ou de recuperação de desastres. Porém, caso você esteja nesta situação, o Banco de Dados SQL está aqui para ajudar. Com a disponibilidade de 99,99%, backups automáticos, recuperação pontual, replicação geográfica interna e opções de failover, você pode ficar tranquilo sabendo que seu aplicativo está são e salvo.
+Sempre torcemos para não precisa acessar os backups antigos ou de recuperação de desastres. Porém, caso você esteja nesta situação, o Banco de Dados SQL está aqui para ajudar. Com a disponibilidade de 99,99%, backups automáticos, Recuperação Pontual, Replicação Geográfica interna e opções de failover, você pode ficar tranquilo sabendo que seu aplicativo está são e salvo.
 
 [Ler a documentação](sql-database-business-continuity.md)
 
@@ -55,4 +55,4 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

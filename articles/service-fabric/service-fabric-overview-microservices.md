@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Hoje, essa fatoração tende a assumir a forma de classes e interfaces entre bibliotecas compartilhadas e camadas de tecnologia, normalmente por meio de uma abordagem em camadas, com um repositório back-end, lógica de negócios de camada intermediária e uma interface de usuário front-end. O que *mudou* nos últimos anos é que nós, desenvolvedores, estamos construindo aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -143,9 +143,9 @@ O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativ
 
 * Para mais informações:
 	* [Visão geral da Malha do Serviço](service-fabric-overview.md)
-    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/pt-BR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

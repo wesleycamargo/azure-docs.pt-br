@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Fazer backup e restaurar um banco de dados no SQL Data Warehouse do Azure (API REST)
 
@@ -30,7 +30,6 @@ Tarefas neste tópico:
 
 - Restaurar um banco de dados dinâmico
 - Restaurar um banco de dados excluído
-- Restaurar um banco de dados inacessível de outra região geográfica do Azure
 
 ## Antes de começar
 
@@ -57,25 +56,6 @@ Para restaurar um banco de dados excluído
 
 >[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
 
-## Restaurar por meio de uma região geográfica do Azure
-
-Para executar uma restauração geográfica:
-
-1. Obtenha a lista de bancos de dados recuperáveis usando a operação [Listar bancos de dados recuperáveis][].
-2. Obtenha o banco de dados que você deseja recuperar usando a operação [Obter banco de dados recuperável][].
-3. Crie a solicitação de recuperação usando a operação [Criar solicitação de recuperação de banco de dados][].
-4. Acompanhe o status da recuperação usando a operação [Status da operação de banco de dados.][].
-
-### Configurar o banco de dados depois de executar uma restauração geográfica
-Esta é uma lista de verificação para ajudar a preparar para produção seu banco de dados recuperado.
-
-1. **Atualizar Cadeias de Conexão**: verifique se as cadeias de conexão das ferramentas cliente estão apontando para o banco de dados recentemente recuperado.
-2. **Modificar as Regras de Firewall**: verifique as regras de firewall no servidor de destino para ter certeza de que as conexões dos computadores cliente ou do Azure com o servidor e com o banco de dados recentemente recuperado estão habilitadas.
-3. **Verificar Logons do Servidor e Usuários do Banco de Dados**: verifique se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Recrie os logons ausentes e conceda a eles permissões apropriadas no banco de dados recuperado. 
-4. **Habilitar a Auditoria**: se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a Auditoria após a recuperação do banco de dados.
-
-O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
-
 
 ## Próximas etapas
 Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
@@ -89,7 +69,6 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 
 <!--MSDN references-->
 [Criar solicitação de restauração do banco de dados]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Status da operação de banco de dados.]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Status de operações do banco de dados]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obter banco de dados descartados restauráveis]: https://msdn.microsoft.com/library/azure/dn509574.aspx
 [Listar bancos de dados descartados restauráveis]: https://msdn.microsoft.com/library/azure/dn509562.aspx
@@ -102,4 +81,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

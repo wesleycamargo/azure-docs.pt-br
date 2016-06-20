@@ -158,7 +158,7 @@ Para executar o U-SQL, abra o Visual Studio, clique em **Arquivo --> Novo --> Pr
 
 ### <a name="ingest"></a>Ingestão de dados: dados de leitura de blob público
 
-A localização dos dados no blob do Azure é referenciada como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraída usando **Extractors.Csv()**. Substitua seu próprio nome do contêiner e o nome da conta de armazenamento nos scripts a seguir para container_name@blob_storage_account_name no endereço wasb. Como os nomes de arquivo estão mesmo formato, podemos usar **trip\_data\_{*}.csv** para ler todos os 12 arquivos de corrida.
+A localização dos dados no blob do Azure é referenciada como ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraída usando **Extractors.Csv()**. Substitua seu próprio nome do contêiner e o nome da conta de armazenamento nos scripts a seguir para container_name@blob_storage_account_name no endereço wasb. Como os nomes de arquivo estão mesmo formato, podemos usar **trip\_data\_{*}.csv** para ler todos os 12 arquivos de corrida.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ A localização dos dados no blob do Azure é referenciada como **wasb://contain
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Como há cabeçalhos na primeira linha, é necessário remover os cabeçalhos e alterar os tipos de coluna para aqueles apropriados. É possível salvar os dados processados no Armazenamento do Azure Data Lake usando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou na conta de armazenamento de Blobs do Azure usando **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Como há cabeçalhos na primeira linha, é necessário remover os cabeçalhos e alterar os tipos de coluna para aqueles apropriados. É possível salvar os dados processados no Armazenamento do Azure Data Lake usando ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou na conta de armazenamento de Blobs do Azure usando ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Em seguida, clique em **Painel** ao lado do botão **Configurações** e uma jan
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Cole os scripts de Hive a seguir para criar uma tabela. A localização da fonte de dados está na referência do Repositório Azure Data Lake desta maneira: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Cole os scripts de Hive a seguir para criar uma tabela. A localização da fonte de dados está na referência do Repositório Azure Data Lake desta maneira: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -701,7 +701,7 @@ Quando a execução da consulta for concluída, você verá os resultados deste 
 
 Agora estamos prontos para compilar e implantar um modelo que prevê se ou não uma dica é pago com o Aprendizado de Máquina do Azure. Os dados de amostra estratificada estão prontos para serem usados nesse problema de classificação binária (dica ou não). Os modelos preditivos usando classificação de várias classes (tip\_class) e regressão (tip\_amount) também pode ser compilados e implantados no Estúdio de Aprendizado de Máquina do Azure, mas aqui vamos mostrar apenas como lidar com o caso usando o modelo de classificação binária.
 
-1. Obtenha os dados no AM do Azure usando o módulo **Leitor**, disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do [módulo Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Obtenha os dados no AM do Azure usando o módulo **Importar Dados**, disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Selecione **Consulta de Hive** como a **Fonte de dados** no painel **Propriedades**.
 3. Cole o seguinte script de Hive no editor **Consulta de banco de dados de Hive**
 
@@ -741,4 +741,4 @@ O roteiro de aprendizagem para o [CAP (Processo de Análise do Cortana)](http://
 - [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Visão geral da Ciência de dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

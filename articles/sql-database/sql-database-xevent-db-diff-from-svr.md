@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
 # Eventos estendidos no Banco de Dados SQL
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Este tópico explica como a implementação de eventos estendidos no Banco de Dados SQL do Azure é um pouco diferente em comparação aos eventos estendidos no Microsoft SQL Server.
 
@@ -36,6 +37,12 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 > [AZURE.NOTE] A partir de outubro de 2015, o recurso de sessão de evento estendido foi ativado no Banco de Dados SQL do Azure no nível de visualização. A data de Disponibilidade geral (GA) ainda não foi definida.
 >
 > A página [Atualizações de Serviço](https://azure.microsoft.com/updates/?service=sql-database) do Azure apresentará postagens quando forem feitos anúncios sobre a GA.
+
+
+Informações adicionais sobre eventos estendidos, para Banco de Dados SQL e Microsoft SQL Server, estão disponíveis em:
+
+- [Início Rápido: eventos estendidos no SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventos estendidos](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Pré-requisitos
@@ -269,4 +276,4 @@ Encontre outros tópicos com exemplos de código para eventos estendidos nos lin
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

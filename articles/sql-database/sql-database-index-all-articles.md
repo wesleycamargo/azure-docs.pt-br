@@ -211,7 +211,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
 | 105 | [Perguntas frequentes sobre continuidade dos negócios](sql-database-bcdr-faq.md) | Perguntas frequentes que os clientes fazem e as respectivas respostas sobre recursos internos e opcionais para continuidade dos negócios e recuperação de desastres com o Banco de Dados SQL do Azure. |
-| 106 | [Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação geográfica ativa no Banco de Dados SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Aprenda a criar soluções de recuperação de desastre em nuvem para planejamento de continuidade de negócios usando a replicação geográfica para backup de dados de aplicativo com o banco de dados SQL. |
+| 106 | [Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação geográfica ativa no Banco de Dados SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Aprenda a criar soluções de recuperação de desastre em nuvem para planejamento de continuidade de negócios usando a Replicação Geográfica para backup de dados de aplicativo com o Banco de Dados SQL do Azure. |
 | 107 | [Projeto para continuidade dos negócios](sql-database-business-continuity-design.md) | Diretrizes para escolher nesta seção, orientações serão fornecida para como escolher quais recursos de BCDR devem ser usados e quando. Isso inclui descrições de o que você obtém automaticamente usando o banco de dados SQL. |
 | 108 | [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md) | Restauração pontual, Banco de Dados SQL do Microsoft Azure, banco de dados de restauração, banco de dados de recuperação, Portal Clássico do Azure, portal Clássico do Azure |
 | 109 | [Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Saiba como restaurar uma única tabela do backup do Banco de Dados SQL do Azure. |
@@ -302,14 +302,14 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 159 | [Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL](sql-database-xevent-code-ring-buffer.md) | Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure. |
 
 
-## Replicação geográfica
+## Replicação Geográfica
 
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
-| 160 | [Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o PowerShell](sql-database-geo-replication-powershell.md) | Replicação Geográfica para o Banco de Dados SQL do Azure usando o PowerShell |
-| 161 | [Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure](sql-database-geo-replication-portal.md) | Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal do Azure |
-| 162 | [Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o Transact-SQL |
+| 160 | [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell](sql-database-geo-replication-powershell.md) | Replicação Geográfica para o Banco de Dados SQL do Azure usando o PowerShell |
+| 161 | [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o portal do Azure](sql-database-geo-replication-portal.md) | Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure usando o portal do Azure |
+| 162 | [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure usando o Transact-SQL |
 | 163 | [Como gerenciar a segurança após a recuperação de desastre](sql-database-geo-replication-security-config.md) | Este tópico explica as considerações sobre segurança para gerenciar cenários de Replicação Geográfica Ativa para o Banco de Dados SQL. |
 | 164 | [Visão geral: Replicação Geográfica Ativa para o Banco de Dados SQL](sql-database-geo-replication-overview.md) | A Replicação Geográfica Ativa permite configurar 4 réplicas de seu banco de dados em qualquer um dos datacenters do Azure. |
 
@@ -351,7 +351,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 180 | [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md) | Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure. |
 | 181 | [Diferenças de Transact-SQL de Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) | Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL |
 | 182 | [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md) | Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft. |
-| 183 | [Pesquisar com filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
+| 183 | [Pesquisar com filtros](https://azure.microsoft.com/pt-BR/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
 
 
 ## Diversos
@@ -378,4 +378,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 
 - Elemento gráfico do Roteiro de Aprendizagem: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

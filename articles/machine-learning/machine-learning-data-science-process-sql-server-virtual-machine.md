@@ -120,7 +120,7 @@ Os recursos baseados em local indicados acima podem ser usados ainda para gerar 
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Importar dados][reader] no Aprendizado de Máquina do Azure, conforme mostrado abaixo:
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Importar dados][import-data] no Aprendizado de Máquina do Azure, conforme mostrado abaixo:
 
 ![leitores de azureml][1]
 
@@ -149,7 +149,7 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

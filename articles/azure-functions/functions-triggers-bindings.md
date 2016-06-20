@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="05/27/2016"
 	ms.author="chrande"/>
 
 # Referências de gatilhos e de associações do Azure Functions para desenvolvedores
@@ -29,6 +29,7 @@ Os artigos a seguir explicam como configurar e codificar gatilhos e associaçõe
 * [Gatilhos e associações do Armazenamento do Azure (filas, blobs, tabelas)](functions-bindings-storage.md)
 * [Gatilhos e associações (filas, tópicos) do Barramento de Serviço do Azure](functions-bindings-service-bus.md)
 * [Associações do Banco de Dados de Documentos do Azure](functions-bindings-documentdb.md)
+* [Associações do Hub de Eventos do Azure](functions-bindings-event-hubs.md)
 * [Associações de Aplicativos Móveis do Azure](functions-bindings-mobile-apps.md)
 * [Associação de saída do Hub de Notificação do Azure](functions-bindings-notification-hubs.md)
 
@@ -39,4 +40,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

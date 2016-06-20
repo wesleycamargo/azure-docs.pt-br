@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Publicando um serviço de nuvem usando as ferramentas do Azure
@@ -49,7 +49,7 @@ Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes taref
 
   1. Na caixa de diálogo **Empacotar Aplicativo do Azure**, escolha a configuração de serviço para a qual você deseja criar um pacote e, em seguida, escolha a configuração de compilação.
 
-  1. (opcional) Para ativar a Área de Trabalho Remota para o serviço de nuvem após publicá-lo, marque a caixa de seleção **Habilitar a Área de Trabalho Remota para todas as Funções** e, em seguida, clique em **Configurações** para configurar a Área de Trabalho Remota. Se você quiser depurar seu serviço de nuvem após publicá-lo, ative a depuração remota, selecionando **Ativar o Depurador Remoto para todas as Funções**.
+  1. (opcional) Para ativar a Área de Trabalho Remota para o serviço de nuvem depois de publicá-lo, marque a caixa de seleção **Habilitar Área de Trabalho Remota para todas as Funções** e selecione **Configurações** para configurar a Área de Trabalho Remota. Se você quiser depurar seu serviço de nuvem após publicá-lo, ative a depuração remota, selecionando **Ativar o Depurador Remoto para todas as Funções**.
 
       Para obter mais informações, consulte [Usando a Área de Trabalho Remota com funções do Azure](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
@@ -97,7 +97,7 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
     O serviço de nuvem é publicado. A máquina virtual que é criada tem conexões remotas habilitadas para o IIS para que a Implantação da Web possa ser usada para atualizar suas funções Web sem as publicar novamente.
 
-    >[AZURE.NOTE] Se você tiver mais de uma instância configurada para uma função Web, será exibida uma mensagem de aviso informando que cada função Web será limitada a uma instância somente no pacote que é criado para publicar seu aplicativo. Clique em OK para continuar. Conforme mencionado na seção Requisitos, você pode ter mais de uma função Web, mas apenas uma instância de cada função.
+    >[AZURE.NOTE] Se você tiver mais de uma instância configurada para uma função Web, será exibida uma mensagem de aviso informando que cada função Web será limitada a uma instância somente no pacote que é criado para publicar seu aplicativo. Selecione **OK** para continuar. Conforme mencionado na seção Requisitos, você pode ter mais de uma função Web, mas apenas uma instância de cada função.
 
 ### Para atualizar sua função Web usando a Implantação da Web
 
@@ -121,15 +121,15 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
 1. A Implantação da Web usa um certificado não confiável, autoassinado por padrão, o que não é recomendado para carregar dados confidenciais. Se precisar proteger esse processo para dados confidenciais, você poderá adicionar um certificado SSL a ser usado para conexões de Implantação da Web. Esse deve ser um certificado confiável, que você obtém de uma CA (autoridade de certificação).
 
-    Para tornar a Implantação da Web segura para cada máquina virtual de cada uma das funções Web, você deve carregar o certificado de confiança que deseja usar para a implantação da Web no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Isso garante que o certificado seja adicionado à máquina virtual que é criada para a função Web quando você publicar seu aplicativo.
+    Para tornar a Implantação da Web segura para cada máquina virtual de cada uma das funções web, é necessário carregar o certificado de confiança que você deseja usar para a implantação da Web no [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Isso garante que o certificado seja adicionado à máquina virtual que é criada para a função Web quando você publicar seu aplicativo.
 
 1. Para adicionar um certificado SSL confiável ao IIS a ser usado em conexões remotas, siga estas etapas:
 
-  1. Para se conectar à máquina virtual que está executando a função Web, clique na instância da função Web em **Cloud Explorer** ou **Gerenciador de Servidores** e escolha o comando **Conectar-se usando a Área de Trabalho Remota**. Para obter etapas detalhadas sobre como se conectar à máquina virtual, consulte [Usando a Área de Trabalho Remota com funções do Azure](vs-azure-tools-remote-desktop-roles.md).
+  1. Para se conectar à máquina virtual que está executando a função web, selecione a instância da função web em **Cloud Explorer** ou **Gerenciador de Servidores** e escolha o comando **Conectar-se usando a Área de Trabalho Remota**. Para obter etapas detalhadas sobre como se conectar à máquina virtual, consulte [Usando a Área de Trabalho Remota com funções do Azure](vs-azure-tools-remote-desktop-roles.md).
 
       O navegador solicitará que você baixe um arquivo .RDP.
 
-  1. Para adicionar um certificado SSL, abra o serviço de gerenciamento no Gerenciador do IIS. No Gerenciador do IIS, habilite o SSL abrindo o link **Ligações** no painel **Ação**. A caixa de diálogo **Adicionar Ligação do Site** é exibida. Escolha **Adicionar** e clique em HTTPS na lista suspensa **Tipo**. Na lista **Certificado SSL**, escolha o certificado SSL que foi assinado por uma AC e que você carregou no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para obter mais informações, consulte [Definir configurações de conexão para o serviço de gerenciamento](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Para adicionar um certificado SSL, abra o serviço de gerenciamento no Gerenciador do IIS. No Gerenciador do IIS, habilite o SSL abrindo o link **Ligações** no painel **Ação**. A caixa de diálogo **Adicionar Ligação do Site** é exibida. Escolha **Adicionar** e clique em HTTPS na lista suspensa **Tipo**. Na lista **Certificado SSL**, escolha o certificado SSL que foi assinado por uma AC e que você carregou no [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para obter mais informações, consulte [Definir configurações de conexão para o serviço de gerenciamento](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] Se você adicionar um certificado SSL confiável, o triângulo amarelo de aviso não será mais exibido no **Assistente de Publicação**.
 
@@ -173,4 +173,4 @@ Talvez seja necessário incluir arquivos específicos em seu pacote de serviço 
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [Assistente de Publicação de Aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

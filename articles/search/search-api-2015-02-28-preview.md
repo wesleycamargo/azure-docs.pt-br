@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
@@ -52,6 +52,10 @@ A API do serviço Pesquisa do Azure dá suporte a duas sintaxes de URL para oper
 [Obter estatísticas de índice](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Analisador de teste](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Excluir um índice](#DeleteIndex)
 
@@ -168,6 +172,7 @@ As principais partes de um índice incluem o seguinte:
 - `fields` que serão inseridos nesse índice, incluindo nome, tipo de dados e propriedades que definem as ações permitidas nesse campo.
 - `suggesters` usados para consultas de preenchimento automático ou digitação antecipada.
 - `scoringProfiles` usados para classificação de pontuação de pesquisa personalizada. Consulte [Adicionar perfis de pontuação](https://msdn.microsoft.com/library/azure/dn798928.aspx) para obter detalhes.
+- `analyzers`, `charFilters`, `tokenizers` e `tokenFilters` usados para definir como os seus documentos/consultas são divididos em tokens indexáveis/pesquisáveis. Confira [Análise na Pesquisa do Azure](https://aka.ms//azsanalysis) para obter detalhes.
 - `defaultScoringProfile` usado para substituir os comportamentos de pontuação padrão.
 - `corsOptions` para permitir consultas entre origens em relação a seu índice.
 
@@ -233,6 +238,10 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -804,6 +813,10 @@ A sintaxe do esquema usada para criar um índice é reproduzida aqui para sua co
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -817,6 +830,14 @@ A sintaxe do esquema usada para criar um índice é reproduzida aqui para sua co
 Para uma solicitação bem-sucedida: "204 sem Conteúdo".
 
 Por padrão, o corpo da resposta estará vazio. No entanto, se o cabeçalho `Prefer` da solicitação for definido como `return=representation`, o corpo da resposta conterá o JSON para a definição de índice que foi atualizada. Nesse caso, o código de status de êxito será "200 OK".
+
+**Atualizando a definição de índice com analisadores personalizados**
+
+Quando um analisador, um criador de token, um filtro de token ou um filtro de char é definido, ele não pode ser modificado. Outros novos poderão ser adicionados a um índice existente apenas se o sinalizador `allowIndexDowntime` estiver definido como true na solicitação de atualização de índice:
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Observe que essa operação deixará seu índice offline por pelo menos alguns segundos, fazendo com que suas solicitações de indexação e de consulta falhem. O desempenho e a disponibilidade de gravação do índice podem ser prejudicados por vários minutos após o índice ser atualizado, ou por mais tempo em caso de índices muito grandes.
 
 <a name="ListIndexes"></a>
 ## Listar Índices
@@ -987,6 +1008,100 @@ O corpo da resposta está no seguinte formato:
     {
       "documentCount": number,
 	  "storageSize": number (size of the index in bytes)
+    }
+
+<a name="TestAnalyzer"></a>
+## Analisador de teste
+
+O **Analisar API** mostra como um analisador divide o texto em tokens.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Solicitação**
+
+HTTPS é necessário para todas as solicitações de serviço. A solicitação **Analisar API** pode ser criada usando o método POST.
+
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+
+
+**Cabeçalhos de solicitação**
+
+A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
+
+- `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Analisar API** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
+
+Você também precisará do nome do índice e do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
+
+**Corpo da solicitação**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+ou
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+`analyzer_name`, `tokenizer_name`, `token_filter_name` e `char_filter_name` precisam ser nomes válidos de analisadores, criadores de token, filtros de token e filtros de char predefinidos ou personalizados para o índice. Para saber mais sobre o processo de análise léxica, consulte [Análise na Pesquisa do Azure](https://aka.ms/azsanalysis).
+
+**Resposta**
+
+Código de status: 200 OK é retornado para uma resposta bem-sucedida.
+
+O corpo da resposta está no seguinte formato:
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Analisar exemplo de API**
+
+**Solicitação**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Resposta**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
     }
 
 ________________________________________
@@ -1323,17 +1438,17 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 `scoringParameter=[string]` (zero ou mais) ‒ Indica o valor de cada parâmetro definido em uma função de pontuação (por exemplo, `referencePointParameter`) usando o formato `name-value1,value2,...`.
 
-- Por exemplo, se o perfil de pontuação definir uma função com um parâmetro chamado "mylocation", a opção de cadeia de caracteres de consulta será `&scoringParameter=mylocation--122.2,44.8`. O primeiro traço separa o nome da lista de valores, enquanto o segundo traço faz parte do primeiro valor (longitude, neste exemplo).
+- Por exemplo, se o perfil de pontuação definir uma função com um parâmetro chamado "mylocation", a opção de cadeia de consulta será `&scoringParameter=mylocation--122.2,44.8`. O primeiro traço separa o nome da lista de valores, enquanto o segundo traço faz parte do primeiro valor (longitude, neste exemplo).
 - Para parâmetros de pontuação, como as marcações de aumento que podem conter vírgulas, você pode liberar todos esses valores na lista usando aspas simples. Se os próprios valores contiverem aspas simples, você poderá liberá-las ao duplicar.
-  - Por exemplo, se você tiver um parâmetro de aumento de marcação chamado “mytag” e quiser aumentá-lo nos valores de marcação "Hello, O'Brien" e "Smith", a opção de cadeia de caracteres de consulta será `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Observe que as aspas são necessárias apenas para os valores que contêm vírgulas.
+  - Por exemplo, se você tiver um parâmetro de aumento de marcação chamado “mytag” e quiser aumentá-lo nos valores de marcação "Hello, O'Brien" e "Smith", a opção de cadeia de consulta será `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Observe que as aspas são necessárias apenas para os valores que contêm vírgulas.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `scoringParameters`, em vez de `scoringParameter`. Além disso, especifique-o como uma matriz de cadeias de caracteres JSON, na qual cada cadeia é um par de nome `name-values`.
+> [AZURE.NOTE] Ao chamar **Search** usando POST, esse parâmetro é chamado de `scoringParameters` em vez de `scoringParameter`. Além disso, especifique-o como uma matriz de cadeias de caracteres JSON, na qual cada cadeia é um par de nome `name-values`.
 
 `minimumCoverage` (opcional, o padrão até 100)-um número entre 0 e 100, indicando a porcentagem do índice deve ser coberto por uma consulta de pesquisa, para que a consulta seja relatada como sucesso. Por padrão, o índice inteiro deve estar disponível ou `Search` retornará o código de status HTTP 503. Se você definir `minimumCoverage` e `Search` for bem-sucedido, retornará HTTP 200 e incluirá um valor de `@search.coverage` na resposta indicando a porcentagem do índice que foi incluído na consulta.
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. [Consulte Controle de versão de serviço](http://msdn.microsoft.com/library/azure/dn864560.aspx) de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1630,7 +1745,7 @@ O URI da solicitação inclui um [nome de índice] e uma [chave], especificando 
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado ou se for definido como `*`, todos os campos marcados como recuperáveis no esquema serão incluídos na projeção.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, a `api-version` é especificada como um parâmetro de consulta.
 
@@ -1853,4 +1968,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Introdução ao Linux no Azure
@@ -64,12 +64,12 @@ O Agente Linux do Azure inclui uma funcionalidade para detectar automaticamente 
  - [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
 ### Inicialização de nuvem
-As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem pn Azure, que fornece recursos adicionais para inicializar uma máquina virtual.
+As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem no Azure, que fornece recursos adicionais para inicializar uma máquina virtual.
 
  - [Como injetar dados personalizados](virtual-machines-windows-classic-inject-custom-data.md)
  - [Dados personalizados e inicialização de nuvem no Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Criar partições de troca do Azure usando a nuvem Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Como usar o CoreOS no Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [Como usar o CoreOS no Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Captura de imagem da máquina virtual
@@ -98,4 +98,4 @@ No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os us
 
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

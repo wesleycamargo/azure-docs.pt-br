@@ -60,8 +60,10 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Cache Redis
 - Agendador
 - Pesquisar
+- Armazenamento
 - Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 - Servidor do Banco de Dados SQL - O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
+- Máquinas Virtuais
 - Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 
 ## Serviços dão suporte parcial à movimentação
@@ -76,8 +78,6 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 
 - Application Insights
 - Rota Expressa
-- Armazenamento
-- Máquinas Virtuais
 - Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 
 ## Limitações do Serviço de Aplicativo
@@ -274,4 +274,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Como usar marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

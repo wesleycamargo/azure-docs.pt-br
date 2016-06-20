@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Tratamento de erro no OAuth 2.0
@@ -137,4 +137,4 @@ A especificação RFC 6750 define os erros a seguir para recursos que usam o cab
 | 403 | insufficient\_scope | O token de acesso não tem as permissões de representação necessárias para acessar o recurso. | Envie uma nova solicitação de autorização ao ponto de extremidade de autorização. Se a resposta contiver o parâmetro de escopo, use o valor de escopo na solicitação para o recurso. |
 | 403 | insufficient\_access | A entidade do token não tem as permissões necessárias para acessar o recurso. | Solicite que o usuário use uma conta diferente ou solicite permissões para o recurso especificado. |
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
