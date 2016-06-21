@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="06/13/2016"
 	ms.author="garye"/>
 
 # Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
@@ -51,7 +51,9 @@ Para obter informações sobre preços e cobrança, consulte [Preços do Aprendi
 
 **O Aprendizado de Máquina tem uma avaliação gratuita?**
 
- Ao assinar uma avaliação gratuita do Azure, você pode testar quaisquer serviços do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas Frequentes sobre a Avaliação Gratuita do Azure](/pricing/free-trial-faq/).
+ O Aprendizado de Máquina do Azure tem uma opção de assinatura gratuita (confira [Preços do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes), e o Estúdio de Aprendizado de Máquina tem uma avaliação rápida de 8 horas disponível (faça logon no [Estúdio de Aprendizado de Máquina](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
+ 
+ Além disso, quando você se inscrever em uma avaliação gratuita do Azure, poderá experimentar qualquer serviço do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas frequentes sobre a avaliação gratuita do Azure](/pricing/free-trial-faq/).
 
 ## Perguntas sobre o Estúdio de Aprendizado de Máquina
 
@@ -102,13 +104,13 @@ Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL 
 
 **Há uma funcionalidade interna de entrada de imagem?**
 
-Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Importar Imagens][image-reader].
+Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Importar imagens][image-reader].
 
 ### Módulos
 
 **O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio de Aprendizado de Máquina do Azure. Quais são minhas opções?**
 
-Você pode visitar o [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, com o suporte interno para R e Python, transformações personalizadas podem ser criadas conforme necessário.
+Você pode visitar o [fórum de comentários dos usuários](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, com o suporte interno para R e Python, transformações personalizadas podem ser criadas conforme necessário.
 
 
 **Posso trazer meu código existente para o Estúdio de Aprendizado de Máquina?**
@@ -184,11 +186,11 @@ Não, não há um ambiente REPL para R no estúdio.
 
 **É possível criar um módulo personalizado em Python?**
 
-Atualmente, não, mas você pode usar um ou mais módulos [Executar Script Python][python] para obter o mesmo resultado.
+Atualmente, não, mas você pode usar um ou mais módulos [Executar script Python][python] para obter o mesmo resultado.
 
 **Há um ambiente REPL para Python?**
 
-Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquina. Para saber mais, confira [Introdução aos blocos de anotações do Jupyter no Estúdio de Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
+Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquina. Para saber mais, confira [Introdução aos blocos de notas Jupyter no Estúdio de Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## Serviço Web
 
@@ -196,7 +198,7 @@ Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquin
 
 **Como posso readaptar os modelos de Aprendizado de Máquina de forma programática?**
 
-Use as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
+Use as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina programaticamente](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
 
 ### Criar
 
@@ -219,11 +221,11 @@ O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência
 
 Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o teste que você usou para criar e salvar o modelo adaptado. Uma vez que tiver uma nova versão do modelo adaptado disponível, o Estúdio de Aprendizado de Máquina perguntará se você deseja atualizar seu serviço Web. Consulte [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
 
-Você também pode usar as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
+Você também pode usar as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina programaticamente](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
-Depois que um modelo de previsão for implantado, você poderá monitorá-lo no portal clássico do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
+Depois que um modelo de previsão for implantado, você poderá monitorá-lo no portal clássico do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço. Para saber mais sobre como gerenciar os serviços Web implantadas, veja [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
@@ -241,7 +243,7 @@ Confira [Códigos de erro do módulo de Aprendizado de Máquina](https://msdn.mi
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e os serviços Web a 10 mil pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e os serviços Web a 10.000 pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
@@ -251,7 +253,7 @@ Nº
 
 **Quantos dados posso usar para treinamento?**
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados Azure SQL ou de pré-processamento com módulos [Aprendizado por contagens][counts] antes da ingestão.
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Azure ou de pré-processamento com módulos [Aprendizado por contagens][counts] antes da ingestão.
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
@@ -310,9 +312,9 @@ Confira as [Perguntas frequentes sobre a publicação e utilização de aplicati
 
 O [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o Aprendizado de Máquina do Azure.
 
-Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. Você pode enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. Você pode enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de comentários dos usuários](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
-Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)
+Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
 
 **Como fazer para obter suporte ao Aprendizado de Máquina do Azure?**
 
@@ -332,4 +334,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,14 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/09/2016"
    ms.author="sonyama;barbkess"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 Este passo a passo mostra como conectar um SQL Data Warehouse do Azure em apenas alguns minutos usando a extensão SSDT (SQL Server Data Tools) no Visual Studio. Uma vez conectado, você executará uma consulta simples.
@@ -28,7 +27,7 @@ Este passo a passo mostra como conectar um SQL Data Warehouse do Azure em apenas
 ## Pré-requisitos
 
 + Dados de exemplo do AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um SQL Data Warehouse][].
-+ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar Visual Studio e SSDT][].
++ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT][].
 
 ## Etapa 1: Encontrar o nome totalmente qualificado do servidor do SQL Azure
 
@@ -98,7 +97,7 @@ Para configurar seu ambiente para a autenticação do Windows, consulte [Conecta
 
 <!--Arcticles-->
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Instalar Visual Studio e SSDT]: sql-data-warehouse-install-visual-studio.md
+[Instalar o Visual Studio e o SSDT]: sql-data-warehouse-install-visual-studio.md
 [Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [visualizar os dados com o PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
@@ -116,4 +115,4 @@ Para configurar seu ambiente para a autenticação do Windows, consulte [Conecta
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução ao armazenamento de Fila do Azure usando o .NET | Microsoft Azure"
-	description="Envie e receba mensagens de forma assíncrona entre componentes de aplicativos usando o armazenamento de Fila do Azure. Obtenha uma introdução a operações simples de armazenamento de Fila, incluindo a criação e exclusão de filas e a adição, a leitura e a exclusão de mensagens da fila."
+	description="As filas do Azure fornecem uma mensagem assíncrona e confiável entre os componentes do aplicativo. A mensagem na nuvem permite que os componentes do aplicativo se dimensionem de modo independente."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="06/09/2016"
 	ms.author="gusapost"/>
 
 # Introdução ao armazenamento de Fila do Azure usando o .NET
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-O armazenamento de Fila do Azure é um serviço que fornece filas de mensagens na nuvem. Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados, para que possam ser redimensionados independentemente. O Armazenamento de fila fornece uma solução de mensagens confiáveis para comunicação assíncrona entre os componentes do aplicativo, quer estejam em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O armazenamento de Fila também dá suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
+O armazenamento de filas do Azure fornece mensagens na nuvem entre os componentes do aplicativo. Na criação de aplicativos para escala, os componentes do aplicativo geralmente são desassociados, para que possam ser redimensionados independentemente. O armazenamento de filas fornece mensagens assíncronas para a comunicação entre os componentes do aplicativo, estando eles em execução na nuvem, na área de trabalho, em um servidor local ou em um dispositivo móvel. O armazenamento de Fila também dá suporte ao gerenciamento de tarefas assíncronas e à criação de fluxos de trabalho do processo.
 
 ### Sobre este tutorial
 
@@ -275,4 +275,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

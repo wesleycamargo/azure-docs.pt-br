@@ -23,7 +23,7 @@
 
 Este artigo mostra como usar o [Portal do Azure](https://portal.azure.com/) para criar uma Máquina Virtual do Linux rapidamente. Os únicos requisitos são [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/) e [arquivos de chave públicos e privados SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
-[AZURE.NOTE] Se você optar por usar uma senha para proteger o acesso à sua VM, a senha deverá ter mais do que 12 caracteres e ter pelo menos um caractere maiúsculo, pelo menos um caractere minúsculo, pelo menos um caractere especial e pelo menos um número.
+> [AZURE.NOTE] Se você optar por usar uma senha para proteger o acesso à sua VM, a senha deverá ter mais do que 12 caracteres e ter pelo menos um caractere maiúsculo, pelo menos um caractere minúsculo, pelo menos um caractere especial e pelo menos um número.
 
 
 1. Conectado ao Portal do Azure com sua identidade de conta do Azure, clique em **+ Novo** no canto superior esquerdo:
@@ -81,4 +81,4 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 
 Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

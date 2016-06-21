@@ -8,8 +8,8 @@ Esta seção mostra como conectar seu aplicativo ao back-end do Mobile Engagemen
 
 3. O monitor está pronto para mostrar qualquer dispositivo, em tempo real, o que iniciará o aplicativo.
 	 
-4. Inicie seu aplicativo no emulador/simulador ou em um dispositivo conectado. Você deverá ver uma sessão no monitor se a integração estiver correta, o que significa que seu aplicativo agora está conectado ao back-end do Compromisso de Mobilidade e está enviando dados para ele.
+4. Inicie o aplicativo agora. Você deverá ver uma sessão no monitor se a integração estiver correta, o que significa que seu aplicativo agora está conectado ao back-end do Compromisso de Mobilidade e está enviando dados para ele.
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0615_2016-->

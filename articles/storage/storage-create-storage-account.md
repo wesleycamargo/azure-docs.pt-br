@@ -81,7 +81,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Uso do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
-9. Selecione a região geográfica para sua conta de armazenamento.
+9. Selecione a região geográfica para sua conta de armazenamento. Consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em qual região.
 
 10. Clique em **Criar** para criar a conta de armazenamento.
 
@@ -93,15 +93,15 @@ Após criar a conta de armazenamento, você pode modificar sua configuração, p
 
 > [AZURE.NOTE] Dependendo do nível de desempenho que você escolheu durante a criação da conta de armazenamento, talvez algumas opções de replicação não estejam disponíveis.
 
-A alteração da opção de replicação mudará seu preço. Para saber mais, confira a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+A alteração da opção de replicação mudará seu preço. Para saber mais, consulte a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Para contas de armazenamento de Blobs, a alteração da camada de acesso pode incorrer em encargos para a alteração, além de alterar seu preço. Confira [Contas de armazenamento de Blobs - preços e cobrança](storage-blob-storage-tiers.md#pricing-and-billing) para saber mais.
+Para contas de armazenamento de Blobs, a alteração da camada de acesso pode incorrer em encargos para a alteração, além de alterar seu preço. Consulte as [Contas de armazenamento de Blobs - Preços e Cobrança](storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
 
 ### Gerenciar as chaves de acesso de armazenamento
 
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
-> [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Confira [Assinaturas de Acesso Compartilhado: compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
+> [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Consulte [Assinaturas de Acesso Compartilhado: Compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para obter mais informações.
 
 #### Exibir e copiar as chaves de acesso de armazenamento
 
@@ -117,7 +117,7 @@ Você deve alterar as chaves de acesso de sua conta de armazenamento periodicame
 
 **Aplicativos** - se você tiver algum aplicativo Web ou serviços de nuvem que usam a conta de armazenamento, perderá as conexões se regenerar as chaves, a menos que você as reverta.
 
-**Gerenciadores de Armazenamento** - se estiver usando qualquer [aplicativo de gerenciador de armazenamento](storage-explorers.md), você provavelmente precisará atualizar a chave de armazenamento usada por esses aplicativos.
+**Gerenciadores de Armazenamento** - se você estiver usando qualquer [aplicativo do gerenciador de armazenamento](storage-explorers.md), provavelmente precisará atualizar a chave de armazenamento usada por esses aplicativos.
 
 Veja o processo para trocar suas chaves de acesso de armazenamento:
 
@@ -147,7 +147,7 @@ Se a conta de armazenamento usar o modelo de implantação Clássico, você pode
 4. Selecione o disco de dados e clique em Excluir o Disco.
 5. Para excluir imagens de disco, navegue até a guia Imagens e exclua todas as imagens armazenadas na conta.
 
-Para saber mais, confira a [Documentação da máquina virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Para obter mais informações, consulte a [Documentação da Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Próximas etapas
 
@@ -157,4 +157,4 @@ Para saber mais, confira a [Documentação da máquina virtual do Azure](http://
 - [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

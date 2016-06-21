@@ -68,17 +68,16 @@ Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Stan
 | [Relatórios avançados de HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Estatísticas em tempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Há algum recurso que você gostaria de ver na CDN do Azure? [Forneça comentários](https://feedback.azure.com/forums/169397-cdn).
 
 ## Próximas etapas
 
-Para começar a usar a CDN, consulte [Usando a CDN do Azure](./cdn-create-new-endpoint.md).
+Para começar a usar a CDN, confira [Usar a CDN do Azure](./cdn-create-new-endpoint.md).
 
 Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
 
 Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Para saber mais sobre os preços, confira [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
+Para obter informações sobre preços, confira [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-Há algum recurso que você gostaria de ver na CDN do Azure? [Enviar comentários](https://feedback.azure.com/forums/169397-cdn)
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

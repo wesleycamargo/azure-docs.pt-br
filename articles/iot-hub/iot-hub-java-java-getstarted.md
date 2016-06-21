@@ -95,10 +95,10 @@ Nesta seção, você criará um aplicativo do console do Java que cria uma nova 
     import java.net.URISyntaxException;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{seunomehub}** e **{suachavehub}** pelos valores anotados anteriormente:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhost}** e **{chavedoseuhub}** pelos valores anotados anteriormente:
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,14 +190,10 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     import java.util.logging.*;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{namespacecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **namespacexyz** (em outras palavras, remova o prefixo **sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal):
+7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{pontodeextremidadecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente:
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
 8. Adicione o método **receiveMessages** a seguir à classe **App**. Esse método cria uma instância **EventHubClient** para conectar-se ao ponto de extremidade compatível com o Hub de Eventos e cria assincronamente uma instância **PartitionReceiver** para ler uma partição do Hub de Eventos. Ele faz um loop contínuo e imprime os detalhes da mensagem até o aplicativo ser encerrado.
@@ -207,8 +203,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
@@ -225,7 +220,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
             System.out.println("** Created receiver on partition " + partitionId);
             try {
               while (true) {
-                Iterable<EventData> receivedEvents = receiver.receive().get();
+                Iterable<EventData> receivedEvents = receiver.receive(100).get();
                 int batchSize = 0;
                 if (receivedEvents != null)
                 {
@@ -344,7 +339,7 @@ Nesta seção, você criará um aplicativo do console do Java que simula um disp
     import com.google.gson.Gson;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{seunomehubiot}** pelo nome do hub Iot e **{suaiddispositivo}** e **{suachavedispositivo}** pelos valores do dispositivo gerados na seção *Criar uma identidade do dispositivo*:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhubiot}** pelo nome do hub Iot e **{iddoseudispositivo}** e **{chavedoseudispositivo}** pelos valores do dispositivo gerados na seção *Criar uma identidade do dispositivo*:
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
@@ -368,7 +363,7 @@ Nesta seção, você criará um aplicativo do console do Java que simula um disp
     }
     ```
 
-9. Adicione a classe aninhada **EventCallback** a seguir à classe **App** para exibir o status de confirmação que o hub IoT retorna quando processa uma mensagem a partir do dispositivo simulado. Esse método também notifica o thread principal do aplicativo quando a mensagem tiver sido processada:
+9. Adicione a classe aninhada **EventCallback** a seguir à classe **App** para exibir o status de confirmação que o hub IoT retorna quando processa uma mensagem do dispositivo simulado. Esse método também notifica o thread principal do aplicativo quando a mensagem tiver sido processada:
 
     ```
     private static class EventCallback implements IotHubEventCallback
@@ -515,4 +510,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

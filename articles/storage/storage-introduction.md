@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -132,7 +132,11 @@ Confira [Assinaturas de acesso compartilhado: entendendo o modelo SAS](storage-d
 
 ## Replicação para durabilidade e alta disponibilidade
 
-Os dados em sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir a durabilidade e uma alta disponibilidade, cumprindo o [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/), mesmo diante de falhas transitórias do hardware. Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
+Os dados em sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir a durabilidade e uma alta disponibilidade, cumprindo o [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/), mesmo diante de falhas transitórias do hardware.
+
+Consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em cada região.
+
+Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
 - **Armazenamento com redundância local (LRS).** O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em uma única instalação, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de uma única instalação.  
   
@@ -149,12 +153,13 @@ Os dados em sua conta de armazenamento do Microsoft Azure sempre são replicados
 
 - **Armazenamento com redundância geográfica (GRS)**. O armazenamento com redundância geográfica é habilitado para sua conta de armazenamento por padrão quando ela é criada. O GRS mantém seis cópias de seus dados. Com o GRS, seus dados são replicados três vezes na região primária e também são replicados três vezes para uma região secundária a centenas de quilômetros de distância da região primária, oferecendo o nível mais alto de durabilidade. Em caso de falha na região primária, o Armazenamento do Azure realizará failover para a região secundária. O GRS assegura que seus dados serão duráveis em duas regiões separadas.
 
+	Para obter informações sobre os pares primários e secundários por região, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 - **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**. O armazenamento com redundância geográfica com acesso de leitura replica seus dados para uma localização geográfica secundária e também fornece acesso de leitura aos dados no local secundário. O armazenamento com redundância geográfica com acesso de leitura permite acessar os dados no local primário ou secundário caso um local fique indisponível.
 
 	> [AZURE.IMPORTANT] Você pode alterar como seus dados são replicados depois que sua conta de armazenamento tiver sido criada, a menos que tenha especificado ZRS quando criou a conta. No entanto, observe que você pode incorrer em custo por uma transferência de dados adicional e ocasional se alternar de LRS para GRS ou RA-GRS.
  
-Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento.
+Consulte [Replicação de armazenamento do Azure](storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento.
 
 Para obter informações sobre os preços da replicação da conta de armazenamento, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -163,11 +168,11 @@ Para obter detalhes arquitetônicos sobre a durabilidade com o Armazenamento do 
 
 ## Transferindo dados do Armazenamento do Azure e para ele
 
-Você pode usar o utilitário de linha de comando AzCopy para copiar dados de blobs, arquivos e tabelas dentro de sua conta de armazenamento ou entre contas de armazenamento. Consulte [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md) para saber mais.
+Você pode usar o utilitário de linha de comando AzCopy para copiar dados de blobs, arquivos e tabelas dentro de sua conta de armazenamento ou entre contas de armazenamento. Consulte [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações.
 
 O AzCopy se baseia na [Biblioteca de Movimentação de Dados do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que atualmente está disponível na visualização.
 
-O serviço de Importação/Exportação do Azure fornece uma maneira de importar dados ou exportar dados de blob da sua conta de armazenamento por meio de um disco rígido enviado para o data center do Azure. Para saber mais sobre o serviço de Importação/Exportação, consulte [Usar o Serviço de Importação/Exportação do Microsoft Azure para Transferir Dados para o Armazenamento de Blobs](storage-import-export-service.md).
+O serviço de Importação/Exportação do Azure fornece uma maneira de importar dados ou exportar dados de blob da sua conta de armazenamento por meio de um disco rígido enviado para o data center do Azure. Para obter mais informações sobre o serviço de Importação/Exportação, consulte [Usar o Serviço de Importação/Exportação do Microsoft Azure para Transferir Dados para o Armazenamento de Blobs](storage-import-export-service.md).
 
 ## Preços
 
@@ -260,4 +265,4 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de fila do Python](storage-python-how-to-use-queue-storage.md)
 - [Como usar o Armazenamento de Filas no Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

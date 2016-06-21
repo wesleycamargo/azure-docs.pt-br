@@ -1,25 +1,27 @@
 <properties
-   pageTitle="Introdução às filas do Barramento de Serviço | Microsoft Azure"
-   description="Como escrever um aplicativo de console em C# para a mensagem do Barramento de Serviço"
-   services="service-bus"
-   documentationCenter=".net"
-   authors="jtaubensee"
-   manager="timlt"
-   editor="sethmanheim"/>
+    pageTitle="Introdução às filas do Barramento de Serviço | Microsoft Azure"
+    description="Como escrever um aplicativo de console em C# para a mensagem do Barramento de Serviço"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="jtaubensee"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="tbd"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="dotnet"
-   ms.workload="na"
-   ms.date="06/07/2016"
-   ms.author="jotaub@microsoft.com"/>
+    ms.service="service-bus"
+    ms.devlang="tbd"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="dotnet"
+    ms.workload="na"
+    ms.date="06/07/2016"
+    ms.author="jotaub;sethm"/>
 
-#Introdução às Filas do Barramento de Serviço
+# Introdução às Filas do Barramento de Serviço
+
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-##O que será realizado
+## O que será realizado
+
 Neste tutorial, faremos seguinte:
 
 1. Crie um namespace do Barramento de Serviço usando o portal do Azure.
@@ -30,42 +32,51 @@ Neste tutorial, faremos seguinte:
 
 4. Escreva um aplicativo de console para enviar mensagens.
 
-##Pré-requisitos
-1. [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com)
+## Pré-requisitos
 
-2. Uma assinatura do Azure
+1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2015.
 
-##1\. Criar um namespace usando o portal do Azure
-Se você já tiver um namespace do Barramento de Serviço criado, vá para a [seção Criar uma fila usando o portal do Azure](#2-create-a-queue-using-the-azure-portal).
+2. Uma assinatura do Azure.
+
+[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+## 1\. Criar um namespace usando o portal do Azure
+
+Se você já tiver um namespace do Barramento de Serviço criado, vá para a seção [Criar uma fila usando o portal do Azure](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-##2\. Criar uma fila usando o portal do Azure
-Se você já tiver uma fila do Barramento de Serviço criada, vá para a [seção Enviar mensagens para a fila](#3-sending-messages-to-the-queue).
+## 2\. Criar uma fila usando o portal do Azure
+
+Se você já tiver uma fila do Barramento de Serviço criada, vá para a seção [Enviar mensagens para a fila](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-##3\. Enviar mensagens para a fila
+## 3\. Enviar mensagens para a fila
+
 Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# usando o Visual Studio.
 
-###Criar um aplicativo de console
+### Criar um aplicativo de console
+
 1. Inicialize o Visual Studio e crie um novo aplicativo de Console.
 
-###Adicionar o pacote NuGet do Barramento de Serviço
+### Adicionar o pacote NuGet do Barramento de Serviço
+
 1. Clique com o botão direito no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
 
-2. Procure "Barramento de Serviço do Microsoft Azure" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
+2. Clique na guia **Procurar**, em seguida, pesquise "Barramento de Serviço do Microsoft Azure" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
 
-    ![Selecionar um pacote NuGet][1]
+    ![Selecionar um pacote NuGet][nuget-pkg]
 
-###Escrever um código para enviar uma mensagem para a fila
+### Escrever um código para enviar uma mensagem para a fila
+
 1. Adicione a seguinte instrução using ao topo do arquivo Program.cs.
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Adicione o seguinte código ao método Main e defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e **queueName** como o nome da fila usado ao criar a fila.
+2. Adicione o seguinte código ao método `Main`, defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e defina **queueName** como o nome da fila usado ao criar a fila.
 
     ```
     var connectionString = "<Your connection string>";
@@ -74,7 +85,6 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
     client.Send(message);
-
     ```
 
     Program.cs deve ficar assim.
@@ -101,20 +111,21 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
     }
     ```
   
-3. Execute o programa e verifique o portal do Azure. Observe que agora o **Comprimento da Fila** deve ser 1.
+3. Execute o programa e verifique o portal clássico do Azure. Observe que agora o valor **Comprimento da Fila** deve ser 1.
     
-      ![Comprimento da fila][2]
+      ![Comprimento da fila][queue-length-send]
     
-##4\. Recebendo mensagens da fila
-1. Crie um novo aplicativo de Console e adicione uma referência ao pacote NuGet do Barramento de Serviço que foi feito para o aplicativo de envio acima.
+## 4\. Receber mensagens da fila
 
-2. Adicione a seguinte instrução using ao topo do arquivo Program.cs.
+1. Crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio acima.
+
+2. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
   
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
   
-3. Adicione o seguinte código ao método Main e defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e **queueName** como o nome da fila usado ao criar a fila.
+3. Adicione o seguinte código ao método `Main`, defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e defina **queueName** como o nome da fila usado ao criar a fila.
 
     ```
     var connectionString = "";
@@ -131,7 +142,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
     Console.ReadLine();
     ```
 
-      O arquivo Program.cs deve ficar assim:
+	O arquivo Program.cs deve ficar assim:
 
     ```
     using System;
@@ -160,25 +171,25 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
     }
     ```
   
-4. Execute o programa e verifique o portal do Azure. Observe que agora o **Comprimento da Fila** deve ser 0.
+4. Execute o programa e verifique o portal. Observe que agora o valor **Comprimento da Fila** deve ser 0.
 
-    ![Comprimento da fila][3]
+    ![Comprimento da fila][queue-length-receive]
   
 Parabéns! Agora, você criou uma fila, enviou uma mensagem e recebeu uma mensagem.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-##Próximas etapas
+## Próximas etapas
 
-Verifique nosso repositório GitHub com exemplos que mostram alguns dos recursos mais avançados das Mensagens do Barramento de Serviço do Azure. [https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples]
+Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço do Azure.
 
 <!--Image references-->
 
-[1]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[2]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[3]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
+[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
+[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
