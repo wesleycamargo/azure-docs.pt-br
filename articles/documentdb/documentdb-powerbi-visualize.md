@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="hawong"/>
 
 # Tutorial do Power BI para o Banco de Dados de Documentos: visualizar dados usando o conector do Power BI
@@ -111,8 +111,7 @@ Pronto para experimentar? Vamos começar.
 11. Clique em **Editar** para iniciar o Editor de Consultas para que possamos transformar os dados.
 
 ## Nivelando e transformando documentos JSON
-1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central.
-![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central. ![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Clique no expansor no lado direito do cabeçalho da coluna **Documento**. O menu de contexto com uma lista de campos será exibido. Selecione os campos necessários para o relatório, por exemplo, Nome do Vulcão, País, Região, Local, Elevação, Tipo, Status e Última Erupção Conhecida e clique em **OK**.
 
@@ -195,4 +194,4 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 - Para saber mais sobre o Power BI, clique [aqui](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

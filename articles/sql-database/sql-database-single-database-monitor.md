@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/25/2016"
+	ms.date="06/15/2016"
 	ms.author="carlrab"/>
 
 # Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure
@@ -47,4 +47,4 @@ As mesmas métricas que são expostas no portal também estão disponíveis por 
 
 Para pools de banco de dados elástico, você pode monitorar bancos de dados individuais no pool com as técnicas descritas nesta seção. Mas você também pode monitorar o pool como um todo. Para obter informações, veja [Monitorar e gerenciar um pool de banco de dados elástico](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

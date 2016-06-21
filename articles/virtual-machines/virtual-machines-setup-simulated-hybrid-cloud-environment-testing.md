@@ -211,6 +211,6 @@ Seu ambiente de nuvem híbrida simulado agora está pronto para testes.
 
 ## Próximas etapas
 
-- [Adicione uma nova máquina virtual](virtual-machines-windows-create-powershell.md) à sub-rede TestVNET, como uma que executa o Microsoft SQL Server.
+- [Adicione uma nova máquina virtual](virtual-machines-windows-ps-create.md) à sub-rede TestVNET, como uma que executa o Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

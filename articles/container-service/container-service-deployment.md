@@ -26,57 +26,57 @@ Este documento orienta você durante a implantação de um cluster do Serviço d
 
 ## Criar um serviço usando o portal do Azure
 
-Faça logon no portal do Azure, selecione Novo e pesquise o mercado do Azure em busca do **Serviço de Contêiner do Azure**.
+Entre no portal do Azure, selecione **Novo** e pesquise no Azure Marketplace o **Serviço de Contêiner do Azure**.
 
-![Criar implantação](media/acs-portal1.png) <br />
+![Criar implantação 1](media/acs-portal1.png) <br />
 
 Selecione **Serviço de Contêiner do Azure** e clique em **Criar**.
 
-![Criar implantação](media/acs-portal2.png) <br />
+![Criar implantação 2](media/acs-portal2.png) <br />
 
 Insira as seguintes informações:
 
-- Nome de Usuário – é o nome de usuário que será usado para uma conta em cada uma das máquinas virtuais e conjuntos de escala de máquina virtual no cluster do Serviço de Contêiner do Azure.
-- Assinatura – selecione uma assinatura do Azure.
-- Grupo de recursos – selecione um grupo de recursos existente ou crie um novo.
-- Local – selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
-- Chave pública SSH – adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ela deve semelhante ao seguinte: "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" Para obter orientação sobre a criação de chaves SSH, confira os artigos referentes ao [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e ao [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Nome de Usuário**: é o nome de usuário que será usado para uma conta em cada uma das máquinas virtuais e conjuntos de escala de máquina virtual no cluster do Serviço de Contêiner do Azure.
+- **Assinatura**: selecione uma assinatura do Azure.
+- **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo.
+- **Local**: selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
+- **Chave pública SSH**: adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ele deve ser algo semelhante ao seguinte: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obter orientação sobre como criar chaves de SSH (Secure Shell), confira os artigos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação](media/acs-portal3.png) <br />
+![Criar implantação 3](media/acs-portal3.png) <br />
 
 Selecione um tipo de Orquestração. As opções são:
 
-- DC/OS – implanta um cluster de DC/OS.
-- Swarm – implanta um cluster Docker Swarm.
+- **DC/SO**: implanta um cluster de DC/SO.
+- **Swarm**: implanta um cluster Docker Swarm.
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação](media/acs-portal4.png) <br />
+![Criar implantação 4](media/acs-portal4.png) <br />
 
 Insira as seguintes informações:
 
-- Contagem de mestres – o número de mestres do cluster.
-- Contagem de agentes – para Docker Swarm, esse será o número inicial de agentes no conjunto de escala de agentes. Para DC/OS, esse será o número inicial de agentes em um conjunto de escala privado. Além disso, será criado um conjunto de escala pública, com um número predeterminado de agentes. O número de agentes no conjunto de escala público determina quantos mestres foram criados no cluster, 1 agente pública para 1 mestre e 2 agentes públicos para 3 ou 5 mestres.
-- Tamanho da máquina virtual de agente – o tamanho das máquinas virtuais de agente.
-- Prefixo DNS – um nome exclusivo no mundo que será usado para prefixar partes-chave dos nomes de domínio totalmente qualificados para o serviço. 
+- **Contagem de mestres**: o número de mestres do cluster.
+- **Contagem de agentes**: para Docker Swarm, esse será o número inicial de agentes no conjunto de escala de agentes. Para DC/OS, esse será o número inicial de agentes em um conjunto de escala privado. Além disso, é criado um conjunto de escala pública, que contém um número predeterminado de agentes. O número de agentes nesse conjunto de escala público é determinado pelo número de mestres criados no cluster: um agente público para um mestre e dois agentes públicos para três ou cinco mestres.
+- **Tamanho da máquina virtual de agente**: o tamanho das máquinas virtuais de agente.
+- **Prefixo DNS**: um nome exclusivo no mundo que será usado para prefixar partes-chave dos nomes de domínio totalmente qualificados para o serviço.
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação](media/acs-portal5.png) <br />
+![Criar implantação 5](media/acs-portal5.png) <br />
 
-Clique em **OK** após a conclusão da validação de serviço.
+Clique em **OK** após a validação de serviço.
 
-![Criar implantação](media/acs-portal6.png) <br />
+![Criar implantação 6](media/acs-portal6.png) <br />
 
 Clique em **Criar** para iniciar o processo de implantação.
 
-![Criar implantação](media/acs-portal7.png) <br />
+![Criar implantação 7](media/acs-portal7.png) <br />
 
-Se você tiver optado por fixar a implantação no portal do Azure, o status de implantação poderá ser visto.
+Se tiver optado por fixar a implantação no portal do Azure, você poderá ver o status da implantação.
 
-![Criar implantação](media/acs-portal8.png) <br />
+![Criar implantação 8](media/acs-portal8.png) <br />
 
 Quando a implantação for concluída, o cluster do Serviço de Contêiner do Azure estará pronto para uso.
 
@@ -106,14 +106,14 @@ Em seguida, configure as ferramentas da CLI do Azure para usar o Azure Resource 
 azure config mode arm
 ```
 
-Crie um cluster do Grupo de Recursos do Azure e um cluster do Serviço de Contêiner com o seguinte comando, em que:
+Crie um cluster do grupo de recursos do Azure e um cluster do Serviço de Contêiner com o seguinte comando, em que:
 
-- **RESOURCE\_GROUP** é o nome do Grupo de Recursos que você deseja usar para esse serviço.
+- **RESOURCE\_GROUP** é o nome do grupo de recursos que você deseja usar para esse serviço.
 - **LOCATION** é a região do Azure e que a implantação do Grupo de Recursos e do Serviço de Contêiner do Azure será criada.
-- **TEMPLATE\_URI** é o local do arquivo de implantação. **Observação** - esse deve ser o arquivo BRUTO, não um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e clique no botão BRUTO:
+- **TEMPLATE\_URI** é o local do arquivo de implantação. Observe que este deve ser o arquivo Bruto, não um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e clique no botão **Bruto**.
 
-> Observação - quando você executar esse comando, o shell solicitará valores de parâmetros de implantação.
- 
+> [AZURE.NOTE] Quando você executar esse comando, o shell solicitará valores de parâmetros de implantação.
+
 ```bash
 # sample deployment
 
@@ -161,7 +161,7 @@ Se precisar entrar no Azure, use o comando `Login-AzureRMAccount`:
 Login-AzureRmAccount
 ```
 
-Se estiver implantando em um grupo de recursos novo, primeiro crie o grupo de recursos. Para criar um novo grupo de recursos, use o comando `New-AzureRmResourceGroup`, especificando um nome de grupo de recursos e uma região de destino:
+Se estiver implantando em um grupo de recursos novo, primeiro crie o grupo de recursos. Para criar um novo grupo de recursos, use o comando `New-AzureRmResourceGroup` e especifique um nome de grupo de recursos e uma região de destino:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -188,9 +188,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Próximas etapas
- 
-Agora que você tem um cluster em funcionamento, acesse estes documentos para obter detalhes sobre conexão e gerenciamento.
- 
-[Conectar-se a um cluster do Serviço de Contêiner do Azure](container-service-connect.md) [Trabalhar com o Serviço de Contêiner do Azure e o DC/OS](container-service-mesos-marathon-rest.md) [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+Agora que você tem um cluster em funcionamento, confira estes documentos para obter detalhes sobre conexão e gerenciamento:
+
+- [Conectar a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
+- [Trabalhar com o Serviço de Contêiner do Azure e o DC/SO](container-service-mesos-marathon-rest.md)
+- [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
+
+<!---HONumber=AcomDC_0615_2016-->

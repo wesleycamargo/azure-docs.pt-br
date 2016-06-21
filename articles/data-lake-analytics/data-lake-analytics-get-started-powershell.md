@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: introdução à Análise Azure Data Lake usando o Azure PowerShell
@@ -133,7 +133,7 @@ A Análise Data Lake também pode acessar o armazenamento de Blob do Azure. Para
 
 ##Enviar trabalhos da Análise Data Lake
 
-Os trabalhos da Análise do Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, veja [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Para criar um script de trabalho da Análise Data Lake**
 
@@ -186,7 +186,7 @@ Os trabalhos da Análise do Data Lake são escritos na linguagem U-SQL. Para sab
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	No script, o arquivo de script U-SQL é armazenado em c:\tutorials\data-lake-analytics\copyFile.usql. Atualize o caminho do arquivo de acordo.
+	No script, o arquivo de script U-SQL é armazenado em c:\\tutorials\\data-lake-analytics\\copyFile.usql. Atualize o caminho do arquivo de acordo.
  
 Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets para listar o arquivo e baixá-lo:
 	
@@ -203,10 +203,10 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 ## Consulte também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
-- Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-- Para começar a desenvolver aplicativos U-SQL, veja [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
+- Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

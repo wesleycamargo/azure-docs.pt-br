@@ -14,55 +14,65 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="heidist"/>
 
 # Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure
 
-Em Pesquisa do Azure, você poderá ajustar incrementalmente a capacidade de recursos computacionais específicos aumentando partições se precisar de mais armazenamento e E/S ou réplicas para melhor desempenho de indexação e consulta.
+Depois de [escolher um SKU](search-sku-tier.md) e [provisionar um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é configurar, opcionalmente, os recursos do serviço.
 
-A escalabilidade fica disponível quando você provisiona um serviço na [Camada básica](http://aka.ms/azuresearchbasic) ou em uma das [Camadas Standard](search-limits-quotas-capacity.md).
+Na Pesquisa do Azure, um serviço recebe inicialmente um nível mínimo de recursos compostos por uma partição e uma réplica. Para tipos que oferecem suporte a isso, você poderá ajustar incrementalmente a capacidade de recursos computacionais aumentando partições, se precisar de mais armazenamento e E/S ou de réplicas para volumes maiores de consulta ou melhor desempenho. Um único serviço deve ter recursos suficientes para manipular todas as cargas de trabalho (indexação e consultas). Você não pode subdividir cargas de trabalho entre vários serviços.
 
-Para todas as camadas faturáveis, a capacidade é comprada em incrementos de *unidades de pesquisa* (SU), em que cada partição e réplica conta como uma SU cada.
+As configurações de escalabilidade ficam disponíveis quando você provisiona um serviço faturável no [tipo Básico](http://aka.ms/azuresearchbasic) ou em um dos [tipos Standard](search-limits-quotas-capacity.md). Para os SKUs faturáveis, a capacidade é comprada em incrementos de *unidades de pesquisa* (SU), em que cada partição e réplica conta como uma SU cada. Ficar abaixo dos limites máximo usa menos SUs, com uma fatura proporcionalmente menor. A cobrança fica em vigor durante o tempo de provisionamento do serviço. Se você não estiver usando um serviço temporariamente, a única maneira de evitar a cobrança é excluindo o serviço e, depois, o recriando quando for necessário.
 
-- A Básica fornece até 3 SUs por serviço.
-- A Standard fornece até 36 SUs por serviço.
+Para aumentar ou alterar a alocação de réplicas e partições, recomendamos o uso do portal. O portal aplicará limites às combinações permitidas que permaneçam abaixo dos limites máximos:
 
-Certifique-se de escolher uma combinação de partições e réplicas que fique abaixo do limite da camada. Se você usar o portal para escalar verticalmente, o portal vai impor limites às combinações permitidas.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
+2. Nas Configurações, abra a folha Escala e use os controles deslizantes para aumentar ou diminuir o número de partições e réplicas.
 
-Como regra geral, aplicativos de pesquisa precisam de mais réplicas que partições. A próxima seção, [alta disponibilidade](#HA), explica por quê.
+Como regra geral, os aplicativos de pesquisa precisam de mais réplicas do que partições, especialmente quando as operações de serviço são mais adequadas para cargas de trabalho de consulta. A seção sobre [alta disponibilidade](#HA), explica o motivo.
+
+> [AZURE.NOTE] Após o provisionamento de um serviço, ele não pode ser atualizado in-loco para um SKU superior. Você precisará criar um novo serviço de pesquisa no novo tipo e recarregar os índices. Confira [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para obter ajuda com o provisionamento do serviço.
+
+## Terminologia: partições e réplicas
+
+Partições e réplicas são os recursos principais que apoiam um serviço de pesquisa.
+
+**Partições** fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).
+
+**Réplicas** são instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.
+
+> [AZURE.NOTE] Não há uma maneira de manipular ou gerenciar diretamente quais índices são executados em uma réplica. Uma cópia de cada índice em cada réplica faz parte da arquitetura do serviço.
 
 <a id="HA"></a>
-## Obtenção de recursos para alta disponibilidade
+## Alta disponibilidade
 
-Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamos começar com uma partição e uma ou duas réplicas e então escalar verticalmente conforme os volumes de consulta se acumulam. Para muitas implantações, uma partição fornece armazenamento e E/S suficientes (a 15 milhões de documentos por partição).
+Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamos começar com uma partição e uma ou duas réplicas e então escalar verticalmente conforme os volumes de consulta se acumulam, até o máximo de réplicas e partições com suporte do SKU. Para muitos serviços nos tipos Básico ou S1, uma partição fornece armazenamento e E/S suficientes (a 15 milhões de documentos por partição).
 
-No entanto, cargas de trabalho de consulta são executadas principalmente em réplicas. Você pode precisar de réplicas adicionais se precisar de mais taxa de transferência ou alta disponibilidade.
+Cargas de trabalho de consulta são executadas principalmente em réplicas. Provavelmente, você precisará de mais réplicas se precisar de mais taxa de transferência ou alta disponibilidade.
 
 Recomendações gerais para alta disponibilidade são:
 
 - Duas réplicas para alta disponibilidade das cargas de trabalho somente leitura (consultas)
-- Três ou mais réplicas para alta disponibilidade das cargas de trabalho de leitura/gravação (consultas e indexação)
+- Três ou mais réplicas para alta disponibilidade de cargas de trabalho de leitura/gravação (consultas mais indexação à medida que documentos individuais são adicionados, atualizados ou excluídos)
+
+O SLA (Contrato de Nível de Serviço) para a Pesquisa do Azure é direcionado a operações de consulta e a atualizações de índice formadas pela adição, atualização ou exclusão de documentos.
+
+**Disponibilidade de índice durante uma recompilação**
+
+A alta disponibilidade para a Pesquisa do Azure pertence a consultas e atualizações de índice que não envolvem a recompilação de um índice. Se o índice exigir uma recompilação, por exemplo, se você adicionar ou excluir um campo, alterar um tipo de dados ou renomear um campo, será necessário recompilar o índice da seguinte maneira: exclua o índice, recrie o índice e recarregar os dados.
+
+Para manter a disponibilidade do índice durante uma recompilação, é necessário ter uma segunda cópia do índice já em produção no mesmo serviço (com um nome diferente), ou um índice de mesmo nome em um serviço diferente e fornecer o redirecionamento ou lógica de failover em seu código.
 
 ## Recuperação de desastre
 
-Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. A abordagem mais comum é adicionar redundância no nível de serviço provisionando um segundo serviço de pesquisa em outra região.
-
-> [AZURE.NOTE] Lembre-se de que a escalabilidade e os contratos de nível de serviço são recursos dos serviços básico e padrão. O serviço gratuito é oferecido em um nível de recurso fixo, com partições e réplicas compartilhadas por vários assinantes. Se você tiver iniciado com o serviço gratuito e agora desejar atualizar, precisará criar um novo serviço de Pesquisa do Azure no nível básico ou padrão e, em seguida, recarregar índices e dados para o novo serviço. Veja [Criar um serviço da Pesquisa do Azure no portal](search-create-service-portal.md) para obter instruções sobre o provisionamento do serviço.
-
-## Terminologia: partições e réplicas
-
-As **Partições** oferecem armazenamento e E/S. Um único serviço de pesquisa pode ter um máximo de 12 partições. Cada partição é fornecida com um limite rígido de 15 milhões de documentos ou 25 GB de armazenamento, o que ocorrer primeiro. Se você adicionar partições, o serviço de pesquisa poderá carregar mais documentos. Por exemplo, um serviço com uma única partição que armazene inicialmente até 25 GB de dados pode armazenar 50 GB quando você adicionar uma segunda partição ao serviço.
-
-**Réplicas** são cópias do mecanismo de pesquisa. Um único serviço de Pesquisa pode ter, no máximo, 12 réplicas. São necessárias pelo menos duas réplicas para disponibilidade de leitura (consulta) e pelo menos três réplicas para disponibilidade de leitura/gravação (consulta, indexação).
+Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. A abordagem mais comum é adicionar redundância no nível de serviço provisionando um segundo serviço de pesquisa em outra região. Assim como acontece com a disponibilidade durante uma recompilação de índice, o redirecionamento ou a lógica de failover deve vir de seu código.
 
 ## Aumentar o desempenho de consulta com réplicas
 
-A latência da consulta é um indicador de que podem ser necessárias réplicas adicionais. Em geral, é uma primeira etapa para melhorar o desempenho de consulta adicionar mais réplicas.
+A latência da consulta é um indicador da necessidade de réplicas adicionais. Em geral, uma primeira etapa para melhorar o desempenho de consulta é adicionar mais desse recurso. Conforme você adiciona réplicas, cópias adicionais do índice são colocadas online para oferecer maior suporte a cargas de trabalho de consulta e balancear a carga das solicitações em várias réplicas.
 
-Uma cópia de cada índice é executada em cada réplica. Conforme você adiciona réplicas, cópias adicionais do índice são colocadas online para oferecer maior suporte a cargas de trabalho de consulta e balancear a carga das solicitações em várias réplicas. Se você tiver vários índices, digamos seis, e três réplicas, cada réplica terá uma cópia de todos os seis índices.
-
-Observe que não fornecemos estimativas fixas para QPS (consultas por segundo): o desempenho da consulta depende da complexidade da consulta e de cargas de trabalho concorrentes. Em média, uma réplica pode atender cerca de 15 QPS, mas a taxa de transferência será um pouco maior ou menor dependendo da complexidade da consulta (consultas facetadas são mais complexas) e da latência de rede. Além disso, é importante reconhecer que, embora adicionar réplicas vai definitivamente adicionar escala e desempenho, o resultado final não é estritamente linear: adicionar três réplicas não garante o triplo da taxa de transferência.
+Observe que não podemos fornecer estimativas fixas para QPS (consultas por segundo): o desempenho da consulta depende da complexidade da consulta e de cargas de trabalho concorrentes. Em média, uma réplica em SKUs Básico ou S1 pode atender cerca de 15 QPS, mas a taxa de transferência será um pouco maior ou menor dependendo da complexidade da consulta (consultas facetadas são mais complexas) e da latência de rede. Além disso, é importante reconhecer que, embora adicionar réplicas vai definitivamente adicionar escala e desempenho, o resultado final não é estritamente linear: adicionar três réplicas não garante o triplo da taxa de transferência.
 
 Para saber mais sobre QPS, incluindo métodos para calcular o QPS para suas cargas de trabalho, veja [Gerenciar o serviço da Pesquisa](search-manage.md).
 
@@ -74,12 +84,12 @@ Aplicativos de pesquisa que exigem atualização de dados quase em tempo real pr
 
 ## Camada Básica: combinações de partição e réplica
 
-Um serviço Básico pode ter 1 partição e até 3 réplicas, com um limite máximo de 3 SUs.
+Um serviço Básico pode ter exatamente uma partição e até três réplicas, com um limite máximo de três SUs. O único recurso ajustável são as réplicas. Conforme observado anteriormente, você precisa de um mínimo de duas réplicas para alta disponibilidade em consultas.
 
 <a id="chart"></a>
-## Camada Standard: combinações de partição e réplica
+## Tipos Standard: combinações de partição e réplica
 
-Esta tabela mostra as unidades de pesquisa necessárias para dar suporte a combinações de réplicas e partições, sujeito ao limite de 36 SUs (unidades de pesquisa).
+Esta tabela mostra as unidades de pesquisa necessárias para dar suporte a combinações de réplicas e partições, sujeito ao limite de 36 SUs (unidades de pesquisa) (exclui os tipos Básico e S3 HD).
 
 - |- |- |- |- |- |- |
 ---|----|---|---|---|---|---|
@@ -92,10 +102,13 @@ Esta tabela mostra as unidades de pesquisa necessárias para dar suporte a combi
 **1 réplica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
 N/D|**1 partição**|**2 partições**|**3 partições**<|**4 partições**|**6 partições**|**12 partições**|
 
-
 Unidades de pesquisa, preço e capacidade são explicados em detalhes no site da Web do Azure. Veja [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/) para obter mais informações.
 
-> [AZURE.NOTE] O número de réplicas e partições que você escolher deve poder ser dividido de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque a pesquisa do Azure previamente divide cada índice em 12 fragmentos para que possam ser distribuídos entre as partições. Por exemplo, se o serviço tiver três partições e você criar um novo índice, cada partição conterá 4 fragmentos do índice. Como a Pesquisa do Azure fragmenta um índice é um detalhe de implementação, sujeito a alterações em futuras versões. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.
+> [AZURE.NOTE] O número de réplicas e partições que você escolher deve poder ser dividido de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque a Pesquisa do Azure divide previamente cada índice em 12 fragmentos, para que possam ser distribuídos em partes iguais entre todas as partições. Por exemplo, se o serviço tiver três partições e você criar um novo índice, cada partição conterá 4 fragmentos do índice. Como a Pesquisa do Azure fragmenta um índice é um detalhe de implementação, sujeito a alterações em futuras versões. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.
+
+## S3 de Alta Densidade: combinações de partição e réplica
+
+Um S2 HD tem uma partição e até 12 réplicas, com um limite máximo de 12 SUs. O único recurso ajustável são as réplicas.
 
 ## Calcular unidades de pesquisa para combinações de alocação de recursos específicos: R X P = SU
 
@@ -105,4 +118,4 @@ Ambas as camadas iniciam com uma réplica e uma partição, contadas como uma SU
 
 O custo por SU é determinado pela camada. Ele é menor para a camada Básica, quando comparada à Standard. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

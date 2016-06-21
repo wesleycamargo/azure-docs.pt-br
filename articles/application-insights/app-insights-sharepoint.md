@@ -18,8 +18,6 @@
 # Monitorar um site do SharePoint com o Application Insights
 
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 O Application Insights do Visual Studio monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
 
 
@@ -175,4 +173,4 @@ function onRequestFail(sender, args) {
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

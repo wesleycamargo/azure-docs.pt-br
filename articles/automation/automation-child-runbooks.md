@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/31/2016"
    ms.author="magoedte;bwren" />
 
 # Runbooks filhos na Automação do Azure
@@ -30,9 +30,19 @@ Quando um runbook é publicado, todos os runbooks filhos que ele chamar já deve
 
 Os parâmetros de um runbook filho com chamada embutida podem ser de qualquer tipo de dados, incluindo objetos complexos, e não há nenhuma [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) como quando você inicia o runbook usando o Portal de Gerenciamento do Azure ou o cmdlet Start-AzureRmAutomationRunbook.
 
+
 ### Tipos de runbook
 
-Não é possível usar um [Runbook de Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) ou um [Runbook gráfico](automation-runbook-types.md#graphical-runbooks) como um filho em um [Runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) usando execução embutida. Do mesmo modo, você não pode usar um Runbook do PowerShell como um filho com execução embutida em um runbook de Fluxo de Trabalho do PowerShell ou um runbook Gráfico. Runbooks do PowerShell só podem usar outro PowerShell como um filho. Runbooks Gráficos e de Fluxo de Trabalho do PowerShell podem usar um ao outro como runbooks filho.
+Quais tipos podem chamar um ao outro:
+
+- Um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks)e [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) podem chamar uns aos outros de forma embutida (ambos são baseados no PowerShell).
+- Um [runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e runbooks gráficos do Fluxo de Trabalho do PowerShell podem chamar uns aos outros de forma embutida (ambos são baseados no Fluxo de Trabalho do PowerShell)
+- Os tipos de PowerShell e os tipos de Fluxo de Trabalho do PowerShell não podem chamar uns aos outros de forma embutida e precisam usar Start-AzureRmAutomationRunbook.
+	
+Quando a ordem de publicação é importante:
+
+- a ordem de publicação de runbooks é importante apenas para runbooks do Fluxo de Trabalho do PowerShell e runbooks gráficos do Fluxo de Trabalho do PowerShell.
+
 
 Quando você chama um runbook filho Gráfico ou de Fluxo de Trabalho do PowerShell usando execução embutida, você usa apenas o nome do runbook. Quando você chamar um runbook filho do PowerShell, você deve precedido seu nome com *.\* para especificar que o script está localizado no diretório local.
 
@@ -74,7 +84,7 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 |:---|:---|:---|
 |Trabalho|Os runbooks filhos são executados no mesmo trabalho que o pai.|Um trabalho separado é criado para o runbook filho.|
 |Execução|O runbook pai aguarda a conclusão do runbook filho antes de continuar.|O runbook pai continua imediatamente após o runbook filho ser iniciado *ou* o runbook pai aguarda a conclusão do trabalho filho.|
-|Saída|O runbook pai pode obter saída diretamente do runbook filho.|O runbook pai deve recuperar a saída do trabalho de runbook filho *ou* o runbook pai pode obter saída diretamente do runbook filho.|
+|Saída|O runbook pai pode obter saída diretamente do runbook filho.|O runbook pai deve recuperar a saída do trabalho do runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho.|
 |Parâmetros|Os valores para os parâmetros de runbook filho são especificados separadamente e podem usar qualquer tipo de dados.|Os valores para os parâmetros de runbook filho devem ser combinados em uma única tabela de hash e somente podem tipos de dados simples, de matriz e de objeto que aproveitem a serialização JSON.|
 |Conta de Automação|O runbook pai somente pode usar o runbook filho na mesma conta de automação.|O runbook pai pode usar runbook filho de qualquer conta de automação da mesma assinatura do Azure e até mesmo de uma assinatura diferente se você tiver uma conexão com ele.|
 |Publicação|O runbook filho deve ser publicado antes da publicação do runbook pai.|O runbook filho deve ser publicado antes da inicialização do runbook pai.|
@@ -84,4 +94,4 @@ A tabela a seguir resume as diferenças entre os dois métodos para chamar um ru
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

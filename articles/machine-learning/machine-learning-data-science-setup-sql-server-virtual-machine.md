@@ -131,7 +131,7 @@ Para anexar discos de dados adicionais, execute as etapas descritas em [Como ane
 
 ##<a name="SSMS"></a>Conectar-se ao SQL Server Management Studio e habilitar a autenticação de modo misto
 
-O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do Windows sem um ambiente de domínio. Para conectar-se ao Mecanismo de Banco de Dados de outro computador, configure o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows. O modo de autenticação do SQL é necessário para receber dados diretamente de seus bancos de dados de VM do SQL Server no [Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net) usando o módulo de Leitor.
+O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do Windows sem um ambiente de domínio. Para conectar-se ao Mecanismo de Banco de Dados de outro computador, configure o SQL Server para a autenticação de modo misto. A autenticação de modo misto permite a Autenticação do SQL Server e a Autenticação do Windows. O modo de autenticação do SQL é necessário para receber dados diretamente de seus bancos de dados de VM do SQL Server no [Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net) usando o módulo Importar Dados.
 
 1.  Enquanto estiver conectado à máquina virtual usando a Área de Trabalho Remota, use o painel **Pesquisar** do Windows e digite **SQL Server Management Studio** (SMSS). Clique para iniciar o SQL Server Management Studio (SSMS). Convém adicionar um atalho para o SSMS em sua área de trabalho para uso futuro.
 
@@ -251,9 +251,9 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 ##<a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Aprendizado de Máquina do Azure
 
-Nos estágios posteriores do Processo da Cortana Analytics, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para compilar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo de **Leitor** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Este tópico é abordado em mais detalhes por meio dos links de guia do Processo da Cortana Analytics. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
+Nos estágios posteriores do Processo da Cortana Analytics, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para compilar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Este tópico é abordado em mais detalhes por meio dos links de guia do Processo da Cortana Analytics. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
 
-2.	No painel **Propriedades** do [módulo de Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
+2.	No painel **Propriedades** do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
 
 3.	Na caixa de texto **Nome do servidor de banco de dados**, digite `tcp:<DNS name of your virtual machine>,1433`
 
@@ -261,7 +261,7 @@ Nos estágios posteriores do Processo da Cortana Analytics, você usará o [Est�
 
 5.	Digite a senha do usuário do SQL na caixa de texto **Senha da conta de usuário do servidor**.
 
-	![Leitor do AM do Azure][13]
+	![Dados de Importação de AM do Azure][13]
 
 ##<a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
 
@@ -306,4 +306,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

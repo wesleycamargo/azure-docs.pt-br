@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
@@ -38,7 +38,7 @@ Você precisará de uma conta do Azure para concluir este tutorial.
 
 Este tutorial se baseia em um aplicativo de console do Windows escrito em c#, que você pode editar e executar no Visual Studio 2012 ou 2013
 
-Você pode encontrar o aplicativo cliente em Codeplex na [Demonstração da API de Gerenciamento de Pesquisa do Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Você pode encontrar o aplicativo cliente no Github na [Demonstração da API de Gerenciamento .NET da Pesquisa do Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configurar o aplicativo
@@ -208,4 +208,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

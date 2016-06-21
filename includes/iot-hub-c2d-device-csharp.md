@@ -20,21 +20,21 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
             }
         }
 
-    O método `ReceiveAsync` retorna de forma assíncrona a mensagem recebida no momento em que ela é recebida pelo dispositivo. Ela retorna *null* após um período de tempo limite especificável (nesse caso, será usado o padrão de 1 minuto). Quando isso acontece, queremos que o código continue aguardando novas mensagens. Essa é a razão para a linha `if (receivedMessage == null) continue`.
+    O método `ReceiveAsync` retorna de forma assíncrona a mensagem recebida no momento em que ela é recebida pelo dispositivo. Ela retorna *null* após um período de tempo limite especificável (nesse caso, será usado o padrão de um minuto). Quando isso acontece, o código deve continuar a aguardar novas mensagens. Essa é a razão para a linha `if (receivedMessage == null) continue`.
 
-    A chamada para `CompleteAsync()` notifica o Hub IoT de que a mensagem foi processada com êxito e de que ela pode ser removida com segurança da fila do dispositivo. Caso tenha ocorrido algo que impediu que o aplicativo do dispositivo concluísse o processamento da mensagem, o Hub IoT a entregará novamente; por isso, é importante que a lógica de processamento de mensagem no aplicativo do dispositivo seja *idempotente*, para que o recebimento da mesma mensagem várias vezes produza o mesmo resultado. Um aplicativo também pode temporariamente `Abandon` uma mensagem, o que fará com que o hub IoT retenha a mensagem na fila para consumo futuro; ou `Reject` uma mensagem, o que removerá permanentemente a mensagem da fila. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D] para obter mais informações sobre o ciclo de vida da mensagem da nuvem para o dispositivo.
+    A chamada para `CompleteAsync()` notifica o Hub IoT que a mensagem foi processada com êxito. A mensagem pode ser removida da fila do dispositivo com segurança. Se ocorreu algo que impediu que o aplicativo do dispositivo concluísse o processamento da mensagem, o Hub IoT a entrega novamente. Em seguida, é importante que a lógica de processamento de mensagem no aplicativo do dispositivo seja *idempotente*, de modo que receber a mesma mensagem várias vezes produz o mesmo resultado. Um aplicativo também pode abandonar temporariamente uma mensagem, o que resulta em um Hub IoT reter a mensagem na fila para consumo futuro. Ou, o aplicativo pode rejeitar uma mensagem, que a remove permanentemente da fila. Para obter mais informações sobre o ciclo de vida da mensagem da nuvem para o dispositivo, consulte [Guia do desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
-> [AZURE.NOTE] Ao usar o HTTP/1 em vez do AMQP como transporte, o `ReceiveAsync` será retornado imediatamente. O padrão com suporte para mensagens da nuvem para o dispositivo com o HTTP/1 são dispositivos conectados intermitentemente que verificam mensagens com pouca frequência (ou seja, uma frequência menor que a cada 25 minutos). Emitir mais recebimentos de HTTP/1 resultará na limitação das solicitações pelo Hub IoT. Veja o [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D] para obter mais informações sobre as diferenças entre o suporte do AMQP e do HTTP/1, bem como a limitação do Hub IoT.
+> [AZURE.NOTE] Ao usar o HTTP/1 em vez do AMQP como transporte, o método `ReceiveAsync` é retornado imediatamente. O padrão com suporte para mensagens da nuvem para o dispositivo com o HTTP/1 são dispositivos conectados intermitentemente que verificam mensagens com pouca frequência (menos do que a cada 25 minutos). Emitir mais recebimentos de HTTP/1 resulta na limitação das solicitações pelo Hub IoT. Para obter mais informações sobre as diferenças entre o suporte do AMQP e HTTP/1 e a limitação do Hub IoT, consulte [Guia do desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
-2. Adicione o seguinte método no método **Main**, logo antes da linha `Console.ReadLine()`:
+2. Adicione o método a seguir ao método **Main**, logo antes da linha `Console.ReadLine()`:
 
         ReceiveC2dAsync();
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, é recomendado implementar políticas de repetição (por exemplo, retirada exponencial), como sugerido no artigo do MSDN [Tratamento de falhas transitórias].
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] \(Tratamento de falhas transitórias) do MSDN.
 
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

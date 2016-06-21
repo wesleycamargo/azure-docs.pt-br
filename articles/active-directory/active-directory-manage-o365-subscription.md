@@ -69,4 +69,4 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 ## Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

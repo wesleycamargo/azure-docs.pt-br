@@ -18,7 +18,7 @@
 	ms.author="annemill"/>
 
 # Visão geral do desenvolvimento de Banco de Dados SQL
-Este artigo apresenta as considerações básica que um desenvolvedor deve fazer ao escrever código para se conectar ao Banco de Dados SQL do Azure.
+Este artigo apresenta as considerações básicas que um desenvolvedor deve fazer ao escrever código para se conectar ao Banco de Dados SQL do Azure.
 
 ## Linguagem e plataforma
 Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Você pode encontrar links de exemplos de código em:
@@ -62,4 +62,4 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 * [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introdução à visualização da Escala Elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

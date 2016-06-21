@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fazer backup e restaurar bancos de dados habilitados para Stretch | Microsoft Azure"
-	description="Saiba como fazer backup e restaurar os bancos de dados habilitados para Stretch."
+	pageTitle="Fazer backup de bancos de dados habilitados para Stretch | Microsoft Azure"
+	description="Saiba como fazer backup de bancos de dados habilitados para Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,42 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/03/2016"
 	ms.author="douglasl"/>
 
+# Fazer backup de bancos de dados habilitados para o Stretch
 
-# Fazer backup e restaurar bancos de dados habilitados para Stretch
+Backups de bancos de dados ajudam você a se recuperar de muitos tipos de desastres, erros e falhas.
 
-Para fazer backup e restaurar os bancos de dados habilitados para Stretch, você pode continuar a usar os métodos utilizados atualmente. Para obter mais informações sobre o backup e a restauração do SQL Server, consulte [Fazer Backup e Restaurar Bancos de Dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
+-   Você precisa fazer backup de seus bancos de dados do SQL Server habilitados para Stretch.  
 
-O backup de um banco de dados habilitado para Stretch é um backup superficial que não inclui os dados migrados para o servidor remoto.
+-   O Microsoft Azure faz backup automaticamente dos dados remotos que o Stretch Database migrou do SQL Server para o Azure.
 
-O Banco de Dados de Stretch oferece suporte completo para a restauração pontual. Depois de restaurar o banco de dados do SQL Server para um ponto no tempo e autorizar novamente a conexão com o Azure, o Banco de Dados de Stretch reconciliará os dados remotos com o mesmo ponto no tempo. Para obter mais informações sobre a restauração pontual no SQL Server, consulte [Restaurar um Banco de Dados do SQL Server para um Ponto no Tempo (Modelo de Restauração Completa)](https://msdn.microsoft.com/library/ms179451.aspx). Para obter informações sobre o procedimento armazenado que você precisa executar após uma restauração para autorizar novamente a conexão com o Azure, consulte [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx).
+>    [AZURE.NOTE] O backup é apenas uma parte de uma solução de continuidade de negócios de alta disponibilidade. Para obter mais informações sobre a alta disponibilidade, consulte [Soluções de alta disponibilidade](https://msdn.microsoft.com/library/ms190202.aspx).
 
-## <a name="Reconnect"></a>Restaurar um banco de dados habilitado para Stretch a partir de um backup
+## Fazer backup dos dados do SQL Server  
 
-1.  Restaure o banco de dados a partir de um backup.
+Para fazer backup de seus bancos de dados do SQL Server habilitados para Stretch, você pode continuar usando os métodos de backup do SQL Server utilizados atualmente. Para obter mais informações, consulte [Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
-2.  Execute o procedimento armazenado [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) para reconectar o banco de dados habilitado para Stretch local com o Azure.
+Backups de um banco de dados do SQL Server habilitado para Stretch contêm apenas dados locais e dados qualificados para migração no momento em que o backup é executado. (Dados qualificados são dados que ainda não foram migrados, mas serão migrados para o Azure com base nas configurações de migração das tabelas.) Isso é conhecido como backup **superficial** e não inclui dados já migrados para o Azure.
 
-    -   Forneça as credenciais existentes do banco de dados com escopo como um sysname ou um valor varchar(128). (Não use varchar(max).) Você pode procurar o nome da credencial no modo de exibição **sys.database\_scoped\_credentials**.
+## Fazer backup de dados remotos do Azure   
 
-	-   Especifique se deseja fazer uma cópia dos dados remotos e conecte-se com a cópia.
+O Microsoft Azure faz backup automaticamente dos dados remotos que o Stretch Database migrou do SQL Server para o Azure.
 
-    ```tsql
-    Declare @credentialName nvarchar(128);
-    SET @credentialName = N'<database_scoped_credential_name_created_previously>';
-    EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 0;
-    ```
+### O Azure reduz o risco de perda de dados com o backup automático  
+O serviço SQL Server Stretch Database no Azure protege seus bancos de dados remotos com instantâneos automáticos de armazenamento pelo menos a cada 8 horas. Ele mantém cada instantâneo por 7 dias para fornecer a você uma variedade de possíveis pontos de restauração.
 
-## <a name="MoreInfo"></a>Mais informações sobre o Backup e a restauração
-Os backups em um banco de dados com o Banco de Dados de Stretch habilitado contêm apenas os dados locais e os dados qualificados no ponto do tempo quando o backup é executado. Esses backups também contêm informações sobre o ponto de extremidade remoto onde residem os dados remotos do banco de dados. Isso é conhecido como "backup superficial". Os backups profundos que contêm todos os dados contidos no banco de dados, local e remoto, não são compatíveis.
+### O Azure reduz o risco de perda de dados com a redundância geográfica  
+Backups de bancos de dados do Azure são armazenados no Armazenamento do Azure com redundância geográfica (RA-GRS) e, portanto, têm redundância geográfica por padrão. O armazenamento com redundância geográfica replica seus dados para uma região secundária a centenas de quilômetros da região primária. Em ambas as regiões, primária e secundária, seus dados são replicados três vezes cada um, entre domínios de falha e domínios de atualização separados. Isso garante a durabilidade dos dados, mesmo no caso de uma interrupção regional completa ou um desastre que cause indisponibilidade das regiões do Azure.
 
-Quando você restaura um backup de um banco de dados com o Banco de Dados de Stretch habilitado, esta operação restaura os dados locais e os dados qualificados para o banco de dados conforme o esperado. (Dados qualificados são dados que ainda não foram movidos, mas serão movidos para o Azure com base na configuração do Banco de Dados de Stretch das tabelas.) Depois da operação de restauração ser executada, o banco de dados contém os dados locais e qualificados a partir do ponto quando o backup foi feito, mas não tem as credenciais necessárias e os artefatos para se conectar ao ponto de extremidade remoto.
+### <a name="stretchRPO"></a>O Stretch Database reduz o risco de perda de dados para seus dados do Azure mantendo temporariamente linhas migradas
+Após migrar linhas qualificadas do SQL Server para o Azure, o Stretch Database retém as linhas na tabela de preparo por um mínimo de 8 horas. Se você restaurar um backup do banco de dados do Azure, o Stretch Database usará as linhas salvas na tabela de preparo para reconciliar os bancos de dados do SQL Server e do Azure.
 
-Você precisa executar o procedimento armazenado **sys.sp\_rda\_reauthorize\_db** para restabelecer a conexão entre o banco de dados local e seu ponto de extremidade remoto. Somente um db\_owner pode executar essa operação. Esse procedimento armazenado também requer o logon de administrador e a senha para o servidor do Azure de destino.
+Depois de restaurar um backup de seus dados do Azure, você precisa executar o procedimento armazenado [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) para reconectar o banco de dados do SQL Server habilitado para o Stretch e o banco de dados remoto do Azure. Quando você executa **sys.sp\_rda\_reauthorize\_db**, o Stretch Database sincroniza automaticamente os bancos de dados do SQL Server e do Azure.
 
-Depois de restabelecer a conexão, o Banco de Dados de Stretch tenta reconciliar os dados qualificados no banco de dados local com os dados remotos criando uma cópia dos dados remotos no ponto de extremidade remoto e vinculando-os ao banco de dados local. Esse processo é automático e não requer intervenções do usuário. Após essa reconciliação ser executada, o banco de dados local e o ponto de extremidade remoto ficam em um estado consistente.
+Para aumentar o número de horas de dados migrados que o Stretch Database retém temporariamente na tabela de preparo, execute o procedimento armazenado [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) e especifique um número maior que 8 horas. Para decidir a quantidade de dados a serem retidos, considere os seguintes fatores:
+-   A frequência dos backups automáticos do Azure (pelo menos a cada 8 horas).
+-   O tempo necessário após um problema para reconhecer o problema e decidir restaurar um backup.
+-   A duração da operação de restauração do Azure.
+
+> [AZURE.NOTE] Aumentar a quantidade de dados que o Stretch Database retém temporariamente na tabela de preparo aumenta a quantidade de espaço necessária no SQL Server.
+
+Para verificar o número de horas de dados que o Stretch Database retém temporariamente na tabela de preparo, execute o procedimento armazenado [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
 ## Consulte também
 
@@ -58,4 +64,4 @@ Depois de restabelecer a conexão, o Banco de Dados de Stretch tenta reconciliar
 
 [Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

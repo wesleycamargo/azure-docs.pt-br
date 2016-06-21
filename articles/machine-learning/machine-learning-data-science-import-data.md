@@ -23,7 +23,7 @@
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode:
 
 - carregar dados de um **arquivo local** antes do tempo do seu disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
-- acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Leitor][reader]. 
+- acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data]. 
 - usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -65,7 +65,7 @@ Se você importar dados em um formato como ARFF, que inclui metadados, o Estúdi
 
 Se você importar dados em um formato como TSV ou CSV, que não incluem esses metadados, o Estúdio de Aprendizado de Máquina infere o tipo de dados de cada coluna por amostragem dos dados. Se os dados também não tiverem os cabeçalhos das colunas, o Estúdio de Aprendizado de Máquina fornece nomes padrão.
 
-Você pode especificar explicitamente ou alterar os cabeçalhos e tipos de dados das colunas usando o [Editor de Metadados][metadata-editor].
+Você pode especificar explicitamente ou alterar os cabeçalhos e tipos de dados das colunas usando [Editar Metadados][edit-metadata].
 
 Os **tipos de dados** a seguir são reconhecidos pelo Estúdio de Aprendizado de Máquina:
 
@@ -86,7 +86,7 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

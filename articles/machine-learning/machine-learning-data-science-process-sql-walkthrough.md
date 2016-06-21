@@ -175,8 +175,8 @@ Neste exercício, você vai:
 
 Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo de [Leitor][reader] no Aprendizado de Máquina do Azure ou
-2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Leitor][reader] no Aprendizado de Máquina do Azure.
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure ou
+2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure.
 
 Nesta seção, salvaremos a consulta final para extrair e coletar amostras dos dados. O segundo método é demonstrado na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb).
 
@@ -266,7 +266,7 @@ As consultas de exploração de geração de rótulos e conversão de geografia 
 
 #### Preparando dados para criação de modelo
 
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de % 1 do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Leitor][reader] do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para ingestão de dados direta da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de % 1 do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para ingestão de dados direta da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,8 +298,8 @@ A sequência recomendada ao trabalhar com grandes volumes de dados é a seguinte
 
 Quando estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
-1. Salvar a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo de [Leitor][reader] no Aprendizado de Máquina do Azure. Esse método é demonstrado na seção [Criando modelos no Aprendizado de Máquina do Azure](#mlmodel).    
-2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo do [Leitor][reader].
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure. Esse método é demonstrado na seção [Criando modelos no Aprendizado de Máquina do Azure](#mlmodel).    
+2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo do [Importar Dados][import-data].
 
 A seguir estão alguns exemplos de exploração de dados, visualização de dados e engenharia de recursos. Para obter mais exemplos, consulte o IPython Notebook SQL de exemplo na pasta **IPython Notebook de Exemplo**.
 
@@ -419,7 +419,7 @@ Da mesma forma, é possível verificar a relação entre **rate\_code** e **trip
 
 ### Redução de amostragem dos dados no SQL
 
-Ao preparar dados para a criação de modelo no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net), você pode decidir se a **consulta SQL deve ser usada diretamente no módulo de Leitor** ou se mantém os dados de amostra e projetados em uma nova tabela, que você pode usar no módulo de [Leitor][reader] com um simples **SELECT * FROM <nome\_da\_sua\_nova\_tabela>**.
+Ao preparar dados para a criação de modelo no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net), você pode decidir se a **consulta SQL deve ser usada diretamente no módulo Importar Dados** ou se mantém os dados de amostra e projetados em uma nova tabela, que você pode usar no módulo de [Importar Dados][import-data] com um simples **SELECT * FROM <nome\_da\_sua\_nova\_tabela>**.
 
 Nesta seção, criaremos uma nova tabela para armazenar os dados amostrados e engenhados. Um exemplo de uma consulta direta de SQL para criação de modelos é fornecido na seção [Exploração de dados e engenharia de recursos no SQL Server](#dbexplore).
 
@@ -631,9 +631,9 @@ Uma experiência de treinamento típico consiste no seguinte:
 
 Neste exercício, já exploramos e engenhamos os dados no SQL Server, e escolhemos o tamanho da amostra para ingestão no AM do Azure. Para compilar um ou mais dos modelos de previsão, decidimos:
 
-1. Obter os dados do AM do Azure usando o módulo de [Leitor][reader] disponível na seção **Entrada e saída de dados**. Para saber mais, consulte a página de referência de módulo do [Leitor][reader].
+1. Obtenha os dados no AM do Azure usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do módulo [Importar Dados][import-data].
 
-	![Leitor do AM do Azure][17]
+	![Dados de Importação de AM do Azure][17]
 
 2. Selecione **Banco de Dados SQL do Azure** como a **Fonte de dados** no painel **Propriedades**.
 
@@ -653,7 +653,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 > [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
-> Para excluir as colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [Colunas do Projeto][project-columns] ou o [Editor de Metadados][metadata-editor]. Para saber mais, consulte as páginas de referência [Colunas do Projeto][project-columns] e [Editor de Metadados][metadata-editor].
+> Para excluir as colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para obter mais informações, consulte as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
 
 ## <a name="mldeploy"></a>Implantando modelos no Aprendizado de Máquina do Azure
 
@@ -674,7 +674,7 @@ O Aprendizado de Máquina do Azure tentará criar um experimento de pontuação 
 2. Identificar uma **porta de entrada** lógica para representar o esquema de dados de entrada esperado.
 3. Identificar uma **porta de saída** lógica para representar o esquema de saída do serviço Web.
 
-Quando o experimento de pontuação for criado, revise-o e ajuste conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos Pontuados** e **Possibilidades Pontuadas** na saída usando o módulo [Colunas de Projeto][project-columns].
+Quando o experimento de pontuação for criado, revise-o e ajuste conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos Pontuados** e **Probabilidades Pontuadas** na saída usando o módulo [Selecionar Colunas do Conjunto de Dados][select-columns].
 
 Um exemplo de experimento de pontuação é mostrado na figura abaixo. Quando estiver pronto para implantar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
 
@@ -712,8 +712,8 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 
 <!-- Module References -->
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

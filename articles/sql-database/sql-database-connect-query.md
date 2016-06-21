@@ -121,4 +121,4 @@ Depois que se conectar ao servidor lógico, você pode se conectar a um banco de
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

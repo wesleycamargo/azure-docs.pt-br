@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Crie aplicativos de Aprendizado de Máquina usando o Apache Spark no HDInsight Linux (Preview)
+# Crie aplicativos de Aprendizado de Máquina para serem executados em clusters do Apache Spark no HDInsight Linux
 
 Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
 
@@ -232,13 +232,21 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
 ### Gerenciar recursos
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -254,4 +262,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

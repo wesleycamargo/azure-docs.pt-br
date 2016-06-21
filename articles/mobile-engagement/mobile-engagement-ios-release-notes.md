@@ -18,13 +18,18 @@
 
 #Notas de versão
 
+##3\.2.3 (07/06/2016)
+
+-   Foi corrigido o bug em que comentários de entrega não eram registrados quando o aplicativo estava em segundo plano.
+-   Envio de logs técnicos otimizado.
+
 ##3\.2.2 (07/04/2016)
 
--   Correção de um bug no cancelamento da solicitação HTTP que, por vezes, leva a uma falha. 
+-   Correção de um bug no cancelamento da solicitação HTTP que, por vezes, leva a uma falha.
 
 ##3\.2.1 (11/12/2015)
 
--   Corrigido o atraso quando uma nova instância do aplicativo é disparada por uma notificação com links profundos 
+-   Corrigido o atraso quando uma nova instância do aplicativo é disparada por uma notificação com links profundos
 
 ##3\.2.0 (10/08/2015)
 
@@ -62,4 +67,4 @@
 -   Aprimoramentos de segurança.
 -   Controle SmartAd removido.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

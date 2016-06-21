@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="06/03/2016"
    ms.author="telmos" />
 
 # Resolução de nomes de máquinas virtuais e instâncias de função
@@ -42,7 +42,7 @@ O tipo de resolução de nomes usado depende de como as VMs e as instâncias de 
 
 ## Resolução de nomes fornecida pelo Azure
 
-Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução de nomes interna para VMs e instâncias de função que residem na mesma rede virtual ou serviço de nuvem. As VMs/instâncias em um serviço de nuvem compartilham o mesmo sufixo DNS (de modo que o nome do host por si só é suficiente), mas, em redes virtuais clássicas, diferentes serviços de nuvem têm diferentes sufixos DNS. Portanto, o FQDN é necessário para resolver nomes entre diferentes serviços de nuvem. Em redes virtuais no modelo de implantação do Gerenciador de Recursos, o sufixo DNS é consistente em toda a rede virtual (portanto, o FQDN não é necessário) e nomes DNS podem ser atribuídos a NICs e VMs. Embora a resolução de nomes fornecida pelo Azure não requeira qualquer configuração, ela não é a escolha apropriada para todos os cenários de implantação, como mostrado na tabela acima.
+Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução de nomes interna para VMs e instâncias de função que residem na mesma rede virtual ou serviço de nuvem. As VMs/instâncias em um serviço de nuvem compartilham o mesmo sufixo DNS (de modo que o nome do host por si só é suficiente), mas, em redes virtuais clássicas, diferentes serviços de nuvem têm diferentes sufixos DNS. Portanto, o FQDN é necessário para resolver nomes entre diferentes serviços de nuvem. Em redes virtuais no modelo de implantação do Gerenciador de Recursos, o sufixo DNS é consistente em toda a rede virtual (portanto, o FQDN não é necessário) e os nomes DNS podem ser atribuídos a NICs e VMs. Embora a resolução de nomes fornecida pelo Azure não requeira qualquer configuração, ela não é a escolha apropriada para todos os cenários de implantação, como mostrado na tabela acima.
 
 > [AZURE.NOTE] No caso das funções web e de trabalho, você também pode acessar os endereços IP internos das instâncias de função, conforme o número de instâncias e o nome da função usando a API REST do Gerenciamento de Serviços do Azure. Para obter mais informações, veja [Referência da API REST de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
@@ -74,7 +74,7 @@ Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução 
 
 - O tráfego da consulta DNS é restrita a cada VM. Isso não deve afetar a maioria dos aplicativos. Se a limitação da solicitação for observada, certifique-se de que o armazenamento em cache do cliente está habilitado. Para obter mais detalhes, consulte [Obtendo o máximo de resolução de nomes fornecida pelo Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 
-- Apenas as VMs nos primeiros 180 serviços de nuvem primeiro são registrados para cada rede virtual em um modelo de implantação clássico. Isso não se aplica às redes virtuais nos modelos de implantação do Gerenciador de Recursos.
+- Apenas as VMs dos primeiros 180 serviços de nuvem são registradas para cada rede virtual em um modelo de implantação clássico. Isso não se aplica às redes virtuais nos modelos de implantação do Gerenciador de Recursos.
 
 
 ### Obtendo o máximo de resolução de nomes fornecida pelo Azure
@@ -101,7 +101,7 @@ Há uma série de pacotes de armazenamento em cache de DNS diferentes disponíve
 	- adicione "prepend domain-name-servers 127.0.0.1;" a "/etc/dhclient-eth0.conf"
 	- reinicie o serviço de rede ("service network restart") para definir o cache como o resolvedor DNS local
 
-> [AZURE.NOTE]\: O pacote 'dnsmasq' é apenas um dos vários caches DNS disponíveis para o Linux. Antes de usá-lo, verifique sua adequação para suas necessidades específicas e se nenhum outro cache está instalado.
+> [AZURE.NOTE] O pacote 'dnsmasq' é apenas um dos vários caches DNS disponíveis para o Linux. Antes de usá-lo, verifique sua adequação para suas necessidades específicas e se nenhum outro cache está instalado.
 
 **Tentativa no lado do cliente:**
 
@@ -131,24 +131,26 @@ Há várias situações em que suas necessidades de resolução de nome podem ir
 
 Os servidores DNS em uma rede virtual podem encaminhar consultas DNS para os resolvedores recursivos do Azure a fim de resolver nomes de host dentro da rede virtual. Por exemplo, um DC (controlador de domínio) em execução no Azure pode responder a consultas DNS de seus domínios e encaminhar todas as outras consultas ao Azure. Isso permite que as VMs vejam tanto seus recursos locais (pelo controlador de domínio) quanto nomes de host fornecidos pelo Azure (pelo encaminhador). O acesso a resolvedores recursivos do Azure é fornecido por meio da IP virtual 168.63.129.16.
 
-O encaminhamento de DNS também permite a resolução DNS entre redes virtuais e permite suas máquinas locais resolvam nomes de host fornecidos pelo Azure. Para resolver o nome de host da VM, a VM do servidor DNS deve residir na mesma rede virtual e ser configurado para encaminhar consultas de nome de host ao Azure. Como o sufixo DNS é diferente em cada rede virtual, você pode usar regras de encaminhamento condicionais para enviar consultas DNS a fim de serem resolvidas pela rede virtual correta. A imagem abaixo mostra duas redes virtuais e uma rede local fazendo a resolução de DNS entre redes virtuais usando este método:
+O encaminhamento de DNS também permite a resolução DNS entre redes virtuais e permite suas máquinas locais resolvam nomes de host fornecidos pelo Azure. Para resolver o nome de host da VM, a VM do servidor DNS deve residir na mesma rede virtual e ser configurado para encaminhar consultas de nome de host ao Azure. Como o sufixo DNS é diferente em cada rede virtual, você pode usar regras de encaminhamento condicionais para enviar consultas DNS a fim de serem resolvidas pela rede virtual correta. A imagem abaixo mostra duas redes virtuais e uma rede local fazendo a resolução de DNS entre redes virtuais usando este método. Um encaminhador DNS de exemplo está disponível na [galeria de Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS entre redes virtuais](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Ao usar a resolução de nomes fornecida pelo Azure, o sufixo DNS interno é fornecido para cada máquina virtual que usar o DHCP. Ao usar sua própria solução de resolução de nome, esse sufixo não será fornecido para as VMs porque interfere com outras arquiteturas de DNS. Para fazer referência a máquinas pelo FQDN, ou para configurar o sufixo em suas VMs, ele pode ser determinado usando o PowerShell ou a API:
+Ao usar a resolução de nomes fornecida pelo Azure, um sufixo DNS interno (*.internal.cloudapp.net) será fornecido para cada VM que usar o DHCP. Isso permite que a resolução de nomes do host, assim como os registros de nomes do host, estejam na zona internal.cloudapp.net. Ao usar sua própria solução de resolução de nomes, o sufixo IDNS não será fornecido para as VMs, pois interfere com outras arquiteturas de DNS (como cenários de ingressos em domínio). Em vez disso, fornecemos um espaço reservado que não funciona (reddog.microsoft.com).
 
--  Para redes virtuais nos modelos de implantação do Gerenciador de Recursos, o sufixo está disponível por meio do recurso [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou por meio do cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
--  No caso de modelos implantação clássica, o sufixo está disponível por meio da chamada [obter a API de implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou por meio do cmdlet [Get-AzureVM-Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
+Se necessário, o sufixo DNS interno pode ser determinado usando o PowerShell ou a API:
+
+-  Para as redes virtuais nos modelos de implantação do Gerenciador de Recursos, o sufixo está disponível por meio do recurso [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou por meio do cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  No caso de modelos implantação clássica, o sufixo está disponível por meio da chamada à [API Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou por meio do cmdlet [Get-AzureVM-Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Se o encaminhamento de consultas para o Azure não atender às suas necessidades, você precisará fornecer sua própria solução DNS. A solução DNS precisará:
 
--  Fornecer resolução de nome do host apropriada, por exemplo, via [DDNS](virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente. 
+-  Forneça uma resolução de nomes do host apropriada, por exemplo, por meio do [DDNS](virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente. 
 -  Fornecer a resolução recursiva apropriada para permitir a resolução de nomes de domínio externo.
 -  Ser acessível (TCP e UDP na porta 53) dos clientes a que ela serve e ser capaz de acessar a Internet.
 -  Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
-> [AZURE.NOTE] Para obter um melhor desempenho, ao usar as VMs do Azure como servidores DNS, o IPv6 deve ser desabilitado e um [IP Público em Nível de Instância](virtual-networks-instance-level-public-ip.mp) deve ser atribuído a cada VM do servidor DNS. Se você optar por usar o Windows Server como servidor DNS, [este artigo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) fornece análise e otimizações adicionais de desempenho.
+> [AZURE.NOTE] Para obter um melhor desempenho, ao usar as VMs do Azure como servidores DNS, o IPv6 deve ser desabilitado e um [IP Público em Nível de Instância](virtual-networks-instance-level-public-ip.md) deve ser atribuído a cada VM do servidor DNS. Se você optar por usar o Windows Server como o servidor DNS, [este artigo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) fornecerá análise e otimizações de desempenho adicionais.
 
 
 ### Especificar servidores DNS
@@ -158,9 +160,9 @@ Ao usar seus próprios servidores DNS, o Azure fornece a capacidade de especific
 > [AZURE.NOTE] Propriedades de conexão de rede, como IPs de servidor DNS, não devem ser editadas diretamente dentro de VMs do Windows, já que elas podem ser apagadas durante o serviço de reparo quando o adaptador de rede virtual é substituído.
 
 
-Ao usar o modelo de implantação do Gerenciador de Recursos, os servidores DNS podem ser especificados no Portal, API/Modelos ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) ou no PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
+Ao usar o modelo de implantação do Gerenciador de Recursos, os servidores DNS podem ser especificados no Portal, na API/nos Modelos ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) ou no PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
-Ao usar o modelo de implantação clássico, os servidores DNS da rede virtual podem ser especificados no Portal ou [no arquivo *Configuração de Rede*](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, os servidores DNS são especificados por meio do [arquivo *Configuração do Serviço*](https://msdn.microsoft.com/library/azure/ee758710) ou no PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
+Ao usar o modelo de implantação clássica, os servidores DNS da rede virtual podem ser especificados no Portal ou [no arquivo *Configuração de Rede*](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, os servidores DNS são especificados por meio do [arquivo de *Configuração de Serviço*](https://msdn.microsoft.com/library/azure/ee758710) ou no PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
 
 > [AZURE.NOTE] Se alterar as configurações DNS de uma rede virtual/máquina virtual já implantada, você precisará reiniciar cada máquina virtual afetada para que as alterações entrem em vigor.
 
@@ -181,4 +183,4 @@ Modelo de implantação clássico:
 - [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
 - [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

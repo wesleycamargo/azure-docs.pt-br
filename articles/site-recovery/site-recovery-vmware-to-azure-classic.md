@@ -43,7 +43,7 @@ Este artigo contém instruções para uma implantação avançada no portal clá
 
 A implantação avançada é uma atualização importante. Veja um resumo dos aprimoramentos que fizemos:
 
-- **Nenhuma VM de infraestrutura no Azure**: os dados replicam diretamente para uma conta de armazenamento do Azure. Além da replicação e failover, não há nenhum conjunto de qualquer infraestrutura de máquinas virtuais (servidor de configuração, servidor de destino mestre) como precisávamos na implantação herdada.  
+- **Nenhuma VM de infraestrutura no Azure**: os dados replicam diretamente para uma conta de armazenamento do Azure. Além da replicação e failover, não é preciso configurar nenhuma VM de infraestrutura (servidor de configuração, servidor de destino mestre) como precisávamos na implantação herdada.  
 - **Instalação unificada**: uma única instalação permite uma configuração simples e escalabilidade para os componentes locais.
 - **Implantação segura**: todo o tráfego é criptografado e as comunicações de gerenciamento da replicação são enviadas por HTTPS 443.
 - **Pontos de recuperação**: suporte para falhas e pontos de recuperação consistentes com aplicativos para ambientes do Windows e Linux, e suporte das configurações consistentes com VM única ou várias VMs.
@@ -306,11 +306,10 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 	![Resumo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] O proxy do agente de serviço de recuperação do Microsoft Azure precisa ser configurado. Quando a instalação for concluída, inicie um aplicativo chamado “Shell de Serviços de Recuperação do Microsoft Azure” no menu Iniciar do Windows. Na janela de comando que abre, execute o seguinte conjunto de comandos para configurar as configurações do servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	 Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
-	 net stop obengine 
-	 net start obengine
-	 
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword 
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine 
+	net start obengine
 
 
 
@@ -465,7 +464,8 @@ Os instaladores estão disponíveis em C:\\Program Files (x86) \\Microsoft Azure
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
 Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -761,4 +761,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre o failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

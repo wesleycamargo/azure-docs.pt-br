@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jocaplan"/>
 
 
@@ -23,7 +23,7 @@ O **Microsoft Power BI Embedded** habilita você a integrar relatórios do Power
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-O **Microsoft Power BI Embedded** é um serviço do Azure que habilitará ISVs (fornecedores de Software independentes) a revelar experiências de dados do Power BI em seus aplicativos. Como um ISV, vocês compilaram aplicativos. Esses aplicativos têm seus próprios usuários e um conjunto distinto de recursos. Esses aplicativos também podem ter alguns elementos de dados internos, como gráficos e relatórios que agora podem ser alimentados pelo **Microsoft Power BI Embedded**. Os usuários do aplicativo não é precisam de uma conta do Power BI para usar o seu aplicativo. Eles podem continuar a entrar no aplicativo que tinham antes e exibir e interagir com a experiência de bloco e emissão de relatórios do Power BI sem a necessidade de qualquer licença adicional.
+O **Microsoft Power BI Embedded** é um serviço do Azure que habilita ISVs (fornecedores de Software independentes) a revelar experiências de dados do Power BI em seus aplicativos. Como um ISV, vocês compilaram aplicativos. Esses aplicativos têm seus próprios usuários e um conjunto distinto de recursos. Esses aplicativos também podem ter alguns elementos de dados internos, como gráficos e relatórios que agora podem ser alimentados pelo **Microsoft Power BI Embedded**. Os usuários do aplicativo não é precisam de uma conta do Power BI para usar o seu aplicativo. Eles podem continuar a entrar no aplicativo que tinham antes e exibir e interagir com a experiência de bloco e emissão de relatórios do Power BI sem a necessidade de qualquer licença adicional.
 
 ## Licenciamento do Microsoft Power BI Embedded
 
@@ -99,4 +99,4 @@ Para um exemplo de como usar [CreateProvisionToken](https://msdn.microsoft.com/l
 - [APIs REST do Power BI](http://docs.powerbi.apiary.io/reference)
 - [Regiões do Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

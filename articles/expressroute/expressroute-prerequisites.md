@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # Pré-requisitos e lista de verificação da Rota Expressa  
 
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, será necessário verificar se os requisitos listados nas seções abaixo foram atendidos.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Conta do Azure
 
@@ -63,4 +65,4 @@ Se você planeja habilitar o CRM Online na Rota Expressa, consulte os documentos
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

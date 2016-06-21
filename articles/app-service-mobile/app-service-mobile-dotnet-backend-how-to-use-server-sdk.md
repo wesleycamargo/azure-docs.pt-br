@@ -303,7 +303,7 @@ Quando um usuário é autenticado pelo serviço de aplicativo, você pode acessa
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-A SID é derivado da ID de usuário específica do provedor e é estática para um determinado usuário e o provedor de logon.
+A SID é derivado da ID de usuário específica do provedor e é estática para um determinado usuário e o provedor de logon. Quando um usuário acessa um ponto de extremidade anonimamente, a propriedade User retorna null.
 
 O Serviço de Aplicativo também permite solicitar declarações específicas do provedor de logon. Isso permite solicitar mais informações do provedor, por exemplo, usando Graph APIs do Facebook. Você pode especificar declarações na folha do provedor no portal. Algumas declarações exigem configuração adicional com o provedor.
 
@@ -332,6 +332,19 @@ O código a seguir chama o método de extensão **GetAppServiceIdentityAsync** p
     }
 
 Observe que você deve adicionar uma instrução de uso a `System.Security.Principal` para fazer o método de extensão **GetAppServiceIdentityAsync** funcionar.
+
+### <a name="authorize"></a>Como restringir o acesso a dados para usuários autorizados
+
+Na seção anterior, mostramos como recuperar a ID de usuário de um usuário autenticado. Você pode restringir o acesso a dados e outros recursos com base nesse valor. Por exemplo, adicionar uma coluna userId às tabelas e filtrar os resultados da consulta do usuário segundo a ID de usuário é uma maneira simples de limitar os dados retornados apenas aos usuários autorizados. O código a seguir retorna linhas de dados somente quando a ID do usuário atual corresponde ao valor na coluna UserId na tabela TodoItem:
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+Dependendo do seu cenário específico, você também poderá criar tabelas de Usuários ou Funções para monitorar informações mais detalhadas de autorização do usuário, como quais pontos de extremidade um determinado usuário tem permissão para acessar.
 
 ## Adicionar notificações por push para um projeto do servidor
 
@@ -375,7 +388,7 @@ Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar noti
 
 ##<a name="tags"></a>Como adicionar marcas à instalação de um dispositivo para habilitar o envio por push direcionado
 
-Os Hubs de Notificação permitem que você envie notificações direcionadas para registros específicos usando marcas. Uma marca que é criada automaticamente é a ID de instalação, que é específica de uma instância do aplicativo em um determinado dispositivo. Um registro com uma ID de instalação também é chamado de *instalação*. Você pode usar a ID de instalação para gerenciar a instalação, por exemplo, para adicionar marcas. A ID de instalação pode ser acessada na propriedade **installationId** do **MobileServiceClient**.
+Os Hubs de Notificação permitem que você envie notificações direcionadas para registros específicos usando marcas. Uma marca que é criada automaticamente é a ID de instalação, que é específica de uma instância do aplicativo em um determinado dispositivo. Um registro com ID de instalação também é chamado de *instalação*. Você pode usar a ID de instalação para gerenciar a instalação, por exemplo, para adicionar marcas. A ID de instalação pode ser acessada na propriedade **installationId** do **MobileServiceClient**.
 
 O exemplo a seguir mostra como usar uma ID de instalação para adicionar uma marca a uma instalação específica nos Hubs de Notificação:
 
@@ -406,7 +419,7 @@ Quando um usuário autenticado se registra para notificações por push, uma mar
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Ao se registrar para notificações por push de um cliente autenticado, verifique se a autenticação foi concluída antes de tentar o registro. Para saber mais, confira [Enviar por push para usuários](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) na no exemplo de início rápido dos Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
+Ao se registrar para notificações por push de um cliente autenticado, verifique se a autenticação foi concluída antes de tentar o registro. Para saber mais, confira [Enviar por push para usuários](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) no exemplo de início rápido dos Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
 
 ## Como depurar e solucionar problemas do SDK do .NET Server
 
@@ -465,4 +478,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

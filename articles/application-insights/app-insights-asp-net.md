@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/08/2016" 
 	ms.author="awills"/>
 
 
@@ -31,7 +31,6 @@ Você precisa de:
 Há artigos alternativos para conferir se você está interessado em:
 
 * [Instrumentar um aplicativo Web em tempo de execução](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
 * [Serviços de Nuvem do Azure](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Adicionar o SDK do Application Insights
@@ -47,10 +46,11 @@ Verifique se o Application Insights está selecionado quando você criar um novo
 
 ### ...ou então, se é um projeto existente
 
-Clique com o botão direito no projeto no Gerenciador de Soluções e escolha **Adicionar o Application Insights Telemetry** ou **Configurar o Application Insights**.
+Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Adicionar o Application Insights Telemetry** ou **Configurar o Application Insights**.
 
 ![Escolher Adicionar Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* Projeto do ASP.NET Core? - [Siga estas instruções para corrigir algumas linhas de código](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -86,9 +86,9 @@ Abra o recurso Application Insights no [Portal do Azure](https://portal.azure.co
 
 ![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-O portal é aberto em uma exibição da telemetria de seu aplicativo: ![](./media/app-insights-asp-net/66.png)
+O portal é aberto em uma exibição da telemetria do aplicativo: ![](./media/app-insights-asp-net/66.png)
 
-* Eventos individuais são mostrados em **Pesquisar** (1). Os dados são mostrados aqui pela primeira vez (e no Live Stream). Clique em qualquer evento para ver suas propriedades. 
+* Eventos individuais são mostrados em **Pesquisar** (1). Os dados são mostrados aqui pela primeira vez (e no[Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Clique em qualquer evento para ver suas propriedades. 
 * As métricas agregadas são exibidas nos gráficos (2). Pode levar alguns minutos para que os dados sejam exibidos aqui. Clique em qualquer gráfico para abrir uma folha com mais detalhes.
 
 [Saiba mais sobre como usar o Application Insights no portal do Azure](app-insights-dashboards.md).
@@ -105,7 +105,7 @@ O comando fazia três coisas:
 2. Criar um recurso do Application Insights no [portal do Azure](https://portal.azure.com/). É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
 3. Insere a chave de instrumentação em `ApplicationInsights.config`, de modo que o SDK possa enviar telemetria ao portal.
 
-Se desejar, você poderá [executar essas etapas manualmente](app-insights-asp-net-manual.md).
+Se desejar, você poderá executar essas etapas manualmente para [ASP.NET 4](app-insights-asp-net-manual.md) ou [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 
 ## O que vem a seguir?
@@ -116,4 +116,4 @@ Se desejar, você poderá [executar essas etapas manualmente](app-insights-asp-n
 |**[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

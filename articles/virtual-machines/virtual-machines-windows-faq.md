@@ -31,17 +31,17 @@ Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1
 
 ## Quanto armazenamento eu posso usar com uma máquina virtual?
 
-Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes).
+Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
 
 Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um arquivo .vhd armazenado como um blob de páginas. Para obter detalhes sobre preços, veja [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 
 ## Como posso acessar minha máquina virtual?
 
-Você precisa estabelecer uma conexão remota usando RDP (Conexão de Área de Trabalho Remota) para uma VM do Windows. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.
+Você precisa estabelecer uma conexão remota usando RDP (Conexão de Área de Trabalho Remota) para uma VM do Windows. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.
 
 
-Se você estiver tendo problemas com a Área de Trabalho Remota, veja [Solucionar problemas de conexões da Área de Trabalho Remota para uma Máquina Virtual Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection).
+Se você estiver tendo problemas com a Área de Trabalho Remota, veja [Solucionar problemas de conexões da Área de Trabalho Remota para uma Máquina Virtual Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 Se estiver familiarizado com o Hyper-V, você pode estar em busca de uma ferramenta semelhante ao VMConnect. O Azure não oferece uma ferramenta semelhante porque não há suporte para o acesso de console a uma máquina virtual.
 
@@ -55,7 +55,7 @@ Se você tiver um aplicativo que precise usar a letra de unidade D:, poderá rea
 
 Em uma máquina virtual do Windows, você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras de unidade, mas você precisará certificar-se de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-## Posso adicionar uma VM existente a um grupo de disponibilidade?
+## Posso adicionar uma VM existente a um conjunto de disponibilidade?
 
 Não. Se você quiser que sua VM faça parte de um conjunto de disponibilidade, precisará criar a VM no conjunto. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
 
@@ -79,4 +79,4 @@ As duas novas regiões, Central e Leste, do Canadá não são automaticamente re
 
 Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma VM Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

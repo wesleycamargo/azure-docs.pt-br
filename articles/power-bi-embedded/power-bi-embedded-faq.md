@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="derrickv"/>
 
 # Perguntas Frequentes sobre o Power BI Embedded
@@ -50,7 +50,7 @@
 
     O serviço do Power BI Embedded está disponível na América do Norte desde nosso comunicado no BUILD 2016 (no data center do Centro-Sul dos EUA). Você pode esperar que façamos a distribuição desse serviço para o restante dos data centers do Azure pouco tempo depois.
 
-9.	**Qual é o SLA disponível para o serviço?**
+9. **Qual é o SLA disponível para o serviço?**
 
     O Power BI Embedded está agora disponível como uma preview de serviço do Azure sem um SLA formal. Um SLA será fornecido quando o serviço passar de preview para disponibilidade geral.
 
@@ -61,7 +61,8 @@
 
     Você poderá usar o serviço do Power BI Embedded em um aplicativo desenvolvido por você somente se o aplicativo: (1) adicionar funcionalidade primária e significativa ao nosso serviço e não for primariamente um substituto de algum serviço do Power BI e (2) for fornecido exclusivamente para usuários externos. Você não pode usar o serviço do Power BI Embedded em aplicativos de negócios internos.
 
-    ![](media\power-bi-embedded-faq\price.png)
+
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**O que é uma renderização e como ela é cobrada?**
 
@@ -116,4 +117,4 @@
 - [O que é o Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

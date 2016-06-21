@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/11/2016"
+    ms.date="06/07/2016"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -201,7 +201,7 @@ A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/librar
 ## ServicePackage.cspkg
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
-O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [portal do Azure](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
+O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (.cspkg) que você pode carregar no Azure usando o [Portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote é chamado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
 
 O **CSPack** geralmente está localizado em `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
 
@@ -267,4 +267,4 @@ Estou usando o Visual Studio e desejo...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

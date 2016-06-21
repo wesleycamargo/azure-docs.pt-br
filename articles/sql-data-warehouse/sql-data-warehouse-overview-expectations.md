@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -31,7 +31,7 @@ Trabalharemos continuamente para atingir essas metas durante a visualização do
 
 ## Desempenho previsível e dimensionável
 
-O SQL Data Warehouse do Azure apresenta Unidades de Data Warehouse (DWUs) como uma forma de medir os recursos de computação (CPUs, memória, E/S de armazenamento) disponíveis para o data warehouse. Aumentar o número de DWUs aumenta os recursos. À medida que aumenta o número de DWUs, o SQL Data Warehouse executa operações em paralelo (por exemplo, a consulta ou o carregamento de dados) em recursos mais distribuídos. Isso reduz a latência e melhora o desempenho.
+O SQL Data Warehouse apresenta as Unidades de Data Warehouse (DWUs) como uma forma de medir os recursos de computação (CPUs, memória, E/S de armazenamento) disponíveis para o data warehouse. Aumentar o número de DWUs aumenta os recursos. À medida que aumenta o número de DWUs, o SQL Data Warehouse executa operações em paralelo (por exemplo, a consulta ou o carregamento de dados) em recursos mais distribuídos. Isso reduz a latência e melhora o desempenho.
 
 Qualquer data warehouse tem duas métricas de desempenho fundamentais:
 
@@ -42,21 +42,15 @@ Nós estamos medindo alguns importantes aprimoramentos de desempenho e em breve 
 
 ## Proteção de dados
 
-O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando o armazenamento com redundância local. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas.
-
-## Backups
-
-O SQL Data Warehouse do Azure faz backup de todos os dados pelo menos a cada 8 horas usando Instantâneos de Armazenamento do Azure. Esses instantâneos são mantidos por 7 dias. Isso permite restaurar os dados para pelo menos 21 pontos no tempo nos últimos 7 dias até o momento em que o último instantâneo foi definido. Você pode restaurar dados de um instantâneo usando o PowerShell ou APIs REST.
+O SQL Data Warehouse armazena todos os dados no armazenamento com redundância local do Azure. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. Além disso, o SQL Data Warehouse faz o backup automaticamente dos bancos de dados ativos (sem pausa) em intervalos regulares usando Instantâneos de Armazenamento do Azure. Para saber mais sobre como o backup e a restauração funcionam, consulte a [Visão de Geral do Backup e da Restauração ][].
 
 ## Confiabilidade da consulta
 
 O SQL Data Warehouse foi criado sobre uma arquitetura MPP (processamento paralelo massivo). O SQL Data Warehouse detecta e migra automaticamente as falhas de nó de controle e de computação. No entanto, uma operação (por exemplo, carregamento de dados ou consulta) pode falhar como resultado de uma falha de nó ou de uma migração. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
 
-
 ## Atualizações e tempo de inatividade
 
 O SQL Data Warehouse será atualizado periodicamente para adicionar novos recursos e instalar correções críticas. Essas atualizações podem causar interrupção e, neste momento, as atualizações não são executadas em uma programação previsível. Se você achar que esse processo causa muita interrupção, incentivamos você a [criar um tíquete de suporte][] para que possamos ajudar a contornar esse processo.
-
 
 ## Próximas etapas
 
@@ -67,9 +61,10 @@ O SQL Data Warehouse será atualizado periodicamente para adicionar novos recurs
 <!--Article references-->
 [criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Introdução]: ./sql-data-warehouse-get-started-provision.md
+[Visão de Geral do Backup e da Restauração ]: ./sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

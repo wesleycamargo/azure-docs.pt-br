@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="05/31/2016"
    ms.author="jeffstok"
 />
 
@@ -79,4 +79,4 @@ Agora que você entende como criar um novo cluster HDInsight que inclui o Servid
 - [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de armazenamento do Azure para o R Server no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

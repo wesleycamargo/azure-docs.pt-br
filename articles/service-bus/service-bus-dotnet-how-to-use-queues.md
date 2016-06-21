@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="06/10/2016"
     ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -33,8 +33,6 @@ O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/Window
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
 
-    ![][7]
-
 Agora você está pronto para escrever código para o Barramento de Serviço.
 
 ## Configurar uma cadeia de conexão do Barramento de Serviço
@@ -48,7 +46,7 @@ Nos dois casos, você pode recuperar sua cadeia de conexão usando o método [Cl
 
 ### Configurar a cadeia de conexão
 
-O mecanismo de configuração do serviço permite que você altere dinamicamente as definições de configuração a partir do [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
+O mecanismo de configuração do serviço permite que você altere dinamicamente as definições da configuração no [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -177,7 +175,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
+As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para obter mais informações, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -241,7 +239,6 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 -   Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
 
   [portal clássico do Azure]: http://manage.windowsazure.com
-  [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento do Serviço]: service-bus-brokered-tutorial-dotnet.md
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
@@ -253,4 +250,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

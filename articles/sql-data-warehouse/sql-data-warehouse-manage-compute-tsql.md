@@ -19,7 +19,7 @@
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-overview-manage-compute.md)
+- [Visão geral](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -86,7 +86,7 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Visão geral sobre gerenciar poder de computação]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Visão geral sobre gerenciar poder de computação]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

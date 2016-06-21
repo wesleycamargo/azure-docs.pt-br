@@ -37,11 +37,11 @@ O glossário do Azure e as duas referências acima fornecem uma taxonomia comple
 Uma conta da Microsoft corporativa ou de estudante, ou ainda pessoal, usada para acessar e gerenciar uma assinatura do Azure. Confira também [Como as assinaturas do Azure estão associadas ao Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 
-### <a name="availabilityset"></a>conjunto de disponibilidade  
+### <a name="availability-set"></a>conjunto de disponibilidade  
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível. Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
-### <a name="classicmodel"></a>modelo de implantação clássico do Azure  
+### <a name="classic-model"></a>modelo de implantação clássico do Azure  
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns recursos do Azure podem ser implantados apenas em um modelo ou no outro, enquanto outros podem ser implantados nos dois modelos. A orientação para recursos individuais do Azure detalha com quais modelos um recurso pode ser implantado.
 
 
@@ -53,7 +53,7 @@ Uma [interface de linha de comando](xplat-cli-install.md) que pode ser usada par
 Uma [interface de linha de comando](powershell-install-configure.md) para gerenciar os serviços do Azure por meio de uma linha de comando em PCs com Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. A orientação para cada recurso individual do Azure detalha com quais modelos um recurso pode ser implantado. Confira também [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 
-### <a name="armmodel"></a>modelo de implantação do Azure Resource Manager  
+### <a name="arm-model"></a>modelo de implantação do Azure Resource Manager  
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Microsoft Azure (o outro é o modelo de implantação clássico). Alguns recursos do Azure podem ser implantados apenas em um modelo ou no outro, enquanto outros podem ser implantados nos dois modelos. A orientação para recursos individuais do Azure detalha com quais modelos um recurso pode ser implantado.
 
 
@@ -65,7 +65,7 @@ A coleção de máquinas virtuais em um conjunto de disponibilidade que podem fa
 Um limite definido para a residência dos dados e que geralmente contém duas ou mais regiões. Os limites podem ser dentro ou fora de fronteiras nacionais e são influenciados pela regulamentação fiscal. Cada área geográfica tem pelo menos uma região. Entre os exemplos de áreas geográficas estão Pacífico Asiático e Japão. Também é chamada de *geografia*. Confira também [Regiões do Azure](best-practices-availability-paired-regions.md)
 
 
-### <a name="georeplication"></a>replicação geográfica  
+### <a name="geo-replication"></a>replicação geográfica  
 O processo de replicação automaticamente de conteúdo como blobs, tabelas e filas dentro de um par regional. Confira também, [Replicação geográfica ativa para o Banco de Dados SQL do Azure](./sql-database/sql-database-geo-replication-overview.md)
 
 
@@ -77,7 +77,7 @@ Um arquivo que contém o sistema operacional e a configuração de aplicativo qu
 O número de recursos que podem ser criados, ou o parâmetro de comparação de desempenho que pode ser atingido. Geralmente, os limites estão associados a assinaturas, serviços e ofertas. Confira também [Assinatura do Azure e limite de serviços, cotas e restrições](azure-subscription-service-limits.md)
 
 
-### <a name="loadbalancer"></a>balanceador de carga  
+### <a name="load-balancer"></a>balanceador de carga  
 Um recurso que distribui o tráfego recebido entre computadores em uma rede. No Azure, um balanceador de carga distribui o tráfego para máquinas virtuais definidas em um conjunto de balanceadores de carga. Um [balanceador de carga](./load-balancer/load-balancer-overview.md) pode ser voltado à Internet ou interno.
 
 
@@ -97,15 +97,15 @@ Uma área dentro de uma área geográfica que não ultrapassa fronteiras naciona
 Um item que faz parte de sua solução do Azure. Cada serviço do Azure permite que você implante tipos diferentes de recursos, como bancos de dados ou máquinas virtuais. Confira também [Visão geral do Azure Resource Manager](resource-group-overview.md)
 
 
-### <a name="resourcegroup"></a>grupo de recursos  
+### <a name="resource-group"></a>grupo de recursos  
 Um contêiner no Resource Manager que armazena os recursos relacionados para um aplicativo. O grupo de recursos pode incluir todos os recursos de um aplicativo ou apenas os recursos que são agrupados logicamente. Você pode decidir como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Confira também [Visão geral do Azure Resource Manager](resource-group-overview.md)
 
 
-### <a name="rmtemplate"></a>modelo do Resource Manager  
+### <a name="arm-template"></a>modelo do Resource Manager  
 Um arquivo JSON que define declarativamente um ou mais recursos do Azure e que define as dependências entre os recursos implantados. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira também [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
 
 
-### <a name="resourceprovider"></a>provedor de recursos  
+### <a name="resource-provider"></a>provedor de recursos  
 Um serviço que fornece os recursos que você pode implantar e gerenciar por meio do Resource Manager. Cada provedor de recursos oferece operações para trabalhar com os recursos implantados. Os provedores de recursos podem ser acessados por meio do portal do Azure, Azure PowerShell e vários SDKs de programação. Confira também [Visão geral do Azure Resource Manager](resource-group-overview.md)
 
 
@@ -117,7 +117,7 @@ Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e se
 O contrato que descreve os compromissos da Microsoft em relação ao tempo de atividade e à conectividade. Cada serviço do Azure tem um SLA específico. Confira também [Contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/)
 
 
-### <a name="storageaccount"></a>conta de armazenamento  
+### <a name="storage-account"></a>conta de armazenamento  
 Uma conta de armazenamento que fornece acesso aos serviços de Blob, Fila, Tabela e Arquivo do Azure no Armazenamento do Azure. Sua conta de armazenamento fornece um namespace exclusivo para os objetos de dados de Armazenamento do Azure. Confira também [About Azure storage accounts](./storage/storage-create-storage-account.md) (Sobre as contas de armazenamento do Azure)
 
 
@@ -129,7 +129,7 @@ Um contrato do cliente com a Microsoft que permite a obtenção dos serviços do
 Um termo de indexação que permite a classificação dos recursos de acordo com suas necessidades de gerenciamento ou cobrança. Use as marcas quando você tiver um conjunto complexo de grupos de recursos e recursos, e precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento. Confira também [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md)
 
 
-### <a name="updatedomain"></a>domínio de atualização  
+### <a name="update-domain"></a>domínio de atualização  
 A coleção de máquinas virtuais em um conjunto de disponibilidade que são atualizadas ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas juntas durante a manutenção planejada. O Azure nunca reinicia mais de um domínio de atualização por vez. Isso também é chamado de domínio de upgrade. Confira também [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/virtual-machines-linux-manage-availability.md)
 
 
@@ -137,7 +137,7 @@ A coleção de máquinas virtuais em um conjunto de disponibilidade que são atu
 A implementação de software de um computador físico que executa um sistema operacional. Diversas máquinas virtuais podem ser executadas simultaneamente no mesmo hardware. No Azure, as máquinas virtuais estão disponíveis em vários tamanhos. Confira também [Documentação sobre Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 
-### <a name="vmextension"></a>extensão da máquina virtual  
+### <a name="vm-extension"></a>extensão da máquina virtual  
 Um recurso que implementa comportamentos ou recursos que ajudam outros programas a funcionar, ou que fornecem a capacidade de interação com um computador em execução. Por exemplo, você pode usar a extensão de Acesso da Máquina Virtual para redefinir ou modificar valores de acesso remoto em uma máquina virtual do Azure. Confira também [Sobre os recursos e extensões de máquina virtual (Windows)](./virtual-machines/virtual-machines-windows-extensions-features.md) ou [Sobre os recursos e extensões de máquina virtual (Linux)](./virtual-machines/virtual-machines-linux-extensions-features.md)
 
 
@@ -150,4 +150,4 @@ Uma rede que fornece conectividade entre seus recursos do Azure que estão isola
 - [Azure para seus aplicativos de negócios](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [Azure em seu datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

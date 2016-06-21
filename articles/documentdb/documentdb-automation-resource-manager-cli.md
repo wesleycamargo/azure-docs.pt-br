@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/03/2016" 
 	ms.author="mimig"/>
 
 # Automatizar a criação de conta do Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
@@ -37,7 +37,7 @@ Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a
 
 ### Atualizar sua versão da CLI do Azure
 
-No prompt de comando, digite `azure --version` para ver se você já tem a versão 0.9.11 ou posterior instalada.
+No prompt de comando, digite `azure --version` para ver se você já tem a versão 0.9.11 ou posterior instalada. Poderá ser solicitado que você participe da coleta de dados da CLI do Microsoft Azure nesta etapa; você poderá selecionar S ou N para aceitar ou recusar.
 
 	azure --version
     0.9.11 (node: 0.12.7)
@@ -56,8 +56,7 @@ Que produz esta saída:
 
     info:    Executing command login
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
-    Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
-    AD application, use the --username and --password parameters.
+    Enter the code E1A2B3C4D to authenticate.
 
 > [AZURE.NOTE] Se você não tiver uma conta do Azure, verá uma mensagem de erro indicando que você precisa de um tipo diferente de conta. Para criar uma com base em sua atual conta do Azure, veja [Criando uma identidade corporativa ou de estudante no Active Directory do Azure](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
@@ -78,7 +77,7 @@ O shell de comando também fornece a saída a seguir.
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
     +
-    info:    login command OKK
+    info:    login command OK
 
 Além do método de logon interativo descrito aqui, há métodos adicionais de logon disponíveis na CLI do Azure. Para saber mais sobre os outros métodos e informações sobre como lidar com várias assinaturas, confira [Conectar uma assinatura do Azure da CLI (Interface de Linha de Comando) do Azure](../xplat-cli-connect.md).
 
@@ -94,7 +93,7 @@ Que fornece esta saída:
     info:    New mode is arm
     info:    config mode command OK
 
-Você pode alternar de volta para o conjunto de comandos padrão digitando `azure config mode asm`.
+Se necessário, você poderá voltar para o conjunto de comandos padrão digitando `azure config mode asm`.
 
 ## <a id="quick-create-documentdb-account"></a>Tarefa: criar uma conta do Banco de Dados de Documentos usando a CLI do Azure
 
@@ -226,7 +225,7 @@ Para criar um arquivo de parâmetro, copie o seguinte conteúdo em um novo arqui
         }
     }
 
-No arquivo azuredeploy.parameters.json, atualize o valor "samplearmacct" com o nome do banco de dados que você deseja usar e salve o arquivo. O `<databaseAccountName>` pode usar apenas letras minúsculas, números, o caractere '-' e deve conter entre três e 50 caracteres.
+No arquivo azuredeploy.parameters.json, atualize o valor "samplearmacct" com o nome do banco de dados que você deseja usar e salve o arquivo. O `"databaseAccountName"` pode usar apenas letras minúsculas, números, o caractere '-' e deve conter entre três e 50 caracteres.
 
 ### Etapa 2: criar ou recuperar o grupo de recursos
 
@@ -298,15 +297,21 @@ Exemplo de entrada que exibe o prompt e a entrada de uma conta de banco de dados
     + Creating a deployment
     info:    Created template deployment "azuredeploy"
     + Waiting for deployment to complete
+    + 
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
     data:    ResourceGroupName  : new_res_group
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
     data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
     data:    databaseAccountName  String  samplearmacct
-    data:    location             String  West US
     info:    group deployment create command OK
 
 Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
@@ -354,4 +359,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
 Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

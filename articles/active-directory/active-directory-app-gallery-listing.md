@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/19/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,4 +97,4 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

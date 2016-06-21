@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -113,8 +113,6 @@ Para editar uma política de segurança, você deve ser um proprietário ou cola
 ### Quais tipos de máquinas virtuais terão suporte?
 As máquinas virtuais criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md) têm suporte, incluindo as máquinas virtuais que fazem parte dos clusters do Azure Service Fabric.
 
-As recomendações da Lista de Controle de Acesso no momento se aplicam às máquinas virtuais (clássicas). No momento, os Grupos de Segurança de Rede só se aplicam às máquinas virtuais (Gerenciador de Recursos).
-
 Máquinas virtuais Windows com suporte:
 
 - Windows Server 2008 R2
@@ -124,9 +122,9 @@ Máquinas virtuais Windows com suporte:
 Máquinas virtuais Linux com suporte:
 
 - Ubuntu versões 12.04, 14.04, 15.10, 16.04
-- Debian versões 7.0, 8.0
-- CentOS versões 6.0, 7.0
-- Red Hat Enterprise Linux (RHEL) versões 6, 7
-- SUSE Linux Enterprise Server (SLES) versões 11, 12
+- Debian versões 7, 8
+- CentOS versões 6.*, 7.*
+- Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
+- SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

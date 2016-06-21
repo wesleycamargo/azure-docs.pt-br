@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
@@ -60,10 +60,15 @@ Use o seguinte comando para mostrar os detalhes de um cluster específico na ass
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Excluir clusters
+
 Use o seguinte comando para excluir um cluster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+Você também pode excluir um cluster removendo o grupo de recursos que contém o cluster. Observe que isso excluirá todos os recursos no grupo, incluindo a conta de armazenamento padrão.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
@@ -234,4 +239,4 @@ Consulte [Carregar dados no HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Limites do serviço na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	pageTitle="Limites de serviço na Pesquisa do Azure | Microsoft Azure"
 	description="Os limites do serviço usados para o planejamento de capacidade e os limites máximos de solicitações e respostas para a Pesquisa do Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="heidist"/>
 
 # Limites de serviço na Pesquisa do Azure
@@ -22,47 +22,56 @@
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual a Pesquisa do Azure é adicionada, que pode ser **Gratuito**, **Básico** ou **Standard**.
 
 - **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure. É uma opção sem custo adicional para assinantes existentes que permite experimentar o serviço antes de se inscrever para obter recursos dedicados. 
-- **Básico (Preview)** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma [taxa 50% reduzida durante o período de Preview](https://azure.microsoft.com/pricing/details/search/).
-- **Standard** é executado em máquinas dedicados, com mais capacidade de armazenamento e processamento em cada nível, incluindo a configuração mínima. Standard vem em dois níveis (S1 e S2). 
+- **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor.
+- **Standard** é executado em máquinas dedicados, com mais capacidade de armazenamento e processamento em cada nível, incluindo a configuração mínima. Standard vem em quatro níveis: S1, S2, S3 e S3 Alta Densidade (S3 HD). S3 e S3 HD estão atualmente em Preview e são oferecidos por uma taxa 50% reduzida durante o período de Preview.
 
-Todos os tipos podem ser [provisionados no portal](search-create-service-portal.md), com exceção do S2, que exige um tíquete de suporte. Entre em contato com Suporte ou azuresearch_contact@microsoft.com para começar a usar S2.
+Todas as camadas podem ser [provisionadas no portal](search-create-service-portal.md). Um serviço é alocado inicialmente em uma partição e uma réplica, mas você pode alterar a alocação de recurso após o serviço ser criado. Veja [Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação](search-capacity-planning.md) para obter detalhes.
 
-## Limites de camada
+## Por limites de assinatura
 
-[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-tier.md)]
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Limites de armazenamento ##
+## Por limites do serviço ##
 
-[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-storage.md)]
+[AZURE.INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## Limites de dados ##
+## Por limites de índice ##
 
-Recurso|Grátis|Básico (Preview) |S1|S2
----|---|---|---|----
-Índice: campos máximos por índice|1000|100 <sup>1</sup>|1000|1000
-Índice: máximo de perfis de pontuação por índice|16|16|16|16
-Índice: funções máximas por perfil|8|8|8|8
-Tamanho do documento por Índice de API<sup>2</sup> em MB|<16|<16|<16|<16
-Indexadores: carga de indexação máxima por invocação|10\.000 documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos
-Indexadores: tempo de execução máximo|3 minutos|24 horas|24 horas|24 horas
-Indexador de blob: tamanho máximo do blob, MB|16|16|128|256
-Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob|32\.000|64\.000|4 milhões|4 milhões
+Há uma correspondência entre os limites em índices e aqueles em indexadores. Dado um limite de 200 índices por serviço S2, as fontes de dados do indexador e os indexadores máximos também são 200 para o mesmo serviço.
 
-<sup>1</sup> O tipo Básico é o único que tem limite inferior de 100 campos por índice.
+Recurso|Grátis|Básico |S1|S2|S3 (Preview)|S3 HD (Preview) 
+---|---|---|---|---- |---|----
+Índice: campos máximos por índice|1000|100 <sup>1</sup>|1000|1000|1000|1000 
+Índice: máximo de perfis de pontuação por índice|16|16|16|16|16|16 
+Índice: funções máximas por perfil|8|8|8|8|8|8 
+Indexadores: carga de indexação máxima por invocação|10\.000 documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos|N/D <sup>2</sup> 
+Indexadores: tempo de execução máximo|3 minutos|24 horas|24 horas|24 horas|24 horas|N/D <sup>2</sup> 
+Indexador de blob: tamanho máximo do blob, MB|16|16|128|256|256|N/D <sup>2</sup> 
+Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob|32\.000|64\.000|4 milhões|4 milhões|4 milhões|N/D <sup>2</sup> 
 
-<sup>2</sup> Tamanho máximo do documento ao chamar uma API do Índice. O tamanho do documento é realmente um limite ao tamanho do corpo da solicitação de API do Índice. Como você pode passar um lote de vários documentos para uma API de uma só vez, o limite de tamanho dependerá de quantos documentos estão no lote. Para um lote com um único documento, o tamanho máximo de documentos será de 16 MB de JSON.
+<sup>1</sup> A camada do tipo Básico é a única SKU que tem limite inferior de 100 campos por índice.
+
+<sup>2</sup> O S3 HD atualmente não dá suporte a indexadores ou fontes de dados do indexador. Contate o suporte do Azure se você tiver uma necessidade urgente para essa funcionalidade.
+
+## Limites de tamanho do documento ##
+
+Recurso|Grátis|Básico |S1|S2|S3 (Preview)|S3 HD (Preview) 
+---|---|---|---|---- |---|----
+Tamanho do documento individual por API do Índice|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
+
+Refere-se ao tamanho máximo do documento ao chamar uma API do Índice. O tamanho do documento é realmente um limite ao tamanho do corpo da solicitação de API do Índice. Como você pode passar um lote de vários documentos para uma API de uma só vez, o limite de tamanho depende na realidade de quantos documentos estão no lote. Para um lote com um único documento, o tamanho máximo de documentos será de 16 MB de JSON.
 
 Para reduzir o tamanho do documento, lembre-se de excluir dados não consultáveis da solicitação. Imagens e outros dados binários não podem ser diretamente consultados e não devem ser armazenados no índice. Para integrar dados que não podem ser consultados aos resultados da pesquisa, defina um campo não pesquisável que armazene uma referência uma URL para o recurso.
 
 ## Limites de carga de trabalho (consultas por segundo) ##
 
-Recurso|Grátis|Básico (Preview) |S1|S2
----|---|---|---|----
-QPS|N/D|~3 por réplica|~15 por réplica|~60 por réplica
+Recurso|Grátis|Básico|S1|S2|S3 (Preview)|S3 HD (Preview)
+---|---|---|---|----|---|----
+QPS|N/D|~3 por réplica|~15 por réplica|~60 por réplica|>60 por réplica|>60 por réplica
 
 QPS (consultas por segundo) é uma aproximação baseada em heurística, usando as cargas de trabalho de cliente real e simulada para derivar os valores estimados. A taxa de transferência de QPS exata irá variar dependendo dos dados e da natureza da consulta.
 
-Embora essas estimativas aproximadas sejam apresentadas acima, é difícil determinar a QPS (consultas por segundo) real, especialmente no serviço Gratuito compartilhado, no qual a taxa de transferência tem base na largura de banda disponível na competição por recursos do sistema. Os recursos de computação e armazenamento que apoiam o serviço compartilhado são compartilhados por vários assinantes; portanto, o QPS de sua solução sempre vai variar conforme o número de outras cargas de trabalho em execução ao mesmo tempo.
+Embora essas estimativas aproximadas sejam apresentadas acima, é difícil determinar a taxa real, especialmente no serviço Gratuito compartilhado, no qual a taxa de transferência tem base na largura de banda disponível na competição por recursos do sistema. Na camada gratuita, os recursos de computação e armazenamento são compartilhados por vários assinantes; portanto, o QPS de sua solução sempre vai variar conforme o número de outras cargas de trabalho em execução ao mesmo tempo.
 
 No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Veja a seção de práticas recomendadas em [Gerenciar sua solução de pesquisa](search-manage.md) para obter diretrizes sobre como calcular o QPS para suas cargas de trabalho.
 
@@ -88,4 +97,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de duas chaves de administração por serviço
 - Máximo de 50 chaves de consulta por serviço
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

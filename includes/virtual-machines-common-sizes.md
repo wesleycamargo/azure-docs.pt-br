@@ -1,16 +1,21 @@
 
 Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e serviços do Azure, cotas e restrições](../articles/azure-subscription-service-limits.md).
 
-Os tamanhos padrão consistem em várias séries: A, D, DS, G, e GS. Entre as considerações sobre algumas dessas dimensões estão:
+Os tamanhos padrão consistem em várias séries: A, D, DS, G e GS. Entre as considerações sobre algumas dessas dimensões estão:
 
 *   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 *   A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
+* A série F é baseada no processador 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell), que pode obter velocidades de relógio tão altas quanto 3.1 GHz com o Intel Turbo Boost Technology 2.0. Esse é o mesmo desempenho de CPU que o das VMs da série Dv2. A um preço de lista inferior por hora, a série F é o melhor valor de preço/desempenho no portfólio do Azure com base na ACU (Unidade de Computação do Azure) por núcleo. O intervalo de tamanhos da série F de 1 a 16 núcleos de CPU com as opções de tamanhos otimizados de armazenamento tanto standard quanto premium.
+
+ A série F também introduz um novo padrão em nomenclatura de tamanho de VM para o Azure. Para esta série e os tamanhos de VM lançados no futuro, o valor numérico após a letra do sobrenome corresponderá ao número de núcleos de CPU. Recursos adicionais, como armazenamento otimizado para premium, serão designados por letras após a contagem de núcleos de CPU numérica. Esse formato de nomeação será usado para futuras tamanhos de VM lançados mas não vai retroativamente alterar os nomes de quaisquer tamanhos VM existentes que foram lançados.
+
+
 *   As VMs da série G oferecem a maior memória e são executadas em hosts com processadores da família Intel Xeon E5 V3.
 
 
-*   As VMs das séries DS, DSv2 e GS podem usar o Armazenamento Premium, que fornece armazenamento de alto desempenho e baixa latência para cargas de trabalho com uso intenso de E/S. Essas VMs usam SSDs (unidades de estado sólido) para hospedar os discos da máquina virtual e também oferecem um cache de disco SSD local. O Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
+*   As VMs das séries DS, DSv2, F e GS podem usar o Armazenamento Premium, que fornece armazenamento de alto desempenho e baixa latência para cargas de trabalho com uso intenso de E/S. Essas VMs usam SSDs (unidades de estado sólido) para hospedar os discos da máquina virtual e também oferecem um cache de disco SSD local. O Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
 
 
 *   As VMs da série A podem ser implantadas em uma variedade de tipos de hardware e processadores. O tamanho é limitado, com base no hardware, para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual.
@@ -24,10 +29,12 @@ O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capaci
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 
-* Os tamanhos A8-A11 também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). Para obter informações detalhadas e considerações sobre o uso desses tamanhos, confira [Sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* Os tamanhos A8-A11 também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). Para obter informações detalhadas e considerações sobre o uso desses tamanhos, confira [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
 *	As séries Dv2, D e G e as equivalentes DS/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
+
+* As VMs série F são uma ótima opção para cargas de trabalho que exigem CPUs mais rápidas, mas não precisam de tanta memória ou SSD local por núcleo da CPU. Cargas de trabalho como análise, servidores de jogos, servidores Web e de processamento em lote serão beneficiados com o valor da série F.
 
 *   Alguns dos hosts físicos em data centers do Azure podem não aceitar tamanhos de máquina virtual maiores, como A5 – A11. Como resultado, você poderá ver a mensagem de erro **Falha ao configurar a máquina virtual <machine name>** ou **Falha ao criar a máquina virtual <machine name>** ao redimensionar uma máquina virtual existente para um novo tamanho, criar uma nova máquina virtual em uma rede virtual criada antes de 16 de abril de 2013 ou adicionar uma nova máquina virtual a um serviço de nuvem. Confira [Erro: "Falha ao configurar a máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte de soluções alternativas para cada cenário de implantação.
 
@@ -45,13 +52,15 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
+|[A8-A11](#standard-tier-a-series) |225*|
 |[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
+|[D1-15v2](#standard-tier-dv2-series) |210 - 250*|
 |[DS1-14](#standard-tier-ds-series) |160 |
 |[DS1-15v2](#standard-tier-dsv2-series) |210-250* |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
+|[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
+|[G1-5](#standard-tier-g-series) |180 - 240*|
+|[GS1-5](#standard-tier-gs-series) |180 - 240*|
 
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho. A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -132,7 +141,7 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_DS11 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 64 MB por segundo | alto |
 |Standard\_DS12 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 128 MB por segundo | alto |
 |Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 256 MB por segundo | alto |
-|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 512 MB por segundo | muito alta |
+|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 51\.200 512 MB por segundo | muito alta |
 
 **O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
 
@@ -145,15 +154,46 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_DS2\_v2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 96 MB por segundo | alto |
 |Standard\_DS3\_v2 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 192 MB por segundo | alto |
 |Standard\_DS4\_v2 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 384 MB por segundo | alto |
-|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 50\.000 768 MB por segundo | alto |
+|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 51\.200 768 MB por segundo | alto |
 |Standard\_DS11\_v2 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 96 MB por segundo | alto |
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | alto |
-|Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 768 MB por segundo | muito alta |
-|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|62\.500 960 MB por segundo | muito alta |
+|Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 51\.200 768 MB por segundo | muito alta |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|64\.000 960 MB por segundo | muito alta |
+
+
+**O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
+
+
+## F-série de otimização de armazenamento padrão
+
+
+| Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Tamanho do disco | Máx. de discos de dados (1.023 GB cada) | IOPS máx. (500 por disco) | Largura de banda de rede máxima |
+|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
+| Standard\_F1 | 1 | 2 GB | 1 | Temporário (SSD) = 16 GB | 2 | 2x500 | 500 Mbps |
+| Standard\_F2 | 2 | 4 GB | 2 | Temporário (SSD) = 32 GB | 4 | 4x500 | 1000 Mbps |
+| Standard\_F4 | 4 | 8 GB | 4 | Temporário (SSD) = 64 GB | 8 | 8 x 500 | 2000 Mbps |
+| Standard\_F8 | 8 | 16 GB | 8 | Temporário (SSD) = 128 GB | 16 | 16 x 500 | 4\.000 Mbps |
+| Standard\_F16 | 16 | 32 GB | 8 | Temporário (SSD) = 256 GB | 32 | 32 x 500 | 8\.000 Mbps |
+
+
+
+## Série F de otimização de armazenamento Premium*
+
+| Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Tamanho do disco | Máx. de discos de dados (1.023 GB cada) | Tamanho do cache (GB) | Máx. de IOPS de disco &amp; largura de banda | Largura de banda de rede máxima |
+|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
+| Standard\_F1s | 1 | 2 | 1 | Disco SSD local = 4 GB | 2 | 12 | 3\.200 48 MB por segundo | 500 Mbps |
+| Standard\_F2s | 2 | 4 | 2 | Disco SSD local = 8 GB | 4 | 24 | 6\.400 96 MB por segundo | 1000 Mbps |
+| Standard\_F4s | 4 | 8 | 4 | Disco SSD local = 16 GB | 8 | 48 | 12\.800 192 MB por segundo | 2000 Mbps |
+| Standard\_F8s | 8 | 16 | 8 | Disco SSD local = 32 GB | 16 | 96 | 25\.600 384 MB por segundo | 4\.000 Mbps |
+| Standard\_F16s | 16 | 32 | 8 | Disco SSD local = 64 GB | 32 | 192 | 51\.200 768 MB por segundo | 8\.000 Mbps |
+
 
 
 **O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
+
+
+
 
 
 ## Camada Standard: série G
@@ -166,6 +206,9 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_G4 |16|224 GB|8|Disco SSD local = 3.072 GB |32|32 x 500| extremamente alta |
 |Standard\_G5 |32|448 GB|8|Disco SSD local = 6.144 GB |64| 64 x 500 | extremamente alta |
 
+
+
+
 ## Camada Standard: Série GS
 
 |Tamanho |Núcleos de CPU|Memória|NICs (Máx.)|Tamanho máximo do disco|Máx. de discos de dados (1023 GB cada)|Tamanho do cache (GB)|Máx. de IOPS de disco &amp; largura de banda| Largura de banda de rede máxima |
@@ -175,6 +218,9 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_GS3|8|112|4|Disco SSD local = 224 GB |16|1056| 20\.000 500 MB por segundo | muito alta |
 |Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo | extremamente alta |
 |Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo | extremamente alta |
+
+
+
 
 ## Observações: Standard A0 - A4 usando a CLI e o PowerShell 
 
@@ -193,4 +239,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

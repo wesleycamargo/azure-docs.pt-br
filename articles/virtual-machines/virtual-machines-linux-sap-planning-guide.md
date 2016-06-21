@@ -683,7 +683,7 @@ VPN ponto a site requer que cada computador cliente conecte-se com seu próprio 
 #### VPN de múltiplos sites
 Hoje em dia, o Azure também oferece a possibilidade de criar a conectividade VPN de múltiplos sites para uma assinatura do Azure. Antes, uma única assinatura era limitada a uma conexão de VPN site a site. Essa limitação desapareceu com conexões VPN de múltiplos sites para uma única assinatura. Isso torna possível aproveitar mais de uma Região do Azure para uma assinatura específica por meio de configurações entre instalações.
 
-Para obter mais documentação, consulte [neste artigo][vpn-gateway-create-site-to-site-rm-powershell]
+Para obter mais documentação, consulte [neste artigo][vpn-gateway-create-site-to-site-rm-powershell] 
 [comment]: <> (MShermannd TODO nenhum link de documentação do ARM encontrado)
 
 #### Conexão VNet a VNet
@@ -778,10 +778,10 @@ Etapas mais detalhadas sobre como instalar, atualizar e configurar os cmdlets dp
 
 A experiência do cliente até agora tem sido que o PS (PowerShell) é certamente a ferramenta mais eficiente para implantar VMs e criar etapas personalizadas na implantação de VMs. Todos os clientes que executam instâncias SAP no Azure estão usando cmdlets do PS para complementar as tarefas de gerenciamento que eles realizam no Portal do Azure ou até mesmo usando cmdlets do PS exclusivamente para gerenciar suas implantações no Azure. Já que os cmdlets específicos do Azure compartilham a mesma convenção de nomenclatura que os mais de 2.000 cmdlets relacionados do Windows, aproveitar esses cmdlets é uma tarefa fácil para os administradores do Windows.
 
-Veja um exemplo aqui:
+Veja um exemplo aqui: 
 <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO descrever o novo comando CLI quando testado)
+[comment]: <> (MShermannd TODO descrever o novo comando CLI quando testado) 
 A implantação da extensão de monitoramento do Azure para SAP (consulte o capítulo [Solução de monitoramento do Azure para SAP][planning-guide-9.1] deste documento) só é possível por meio do PowerShell ou CLI. Portanto, é obrigatório instalar e configurar o PowerShell ou CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.
 
 Conforme o Azure fornece mais funcionalidade, serão adicionados novos cmdlets do PS que exigirão uma atualização dos cmdlets. Portanto, faz sentido verificar o site de Download do Azure pelo menos uma vez por mês <https://azure.microsoft.com/downloads/> para uma nova versão dos cmdlets. A nova versão será instalada substituindo a versão antiga.
@@ -816,10 +816,10 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> As configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas/generalizadas na VM local por meio do comando sysprep.
-[comment]: <> (MSSedusch > Veja mais detalhes aqui:)
-[comment]: <> (MShermannd TODO o primeiro link é sobre o modelo clássico. Um artigo de documentação do Azure não foi encontrado)
-[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>)
+> As configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas/generalizadas na VM local por meio do comando sysprep. 
+[comment]: <> (MSSedusch > Veja mais detalhes aqui:) 
+[comment]: <> (MShermannd TODO o primeiro link é sobre o modelo clássico. Um artigo de documentação do Azure não foi encontrado) 
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
 [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
@@ -841,7 +841,7 @@ Um método de implantação comum é mover, do local para o Azure, uma VM existe
 
 Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 
-* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure.
+* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. 
 [comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. O mesmo limite de tamanho do disco de SO se aplica também aos discos de dados. VHDs podem ter um tamanho máximo de 1 TB. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
@@ -867,7 +867,7 @@ Os arquivos VHD que contêm um SO generalizado também são armazenados em cont�
 
 Os requisitos ao preparar sua própria Imagem de VM do Azure são:
 
-* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure.
+* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. 
 [comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. O mesmo limite de tamanho do disco de SO se aplica também aos discos de dados. VHDs podem ter um tamanho máximo de 1 TB. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
@@ -1396,7 +1396,7 @@ azure group create $rgName "North Europe"
 * Criar uma nova conta de armazenamento
 
 ```
-azure storage account create --resource-group $rgName --location "North Europe" --type LRS $rgNameLower
+azure storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku-name LRS $rgNameLower
 ```
 
 * Crie uma nova rede virtual para cada estrutura de treinamento/demonstração para habilitar o uso do mesmo nome do host e endereços IP. A rede virtual é protegida por um Grupo de Segurança de Rede que permite apenas o tráfego para a porta 3389 para habilitar o acesso de Área de Trabalho Remota e porta 22 para SSH. 
@@ -1930,4 +1930,4 @@ Os pontos principais de alta disponibilidade para sistemas SAP no Azure são:
 * Fazer backup de instâncias de caixas de diálogo SAP não faz muito sentido, já que é normalmente mais rápido reimplantar instâncias de caixa de diálogo simples.
 * Fazer backup da VM que contém o diretório global do sistema SAP e com ela todos os perfis das diferentes instâncias faz sentido e deve ser executado com o Backup do Windows ou, por exemplo, tar no Linux. Como há diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2) que facilitam o backup usando versões mais recentes do Windows Server, é recomendável executar o Windows Server 2012 (R2) como sistema operacional convidado Windows. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

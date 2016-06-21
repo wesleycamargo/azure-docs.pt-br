@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/04/2016" 
 	ms.author="heidist"/>
 
 # Como usar os perfis de pontuação na Pesquisa do Azure
@@ -47,7 +47,7 @@ Na guia Código-fonte, clique em **Baixar** para obter um arquivo zip da soluç�
 
 1. Após extrair os arquivos, abra a solução no Visual Studio para editar o arquivo de configuração.
 1. No Gerenciador de Soluções, clique duas vezes em **app.config**. Esse arquivo especifica o ponto de extremidade de serviço e uma `api-key` usada para autenticar a solicitação. Você pode obter esses valores do Portal clássico.
-1. Entre no [Portal Clássico do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Vá para o painel do serviço da Pesquisa do Azure.
 1. Clique no bloco **Propriedades** para copiar a URL do serviço
 1. Clique no bloco **Chaves** para copiar a `api-key`.
@@ -126,4 +126,4 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

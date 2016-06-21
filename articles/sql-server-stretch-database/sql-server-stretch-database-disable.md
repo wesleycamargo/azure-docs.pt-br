@@ -24,9 +24,9 @@ Para desabilitar o Banco de Dados de Stretch de uma tabela, escolha **Stretch** 
 
 -   **Desabilitar | Deixar dados no Azure**. Desabilite o Banco de Dados de Stretch para a tabela. Abandone os dados remotos para a tabela no Azure.
 
-Depois de desabilitar o Banco de Dados de Stretch de uma tabela, a migração de dados é interrompida e os resultados da consulta já não incluem os resultados da tabela remota.
-
 Você também pode usar o Transact-SQL para desabilitar o Banco de Dados de Stretch para uma tabela ou um banco de dados.
+
+Depois de desabilitar o Banco de Dados de Stretch de uma tabela, a migração de dados é interrompida e os resultados da consulta já não incluem os resultados da tabela remota.
 
 Se apenas quiser pausar a migração de dados, consulte [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md).
 
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/31/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -59,21 +59,7 @@ Para saber mais sobre como configurar o cache, confira [Como configurar o Cache 
 <a name="NuGet"></a>
 ## Configurar os clientes de cache
 
-Um cache criado usando o Cache Redis do Azure é acessível de qualquer aplicativo do Azure. Aplicativos .NET desenvolvidos no Visual Studio podem usar o cliente de cache **StackExchange.Redis**, que pode ser configurado usando um pacote NuGet que simplifica a configuração de aplicativos cliente de cache.
-
->[AZURE.NOTE] Para obter mais informações, consulte a página do github [StackExchange.Redis][] e a [documentação do cliente do cache StackExchange.Redis][].
-
-Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**.
-
-![Gerenciar pacotes NuGet][NuGetMenu]
-
-Digite **StackExchange.Redis** ou **StackExchange.Redis.StrongName** na caixa de texto de pesquisa, selecione a versão desejada nos resultados e clique em **Instalar**.
-
->[AZURE.NOTE] Se preferir utilizar uma versão de nome forte da biblioteca do cliente de **StackExchange.Redis**, escolha **StackExchange.Redis.StrongName**; caso contrário escolha **StackExchange.Redis**.
-
-![Pacote NuGet StackExchange.Redis][StackExchangeNuget]
-
-Os downloads de pacote NuGet acrescentam as referências de assembly necessárias para o seu aplicativo de cliente para acessar o cache Redis do Azure com o cliente de cache StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Depois que o projeto de cliente estiver configurado para cache, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
 
@@ -298,4 +284,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Como cadeias de caracteres de aplicativo e cadeias de caracteres de conexão funcionam]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

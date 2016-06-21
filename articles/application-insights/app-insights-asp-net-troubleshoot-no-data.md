@@ -12,15 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/27/2016" 
 	ms.author="awills"/>
  
 # Solução de problemas de ausência de dados - Application Insights para .NET
 
+## Parte da minha telemetria está ausente
+
+*No Application Insights, vejo apenas uma fração dos eventos que são gerados pelo meu aplicativo.*
+
+* Caso você esteja vendo consistentemente a mesma fração, isso provavelmente se deve à [amostragem](app-insights-sampling.md) adaptável. Para confirmar isso, abra a Pesquisa (na folha de visão geral) e examine uma instância de uma Solicitação ou outro evento. Na parte inferior da seção de propriedades, clique em "…" para obter detalhes completos da propriedade. Se Contagem de solicitações for > 1, a amostragem estará em operação. 
+* Caso contrário, é possível que você esteja atingindo um [limite de taxa de dados](app-insights-pricing.md#limits-summary) para seu plano de preços. Esses limites são aplicados por minuto.
 
 ## Problemas do Monitor de Status
 
-*Eu [instalei o Monitor de Status](app-insights-monitor-performance-live-website-now.md) no meu servidor Web para monitorar os aplicativos existentes. Não consigo ver todos os resultados.*
+*Eu [instalei o Status Monitor](app-insights-monitor-performance-live-website-now.md) no meu servidor Web para monitorar os aplicativos existentes. Não consigo ver todos os resultados.*
 
 Veja [Solução de problemas do Monitor de Status](app-insights-monitor-performance-live-website-now.md#troubleshooting). Portas de firewall são o problema mais comum.
 
@@ -59,7 +65,7 @@ Parece que algo deu errado enquanto você instalava o Application Insights, ou t
 No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Configurar o Application Insights**. Você obterá uma caixa de diálogo que solicita que você entre no Azure e crie um recurso de Application Insights, ou então reutilize um recurso existente.
 
 
-##<a name="NuGetBuild"></a> "Pacotes NuGet estão ausentes" no meu servidor de compilação
+##<a name="NuGetBuild"></a> "Pacotes NuGet estão ausentes" no meu servidor de build
 
 *Tudo é compilado corretamente quando eu estou depurando em meu computador de desenvolvimento, mas obtenho um erro do NuGet no servidor de compilação.*
 
@@ -90,9 +96,9 @@ Caso contrário, o tipo de projeto não terá suporte direto das ferramentas do 
 
 ![](./media/app-insights-asp-net-troubleshoot-no-data/access-denied.png)
 
-A entrada da Microsoft que você usou pela última vez no navegador padrão não tem acesso ao [recurso que foi criado quando o Application Insights foi adicionado a este aplicativo](app-insights-asp-net.md). Há duas razões prováveis:
+As credenciais da Microsoft que você usou pela última vez no navegador padrão não têm acesso ao [recurso que foi criado quando o Application Insights foi adicionado a este aplicativo](app-insights-asp-net.md). Há duas razões prováveis:
 
-* Você tem mais de uma conta da Microsoft. Talvez uma conta de trabalho e uma conta pessoal da Microsoft? A entrada usada pela última vez no navegador padrão foi para uma conta diferente daquela que tem acesso a [adicionar o Application Insights ao projeto](app-insights-asp-net.md). 
+* Você tem mais de uma conta da Microsoft. Talvez uma conta de trabalho e uma conta pessoal da Microsoft? As credenciais usadas pela última vez no navegador padrão foram para uma conta diferente daquela que tem acesso a [adicionar o Application Insights ao projeto](app-insights-asp-net.md). 
 
  * Correção: clique em seu nome no canto superior direito da janela do navegador e saia. Em seguida, entre com a conta que tem acesso. Na barra de navegação à esquerda, clique em Application Insights e escolha seu aplicativo.
 
@@ -141,7 +147,7 @@ Correção:
 
 + No portal do Application Insights, abra a [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md). Os dados normalmente aparecem aqui primeiro.
 + Clique no botão Atualizar. A folha se atualiza periodicamente, mas você também pode fazê-lo manualmente. O intervalo de atualização é maior para intervalos de tempo maiores.
-+ Verifique se as chaves de instrumentação correspondem. Na folha principal do aplicativo no portal do Application Insights, na lista suspensa **Essentials**, examine **Chave de instrumentação**. Em seguida, no projeto no Visual Studio, abra applicationinsights.config e localize a `<instrumentationkey>`. Verifique se as duas chaves são iguais. Caso contrário:
++ Verifique se as chaves de instrumentação correspondem. Na folha principal do aplicativo no portal do Application Insights, na lista suspensa **Essentials**, examine **Chave de instrumentação**. Em seguida, no projeto no Visual Studio, abra ApplicationInsights.config e localize a `<instrumentationkey>`. Verifique se as duas chaves são iguais. Caso contrário:
  + No portal, clique em Application Insights e procure o recurso de aplicativo com a chave correta ou
  + No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto e escolha Application Insights, Configurar. Redefina o aplicativo para enviar telemetria ao recurso correto.
  + Se você não conseguir localizar as chaves correspondentes, verifique se está usando as mesmas credenciais de logon no Visual Studio e no portal.
@@ -169,7 +175,7 @@ Confira [telemetria de dependência](app-insights-asp-net-dependencies.md) e [te
 
 ## Nenhum dado de desempenho
 
-Há dados de desempenho (CPU, taxa de E/S etc) disponíveis para [Serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-as em Configurações, Servidores.
+Haverá dados de desempenho (CPU, taxa de E/S etc) disponíveis para [Serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-as em Configurações, Servidores.
 
 Esses dados não estão disponíveis para sites do Azure.
 
@@ -189,7 +195,7 @@ Esses dados não estão disponíveis para sites do Azure.
 
 ## Não vejo todos os dados que eu esperava
 
-Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de [amostragem adaptável](app-insights-sampling.md) poderá operar e enviar apenas uma porcentagem de sua telemetria.
+Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de [amostragem adaptável](app-insights-sampling.md) poderá operar e enviar apenas um percentual de sua telemetria.
 
 Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada para que a telemetria relacionada seja corretamente transmitida para fins de diagnóstico.
 
@@ -205,4 +211,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

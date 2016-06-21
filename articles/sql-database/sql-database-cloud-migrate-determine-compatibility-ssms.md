@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Determinar a compatibilidade com o Banco de Dados SQL usando SSMS"
+   pageTitle="Use o SQL Server Management Studio para Determinar a compatibilidade do Banco de Dados SQL antes da migração para o Banco de Dados SQL do Azure | Microsoft Azure"
    description="Banco de Dados SQL do Microsoft Azure, migração do banco de dados, compatibilidade com o Banco de Dados SQL, Assistente para Exportação de Aplicativo de Camada de Dados"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Use o SQL Server Management Studio para Determinar a compatibilidade do Banco de Dados SQL antes da migração para o Banco de Dados SQL do Azure
@@ -67,4 +67,4 @@ Neste artigo que você aprenderá a determinar se um banco de dados do SQL Serve
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"/>
 
 # Atualizar para o Banco de Dados SQL V12 usando o PowerShell
@@ -47,7 +47,7 @@ Após a atualização para V12, as [recomendações de nível de serviço](sql-d
 ## Prepare-se para atualizar
 
 - **Atualizar todos os bancos de dados da Web e Business**: confira a seção [Atualizar todos os bancos de dados da Web e Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) abaixo ou use o [PowerShell para atualizar bancos de dados e o servidor](sql-database-upgrade-server-powershell.md).
-- **Examinar e suspender a replicação geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para replicação geográfica, você deverá documentar sua configuração atual e [parar a replicação geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para replicação geográfica.
+- **Examinar e suspender a Replicação Geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para Replicação Geográfica, você deverá documentar sua configuração atual e [parar a Replicação Geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para Replicação Geográfica.
 - **Abra estas portas se você tiver clientes em uma VM do Azure**: se o seu programa cliente se conectar ao Banco de Dados SQL V12 enquanto seu cliente for executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM. Para obter detalhes, confira [Portas para o Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -201,4 +201,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

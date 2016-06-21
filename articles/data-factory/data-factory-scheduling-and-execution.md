@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Agendamento e execução com o Data Factory
@@ -282,7 +282,7 @@ CopyActivity2: Entradas: Dataset3, Dataset2 Saída: Dataset4
 
 Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria executando apenas quando as seguintes condições fossem atendidas:
 
-- CopyActivity2 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
+- CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
 - Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
 
 
@@ -702,4 +702,4 @@ Observe o seguinte:
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

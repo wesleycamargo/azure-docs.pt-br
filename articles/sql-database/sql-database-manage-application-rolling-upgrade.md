@@ -22,7 +22,7 @@
 > [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas.
 
 
-Saiba como usar [replicação geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar a rolagem de atualizações de seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, examinamos dois métodos diferentes de orquestrar o processo de atualização e discutiremos os benefícios e as desvantagens de cada opção. Para os fins deste artigo, usaremos um aplicativo simples que consiste em um site conectado a um banco de dados individual como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2, sem impactos significativos na experiência do usuário final.
+Saiba como usar a [Replicação Geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar a rolagem de atualizações de seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, examinamos dois métodos diferentes de orquestrar o processo de atualização e discutiremos os benefícios e as desvantagens de cada opção. Para os fins deste artigo, usaremos um aplicativo simples que consiste em um site conectado a um banco de dados individual como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2, sem impactos significativos na experiência do usuário final.
 
 Ao avaliar as opções de atualização, você deve considerar os seguintes fatores:
 
@@ -40,7 +40,7 @@ Se seu aplicativo depende de backups automáticos de banco de dados e usa a rest
 
 > [AZURE.NOTE] Observe que as etapas de preparação não terão impacto sobre o aplicativo no slot de produção e poderão funcionar no modo de acesso completo.
 
-![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![Configuração da Replicação Geográfica do Banco de Dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Depois de concluir as etapas de preparação, o aplicativo estará pronto para a atualização real. O diagrama a seguir ilustra as etapas envolvidas no processo de atualização.
 
@@ -70,9 +70,9 @@ Neste ponto, o aplicativo é totalmente funcional e as etapas de atualização p
 
 A principal **vantagem** dessa opção é que você pode atualizar um aplicativo em uma única região usando um conjunto de etapas simples. O custo da atualização é relativamente baixo. A principal **compensação** é que, se ocorrer uma falha catastrófica durante a atualização, a recuperação para o estado de pré-atualização envolverá reimplantação do aplicativo em uma região diferente e a restauração do banco de dados de backup usando a restauração geográfica. Esse processo resultará em um tempo de inatividade significativo.
 
-## Atualizando aplicativos que dependem de replicação geográfica de banco de dados para recuperação de desastre
+## Atualizando aplicativos que dependem de Replicação Geográfica de banco de dados para recuperação de desastre
 
-Se seu aplicativo usa a replicação geográfica para continuidade dos negócios, ele será implantado em ao menos duas regiões diferentes com uma implantação ativa na região Primária e uma implantação em espera na região de Backup. Além dos fatores mencionados anteriormente, o processo de atualização deve garantir que:
+Se seu aplicativo usar a Replicação Geográfica para continuidade dos negócios, ele será implantado em ao menos duas regiões diferentes com uma implantação ativa na região Primária e uma implantação em espera na região de Backup. Além dos fatores mencionados anteriormente, o processo de atualização deve garantir que:
 
 + O aplicativo permaneça protegido contra falhas catastróficas em todos os momentos durante o processo de atualização
 + Os componentes com redundância geográfica do aplicativo sejam atualizados em paralelo com os componentes ativos
@@ -125,10 +125,10 @@ Os dois métodos de atualização descritos no artigo diferem em complexidade e 
 
 - [Adicionar banco de dados secundário](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Fazer failover do banco de dados para o secundário](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Desconectar o secundário da replicação geográfica](https://msdn.microsoft.com/library/azure/mt603457.aspx)
+- [Desconectar o secundário da Replicação Geográfica](https://msdn.microsoft.com/library/azure/mt603457.aspx)
 - [Banco de dados de restauração geográfica](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
 - [Remover banco de dados](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiar banco de dados](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Definir o banco de dados para o modo somente leitura ou leitura/gravação](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Como criar uma VM personalizada do Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-Este tópico descreve como criar uma máquina virtual *personalizada* com a CLI do Azure usando o modelo de implantação clássico. Usaremos uma imagem do Linux das **IMAGENS** disponíveis no Azure. Os comandos da CLI do Azure oferecem as seguintes opções de configuração, entre outras:
+Este tópico descreve como criar uma VM (máquina virtual) personalizada com a CLI do Azure usando o modelo de implantação clássico. Usaremos uma imagem do Linux das **IMAGENS** disponíveis no Azure. Os comandos da CLI do Azure oferecem as seguintes opções de configuração, entre outras:
 
 - Conectar a VM a uma rede virtual
 - Adicionar a VM a um serviço de nuvem existente
@@ -35,4 +35,4 @@ Este tópico descreve como criar uma máquina virtual *personalizada* com a CLI 
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

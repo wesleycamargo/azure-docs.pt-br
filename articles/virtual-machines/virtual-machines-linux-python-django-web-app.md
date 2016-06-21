@@ -42,7 +42,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 ## Crie e configure uma máquina virtual do Azure para hospedar o Django
 
-1. Siga as instruções fornecidas [aqui](virtual-machines-linux-portal-create.md) para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*. Se preferir, pode escolher a autenticação de senha em vez de chave pública SSH.
+1. Siga as instruções fornecidas [aqui](virtual-machines-linux-quick-create-portal.md) para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*. Se preferir, pode escolher a autenticação de senha em vez de chave pública SSH.
 
 1. Editar o grupo de segurança de rede para permitir o tráfego http de entrada para a porta 80 usando as instruções [aqui](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,4 +126,4 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

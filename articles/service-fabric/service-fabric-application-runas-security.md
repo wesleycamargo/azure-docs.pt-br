@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # RunAs: Executar um aplicativo de Service Fabric com permissões de segurança diferentes
 O Service Fabric do Azure fornece o recurso de proteção de aplicativos em execução no cluster em contas de usuário diferentes, conhecido como **RunAs**. O Service Fabric também protege os recursos usados pelos aplicativos com a conta de usuário, como arquivos, diretórios e certificados.
@@ -155,14 +155,14 @@ No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambi
 ~~~
 
 **Observação:** por padrão, quando o arquivo em lote é executado, ele examina a pasta de aplicativo chamada **trabalho** em busca de arquivos. Nesse caso, quando MySetup.bat é executado, queremos que o MySetup.ps1 seja encontrado na mesma pasta, que é a pasta do **pacote de código** do aplicativo. Para alterar essa pasta, defina a pasta de trabalho como mostrado abaixo.
-    
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## Usando a política de redirecionamento de console para depuração local dos pontos de entrada
@@ -179,13 +179,13 @@ O exemplo a seguir mostra a configuração de redirecionamento do console com um
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 Se você alterar o arquivo MySetup.ps1 para gravar um comando **Echo**, ele gravará o arquivo de saída para fins de depuração.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **Depois de ter depurado seu script, remova imediatamente a política de redirecionamento de console**
@@ -351,4 +351,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

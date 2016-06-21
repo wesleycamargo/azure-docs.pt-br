@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-Este artigo mostra como iniciar um failover planejado ou não planejado para um Banco de Dados SQL com o PowerShell. Para configurar a replicação geográfica, consulte [Configurar a replicação geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-powershell.md).
+Este artigo mostra como iniciar um failover planejado ou não planejado para um Banco de Dados SQL com o PowerShell. Para configurar a Replicação Geográfica, consulte [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-powershell.md).
 
 
 
@@ -38,7 +38,7 @@ O comando executa o seguinte fluxo de trabalho:
 
 1. Alterne temporariamente a replicação para o modo síncrono. Isso fará com que todas as transações pendentes sejam liberadas para o secundário.
 
-2. Alterne as funções dos dois bancos de dados na parceria de replicação geográfica.
+2. Alterne as funções dos dois bancos de dados na parceria de Replicação Geográfica.
 
 Essa sequência garante que os dois bancos de dados estejam sincronizados antes que as funções sejam alternadas, de forma que não ocorra nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
@@ -81,10 +81,10 @@ O comando a seguir alternará as funções de banco de dados chamado "mydb" para
 
 ## Recursos adicionais
 
-- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Destacar novos recursos de Replicação Geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Projetando aplicativos de nuvem para continuidade de negócios usando a Replicação Geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

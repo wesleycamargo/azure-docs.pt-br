@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin" />
 
 # Bibliotecas de Autenticação do Active Directory do Azure
@@ -28,7 +28,7 @@ A ADAL está disponível em uma variedade de plataformas.
 |OS X, iOS|Biblioteca de Autenticação do Active Directory (ADAL) para Objective-C|Cliente|[ADAL para Objective-C (CocoaPods)](https://cocoapods.org/?q=adal%20io)|[ADAL para Objective-C (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|Exemplo: [NativeClient-iOS (Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
 |Android|Biblioteca de Autenticação do Active Directory (ADAL) para Android|Cliente|[ADAL para Android (O Repositório Central)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[ADAL for Android (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|Exemplo: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
 |Node.js|Biblioteca de Autenticação do Active Directory (ADAL) para for Node.js|Cliente|[ADAL para Node. js (npm)](https://www.npmjs.com/package/adal-node)|[ADAL para Node. js (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|Exemplo: [WebAPI-Nodejs (Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
-|Node.js|Middleware de autenticação do Passport do Microsoft Azure Active Directory para Node|Cliente|[Passport do Active Directory do Azure para Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Active Directory do Azure para Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
+|Node.js|Middleware de autenticação do Passport do Active Directory do Microsoft Azure para Nó|Cliente|[Passport do Active Directory do Azure para Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Active Directory do Azure para Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
 |Java|Biblioteca de Autenticação do Active Directory (ADAL) para Java|Cliente|[ADAL para Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[ADAL para Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
 |.NET|Extensões do Protocolo de Identidade para o Microsoft .NET Framework 4.5|Servidor|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[Extensões do modelo de identidade do AD do Azure para .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
 |.NET|JSON Web Token Handler para o Microsoft .Net Framework 4.5|Servidor|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[Extensões do modelo de identidade do AD do Azure para .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
@@ -63,4 +63,4 @@ Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor qu
 
 [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

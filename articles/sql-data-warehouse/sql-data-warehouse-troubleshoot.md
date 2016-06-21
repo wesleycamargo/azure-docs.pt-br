@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solução de problemas | Microsoft Azure"
-   description="Solução de problemas do SQL Data Warehouse."
+   pageTitle="Solução de problemas do Azure SQL Data Warehouse | Microsoft Azure"
+   description="Solução de problemas do Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,8 +16,8 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# Solucionar problemas
-O tópico a seguir lista alguns dos problemas mais comuns com os quais os clientes se deparam com o Azure SQL Data Warehouse.
+# Solução de problemas do Azure SQL Data Warehouse
+Este tópico lista alguns dos problemas mais comuns com os quais você pode se deparar com o Azure SQL Data Warehouse.
 
 ## Conectividade
 Os problemas de conectividade mais comuns incluem:
@@ -33,13 +33,13 @@ O SQL Data Warehouse recomenda o uso do [Visual Studio 2013 ou 2015][] para cons
 
 ## Desempenho de consulta
 
-Há várias coisas simples que você pode fazer em seu design de banco de dados para garantir que obtenha o desempenho ideal de consulta do SQL Data Warehouse. Um bom lugar para começar a entender o desempenho das suas consultas é o artigo sobre [aprender a monitorar suas consultas][]. Às vezes, a solução para fazer uma consulta ser executada mais rapidamente é simplesmente adicionar mais poder de computação às suas consultas ao [dimensionar seu SQL Datawarehouse][]. Para encontrar muitas dessas otimizações em um único lugar, dê uma olhada no artigo [Práticas recomendadas do SQL Data Warehouse][].
+Há várias coisas simples que você pode fazer em seu design de banco de dados para garantir que obtenha o desempenho ideal de consulta do SQL Data Warehouse. Um bom lugar para começar a entender o desempenho das suas consultas é o artigo sobre [aprender a monitorar suas consultas][]. Às vezes, a solução para fazer uma consulta ser executada mais rapidamente é simplesmente adicionar mais poder de computação às suas consultas ao [dimensionar seu SQL Data Warehouse][]. Para encontrar muitas dessas otimizações em um único lugar, dê uma olhada no artigo [Práticas recomendadas do SQL Data Warehouse][].
 
 A seguir, algumas das causas mais comuns de consulta dos problemas de desempenho que vimos.
 
 ### Estatísticas
 
-As [estatísticas][] em suas tabelas contêm informações sobre o intervalo e a frequência de valores em uma coluna de banco de dados. O mecanismo de consulta usa essas estatísticas para otimizar a execução de consulta e melhorar o desempenho de consulta. Ao contrário do SQL Server ou do SQL DB, o SQL Data Warehouse não cria ou atualiza as estatísticas automaticamente. As estatísticas devem ser manualmente mantidas em todas as tabelas. Para saber como gerenciar as estatísticas e identificar as tabelas que precisam de estatísticas, dê uma olhada no artigo [Gerenciar estatísticas no SQL Data Warehouse][].
+As [estatísticas][] em suas tabelas contêm informações sobre o intervalo e a frequência de valores em uma coluna de banco de dados. O mecanismo de consulta usa essas estatísticas para otimizar a execução de consulta e melhorar o desempenho de consulta. Ao contrário do SQL Server ou do Banco de Dados SQL, o SQL Data Warehouse não cria ou atualiza as estatísticas automaticamente. As estatísticas devem ser mantidas manualmente em todas as tabelas. Para saber como gerenciar as estatísticas e identificar as tabelas que precisam de estatísticas, dê uma olhada no artigo [Gerenciar estatísticas no SQL Data Warehouse][].
 
 ### Design da tabela
 
@@ -109,7 +109,7 @@ Veja o artigo [Práticas recomendadas do SQL Data Warehouse][] para saber mais s
 <!--Image references-->
 
 <!--Article references-->
-[dimensionar seu SQL Datawarehouse]: ./sql-data-warehouse-overview-scalability.md
+[dimensionar seu SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [design da tabela]: ./sql-data-warehouse-develop-table-design.md
 [escolher a chave de distribuição de hash correta para sua tabela]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
@@ -126,4 +126,4 @@ Veja o artigo [Práticas recomendadas do SQL Data Warehouse][] para saber mais s
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

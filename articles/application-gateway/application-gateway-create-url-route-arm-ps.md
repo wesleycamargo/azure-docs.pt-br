@@ -22,7 +22,7 @@ O Roteamento com base em Caminho de URL permite que você associe rotas com base
 
 O roteamento com base em URL apresenta um novo tipo de regra ao gateway de aplicativo. O gateway de aplicativo tem dois tipos de regra: básica e PathBasedRouting. O tipo de regra básica fornece o serviço de round robin para os pools de back-end, enquanto o PathBasedRouting também leva em consideração, além de distribuição round robin, o padrão de caminho da URL da solicitação ao escolher o pool de back-end.
 
->[AZURE.IMPORTANT] PathPattern: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um * é permitido é no final após um “/”. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro? ou #, e esses caracteres não são permitidos.
+>[AZURE.IMPORTANT] PathPattern: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um * é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro? ou #, e esses caracteres não são permitidos.
 
 ## Cenário
 No exemplo a seguir, o Application Gateway está fornecendo o tráfego para contoso.com com dois pools de servidor back-end: o pool de servidores de vídeo e o pool de servidores de imagem.
@@ -194,6 +194,6 @@ Crie um gateway de aplicativo com todos os objetos de configuração das etapas 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## Obter um Application Gateway
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

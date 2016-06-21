@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/05/2016" 
 	ms.author="awills"/>
  
 # Diagnóstico proativo quase em tempo real
@@ -23,9 +23,11 @@ Esse recurso funciona para aplicativos Web Java e ASP.NET, hospedados na nuvem o
 
 Depois de configurar o [Application Insights para seu projeto](app-insights-get-started.md), e desde que o aplicativo gere certa quantidade mínima de telemetria, o Diagnóstico Proativo NRT levará 24 horas para aprender o comportamento normal do aplicativo antes que ele seja ligado e possa enviar alertas.
 
-Veja a seguir exemplo do alerta:
+Veja a seguir um exemplo do alerta.
 
 ![Exemplo de alerta inteligente mostrando a análise de cluster sobre a falha](./media/app-insights-nrt-proactive-diagnostics/010.png)
+
+> [AZURE.NOTE] Por padrão, você receberá uma mensagem com formato mais curto que esse exemplo. Mas você pode [alternar para este formato detalhado](#configure-alerts).
 
 Observe o que ele diz:
 
@@ -35,11 +37,13 @@ Observe o que ele diz:
 * A exceção, os rastreamentos de log e as falhas de dependência (bancos de dados ou outros componentes externos) que parecem estar associados às solicitações com falha caracterizadas.
 * Vincula diretamente às pesquisas relevantes na telemetria no Application Insights.
 
+## Benefícios de alertas proativos
+
 Os [alertas de métrica](app-insights-alerts.md) comuns mostram que pode haver um problema. Mas o Diagnóstico Proativo NRT inicia o trabalho de diagnóstico para você, executando grande parte da análise que, de outra forma, você teria de fazer por conta própria. Você obtém os resultados empacotados organizadamente, o que ajuda a chegar rapidamente à raiz do problema.
 
 ## Como ele funciona
 
-O Diagnóstico Proativo Quase em Tempo Real monitora a telemetria recebida de seu aplicativo, especialmente a taxa de solicitações com falha. Essa métrica conta o número de solicitações para o qual a propriedade `Successful request` é falsa. Por padrão, `Successful request== (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](app-insights-api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
+O Diagnóstico Proativo Quase em Tempo Real monitora a telemetria recebida de seu aplicativo, especialmente a taxa de solicitações com falha. Essa métrica conta o número de solicitações para as quais a propriedade `Successful request` é falsa. Por padrão, `Successful request== (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](app-insights-api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
 O desempenho do aplicativo tem um padrão típico de comportamento. Algumas solicitações serão mais propensas a falhas do que outras; a taxa geral de falha poderá aumentar à medida que a carga crescer. O Diagnóstico Proativo NRT usa o aprendizado de máquina para encontrar essas anomalias.
 
@@ -53,17 +57,40 @@ A análise resultante é enviada como um alerta, a menos que você tenha configu
 
 Assim como os [alertas que você definiu manualmente](app-insights-alerts.md), é possível inspecionar o estado do alerta e configurá-lo na folha Alertas de seu recurso Application Insights. Mas, ao contrário de outros alertas, não é necessário configurar o Diagnóstico Proativo NRT. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
 
+
+## Configurar alertas 
+
+Você pode desabilitar o diagnóstico proativo, alterar os destinatários do email, criar um webhook ou aceitar mensagens de alerta mais detalhadas.
+
+Abra a página Alertas. O Diagnóstico Proativo está incluído junto com todos os alertas configurados manualmente, e é possível ver se está em estado de alerta no momento.
+
+![Na página Visão geral, clique no bloco Alertas. Ou em qualquer página Métricas, clique no botão Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+
+Clique no alerta para configurá-lo.
+
+![Configuração](./media/app-insights-nrt-proactive-diagnostics/031.png)
+
+
+Observe que é possível desabilitar o Diagnóstico Proativo, mas não excluí-lo (nem criar outro).
+
+#### Alertas detalhados
+
+Se você selecionar "Receber análise detalhada", o email conterá mais informações de diagnóstico. Às vezes, você poderá diagnosticar o problema apenas dos dados no email.
+
+Há um pequeno risco de que o alerta mais detalhado possa conter informações confidenciais, pois inclui mensagens de exceção e rastreamento. No entanto, isso aconteceria apenas se seu código permitisse informações confidenciais nessas mensagens.
+
+
 ## Triagem e diagnóstico de um alerta
 
 Um alerta indica a detecção de um aumento anormal na taxa de solicitações com falha. É provável que haja algum problema com seu aplicativo ou seu ambiente.
 
-Você pode decidir a urgência do problema com base na porcentagem de solicitações e no número de usuários afetados. No exemplo acima, a taxa de falha de 15% é comparada a uma taxa normal de 1,3% e indica que está acontecendo alguma coisa errada. Vinte e dois usuários diferentes foram afetados pelas falhas em uma determinada operação. Se fosse seu aplicativo, você poderia avaliar a gravidade.
+Você pode decidir a urgência do problema com base na porcentagem de solicitações e no número de usuários afetados. No exemplo acima, a taxa de falha de 22,5% é comparada a uma taxa normal de 1% e indica que está acontecendo alguma coisa errada. Por outro lado, somente 11 usuários foram afetados. Se fosse seu aplicativo, você poderia avaliar a gravidade.
 
 Em muitos casos, você poderá diagnosticar o problema rapidamente pelo nome da solicitação, exceção, falha de dependência e pelos dados de rastreamento fornecidos.
 
 Há alguns outros indícios. Por exemplo, a taxa de falha de dependência neste exemplo é igual à taxa de exceção (89,3%). Isso sugere que a exceção provém diretamente da falha de dependência - dando uma ideia clara de onde é preciso começar a procurar em seu código.
 
-Para investigar melhor, os links em cada seção levarão você diretamente até uma [página pesquisa](app-insights-diagnostic-search.md) filtrada para mostrar solicitações, exceções, dependências ou rastreamentos relevantes. Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso Application Insights de seu aplicativo e abrir a folha Falhas.
+Para investigar melhor, os links em cada seção levarão você diretamente até uma [página de pesquisa](app-insights-diagnostic-search.md) filtrada para mostrar solicitações, exceções, dependências ou rastreamentos relevantes. Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso Application Insights de seu aplicativo e abrir a folha Falhas.
 
 Neste exemplo, clicar no link "Exibir detalhes da falha de dependência" abre a folha de pesquisa do Application Insights na instrução SQL com a causa raiz: NULOs foram fornecidos em campos obrigatórios e não foram aprovados na validação durante a operação de salvamento.
 
@@ -74,22 +101,16 @@ Neste exemplo, clicar no link "Exibir detalhes da falha de dependência" abre a 
 
 Para examinar os alertas no portal, abra **Configurações, Logs de auditoria**.
 
-![Resumo de alertas](./media/app-insights-nrt-proactive-diagnostics/040.png)
+![Resumo de alertas](./media/app-insights-nrt-proactive-diagnostics/041.png)
+
 
 Clique em qualquer alerta para ver todos os detalhes.
 
+Ou clique em **Detecção proativa** para ir diretamente para o alerta mais recente:
 
-## Configurar alertas 
+![Resumo de alertas](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-Abra a página Alertas. O Diagnóstico Proativo está incluído junto com todos os alertas configurados manualmente, e é possível ver se está em estado de alerta no momento.
 
-![Na página Visão geral, clique no bloco Alertas. Ou em qualquer página Métricas, clique no botão Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
-
-Clique no alerta para configurá-lo.
-
-![Configuração](./media/app-insights-nrt-proactive-diagnostics/031.png)
-
-Observe que é possível desabilitar o Diagnóstico Proativo, mas não excluí-lo (nem criar outro).
 
 
 ## Qual é a diferença...
@@ -138,4 +159,4 @@ O Diagnóstico Proativo NRT complementa outros recursos distintos, mas parecidos
 
 *Estamos muito interessados em saber sua opinião sobre isso. Envie seus comentários para:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

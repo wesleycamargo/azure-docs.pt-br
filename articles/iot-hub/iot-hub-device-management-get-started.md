@@ -3,7 +3,7 @@
 	description="Tutorial de introdução ao Hub IoT do Azure para gerenciamento de dispositivo com C#. Use o Hub IoT do Azure e C# com os SDKs de IoT do Microsoft Azure para implementar o gerenciamento de dispositivo."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,27 +14,32 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Introdução ao gerenciamento de dispositivos do Hub IoT do Azure usando C# (visualização)
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introdução
-Para começar com o gerenciamento de dispositivos de Hub IoT do Azure, você precisará criar um Hub IoT do Azure, provisionar dispositivos no Hub IoT e iniciar vários dispositivos simulados. Este tutorial apresenta e explica as etapas a seguir.
+Para começar com o gerenciamento de dispositivos de Hub IoT do Azure, você terá de criar um Hub IoT do Azure, provisionar dispositivos no Hub IoT e iniciar vários dispositivos simulados, além de exibir esses dispositivos na interface do usuário de exemplo do gerenciamento de dispositivo. Este tutorial apresenta e explica as etapas a seguir.
 
 > [AZURE.NOTE]  Você precisará criar um novo Hub IoT para habilitar recursos de gerenciamento de dispositivo mesmo se tiver um Hub IoT existente, pois os Hubs IoT existentes ainda não têm recursos de gerenciamento de dispositivo. Depois que o gerenciamento de dispositivos fica disponível, todos os Hubs IoT existentes serão atualizados para obter recursos de gerenciamento de dispositivo.
 
 ## Pré-requisitos
 
+Este tutorial presume que você esteja usando uma máquina de desenvolvimento do Windows.
+
 Você precisa ter os seguintes itens instalados para concluir as etapas:
 
 - Microsoft Visual Studio 2015
-- Git
-- CMake (versão 2.8 ou posterior). Instalar o CMake a partir de <https://cmake.org/download/>. Para um PC com Windows, escolha a opção do Windows Installer (.msi). Não deixe de marcar a caixa para adicionar o CMake à variável PATH do usuário atual.
-- Uma assinatura ativa do Azure.
 
-	Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
+- Git
+
+- CMake (versão 2.8 ou posterior). Instale o CMake de <https://cmake.org/download/>. Para um PC com Windows, escolha a opção do Windows Installer (.msi). Não deixe de marcar a caixa para adicionar o CMake à variável PATH do usuário atual.
+
+- Node. js 6.1.0 ou superior. Instalar o Node.js para sua plataforma de <https://nodejs.org/>.
+
+- Uma assinatura ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
 
 ## Criar um Hub IoT habilitado para gerenciamento de dispositivo
 
@@ -45,19 +50,19 @@ Você precisa criar um Hub IoT habilitado para gerenciamento de dispositivo ao q
 
 	![][img-new-hub]
 
-3.  Na folha **Hub IoT**, escolha a configuração para o Hub IoT.
+3.  Na folha **Hub IoT**, escolha a configuração para o hub IoT.
 
 	![][img-configure-hub]
 
-  -   Na caixa **Nome**, insira um nome para identificar seu Hub IoT. Se o **Nome** for válido e se estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
+  -   Na caixa **Nome**, insira um nome para identificar seu hub IoT. Se o **Nome** for válido e se estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
   -   Selecione um **Tipo de preço e de dimensionamento**. Este tutorial não requer uma camada específica.
   -   No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure].
-  -   Marque a caixa para **Ativar o Gerenciamento de Dispositivos**.
-  -   Em **Local**, selecione o local para hospedar o Hub IoT. O gerenciamento de dispositivos do Hub IoT só está disponível no Leste dos EUA, Europa Setentrional e Ásia Oriental durante a visualização pública. No futuro, ele estará disponível em todas as regiões.
+  -   Marque a caixa para **Habilitar o Gerenciamento de Dispositivos**.
+  -   Em **Local**, selecione o local para hospedar o hub IoT. O gerenciamento de dispositivos do Hub IoT só está disponível no Leste dos EUA, Europa Setentrional e Ásia Oriental durante a visualização pública. No futuro, ele estará disponível em todas as regiões.
 
-    > [AZURE.NOTE]  Se você não marcar a caixa para **Ativar o Gerenciamento de Dispositivos** os exemplos não funcionarão.
+    > [AZURE.NOTE]  Se você não marcar a caixa para **Habilitar o Gerenciamento de Dispositivos**, os exemplos não funcionarão.
 
-4.  Quando você tiver escolhido as opções de configuração do Hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu Hub IoT. Para verificar o status, você pode monitorar o progresso no **Quadro inicial** ou no painel **Notificações**.
+4.  Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu Hub IoT. Para verificar o status, você pode monitorar o progresso no **Quadro inicial** ou no painel **Notificações**.
 
 	![][img-monitor]
 
@@ -95,7 +100,7 @@ Para criar os exemplos e provisionar dispositivos no Hub IoT, siga as etapas aba
 
 Esse script faz o seguinte:
 
-1.  Executa **cmake** para criar uma solução do Visual Studio 2015 para o dispositivo simulado. Esse arquivo de projeto é **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que os arquivos de origem estão na pasta ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Executa **cmake** para criar uma solução do Visual Studio 2015 para o dispositivo simulado. Esse arquivo de projeto é **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que os arquivos de origem estão na pasta **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila o projeto de dispositivo simulado **iotdm\_simple\_sample.vcxproj**.
 
@@ -125,17 +130,54 @@ Abaixo, vemos a saída do aplicativo de exemplo **iotdm\_simple\_sample**. Na pa
 
 ![][img-output]
 
-Deixe todos os dispositivos simulados em execução enquanto você conclui os tutoriais nas “Próximas etapas”.
+Deixe todos os dispositivos simulados em execução enquanto você conclui as seções a seguir.
 
-## Próximas etapas
+## Executar a interface de usuário do gerenciamento de dispositivos
 
-Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azure, é possível acompanhar os tutoriais:
+Agora que você tem um Hub IoT e tem vários dispositivos simulados em execução e registrados para gerenciamento, poderá implantar a interface do usuário de exemplo do gerenciamento de dispositivos. A interface do usuário de exemplo do gerenciamento de dispositivos oferece um exemplo prático de como utilizar as APIs do gerenciamento de dispositivos para criar uma experiência de interface do usuário interativa. Para saber mais sobre a interface do usuário de exemplo do gerenciamento de dispositivos, incluindo [Problemas conhecidos](https://github.com/Azure/azure-iot-device-management#knownissues), confira o repositório do GitHub [Interface do usuário do gerenciamento de dispositivos IoT do Azure][lnk-dm-github].
 
-- [Como usar o dispositivo gêmeo][lnk-tutorial-twin]
+Para recuperar, compilar e executar a interface do usuário de exemplo do gerenciamento de dispositivos, siga as etapas abaixo:
 
-- [Como encontrar dispositivos gêmeos usando consultas][lnk-tutorial-queries]
+1. Abra um **Prompt de comando**.
 
-- [Como usar trabalhos do dispositivo para atualizar o firmware do dispositivo][lnk-tutorial-jobs]
+2. Confirme que você instalou o Node.js 6.1.0 ou superior de acordo com a seção de pré-requisitos ao digitar `node --version`.
+
+3. Clone o repositório do GitHub da interface do usuário do gerenciamento de dispositivos IoT do Azure ao executar o seguinte comando:
+
+	```
+	git clone https://github.com/Azure/azure-iot-device-management.git
+	```
+	
+4. Na pasta raiz de sua cópia clonada do repositório da interface do usuário do gerenciamento de dispositivos IoT do Azure, execute o comando a seguir para recuperar os pacotes dependentes:
+
+	```
+	npm install
+	```
+
+5. Quando o comando npm install for concluído, execute o seguinte comando para compilar o código:
+
+	```
+	npm run build
+	```
+
+6. Use um editor de texto para abrir o arquivo user-config.json na raiz da pasta clonada. Substitua o texto "&lt;SUA CADEIA DE CONEXÃO AQUI&gt;" por sua cadeia de conexão do Hub IoT da seção anterior e salve o arquivo.
+
+7. No prompt de comando, execute o comando a seguir para iniciar o aplicativo de experiência do gerenciamento de dispositivos:
+
+	```
+	npm run start
+	```
+
+8. Quando o prompt de comando relatar "Os serviços foram iniciados", abra um navegador da Web (Edge/IE 11+/Safari/Chrome têm suporte no momento) e navegue até o aplicativo de gerenciamento de dispositivos na URL a seguir para exibir os dispositivos simulados: <http://127.0.0.1:3003>.
+
+	![][img-dm-ui]
+
+Deixe os dispositivos simulados e o aplicativo de gerenciamento de dispositivos em execução enquanto prossegue para o próximo tutorial de gerenciamento.
+
+
+## Próxima etapa
+
+Para continuar a aprender sobre os recursos de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Explorar o gerenciamento de dispositivos do Hub IoT do Azure usando a interface do usuário de exemplo][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -144,12 +186,12 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [img-keys]: media/iot-hub-device-management-get-started/image4.png
 [img-connection]: media/iot-hub-device-management-get-started/image5.png
 [img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Portal do Azure]: https://portal.azure.com/
 [Usando os grupos de recursos para gerenciar seus recursos do Azure]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

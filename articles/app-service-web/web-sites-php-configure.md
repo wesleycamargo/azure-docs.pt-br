@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm"/>
 
 #Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
@@ -160,14 +160,34 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 
 	![Salvar definições de configuração][save-button]
 
+<a name="composer" />
+## Como habilitar a automação do Criador no Azure
+
+Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se você tiver um em seu projeto PHP. Se você usar a [implantação Git](app-service-web-php-get-started.md), você poderá habilitar o composer.json durante `git push` habilitando a extensão do Criador.
+
+>[AZURE.NOTE] Você pode [votar para obter o suporte de primeira classe do Criador no Serviço de Aplicativo aqui](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip).
+
+1. Na folha do aplicativo Web PHP no [portal do Azure](https://portal.azure.com), clique em **Ferramentas** > **Extensões**.
+
+    ![Folha de configurações do Portal do Azure para habilitar a automação do Criador no Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+
+2. Clique em **Adicionar** e em **Criador**.
+
+    ![Adicionar extensão do Criador para habilitar sua respectiva automação no Azure](./media/web-sites-php-configure/composer-extension-add.png)
+    
+3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
+
+    Agora, a folha **Extensões instaladas** mostrará a extensão do Criador. ![Aceite os termos legais para habilitar a automação do Criador no Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    
+4. Agora, execute `git add`, `git commit` e `git push` como na seção anterior. Agora, você verá que o Compositor está instalando dependências definidas no composer.json.
+
+    ![Implantação do Git com a automação do Criador no Azure](./media/web-sites-php-configure/composer-extension-success.png)
+
 ## Próximas etapas
 
 Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/php/).
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -189,4 +209,4 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

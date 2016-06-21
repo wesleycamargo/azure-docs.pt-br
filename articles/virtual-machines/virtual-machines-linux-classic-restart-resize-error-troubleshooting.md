@@ -57,7 +57,7 @@ Se você receber um erro ao tentar criar um novo serviço de nuvem, tente novame
 
 > [AZURE.IMPORTANT] O novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário alterar essas informações em todas as dependências que usam essas informações para o serviço de nuvem existente.
 
-## Problema: erro ao reiniciar uma VM existente
+## Problema: erro ao redimensionar uma VM existente
 
 Você tenta redimensionar uma VM existente, mas ocorre uma falha de alocação.
 
@@ -81,4 +81,4 @@ Se não for possível reduzir o tamanho da VM, siga estas etapas:
 
 Se o serviço de nuvem existente não estiver associado a uma rede virtual baseada em região, será necessário excluir as VMs no serviço de nuvem existente e recriá-las no novo serviço de nuvem por meio de seus discos. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

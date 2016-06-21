@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Adicionar um repositório de artefatos do Git a um laboratório
 
-> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como adicionar seu repositório de artefatos privado a um laboratório nos Laboratórios de Desenvolvimento/Teste](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+> [AZURE.NOTE] Assista ao vídeo que acompanha este artigo: [How to add your private artifacts repository to a lab in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) (Como adicionar seu repositório de artefatos privado a um laboratório no DevTest Labs)
 
 ## Visão geral
 
@@ -37,11 +37,11 @@ Para adicionar um repositório de artefatos do GitHub ao seu laboratório, você
 
 1. Na home page do repositório GitHub que contém os artefatos da equipe, salve a **URL clone HTTPS** para uso posterior.
 
-1. Toque na imagem de perfil no canto superior direito e selecione **Configurações**.
+1. Selecione a imagem de perfil no canto superior direito e, em seguida, **Configurações**.
 
-1. No menu **Configurações pessoais** à esquerda, toque em **Tokens de acesso pessoal**.
+1. No menu **Configurações pessoais** à esquerda, selecione **Tokens de acesso pessoal**.
 
-1. Toque em **Gerar novo token**.
+1. Selecione **Gerar novo token**.
 
 1. Na página **Novo token de acesso pessoal**, insira uma **Descrição do token**, aceite os itens padrão em **Selecionar escopos** e escolha **Gerar Token**.
 
@@ -53,13 +53,13 @@ Para adicionar um repositório de artefatos do GitHub ao seu laboratório, você
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
 
-1. Na lista de laboratórios, toque no laboratório desejado.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. Na folha de laboratório, toque em **Configurações**.
+1. Na folha do laboratório, selecione **Configurações**.
 
-1. Na folha **Configurações** do laboratório, toque em **Repositório de Artefatos**.
+1. Na folha **Configurações** do laboratório, selecione **Repositório de Artefatos**.
 
 1. Na folha **Repositório de Artefatos**:
 
@@ -67,7 +67,7 @@ Para adicionar um repositório de artefatos do GitHub ao seu laboratório, você
     1. Insira a **Url de Clone de Git**.
     2. Insira o **Caminho da Pasta** no repositório de artefatos que contém os artefatos.
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
-    4. Toque em **Salvar**.
+    4. Selecione **Salvar**.
 
 Os artefatos no seu repositório agora estão listados na folha **Adicionar Artefatos**.
 
@@ -77,19 +77,19 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
 
 ### Na página da Web do Visual Studio do seu projeto de artefato
 
-1. Abra a home page da sua coleção de equipe (por exemplo, `https://contoso-web-team.visualstudio.com`) e toque no projeto de artefato.
+1. Abra a home page de sua coleção de equipe (por exemplo, `https://contoso-web-team.visualstudio.com`) e selecione o projeto de artefato.
 
-2. Na home page do projeto, toque em **Código**.
+2. Na home page do projeto, selecione **Código**.
 
-1. Para exibir a URL de clone, na página de **Código** do projeto, toque em **Clone**.
+1. Para exibir a URL de clone, na página **Código** do projeto, selecione **Clone**.
 
 1. Salve a URL, você precisará dela mais tarde neste tutorial.
 
-1. Para criar um Token de acesso pessoal, toque em **Meu perfil** no menu suspenso de conta de usuário.
+1. Para criar um Token de Acesso Pessoal, selecione **Meu perfil** no menu suspenso da conta de usuário.
 
-1. Na página de informações de perfil, toque em **Segurança**.
+1. Na página de informações de perfil, selecione **Segurança**.
 
-1. Clique na guia **Segurança** e toque em **Adicionar**.
+1. Na guia **Segurança**, selecione **Adicionar**.
 
 1. Na página **Criar um token de acesso pessoal**:
 
@@ -99,15 +99,15 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     4. Escolha a opção **Todos os escopos**.
     5. Escolha **Criar Token**.
 
-1. Quando terminar, o novo token será exibido na lista de **Tokens de Acesso Pessoal**. Toque em **Copiar Token** e salve o valor do token, pois ele será usado em breve.
+1. Quando terminar, o novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token** e salve o valor do token, pois ele será usado em breve.
 
 ### No laboratório
 
-1. Na folha do seu laboratório, toque em **Configurações**.
+1. Na folha do laboratório, selecione **Configurações**.
 
     ![Escolha Configurações](./media/devtest-lab-add-artifact-repo/devtestlab-add-artifacts-repo-open-dtl-settings.png)
 
-1. Na folha **Configurações**, toque em **Repositório de Artefatos**.
+1. Na folha **Configurações**, selecione **Repositório de Artefatos**.
 
 1. Na folha **Repositório de Artefatos**
 
@@ -115,6 +115,6 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     1. Insira a **Url de Clone de Git**.
     2. Insira o **Caminho da Pasta** no repositório de artefatos que contém os artefatos.
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
-    4. Toque em **Salvar**.
+    4. Selecione **Salvar**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

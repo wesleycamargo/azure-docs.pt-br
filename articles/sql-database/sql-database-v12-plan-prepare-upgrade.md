@@ -64,10 +64,10 @@ Para obter informações detalhadas sobre as camadas de serviço Basic, Standard
 
 
 
-### Revisar a configuração da replicação geográfica
+### Examinar a configuração da Replicação Geográfica
 
 
-Se o seu banco de dados SQL do Azure está configurado para replicação geográfica, você deve documentar sua configuração atual e parar a replicação geográfica, antes de iniciar as ações de preparação para atualização. Concluída a atualização, você deve reconfigurar seu banco de dados para replicação geográfica.
+Se o seu banco de dados SQL do Azure está configurado para Replicação Geográfica, você deve documentar sua configuração atual e parar a Replicação Geográfica antes de iniciar as ações de preparação para atualização. Concluída a atualização, você deve reconfigurar seu banco de dados para Replicação Geográfica.
 
 
 A estratégia é deixar a fonte intacta e testar em uma cópia do banco de dados.
@@ -97,13 +97,13 @@ Você pode reduzir as etapas necessárias durante a atualização, alternando o 
 Se não tiver certeza de para qual camada de serviço alterar, o nível S2 da camada Standard pode ser uma opção inicial adequada. Qualquer camada inferior terá menos recursos do que tinha a camada Web e Business.
 
 
-### Suspender a replicação geográfica durante a atualização
+### Suspender a Replicação Geográfica durante a atualização
 
 
-A atualização para a V12 não pode ser executada se a replicação geográfica estiver ativa no seu banco de dados. Primeiro, você deve reconfigurar o banco de dados para parar de usar a replicação geográfica.
+A atualização para a V12 não poderá ser executada se a Replicação Geográfica estiver ativa no seu banco de dados. Primeiro, você deve reconfigurar o banco de dados para parar de usar a Replicação Geográfica.
 
 
-Após a conclusão da atualização, você pode configurar seu banco de dados para usar a replicação geográfica novamente.
+Após a conclusão da atualização, você pode configurar seu banco de dados para usar a Replicação Geográfica novamente.
 
 
 ### Cliente em uma VM do Azure
@@ -167,7 +167,7 @@ O banco de dados anterior à V11 continua disponível para acesso aos dados dura
 | Limitações | Descrição |
 | :--- | :--- |
 | Duração da atualização | A duração da atualização depende do tamanho, da edição e do número de bancos de dados no servidor. O processo de atualização de servidores pode levar horas ou dias, especialmente para servidores que tenham bancos de dados:<br/><br/>* Com mais de 50 GB ou <br/>* Em uma camada de serviço que não seja Premium<br/><br/>A criação de novos bancos de dados no servidor durante a atualização também pode aumentar o tempo da atualização. |
-| Sem replicação geográfica | Não há suporte para replicação geográfica em um servidor V12 atualmente envolvido em uma atualização a partir da V11. |
+| Sem Replicação Geográfica | Não há suporte para Replicação Geográfica em um servidor V12 atualmente envolvido em uma atualização a partir da V11. |
 | O banco de dados está temporariamente indisponível na fase final da atualização para o V12 | Os bancos de dados que pertencem ao servidor V11 permanecem disponíveis durante o processo de atualização. No entanto, a conexão com o servidor e os bancos de dados está temporariamente indisponível na fase final, durante a transição do V11 para o V12 pronto.<br/><br/>O período de transição pode variar de 40 segundos a 5 minutos. Para a maioria dos servidores, a transição deve ser concluída em até 90 segundos. O tempo de transição aumenta para servidores que têm um grande número de bancos de dados, ou quando os bancos de dados têm cargas de trabalho pesadas de gravação. |
 
 
@@ -253,4 +253,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

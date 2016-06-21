@@ -45,7 +45,7 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -74,8 +74,8 @@ O **conjunto de dados de entrada de WebTable** definindo **external** como **tru
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -99,7 +99,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -186,7 +186,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -231,8 +231,8 @@ path | Uma URL relativa para o recurso que contém a tabela. | Não. Quando o ca
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -286,4 +286,4 @@ Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](htt
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

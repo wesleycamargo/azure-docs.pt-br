@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="mausher;jrj;barbkess;sonyama"/>
+   ms.date="06/06/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Tabelas temporárias no SQL Data Warehouse
 As tabelas temporárias são muito úteis durante o processamento de dados - especialmente durante a transformação onde os resultados intermediários são temporários. No SQL Data Warehouse, existem tabelas temporárias no nível de sessão. No entanto, elas ainda estão definidas como tabelas temporárias locais, mas diferentemente das tabelas do SQL Server, elas podem ser acessadas de qualquer lugar dentro da sessão.
@@ -248,10 +248,10 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

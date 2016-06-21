@@ -171,7 +171,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 - [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
 - [AMQP no Barramento de Serviço para Windows Server]
 
-  [Como usar as Filas do Barramento de Serviço]: service-bus-dotnet-how-to-use-queues.md
+  [Como usar as Filas do Barramento de Serviço]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

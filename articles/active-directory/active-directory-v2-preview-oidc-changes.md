@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Atualizações Importantes para os Protocolos de Autenticação v 2.0
@@ -67,7 +67,8 @@ Anteriormente, o ponto de extremidade v 2.0 retornava um objeto JSON codificado 
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-A resposta pareceria com o seguinte objeto JSON: ```
+A resposta pareceria com o seguinte objeto JSON:
+```
 { 
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -216,4 +217,4 @@ Boa codificação!
 
 Divisão de Identidade da Microsoft
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

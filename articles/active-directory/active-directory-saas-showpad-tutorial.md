@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Para configurar a integração do Showpad ao Azure AD, você precisará adiciona
 
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
 
-	![Active Directory][1]
+	![Aplicativos][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -80,10 +80,11 @@ Para configurar a integração do Showpad ao Azure AD, você precisará adiciona
 
 6. Na caixa de pesquisa, digite **Showpad**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![Aplicativos](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. No painel de resultados, selecione **Showpad** e clique em **Concluir** para adicionar o aplicativo.
 
+	![Aplicativos](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Showpad, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -94,10 +95,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o Showpad, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do Showpad](#creating-a-showpad-test-user)** - para ter um equivalente de Brenda Fernandes no Showpad que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criar um usuário de teste do Showpad](#creating-a-showpad-test-user)** – para ter um equivalente de Brenda Fernandes no Showpad que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -139,11 +140,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 5. Faça logon no seu locatário do Showpad como administrador.
 
-6. No menu na parte superior, clique em **Settings**.
+6. No menu na parte superior, clique em **Configurações**.
 
 	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_001.png)
 
-7. Navegue até "**Single Sign-On**"e clique em"**Enable**".
+7. Navegue até "**Logon Único**"e clique em"**Habilitar**".
  
 	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_002.png)
 
@@ -162,7 +163,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 	e. Clique em **Enviar**.
 
 
-10. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+10. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
 
 	![Logon único do AD do Azure][10]
 
@@ -193,15 +194,15 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/create_aaduser_05.png)
 
-    a. Na caixa de texto **Nome do Usuário**, digite **BrendaFernandes**.
+    a. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
 
     b. Clique em **Próximo**.
 
@@ -219,11 +220,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     e. Clique em **Próximo**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png)
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-showpad-tutorial/create_aaduser_08.png)
 
@@ -236,7 +237,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Showpad.
 
-O Showpad dá suporte ao provisionamento just-in-time. Você já habilitou isso em **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**.
+O Showpad dá suporte ao provisionamento just-in-time. Você já habilitou o provisionamento em **[Configurando o Logon Único do Azure AD](#configuring-azure-ad-single-single-sign-on)**.
 
 Não há itens de ação para você nesta seção.
 
@@ -303,4 +304,4 @@ Quando você clica no bloco **Showpad** no Painel de Acesso, deve ser conectado 
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

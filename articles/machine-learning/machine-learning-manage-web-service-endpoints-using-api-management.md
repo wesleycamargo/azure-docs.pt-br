@@ -162,15 +162,15 @@ Renomeie-o para **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de dados
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Expanda **Transformação de dados** e **Manipulação** e arraste **Colunas do projeto** para o seu teste. Conecte **Resenhas de livros da Amazon** a **Colunas do projeto**.
+Expanda **Transformação de Dados** e **Manipulação** e arraste **Selecionar Colunas do Conjunto de Dados** para o seu teste. Conecte **Resenhas de livros da Amazon** a **Selecionar Colunas do Conjunto de Dados**.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Clique em **Colunas do projeto** e, em seguida, clique em **Iniciar seletor de colunas** e selecione **Col2**. Clique na marca de seleção para aplicar essas alterações.
+Clique em **Selecionar Colunas do Conjunto de Dados**, em **Iniciar seletor de colunas** e selecione **Col2**. Clique na marca de seleção para aplicar essas alterações.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Expanda **Análise de texto** e arraste **Hash de recurso** para o teste. Conecte **Colunas do projeto** a **Hash de recurso**.
+Expanda **Análise de texto** e arraste **Hash de recurso** para o teste. Conecte **Selecionar Colunas no Conjunto de Dados** para **Hash de Recurso**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

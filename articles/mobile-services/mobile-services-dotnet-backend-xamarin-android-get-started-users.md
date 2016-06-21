@@ -47,7 +47,6 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 <ol start="6">
 <li><p>No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou simulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.</p>
-
    	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
 </ol>
 
@@ -112,4 +111,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Mover bancos de dados entre servidores, entre as assinaturas e para dentro e para fora do Azure
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##Para mover um banco de dados para um servidor diferente na mesma assinatura
 - No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL**, selecione um banco de dados na lista e, em seguida, clique em **Copiar**. Para obter mais detalhes, consulte [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md).
 
@@ -29,4 +31,4 @@
 ## Para criar uma cópia de um banco de dados para uso fora do Azure
 - [Exporte um arquivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

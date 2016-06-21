@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/05/2016"
+   ms.date="06/09/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -85,7 +85,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Suportado | Suportado | Amsterdã, Londres |
 | **Telefonica** | Em breve | Em breve | São Paulo+ |
 | **Telenor** | Com suporte | Suportado | Amsterdã, Londres |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne, Sydney |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Em breve | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Suportado | Suportado | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 | **Vodafone** | Com suporte | Sem suporte | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Suportado | Suportado | Chicago, Los Angeles, Nova Iorque, Vale do Silício, Toronto, Washington, D.C. |
@@ -161,4 +161,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

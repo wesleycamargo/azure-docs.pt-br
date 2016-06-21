@@ -38,7 +38,7 @@ azure group show TestRG --json | jq '.'
 Criar a Conta de armazenamento
 
 ```bash
-azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
 Verificar o armazenamento usando o analisador JSON
@@ -259,7 +259,7 @@ Aqui, usamos o comando `azure storage account create`, passando o local da conta
 azure storage account create \  
 --location westeurope \
 --resource-group TestRG \
---type GRS \
+--kind Storage --sku-name GRS \
 computeteststore
 ```
 
@@ -1234,4 +1234,4 @@ info:    vm show command OK
 
 Agora você está pronto para começar a usar vários componentes de rede e VMs.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->
