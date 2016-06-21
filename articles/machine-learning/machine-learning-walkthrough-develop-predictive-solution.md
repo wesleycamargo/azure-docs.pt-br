@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -28,6 +28,8 @@ Neste passo a passo detalhado, seguiremos o processo de desenvolvimento de um mo
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+<!-- -->
+
 >[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 Para criar uma solução de avaliação de risco de crédito, vamos acompanhar estas etapas:
@@ -39,6 +41,6 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 5.	[Implantar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
-Este passo a passo se baseia em uma versão simplificada do teste de exemplo [Classificação binária: previsão de risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
+Este passo a passo se baseia em uma versão simplificada do teste de exemplo [Classificação Binária: previsão do risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

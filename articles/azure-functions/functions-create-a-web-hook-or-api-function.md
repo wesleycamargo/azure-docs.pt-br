@@ -12,7 +12,7 @@
 <tags
    ms.service="functions"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="05/07/2016"
@@ -20,7 +20,7 @@
    
 # Criar um webhook ou um Azure Function de API
 
-A experiência de computação sob demanda controlada por evento do Azure Functions permite que você crie unidades de código agendadas ou disparadas, que serão implementadas em uma variedade de linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
+O Azure Functions é uma experiência de computação sob demanda controlada por evento que permite que você crie unidades de código agendadas ou disparadas, que serão implementadas em uma variedade de linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
 
 Este tópico mostra como criar uma nova função do Node.js que é invocada por um webhook do GitHub. A nova função é criada com base em um modelo predefinido no portal do Azure Functions. Você também pode assistir a um vídeo curto para ver como essas etapas são executadas no portal.
 
@@ -67,8 +67,7 @@ Em seguida, você criará o webhook real no repositório GitHub.
 
 	![Criar uma nova função de webhook do GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-Neste momento, o webhook do GitHub é configurado para disparar a função quando um novo comentário do problema é adicionado. 
-Agora é hora de testá-lo.
+Neste momento, o webhook do GitHub é configurado para disparar a função quando um novo comentário do problema é adicionado. Agora é hora de testá-lo.
 
 ##Testar a função
 
@@ -83,14 +82,11 @@ Agora é hora de testá-lo.
 
 Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
-+ [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-Referência do programador para codificação de funções e definição de gatilhos e de associações.
-+ [Testando o Azure Functions](functions-test-a-function.md)  
-Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como escalar o Azure Functions](functions-scale.md)  
-Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
++ [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para codificação de funções.
++ [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
++ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
 
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

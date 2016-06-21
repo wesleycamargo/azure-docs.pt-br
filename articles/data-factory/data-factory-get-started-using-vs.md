@@ -32,11 +32,15 @@ Neste tutorial, você fará o seguinte usando o Visual Studio 2013:
 4. Criar uma data factory e implantar serviços vinculados, tabelas e o pipeline.    
 
 ## Pré-requisitos
-Leia o artigo [Visão geral do tutorial](data-factory-get-started.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
 
-Você deve ter os seguintes itens instalados no seu computador:
-- Visual Studio 2013
-- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **Instalação do VS 2013** na seção **.NET**.
+1. Você **deve** ler o artigo [Visão Geral do Tutorial](data-factory-get-started.md) e concluir as etapas de pré-requisito antes de continuar.
+2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades de Data Factory no Azure Data Factory. Essa é uma limitação no momento. Informaremos assim que esse requisito for alterado. 
+3. Você deve ter os seguintes itens instalados no seu computador: 
+	- Visual Studio 2013 ou Visual Studio 2015
+	- Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
+	- Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando o Visual Studio 2013, você também pode atualizar o plug-in, fazendo o seguinte: no menu, clique em **Ferramentas** -> **Extensões e atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**. 
+ 
+
 
 ## Criar um projeto do Visual Studio 
 1. Inicie o **Visual Studio 2013**. Clique em **Arquivo**, indique **Novo** e, em seguida, clique em **Projeto**. Você deverá ver a caixa de diálogo **Novo Projeto**.  
@@ -70,7 +74,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 5. Clique com o botão direito no nó **Serviços Vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 6. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
-7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
 8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
 
 
@@ -239,8 +243,8 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 
 1.	Foi criada uma **data factory** do Azure.
 2.	Foram criados **serviços vinculados**:
-	1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada. 	
-	2. Um serviço vinculado do **SQL do Azure** para vincular seu banco de dados SQL do Azure que contém os dados de saída. 
+	1. Um serviço vinculado do **Armazenamento do Azure** para vincular a conta do Armazenamento do Azure que contém os dados de entrada. 	
+	2. Um serviço vinculado do **Azure SQL** para vincular o banco de dados SQL do Azure que contém os dados de saída. 
 3.	Foram criados **conjuntos de dados** que descrevem os dados de entrada e de saída para os pipelines.
 4.	Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor. 
 
@@ -248,10 +252,8 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 ## Usar o Gerenciador de Servidores para exibir os data factories
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.  
-	![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.  
-	![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
 Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
@@ -271,4 +273,4 @@ Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-
 | [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -65,7 +65,11 @@ Se você [configurar o monitoramento de exceção](app-insights-asp-net-exceptio
 Clique em uma exceção para obter um rastreamento de pilha. Se o código do aplicativo for aberto no Visual Studio, você poderá clicar desde o rastreamento de pilha até a linha relevante no código.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Rastreamento de pilha de exceção](./media/app-insights-visual-studio/17.png)
+
+Além disso, na linha de Código Lens acima de cada método, você verá uma contagem das exceções registradas pelo Application Insights nas últimas 24 horas.
+
+![Rastreamento de pilha de exceção](./media/app-insights-visual-studio/21.png)
 
 
 ## Monitoramento local
@@ -86,8 +90,6 @@ Também será particularmente útil se você tiver [telemetria personalizada](ap
 
 
 
-
-
 ## Como atualizar para versões futuras do SDK
 
 Para atualizar para uma [nova versão do SDK](app-insights-release-notes-dotnet.md), abra o Gerenciador de pacotes do NuGet e filtre os pacotes instalados. Selecione Microsoft.ApplicationInsights.Web e escolha Atualizar.
@@ -100,10 +102,10 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
 ||
 |---|---
-|**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
+|**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 |**[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
