@@ -29,33 +29,7 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
 > [AZURE.NOTE]  Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 
-## Provisionamento de uma solução pré-configurada de monitoramento remoto
-
-1.  Faça logon em [azureiotsuite.com][lnk-azureiotsuite] usando as credenciais de sua conta do Azure e clique em **+** para criar uma nova solução.
-
-    > [AZURE.NOTE] Se você estiver tendo problemas com as permissões necessárias para provisionar uma solução, dê uma olhada em [Permissões no site azureiotsuite.com][lnk-permissions] para obter orientação.
-
-2.  Clique em **Selecionar** no bloco **Monitoramento remoto**.
-
-3.  Digite um **Nome de solução** para a solução pré-configurada de monitoramento remoto.
-
-4.  Selecione a **Região** e a **Assinatura** você deseja usar para provisionar a solução.
-
-5.  Clique em **Criar Solução** para iniciar o processo de provisionamento. Isso normalmente leva vários minutos para ser executado.
-
-## Aguarde o processo de provisionamento ser concluído
-
-1. Clique no bloco para sua solução com o status **provisionamento**.
- 
-2. Observe que o **Status provisionamento** como serviços do Azure é implantado em sua assinatura do Azure.
-
-3. Após o provisionamento ser concluído, o status é alterado para **Pronto**.
-
-4. Clique no bloco e você verá os detalhes da solução no painel à direita.
-
-> [AZURE.NOTE] Se estiver encontrando problemas para implantar a solução pré-configurada, dê uma olhada em [Permissões no site do azureiotsuite.com][lnk-permissions] e [Perguntas frequentes][lnk-faq]. Se os problemas persistirem, crie um tíquete de serviço no [portal][lnk-portal].
-
-Há detalhes que você esperaria ver e que não estão listados para sua solução? Envie sugestões de recursos em [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 ## Exibir o painel de solução de monitoramento remoto
 
@@ -111,7 +85,7 @@ O painel de detalhes do dispositivo mostra todos os comandos aos quais determina
 
     ![][img-pingcommand]
 
-A solução rastreia o status de cada comando enviado. Inicialmente, o resultado é **Pendente**. Quando o dispositivo reporta que executou o comando, o resultado é definido como **Sucesso**.
+A solução rastreia o status de cada comando enviado. Inicialmente, o resultado é **Pendente**. Quando o dispositivo relata que executou o comando, o resultado é definido como **Sucesso**.
 
 ## Adicionar um novo dispositivo simulado
 
@@ -125,7 +99,7 @@ A solução rastreia o status de cada comando enviado. Inicialmente, o resultado
 
     ![][img-addnew]
     
-    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **dispositivo personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connecting-devices].
+    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connecting-devices].
 
 4.  Selecione **Deixe-me definir minha própria ID de dispositivo** e adicione um nome de ID de dispositivo exclusivo, como **mydevice\_01**.
 
@@ -147,7 +121,7 @@ A solução rastreia o status de cada comando enviado. Inicialmente, o resultado
 
 1.  Navegue de volta para a lista de dispositivos.
 
-2.  Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Editar** para editar as **propriedades do dispositivo**:
+2.  Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Editar** para editar as **Propriedades do Dispositivo**:
 
     ![][img-editdevice]
 
@@ -193,7 +167,7 @@ Não existem regras para o novo dispositivo recém-adicionado. Nesta seção, vo
 
     ![][img-actions]
 
-> [AZURE.NOTE] É possível definir ações que podem enviar uma mensagem de email ou SMS em resposta a uma regra ou se integrar com um sistema de linha de negócios por meio de um [aplicativo lógico][lnk-logic-apps].
+> [AZURE.NOTE] É possível definir ações que podem enviar uma mensagem de email ou SMS em resposta a uma regra ou se integrar com um sistema de linha de negócios por meio de um [Aplicativo Lógico][lnk-logic-apps].
 
 ## Nos bastidores
 
@@ -254,4 +228,4 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

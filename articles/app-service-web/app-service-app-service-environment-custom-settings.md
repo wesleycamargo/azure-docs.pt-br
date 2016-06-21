@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
@@ -76,7 +76,7 @@ O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSetting
         ],
 
 ## Mudar a ordem do pacote de criptografia TLS ##
-Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {
@@ -85,7 +85,7 @@ Outra pergunta feita pelos clientes é se eles podem modificar a lista de cripto
             }
         ],
 
-> Observação: se valores incorretos forem definidos para o pacote de criptografia e o SChannel não puder entendê-los, toda a comunicação TLS com o servidor poderá parar de funcionar. Nesse caso, você precisaria implantar novamente o Ambiente de Serviço de Aplicativo, causando tempo de inatividade e uma possível perda de dados. Use esta funcionalidade com cuidado.
+> [AZURE.WARNING]  Se valores incorretos forem definidos para o pacote de criptografia e o SChannel não puder entendê-los, toda a comunicação TLS com o servidor poderá parar de funcionar. Nesse caso, você precisará remover a entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** e enviar o modelo atualizado do ARM para reverter para as configurações padrão do pacote de criptografia. Use esta funcionalidade com cuidado.
 
 ## Introdução
 O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a definição básica para a [criação de um Ambiente de Serviço de Aplicativo](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -95,4 +95,4 @@ O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a def
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -35,8 +35,8 @@ A duração de todo o processo de expansão depende a camada tamanho e de servi�
 Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-server-portal.md) e [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md) para determinar o nível de desempenho e a camada de serviço apropriados para o Banco de Dados SQL do Azure.
 
 - Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. 
-- Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-overview.md) habilitada, é necessário primeiro atualizar seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário.
-- Ao fazer downgrade de uma camada de serviço, primeiro você deve encerrar todos os relacionamentos de replicação geográfica. 
+- Ao atualizar um banco de dados com a [Replicação Geográfica](sql-database-geo-replication-overview.md) habilitada, é necessário primeiro atualizar seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário.
+- Ao fazer downgrade de uma camada de serviço, primeiro você deve encerrar todos os relacionamentos de Replicação Geográfica. 
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se estiver fazendo downgrade, talvez você perca a capacidade de fazer uma restauração pontual ou tenha um período menor de retenção do backup. Para saber mais, confira [Backup e restauração do Banco de dados SQL do Azure](sql-database-business-continuity.md).
 - Alterar o tipo de preço do banco de dados não altera o tamanho máximo do banco de dados. Para alterar o tamanho máximo do banco de dados, use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ou [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 - As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
@@ -106,4 +106,4 @@ Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verti
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

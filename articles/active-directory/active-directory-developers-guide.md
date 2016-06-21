@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,15 +97,17 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Escopos de permissão da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): os escopos de permissão do OAuth 2.0 usados para controlar o acesso que um aplicativo tem aos dados do diretório em um locatário.
 
-### Protocolos de autenticação
+### Protocolos de autenticação e autorização
 
-- [Protocolos de autenticação do Azure Active Directory](active-directory-protocols.md): saiba mais sobre os diferentes protocolos de autenticação e autorização com suporte do Azure Active Directory.
+- [Protocolos de autenticação e autorização do Azure Active Directory](active-directory-protocols.md): saiba mais sobre os diferentes protocolos de autenticação e autorização com suporte do Azure Active Directory.
+
+- [Protocolo OAuth 2.0: usando a concessão de código de autorização](active-directory-protocols-oauth-code.md): você pode usar a concessão de código de autorização do protocolo OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web no Azure Active Directory de seu locatário.
+
+- [Protocolo OAuth 2.0: noções básicas sobre a concessão implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): saiba mais sobre a concessão de autorização implícita e se ela é adequada para seu aplicativo.
+
+- [Protocolo OpenID Connect 1.0: entrada e autenticação](active-directory-protocols-openid-connect-code.md): o protocolo OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação. Um aplicativo cliente pode receber um id\_token para gerenciar o processo de entrada ou aumentar o fluxo de código de autorização de modo a receber um id\_token e o código de autorização.
 
 - [Referência do protocolo SAML 2.0](active-directory-saml-protocol-reference.md): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único aos usuários.
-
-- [Referência de protocolo do OAuth 2.0](active-directory-protocols-oauth-code.md): você pode usar o protocolo do OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web em seu locatário do Active Directory do Azure.
-
-- [Referência de protocolo do OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): o protocolo do OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
 
 - [Protocolo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): o Azure Active Directory dá suporte ao WS-Federation 1.2, de acordo com a Especificação Web Services Federation Versão 1.2.
 
@@ -135,8 +137,8 @@ O [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/)
 
 - [Blog da equipe da Graph do Azure Active Directory](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
 
-- [Identidade de Nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Azure Active Directory de entidade de segurança.
+- [Identidade de nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Azure Active Directory de entidade de segurança.
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

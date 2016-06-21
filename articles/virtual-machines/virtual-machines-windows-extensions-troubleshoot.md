@@ -19,8 +19,6 @@
 
 # Solucionando problemas de falhas da extensão da VM do Windows no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Exibindo o status da extensão
@@ -70,4 +68,4 @@ Se estiver executando scripts na VM usando a Extensão de Script Personalizado, 
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

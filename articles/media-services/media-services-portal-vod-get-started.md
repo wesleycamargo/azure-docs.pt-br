@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure (visualização)
+# Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure
 
 Este tutorial orienta você nas etapas de implementação de um serviço básico de fornecimento de conteúdo de Vídeo sob Demanda (VoD) com o aplicativo AMS (Serviços de Mídia do Azure) usando o Portal do Azure.
 
@@ -229,4 +229,4 @@ Algumas considerações se aplicam:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

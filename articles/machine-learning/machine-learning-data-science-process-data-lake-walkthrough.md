@@ -701,7 +701,7 @@ Quando a execução da consulta for concluída, você verá os resultados deste 
 
 Agora estamos prontos para compilar e implantar um modelo que prevê se ou não uma dica é pago com o Aprendizado de Máquina do Azure. Os dados de amostra estratificada estão prontos para serem usados nesse problema de classificação binária (dica ou não). Os modelos preditivos usando classificação de várias classes (tip\_class) e regressão (tip\_amount) também pode ser compilados e implantados no Estúdio de Aprendizado de Máquina do Azure, mas aqui vamos mostrar apenas como lidar com o caso usando o modelo de classificação binária.
 
-1. Obtenha os dados no AM do Azure usando o módulo **Leitor**, disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do [módulo Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Obtenha os dados no AM do Azure usando o módulo **Importar Dados**, disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Selecione **Consulta de Hive** como a **Fonte de dados** no painel **Propriedades**.
 3. Cole o seguinte script de Hive no editor **Consulta de banco de dados de Hive**
 
@@ -741,4 +741,4 @@ O roteiro de aprendizagem para o [CAP (Processo de Análise do Cortana)](http://
 - [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Visão geral da Ciência de dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

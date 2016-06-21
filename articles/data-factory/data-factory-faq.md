@@ -64,6 +64,11 @@ Você pode criar fábricas de dados usando um dos seguintes itens:
 ### Posso renomear um Data Factory?
 Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
+### Posso mover um data factory de uma assinatura do Azure para outra? 
+Sim. Use o botão **Mover** na folha da fábrica de dados, conforme mostrado abaixo:
+
+![Mover o Data Factory](media/data-factory-faq/move-data-factory.png)
+
 ## Atividades - Perguntas frequentes
 ### Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory? 
 
@@ -71,7 +76,7 @@ Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não po
 - [Atividades de Transformação de Dados](data-factory-data-transformation-activities.md) para processar/transformar dados. 
 
 ### Quando uma atividade é executada?
-A configuração **disponibilidade** na tabela de dados de saída determina quando a atividade é executada. A atividade verifica se todas as dependências de dados de entrada foram atendidas (ou seja, estado **Pronto**) antes de começar a ser executada, se os conjuntos de dados de entrada forem especificados.
+A configuração **disponibilidade** na tabela de dados de saída determina quando a atividade é executada. A atividade verifica se todas as dependências de dados de entrada foram atendidas (ou seja, estado **Pronto**) antes de começar a ser executada, caso os conjuntos de dados de entrada sejam especificados.
 
 ## Atividade de Cópia - Perguntas frequentes
 ### É melhor ter um pipeline com várias atividades ou um pipeline separado para cada atividade? 
@@ -137,7 +142,7 @@ Use a propriedade **offset** para especificar a hora em que você deseja que a f
 	    "offset": "06:00:00"
 	}
 
-Divisões diárias que se iniciam às **6h**, em vez da meia-noite do padrão.Data do lançamento
+Fatias diárias que se iniciam às **6h**, em vez da meia-noite do padrão.
 
 ### Como executo novamente uma fatia?
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
@@ -182,4 +187,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

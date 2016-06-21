@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
 O Service Fabric é uma plataforma de sistemas distribuídos que torna mais fácil empacotar, implantar e gerenciar microsserviços escalonáveis e confiáveis, bem como resolver desafios significativos no desenvolvimento e gerenciamento de aplicativos em nuvem. Ao usar o Service Fabric, desenvolvedores e administradores podem evitar a resolução de problemas complexos de infraestrutura e, em vez disso, se concentram na implementação de cargas de trabalho essenciais e exigentes sabendo que elas são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de middleware de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de Camada 1 e nível corporativo.
@@ -110,4 +110,4 @@ Ao usar a Malha do Serviço, você pode:
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

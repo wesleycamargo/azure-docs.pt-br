@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
@@ -171,4 +171,4 @@ Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permis
 
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

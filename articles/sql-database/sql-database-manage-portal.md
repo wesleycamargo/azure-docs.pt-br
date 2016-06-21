@@ -60,11 +60,11 @@ Os bancos de dados SQL do Azure também podem ser configurados para mascarar dad
 - [Mascaramento de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)
 
 
-## 4\. Replicação geográfica
+## 4\. Replicação Geográfica
 
-![Replicação geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
+![Replicação Geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte da replicação geográfica no portal permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
+É possível configurar bancos de dados SQL do Azure para replicar de forma assíncrona as transações confirmadas para um banco de dados secundário. Parte da Replicação Geográfica no portal permite que você selecione a região do Azure na qual gostaria de colocar o banco de dados secundário.
 
 - [Replicação Geográfica](sql-database-geo-replication-overview.md)
 
@@ -74,4 +74,4 @@ Os bancos de dados SQL do Azure também podem ser configurados para mascarar dad
 
 - [Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

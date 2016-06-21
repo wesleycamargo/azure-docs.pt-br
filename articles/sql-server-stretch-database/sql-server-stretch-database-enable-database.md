@@ -28,7 +28,7 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 
 -   Antes de configurar um banco de dados do Stretch, recomendamos que você execute o Supervisor do Banco de Dados de Stretch para identificar os bancos de dados e as tabelas qualificados para o Stretch. O Supervisor do Banco de Dados do Stretch também identifica os problemas de bloqueio. Para obter mais informações, consulte [Identificar bancos de dados e tabelas para o Banco de Dados de Stretch](sql-server-stretch-database-identify-databases.md).
 
--   Reveja os [Problemas de bloqueio e limitações da área de superfície para o Banco de Dados de Stretch](sql-server-stretch-database-limitations.md).
+-   Consulte [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   O Banco de Dados de Stretch migra os dados para o Azure. Portanto, você precisa ter uma conta do Azure e uma assinatura para a cobrança. Para obter uma conta do Azure, [clique aqui](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +52,7 @@ GO
 Para obter mais informações, consulte [Configurar a Opção de Configuração do Servidor do arquivo de dados remoto](https://msdn.microsoft.com/library/mt143175.aspx) e [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Usar o assistente para habilitar o Banco de Dados de Stretch em um banco de dados
-Para obter informações sobre o Assistente para Habilitar Banco de Dados para Stretch, incluindo as informações que você precisa inserir e as escolhas que precisa fazer, consulte [Assistente para Habilitar Banco de Dados para Stretch](sql-server-stretch-database-wizard.md).
+Para obter informações sobre o Assistente para Habilitar Banco de Dados para Stretch, incluindo as informações que você precisa inserir e as escolhas que precisa fazer, consulte [Get started by running the Enable Database for Stretch Wizard (Comece executando o assistente para habilitar o banco de dados para Stretch)](sql-server-stretch-database-wizard.md).
 
 ## <a name="EnableTSQLDatabase"></a>Usar o Transact-SQL para habilitar o Banco de Dados de Stretch em um banco de dados
 Antes de habilitar o Banco de Dados de Stretch em tabelas individuais, você precisa habilitá-lo no banco de dados.
@@ -125,7 +125,7 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 -   [Gerenciar e solucionar problemas do Banco de Dados de Stretch](sql-server-stretch-database-manage.md)
 
--   [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
+-   [Fazer backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte também
 
@@ -133,4 +133,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

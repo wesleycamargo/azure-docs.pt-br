@@ -302,13 +302,16 @@ Parabéns!! Você criou o painel em tempo real. Durante a execução de CarEvent
 
 Observação: demora cerca de duas horas (após a conclusão bem-sucedida da implantação) para concluir a execução da pipeline de processamento em lote de ponta a ponta e processar um ano de dados gerados. Aguarde antes de prosseguir para as próximas etapas.
 
-**Baixar o arquivo de designer do PowerBI** • Um arquivo de designer pré-configurado do PowerBI está incluído como parte da implantação • Clique no nó do PowerBI na exibição de diagrama e clique no link "Baixar o arquivo de designer do PowerBI" no painel de propriedades ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Baixe o arquivo de designer do Power BI**
+-	Um arquivo de designer pré-configurado do Power BI é incluído como parte da implantação
+-	Clique no nó do Power BI na exibição de diagrama e clique no link 'Baixar arquivo de designer do Power BI' no painel de propriedades ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-• Salve localmente
+-	Salve localmente
 
-**Configurar relatórios de PowerBI** • Abra o arquivo de designer 'VehicleTelemetryAnalytics - Report.pbix’ usando a área de trabalho do PowerBI. Caso ainda não tenha feito isso, instale o PowerBI Desktop de [Instalar PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurar relatórios do PowerBI**
+-	Abra o arquivo de designer 'VehicleTelemetryAnalytics - Report.pbix’ usando a área de trabalho do PowerBI. Caso ainda não tenha feito isso, instale o PowerBI Desktop de [Instalar PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-• Clique no **Editar de Consultas**.
+-	Clique em **Editar Consultas**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -393,4 +396,4 @@ Fixe os gráficos ao painel existente **Painel de Análise de Telemetria do Veí
 
 Parabéns!! Você criou com êxito os relatórios e o painel para obter informações preditivas, em lote e em tempo real sobre a integridade do veículo e hábitos de condução.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -41,7 +41,7 @@ Para o banco de dados secundário poder ser usado como banco de dados secundári
 
 As permissões específicas para cada etapa são descritas posteriormente neste tópico.
 
-A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da replicação geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
+A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da Replicação Geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
 
 >[AZURE.NOTE] Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, eles ficarão limitados à conta de administrador do servidor.
 
@@ -100,4 +100,4 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

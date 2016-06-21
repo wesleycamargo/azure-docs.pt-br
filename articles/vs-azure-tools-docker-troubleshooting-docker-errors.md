@@ -3,7 +3,7 @@
    description="Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/15/2016"
-   ms.author="tarcher" />
+   ms.date="06/08/2016"
+   ms.author="allclark" />
 
 # Solucionar problemas de desenvolvimento do Docker do Visual Studio
 
@@ -22,6 +22,7 @@ Ao trabalhar com o Visual Studio Tools para Docker Preview, você pode encontrar
 ##Falha ao configurar Program.cs a fim de fornecer suporte ao Docker
 
 Ao adicionar suporte ao docker, o `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` deve ser adicionado ao WebHostBuilder(). Se Program.cs, a função Main() ou uma nova classe WebHostBuilder não for encontrado, um aviso será exibido. É necessário usar UseUrls() para permitir que o Kestrel escute o tráfego de entrada, além do localhost, quando for executado dentro de um contêiner do docker. Após a conclusão, o código terá a seguinte aparência:
+
 ```
 public class Program
 {
@@ -39,31 +40,41 @@ public class Program
     }
 }
 ```
+
 UseUrls() configurou o WebHost para escutar o tráfego da URL de entrada. [Ferramentas do Docker para Visual Studio](http://aka.ms/DockerToolsForVS) configurarão uma variável de ambiente no modo dockerfile.debug/release da seguinte maneira:
+
 ```
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
+
 ## O mapeamento de volume não está funcionando
 Para habilitar os recursos de Editar e Atualizar, o mapeamento do volume está configurado para compartilhar o código-fonte de seu projeto na pasta .app dentro do contêiner. Quando arquivos forem alterados em sua máquina host, os contêineres/diretório do aplicativo usarão o mesmo diretório. No docker-compose.debug.yml, a configuração a seguir permite o mapeamento do volume:
+
 ```
     volumes:
       - ..:/app
 ```
+
 Para testar se o mapeamento do volume está funcionando, tente o seguinte comando:
 
 **No Windows**
+
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 cd wormhole
 / # ls
 ```
+
 Você deverá ver uma listagem de diretórios da pasta Usuários/Público. Se nenhum arquivo for exibido, e sua pasta /c/Usuários/Público não estiver vazia, o mapeamento de volume não estará configurado corretamente.
+
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
+
 Mude para o diretório wormhole para ver o conteúdo do diretório `/c/Users/Public`:
+
 ```
 / # cd wormhole/
 /wormhole # ls
@@ -72,13 +83,14 @@ Desktop          Host             NuGet.Config     a.txt
 Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
+
 **Observação:** *ao trabalhar com VMs Linux, o sistema de arquivos do contêiner diferencia maiúsculas de minúsculas.*
 
 Se você não conseguir ver o conteúdo, tente o seguinte:
 
 **Docker para a versão beta do Windows**
 - Verifique se o aplicativo de área de trabalho Docker para Windows está em execução procurando o ícone moby na bandeja do sistema e verificando se ele está branco e funcional.
-- Verifique se o mapeamento de volume está configurado clicando com o botão direito no ícone moby na bandeja do sistema, selecionando configurações e clicando em **Gerenciar unidades compartilhadas...**
+- Verifique se o mapeamento de volume está configurado clicando com o botão direito do mouse no ícone do Moby na bandeja do sistema, selecionando Configurações e clicando em **Gerenciar unidades compartilhadas...**
 
 **Caixa de ferramentas do Docker com VirtualBox**
 
@@ -92,10 +104,10 @@ Por padrão, a VirtualBox é compartilha `C:\Users` como `c:/Users`. Se possíve
 
 Se você estiver usando o navegador Microsoft Edge, o site pode não abrir se o Edge considerar que o endereço IP não é seguro. Para corrigir isso, execute as seguintes etapas:
 1. Na caixa Executar do Windows, digite `Internet Options`.
-2. Toque em **Opções da Internet** quando elas forem exibidas. 
-2. Toque na guia **Segurança**.
+2. Selecione **Opções da Internet** quando elas forem exibidas. 
+2. Selecione a guia **Segurança**.
 3. Selecione a zona da **Intranet Local**.
-4. Toque em **Sites**. 
+4. Selecione **Sites**. 
 5. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista. 
 6. Atualize a página no Edge e verá o site em funcionamento. 
 7. Para saber mais sobre esse problema, visite a postagem do blog de Scott Hanselman, [Microsoft Edge can't see or open VirtualBox-hosted local web sites (O Microsoft Edge não pode ver ou abrir sites da Web locais hospedados na VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
@@ -107,7 +119,8 @@ Se você estiver usando o navegador Microsoft Edge, o site pode não abrir se o 
 
 Isso pode ser um erro durante a `docker-compose-up`. Para exibir o erro, execute as seguintes etapas:
 
-1. Abra o arquivo `Properties\launchSettings.json`. Localize a entrada do Docker.
+1. Abra o arquivo `Properties\launchSettings.json`
+1. Localize a entrada do Docker.
 1. Localize a linha que começa assim:
 
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
@@ -116,4 +129,4 @@ Isso pode ser um erro durante a `docker-compose-up`. Para exibir o erro, execute
 
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -55,8 +55,8 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, consulte [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
 
-## Saiba mais
+## Recursos adicionais
 
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

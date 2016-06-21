@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Explorar Tutoriais do Banco de Dados SQL"
+   pageTitle="Explorar Tutoriais do Banco de Dados SQL do Azure | Microsoft Azure"
    description="Saiba mais sobre recursos e funcionalidades do Banco de Dados SQL"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Explorar Tutoriais do Banco de Dados SQL
+# Explorar Tutoriais do Banco de Dados SQL do Azure
 
-Os links a seguir levam você a uma visão geral de cada área de recurso listado e a um tutorial de início rápido para cada área.
+Os links a seguir levam você a uma visão geral de cada área de recurso listado e a um tutorial passo a passo simples para cada área. Para ver guias de início rápido referentes às soluções que demonstram o uso do Banco de Dados SQL em uma solução completa com base em cenários do mundo real, consulte [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md) (Inícios Rápidos da solução de Banco de Dados SQL do Azure).
 
 ## Como usar o SQL Server Management Studio.
 
@@ -68,7 +68,7 @@ Nos tutoriais a seguir, você aprenderá sobre a execução de [consultas elást
 
 ## Otimização do Desempenho
 
-Nos tutoriais a seguir, você aprenderá sobre a otimização de [desempenho de bancos de dados únicos](sql-database-performance-guidance.md). Para otimizar o desempenho de vários bancos de dados, consulte [pools Elásticos](#elastic-pools).
+Nos tutoriais a seguir, você aprenderá sobre a otimização do [desempenho de bancos de dados únicos](sql-database-performance-guidance.md). Para otimizar o desempenho de vários bancos de dados, consulte [Pools elásticos](#elastic-pools).
 
 | Tutorial | Descrição |
 |---|---|---|
@@ -92,12 +92,12 @@ Nos tutoriais a seguir, você aprenderá sobre a [migração de um banco de dado
 | [Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) | Nesse tutorial, você aprenderá a migrar um banco de dados do SQL Server compatível para o Banco de Dados SQL do Azure usando o Assistente Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio.
 | [Exportar um Banco de Dados do SQL Server para um arquivo BACPAC usando SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) | Nesse tutorial, você aprenderá a exportar um banco de dados do SQL Server compatível para um arquivo BACPAC usando o Assistente de Exportação de Aplicativo de Camada de Dados no SQL Server Management Studio.|
 | [Exportar um banco de dados do SQL Server para um arquivo BACPAC usando SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) | Nesse tutorial, você aprenderá a exportar um banco de dados do SQL Server compatível para um arquivo BACPAC usando o utilitário de linha de comando SQLPackage.exe.|
-| [Importar um arquivo BACPAC para um Banco de Dados SQL do Azure usando o PowerShell](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC usando o Assistente de Exportação de Aplicativo de Camada de Dados no SQL Server Management Studio. |
+| [Importar um arquivo BACPAC para o Banco de Dados SQL do Azure usando SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC usando o Assistente de Exportação de Aplicativo de Camada de Dados no SQL Server Management Studio. |
 | [Importar um arquivo BACPAC para o Banco de Dados SQL do Azure usando o SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) | Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC usando o utilitário da linha de comando SQLPackage. |
 | [Importar um arquivo BACPAC para o Banco de Dados SQL do Azure usando o portal do Azure](sql-database-import.md) | Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC armazenado em um blob do Azure usando o Portal do Azure.|
 | [Importar um arquivo BACPAC para um Banco de Dados SQL do Azure usando o PowerShell](sql-database-import-powershell.md) | Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC usando o PowerShell.|
 | [Arquivar um Banco de Dados SQL do Azure usando o portal do Azure](sql-database-export.md#export-your-database) | Nesse tutorial, você aprenderá a arquivar um banco de dados SQL do Azure em um arquivo BACPAC usando o portal do Azure. |
-| [Arquivar um banco de dados SQL do Azure usando o PowerShell](sql-database-export-powershell.md) | Nesse tutorial, você aprenderá a arquivar um banco de dados SQL do Azure em um arquivo BACPAC usando o portal do Azure. |
+| [Arquivar um banco de dados SQL do Azure usando o PowerShell](sql-database-export-powershell.md) | Nesse tutorial, você aprenderá a arquivar um banco de dados SQL do Azure em um arquivo BACPAC usando o PowerShell. |
 | [Copiar um Banco de Dados SQL do Azure usando o portal do Azure](sql-database-copy.md#copy-your-sql-database) | Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o portal do Azure. |
 | [Copiar um banco de dados SQL do Azure usando o PowerShell](sql-database-copy-powershell#copy-your-sql-database) | Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o PowerShell. |
 | [Copiar um banco de dados SQL do Azure usando o Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) | Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o Transact-SQL. |
@@ -151,7 +151,7 @@ Nos tutoriais a seguir, você aprenderá sobre a [proteção de dados do Banco d
 
 ## Continuidade dos negócios e Expansão de Consulta
 
-Nos tutoriais a seguir, você aprenderá sobre o uso da [restauração geográfica e replicação geográfica ativa](sql-database-business-continuity.md) para se recuperar de erros, para continuidade dos negócios e para expansão de consulta.
+Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfica e da Replicação Geográfica Ativa](sql-database-business-continuity.md) para se recuperar de erros, para continuidade dos negócios e para escala horizontal de consulta.
 
 | Tutorial | Descrição |
 |---|---|---|
@@ -159,9 +159,9 @@ Nos tutoriais a seguir, você aprenderá sobre o uso da [restauração geográfi
 | [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o PowerShell](sql-database-point-in-time-restore-powershell.md) | Nesse tutorial, você aprenderá a restaurar seu banco de dados para um determinado momento anterior usando o PowerShell|
 | [Restaurar um Banco de Dados SQL do Azure excluído usando o Portal do Azure](sql-database-restore-deleted-database-portal.md) | Nesse tutorial, você aprenderá a restaurar um banco de dados excluído usando o portal do Azure.|
 | [Restaurar um Banco de Dados SQL do Azure excluído usando o PowerShell](sql-database-restore-deleted-database-powershell.md) | Nesse tutorial, você aprenderá a restaurar um banco de dados excluído usando o PowerShell.|
-| [Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal do Azure](sql-database-geo-replication-portal.md)| Nesse tutorial, você aprenderá a configurar a replicação geográfica ativa usando o portal do Azure.|
-| [Configurar replicação geográfica para o Banco de Dados SQL do Azure usando o PowerShell](sql-database-geo-replication-powershell.md)| Nesse tutorial, você aprenderá a configurar a replicação geográfica ativa usando o Transact-SQL.|
-| [Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o Transact-SQL](sql-database-geo-replication-transact-sql.md)| Nesse tutorial, você aprenderá a configurar a replicação geográfica ativa usando o Transact-SQL.|
+| [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure usando o portal do Azure](sql-database-geo-replication-portal.md)| Nesse tutorial, você aprenderá a configurar a Replicação Geográfica Ativa usando o portal do Azure.|
+| [Configurar Replicação Geográfica para o Banco de Dados SQL do Azure usando o PowerShell](sql-database-geo-replication-powershell.md)| Nesse tutorial, você aprenderá a configurar a Replicação Geográfica Ativa usando o PowerShell.|
+| [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure usando o Transact-SQL](sql-database-geo-replication-transact-sql.md)| Nesse tutorial, você aprenderá a configurar a Replicação Geográfica Ativa usando o Transact-SQL.|
 | [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o portal do Azure](sql-database-geo-replication-failover-portal.md) | Nesse tutorial, você aprenderá a fazer failover para uma réplica secundária replicada geograficamente usando o portal do Azure.|
 | [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o PowerShell](sql-database-geo-replication-failover-powershell.md) | Nesse tutorial, você aprenderá a fazer failover para uma réplica secundária replicada geograficamente usando o PowerShell.|
 | [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) | Nesse tutorial, você aprenderá a fazer failover para uma réplica secundária replicada geograficamente usando o Transact-SQL.|
@@ -169,11 +169,15 @@ Nos tutoriais a seguir, você aprenderá sobre o uso da [restauração geográfi
 
 ## Sincronização de Dados
 
-Nesse tutorial, você aprenderá sobre [Sincronização de Dados](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+Nesse tutorial, você aprenderá sobre a [Sincronização de Dados](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Descrição |
 |---|---|---| 
 | [Introdução à Sincronização de Dados do SQL do Azure (visualização)](sql-database-get-started-sql-data-sync.md) | Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dados do SQL do Azure usando o portal clássico do Azure. |
 ||||
 
-<!---HONumber=AcomDC_0518_2016-->
+## Próximas etapas
+
+[Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
+
+<!---HONumber=AcomDC_0608_2016-->

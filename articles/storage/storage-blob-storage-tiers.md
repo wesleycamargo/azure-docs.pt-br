@@ -124,14 +124,14 @@ As contas de armazenamento de Blobs usam um novo modelo de preços para o armaze
 
 ## Início rápido
 
-Nesta seção, demonstraremos os seguintes cenários usando o Portal do Azure:
+Nesta seção, demonstraremos os seguintes cenários usando o portal do Azure:
 
 - Como criar uma conta de armazenamento de Blobs.
 - Como gerenciar uma conta de armazenamento de Blobs.
 
-### Usando o Portal do Azure
+### Usando o portal do Azure
 
-#### Criar uma conta de armazenamento de Blobs usando o Portal do Azure
+#### Criar uma conta de armazenamento de Blobs usando o portal do Azure
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -139,31 +139,47 @@ Nesta seção, demonstraremos os seguintes cenários usando o Portal do Azure:
 
 3. Insira um nome para a conta de armazenamento.
 
-4. Selecione **Resource Manager** como o modelo de implantação.
+	Esse nome deve ser exclusivo globalmente; ele é usado como parte da URL utilizada para acessar os objetos na conta de armazenamento.
 
-5. Selecione **Armazenamento de Blobs** como o tipo de conta de armazenamento.
+4. Selecione **Gerenciador de Recursos** como o modelo de implantação.
 
-6. Selecione a camada de acesso: **Dinâmica** ou **Estática**. O padrão é **Dinâmica**.
+	O armazenamento em camadas só pode ser usado com as contas de armazenamento do Gerenciador de Recursos; é o modelo de implantação recomendado para os novos recursos. Para obter mais informações, verifique [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
-7. Selecione a opção de replicação para a conta de armazenamento: **LRS**, **GRS** ou **RA-GRS**. O padrão é **RA-GRS**. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
+5. Na lista suspensa Tipo de Conta, selecione **Armazenamento de Blobs**.
+
+	É onde você seleciona o tipo de conta de armazenamento. O armazenamento em camadas não está disponível no armazenamento geral; só está disponível na conta do tipo Armazenamento de Blobs.
+
+	Observe que quando você seleciona essa opção, a camada de desempenho é definida para Standard. O armazenamento em camadas não está disponível com o nível de desempenho Premium.
+
+6. Selecione a opção de replicação para a conta de armazenamento: **LRS**, **GRS** ou **RA-GRS**. O padrão é **RA-GRS**.
+ 
+	LRS = armazenamento com redundância local; GRS = armazenamento com redundância geográfica (2 regiões); RA-GRS é o armazenamento com redundância geográfica e acesso de leitura (2 regiões com acesso de leitura para o segundo).
+
+	Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, verifique a [Replicação do Armazenamento do Azure](storage-redundancy.md).
+
+7. Selecione a camada de acesso: **Estática** ou **Dinâmica**. O padrão é **Dinâmica**.
 
 8. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-9. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Uso do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+9. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para obter mais informações sobre os grupos de recursos, consulte [Usando o portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
-10. Selecione a região geográfica para sua conta de armazenamento.
+10. Selecione a região de sua conta de armazenamento.
 
 11. Clique em **Criar** para criar a conta de armazenamento.
 
-#### Alterar a camada de acesso em uma conta de armazenamento de Blobs usando o Portal do Azure
+#### Alterar a camada de acesso em uma conta de armazenamento de Blobs usando o portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até a conta de armazenamento.
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Clique em **Todas as configurações** e em **Configuração** para exibir e/ou alterar a configuração da conta.
+2. Para navegar até sua conta de armazenamento, selecione Todos os Recursos e sua conta de armazenamento.
 
-3. Especifique a camada de acesso desejada: **Dinâmica** ou **Estática**.
+3. Na folha Configurações, clique em **Configuração** para exibir e/ou alterar a configuração da conta.
 
-    > [AZURE.NOTE] A alteração da camada de acesso pode resultar em cobranças adicionais. Confira a seção [Preços e cobrança](storage-blob-storage-tiers.md#pricing-and-billing) a seguir para obter mais detalhes.
+4. Selecione a camada de acesso desejada: **Dinâmica** ou **Estática**.
+
+5. Clique em Salvar na parte superior da folha.
+
+    > [AZURE.NOTE] A alteração da camada de acesso pode resultar em cobranças adicionais. Consulte a seção [Preços e Cobrança](storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
 
 ## Migração para contas de armazenamento de Blobs
 
@@ -176,7 +192,7 @@ Se você está movendo os dados para uma conta de armazenamento de Blobs, provav
 - O padrão de consumo de armazenamento: quanto dados são armazenados e como isso é alterado mensalmente?
 - Os padrões de acesso de armazenamento: quantos dados são lidos e gravados na conta (incluindo novos dados)? Quantas e quais transações são usadas para o acesso aos dados?
 
-Para monitorar as contas de armazenamento existentes e coletar esses dados, confira [Habilitação de métricas do Armazenamento do Azure e exibição de dados de métricas](storage-enable-and-view-metrics.md). Agora, com esses dados, você pode usar a [Calculadora de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ajudar a estimar os custos.
+Para monitorar as contas de armazenamento existentes e coletar esses dados, consulte [Habilitando as métricas do Armazenamento do Azure e exibindo os dados da métrica](storage-enable-and-view-metrics.md). Agora, com esses dados, você pode usar a [Calculadora de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ajudar a estimar os custos.
 
 ### Migração de dados existentes
 
@@ -186,21 +202,21 @@ Você pode usar os métodos a seguir para migrar os dados existentes em contas d
 
 O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você pode usar o AzCopy para copiar dados para sua conta de armazenamento de Blobs de suas contas de armazenamento de finalidade geral existentes ou carregar dados do dispositivo de armazenamento local para sua conta de armazenamento de Blobs.
 
-Para saber mais, confira [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).
+Para obter mais detalhes, consulte [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md).
 
 #### Biblioteca de movimentação de dados
 
 A biblioteca de movimentação de dados do Armazenamento do Azure para .NET baseia-se na estrutura de movimentação de dados de núcleo que habilita o AzCopy. A biblioteca foi projetada para operações de transferência de dados de alto desempenho, confiáveis e fáceis, de forma semelhante ao AzCopy. Isso permite que você aproveite todos os benefícios dos recursos fornecidos pelo AzCopy em seu aplicativo de forma nativa, sem a necessidade de lidar com a execução e o monitoramento de instâncias externas do AzCopy.
 
-Para saber mais, confira [Biblioteca de movimentação de dados do Armazenamento do Azure para .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Para obter mais detalhes, consulte [Biblioteca de Movimentação dos Dados do Armazenamento do Azure para .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 #### API REST ou biblioteca de cliente
 
 Você pode criar um aplicativo personalizado para migrar os dados para uma conta de armazenamento de Blobs usando uma das bibliotecas de cliente do Azure ou a API REST dos serviços de armazenamento do Azure. O Armazenamento do Azure fornece bibliotecas de cliente avançadas para várias linguagens e plataformas, como .NET, Java, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
 
-Para saber mais, confira [Introdução ao armazenamento de Blobs do Azure](storage-dotnet-how-to-use-blobs.md).
+Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Azure](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente armazenados com o blob. É absolutamente essencial que qualquer mecanismo de cópia assegure que os metadados de blob, e especialmente os metadados relacionados à criptografia, sejam preservados. Se você copiar os blobs sem esses metadados, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, confira [Criptografia do lado de cliente do Armazenamento do Azure](storage-client-side-encryption.md).
+> [AZURE.NOTE] Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente armazenados com o blob. É absolutamente essencial que qualquer mecanismo de cópia assegure que os metadados de blob, e especialmente os metadados relacionados à criptografia, sejam preservados. Se você copiar os blobs sem esses metadados, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, consulte [Criptografia no lado do cliente do Armazenamento do Azure](storage-client-side-encryption.md).
 
 ## Perguntas frequentes
 
@@ -240,7 +256,7 @@ Para saber mais, confira [Introdução ao armazenamento de Blobs do Azure](stora
 
 9. **Precisarei alterar meus aplicativos existentes para usar contas de armazenamento de Blobs?**
 
-    Contas de Armazenamento de Blobs são 100% consistentes com API com contas de armazenamento de uso geral para blobs de bloco e de acréscimo. Contanto que seu aplicativo esteja usando blobs de bloco ou blobs de acréscimo, e você esteja usando a versão 2014-02-14 da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx), ou mais recente, o aplicativo deverá funcionar. Se estiver usando uma versão mais antiga do protocolo, você precisará atualizar o aplicativo para usar a nova versão, para que funcione perfeitamente com os dois tipos de contas de armazenamento. Em geral, é sempre recomendável usar a última versão, independentemente do tipo de conta de armazenamento que você usa.
+    Contas de Armazenamento de Blobs são 100% consistentes com API com contas de armazenamento de uso geral para blobs de bloco e de acréscimo. Contanto que seu aplicativo esteja usando blobs de bloco ou blobs de acréscimo e você esteja usando a versão 2014-02-14 da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou mais recente, o aplicativo deverá funcionar. Se estiver usando uma versão mais antiga do protocolo, você precisará atualizar o aplicativo para usar a nova versão, para que funcione perfeitamente com os dois tipos de contas de armazenamento. Em geral, é sempre recomendável usar a última versão, independentemente do tipo de conta de armazenamento que você usa.
 
 10. **Haverá uma alteração na experiência do usuário?**
 
@@ -266,4 +282,4 @@ Para saber mais, confira [Introdução ao armazenamento de Blobs do Azure](stora
 
 [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

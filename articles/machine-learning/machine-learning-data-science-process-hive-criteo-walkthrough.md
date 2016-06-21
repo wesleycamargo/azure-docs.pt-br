@@ -438,17 +438,17 @@ Nosso processo de criação de modelo no Aprendizado de Máquina do Azure seguir
 5. [Avaliar o modelo](#step5)
 6. [Publicar o modelo como um serviço Web a ser consumido](#step6)
 
-Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo de **Leitor** do Aprendizado de Máquina do Azure para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
+Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo **Importar Dados** do Aprendizado de Máquina do Azure para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
 
-### <a name="step1"></a> Etapa 1: passar dados de tabelas do Hive para o Aprendizado de Máquina do Azure usando o módulo de Leitor e selecioná-los para um experimento de aprendizado de máquina
+### <a name="step1"></a> Etapa 1: Passar dados de tabelas do Hive para o Aprendizado de Máquina do Azure usando o módulo Importar Dados e selecioná-los para um experimento de aprendizado de máquina
 
-Comece selecionando **+NOVO**->**EXPERIMENTO**->**Experimento em branco**. Depois, na caixa **Pesquisar** na parte superior esquerda, procure "Leitor". Arraste e solte o módulo **Leitor** na tela do experimento (a parte central da tela) para usar o módulo para acesso a dados.
+Comece selecionando **+NOVO**->**EXPERIMENTO**->**Experimento em branco**. Depois, na caixa **Pesquisar** na parte superior esquerda, procure "Importar Dados". Arraste e solte o módulo **Importar Dados** na tela do experimento (a parte central da tela) para usar o módulo para acesso a dados.
 
-Esta é a aparência do **Leitor** ao obter dados da tabela do Hive:
+Esta é a aparência do **Importar Dados** ao obter dados da tabela do Hive:
 
-![Leitor obtém dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Importar Dados obtém os dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-Para o módulo **Leitor**, os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Leitor**.
+Para o módulo **Importar Dados**, os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Importar Dados**.
 
 1. Escolha "Consulta de Hive" para **Fonte de dados**
 2. Na caixa **Consulta ao banco de dados Hive**, um simples SELECT * FROM <nome\_banco\_dados.nome\_tabela> - é suficiente.
@@ -461,11 +461,11 @@ Para o módulo **Leitor**, os valores dos parâmetros que são fornecidos no gr�
 9. **Nome do contêiner do Azure**: se o nome do cluster for "abc", normalmente costuma ser apenas "abc".
 
 
-Após o **Leitor** terminar de obter os dados (você vê a marca de seleção verde no Módulo), salve-os dados como um Conjunto de dados (com um nome de sua escolha). A aparência é a seguinte:
+Após **Importar Dados** terminar de obter os dados (você verá a marca de seleção verde no Módulo), salve os dados como um Conjunto de Dados (com um nome da sua preferência). A aparência é a seguinte:
 
-![Leitor salva dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Importar Dados salva os dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Clique com o botão direito do mouse na porta de saída do módulo de **Leitor**. Isso revela uma opção **Salvar como conjunto de dados** e uma opção **Visualizar**. A opção **Visualizar**, se clicada, exibe 100 linhas de dados, juntamente com um painel à direita que é útil para ver algumas estatísticas resumidas. Para salvar os dados, basta selecionar **Salvar como conjunto de dados** e seguir as instruções.
+Clique com o botão direito do mouse na porta de saída do módulo **Importar Dados**. Isso revela uma opção **Salvar como conjunto de dados** e uma opção **Visualizar**. A opção **Visualizar**, se clicada, exibe 100 linhas de dados, juntamente com um painel à direita que é útil para ver algumas estatísticas resumidas. Para salvar os dados, basta selecionar **Salvar como conjunto de dados** e seguir as instruções.
 
 Para selecionar o conjunto de dados salvo para uso em um experimento de aprendizado de máquina, localize os conjuntos de dados usando a caixa **Pesquisa** mostrada abaixo. Em seguida, basta digitar parcialmente o nome do conjunto de dados para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltá-lo no painel principal o seleciona para uso na modelagem do aprendizado de máquina.
 
@@ -624,13 +624,13 @@ Observação: para o formato de dados de entrada, usaremos a SAÍDA do módulo *
 
 #### Experimento de pontuação publicação do serviço Web
 
-Primeiro, mostramos sua aparência. A estrutura essencial é um módulo do **Modelo de Pontuação** que aceita o nosso objeto de modelo treinado e algumas linhas de dados de entrada que geramos nas etapas anteriores usando o módulo **Recursos de contagem**. Usamos "Colunas do Projeto" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
+Primeiro, mostramos sua aparência. A estrutura essencial é um módulo do **Modelo de Pontuação** que aceita o nosso objeto de modelo treinado e algumas linhas de dados de entrada que geramos nas etapas anteriores usando o módulo **Recursos de contagem**. Usamos "Selecionar Colunas do Conjunto de Dados" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
 
-![Colunas do projeto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Selecionar Colunas no Conjunto de Dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Observe como o módulo **Projetar colunas** pode ser usado para 'filtrar' dados de um conjunto de dados. Nós mostramos o conteúdo abaixo:
+Observe como o módulo **Projetar Colunas no Conjunto de Dados** pode ser usado para “filtrar” dados de um conjunto de dados. Nós mostramos o conteúdo abaixo:
 
-![Filtrando com o módulo Colunas do projeto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtragem com Selecionar Colunas no módulo Conjunto de Dados](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 Para obter as portas de entrada e de saída azuis, basta clicar em **preparar serviço Web** no canto inferior direito. Executar esse experimento também nos permite publicar o serviço Web clicando no ícone **PUBLICAR SERVIÇO WEB** no canto inferior direito, mostrado abaixo.
 
@@ -663,4 +663,4 @@ Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na es
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

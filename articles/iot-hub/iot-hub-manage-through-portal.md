@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="03/14/2016"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Gerenciar Hubs IoT por meio do portal do Azure
@@ -120,6 +120,24 @@ Clique nas políticas do **Sistema de Mensagens** para exibir uma lista de propr
 
 ![][11]
 
+## Upload de arquivos
+
+Para usar a funcionalidade de upload de arquivo do Hub IoT, primeiro você deve associar uma conta de Armazenamento do Azure ao hub. Selecione as configurações de **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.
+
+**Conta de armazenamento**: use o portal para selecionar uma conta de armazenamento na sua assinatura atual para ser associada ao seu Hub IoT. O Hub IoT gerará URIs de SAS nessa conta de armazenamento para os dispositivos a serem usados ao carregar arquivos.
+
+![][14]
+
+**Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de alternância.
+
+**TTL de SAS**: essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Definido como uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+
+**TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de expirar. Definido como um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+
+**Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tentará entregar uma notificação de upload de arquivo. Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+
+![][13]
+
 ## Preços e dimensionamento
 
 O preço de um Hub IoT existente pode ser alterado por meio das configurações de **Preço**, com as seguintes exceções:
@@ -149,8 +167,10 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

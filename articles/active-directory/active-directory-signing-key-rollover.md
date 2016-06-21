@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Substituição de chave de assinatura no Azure Active Directory
@@ -228,4 +228,4 @@ Se o tipo de aplicativo ou plataforma não der suporte a um mecanismo automátic
 
 Você acabou de criar o certificado X509 que é usado como a chave pública do Azure AD. Usando os detalhes do certificado, como sua impressão digital e data de validade, você pode verificar manual ou programaticamente se o certificado e a impressão digital usados atualmente pelo aplicativo são válidos.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

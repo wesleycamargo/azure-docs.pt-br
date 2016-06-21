@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/10/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -238,6 +238,15 @@ Abra um teste individual para editá-lo ou desabilitá-lo.
 
 Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenção de seu serviço.
 
+## Testes de desempenho
+
+Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
+
+Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao criar um teste, você é convidado a se conectar a ou criar uma conta do Visual Studio Team Services.
+
+Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
+
+
 ## Automação
 
 * [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
@@ -421,4 +430,4 @@ Abra as portas 80 (http) e 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

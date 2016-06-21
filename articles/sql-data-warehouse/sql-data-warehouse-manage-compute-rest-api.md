@@ -19,7 +19,7 @@
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (REST)
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-overview-manage-compute.md)
+- [Visão geral](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Esta coleção de tarefas usa o portal do Azure para:
 - Pausar computação
 - Retomar a computação
 
-Para saber mais sobre isso, consulte [Visão geral sobre gerenciar poder de computação][].
+Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -89,8 +89,7 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 
 <!--Article references-->
 [Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
-[Visão geral sobre gerenciar poder de computação]: ./sql-data-warehouse-overview-manage-compute.md
+[Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pausar o Banco de Dados]: https://msdn.microsoft.com/library/azure/mt718817.aspx
@@ -101,4 +100,4 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -61,6 +61,7 @@ Você pode [configurar][registry-config] o Registro do Docker de duas maneiras d
 Para simplificar, este tópico segue a opção 2, usando as variáveis de ambiente.
 
 Para executar uma instância do Registro do Docker que:
+
 * usa sua Conta de Armazenamento do Azure para armazenar as imagens
 * escuta na porta 5000 da Máquina Virtual
 * não tem nenhuma autenticação configurada (não recomendado, veja a observação abaixo)
@@ -99,4 +100,4 @@ Depois de configurar o Registro, você o usará novamente. Comece com o [registr
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

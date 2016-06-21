@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configurando e usando o emulador de armazenamento com o Visual Studio
@@ -35,7 +35,7 @@ Você pode especificar que, quando você executa ou depura seu serviço no Visua
 
 Na primeira vez que você executar ou depurar o serviço do Visual Studio, o emulador de armazenamento inicia um processo de inicialização. Esse processo reserva portas locais para o emulador de armazenamento e cria o banco de dados do emulador de armazenamento. Uma vez concluído, esse processo não precisa executar novamente a menos que o banco de dados do emulador de armazenamento seja excluído.
 
->[AZURE.NOTE] Começando com a versão de junho de 2012 das ferramentas do Azure, o emulador de armazenamento é executado, por padrão, no SQL Express LocalDB. Em versões anteriores das Ferramentas do Azure, o emulador de armazenamento é executado em uma instância padrão do SQL Express 2005 ou 2008, que deve ser instalado antes de você instalar o SDK do Azure. Você também pode executar o emulador de armazenamento em uma instância nomeada do SQL Express ou uma instância nomeada ou padrão do Microsoft SQL Server. Se você precisa configurar o emulador de armazenamento para executar em uma instância diferente da instância padrão, consulte [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](./storage/storage-use-emulator/).
+>[AZURE.NOTE] Começando com a versão de junho de 2012 das ferramentas do Azure, o emulador de armazenamento é executado, por padrão, no SQL Express LocalDB. Em versões anteriores das Ferramentas do Azure, o emulador de armazenamento é executado em uma instância padrão do SQL Express 2005 ou 2008, que deve ser instalado antes de você instalar o SDK do Azure. Você também pode executar o emulador de armazenamento em uma instância nomeada do SQL Express ou uma instância nomeada ou padrão do Microsoft SQL Server. Se você precisa configurar o emulador de armazenamento para executar em uma instância diferente da instância padrão, consulte [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](./storage/storage-use-emulator.md).
 
 O emulador de armazenamento fornece uma interface do usuário para exibir o status dos serviços de armazenamento local e para iniciá-los, pará-los e redefini-los. Depois que o serviço do emulador de armazenamento tiver sido iniciado, você poderá exibir a interface do usuário ou iniciar ou parar o serviço clicando no ícone da área de notificação para o Emulador do Microsoft Azure na barra de tarefas do Windows.
 
@@ -43,4 +43,4 @@ O emulador de armazenamento fornece uma interface do usuário para exibir o stat
 
 O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Para obter mais informações, consulte [Procurando e Gerenciando Recursos de Armazenamento com o Gerenciador de Servidores](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

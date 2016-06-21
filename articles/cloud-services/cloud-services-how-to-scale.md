@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Azure"
-	description="Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure."
+	description="(clássico) Saiba como usar o portal clássico para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -19,9 +19,13 @@
 
 # Como dimensionar automaticamente um serviço de nuvem
 
+> [AZURE.SELECTOR]
+- [Portal do Azure](cloud-services-how-to-scale-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-scale.md)
+
 Na página Dimensionar do portal clássico do Azure, você pode dimensionar manualmente sua função Web ou função de trabalho, ou pode habilitar o dimensionamento automático com base na carga de CPU ou em uma fila de mensagens.
 
->[AZURE.NOTE] Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Quando você cria uma máquina virtual diretamente, ela será hospedada em um serviço de nuvem. Algumas dessas informações se aplica a esses tipos de máquinas virtuais. O dimensionamento de um conjunto de disponibilidade das máquinas virtuais é, na verdade, simplesmente ligá-las e desligá-las com base nas regras de dimensionamento configuradas. Para saber mais sobre as máquinas virtuais e conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade das máquinas virtuais](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
+>[AZURE.NOTE] Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Algumas dessas informações se aplica a esses tipos de máquinas virtuais. O dimensionamento de um conjunto de disponibilidade das máquinas virtuais é, na verdade, simplesmente ligá-las e desligá-las com base nas regras de dimensionamento configuradas. Para saber mais sobre as máquinas virtuais e conjuntos de disponibilidade, confira [Gerenciar a disponibilidade de máquinas virtuais](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
 
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
 
@@ -46,7 +50,7 @@ Por padrão, nenhuma função segue um agendamento específico. Portanto, qualqu
 - Datas específicas
 - Intervalos de datas específicos
 
-Isso é configurado no [portal clássico do Azure](https://manage.windowsazure.com/) na ágina **Serviços de Nuvem** > **[Seu serviço de nuvem]** > **Dimensionar** > **[Produção ou Preparo]**.
+Isso é configurado no [Portal Clássico do Azure](https://manage.windowsazure.com/) na página **Serviços de Nuvem** > **[Seu serviço de nuvem]** > **Escala** > **[Produção ou Preparo]**.
 
 Clique no botão **configurar horas agendadas** para cada função que você deseja alterar.
 
@@ -56,7 +60,7 @@ Clique no botão **configurar horas agendadas** para cada função que você des
 
 ## Dimensionamento manual
 
-Na página **Dimensionar**, você pode aumentar ou diminuir manualmente o número de instâncias em execução em um serviço de nuvem. Isso é configurado para cada agenda criada ou para todos os horários, caso você não tenha criado uma agenda.
+Na página **Escala**, você pode aumentar ou diminuir manualmente o número de instâncias em execução em um serviço de nuvem. Isso é configurado para cada agenda criada ou para todos os horários, caso você não tenha criado uma agenda.
 
 1. No [portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do Serviço de Nuvem para abrir o painel.
 
@@ -134,7 +138,7 @@ Sempre que você dimensionar uma função, também é benéfico dimensionar o ba
 
 3. Encontre a seção **recursos vinculados** e clique em **Gerenciar dimensionamento para este banco de dados**.
 
-    > [AZURE.NOTE] Se você não vir uma seção **recursos vinculados**, é provável que você não tenha recursos vinculados.
+    > [AZURE.NOTE] Caso você não veja uma seção **recursos vinculados**, é provável que você não tenha recursos vinculados.
 
 ![][linked_resource]
 
@@ -147,4 +151,4 @@ Sempre que você dimensionar uma função, também é benéfico dimensionar o ba
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

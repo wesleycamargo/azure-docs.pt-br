@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/10/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -85,7 +85,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço do Access Control<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
-|`http://*.backup.windowsazure.com`|Registro de dispositivos| Somente DATA 0|
+|`https://*.backup.windowsazure.com`|Registro de dispositivos| Somente DATA 0|
 |`http://crl.microsoft.com/pki/*` |Revogação de certificado |Interfaces de rede habilitadas para nuvem |
 | `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
@@ -127,11 +127,11 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
+	| Data 0 | 1 | - | 
+	| Data 1 | 2 | 20 | 
+	| Data 2 | 3 | 30 | 
+	| Data 3 | 4 | 40 | 
+	| Data 4 | 5 | 50 | 
 	| Data 5 | 6 | 60 |
 
 
@@ -280,4 +280,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

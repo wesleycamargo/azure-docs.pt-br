@@ -30,6 +30,7 @@ Entretanto, os serviços têm várias diferenças, que serão detalhadas na tabe
 | Monitoramento de operações | Permite que as soluções IoT assinem um conjunto avançado de eventos de conectividade e gerenciamento de identidade de dispositivo, como erros de autenticação de dispositivos individuais, limitação e exceções de formato inválido. Esses eventos permitem identificar rapidamente problemas de conectividade no nível do dispositivo individual. | Expõe apenas as métricas de agregação. |
 | Escala | É otimizada para dar suporte a milhões de dispositivos conectados simultaneamente. | Os Hubs de Eventos podem dar suporte a uma quantidade mais limitada de conexões simultâneas: até 5.000 conexões AMQP, de acordo com as [Cotas do Barramento de Serviço do Azure][]. Por outro lado, os Hubs de Eventos permitem que você especifique a partição de cada mensagem enviada. |
 | SDKs de dispositivo | O Hub IoT fornece [SDKs de dispositivo][Azure IoT Hub SDKs] para uma grande variedade de plataformas e idiomas. | Eles têm suporte em .NET e em C e fornecem interfaces de envio AMQP e HTTP. |
+| Upload de arquivos | Permite que soluções IoT carreguem arquivos de dispositivos para a nuvem. Inclui um ponto de extremidade de notificação de arquivo para a integração de fluxo de trabalho e uma categoria de monitoramento de operações para o suporte à depuração. | Usa um padrão de verificação de declaração para solicitar manualmente os arquivos de dispositivos e fornecer a estes uma chave de armazenamento para a transação. |
 
 Em resumo, mesmo se o único caso de uso for o ingresso de telemetria do dispositivo para a nuvem, o Hub IoT fornecerá um serviço que foi especificamente desenvolvido para conectividade do dispositivo IoT. Ele continuará a expandir as propostas de valor para esses cenários com recursos específicos de IoT. Os Hubs de Eventos são projetados para a entrada de evento em grande escala, no contexto de cenários internos de datacenter e entre datacenters.
 
@@ -52,4 +53,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

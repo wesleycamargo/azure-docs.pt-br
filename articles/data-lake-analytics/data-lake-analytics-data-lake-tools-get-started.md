@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
@@ -77,7 +77,7 @@ Caso você queira usar seus próprios dados, estes são os procedimentos para ca
 
 ## Desenvolver scripts U-SQL
 
-Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Para criar e enviar um trabalho da Análise Data Lake**
 
@@ -132,8 +132,7 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
     - **Expandir * colunas**
 
-        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. 
-![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Clique em **Expandir Colunas**, a ferramenta substituirá o * pelos nomes de coluna.
 
@@ -216,7 +215,7 @@ Usando a experiência de execução local do U-SQL no Visual Studio, você pode:
 - Depure os assemblies do C# localmente.
 - Criar/excluir/exibir bancos de dados locais, assemblies, esquemas e tabelas no Gerenciador de Servidores assim como faz no serviço Análise Data Lake do Azure.
 
-Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\LocalRunRoot*. A pasta DataRoot será usada:
+Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\\LocalRunRoot*. A pasta DataRoot será usada:
 
 - Armazenar metadados, incluindo tabelas, bancos de dados, TVFs, etc.
 - Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)
@@ -292,7 +291,7 @@ Para ver mais tópicos de desenvolvimento:
 
 ##Apêndice A - Amostra do PowerShell para preparar o tutorial
 
-O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure e os dados de origem para você, de modo que é possível pular para [Desenvolver scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+O script do PowerShell a seguir prepara uma conta da Análise do Azure Data Lake e os dados de origem para você, de modo que é possível pular para [Desenvolver scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +361,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

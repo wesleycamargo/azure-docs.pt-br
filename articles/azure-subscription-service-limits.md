@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -188,18 +188,18 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 Os tipos de preço determinam a capacidade e os limites de seu serviço de pesquisa. Eles incluem:
 
 - *Gratuito* serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
-- *Básico (Preview)* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma taxa reduzida.
-- *Standard (S1 e S2)* destina-se a cargas de trabalho de produção. Uma versão com capacidade maior (*S2*) está disponível mediante solicitação (entre em contato com o Suporte ou azuresearch_contact@microsoft.com para obter ajuda).
+- *Básico* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
+- *Standard (S1, S2, S3, S3 de alta densidade)* para cargas de trabalho de produção maiores. Há vários níveis dentro da camada Standard para que você possa escolher uma configuração de recursos para cenários específicos.
 
-**Limites de tipo**
+**Limites por assinatura**
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
 
-**Limites de armazenamento**
+**Limites por serviço de pesquisa**
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+[AZURE.INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Para saber mais sobre outros limites, como tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
+Para obter informações mais detalhadas sobre outros limites, incluindo o tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
 
 ### Limites de Serviços de Mídia
 
@@ -300,4 +300,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

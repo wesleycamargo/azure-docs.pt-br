@@ -156,9 +156,6 @@ Para fazer com que o compartilhamento de montagem persista:
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Atualizar os drivers do Linux
-Você pode, eventualmente, precisar atualizar os drivers do InfiniBand dos nós de computação do Linux. Para obter mais informações, leia [Atualizar os drivers de RDMA do Linux para SLES 12](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12).
-
 ## Instalar o STAR-CCM+
 As instâncias de VM do Azure A8 e A9 dão suporte ao InfiniBand e funcionalidades de RDMA. Os drivers de kernel que habilitam essas funcionalidades estão disponíveis para imagens do Windows Server 2012 R2, SUSE 12, CentOS 6.5 e CentOS 7.1 no Azure Marketplace. O Microsoft MPI e Intel MPI (versão 5. x) são as duas bibliotecas de MPI que dão suporte a esses drivers no Azure.
 
@@ -241,7 +238,7 @@ Os arquivos de log são nomeados com a ID do trabalho e são armazenados no **co
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-Substitua **runner.java** por seu código de registro em log e do iniciador de modelo Java do STAR-CCM+ preferidos.
+Substitua **runner.java** por seu código de registro em log e código do iniciador de modelo Java do STAR-CCM+ preferidos.
 
 #### Script runstarccm.sh de exemplo
 ```
@@ -289,11 +286,11 @@ Substitua **runner.java** por seu código de registro em log e do iniciador de m
     exit ${RTNSTS}
 ```
 
-Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD\_LICENSE\_FILE** como ****1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
+Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD\_LICENSE\_FILE** como **1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
 
 Após a inicialização, o script extrai de **$CCP\_NODES\_CORES** as variáveis de ambiente definidas pelo HPC Pack, a lista de nós para criar um arquivo de host usado pelo iniciador de MPI. Esse arquivo de host conterá a lista de nomes dos nós de computação que são usados para o trabalho, um nome por linha.
 
-O formato de **$CCP\_NODES\_CORES** segue este padrão:
+O formato **$CCP\_NODES\_CORES** segue este padrão:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -348,4 +345,4 @@ Tentar executar outras cargas de trabalho do Linux. Por exemplo, consulte:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

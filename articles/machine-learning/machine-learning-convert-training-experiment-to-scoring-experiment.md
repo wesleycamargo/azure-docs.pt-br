@@ -54,7 +54,7 @@ Ao converter esse teste de treinamento em um teste preditivo, alguns desses mód
 
 - **Preparação** – Dependendo dos dados que serão enviados para pontuação, esses módulos podem ou não ser necessários para processar os dados de entrada.
 
-	Por exemplo, neste exemplo, o conjunto de dados de exemplo pode ter valores ausentes e incluir colunas que não são necessárias para treinar o modelo. Por isso, um módulo [Limpar Dados Ausentes][clean-missing-data] foi incluído para lidar com valores ausentes e um módulo [Colunas do Projeto][project-columns] foi incluído para excluir essas colunas extras do fluxo de dados. Se você souber que os dados que serão enviados para pontuação por meio do serviço Web não terão valores ausentes, poderá remover o módulo [Limpar Dados Ausentes][clean-missing-data]. No entanto, como o módulo [Colunas do Projeto][project-columns] ajuda a definir o conjunto de recursos sendo pontuados, aquele módulo deve permanecer.
+	Por exemplo, neste exemplo, o conjunto de dados de exemplo pode ter valores ausentes e incluir colunas que não são necessárias para treinar o modelo. Por isso, um módulo [Limpar Dados Ausentes][clean-missing-data] foi incluído para lidar com valores ausentes e um módulo [Selecionar Colunas em um Conjunto de Dados][select-columns] foi incluído para excluir essas colunas extras do fluxo de dados. Se você souber que os dados que serão enviados para pontuação por meio do serviço Web não terão valores ausentes, poderá remover o módulo [Limpar Dados Ausentes][clean-missing-data]. No entanto, como o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] ajuda a definir o conjunto de recursos que estão sendo pontuados, ele deve permanecer.
 
 - **Treinar** – Após o modelo ser treinado com êxito, você pode salvá-lo como um módulo de modelo único treinado. Substitua esses módulos individuais pelo modelo treinado salvo.
 
@@ -78,7 +78,7 @@ Os dados de entrada fornecidos pelo serviço Web agora passarão diretamente par
 
 Da mesma forma, por padrão, **Configurar Serviço Web** coloca o módulo de saída do serviço Web na parte inferior do fluxo de dados. Neste exemplo, o serviço Web retornará ao usuário a saída do módulo do [Modelo de Pontuação][score-model], que inclui o vetor de dados de entrada completo, além dos resultados de pontuação.
 
-No entanto, se desejar retornar algo diferente, por exemplo, apenas os resultados da pontuação e não todo o vetor de dados de entrada, você pode inserir um módulo [Colunas do Projeto][project-columns] para excluir todas as colunas, exceto os resultados de pontuação. Mova o módulo **Saída do serviço Web** para a saída do módulo [Colunas do Projeto][project-columns]\:
+No entanto, se desejar retornar algo diferente, como apenas os resultados da pontuação e não todo o vetor de dados de entrada, você poderá inserir um módulo [Selecionar Colunas do Conjunto de Dados][select-columns] para excluir todas as colunas, exceto os resultados de pontuação. Mova o módulo **Saída do serviço Web** para a saída do módulo [Selecionar Colunas do Conjunto de Dados][select-columns]\:
 
 ![Movendo a saída do serviço Web][figure5]
 
@@ -94,7 +94,7 @@ Nosso teste preditivo ficou assim:
 
 Em alguns casos, talvez você queira permitir que o usuário do serviço Web altere o comportamento dos módulos quando o serviço é acessado. Os *Parâmetros de serviço Web* permitem que você faça isso.
 
-Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web implantado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado.
+Um exemplo comum é a configuração do módulo [Importar Dados][import-data] para que o usuário do serviço Web implantado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Exportar Dados][export-data] para que um destino diferente possa ser especificado.
 
 Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas de acordo.
 
@@ -124,11 +124,11 @@ Para saber mais sobre o processo completo de implantação, consulte [Implantar 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

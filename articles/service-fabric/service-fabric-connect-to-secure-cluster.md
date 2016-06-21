@@ -1,0 +1,111 @@
+<properties
+   pageTitle="Autenticar o acesso do cliente a um cluster | Microsoft Azure"
+   description="Descreve como autenticar o acesso do cliente a um cluster do Service Fabric usando certificados e como proteger a comunicação entre clientes e um cluster."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="06/01/2016"
+   ms.author="ryanwi"/>
+
+# Conectar a um cluster seguro
+Quando um cliente se conecta a um nó de cluster do Service Fabric, o cliente pode ser autenticado e comunicação segura pode ser estabelecida usando segurança de certificado. Isso garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança de certificado deve ter sido previamente habilitada no cluster quando o cluster foi criado. Para obter mais informações sobre cenários de segurança de cluster, consulte [Segurança de cluster](service-fabric-cluster-security.md).
+
+Para proteger a comunicação entre um cliente e um nó de cluster usando a segurança de certificado, você precisa primeiro obter e instalar o certificado do cliente para o (Meu) repositório pessoal no computador local ou para o repositório pessoal do usuário atual.
+
+Execute o cmdlet do PowerShell a seguir para configurar o certificado no computador que você usará para acessar o cluster.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
+
+Se for um certificado autoassinado, você precisará importá-lo no repositório de "pessoas confiáveis" do seu computador antes de poder usá-lo para se conectar a um cluster seguro.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+-FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+-Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
+
+## Conectar a um cluster seguro usando o PowerShell
+
+Execute o seguinte comando do PowerShell para se conectar a um cluster seguro. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+Por exemplo, o comando do PowerShell acima deve ser semelhante ao seguinte.
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+          -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+## Conectar-se a um cluster seguro usando as APIs de FabricClient
+O [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) a seguir. Os nós no cluster devem ter certificados válidos cujo nome comum ou nome DNS no SAN aparece na [propriedade RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) definida em [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Isso habilita a autenticação mútua entre o cliente e o nó de cluster.
+
+```csharp
+string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
+string CommonName = "www.clustername.westus.azure.com";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+X509Credentials xc = GetCredentials(thumb, CommonName);
+FabricClient fc = new FabricClient(xc, connection);
+Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
+try
+{
+    bool result = t.Result;
+    Console.WriteLine("Cluster is connected");
+}
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
+
+static X509Credentials GetCredentials(string thumb, string name)
+{
+    X509Credentials xc = new X509Credentials();
+    xc.StoreLocation = StoreLocation.CurrentUser;
+    xc.StoreName = "MY";
+    xc.FindType = X509FindType.FindByThumbprint;
+    xc.FindValue = thumb;
+    xc.RemoteCertThumbprints.Add(thumb);
+    xc.RemoteCommonNames.Add(name);
+    xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
+    return xc;
+}
+```
+
+
+## Próximas etapas
+
+- [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
+- [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Introdução ao modelo de Integridade da Malha de Serviço](service-fabric-health-introduction.md)
+- [Segurança do aplicativo e RunAs](service-fabric-application-runas-security.md)
+
+<!---HONumber=AcomDC_0608_2016-->
