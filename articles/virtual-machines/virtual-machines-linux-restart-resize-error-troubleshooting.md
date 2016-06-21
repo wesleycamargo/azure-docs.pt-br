@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-linux"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
@@ -53,7 +53,7 @@ Deve-se tentar fazer a solicitação de início da VM parada no cluster original
 
 *	Repita a solicitação de reinicialização mais tarde.
 
-## Problema: erro ao reiniciar uma VM existente
+## Problema: erro ao redimensionar uma VM existente
 
 Você tenta redimensionar uma VM existente, mas ocorre uma falha de alocação.
 
@@ -74,4 +74,4 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
   3. Selecione a VM redimensionada, clique em **Iniciar** e inicie cada uma das VMs paradas.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

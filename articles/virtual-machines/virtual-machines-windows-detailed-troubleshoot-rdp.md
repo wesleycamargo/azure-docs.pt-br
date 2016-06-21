@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/06/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Solução de problemas detalhada de conexões de Área de Trabalho Remota para máquinas virtuais do Azure baseadas em Windows
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
 
 > [AZURE.IMPORTANT] Para eliminar os erros mais comuns da Área de Trabalho Remota, não deixe de ler [o artigo de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md) antes de continuar.
 
-Caso você receba uma mensagem de erro da Área de Trabalha Remota que não se assemelha a nenhuma das mensagens de erro específicas abordadas em [Guia de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md), siga estas etapas e tente descobrir por que o cliente da [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (ou Área de Trabalho Remota) não consegue se conectar ao serviço RDP na VM do Azure.
+Caso você receba uma mensagem de erro da Área de Trabalha Remota que não se assemelha a nenhuma das mensagens de erro específicas abordadas em [Guia de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md), siga estas etapas e tente descobrir por que o cliente da RDP (Área de Trabalho Remota) não consegue se conectar ao serviço RDP na VM do Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
@@ -47,7 +47,7 @@ Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a ú
 Antes de prosseguir para a solução de problemas detalhada,
 
 - verifique o status da máquina virtual no Portal Clássico do Azure ou no Portal do Azure em busca de problemas óbvios
-- Siga as [etapas de correção rápida para erros comuns de RDP no guia de solução de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md#quickfixrdp)
+- Siga as [etapas de correção rápida para erros comuns de RDP no guia de solução de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 
 Tente reconectar-se à VM por meio da Área de Trabalho Remota após estas etapas.
@@ -133,7 +133,7 @@ Tente estabelecer a conexão de seu computador novamente. Se você ainda não co
 - O Firewall do Windows ou outro firewall local tem uma regra de saída que está impedindo o tráfego de Área de Trabalho Remota.
 - Um software de detecção de intrusão ou monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de Área de Trabalho Remota.
 
-Para VMs criadas usando o modelo de implantação clássico, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você precisa instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Acesse [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** no computador local.
+Para VMs criadas usando o modelo de implantação clássico, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você precisa instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Acesse [Configurar Acesso Seguro do Remote PowerShell a Máquinas Virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** no computador local.
 
 Em seguida, instale o Azure PowerShell, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
@@ -195,4 +195,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

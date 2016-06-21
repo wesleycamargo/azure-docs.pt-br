@@ -102,7 +102,7 @@ Os recursos de localização acima podem ser usados ainda para gerar recursos ad
 
 ###<a name="sql-aml"></a>Conectar ao Aprendizado de Máquina do Azure
 
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
 
 ![leitores de azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -125,4 +125,4 @@ Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópi
 
  
 
-<!---HONumber=AcomDC_0518_2016--->
+<!---HONumber=AcomDC_0608_2016-->

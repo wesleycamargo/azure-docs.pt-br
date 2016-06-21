@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
@@ -48,7 +48,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao Arm
 
     ![Caixa de diálogo Adicionar Serviço Conectado — Armazenamento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. Na caixa de diálogo **Armazenamento do Azure**, escolha uma conta de armazenamento existente e clique em **Adicionar**.
+1. Na caixa de diálogo **Armazenamento do Azure**, selecione uma conta de armazenamento existente e escolha **Adicionar**.
 
     Se você precisar criar uma nova conta de armazenamento, passe para a próxima etapa. Caso contrário, pule para a etapa 6.
 
@@ -64,7 +64,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao Arm
 
         Quando estiver de volta na caixa de diálogo **Armazenamento do Azure**, o novo armazenamento aparecerá na lista.
 
-    1. Selecione o novo armazenamento na lista e clique em **Adicionar**.
+    1. Selecione o novo armazenamento na lista e escolha **Adicionar**.
 
 1. O serviço conectado de armazenamento aparece sob o nó Referências de Serviço do seu projeto WebJob.
 
@@ -94,4 +94,4 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
 
      - [Documentação do Armazenamento em azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

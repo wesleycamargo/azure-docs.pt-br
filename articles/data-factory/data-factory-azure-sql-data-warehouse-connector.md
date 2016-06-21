@@ -18,14 +18,18 @@
 
 # Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory
 
-Este artigo descreve como você pode usar a Atividade de cópia no Azure Data Factory para mover dados do SQL Data Warehouse do Azure para outro armazenamento de dados e mover dados de outro armazenamento de dados para o SQL Data Warehouse. Este artigo tem base no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia, e fontes e coletores de dados com suporte para o SQL Data Warehouse.
+Este artigo descreve como você pode usar a Atividade de cópia no Azure Data Factory para mover dados do SQL Data Warehouse do Azure para outro armazenamento de dados e mover dados de outro armazenamento de dados para o SQL Data Warehouse.
+
+Você pode especificar se deseja usar o PolyBase ao carregar dados no SQL Data Warehouse do Azure. Sugerimos que você use o PolyBase para obter o melhor desempenho ao carregar os dados no SQL Data Warehouse do Azure. A seção [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Usar o PolyBase para carregar dados para o Azure SQL Data Warehouse) apresenta os detalhes.
 
 O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Azure SQL Data Warehouse e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de cópia no Azure Data Factory.
+
+
 
 > [AZURE.NOTE] 
 Para obter uma visão geral do serviço Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
 > 
-> Este artigo fornece exemplos de JSON, mas não fornece instruções passo a passo para criar um data factory. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-get-started.md) para uma breve passo a passo com instruções sobre como usar a Atividade de cópia no Azure Data Factory.
+> Este artigo fornece exemplos de JSON, mas não fornece instruções passo a passo para criar um data factory. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-get-started.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia no Azure Data Factory.
 
 
 ## Exemplo: Copiar dados do SQL Data Warehouse do Azure para o Blob do Azure
@@ -463,7 +467,7 @@ O **SqlDWSink** dá suporte às seguintes propriedades:
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize | Inteiro. (unidade = Contagem de Linhas) | Não (Padrão = 10.000) |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não | 
 | sqlWriterCleanupScript | A consulta especificada pelo usuário para a Atividade de cópia ser executada para assegurar que os dados de uma fatia específica serão limpos. Consulte a seção de repetição abaixo para obter mais detalhes. | Uma instrução de consulta. | Não |
-| allowPolyBase | Indica se deve usar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT para carregar dados no Azure SQL Data Warehouse. <br/><br/>Observe que apenas um conjunto de dados de **blobs do Azure** com o **formato** definido como **TextFormat** como uma fonte de conjunto de dados tem suporte no momento e o suporte a outros tipos de fontes será disponibilizado em breve. <br/><br/>Consulte a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse), para obter detalhes e restrições. | True <br/>False (padrão) | Não |  
+| allowPolyBase | Indica se deve usar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT para carregar dados no Azure SQL Data Warehouse. <br/><br/>Observe que apenas um conjunto de dados de **blobs do Azure** com o **formato** definido como **TextFormat** como uma fonte de conjunto de dados tem suporte no momento e o suporte para outros tipos de fontes será disponibilizado em breve. <br/><br/>Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições. | True <br/>False (padrão) | Não |  
 | polyBaseSettings | Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** estiver definida como **true**. | &nbsp; | Não |  
 | rejectValue | Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). | 0 (padrão), 1, 2, … | Não |  
 | rejectType | Especifica se a opção rejectValue é especificada como um valor literal ou um percentual. | Valor (padrão), Percentual | Não |   
@@ -483,9 +487,7 @@ O **SqlDWSink** dá suporte às seguintes propriedades:
 ## Usar o PolyBase para carregar dados no Azure SQL Data Warehouse
 O **PolyBase** é uma maneira eficiente de carregar grandes quantidades de dados do Armazenamento de Blobs do Azure no Azure SQL Data Warehouse com alta taxa de transferência. Você pode notar um grande ganho na taxa de transferência usando PolyBase em vez do mecanismo BULKINSERT padrão.
 
-Se o armazenamento de dados de origem não for o Armazenamento de Blobs do Azure, você poderá considerar copiar os dados do armazenamento de dados de origem para o Armazenamento de Blobs do Azure primeiro, como um preparo e, em seguida, usar o PolyBase para carregar os dados no Azure SQL Data Warehouse do repositório de preparo. Nesse cenário, você usará duas atividades de cópia, com a primeira atividade de cópia configurada para copiar dados do armazenamento de dados de origem para o Armazenamento de Blobs do Azure e a segunda atividade de cópia para copiar dados do Armazenamento de Blobs do Azure para o Azure SQL Data Warehouse usando PolyBase.
-
-Defina a propriedade **allowPolyBase** como **true**, conforme mostrado no exemplo a seguir para o Azure Data Factory usar o PolyBase para copiar dados do Armazenamento de Blobs do Azure para o Azure SQL Data Warehouse. Quando você definir allowPolyBase como true, poderá especificar propriedades específicas do PolyBase usando o grupo de propriedades **polyBaseSettings**. Consulte a seção [SqlDWSink](#SqlDWSink) seção acima para obter detalhes sobre as propriedades que você pode usar com polyBaseSettings.
+Defina a propriedade **allowPolyBase** como **true**, conforme mostrado no exemplo a seguir para o Azure Data Factory usar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Quando você definir allowPolyBase como true, poderá especificar propriedades específicas do PolyBase usando o grupo de propriedades **polyBaseSettings**. Consulte a seção [SqlDWSink](#SqlDWSink) seção acima para obter detalhes sobre as propriedades que você pode usar com polyBaseSettings.
 
 
     "sink": {
@@ -501,11 +503,14 @@ Defina a propriedade **allowPolyBase** como **true**, conforme mostrado no exemp
 
     }
 
-O Azure Data Factory verifica se os dados atendem aos seguintes requisitos antes de usar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Se os requisitos não forem atendidos, ele automaticamente se voltará para o mecanismo BULKINSERT para a movimentação de dados.
+### Cópia direta usando o PolyBase
+Se sua fonte de dados atender aos critérios abaixo, você poderá copiar diretamente do armazenamento de dados de origem para o SQL Data Warehouse do Azure usando o PolyBase. Caso contrário, você poderá copiar os dados do armazenamento de dados de origem para um Armazenamento de Blobs do Azure de preparo que atenda aos seguintes critérios e use o PolyBase para carregar os dados no SQL Data Warehouse do Azure. Confira a seção [Staged Copy using PolyBase](#staged-copy-using-polybase) (Cópia de preparo usando o PolyBase) para obter detalhes sobre a cópia em etapas.
 
-1.	**Serviço vinculado de origem** é do tipo: **Armazenamento do Azure** e ele não está configurado para usar a autenticação SAS (Assinatura de Acesso Compartilhado). Consulte [Serviço vinculado do Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes.  
+Observe que o Azure Data Factory verifica as configurações e automaticamente retornará para o mecanismo BULKINSERT para a movimentação de dados se os requisitos não forem atendidos.
+
+1.	O **serviço vinculado de origem** é do tipo: **Armazenamento do Azure** e ele não está configurado para usar a autenticação SAS (Assinatura de Acesso Compartilhado). Confira [Serviço vinculado do Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes.  
 2. O **conjunto de dados de entrada** é do tipo: **Blob do Azure** e as propriedades do tipo de conjunto de dados atendem aos seguintes critérios: 
-	1. **Tipo** deve ser **TextFormat**. 
+	1. O **Tipo** deve ser **TextFormat** ou **OrcFormat**. 
 	2. **rowDelimiter** deve ser **\\n**. 
 	3. **nullValue** é definido como **cadeia de caracteres vazia** (""). 
 	4. **encodingName** é definido como **utf-8**, que é o valor **padrão**, portanto, não o defina como um valor diferente. 
@@ -530,6 +535,38 @@ O Azure Data Factory verifica se os dados atendem aos seguintes requisitos antes
 4.	Não há uma configuração **sliceIdentifierColumnName** em **SqlDWSink** para a atividade de Cópia no pipeline. (O PolyBase garante que todos os dados são atualizados ou que nada é atualizado em uma execução única. Para obter a **repetição**, você pode usar **sqlWriterCleanupScript**.
 5.	Não há nenhum **columnMapping** sendo usado na atividade de Cópia associada. 
 
+### Cópia de preparo usando o PolyBase
+O mecanismo PolyBase exige que os dados de origem estejam em um Armazenamento de Blobs do Azure e em um dos formatos com suporte (DELIMITEDTEXT com restrição, RSFILE, ORC, PARQUET). Quando os dados de origem não atenderem aos critérios apresentados na seção acima, você poderá habilitar a cópia de dados por meio de um Armazenamento de Blobs de preparo provisório do Azure e, nesse caso, o Azure Data Factory executa transformações nos dados para atender aos requisitos de formato de dados do PolyBase e, então, usa o PolyBase para carregar dados no SQL Data Warehouse. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
+
+Para usar esse recurso, crie um [serviço vinculado de armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refira à conta de armazenamento do Azure que tenha o Armazenamento de Blobs provisório e especifique as propriedades **enableStaging** e **stagingSettings** para a atividade de cópia, conforme mostrado abaixo:
+
+	"activities":[  
+	{
+		"name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
+		"type": "Copy",
+		"inputs": [{ "name": "OnpremisesSQLServerInput" }],
+		"outputs": [{ "name": "AzureSQLDWOutput" }],
+		"typeProperties": {
+			"source": {
+				"type": "SqlSource",
+			},
+			"sink": {
+				"type": "SqlDwSink",
+				"allowPolyBase": true
+			},
+    		"enableStaging": true,
+				"stagingSettings": {
+				"linkedServiceName": "MyStagingBlob"
+			}
+		}
+	}
+	]
+
+
+Observação: se você estiver copiando dados do armazenamento de dados local para o SQL Data Warehouse do Azure usando o PolyBase e o preparo, você terá que instalar o JRE (Java Runtime Environment) em seu computador de gateway, que será usado para transformar os dados de origem no formato correto.
+
+
+
 ### Práticas recomendadas ao usar o PolyBase
 
 #### Limitação de tamanho de linha
@@ -540,7 +577,7 @@ O Polybase não dá suporte a linhas de tamanho maior que 32 KB. Tentar carregar
 Caso você tenha dados de origem com linhas de tamanho maior que 32 KB, convém dividir as tabelas de origem verticalmente em várias pequenas, em que o maior tamanho de linha de cada um deles não excede o limite. As tabelas menores podem ser carregadas usando o PolyBase e mescladas no Azure SQL Data Warehouse.
 
 #### tableName no Azure SQL Data Warehouse
-A tabela a seguir fornece exemplos de como especificar a propriedade **tableName** no conjunto de dados JSON para várias combinações de nome de esquema e tabela.
+A tabela a seguir fornece exemplos de como especificar a propriedade **tableName** no conjunto de dados JSON para várias combinações de nome de esquema e de tabela.
 
 | Esquema do BD | Nome da tabela | Propriedade JSON tableName |
 | --------- | -----------| ----------------------- | 
@@ -559,31 +596,6 @@ Atualmente, o recurso PolyBase no Data Factory só aceita o mesmo número de col
 	All columns of the table must be specified in the INSERT BULK statement.
 
 O valor NULL é uma forma especial do valor padrão. Se a coluna for anulável, os dados de entrada (no blob) para essa coluna poderão estar vazios (não poderão estar ausentes no conjunto de dados de entrada). O PolyBase inserirá NULL para eles no armazém Azure SQL Data Warehouse.
-
-#### Aproveitando a cópia de duas etapas para usar o PolyBase
-O PolyBase tem limitações de armazenamentos de dados e formatos com os quais pode operar. Se seu cenário não atender os requisitos, você deverá aproveitar a Atividade de Cópia para copiar dados para um armazenamento de dados com suporte pelo PolyBase e/ou converter os dados em um formato que dá suporte a PolyBase. Aqui estão exemplos das transformações que você pode fazer:
-
--	Converter arquivos de origem em outras codificações para blobs do Azure em UTF-8
--	Serializar dados no SQL Server/Banco de Dados SQL do Azure nos blobs do Azure em formato CSV.
--	Altere a ordem das colunas, especificando a propriedade columnMapping.
-
-Aqui estão algumas dicas ao realizar as transformações:
-
-- Seleção de um delimitador apropriado ao converter dados tabulares em arquivos CSV.
-
-	É recomendável usar caracteres que muito provavelmente não aparecem nos dados como o delimitador de coluna. Delimitadores comuns incluem a vírgula (,), til (~), barra vertical (|) e TAB (\\t). Se seus dados tiverem esses itens, você poderá definir o delimitador de coluna caracteres não imprimíveis, como "\\u0001". O Polybase aceita delimitadores de coluna de vários caracteres, o que permitiria que você construísse delimitadores de coluna mais complexos.	
-- Formato de objetos datetime
-
-	Quando objetos datetime são serializados, a Atividade de Cópia, por padrão, usa o formato: "aaaa-MM-dd HH:mm:ss.fffffff", que, por padrão, não tem suporte do PolyBase. Os formatos de datetime com suporte podem ser encontrados aqui: [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). Deixar de atender às expectativas do Polybase no formato de datetime resultaria em um erro conforme mostrado abaixo:
-
-		Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.
-		(/AccountDimension)Column ordinal: 97, Expected data type: DATETIME NOT NULL, Offending value: 2010-12-17 00:00:00.0000000  (Column Conversion Error), Error: Conversion failed when converting the NVARCHAR value '2010-12-17 00:00:00.0000000' to data type DATETIME.
-
-	Para resolver esse erro, especifique o formato de datetime, conforme mostrado no exemplo a seguir:
-	
-		"structure": [
-    		{ "name" : "column", "type" : "int", "format": "yyyy-MM-dd HH:mm:ss" }
-		]
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
@@ -643,6 +655,6 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

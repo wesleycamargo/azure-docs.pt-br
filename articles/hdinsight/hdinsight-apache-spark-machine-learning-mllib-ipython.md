@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLlib com Spark no HDInsight Linux (Preview)
+# Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando o MLlib com o cluster do Apache Spark no HDInsight Linux
 
 > [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações do Jupyter em um cluster Spark (Linux) que você cria no HDInsight. A experiência do notebook permite executar os trechos de código Python no próprio notebook. Para executar o tutorial de dentro de um notebook, crie um cluster do Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o notebook **Aprendizado de máquina do Spark - análise de previsão em dados de inspeção de alimentos usando MLLib.ipynb** na pasta **Python**.
 
@@ -404,12 +404,20 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gerenciar recursos
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+<!---HONumber=AcomDC_0608_2016-->

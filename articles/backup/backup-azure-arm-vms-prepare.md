@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Preparando seu ambiente para fazer backup de máquinas virtuais do ARM | Microsoft Azure"
+	pageTitle="Preparando seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos | Microsoft Azure"
 	description="Verificar se o ambiente está preparado para fazer backup de máquinas virtuais no Azure"
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backups; fazendo backup;"/>
 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Preparar o seu ambiente para o backup das máquinas virtuais do ARM
+# Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
 > [AZURE.SELECTOR]
 - [Modelo do gerenciador de recursos](backup-azure-arm-vms-prepare.md)
 - [Modelo clássico](backup-azure-vms-prepare.md)
 
-Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) do ARM (Azure Resource Manager). As etapas mostradas nos procedimentos usam o Portal do Azure.
+Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Gerenciador de Recursos. As etapas mostradas nos procedimentos usam o Portal do Azure.
 
-O serviço de Backup do Azure tem dois tipos de cofres (cofres de backup e de serviços de recuperação) para proteger suas VMs. Um cofre de backup protege VMs implantadas com o modelo de implantação Clássico. Um cofre dos serviços de recuperação protege **tanto VMs implantadas com o modelo Clássico quanto com o ARM**. Você deve usar um cofre dos Serviços de Recuperação para proteger uma VM implantada no ARM.
+O serviço de Backup do Azure tem dois tipos de cofres (cofres de backup e de serviços de recuperação) para proteger suas VMs. Um cofre de backup protege VMs implantadas com o modelo de implantação Clássico. Um cofre dos serviços de recuperação protege **tanto as VMs implantadas com o modelo de implantação Clássico quanto com o Gerenciador de Recursos**. Você deve usar um cofre dos Serviços de Recuperação para proteger uma VM implantada com o Gerenciador de Recursos.
 
 >[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Consulte [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
 
-Antes de proteger ou fazer backup de uma VM (máquina virtual) do ARM, verifique se esses pré-requisitos foram cumpridos:
+Antes de proteger ou fazer backup de uma VM (máquina virtual) implantada com o Gerenciador de Recursos, verifique se esses pré-requisitos foram cumpridos:
 
 - Crie um cofre dos serviços de recuperação (ou identifique um cofre dos serviços de recuperação existente) *no mesmo local que sua VM*.
 - Selecione um cenário, defina a política de backup e os itens a serem protegidos.
@@ -194,10 +194,10 @@ A extensão de backup será instalada pelo serviço Backup, esteja a VM em execu
 
 ## Conectividade de rede
 
-Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação tem restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
+Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
 
 - [Lista branca de intervalos de IP de datacenter do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653): consulte o artigo para obter instruções sobre como colocar os endereços IP na lista branca.
-- Implante um servidor proxy HTTP para rotear o tráfego.
+- Implante um servidor de proxy HTTP para rotear o tráfego.
 
 Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, controle granular e custo.
 
@@ -228,7 +228,7 @@ Para usar um proxy HTTP para se comunicar com a Internet pública, siga estas et
 #### Etapa 1. Configurar conexões de rede de saída
 
 ###### Para computadores Windows
-Isso definirá a configuração do servidor proxy para a Conta do Sistema Local.
+Isso definirá a configuração do servidor de proxy para a Conta do Sistema Local.
 
 1. Baixe o [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. Execute o seguinte comando no prompt com privilégios elevados,
@@ -238,12 +238,12 @@ Isso definirá a configuração do servidor proxy para a Conta do Sistema Local.
      ```
     Isso abrirá a janela do Internet Explorer.
 3. Acesse Ferramentas -> Opções da Internet -> Conexões -> Configurações de LAN.
-4. Verifique as configurações de proxy para a conta do Sistema. Defina o IP e a porta do proxy. 
+4. Verifique as configurações de proxy para a conta do Sistema. Defina o IP e a porta do proxy.
 5. Feche o Internet Explorer.
 
 Isso configurará um proxy de todo o computador e será usado para qualquer tráfego de saída HTTP/HTTPS.
-   
-Se você configurou um servidor proxy em uma conta de usuário atual (não uma Conta do Sistema Local), use o script a seguir para aplicá-la ao SYSTEMACCOUNT:
+
+Se você configurou um servidor de proxy em uma conta de usuário atual (não uma Conta do Sistema Local), use o script a seguir para aplicá-la ao SYSTEMACCOUNT:
 
 ```
    $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -254,9 +254,9 @@ Se você configurou um servidor proxy em uma conta de usuário atual (não uma C
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] Se você receber "(407) Autenticação de Proxy Necessária" no log do servidor proxy, verifique se a configuração da sua autenticação está correta.
+>[AZURE.NOTE] Se você receber "(407) Autenticação de Proxy Necessária" no log do servidor de proxy, verifique se a configuração da sua autenticação está correta.
 
-######Para computadores Linux 
+######Para computadores Linux
 
 Adicione a seguinte linha ao arquivo ```/etc/environment```:
 
@@ -265,13 +265,13 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Adicione as linhas abaixo ao arquivo ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### Etapa 2. Permitir conexões de entrada no servidor proxy:
+#### Etapa 2. Permitir conexões de entrada no servidor de proxy:
 
 1. No servidor proxy, abra o Firewall do Windows. A maneira mais fácil de acessar o firewall é procurar o Firewall do Windows com Segurança Avançada.
 
@@ -309,7 +309,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *Essas etapas usam valores e nomes específicos para esse exemplo. Use os nomes e valores da sua implantação ao inserir, recortar e colar os detalhes no seu código.*
 
 
-Agora que sabemos que há conectividade de rede, você está pronto para fazer backup da sua VM. Consulte [Fazer backups de VMs do ARM (Azure Resource Manager)](backup-azure-arm-vms.md).
+Agora que sabemos que há conectividade de rede, você está pronto para fazer backup da sua VM. Confira [Back up Resource Manager-deployed VMs](backup-azure-arm-vms.md) (Fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos).
 
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
@@ -321,4 +321,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 - [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

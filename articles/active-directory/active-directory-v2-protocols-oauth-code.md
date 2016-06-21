@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Protocolos v2.0 - Fluxo de código de autorização do OAuth 2.0
@@ -259,4 +259,4 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | trace\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

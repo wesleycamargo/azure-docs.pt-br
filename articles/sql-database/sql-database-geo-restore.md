@@ -35,7 +35,7 @@ A restauração geográfica fornecerá a opção de recuperação padrão quando
 
 ## Restauração geográfica em detalhes
 
-A restauração geográfica usa a mesma tecnologia que a recuperação pontual, com uma diferença importante. Ela restaura o banco de dados de uma cópia de backup diário mais recente no RA-GRS (armazenamento de blobs replicado geograficamente). Para cada banco de dados ativo, o serviço mantém uma cadeia de backup que inclui um backup completo semanal, vários backups diferenciais diários e logs de transações salvos a cada 5 minutos. Esses blobs são replicados geograficamente, garantindo que os backups diários estejam disponíveis mesmo após uma grande falha na região primária. O código a seguir mostra a replicação geográfica de backups diários e semanais copiados para os contêineres de armazenamento.
+A restauração geográfica usa a mesma tecnologia que a recuperação pontual, com uma diferença importante. Ela restaura o banco de dados de uma cópia de backup diário mais recente no RA-GRS (armazenamento de blobs replicado geograficamente). Para cada banco de dados ativo, o serviço mantém uma cadeia de backup que inclui um backup completo semanal, vários backups diferenciais diários e logs de transações salvos a cada 5 minutos. Esses blobs são replicados geograficamente, garantindo que os backups diários estejam disponíveis mesmo após uma grande falha na região primária. O código a seguir mostra a Replicação Geográfica de backups diários e semanais copiados para os contêineres de armazenamento.
 
 ![restauração geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
@@ -54,7 +54,7 @@ O tempo de recuperação é afetado por vários fatores: o tamanho e o nível de
 
 ## Resumo
 
-Embora a restauração geográfica esteja disponível para todos os níveis de serviço, ela é a mais básica dentre as soluções de recuperação de desastres disponíveis no Banco de Dados SQL com RPO e ERT (Tempo de Recuperação Estimado) mais longos. Para bancos de dados Básicos com tamanho máximo de 2 GB, a restauração geográfica fornece uma solução de DR razoável com um ERT de 12 horas. Para bancos de dados Standard ou Premium maiores, se desejar obter tempos de recuperação significativamente menores ou reduzir a probabilidade de perda de dados, considere usar a replicação geográfica ativa. A replicação geográfica ativa oferece um RPO e ERT muito menor, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter detalhes, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
+Embora a restauração geográfica esteja disponível para todos os níveis de serviço, ela é a mais básica dentre as soluções de recuperação de desastres disponíveis no Banco de Dados SQL com RPO e ERT (Tempo de Recuperação Estimado) mais longos. Para bancos de dados Básicos com tamanho máximo de 2 GB, a restauração geográfica fornece uma solução de DR razoável com um ERT de 12 horas. Para bancos de dados Standard ou Premium maiores, se desejar obter tempos de recuperação significativamente menores ou reduzir a probabilidade de perda de dados, considere usar a Replicação Geográfica Ativa. A Replicação Geográfica Ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter detalhes, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
 ## Recursos adicionais
 
@@ -65,4 +65,4 @@ Embora a restauração geográfica esteja disponível para todos os níveis de s
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

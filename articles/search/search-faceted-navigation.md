@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/15/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 #Como implementar a navegação facetada na Pesquisa do Azure
@@ -370,4 +370,4 @@ Você também pode assistir [Aprofundamento na Pesquisa do Azure](http://channel
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

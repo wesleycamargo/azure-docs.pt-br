@@ -100,15 +100,11 @@ Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 
 15. Opcionalmente: defina as **configurações do cluster do Service Fabric**. Com essa opção avançada, você pode alterar as configurações padrão do cluster do Service Fabric. Recomendamos que você não altere os padrões, a menos que tenha certeza de que seu aplicativo ou cluster exige isso.
 
-
-
 ## Etapa 3: Configurar a segurança
 
-Neste momento, o Service Fabric oferece suporte à proteção de clusters apenas por meio de um certificado X509. Antes de iniciar esse processo, será necessário carregar seu certificado no Cofre da Chave. Consulte [Segurança do cluster do Service Fabric](service-fabric-cluster-security.md) para saber como fazer isso.
+Conceitos e cenários de segurança estão documentados em [Segurança do cluster do Service Fabric](service-fabric-cluster-security.md). Neste momento, o Service Fabric dá suporte à proteção de clusters apenas por meio de um certificado X509, consulte [Proteger um Cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) para etapas sobre como fazer isso.
 
 Proteger seu cluster é opcional, mas é altamente recomendável. Se você optar por não proteger o cluster, alterne o **Modo de Segurança** para **Não Seguro**. Observação - você **não** poderá atualizar um cluster não seguro para seguro em um momento posterior.
-
-As considerações e instruções de segurança estão documentadas em [Segurança do cluster do Service Fabric](service-fabric-cluster-security.md).
 
 ![Captura de tela das configurações de segurança no Portal do Azure][SecurityConfigs]
 
@@ -229,4 +225,4 @@ Depois de criar um cluster, saiba mais sobre como protegê-lo e implantar aplica
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

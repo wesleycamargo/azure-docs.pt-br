@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
-   ms.author="v-sharos" />
+   ms.date="06/01/2016"
+   ms.author="anoobbacker" />
 
 # Desativar e excluir um dispositivo StorSimple
 
@@ -105,4 +105,4 @@ A desativação resulta nas seguintes ações:
 
 - Para saber como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

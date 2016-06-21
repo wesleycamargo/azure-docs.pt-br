@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/11/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -30,6 +30,15 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.189.0
+Lançamento: junho de 2016
+
+**Problemas corrigidos e aperfeiçoamentos:**
+
+- O Azure AD Connect agora pode ser instalado em um servidor compatível com FIPS.
+    - Para sincronização de senha, consulte [Sincronização de Senha e FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+- Corrigido um problema em que um nome NetBIOS não pôde ser resolvido para o FQDN no Active Directory Connector.
+
 ## 1\.1.180.0
 Lançamento: maio de 2016
 
@@ -37,7 +46,7 @@ Lançamento: maio de 2016
 
 - Avisa e ajuda a verificar os domínios se você não fizer isso antes de executar o Azure AD Connect.
 - Adicionado suporte ao [Microsoft Cloud Alemanha](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
-- Adicionado suporte para à infraestrutura em [nuvem do Microsoft Azure Governamental](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) mais recente com novos requisitos de URL.
+- Adicionado suporte à infraestrutura em [nuvem do Microsoft Azure Governamental](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) mais recente com novos requisitos de URL.
 
 **Problemas corrigidos e aperfeiçoamentos:**
 
@@ -284,4 +293,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

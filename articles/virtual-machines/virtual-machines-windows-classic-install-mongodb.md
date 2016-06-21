@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 #Instalar o MongoDB em uma VM do Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-
-[O MongoDB][MongoDB] é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Usando o [portal clássico do Azure][AzurePortal], é possível criar uma máquina virtual que executa o Windows Server por meio da Galeria de Imagens, usando o modelo de implantação clássico. Em seguida, você pode instalar e configurar um banco de dados MongoDB na máquina virtual.
+[O MongoDB][MongoDB] é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo orienta você pela criação de uma nova VM (máquina virtual) do Windows Server usando o [portal clássico do Azure][AzurePortal], criando e anexando um disco de dados à máquina virtual e, em seguida, instalar e configurar o MongoDB. Se tiver uma VM existente no Azure que você deseja usar, você poderá ir diretamente para [instalar e configurar o MongoDB](#install-and-run-mongo-on-win2k8-vm).
 
 
 ## Criar uma máquina virtual na qual o Windows Server está em execução
@@ -44,11 +43,11 @@ Para obter instruções sobre como inicializar o disco, veja “Como: inicializa
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-##Resumo
+## Resumo
 Neste tutorial você aprendeu a criar uma máquina virtual do Windows Server e a se conectar remotamente a ela, além de anexar um disco de dados. Você também aprendeu como instalar e configurar o MongoDB na máquina virtual Windows. Agora você pode acessar o MongoDB na máquina virtual baseada em Windows seguindo os tópicos avançados na [documentação do MongoDB][MongoDocs].
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -96,10 +96,10 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Leia os dados de blob do Azure usando o [Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do AM do Azure como mostra a captura de tela abaixo:
+3. Leia os dados de blob do Azure usando o [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do AM do Azure como mostra a imagem abaixo:
  
 ![blob de leitor](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

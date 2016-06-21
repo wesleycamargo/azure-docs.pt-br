@@ -102,7 +102,7 @@ Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A at
 Você pode encontrar o mapeamento para um determinado sistema de tipo nativo para o .NET para o armazenamento de dados nos respectivos artigos de conector de armazenamento de dados. Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar tabelas para que as conversões certas sejam executadas durante a atividade de cópia.
 
 ### Trabalhando com diferentes formatos de arquivo
-A atividade de cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto, Avro e JSON para repositórios baseados em arquivo. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
+A Atividade de Cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto, Avro, ORC e JSON para repositórios baseados em arquivo. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
 
 ### Propriedades da atividade de cópia
 Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade.
@@ -195,4 +195,4 @@ Você também pode usar uma variável **personalizada**, conforme mostrado abaix
 
 ![Usando variáveis personalizadas](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

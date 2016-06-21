@@ -280,7 +280,7 @@ Agora que você tem a infraestrutura básica configurada, pode pensar sobre o pl
 A Recuperação de Site fornece um planejador de capacidade para ajudar você a alocar os recursos certos para seu ambiente de origem, para os componentes da recuperação de site, para a rede e para o armazenamento. Você pode executar o planejador no modo rápido para estimativas baseadas em um número médio de VMs, de discos e de armazenamento, ou no modo detalhado, no qual você vai inserir números no nível de carga de trabalho. Antes de começar, será necessário:
 
 - Reunir informações sobre seu ambiente de replicação, inclusive VMs, discos por VMs e armazenamento por disco.
-- Estimar a taxa de alteração (variação) diária de dados replicados. Você pode usar a [Ferramenta de capacidade para Réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para ajudá-lo a fazer isso.
+- Estimar a taxa de alteração (variação) diária de dados replicados. Você pode usar o [Planejador de Capacidade para Réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para ajudá-lo a fazer isso.
 
 1.	Clique em **Baixar** para baixar a ferramenta e então a execute. [Leia o artigo](site-recovery-capacity-planner.md) que acompanha a ferramenta.
 2.	Quando terminar, selecione **Sim** em **Você executou o Planejador de Capacidade**?
@@ -468,4 +468,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

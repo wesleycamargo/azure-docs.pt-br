@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="06/03/2016" 
 	ms.author="genemi"/>
 
 
 # Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Você deseja um exemplo de código completo da maneira mais fácil e rápida de capturar e relatar informações para um evento estendido durante um teste. O destino mais fácil para os dados do evento estendido é o [destino do Buffer de Anéis](http://msdn.microsoft.com/library/ff878182.aspx).
 
@@ -55,7 +56,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 
 - Qualquer banco de dados no qual você possa criar uma tabela.
- - Opcionalmente, você pode [criar um banco de dados de demonstração](sql-database-get-started.md) do **AdventureWorksLT** em minutos.
+ - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
 
 
 - SQL Server Management Studio (ssms.exe), sua Visualização de agosto de 2015 ou uma versão posterior. Você pode baixar o ssms.exe mais recente de:
@@ -385,4 +386,4 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

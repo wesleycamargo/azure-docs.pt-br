@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Criar um Trabalho Web do .NET no Serviço de Aplicativo do Azure
@@ -36,7 +36,13 @@ O tutorial foi escrito para o Visual Studio 2013. Se você ainda não tem o Visu
 
 O tutorial pode ser usado com o Visual Studio 2015, mas, antes de executar o aplicativo localmente, você precisa alterar a parte `Data Source` da cadeia de conexão LocalDB do SQL Server nos arquivos Web.config e App.config de `Data Source=(localdb)\v11.0` para `Data Source=(LocalDb)\MSSQLLocalDB`.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>Você precisa de uma conta do Azure para concluir este tutorial:
+  >
+  > + Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
+  >
+  > + Você pode [ativar benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
+  >
+  >Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## <a id="learn"></a>O que você vai aprender
 
@@ -299,7 +305,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 
 Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores da cadeia de conexão no Azure.
 
-7. No **Gerenciador de Servidores**, clique com o botão direito do mouse em seu aplicativo Web em **Azure > Serviço de Aplicativo > {seu grupo de recursos}** e, em seguida, clique em **Exibir Configurações**.
+7. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web em **Azure > Serviço de Aplicativo > {seu grupo de recursos}** e clique em **Exibir Configurações**.
 
 	A janela **Aplicativo Web do Azure** é aberta na guia **Configuração**.
 
@@ -817,4 +823,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para sabe r mais, consulte [Recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

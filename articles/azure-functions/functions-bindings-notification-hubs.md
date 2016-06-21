@@ -3,7 +3,7 @@
 	description="Entenda como usar a associação de Hub de Notificação do Azure no Azure Functions."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="wesmc7777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.author="wesmc"/>
 
 # Associação de saída do Hub de Notificação do Azure Functions
 
@@ -24,7 +24,7 @@ Este artigo explica como configurar e codificar associações do Hub de Notifica
 
 [AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
 
-Suas funções podem enviar notificações por push usando um Hub de Notificação do Azure configurado com muito poucas linhas de código. No entanto, o hub de notificação deve estar configurado para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber mais sobre a configuração de um Hub de Notificação do Azure e sobre o desenvolvimento de aplicativos cliente que se registram para obter notificações, veja [Introdução aos Hubs de Notificações](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e clique em sua plataforma de cliente de destino na parte superior.
+Suas funções podem enviar notificações por push usando um Hub de Notificação do Azure configurado com muito poucas linhas de código. No entanto, o hub de notificação deve estar configurado para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber mais sobre a configuração de um Hub de Notificação do Azure e sobre o desenvolvimento de aplicativos cliente que se registram para receber notificações, consulte [Introdução aos Hubs de Notificações](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e clique em sua plataforma de cliente de destino na parte superior.
 
 ## function.json para associação de saída do Hub de Notificação do Azure
 
@@ -155,4 +155,4 @@ Código de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

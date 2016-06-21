@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 
@@ -86,4 +86,4 @@ Para avaliar o valor do elemento `Issuer`, use o valor do **URI da ID do aplicat
 
 O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o sucesso ou a falha da desconexão. Quando a tentativa de desconexão falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="12/08/2015"
+   ms.date="06/06/2016"
    ms.author="rasquill"/>
 
 # Criando uma identidade Corporativa ou de Estudante no Azure Active Directory para usar com VMs Linux
@@ -27,4 +27,4 @@ No entanto, alterações recentes possibilitam gerenciar sua assinatura com qual
 
 [AZURE.INCLUDE [virtual-machines-common-create-aad-work-id](../../includes/virtual-machines-common-create-aad-work-id.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

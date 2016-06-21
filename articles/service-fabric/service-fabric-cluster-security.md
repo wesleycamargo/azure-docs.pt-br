@@ -1,6 +1,6 @@
 <properties
    pageTitle="Proteger um cluster do Service Fabric | Microsoft Azure"
-   description="Como proteger um cluster do Service Fabric. Quais são as opções?"
+   description="Descreve os cenários de segurança para um cluster do Service Fabric e as diferentes tecnologias usadas para implementar esses cenários."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,236 +13,59 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="06/01/2016"
    ms.author="chackdan"/>
 
-# Proteger um cluster do Service Fabric
+# Cenários de segurança do cluster do Service Fabric
 
-Um cluster do Azure Service Fabric é um recurso que pertence a você. Para impedir o acesso não autorizado ao recurso, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este artigo explica o processo para proteger um cluster do Service Fabric.
+Um cluster do Service Fabric é um recurso que pertence a você. Para impedir o acesso não autorizado ao recurso, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este artigo fornece uma visão geral dos cenários de segurança para clusters em execução no Azure e o Windows server e as diversas tecnologias usadas para implementar esses cenários. Os cenários de segurança do cluster são:
 
-## Cenários de segurança do cluster
+- Segurança de nó para nó
+- Segurança de cliente para nó
+- RBAC (Controle de Acesso Baseado em Função)
 
-O Service Fabric oferece segurança para os seguintes cenários:
+## Segurança de nó para nó
+Protege a comunicação entre as VMs e os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 
-1. **Segurança de nó para nó:** esse cenário protege a comunicação entre as VMs e os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
+![Diagrama de comunicação de nó para nó][Node-to-Node]
 
-	![Diagrama de comunicação de nó para nó][Node-to-Node]
+Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). A segurança de certificado é configurada durante a criação do cluster (seja por meio do Portal do Azure ou por meio de modelos do ARM), especificando um certificado primário e um certificado secundário opcional. Os certificados primários e secundários que você especificar devem ser diferentes do que os certificados de cliente administrador e certificados cliente somente leitura especificados para a [Segurança de cliente para nó](#client-to-node-security). Consulte [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo de ARM](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster em execução no Azure.
 
-2. **Segurança de cliente para o nó:** esse cenário protege a comunicação entre um cliente do Service Fabric e nós individuais no cluster. Esse tipo de segurança autentica e protege as comunicações do cliente, o que garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do Windows ou pelas credenciais de segurança do certificado deles.
+## Segurança de cliente para nó
+Autentica clientes e protege a comunicação entre um cliente e nós individuais no cluster. Esse tipo de segurança autentica e protege as comunicações do cliente, o que garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do Windows ou pelas credenciais de segurança do certificado deles.
 
-	![Diagrama de comunicação de cliente para nó][Client-to-Node]
+![Diagrama de comunicação de cliente para nó][Client-to-Node]
 
-	Para qualquer um desses cenários, você pode usar o [Certificado de segurança](https://msdn.microsoft.com/library/ff649801.aspx) ou a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). As opções de segurança em nó para nó ou de cliente para nó são independentes entre si, e podem ser iguais ou diferentes.
+Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). A segurança de certificado do cliente para nó é configurada durante a criação do cluster (seja por meio do Portal do Azure ou por meio de modelos do ARM), especificando um certificado de cliente administrador e/ou um certificado de cliente somente leitura. Os certificados de cliente administrador e certificados de cliente somente leitura que você especificar devem ser diferentes dos certificados primários e secundários que você especificar para a [Segurança de nó para nó](#node-to-node-security). Clientes conectando-se ao cluster usando o certificado de administrador ou o certificado primário têm acesso completo aos recursos de gerenciamento. Clientes conectando-se ao cluster usando o certificado de cliente somente leitura somente acesso de leitura aos recursos de gerenciamento. Consulte [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo de ARM](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster em execução no Azure.
 
-	O Azure Service Fabric usa os certificados do servidor X.509 que você especifica como parte das configurações de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquirir ou criá-los.
+O Service Fabric usa os certificados do servidor X.509 que você especifica como parte das configurações de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquirir ou criá-los.
 
-3. **RBAC (Controle de acesso com base da função):** isso restringe as operações de administração no cluster a um determinado conjunto de certificados.
+Clusters em execução no Azure também podem proteger o acesso aos pontos de extremidade de gerenciamento usando o AAD (Azure Active Directory). Consulte [Criar um cluster do Service Fabric usando o Azure Active Directory para autenticação de cliente](service-fabric-cluster-security-client-auth-with-aad.md) para obter informações sobre como criar os artefatos AAD necessários, como preenchê-los durante a criação do cluster e como se conectar a esses grupos posteriormente.
 
-## Proteger um cluster do Service Fabric usando certificados.
+## RBAC (Controle de Acesso Baseado em Função)
+O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro. Clientes que se conectam a um cluster dão suporte a dois tipos de controle de acesso diferentes: administrador e usuário. Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos. As funções do cliente de administrador e usuário são especificadas no momento da criação do cluster, com o fornecimento de certificados separados para cada um. Para obter mais informações sobre as configurações de controle de acesso padrão e de como alterar as configurações padrão, consulte [Controle de acesso com base em funções para clientes](service-fabric-cluster-security-roles.md).
 
-Para configurar um cluster seguro do Service Fabric, você precisa de pelo menos um certificado X.509 do servidor, que será carregado no Cofre da Chave do Azure e usado no processo de criação do cluster.
 
-Há três etapas distintas:
+## Certificados X.509 e Service Fabric
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, vá para [Trabalhando com certificados](http://msdn.microsoft.com/library/ms731899.aspx).
 
-1. Adquirir o certificado X.509.
-2. Carregar o certificado no Cofre da Chave do Azure.
-3. Fornecer o local e os detalhes do certificado ao processo de criação de cluster do Service Fabric.
+Algumas coisas importantes a considerar:
 
-### Etapa 1: adquirir o(s) certificado(s) X.509.
-
-1. Para clusters que estão executando cargas de trabalho de produção, você deve usar um certificado X.509 assinado pela [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) para proteger o cluster. Para obter detalhes sobre como obter esses certificados, vá para [Como obter um certificado](http://msdn.microsoft.com/library/aa702761.aspx).
-2. Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente. A Etapa 2.5 abaixo explica como fazer isso.
-
-### Etapa 2: Carregar o certificado X.509 no Cofre da Chave
-
-Esse é um processo complicado; portanto, carregamos um módulo do PowerShell em um repositório Git que faz isso para você.
-
-**Etapa 2.1**: copiar esta pasta em seu computador deste [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
-
-**Etapa 2.2**: verificar se o Azure PowerShell 1.0+ está instalado em seu computador. Se não tiver feito isso antes, sugerimos veementemente que você execute as etapas descritas em [Como instalar e configurar o Azure PowerShell.](../powershell-install-configure.md)
-
-**Etapa 2.3**: abrir uma janela do PowerShell e importar o ServiceFabricRPHelpers.psm. (Este é o módulo que você baixou na Etapa 2.1.)
-
-```
-Remove-Module ServiceFabricRPHelpers
-```
-
-Copie o exemplo a seguir e altere o caminho para o .psm1 a fim de corresponder ao caminho em seu computador.
-
-```
-Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-```
-
-**Etapa 2.4**: se está usando um certificado que já adquiriu, execute o procedimento nesta etapa. Caso contrário, pule para a Etapa 2.5, que explica como criar e implantar o certificado autoassinado no cofre da chave.
-
-Entre na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
-
-```
-Login-AzureRmAccount
-```
-
-O script a seguir criará um novo grupo de recursos e/ou um cofre de chave, caso eles ainda não esteja presentes. **Observação: se estiver usando um cofre de chaves existente, ele deverá ser configurado para dar suporte à implantação, por meio desse script.**
-
-```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
-```
-
-```
-Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
-```
-Veja um script preenchido como exemplo.
-
-```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx
-```
-
-Após a conclusão bem-sucedida do script, você receberá uma saída semelhante à mostrada abaixo. Ela será necessária na Etapa 3 (Configurar um cluster seguro).
-
-- **Impressão Digital do Certificado**: 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
-
-- **SourceVault**/ID de recurso do cofre de chaves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-
-- **URL do Certificado**/URL para o local do certificado no cofre de chaves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
-
-Agora você tem as informações necessárias para configurar um cluster seguro. Vá para a Etapa 3.
-
-**Etapa 2.5**: se *não* tiver um certificado e desejar criar um novo certificado autoassinado e carregá-lo no cofre de chaves, execute estas etapas.
-
-Faça logon na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
-
-```
-Login-AzureRmAccount
-```
-
-O script a seguir criará um novo grupo de recursos e/ou um cofre de chave, caso eles não existam.
-
-```
-Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file>
-```
-
-O OutputPath que você atribuiu ao script conterá o novo certificado autoassinado que o script carregou no cofre e chave.
-
->[AZURE.NOTE] A cadeia de caracteres DnsName especifica um ou mais nomes DNS a serem colocados na extensão de nome alternativo do assunto do certificado quando um certificado a ser copiado não for especificado por meio do parâmetro CloneCert. O primeiro nome DNS também é salvo como o Nome da assunto. Se nenhum certificado de autenticação for especificado, o primeiro nome DNS também será salvo como o Nome do emissor.
-
-Leia mais sobre como criar um certificado autoassinado em [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx).
-
-Veja um script preenchido como exemplo.
-
-```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password abcd123 -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
-```
-
-Como é um certificado autoassinado, você precisará importá-lo no repositório de "pessoas confiáveis" do seu computador antes de poder usá-lo para se conectar a um cluster seguro.
-
-```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
-```
-
-```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
-```
-
-Após a conclusão bem-sucedida do script, você receberá uma saída, como a mostrada abaixo. Você precisa dela para a Etapa 3.
-
-- **Impressão Digital do Certificado**: 64881409F4D86498C88EEC3697310C15F8F1540F
-
-- **SourceVault**/ID de recurso do cofre de chaves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-
-- **URL do Certificado**/URL para o local do certificado no cofre de chaves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
-
-### Etapa 3: Configurar um cluster seguro
-
-Execute as etapas descritas em [Processo de criação de cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md), até chegar à seção Configurações de segurança. Em seguida, ignore as instruções exibidas aqui para definir as configurações de segurança:
-
->[AZURE.NOTE]
-Os certificados necessários são especificados no nível do tipo de nó nas Configurações de Segurança. É necessário especificar isso para cada tipo de nó que você tem no cluster. Embora este documento explique como fazer isso usando o portal, você pode fazer o mesmo usando um modelo do Gerenciador de Recursos do Azure.
-
-![Captura de tela das Configurações de Segurança no portal do Azure][SecurityConfigurations_01]
-
-Parâmetros obrigatórios:
-
-- **Modo de Segurança.** Selecione **Certificado X509**. Que indica ao Service Fabric que você pretende configurar um cluster seguro.
-- **Nível de proteção do cluster.** Consulte este [documento sobre o Nível de Proteção](https://msdn.microsoft.com/library/aa347692.aspx) para entender o que cada um desses valores significa. Apesar de permitirmos três valores aqui (EncryptAndSign, Sign e None), é melhor manter o padrão de EncryptAndSign, a menos que você saiba o que está fazendo.
-- **Cofre de Origem.** Isso se refere à ID de Recurso do cofre de chave. Ele deve estar no seguinte formato:
-
-    ```
-    /subscriptions/<Sub ID>/resourceGroups/<Resource group name>/providers/Microsoft.KeyVault/vaults/<vault name>
-    ```
-
-- **URL do certificado.** Refere-se à URL de local em seu cofre de chave em que o certificado foi carregado. Ele deve estar no seguinte formato:
-
-    ```
-    https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
-```
-```
-    https://chackdan-kmstest-eastus.vault.azure.net:443/secrets/MyCert/6b5cc15a753644e6835cb3g3486b3812
-    ```
-
-- **Impressão digital do certificado.** Refere-se à impressão digital do certificado, pode ser encontrada na URL especificada anteriormente.
-
-Parâmetros opcionais:
-
- - Você pode especificar, como opção, outros certificados para as máquinas do cliente que você usa para executar operações no cluster. Por padrão, a impressão digital que você especificou nos parâmetros obrigatórios é adicionada à lista autorizada de impressões digitais com permissão para executar operações do cliente.
-
-Cliente de Administração: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações de administrador e somente de leitura no cluster. Você pode especificar mais de um certificado para autorização para operações de administrador.
-
-- **Autorizar por.** Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorizar não é uma boa prática de segurança, mais acrescenta flexibilidade.
-- **Nome da Entidade.** Isso será necessário apenas se você tiver especificado que a autorização ocorre pelo nome do assunto.
-- **Impressão Digital do Emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
-
-Cliente Somente Leitura: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações somente leitura.
-
-- **Autorizar por.** Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorização não é uma boa prática de segurança, mais acrescenta flexibilidade.
-- **Nome da Entidade.** Isso será necessário apenas se você tiver especificado que a autorização ocorre pelo nome do assunto.
-- **Clique em Impressão digital do Emissor.** Isso possibilita um nível adicional de verificação executada pelo servidor quando um cliente apresenta suas credenciais ao servidor.
-
-## Atualizar os certificados no cluster
-
-O Service Fabric permite que você especifique dois certificados, um principal e um secundário. Por padrão, aquele que você especifica no momento da criação é o certificado principal. Para adicionar outro certificado, você precisa implantá-lo nas VMs no cluster. A Etapa 2 (acima) descreve como você pode carregar um novo certificado no cofre de chave. Você pode usar o mesmo cofre de chave para isso, como você fez com o primeiro certificado. Para obter mais informações, veja [Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
-
-Após a conclusão da operação, use o portal ou o Gerenciador de Recursos para indicar ao Service Fabric que você possui um certificado secundário que também pode ser usado. Tudo o que você precisa é uma impressão digital.
-
-Este é o processo para adicionar um certificado secundário:
-
-1. Vá até o portal e navegue até o recurso de clusters ao qual você deseja adicionar esse certificado.
-2. Em **Configurações**, clique na configuração do certificado e insira a impressão digital do certificado secundário.
-3. Clique em **Salvar**. Uma implantação será iniciada e, após a conclusão bem sucedida da implantação, você poderá usar o certificado principal ou secundário para realizar operações de gerenciamento no cluster.
-
-![Captura de tela das impressões digitais do certificado no portal][SecurityConfigurations_02]
-
-Este é o processo para remover um certificado antigo para que o cluster não o use:
-
-1. Vá para o portal e navegue até as configurações de segurança do cluster.
-2. Remova um dos certificados.
-3. Clique em **Salvar**, o que inicia uma nova implantação. Após a conclusão da implantação, o certificado que você removeu não poderá ser usado para se conectar ao cluster.
-
->[AZURE.NOTE] Para um cluster seguro, você sempre precisará de pelo menos um certificado (primário ou secundário) válido (não revogado ou expirado) implantado ou não poderá acessar o cluster.
-
-
-## Tipos de certificados usados pelo Service Fabric
-
-### Certificados X.509
-
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, vá para [Trabalhando com certificados](http://msdn.microsoft.com/library/ms731899.aspx) na biblioteca MSDN.
-
->[AZURE.NOTE]
 - Os certificados usados em clusters que executam cargas de trabalho de produção devem ser criados por meio de um serviço de certificado do Windows Server configurado corretamente ou obtidos por meio de uma [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.
-- Nunca use em produção certificados temporários ou de teste criados com ferramentas como MakeCert.exe.
-- Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente.
+- Nunca use nenhum certificado temporário ou de teste em produção criado com ferramentas como MakeCert.exe.
+- Você pode usar um certificado autoassinado, mas deve fazer isso somente para clusters de teste e não em produção.
 
-### Certificados do servidor e certificados do cliente
-
-#### Certificados X.509 do servidor
+### Certificados X.509 do servidor
 
 Os certificados de servidor têm a tarefa principal de autenticar o servidor (nó) para clientes ou autenticar um servidor (nó) para um servidor (nó). Uma das verificações iniciais quando um cliente ou um nó autentica um nó é verificar o valor do nome comum no campo Entidade. Esse nome comum ou um dos nomes alternativos do assunto dos certificados deve estar presente na lista de nomes comuns permitidos.
 
 O artigo a seguir descreve como gerar certificados com SAN (nomes alternativos da entidade): [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](http://support.microsoft.com/kb/931351).
 
->[AZURE.NOTE] O campo Entidade pode conter vários valores, cada um prefixado com iniciais para indicar o tipo de valor. Geralmente, a inicialização é "CN" para o nome comum, por exemplo, "CN = www.contoso.com". Também é possível deixar o campo Assunto em branco. Se o campo opcional Nome alternativo da entidade estiver preenchido, ele deverá conter o nome comum do certificado e uma entrada por nome alternativo da entidade. Eles são inseridos como valores de Nome DNS.
+O campo Entidade pode conter vários valores, cada um prefixado com iniciais para indicar o tipo de valor. Geralmente, a inicialização é "CN" para o nome comum, por exemplo, "CN = www.contoso.com". Também é possível deixar o campo Assunto em branco. Se o campo opcional Nome alternativo da entidade estiver preenchido, ele deverá conter o nome comum do certificado e uma entrada por nome alternativo da entidade. Eles são inseridos como valores de Nome DNS.
 
 O valor do campo Finalidades pretendidas do certificado deve incluir um valor apropriado, como "Autenticação do servidor" ou "Autenticação do cliente".
 
-#### Certificados do cliente
+### Certificados X.509 do cliente
 
 Normalmente, os certificados de cliente não são emitidos por uma autoridade de certificação de terceiros. Em vez disso, o repositório Pessoal do local atual do usuário geralmente contém os certificados colocados lá por uma autoridade raiz, com uma finalidade de "Autenticação do cliente". O cliente pode usar esse certificado quando a autenticação mútua é necessária.
 
@@ -251,47 +74,19 @@ Normalmente, os certificados de cliente não são emitidos por uma autoridade de
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
-### Conectar a um cluster seguro
-
-1. Execute o seguinte para configurar o certificado na máquina que você pretende usar para executar o comando do PowerShell "Connect-serviceFabricCluster".
-
-    ```powershell
-    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-    ```
-
-2. Execute o seguinte comando do PowerShell para se conectar a um cluster seguro. Os detalhes do certificado são os mesmos que você forneceu durante a configuração do cluster.
-
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-              -KeepAliveIntervalInSec 10 `
-              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-              -StoreLocation CurrentUser -StoreName My
-    ```
-
-    Por exemplo, o comando do PowerShell acima deve ser semelhante ao seguinte.
-
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-              -KeepAliveIntervalInSec 10 `
-              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-              -StoreLocation CurrentUser -StoreName My
-    ```
-
 ## Próximas etapas
+Depois que seu cluster estiver configurado, saiba mais sobre atualizações de cluster:
 
-- [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
-- [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Introdução ao modelo de Integridade da Malha de Serviço](service-fabric-health-introduction.md)
-- [Segurança do aplicativo e RunAs](service-fabric-application-runas-security.md)
+- [Processo de atualização de Cluster do Service Fabric e expectativas](service-fabric-cluster-upgrade.md)
+
+Saiba mais sobre a segurança de aplicativo:
+
+- [Segurança de aplicativo e RunAs](service-fabric-application-runas-security.md)
+
+- [Proteger comunicações de serviço](service-fabric-reliable-services-secure-communication.md)
 
 <!--Image references-->
-[SecurityConfigurations_01]: ./media/service-fabric-cluster-security/SecurityConfigurations_01.png
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security/SecurityConfigurations_02.png
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

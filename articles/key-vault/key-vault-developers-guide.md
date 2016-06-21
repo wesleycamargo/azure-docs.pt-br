@@ -64,7 +64,7 @@ Você pode, sujeito a uma autorização bem-sucedida, fazer o seguinte:
 
 Os seguintes SDKs estão disponíveis para funcionar com o Cofre da Chave:
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[Documentação do SDK do .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentação do SDK do Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Pacote do SDK do .NET](https://azure.microsoft.com/documentation/api/)|[Pacote do SDK do Node.js](https://www.npmjs.com/package/azure-keyvault)|
@@ -97,4 +97,4 @@ Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os 
 - [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 - [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

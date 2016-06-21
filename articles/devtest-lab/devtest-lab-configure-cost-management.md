@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Tendência de custo estimado mensal
@@ -28,15 +28,15 @@ Para visualizar o gráfico Tendência de custo estimado mensal, siga estas etapa
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
 
-1. Na lista de laboratórios, toque no laboratório desejado.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. Toque em **Configurações**.
+1. Escolha a opção **Configurações**.
 
 	![Configurações](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. Na folha **Configurações** do laboratório, em **Gerenciamento de custos**, toque em **Limites**.
+1. Na folha **Configurações** do laboratório, em **Gerenciamento de Custos**, selecione **Limites**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
@@ -69,4 +69,4 @@ Eis aqui algumas coisas para experimentar a seguir:
 - [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) - os DevTest Labs dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
 - [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md) – ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

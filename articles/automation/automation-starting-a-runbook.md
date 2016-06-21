@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/23/2016"
+   ms.date="06/06/2016"
    ms.author="magoedte;bwren"/>
 
 # Como iniciar um Runbook na Automação do Azure
@@ -25,7 +25,7 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Chame da linha de comando com os cmdlets do Windows PowerShell.<br> <li>Pode ser incluído em uma solução automatizada com várias etapas.<br> <li>A solicitação é autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos.<br> <li>Acompanhar o estado do trabalho.<br> <li>É necessário um cliente para dar suporte a cmdlets do PowerShell. |
 | [API de Automação do Azure](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>Método mais flexível, porém também o mais complexo.<br> <li>Chame de qualquer código personalizado que possa fazer solicitações HTTP.<br> <li>A solicitação autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos.<br> <li>Acompanhar o estado do trabalho. |
 | [Webhooks](automation-webhooks.md) | <li>Inicie o runbook de uma solicitação HTTP única.<br> <li>Autenticado com o token de segurança na URL.<br> <li>O cliente não pode substituir valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é populado com os detalhes da solicitação HTTP.<br> <li>Sem capacidade de acompanhar o estado do trabalho por meio da URL do webhook. |
-| [Responder a um Alerta do Azure](automation-webhooks.md) | <li>Inicie um runbook em resposta a um alerta do Azure.<br> <li>Configure o webhook para o runbook e vincule ao alerta.<br> <li>Autenticado com o token de segurança na URL.<br> <li>Atualmente, há suporte para o alerta apenas para as Métricas. |
+| [Responder a um Alerta do Azure](../log-analytics/log-analytics-alerts.md) | <li>Inicie um runbook em resposta a um alerta do Azure.<br> <li>Configure o webhook para o runbook e vincule ao alerta.<br> <li>Autenticado com o token de segurança na URL.<br> <li>Atualmente, há suporte para o alerta apenas para as Métricas. |
 | [Agenda](automation-scheduling-a-runbook.md) | <li>Inicie automaticamente o runbook em um cronograma horário, diário ou semanal.<br> <li>Manipule a agenda pelo portal do Azure, por cmdlets do PowerShell ou pela a API do Azure.<br> <li>Fornece os valores de parâmetro a serem usados com a agenda. |
 | [De Outro Runbook](automation-child-runbooks.md) | <li>Use um runbook como uma atividade em outro runbook.<br> <li>É útil para as funcionalidades usadas por vários runbooks.<br> <li>Forneça valores de parâmetro para o runbook filho e use a saída no runbook pai. |
 
@@ -193,4 +193,4 @@ jsmith
 
 -	A arquitetura do runbook no artigo atual fornece uma descrição detalhada sobre runbooks híbridos. Para saber mais, veja [Runbooks filhos na Automação do Azure](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

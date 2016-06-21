@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -938,4 +938,4 @@ Para ver uma completa e atualizada dos conhecidos problemas, consulte a Nota SAP
 
 Se a solução de problemas usando Nota SAP [1999351] não ajudar, execute novamente o script de configuração Set-AzureRmVMAEMExtension conforme descrito no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte do cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

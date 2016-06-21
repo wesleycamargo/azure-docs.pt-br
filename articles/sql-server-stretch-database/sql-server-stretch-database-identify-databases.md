@@ -47,7 +47,7 @@ Baixe e instale o Supervisor de Atualização [aqui](http://go.microsoft.com/fwl
 
 2.  Na lista de tabelas recomendadas na folha **Resultados da análise**, escolha uma das tabelas recomendadas para exibir a folha **Resultados da tabela**.
 
-    A folha **Resultados da tabela** lista os problemas de bloqueio da tabela selecionada. Para obter informações sobre os problemas de bloqueio detectados pelo Supervisor do Banco de Dados de Stretch, confira [Limitações de área de superfície e problemas de bloqueio do Banco de Dados de Stretch](sql-server-stretch-database-limitations.md).
+    A folha **Resultados da tabela** lista os problemas de bloqueio da tabela selecionada. Para obter informações sobre os problemas de bloqueio detectados pelo Supervisor do Stretch Database, confira [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).
 
 3.  Na lista de problemas de bloqueio na folha **Resultados da tabela**, escolha um dos problemas para exibir a folha **Resultado da regra**.
 
@@ -62,10 +62,10 @@ Habilite o Banco de Dados de Stretch.
 
 ## Consulte também
 
-[Limitações de área de superfície e problemas de bloqueio do Stretch Database](sql-server-stretch-database-limitations.md)
+[Limitações do Stretch Database](sql-server-stretch-database-limitations.md)
 
 [Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md)
 
 [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

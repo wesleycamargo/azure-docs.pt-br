@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="06/06/2016"
  ms.author="nberdy"/>
 
 # Introdução ao monitoramento de operações
@@ -122,6 +122,25 @@ A categoria de conexões rastreia erros quando os dispositivos se conectam ou de
          "deviceId": "device-ID"
     }
 
+### Carregamentos de arquivos
+
+A categoria de upload de arquivos rastreia erros que ocorrem no Hub IoT e são relacionados à funcionalidade de upload de arquivo. Ela inclui erros que ocorrem com o URI de SAS (como quando ele expirar antes de um dispositivo que notifica o hub de um upload concluído), carregamentos com falha relatados pelo dispositivo e quando um arquivo não foi encontrado no armazenamento durante a criação de mensagem de notificação do Hub IoT. Observe que essa categoria não pode capturar diretamente erros que ocorrem enquanto o dispositivo estiver carregando um arquivo para o armazenamento.
+
+    {
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## Próximas etapas
 
 Depois dessa visão geral do monitoramento de operações, siga estes links para saber mais:
@@ -139,4 +158,4 @@ Depois dessa visão geral do monitoramento de operações, siga estes links para
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

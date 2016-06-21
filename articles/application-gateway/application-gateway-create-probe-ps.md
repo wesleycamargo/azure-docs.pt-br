@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Criar uma investigação personalizada para o Azure Application Gateway usando o PowerShell do Gerenciador de Recursos do Azure
@@ -190,7 +190,7 @@ Carregue o recurso de gateway de aplicativo em uma variável do PowerShell usand
 
 Adicionar uma investigação à configuração de gateway existente.
 
-	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+	$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
 No exemplo, a investigação personalizada é configurada para verificar o caminho de URL contoso.com/path/custompath.htm a cada 30 segundos. Um limite de tempo de 120 segundos é configurado com um número máximo de 8 solicitações de investigação com falha.
@@ -238,4 +238,4 @@ Salve a configuração no gateway de aplicativo usando **Set-AzureRmApplicationG
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

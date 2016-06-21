@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configurar a Replicação Geográfica Ativa para o Banco de Dados SQL do Azure usando o PowerShell | Microsoft Azure" 
-    description="Replicação Geográfica para o Banco de Dados SQL do Azure usando o PowerShell" 
+    description="Configurar a Replicação Geográfica Ativa para o Banco de Dados SQL do Azure usando o PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="04/27/2016"
     ms.author="sstein"/>
 
-# Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o PowerShell
+# Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell
 
 
 
@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-Este artigo mostra como configurar a replicação geográfica para o Banco de Dados SQL do Azure com o PowerShell.
+Este artigo mostra como configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell.
 
 Para iniciar o failover, consulte [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-powershell.md).
 
@@ -34,7 +34,7 @@ Para iniciar o failover, consulte [Iniciar um failover planejado ou não planeja
 
 Você pode configurar até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
 
-Para configurar a replicação geográfica, você precisará do seguinte:
+Para configurar a Replicação Geográfica, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure, basta clicar em **CONTA GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar para uma região geográfica diferente.
@@ -63,7 +63,7 @@ Depois de executar **Select-AzureRmSubscription** com êxito, você retornará a
 ## Adicionar banco de dados secundário
 
 
-As etapas a seguir criam um novo banco de dados secundário em uma parceria de replicação geográfica.
+As etapas a seguir criam um novo banco de dados secundário em uma parceria de Replicação Geográfica.
   
 Para habilitar um secundário, você deverá ser o proprietário ou o coproprietário da assinatura.
 
@@ -73,7 +73,7 @@ Esse cmdlet substitui **Start-AzureSqlDatabaseCopy** pelo parâmetro **–IsCont
 
 O banco de dados replicado no servidor secundário terá o mesmo nome do banco de dados do servidor primário e, por padrão, terá o mesmo nível de serviço. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para saber mais, consulte [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) e [Camadas de serviço](sql-database-service-tiers.md). Depois do banco de dados secundário ser criado e propagado, os dados começarão a ser replicados desde o banco de dados primário até o novo banco de dados secundário. As etapas a seguir descrevem como realizar essa tarefa usando o PowerShell para criar secundários não legível e legíveis, com um banco de dados individual ou com um banco de dados elástico.
 
-O comando falhará se o banco de dados parceiro já existir (como, por exemplo, como resultado do encerramento de um relacionamento de replicação geográfica anterior).
+O comando falhará se o banco de dados parceiro já existir (por exemplo, como resultado do encerramento de um relacionamento de Replicação Geográfica anterior).
 
 
 
@@ -158,11 +158,11 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 ## Recursos adicionais
 
 - [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Destacar novos recursos de Replicação Geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -265,7 +265,7 @@ fileName | Especifique o nome do arquivo no **folderPath** se quiser que a tabel
 partitionedBy | partitionedBy pode utilizado para especificar um filename, folderPath dinâmico para dados de série temporal. Por exemplo, folderPathparametrizado para cada hora dos dados. | Não
 fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Observação: fileFilter é aplicável a um conjunto de dados FileShare de entrada | Não
 | compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que não há suporte para configurações de compactação de dados em **AvroFormat** ou **OrcFormat** neste momento. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. É necessário definir a propriedade de **type** sob o formato como um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), Especificando [JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) para obter detalhes. | Não 
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. É necessário definir a propriedade de **type** sob o formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), Especificando [JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. | Não 
 
 
 > [AZURE.NOTE] filename e fileFilter não podem ser usados simultaneamente.
@@ -325,4 +325,4 @@ No caso da Atividade de Cópia quando a fonte for do tipo **FileSystemSource**, 
 ## Desempenho e Ajuste  
 Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

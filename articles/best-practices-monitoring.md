@@ -659,9 +659,9 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 - [Azure: noções básicas de telemetria e solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Habilitando o Diagnostics nos Serviços de nuvem do Azure e Máquinas virtuais](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [Como usar filas do Barramento de Serviço](./service-bus/service-bus-dotnet-how-to-use-queues.md)
+- [Como usar filas do Barramento de Serviço](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Business intelligence do SQL Server em máquinas virtuais do Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Receber notificações de alerta](./azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -32,7 +32,9 @@ Este passo a passo se aplica a:
 
 * Azure Active Directory
 * Active Directory B2C do Azure
-* Azure Active Directory B2B Observe que o documento a seguir pressupõe que você tem conhecimento de como [provisionar aplicativos no portal herdado para o Azure Active Directory](active-directory-how-to-integrate.md), e que você também integrou seu aplicativo ao [SDK do Microsoft Identity para Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+* Azure Active Directory B2B
+
+Observe que o documento a seguir pressupõe que você tem conhecimento de como [provisionar aplicativos no portal herdado para o Azure Active Directory](active-directory-how-to-integrate.md), e que você também integrou seu aplicativo ao [SDK do Microsoft Identity para Android](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Conceitos de SSO na Plataforma do Microsoft Identity
 
@@ -259,4 +261,4 @@ MANAGE_ACCOUNTS
 
 Agora, o SDK do Microsoft Identity compartilhará automaticamente as credenciais em seus aplicativos e invocará o agente se ele estiver presente em seu dispositivo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

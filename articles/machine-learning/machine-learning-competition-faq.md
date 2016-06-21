@@ -73,7 +73,7 @@ Na maioria das competições, você verá que receberá uma pontuação pública
 
 * O conjunto de dados inteiro usado na competição será dividido aleatoriamente com estratificação em dados de treinamento e de teste (restantes). A divisão aleatória é estratificada para garantir que as distribuições de rótulos nos dados de treinamento e de teste são consistentes.
  
-* Os dados de treinamento são carregados e fornecidos a você como parte do Experimento Inicial na configuração do módulo de Leitor.
+* Os dados de treinamento são carregados e fornecidos a você como parte do Experimento Inicial na configuração do módulo Importar Dados.
 
 * Os dados de teste adicionais são divididos em dados de teste públicos e privados usando a mesma estratificação.
 
@@ -115,4 +115,4 @@ Atualmente, a plataforma da Competição só é compatível com entradas de envi
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

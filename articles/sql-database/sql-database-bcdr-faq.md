@@ -50,8 +50,8 @@ Para recuperação de uma interrupção — use [Get Recoverable Database](https
 
 Não há nenhuma funcionalidade interna para restauração em massa. O [banco de dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
 
-## 8\. Qual é o atraso da replicação ao usar a replicação geográfica ativa?
+## 8\. Qual é o atraso da replicação ao usar a replicação geográfica?
 
 Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

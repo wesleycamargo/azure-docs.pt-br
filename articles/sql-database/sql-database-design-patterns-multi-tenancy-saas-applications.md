@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure"
+   pageTitle="Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure | Microsoft Azure" 
    description="Neste artigo você aprenderá sobre os requisitos e padrões de arquitetura de dados comuns que aplicativos de banco de dados de multilocatários em execução em um ambiente de nuvem precisam considerar e as várias compensações associadas a esses padrões. Ele também explica como o serviço de banco de dados SQL do Azure com seus pools de banco de dados elástico e ferramentas elásticas ajudam a atender esses requisitos de uma maneira sem comprometimento."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure
@@ -172,4 +172,4 @@ Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](h
 
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

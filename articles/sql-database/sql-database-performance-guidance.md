@@ -507,4 +507,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

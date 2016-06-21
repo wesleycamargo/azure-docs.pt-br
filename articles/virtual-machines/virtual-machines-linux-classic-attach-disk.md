@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Veja como [anexar um disco de dados usando o modelo de implantação do Gerenciador de Recursos](virtual-machines-linux-add-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Você também pode [anexar um disco de dados usando o modelo de implantação do Gerenciador de Recursos](virtual-machines-linux-add-disk.md).
 
 Você pode anexar tanto discos vazios como discos que contenham dados às suas VMs do Azure. Ambos os tipos de discos são arquivos .vhd que residem em uma conta de armazenamento do Azure. Como acontece com a adição de qualquer disco a uma máquina Linux, depois que você anexar o disco, será necessário inicializá-lo e formatá-lo para que ele fique pronto para uso. Este artigo detalha a anexação de discos vazios e de discos que já contenham dados às suas VMs, e também como então inicializar e formatar um novo disco.
 
@@ -160,15 +160,17 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 >[AZURE.NOTE] Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema se inicialize mesmo se a montagem do disco falhar no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
-## Recursos adicionais
-[Como fazer logon em uma máquina virtual que executa o Linux][Logon]
+## Próximas etapas
+Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
-[Como desanexar um disco de uma máquina virtual Linux ](virtual-machines-linux-classic-detach-disk.md)
+- [Como fazer logon em uma máquina virtual que executa o Linux][Logon]
 
-[Usar a CLI do Azure com a API de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md)
+- [Como desanexar um disco de uma máquina virtual Linux ](virtual-machines-linux-classic-detach-disk.md)
+
+- [Usando a CLI do Azure com o modelo de implantação Clássico](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Solução de problemas de funções do serviço de nuvem com falha de inicialização
 
 Veja alguns problemas comuns e soluções relacionadas às funções do serviço de nuvem do Azure com falha na inicialização.
 
-## Contate o Suporte ao Cliente do Azure
-
-Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/).
-
-Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter Suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## DLLs ou dependências ausentes
 
@@ -33,7 +29,7 @@ Funções sem resposta e funções que alternam entre os estados **Inicializando
 Os sintomas de DLLs ou assemblies ausentes podem ser:
 
 - A instância de função está alternando entre os estados **Inicializando**, **Ocupado** e **Parando**.
-- A instância de função foi movida para **Pronto**, mas se você navegar até seu aplicativo Web, a página não será mostrada.
+- A instância de função foi movida para **Pronto**, mas, se você navegar até seu aplicativo Web, a página não será mostrada.
 
 Há vários métodos recomendados para investigar esses problemas.
 
@@ -71,11 +67,11 @@ Você pode usar a Área de Trabalho Remota para acessar a função e exibir info
 
 1. Verifique se o Azure SDK 1.3 ou posterior está instalado.
 
-2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a conexão da Área de Trabalho Remota, veja [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a Conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
 
-3. No portal clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
+3. No Portal Clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
 
-4. Clique no ícone **Conectar** na área **Acesso Remoto** da faixa de opções
+4. Clique no ícone **Conectar** na área **Acesso Remoto** da faixa de opções.
 
 5. Entre na máquina virtual usando as credenciais especificadas durante a configuração da Área de Trabalho Remota.
 
@@ -115,7 +111,7 @@ Para obter melhores resultados ao usar esse método de diagnóstico, você deve 
 
 4. Copie a pasta .csx e o arquivo .cscfg para o computador que você está usando para depurar os problemas.
 
-5. No computador limpo, abra uma janela de Prompt de Comando do SDK do Azure e digite `csrun.exe /devstore:start`.
+5. No computador limpo, abra uma janela de prompt de comando do SDK do Azure e digite `csrun.exe /devstore:start`.
 
 6. No prompt de comando, digite `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 
@@ -159,12 +155,12 @@ Para resolver erros de DLL e assembly ausente, siga estas etapas:
 
 5. Reimplante o serviço de nuvem.
 
-Após verificar se todos os erros foram corrigidos, você pode implantar o serviço sem marcar a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4**.
+Após verificar se todos os erros foram corrigidos, você poderá implantar o serviço sem marcar a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4**.
 
 ## Próximas etapas
 
-Confira mais [artigos sobre solução de problemas](..\?tag=top-support-issue&service=cloud-services) para serviços de nuvem.
+Confira mais [artigos sobre solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
 
-Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, veja a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

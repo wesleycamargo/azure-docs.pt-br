@@ -29,7 +29,7 @@ A demanda dinâmica é uma realidade para os aplicativos de hoje. De uma demanda
  
 ## Compilação
 
-- [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md) 
+- [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md) 
 - [Mensagens mortas no Sistema de Mensagens Agenciado do Barramento de Serviço (postagem no blog de 21 de outubro de 2011)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Práticas recomendadas para isolar aplicativos do Barramento de Serviço contra interrupções de serviço e desastres](service-bus-outages-disasters.md)
 - [Mensagens orientadas: exemplo de resposta de solicitação](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@ A demanda dinâmica é uma realidade para os aplicativos de hoje. De uma demanda
 - [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

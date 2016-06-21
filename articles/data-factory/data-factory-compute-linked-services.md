@@ -336,7 +336,12 @@ Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft
  
 
 ## Serviço Vinculado do SQL do Azure
-
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Serviço vinculado do SQL Data Warehouse do Azure
+Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) para saber mais sobre esse serviço vinculado.
+
+## Serviço vinculado do SQL Server
+Você pode criar um serviço vinculado do SQL Server e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) para saber mais sobre esse serviço vinculado.
+
+<!---HONumber=AcomDC_0608_2016-->

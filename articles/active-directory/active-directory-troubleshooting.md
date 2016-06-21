@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/04/2015"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 # Solução de problemas: o item “Active Directory” está ausente ou não está disponível
@@ -40,7 +40,7 @@ O item Active Directory é exibido no menu de navegação à esquerda quando qua
 
     OU
 
-* O locatário do Azure tem pelo menos um provedor do Azure Multi-Factor Authentication. Para obter mais informações, confira [Administrando Provedores do Azure Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider).
+* O locatário do Azure tem pelo menos um provedor do Azure Multi-Factor Authentication. Para obter mais informações, confira [Administrando Provedores do Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Para criar um namespace de Controle de Acesso ou um provedor de Multi-Factor Authentication, clique em **+Novo** > **Serviços de Aplicativos** > **Active Directory**.
 
@@ -54,4 +54,4 @@ No entanto, enquanto a página está carregando, o item fica esmaecido e é marc
 
 ![Captura de tela: Active Directory não disponível](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0608_2016-->

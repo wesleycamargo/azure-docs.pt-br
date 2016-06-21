@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
@@ -515,15 +515,15 @@ O exemplo a seguir mostra várias maneiras de gravar logs:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-No painel do SDK de Trabalho Web, a saída do objeto **TextWriter** aparece quando você vai até a página para uma chamada de função específica e clique em **Ativar/Desativar saída**:
+No painel do SDK do Web Jobs, a saída do objeto **TextWriter** aparece quando você vai até a página de uma chamada de função específica e seleciona **Ativar/Desativar Saída**:
 
-![Clique no link de invocação de função](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Link de invocação](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Logs na página de invocação de função](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-No painel do SDK de Trabalhos Web, as 100 linhas da saída do console mais recentes são mostradas quando você vai até a página do Trabalho Web (não da invocação de função) e clica em **Alternar Saída**.
+No painel do SDK do Web Jobs, as 100 linhas da saída do Console mais recentes são mostradas quando você vai até a página do Web Jobs (não da invocação de função) e selecione **Alternar Saída**.
 
-![Clique em Alternar Saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Ativar/desativar saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/continuous/*{webjobname}*/job\_log.txt no sistema de aplicativo web.
 
@@ -543,4 +543,4 @@ E, em uma tabela do Azure os logs **Console.Out** e **Console.Error** têm essa 
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="larryfr"/>
 
 # Usar o MapReduce com Hadoop no HDInsight com SSH
@@ -41,7 +41,7 @@ Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDIns
 
 **Se você tiver fornecido uma chave de certificado para autenticação de SSH** ao criar o cluster HDInsight, talvez seja necessário especificar o local da chave privada no sistema cliente, por exemplo:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+	ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
 **Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
 
@@ -59,7 +59,7 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 
 		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento ****wasb://example/data/gutenberg/davinci.txt**, e a saída é armazenada em: ****wasb:///example/data/WordCountOutput**.
+	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento **wasb://example/data/gutenberg/davinci.txt**, e a saída é armazenada em: **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Para saber mais sobre esse trabalho MapReduce e os dados de exemplo, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
@@ -70,7 +70,7 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 		File Output Format Counters
         Bytes Written=337623
 
-3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em ****wasb://example/data/WordCountOutput**:
+3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em **wasb://example/data/WordCountOutput**:
 
 		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 
 		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Isso exibe uma lista das palavras contidas no arquivo ****wasb://example/data/gutenberg/davinci.txt** e o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
+	Isso exibe uma lista das palavras contidas no arquivo **wasb://example/data/gutenberg/davinci.txt** e o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
 
 		wreathed        3
 		wreathing       1
@@ -108,4 +108,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

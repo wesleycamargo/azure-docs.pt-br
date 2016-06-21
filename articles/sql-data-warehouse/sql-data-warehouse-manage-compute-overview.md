@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Escalabilidade de desempenho para o Azure SQL Data Warehouse | Microsoft Azure"
-   description="Compreenda os recursos de escala horizontal de desempenho no Azure SQL Data Warehouse. Escale horizontalmente por meio de ajuste de DWUs ou, para economizar custos, pause e retome os recursos de computação."
+   pageTitle="Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral) | Microsoft Azure"
+   description="Funcionalidades de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escale horizontalmente por meio de ajuste de DWUs ou, para economizar custos, pause e retome os recursos de computação."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/26/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
-# Escalabilidade de desempenho para o SQL Data Warehouse
+# Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral)
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-overview-scalability.md)
-- [Portal](sql-data-warehouse-manage-scale-out-tasks.md)
-- [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
-- [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
-- [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
+- [Visão geral](sql-data-warehouse-manage-compute-overview.md)
+- [Portal](sql-data-warehouse-manage-compute-portal.md)
+- [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+- [REST](sql-data-warehouse-manage-compute-rest-api.md)
+- [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 A arquitetura do SQL Data Warehouse separa armazenamento e computação, permitindo que cada um seja dimensionado independentemente. Como resultado, você pode escalar horizontalmente o desempenho, economizando custos simultaneamente ao pagar pelo desempenho somente quando necessário.
 
 Esta visão geral descreve os recursos de escala horizontal de desempenho do SQL Data Warehouse e fornece recomendações sobre como e quando usá-los.
 
-- Dimensionar o desempenho ajustando as DWUs (unidades de data warehouse)
+- Dimensionar o poder de computação ajustando as DWUs (unidades de data warehouse)
 - Pausar ou retomar recursos de computação
 
 <a name="scale-performance-bk"></a>
@@ -56,16 +56,16 @@ Para obter uma lista das DWUs, consulte os objetivos de nível de serviço no ar
 
 ### Como dimensiono o desempenho?
 
-Para aumentar ou diminuir seu poder de computação, basta alterar a configuração de DWUs (unidades de data warehouse) do banco de dados. Nos bastidores, o SQL Data Warehouse interrompe sua instância, altera as alocações de CPU e de memória e reinicia sua instância.
+Para aumentar ou diminuir seu poder de computação, basta alterar a configuração de DWUs (unidades de data warehouse) do banco de dados. Nos bastidores, o SQL Data Warehouse altera as alocações de memória e CPU usando recursos de implantação rápida e simples de Banco de Dados SQL.
 
 DWUs são alocadas em blocos de 100, mas nem todos os blocos estão disponíveis. Conforme o número de DWUs aumenta, o desempenho aumenta linearmente. Em níveis mais altos de DWU, você precisa adicionar mais de 100 DWUs para notar uma melhoria significativa no desempenho. Para ajudar a selecionar saltos significativos em DWUs, oferecemos os níveis DWU que fornecerão os melhores resultados.
  
 Para ajustar DWUs, você pode usar qualquer um destes métodos individuais.
 
-- [Dimensionar o desempenho com o portal do Azure][]
-- [Dimensionar o desempenho com o PowerShell][]
-- [Dimensionar o desempenho com APIs REST][]
-- [Dimensionar o desempenho com o TSQL][]
+- [Dimensionar o poder de computação com o portal do Azure][]
+- [Dimensionar o poder de computação com o PowerShell][]
+- [Dimensionar o poder de computação com APIs REST][]
+- [Dimensionar o poder de computação com o TSQL][]
 
 ### Quantas DWUs devo usar?
  
@@ -128,25 +128,28 @@ Consulte os artigos a seguir que ajudam a entender alguns dos principais conceit
 
 <!--Article references-->
 
-[Dimensionar o desempenho com o portal do Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-1-scale-performance
-[Dimensionar o desempenho com o PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-1-scale-performance
-[Dimensionar o desempenho com APIs REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-1-scale-performance
-[Dimensionar o desempenho com o TSQL]: ./sql-data-warehouse-manage-scale-out-tasks-tsql.md
+[Dimensionar o poder de computação com o portal do Azure]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Dimensionar o poder de computação com o PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Dimensionar o poder de computação com APIs REST]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Dimensionar o poder de computação com o TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [limites de capacidade]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pausar computação com o portal do Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[Pausar computação com o PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[Pausar computação com APIs REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Retomar computação com o portal do Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[Retomar computação com o PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[Retomar computação com APIs REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Pausar computação com o portal do Azure]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pausar computação com o PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Pausar computação com APIs REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[modelo de simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
-[criando tabelas]: ./sql-data-warehouse-develop-table-design.md
-[escolher uma chave de distribuição de hash para sua tabela]: ./sql-data-warehouse-develop-hash-distribution-key.md
-[estatísticas para melhorar o desempenho]: ./sql-data-warehouse-develop-statistics.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[Retomar computação com o portal do Azure]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Retomar computação com o PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Retomar computação com APIs REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+
+[modelo de simultaneidade]: sql-data-warehouse-develop-concurrency.md
+[criando tabelas]: sql-data-warehouse-develop-table-design.md
+[escolher uma chave de distribuição de hash para sua tabela]: sql-data-warehouse-develop-hash-distribution-key.md
+[estatísticas para melhorar o desempenho]: sql-data-warehouse-develop-statistics.md
+[development overview]: sql-data-warehouse-overview-develop.md
+
+
 
 <!--MSDN references-->
 
@@ -155,4 +158,4 @@ Consulte os artigos a seguir que ajudam a entender alguns dos principais conceit
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

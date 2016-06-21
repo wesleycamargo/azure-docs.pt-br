@@ -20,7 +20,7 @@
 
 Um serviço Web de Aprendizado de Máquina do Azure é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. Os *Parâmetros de serviço Web* permitem que você faça isso.
 
-Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado. Alguns exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection].
+Um exemplo comum é a configuração do módulo [Importar Dados][import-data] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Exportar Dados][export-data] para que um destino diferente possa ser especificado. Alguns exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection].
 
 Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo no seu teste, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando chamar o serviço Web.
 
@@ -40,9 +40,9 @@ A documentação para o serviço Web (fornecido por meio do link **página da Aj
 
 ##Exemplo
 
-Por exemplo, vamos supor que temos um experimento com um módulo [Gravador][writer] que envia informações para o armazenamento de blobs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
+Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados][export-data] que envia informações para o armazenamento de blobs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
 
-1.	No Estúdio de Aprendizado de Máquina, clique no módulo [Gravador][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
+1.	No Estúdio de Aprendizado de Máquina, clique no módulo [Exportar Dados][export-data] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 
 2.	Especifique a conta de armazenamento:
 
@@ -57,7 +57,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Gravador][writ
 
     Selecione "Definir como parâmetro de serviço Web".
 
-    Uma entrada é adicionada sob **Parâmetros de Serviço Web** na parte inferior do painel Propriedades com o nome "Caminho para o blob que começa com contêiner". Esse é o Parâmetro de Serviço Web que agora está associado a esse parâmetro do módulo [Gravador][writer].
+    Uma entrada é adicionada sob **Parâmetros de Serviço Web** na parte inferior do painel Propriedades com o nome "Caminho para o blob que começa com contêiner". Esse é o Parâmetro de Serviço Web que agora está associado a esse parâmetro do módulo [Exportar Dados][export-data].
 
 4.	Para renomear o Parâmetro do Serviço Web, clique no nome, insira "Caminho do blob" e pressione a tecla **Enter**.
  
@@ -69,7 +69,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Gravador][writ
 
 7.	Clique em **PUBLICAR SERVIÇO WEB** para publicar o serviço Web.
 
-O usuário do serviço Web agora pode especificar um novo destino para o módulo [Gravador][writer] ao acessar o serviço Web.
+O usuário do serviço Web agora pode especificar um novo destino para o módulo [Exportar Dados][export-data] ao acessar o serviço Web.
 
 ##Mais informações
 
@@ -87,8 +87,8 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

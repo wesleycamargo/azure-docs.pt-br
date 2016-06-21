@@ -61,7 +61,7 @@ Para alterar o contexto de trabalho para uma assinatura diferente, use o comando
 azure account set "subscription ID or subscription name"
 ```
 
-Para usar comandos do Azure Resource Manager e do Azure Insights, você precisará estar no modo ARM.
+Para usar comandos do Azure Resource Manager e do Azure Insights, você precisará estar no modo ARM
 
 ```
 azure config mode arm
@@ -221,4 +221,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

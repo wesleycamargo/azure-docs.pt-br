@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio
@@ -235,7 +235,7 @@ Configurações de armazenamento locais se aplicam a todas as configurações de
 
 1. (Opcional) Para exibir esse arquivo que você criou quando executou seu serviço de nuvem localmente, use as seguintes etapas:
 
-  1. Execute a função web e clique no **Button1** para certificar-se de que o código dentro de `Button1_Click` é chamado.
+  1. Execute a função web e selecione **Button1** para se certificar de que o código dentro de `Button1_Click` é chamado.
 
   1. Na área de notificação, abra o menu de atalho para o ícone do Azure e escolha **Exibir interface de emulador de computação**. A caixa de diálogo **Emulador de Computação do Azure** é exibida.
 
@@ -376,4 +376,4 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 ## Próximas etapas
 Saiba mais sobre projetos do Azure no Visual Studio, lendo [Configurando um projeto do Azure](vs-azure-tools-configuring-an-azure-project.md). Saiba mais sobre o esquema do serviço de nuvem lendo [Referência de Esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

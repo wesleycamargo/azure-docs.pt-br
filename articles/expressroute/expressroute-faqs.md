@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/07/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -248,4 +248,4 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 ### O Dynamics AX pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

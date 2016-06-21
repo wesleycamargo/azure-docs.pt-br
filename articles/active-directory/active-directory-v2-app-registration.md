@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Como registrar um aplicativo com o ponto de extremidade v2.0
@@ -30,7 +30,8 @@ Entrar com uma conta da Microsoft pessoal, profissional ou escolar. Se você nã
 
 Pronto? Você deve agora estar olhando a lista de aplicativos da Microsoft, que provavelmente está vazia. Vamos mudar isso.
 
-Clique em **Adicionar um aplicativo** e dê um nome a ele. O portal atribuirá ao seu aplicativo uma Id globalmente exclusiva do aplicativo que você usará posteriormente em seu código. Se seu aplicativo incluir um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui. <!-- TODO: Link for app secrets -->
+Clique em **Adicionar um aplicativo** e dê um nome a ele. O portal atribuirá ao seu aplicativo uma Id globalmente exclusiva do aplicativo que você usará posteriormente em seu código. Caso seu aplicativo inclua um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui.
+<!-- TODO: Link for app secrets -->
 
 Em seguida, adicione as Plataformas que seu aplicativo usará.
 
@@ -46,4 +47,4 @@ Agora que você tem um aplicativo da Microsoft, poderá concluir um dos nossos t
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -355,7 +355,7 @@ Um trabalho em lotes em execução pode ser cancelado a qualquer momento ao cham
 
 O [pacote NuGet do SDK do BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornece funções que simplificam a chamada do BES para pontuação no modo em lotes. Para instalar o pacote Nuget, no Visual Studio, no menu **Ferramentas**, selecione **Gerenciador de Pacotes Nuget** e clique em **Console do Gerenciador de Pacotes**.
 
-Testes do Aprendizado de Máquina do Azure que são implantados como serviços Web podem incluir módulos de entrada de serviço Web. Isso significa que eles esperam que a entrada seja fornecida por meio da chamada de serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo **Leitor**. Nesse caso, o módulo **Leitor** normalmente leria um banco de dados SQL usando uma consulta em tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
+Testes do Aprendizado de Máquina do Azure que são implantados como serviços Web podem incluir módulos de entrada de serviço Web. Isso significa que eles esperam que a entrada seja fornecida por meio da chamada de serviço Web na forma de uma referência a um local de blob. Também há a opção de não usar um módulo de entrada de serviço Web, mas sim um módulo **Importar Dados**. Nesse caso, o módulo **Importar Dados** normalmente leria um banco de dados SQL usando uma consulta no tempo de execução para obter os dados. Os parâmetros do serviço Web podem ser usados para apontar dinamicamente para outros servidores ou tabelas, etc. O SDK dá suporte a esses padrões.
 
 O exemplo de código abaixo demonstra como você pode enviar e monitorar um trabalho em lotes em relação a um ponto de extremidade de serviço de Aprendizado de Máquina do Azure usando o SDK do BES. Observe os comentários para obter detalhes sobre as configurações e as chamadas.
 
@@ -685,4 +685,4 @@ Agora você pode usar todas as ferramentas do swagger. Aqui estão as instruçõ
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrar para o Banco de Dados SQL usando a replicação transacional"
+   pageTitle="Migrar para o Banco de Dados SQL usando a replicação transacional | Microsoft Azure"
    description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, replicação transacional"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Migrar o banco de dados do SQL Server para o Banco de Dados SQL do Azure usando a replicação transacional
@@ -65,4 +65,4 @@ A replicação transacional é uma tecnologia interna e integrada ao SQL Server 
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

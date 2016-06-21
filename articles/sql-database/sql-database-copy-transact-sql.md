@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Copiar um banco de dados SQL do Azure usando o Transact-SQL
 
-**Banco de dados individual**
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-copy.md)
@@ -103,4 +102,4 @@ Monitore o processo de cópia consultando as exibições sys.databases e sys.dm\
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

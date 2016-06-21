@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Protocolos de autenticação do Active Directory
@@ -37,4 +37,4 @@ Este conjunto de artigos fornece informações adicionais que podem ser úteis p
 - [Solucionando Problemas de Protocolos de Autenticação](active-directory-error-handling.md): saiba como interpretar e resolver a maioria dos erros comuns ao usar o OAuth 2.0 e o Azure AD.
 - [Práticas Recomendadas para o OAuth 2.0 no Azure AD](active-directory-oauth-best-practices.md): saiba mais sobre as práticas recomendadas ao usar o OAuth 2.0 no Azure AD e evite as armadilhas comuns.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

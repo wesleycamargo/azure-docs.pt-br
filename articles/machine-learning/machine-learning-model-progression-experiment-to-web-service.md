@@ -128,7 +128,7 @@ Depende do que você precisa atualizar:
 
 Se você não estiver alterando o modelo, mas estiver apenas alterando como o serviço Web manipula os dados, poderá editar o experimento preditivo e clicar em **Implantar Serviço Web** novamente. O serviço Web será parado, o experimento preditivo atualizado será implantado e o serviço Web será iniciado novamente.
 
-Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Então adicione um módulo de **Colunas de Projeto** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clicar em **Implantar Serviço Web** novamente, o serviço Web será atualizado.
+Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Adicione então um módulo **Selecionar Colunas no Conjunto de Dados** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clicar em **Implantar Serviço Web** novamente, o serviço Web será atualizado.
 
 **Você quer treinar novamente o modelo com novos dados**
 
@@ -160,4 +160,4 @@ Para obter exemplos do processo inteiro, consulte:
 
 -   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

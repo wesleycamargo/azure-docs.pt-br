@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Fazer backup e restaurar um banco de dados no SQL Data Warehouse do Azure (PowerShell)
 
@@ -30,7 +30,6 @@ Tarefas neste tópico:
 
 - Restaurar um banco de dados dinâmico
 - Restaurar um banco de dados excluído
-- Restaurar um banco de dados inacessível de outra região geográfica do Azure
 
 [AZURE.INCLUDE [Política de retenção de backup do SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -38,7 +37,7 @@ Tarefas neste tópico:
 ## Antes de começar
 
 ### Verifique a capacidade de DTU do Banco de Dados SQL. 
-Como o SQL Data Warehouse restaura para um novo banco de dados no SQL Server lógico, é importante verificar se o SQL Server para o qual você está restaurando tem capacidade de DTU suficiente para o novo banco de dados. Consulte esta postagem no blog para obter mais informações sobre [como exibir e aumentar a cota de DTU][].
+Como o SQL Data Warehouse restaura para um novo banco de dados no servidor SQL lógico, é importante verificar se o servidor SQL para o qual você está restaurando possui capacidade de DTU suficiente para o novo banco de dados. Consulte esta postagem no blog para obter mais informações sobre [como exibir e aumentar a cota de DTU][].
 
 ### Instalar o PowerShell
 
@@ -130,45 +129,6 @@ $RestoredDatabase.status
 
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
 
-## Restaurar por meio de uma região geográfica do Azure
-
-Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][].
-
-1. Abra o Windows PowerShell.
-2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
-3. Selecione a assinatura que contém o banco de dados a ser restaurado.
-4. Obtenha o banco de dados que você deseja recuperar.
-5. Crie a solicitação de recuperação para o banco de dados.
-6. Verifique o status do banco de dados com restauração geográfica.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Configurar o banco de dados depois de executar uma restauração geográfica
-Esta é uma lista de verificação para ajudar a preparar para produção seu banco de dados recuperado.
-
-1. **Atualizar Cadeias de Conexão**: verifique se as cadeias de conexão das ferramentas cliente estão apontando para o banco de dados recentemente recuperado.
-2. **Modificar as Regras de Firewall**: verifique as regras de firewall no servidor de destino para ter certeza de que as conexões dos computadores cliente ou do Azure com o servidor e com o banco de dados recentemente recuperado estão habilitadas.
-3. **Verificar Logons do Servidor e Usuários do Banco de Dados**: verifique se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Recrie os logons ausentes e conceda a eles permissões apropriadas no banco de dados recuperado. 
-4. **Habilitar a Auditoria**: se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a Auditoria após a recuperação do banco de dados.
-
-O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
-
-
 ## Próximas etapas
 Para saber mais, confira [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][] e [Visão geral de gerenciamento][].
 
@@ -194,4 +154,4 @@ Para saber mais, confira [Visão geral de continuidade de negócios do Banco de 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

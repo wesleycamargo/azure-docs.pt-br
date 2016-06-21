@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/02/2016"
 	ms.author="daleche"/>
 
 
@@ -67,4 +67,4 @@
 ## Etapa de verificação
 1. Consulte e teste a tabela recém-copiada para certificar-se de que os dados estão intactos. Após a confirmação, é possível remover a tabela renomeada na seção **Etapas de preparação** (por exemplo, &lt;table name&gt;\_old).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

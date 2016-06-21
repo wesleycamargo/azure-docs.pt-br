@@ -49,7 +49,7 @@ Você deve usar a replicação geográfica caso seu aplicativo atenda aos seguin
 2. A taxa de alteração de dados é alta (por exemplo, transações por minuto ou segundos). O RPO de 1 h associado à proteção padrão provavelmente resultará em perda de dados inaceitável.
 3. O custo associado ao uso da replicação geográfica é significativamente menor do que a responsabilidade financeira potencial e as perdas associadas do negócio.
 
-Para habilitar a Replicação Geográfica Ativa, consulte a [configuração da replicação geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-portal.md)
+Para habilitar a Replicação Geográfica Ativa, consulte [Configurar a replicação geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] A replicação geográfica também oferece suporte a acesso somente leitura ao banco de dados secundário, proporcionando capacidade adicional para as cargas de trabalho somente leitura.
 
@@ -60,4 +60,4 @@ Para habilitar a Replicação Geográfica Ativa, consulte a [configuração da r
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Para diretrizes, consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

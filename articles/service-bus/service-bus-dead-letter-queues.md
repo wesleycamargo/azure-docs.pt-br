@@ -53,7 +53,7 @@ Esse comportamento não pode ser desabilitado, mas você pode definir [MaxDelive
 
 Quando a propriedade [QueueDescription.EnableDeadLetteringOnMessageExpiration](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration.aspx) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.enabledeadletteringonmessageexpiration.aspx) for definida como **true** (o padrão é **false**), todas as mensagens expiradas serão movidas para a DLQ, especificando o código de motivo `TTLExpiredException`.
 
-Observe que as mensagens expiradas são apenas limpas e, portanto, movidas para a DLQ quando houver pelo menos um receptor ativo extraindo na assinatura ou fila principal; esse comportamento é intencional.
+Observe que as mensagens expiradas são apenas limpas e, portanto, movidas para a DLQ quando há pelo menos um receptor ativo extraindo na assinatura ou fila principal; esse comportamento é intencional.
 
 ## Erros ao processar as regras de assinatura
 
@@ -88,7 +88,7 @@ while(true)
 
 Confira os artigos a seguir para obter mais informações sobre as filas do Barramento de Serviço:
 
-- [Filas do Azure e filas do Barramento de Serviço — comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Como usar [filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
+- [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Como usar [filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

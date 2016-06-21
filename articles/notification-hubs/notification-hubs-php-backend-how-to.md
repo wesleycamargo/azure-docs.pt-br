@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/07/2016" 
 	ms.author="wesmc"/>
 
 # Como usar Hubs de Notificação no PHP
@@ -38,7 +38,7 @@ Por exemplo, para criar um cliente:
 Para enviar uma notificação nativa do iOS:
 	
 	$notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ## Implementação
 Se ainda não fez isso, siga o nosso [tutorial Introdução] até a última seção, onde será necessário implementar o back-end. Além disso, se quiser, você poderá usar o código da [amostra de wrapper do PHP REST] e ir diretamente para a seção [Concluir o tutorial](#complete-tutorial).
@@ -206,18 +206,18 @@ Em seguida, adicione o código de envio dependendo da sua plataforma móvel de d
 	$toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
 	$notification = new Notification("windows", $toast);
 	$notification->headers[] = 'X-WNS-Type: wns/toast';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### iOS
 
 	$alert = '{"aps":{"alert":"Hello from PHP!"}}';
 	$notification = new Notification("apple", $alert);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Android
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("gcm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Silverlight para Windows Phone 8.0 e 8.1
 
@@ -230,13 +230,13 @@ Em seguida, adicione o código de envio dependendo da sua plataforma móvel de d
 	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 
 ### Kindle Fire
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("adm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 Executar o código PHP agora deve produzir uma notificação que aparece no dispositivo de destino.
 
@@ -255,4 +255,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [tutorial Introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

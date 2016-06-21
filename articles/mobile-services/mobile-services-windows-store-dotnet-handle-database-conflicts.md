@@ -128,9 +128,9 @@ Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, e
 	> [AZURE.NOTE] Ao usar tabelas sem tipo, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. Adicionando a propriedade `Version` à classe `TodoItem`, o aplicativo será notificado com uma exceção `MobileServicePreconditionFailedException` durante uma atualização caso o registro tenha sido alterado desde a última consulta. Essa exceção inclui a versão mais recente do item do servidor. No MainPage.cs para o projeto compartilhado, adicione o seguinte código para tratar da exceção no método `UpdateToDoItem()`.
@@ -369,4 +369,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

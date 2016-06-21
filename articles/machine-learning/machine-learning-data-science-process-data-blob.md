@@ -180,7 +180,7 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Agora, os dados podem ser lidos do blob usando o módulo [Leitor][reader] do Aprendizado de Máquina do Azure, como mostra a tela abaixo:
+3. Agora, os dados podem ser lidos do blob usando o módulo [Importar Dados][import-data] do Aprendizado de Máquina do Azure, como mostra a tela abaixo:
  
 ![blob de leitor][1]
 
@@ -188,7 +188,7 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

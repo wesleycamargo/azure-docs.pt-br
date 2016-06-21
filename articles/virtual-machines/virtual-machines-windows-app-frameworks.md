@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="02/03/2016"
+   ms.date="06/06/2016"
    ms.author="rasquill"/>
 
 # Implantar estruturas de aplicativo populares usando os modelos do Azure Resource Manager
@@ -23,4 +23,4 @@ Geralmente, as cargas de trabalho exigem muitos recursos para funcionarem de aco
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->
