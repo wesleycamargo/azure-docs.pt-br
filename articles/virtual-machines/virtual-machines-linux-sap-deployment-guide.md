@@ -843,7 +843,7 @@ Para executar a verificação de preparação, conecte-se via SSH à máquina vi
             * deve mostrar uma entrada semelhante a "python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py-daemon"
     * Certifique-se de que a Extensão de Monitoramento Avançado do Azure esteja instalada e seja iniciada
         * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
-    * deve listar o conteúdo do diretório da Extensão de Monitoramento Avançado do Azure
+            * deve listar o conteúdo do diretório da Extensão de Monitoramento Avançado do Azure
         * ps -ax | grep AzureEnhanced
             * deve mostrar uma entrada semelhante a "python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon"
 * Instale o Agente de Host do SAP, conforme descrito na Nota SAP 1031096 e verifique a saída de saposcol
