@@ -145,4 +145,4 @@ Os exemplos a seguir mostram como criar um conjunto de registros de cada tipo de
 
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

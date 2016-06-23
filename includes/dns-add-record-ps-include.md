@@ -26,7 +26,7 @@ Neste exemplo, usamos o nome do conjunto de registros "@" para criar um registro
 
 ### Criar um conjunto de registros SRV com um registro único
 
-Se você estiver criando um registro SRV na raiz de uma zona, basta especificar *\_service e *\_protocol no nome do registro. Não é necessário incluir “@” no nome do registro.
+Se você estiver criando um registro SRV na raiz de uma zona, basta especificar *\_service* e *\_protocol* no nome do registro. Não é necessário incluir “@” no nome do registro.
 
 	$rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
