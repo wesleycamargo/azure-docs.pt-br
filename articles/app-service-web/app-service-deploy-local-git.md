@@ -175,7 +175,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Portal do Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[interface de linha de comando do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/xplat-cli-azure-resource-manager/
+[interface de linha de comando do Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

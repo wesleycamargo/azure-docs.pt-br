@@ -23,7 +23,7 @@
 
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Linux no modelo de implantação clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo do Gerenciador de Recursos.
 
 ## Introdução
 - [Introdução ao Linux no Azure](virtual-machines-linux-intro-on-azure.md)

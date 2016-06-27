@@ -109,7 +109,7 @@ Descompacte o arquivo para uma pasta com um nome de caminho curto, como C:\\cód
 
 Como alternativa, se você quiser contribuir com nosso código ou mantê-lo atualizado, clone o repositório da seguinte maneira:
 
-****clone do git https://github.com/Azure-Samples/MyDriving.git**
+**clone do git https://github.com/Azure-Samples/MyDriving.git**
 
 ## Obter uma chave de API do Bing Mapas
 

@@ -47,11 +47,11 @@ Pools Básicos, Standard e Premium fornecem a você um amplo espectro de opçõe
 
 Além dos pools elásticos, há recursos de banco de dados SQL para ajudar a gerenciar atividades operacionais em vários bancos de dados:
 
-** Realize consultas e gere relatórios de bancos de dados. ** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
+**Realize consultas e gere relatórios de bancos de dados.** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
 
-** Execute transações de banco de dados. ** [Transações de banco de dados elástico](sql-database-elastic-transactions-overview.md) permitem a execução de transações que abrangem vários bancos de dados em bancos de dados SQL e executam operações (por exemplo, ao processar transações financeiras em bancos de dados ou ao atualizar o estoque em um banco de dados e os em pedidos).
+**Execute transações de banco de dados.** [Transações de banco de dados elástico](sql-database-elastic-transactions-overview.md) permitem a execução de transações que abrangem vários bancos de dados em bancos de dados SQL e executam operações (por exemplo, ao processar transações financeiras em bancos de dados ou ao atualizar o estoque em um banco de dados e os em pedidos).
 
-** Execute as mesmas operações em vários bancos de dados. ** [Trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md) executam operações administrativas como recompilar índices ou atualizar esquemas em cada banco de dados em seu pool elástico.
+**Execute as mesmas operações em vários bancos de dados.** [Trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md) executam operações administrativas como recompilar índices ou atualizar esquemas em cada banco de dados em seu pool elástico.
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 

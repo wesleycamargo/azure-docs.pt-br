@@ -87,8 +87,12 @@ Ele também inclui chaves somente leitura para fornecer aos usuários o acesso s
 ### Exibir e copiar uma chave de acesso no Portal do Azure
 
 1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
+
 2. Na barra **Fundamentos** da folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
-3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar. ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
+
+3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
+
+  ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar chaves de acesso
 
@@ -99,10 +103,15 @@ Você deve alterar as chaves de acesso da sua conta do Banco de Dados de Documen
 Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de Documentos, você perderá as conexões se regenerar chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves.
 
 1. Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta do Banco de Dados de Documentos.
+
 2. Regenere a chave de acesso primária de sua conta do Banco de Dados de Documentos. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
+
 3. Na barra **Fundamentos** da folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
+
 4. Na folha de **Chaves**, clique no comando **Regenerar Principal** e, em seguida, clique em **Ok** para confirmar que você quer gerar uma nova chave.
+
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
+
 6. Regenere a chave de acesso secundária.
 
 > [AZURE.NOTE] Levará alguns minutos para que a chave gerada recentemente possa ser usada para acessar sua conta do Banco de Dados de Documentos.
@@ -136,7 +145,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
-[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0615_2016-->
