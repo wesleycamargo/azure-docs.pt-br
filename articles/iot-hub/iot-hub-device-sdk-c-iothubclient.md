@@ -268,7 +268,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Há duas opções que normalmente são usadas:
 
--   **SetBatching** (booliano) – Se for **true**, os dados enviados ao Hub IoT serão enviados em lotes. Se for **false**, as mensagens serão enviadas individualmente. O padrão é **false**.
+-   **SetBatching** (booliano) – Se for **true**, os dados enviados ao Hub IoT serão enviados em lotes. Se for **false**, as mensagens serão enviadas individualmente. O padrão é **false**. Observe que a opção **SetBatching** se aplica somente ao protocolo HTTP, e não aos protocolos AMQP ou MQTT.
 
 -   **Tempo limite** (inteiro não atribuído) – Esse valor é representado em milissegundos. Se o envio de uma solicitação HTTP ou o recebimento de uma resposta demorar mais que esse tempo, o tempo limite da conexão se esgotará.
 
@@ -278,4 +278,4 @@ A opção de envio em lote é importante. Por padrão, a biblioteca insere event
 
 Este artigo descreve em detalhes o comportamento da biblioteca **IoTHubClient** encontrada no **SDK do dispositivo IoT do Azure para C**. Com essas informações, você deverá ter um bom entendimento dos recursos da biblioteca **IoTHubClient**. O [próximo artigo](iot-hub-device-sdk-c-serializer.md) fornece detalhes semelhantes sobre a biblioteca do **serializador**.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

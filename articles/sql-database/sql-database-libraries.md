@@ -21,7 +21,7 @@
 Este tópico lista cada biblioteca/driver que os programas clientes podem usar ao se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server.
 
 
-| Linguagem | Plataforma | Saiba mais | Baixar |
+| Linguagem | Plataforma | Recursos adicionais | Baixar |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md) | [Baixar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
 | Java | Windows | [Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows](sql-database-develop-java-simple-windows.md) | [Baixar](http://go.microsoft.com/fwlink/?LinkId=245496) |
@@ -30,4 +30,4 @@ Este tópico lista cada biblioteca/driver que os programas clientes podem usar a
 | Python | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

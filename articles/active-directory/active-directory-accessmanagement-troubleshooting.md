@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
-# Solução de problemas de associações dinâmicas para grupos
+# Solucionando problemas de associações dinâmicas a grupos
 
 **Configurei uma regra em um grupo, mas nenhuma associação é atualizada no grupo**<br/>Verifique se a configuração **Habilitar gerenciamento de grupo delegado** está definida como **Sim** na guia **Configurar**. Você verá essa configuração somente se estiver conectado como um usuário que recebe uma licença do Azure Active Directory Premium. Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra?
 
@@ -34,4 +34,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

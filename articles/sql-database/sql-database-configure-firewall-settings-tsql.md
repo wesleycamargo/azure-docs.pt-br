@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-firewall-configure.md)
 - [Portal do Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -52,7 +53,7 @@ Somente o logon da entidade de segurança no nível do servidor ou o administrad
  
 		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
- Para obter mais informações sobre esses procedimentos armazenados, consulte [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) e [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx).
+ Para saber mais sobre esses procedimentos armazenados, confira [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) e [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx).
 
 ## Regras de firewall no nível de banco de dados
 
@@ -76,4 +77,4 @@ Para obter mais informações sobre esses procedimentos armazenados, consulte [s
 
 Para um tutorial sobre como criar um banco de dados, consulte [Criar um banco de dados SQL em alguns minutos usando o Portal do Azure](sql-database-get-started.md). Para obter ajuda com a conexão a um banco de dados SQL do Azure por meio de aplicativos de software livre ou de terceiros, confira [Exemplos de código do cliente de início rápido do Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para entender como navegar para bancos de dados, consulte [Gerenciar a segurança de logon e o acesso ao banco de dados](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

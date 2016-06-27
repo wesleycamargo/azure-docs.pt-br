@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="02/26/2016"
+   ms.date="05/31/2016"
    ms.author="sumuth"/>
 
 # Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web
@@ -293,7 +293,8 @@ Procurar e testar seu aplicativo Web de preparo. Considerando um cenário em que
  > [AZURE.NOTE]
  Se tiver um cenário em que seja necessário apenas enviar arquivos por push (sem atualizações de banco de dados), **Verifique** a **Configuração do Slot** para todas as *configurações do aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha de configuração do aplicativo Web no Portal do Azure antes de ALTERNAR. Neste caso, DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao **Alternar**. Neste momento, quando concluir a operação **Alternar**, o aplicativo Web do WordPress terá **SOMENTE** os arquivos atualizados.
 
-Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress ![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
+Antes de ALTERNAR, aqui está o aplicativo Web de produção do WordPress
+![Aplicativo Web de produção antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
 Após a operação ALTERNAR, o tema foi atualizado no seu aplicativo Web de produção.
 
@@ -346,7 +347,8 @@ Clique em **Obter configurações de publicação** para o **estágio** do slot 
 - Após a publicação bem-sucedida do aplicativo Web Umbraco local no aplicativo Web de preparo, procure seu aplicativo Web de preparo e execute alguns testes para eliminar problemas.
 
 #### Configurar módulo de implantação Courier2
-Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização. Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
+Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode enviar conteúdo por push, folhas de estilo, módulos de desenvolvimento e muito mais com um simples clique com o botão direito do mouse em um aplicativo Web de preparo para implantações sem problemas e reduzindo o risco de danificar seu aplicativo Web de produção ao implantar uma atualização.
+Compre uma licença para o Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (digamos http://abc.com) Depois que você adquirir a licença, coloque a licença baixada (arquivo .LIC) na pasta `bin`.
 
 ![Soltar o arquivo de licença na pasta bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
@@ -445,4 +447,4 @@ Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulo
 
 [Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

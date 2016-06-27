@@ -39,7 +39,7 @@ Neste exemplo, você utilizará um cluster do HDInsight para analisar arquivos d
 
 ##Para executar a amostra
 
-1. No [Portal do Azure](https://ms.portal.azure.com/), no quadro inicial (caso você tenha fixado o cluster ali), clique no bloco do cluster no qual você deseja executar o exemplo.
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial (caso você tenha fixado o cluster ali), clique no bloco do cluster no qual você deseja executar o exemplo.
 
 2. Na folha do cluster, em **Links Rápidos**, clique em **Painel do Cluster** e, na folha **Painel do Cluster**, clique em **Painel do Cluster HDInsight**. Como alternativa, você pode abrir diretamente o painel usando a seguinte URL:
 
@@ -61,4 +61,4 @@ Experimente o exemplo a seguir: [Analisando dados do sensor usando o Hive com HD
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

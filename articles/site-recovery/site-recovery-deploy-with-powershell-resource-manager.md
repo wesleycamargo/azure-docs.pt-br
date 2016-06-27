@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/16/2016"
+	ms.date="06/13/2016"
 	ms.author="bsiva"/>
 
 # Replicar entre máquinas virtuais locais do Hyper-V e o Azure usando o PowerShell e o Azure Resource Manager
@@ -47,7 +47,7 @@ Leia mais sobre isso em [Usando o Azure PowerShell com o Azure Resource Manager]
 
 Verifique se estes pré-requisitos estão em vigor:
 
-- Uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Azure PowerShell 1.0. Para obter informações sobre essa versão e como instalá-la, confira [Azure PowerShell 1.0](https://azure.microsoft.com/).
 - Os módulos [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) e [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/). É possível obter as versões mais recentes desses módulos na [Galeria do PowerShell](https://www.powershellgallery.com/)
 
@@ -261,4 +261,9 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0518_2016-->
+
+##Próximas etapas
+
+[Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/17/2016" 
+    ms.date="06/14/2016" 
     ms.author="b-hoedid"/>
 
 # Notificações sobre recursos novos ou alterados do Banco de Dados de Documentos usando Aplicativos Lógicos
@@ -1156,4 +1156,4 @@ Baixe e use o código do Aplicativo Lógico fornecido no [Github](https://github
 
 Para saber mais sobre o Banco de Dados de Documentos, visite o [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

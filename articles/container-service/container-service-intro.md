@@ -101,4 +101,8 @@ Introdução ao Serviço de Contêiner do Azure:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0525_2016-->
+Criação de aplicativos com o serviço de contêiner do Azure
+
+> [https://channel9.msdn.com/Events/Build/2016/B822]
+
+<!---HONumber=AcomDC_0615_2016-->

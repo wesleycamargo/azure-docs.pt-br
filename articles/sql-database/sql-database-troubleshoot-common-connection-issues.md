@@ -20,14 +20,13 @@
 
 Quando a conexão com o banco de dados SQL falha, você recebe [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que ajuda a solucionar problemas de conectividade do Banco de Dados SQL do Azure. Ele apresenta [as causas comuns](#cause) de problemas de conexão, recomenda [uma ferramenta de solução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identificar o problema e fornece etapas de solução de problemas para resolver [erros transitórios](#troubleshoot-transient-errors) e [erros persistentes ou não transitórios](#troubleshoot-the-persistent-errors). Por fim, ele lista [todos os artigos relevantes sobre problemas de conectividade do Banco de Dados SQL](#all-topics-for-azure-sql-database-connection-problems).
 
-Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
 Problemas de conexão podem ser causados por qualquer um dos seguintes fatores:
 
-- Falha ao aplicar [práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md) durante o processo de design do aplicativo.
+- Falha ao aplicar práticas recomendadas e diretrizes de design durante o processo de design do aplicativo. Confira [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) para uma introdução.
 - Reconfiguração do banco de dados SQL do Azure
 - Configurações de firewall
 - Tempo limite da conexão
@@ -80,7 +79,7 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 | 5 | [Solucionar problemas de "Banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde”](sql-database-troubleshoot-connection.md) | Descreve como identificar e resolver um erro 40613: "Banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde." |
 | 6 | [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md) | Fornece informações sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. |
 | 7 | [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) | Fornece orientações para ajudá-lo a determinar qual camada de serviço é adequada para seu aplicativo. Também fornece recomendações para ajustar seu aplicativo para obter o maior proveito de seu Banco de Dados SQL do Azure. |
-| 8 | [Conectando-se ao Banco de Dados SQL: práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md) | Fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL do Azure. |
+| 8 | [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) | Fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL do Azure. |
 | 9 | Página de atualização para o Banco de Dados SQL do Azure v12 ([portal do Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Fornece instruções para atualizar servidores e bancos de dados existentes do Banco de Dados SQL do Azure V11 para o Banco de Dados SQL do Azure V12 usando o Portal do Azure ou o PowerShell. |
 
 
@@ -93,12 +92,12 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 - [Exibir as atualizações mais recentes ao serviço do Banco de Dados SQL do Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## Saiba mais
+## Recursos adicionais
 
-- [Conectando-se ao Banco de Dados SQL: práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md)
+- [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 - [Diretrizes gerais para tratamento de falhas transitórias](../best-practices-retry-general.md)
 - [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 - [O roteiro de aprendizagem para usar o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

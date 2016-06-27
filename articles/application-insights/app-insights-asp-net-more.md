@@ -40,7 +40,7 @@ Veja está um resumo dos recursos que você não pode ter testado no [Visual Stu
 |[**Encontre dados de instância com a pesquisa de diagnóstico**](app-insights-visual-studio.md)<br/>pesquise e filtre eventos como solicitações, exceções, chamadas de dependência, rastreamentos de log e exibições de página. No Visual Studio, vá até o código dos rastreamentos de pilha.|![Visual Studio](./media/app-insights-asp-net/61.png)
 |[**Metrics Explorer para dados agregados**](app-insights-metrics-explorer.md)<br/>explore, filtre e segmente dados agregados, como taxas de solicitações, falhas e exceções; tempos de resposta e tempos de carregamento de página.|![Visual Studio](./media/app-insights-asp-net-more/060.png)
 |[**Painéis**](app-insights-dashboards.md#dashboards)<br/>permitem fazer o mashup de dados de vários recursos e compartilhar com outras pessoas. Excelente para aplicativos com vários componentes e para exibição contínua no ambiente de equipe. |![Exemplos de painéis](./media/app-insights-asp-net/62.png)
-|[**Live Stream**](app-insights-metrics-explorer.md#live-stream)<br/>quando implantar um novo build, assista a esses indicadores de desempenho quase em tempo real para verificar se tudo está funcionando conforme esperado.|![Exemplo de análise](./media/app-insights-asp-net-more/050.png)
+|[**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>quando implantar um novo build, acompanhe esses indicadores de desempenho quase em tempo real para verificar se tudo está funcionando conforme esperado.|![Exemplo de análise](./media/app-insights-asp-net-more/050.png)
 |[**Análise**](app-insights-analytics.md)<br/>responda perguntas difíceis sobre o desempenho e o uso do seu aplicativo usando essa poderosa linguagem de consulta.|![Exemplo de análise](./media/app-insights-asp-net-more/010.png)
 |[**Alertas automáticos e manuais**](app-insights-alerts.md)<br/>alertas automáticos se adaptam aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode definir alertas em níveis específicos de métricas padrão ou personalizadas.|![Exemplo de alerta](./media/app-insights-asp-net-more/020.png)
 
@@ -52,4 +52,4 @@ Veja está um resumo dos recursos que você não pode ter testado no [Visual Stu
 |**API de acesso a dados**<br/>em breve.|
 |[**Amostragem**](app-insights-sampling.md)<br/>reduz a taxa de dados e ajuda você a permanecer dentro do limite de seu tipo de preço.|![Bloco de amostragem](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

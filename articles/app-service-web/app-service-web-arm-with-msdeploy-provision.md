@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="john.dehavilland"/>
 
 # Implantar um aplicativo Web com o MSDeploy, um nome de host personalizado e um certificado SSL
@@ -197,4 +197,4 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
 
 Neste ponto, seu aplicativo deve ter sido implantado e você deve ser capaz de localizá-lo por meio de https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

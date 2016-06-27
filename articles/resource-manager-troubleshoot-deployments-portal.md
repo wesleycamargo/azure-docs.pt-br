@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Exibir operações de implantação com o Portal do Azure
@@ -101,4 +101,4 @@ Para ver as operações de implantação, use as etapas a seguir:
 - Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, veja [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
 - Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

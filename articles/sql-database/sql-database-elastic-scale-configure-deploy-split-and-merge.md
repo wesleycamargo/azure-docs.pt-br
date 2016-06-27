@@ -30,7 +30,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ## Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de firewall**, certifique-se de que a configuração **Permitir acesso aos serviços do Azure** esteja definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -339,4 +339,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

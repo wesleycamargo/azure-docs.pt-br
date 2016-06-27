@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/09/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Criar várias instâncias de recursos no Gerenciador de Recursos do Azure
@@ -488,4 +488,4 @@ O modelo vinculado define a matriz a retornar. O modelo mostrado abaixo omite a 
 - Para ver todas as funções que você pode usar em um modelo, confira [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
 - Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

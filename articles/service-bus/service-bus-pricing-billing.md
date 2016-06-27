@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="sethm" />
 
 # Barramento de Serviço, preços e cobrança
 
 O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). Você pode escolher um nível de serviço para cada namespace do Barramento de Serviço criado por você e essa seleção de camada aplica-se a todas as filas, tópicos/assinaturas, retransmissões e Hubs de eventos criado dentro desse namespace.
 
->[AZURE.NOTE] Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, veja [Página de preços do Barramento de Serviço do Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre os preços do Barramento de Serviço](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, veja [Página de preços do Barramento de Serviço do Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#service-bus-pricing).
 
 O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
 
@@ -63,7 +63,7 @@ Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinatur
 |Mensagens|Enviando e recebendo mensagens com filas ou tópicos/assinaturas.|
 |Estado de sessão|Obter ou definir o estado de sessão em uma fila ou tópico/assinatura.|
 
-Os seguintes preços entraram em vigor desde o dia 1 de novembro de 2014:
+Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
 
 |Basic|Custo|
 |---|---|
@@ -106,7 +106,7 @@ A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas po
 |---|
 |As conexões orientadas não são cobradas na camada Premium.|
 
-Para obter mais informações sobre conexões orientadas, consulte a seção de [Perguntas frequentes](#FAQ) mais adiante neste tópico.
+Para obter mais informações sobre conexões orientadas, consulte a seção de [Perguntas frequentes](#faq) mais adiante neste tópico.
 
 ## Retransmissão
 
@@ -121,7 +121,7 @@ Retransmissões estão disponíveis apenas nos namespaces de camada Standard. Ca
 
 ### Como é calculado o medidor de horas de retransmissão?
 
-Veja [Neste tópico](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
+Veja [Neste tópico](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### O que são conexões orientadas e como serei cobrado para elas?
 
@@ -147,8 +147,8 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 - Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- Veja as [Perguntas frequentes sobre preços do Barramento de Serviço](service-bus-pricing-faq.md) para obter algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
+- Veja as [Perguntas frequentes do Barramento de Serviço](service-bus-faq.md#service-bus-pricing) para obter algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

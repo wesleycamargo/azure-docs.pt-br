@@ -3,8 +3,8 @@
    description="Restauração pontual, Banco de Dados SQL do Microsoft Azure, banco de dados de restauração, banco de dados de recuperação, Portal Clássico do Azure, portal Clássico do Azure"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Finalizar seu Banco de Dados SQL do Azure recuperado
 
@@ -29,7 +29,7 @@ Verifique se as cadeias de conexão do aplicativo estão apontando para o banco 
   + O banco de dados recuperado usa um nome diferente do nome do banco de dados de origem
   + O banco de dados recuperado está em um servidor diferente do servidor de origem
 
-Para saber mais sobre como alterar as cadeias de conexão, confira [Diretrizes sobre como se conectar de modo programático com o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336282.aspx) e [Conexões com o Banco de Dados SQL do Azure: principais recomendações](sql-database-connect-central-recommendations.md).
+Para saber mais sobre como alterar as cadeias de conexão, confira [Diretrizes sobre como se conectar de modo programático com o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336282.aspx) e [Visão geral de desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md).
  
 ## Modificar regras de firewall
 Verifique as regras de firewall no nível de servidor e de banco de dados para ter certeza de que as conexões dos computadores cliente ou do Azure com o servidor e com o banco de dados recentemente recuperado estão habilitadas. Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) e [Como configurar as definições de firewall (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
@@ -56,4 +56,4 @@ Para saber mais sobre regras de alerta do banco de dados, confira [Como receber 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

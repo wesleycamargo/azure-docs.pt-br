@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aplicativos para Diagnosticar os Aplicativos Lógicos | Microsoft Azure"
-   description="Entender as abordagens comuns para compreender onde os aplicativos estão falhando"
+   pageTitle="Diagnosticando falhas dos aplicativos lógicos | Microsoft Azure"
+   description="Abordagens comuns para compreender onde os aplicativos lógicos estão falhando"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -15,65 +15,65 @@
    ms.workload="integration"
    ms.date="05/18/2016"
    ms.author="jehollan"/>
-   
-# Diagnosticando os Aplicativos Lógicos
 
-Se houver quaisquer problemas ou falhas com um Aplicativo Lógico, haverá algumas abordagens que você pode adotar para melhor entender de onde vêm as falhas.
+# Diagnosticando falhas nos aplicativos lógicos
 
-## Ferramentas de Portal de Gerenciamento
+Se você tiver problemas ou falhas com o recurso de aplicativos lógicos do Serviço de Aplicativo do Azure, algumas abordagens poderão ajudá-lo a entender melhor a origem das falhas.
 
-O Portal do Azure fornece várias ferramentas para diagnosticar cada Aplicativo Lógico em cada etapa.
+## Ferramentas do portal do Azure
+
+O Portal do Azure fornece várias ferramentas para diagnosticar cada aplicativo lógico em cada etapa.
 
 ### Histórico de gatilho
 
-Cada Aplicativo Lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, o primeiro lugar para começar é o histórico de gatilhos. Você pode acessar o histórico de gatilhos na folha principal dos Aplicativos Lógicos aqui:
+Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, o primeiro lugar para obter informações adicionais será o histórico de gatilhos. Você pode acessar o histórico de gatilhos na folha principal do aplicativo lógico.
 
-![][1]
+![Exibir o histórico de gatilho][1]
 
-Isso listará todas as tentativas feitas pelo Aplicativo Lógico para disparar. Cada uma dessas entradas pode ser clicada para ir para o próximo nível de detalhe (especificamente, quaisquer entradas ou saídas que foram geradas pela tentativa do gatilho). Se você observar disparadores “Failed”, deverá clicar na tentativa do gatilho e analisar o Link de Saídas para entender as mensagens de erro que podem estar sendo geradas (por exemplo: credenciais inválidas do FTP).
+Isso lista todas as tentativas de gatilho feitas por seu aplicativo lógico. Você pode clicar em cada tentativa de gatilho para ir para o próximo nível de detalhe (especificamente, quaisquer entradas ou saídas geradas pela tentativa de gatilho). Se você observar quaisquer gatilhos com falha, clique na tentativa de gatilho e analise o link de **Saídas** para ver quaisquer mensagens de erro que possam estar sendo geradas (por exemplo, credenciais de FTP inválidas).
 
 Os diferentes status que você pode ver são:
 
-* Ignorado - sondou o ponto de extremidade para verificar se os dados estavam disponíveis e obteve uma resposta de que não havia dados disponíveis.
-* Êxito - o gatilho recebeu uma resposta de que os dados estavam disponíveis. Pode ser de um gatilho manual, gatilho de recorrência ou gatilho de sondagem. Provavelmente será acompanhado de “Disparado”, mas talvez não se você tiver uma condição ou aplicar splitOn na visualização do código que não foi atendida.
-* Falha - um erro foi gerado.
+* **Ignorado**. Ele sondou o ponto de extremidade para procurar por dados e recebeu uma resposta de que nenhum dado estava disponível.
+* **Êxito**. O gatilho recebeu uma resposta de que havia dados disponíveis. Pode ser de um gatilho manual, um gatilho de recorrência ou um gatilho de sondagem. Isso provavelmente estará acompanhado de um status de **Disparado**, mas talvez isso não aconteça se você tiver uma condição ou comando SplitOn na exibição de código que não foi atendida.
+* **Falha**. Um erro foi gerado.
 
 #### Iniciar um gatilho manualmente
 
-Se você quiser que o Aplicativo Lógico verifique se há um gatilho disponível imediatamente (sem aguardar a próxima recorrência), sempre poderá clicar no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nisso com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente para obter os novos arquivos.
+Se você quiser que o aplicativo lógico verifique imediatamente se há um gatilho disponível (sem aguardar a próxima recorrência), você poderá clicar no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente em busca de novos arquivos.
 
-### Histórico de Execuções
+### Histórico da execução
 
-Sempre que um gatilho é disparado, resulta em uma execução. As execuções podem ser acessadas na folha principal e contêm muitas informações úteis para compreender o que aconteceu durante o fluxo.
+Cada gatilho que é acionado resulta em uma execução. Você pode acessar informações da execução da folha principal, que contém muitas informações que podem ser úteis para entender o que aconteceu durante o fluxo de trabalho.
 
-![][2]
+![Localizando o histórico da execução][2]
 
-Uma execução pode ter qualquer um dos seguintes status:
+Uma execução exibe um dos seguintes status:
 
-* Êxito - todas as ações foram bem-sucedidas ou se houve uma falha, ela foi tratada por uma ação posterior no fluxo de trabalho (isto é, uma ação foi definida para ser executada após uma ação “Falha”).
-* Falha - pelo menos uma ação teve uma falha que não foi tratada por uma ação posterior no fluxo de trabalho.
-* Cancelado - o fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento.
-* Executando - se um fluxo de trabalho está em execução atualmente. Isso pode ocorrer para os fluxos que estão sendo limitados também com o atual Plano do Serviço de Aplicativo. Consulte os limites da ação na [página de preços](https://azure.microsoft.com/pricing/details/app-service/plans/) para obter detalhes. Configurando o Diagnóstico (os gráficos abaixo do histórico de execuções) também permitirá que você conheça os eventos de restrição que estão ocorrendo.
+* **Êxito**. Todas as ações foram bem-sucedidas ou, se tiver ocorrido uma falha, ela terá sido tratada por uma ação posterior no fluxo de trabalho. Ou seja, ela terá sido tratada por uma ação que foi definida para ser executada depois de uma ação com falha.
+* **Falha**. Pelo menos uma ação teve uma falha que não foi tratada por uma ação posterior no fluxo de trabalho.
+* **Cancelado**. O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento.
+* **Executando**. O fluxo de trabalho está em execução atualmente. Isso pode ocorrer para os fluxos que estão sendo limitados, ou devido ao plano do Serviço de Aplicativo atual. Consulte os limites da ação na [página de preços](https://azure.microsoft.com/pricing/details/app-service/plans/) para obter detalhes. Configurar o diagnóstico (os gráficos listados abaixo do histórico da execução) também podem fornecer informações sobre quaisquer eventos de restrição que estão ocorrendo.
 
-Quando estiver em uma execução, poderá analisar para obter os detalhes.
+Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.
 
-#### Saídas do Gatilho
+#### Saídas do gatilho
 
-As Saídas do Gatilho mostrarão os dados recebidos a partir do gatilho. Isso pode ser útil para entender se todas as propriedades estão sendo retornadas conforme o esperado.
+As saídas do gatilho mostrarão os dados recebidos do gatilho. Isso pode ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
 
->[AZURE.NOTE] Poderá ser útil entender como os Aplicativos Lógicos [lidam com os diferentes tipos de conteúdo](app-service-logic-content-type.md) se você vir qualquer conteúdo que não entende.
+>[AZURE.NOTE] Poderá ser útil entender como o recurso Aplicativos Lógicos [lida com os diferentes tipos de conteúdo](app-service-logic-content-type.md) se você vir qualquer conteúdo que não entender.
 
-![][3]
+![Exemplos de saída do gatilho][3]
 
-#### Entradas e Saídas da Ação
+#### Entradas e saídas da ação
 
 Você pode analisar as entradas e saídas que uma ação recebeu. Isso é útil para entender o tamanho e a forma das saídas, bem como ver todas as mensagens de erro que possam ter sido geradas.
 
-![][4]
+![Entradas e saídas da ação][4]
 
-## Depurando a Execução do Fluxo de Trabalho
+## Depurando o tempo de execução do fluxo de trabalho
 
-Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar a depurar. O [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. O RequestBin permite configurar um inspetor de Solicitação HTTP para compreender exatamente o tamanho, forma e formato de uma Solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do Aplicativo Lógico, com qualquer conteúdo do corpo que deseja testar (uma expressão, outra saída da etapa, etc.). Depois de executar o Aplicativo Lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada quando foi gerada a partir do mecanismo do Aplicativo Lógico.
+Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar na depuração. O [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico junto com qualquer conteúdo do corpo que você deseje testar (por exemplo, uma expressão, ou outra saída da etapa). Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada, já que ela foi gerada do mecanismo dos Aplicativos Lógicos.
 
 
 
@@ -84,4 +84,4 @@ Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser �
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

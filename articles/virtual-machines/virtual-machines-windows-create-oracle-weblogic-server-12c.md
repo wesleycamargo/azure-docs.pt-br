@@ -24,7 +24,7 @@ O exemplo a seguir mostra como você pode criar um WebLogic Server 12c em execu�
 
 ##Para configurar a sua Máquina Virtual do Oracle WebLogic Server 12c no Azure
 
-1. Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 2.	Clique em **Máquinas Virtuais**.
 
@@ -101,7 +101,7 @@ O exemplo a seguir mostra como você pode criar um WebLogic Server 12c em execu�
 
 10.	Crie um ponto de extremidade para a sua Máquina Virtual:
 
-	1. Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
+	1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 	2.	Clique em **Procurar**.
 
@@ -145,7 +145,7 @@ O exemplo a seguir mostra como você pode criar um WebLogic Server 12c em execu�
 
 	8.	Especifique um nome para a regra e, opcionalmente, uma descrição e depois clique em **Concluir**.
 
-12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<*unique\_domain\_name*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
+12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<*unique\_domain\_name*>> dentro do [Portal do Azure](https://portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
 
 
 ##Recursos adicionais
@@ -159,4 +159,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

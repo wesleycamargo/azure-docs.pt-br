@@ -3,7 +3,7 @@
    description="Saiba como fazer a recuperação de um erro do usuário, da corrupção de dados acidental ou de um banco de dados excluído usando o recurso PITR (Restauração Pontual) do Banco de Dados SQL do Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Recuperar um Banco de Dados SQL do Azure de um erro do usuário
 
@@ -43,7 +43,7 @@ Para executar uma recuperação pontual:
 
 No caso de um banco de dados excluído, o Banco de Dados SQL do Azure permite restaurar o banco de dados excluído até o momento da exclusão. O Banco de Dados SQL do Azure armazena o backup do banco de dados excluído pelo período de retenção do banco de dados.
 
-O período de retenção de um banco de dados excluído é determinado pela camada de serviço do banco de dados enquanto ela existiu ou pelo número de dias em que o banco de dados existe, o que for menor. Para saber mais sobre retenção de banco de dados, leia nossa [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+O período de retenção de um banco de dados excluído é determinado pela camada de serviço do banco de dados enquanto ela existiu ou pelo número de dias em que o banco de dados existe, o que for menor. Para saber mais sobre retenção de banco de dados, confira [backups automatizados](sql-database-automated-backups.md).
 
 Para restaurar um banco de dados excluído:
 
@@ -57,4 +57,4 @@ Para restaurar um banco de dados excluído:
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -23,7 +23,7 @@ As funções de janela foram introduzidas no padrão ISO/ANSI SQL em 2003. O U-S
 
 As funções de janela são usadas para fazer a computação em conjuntos de linhas chamadas *janelas*. As janelas são definidas pela cláusula OVER. As funções de janela resolvem alguns cenários importantes de maneira altamente eficiente.
 
-Este guia de aprendizado/tutorial usa dois conjuntos de dados de exemplo para examinar um exemplo de cenário em que você pode aplicar funções de janela. Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+Este guia de aprendizado usa dois conjuntos de dados de exemplo para examinar um exemplo de cenário em que você pode aplicar funções de janela. Para saber mais, consulte [Referência U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 As funções de janela são categorizadas em:
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC não interpola valores; portanto, o mediano para Web é 200, o 
 - [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

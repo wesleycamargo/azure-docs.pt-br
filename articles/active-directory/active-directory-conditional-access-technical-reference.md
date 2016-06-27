@@ -5,7 +5,7 @@
     services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="03/30/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Referência técnica: acesso condicional a aplicativos do AD do Azure
@@ -28,27 +28,38 @@ Regras de acesso condicional têm suporte em vários tipos de aplicativos do AD 
 - Aplicativos de linha de negócios e de multilocação desenvolvidos registrados no AD do Azure
 - Visual Studio Online
 - Aplicativo Remoto do Azure
+- 	Dynamics CRM
+- Microsoft Office 365 Yammer
+- Microsoft Office 365 Exchange Online
+- Microsoft Office 365 SharePoint Online (inclui o OneDrive for Business)
+
 
 ## Habilitar regras de acesso
 
 Cada regra pode ser habilitada ou desabilitada com base no aplicativo. Quando as regras estão **ATIVADAS**, elas são habilitadas e impostas aos usuários que acessam o aplicativo. Quando estão **DESATIVADAS**, elas não são usadas e não afetam a experiência de entrada dos usuários.
 
 ## Aplicar regras a usuários específicos
-As regras podem ser aplicadas a conjuntos específicos de usuários baseados no grupo de segurança ao definir **Aplicar a**. **Aplicar a** pode ser definido como **Todos os Usuários** ou **Grupos**. Quando definido como **Todos os Usuários**, as regras são aplicadas a qualquer usuário com acesso ao aplicativo. A opção **Grupos** permite que grupos de segurança e de distribuição específicos sejam selecionados e as regra sejam impostas somente para esses grupos.
+As regras podem ser aplicadas a conjuntos específicos de usuários baseados no grupo de segurança definindo **Aplicar a**. **Aplicar a** pode ser definido como **Todos os Usuários** ou **Grupos**. Quando definido como **Todos os Usuários**, as regras são aplicadas a qualquer usuário com acesso ao aplicativo. A opção **Grupos** permite que grupos de segurança e de distribuição específicos sejam selecionados e as regras sejam impostas somente para esses grupos.
 
-  Ao implantar uma regra, é comum aplicá-la primeiro a um conjunto limitado de usuários, que são membros de um grupo piloto. Após a conclusão, a regra pode ser aplicada a **Todos os Usuários**. Isso fará com que a regra a seja imposta a todos os usuários na organização.
+Ao implantar uma regra, é comum aplicá-la primeiro a um conjunto limitado de usuários, que são membros de um grupo piloto. Após a conclusão, a regra pode ser aplicada a **Todos os Usuários**. Isso fará com que a regra a seja imposta a todos os usuários na organização.
 
 Alguns grupos também podem ser isentos da política usando a opção **Exceto**. Todos os membros desses grupos estarão isentos mesmo que apareçam em um grupo incluído.
 
 ## Redes "No trabalho"
 
 
-As regras de acesso condicional que usam uma rede "No trabalho" dependem de intervalos de IP confiáveis que foram configurados no Azure AD. Essas regras incluem:
+As regras de acesso condicional que usam uma rede "No trabalho" dependem de intervalos de endereços IP confiáveis que foram configurados no Azure AD ou que usam a declaração “inside corpnet” do AD FS. Essas regras incluem:
 
 - Exigir autenticação multifator quando não está no trabalho
 - Bloquear acesso quando não estiver no trabalho
 
-Os intervalos IP confiáveis podem ser configurados na [página de configurações do Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). A política de acesso condicional usará os intervalos configurados em cada solicitação de autenticação e emissão de token para avaliar as regras. A declaração corpnet interior não é usada porque ela não está disponível para sessões mais longas, como tokens de atualização em aplicativos móveis.
+Opções para especificar redes "no trabalho"
+
+1. Configurar intervalos de endereços IP na [página de configurações da autenticação multifator](../multi-factor-authentication/multi-factor-authentication-whats-next.md). A política de acesso condicional usará os intervalos configurados em cada solicitação de autenticação e emissão de token para avaliar as regras. 
+2. Configure o uso da declaração inside corpnet; essa opção pode ser usada com diretórios federados, usando o AD FS. [Saiba mais sobre as declarações inside coronet](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+3. Configure intervalos de endereços IP públicos. Na guia Configurar, para seu diretório, você pode definir os endereços IP públicos. O Acesso Condicional vai usá-los como endereços IP 'at work', permitindo que intervalos adicional sejam configurados, acima do limite de 50 endereços IP imposto pela página de configuração da MFA.
+
+
 
 ## Regras por aplicativo
 As regras são configuradas por aplicativo, permitindo que os serviços de alto valor sejam protegidos sem afetar o acesso a outros serviços. As regras de acesso condicional podem ser configuradas na guia **Configurar** do aplicativo.
@@ -70,4 +81,4 @@ Regras oferecidas atualmente:
 - [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

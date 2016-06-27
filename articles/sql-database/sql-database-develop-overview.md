@@ -59,7 +59,9 @@ Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu có
 ## Fragmentação de dados com a escala elástica
 A escala elástica simplifica o processo de escalar horizontalmente (e de reduzir horizontalmente).
 
+[Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introdução à visualização da Escala Elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

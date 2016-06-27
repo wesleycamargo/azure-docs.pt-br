@@ -37,12 +37,11 @@ Embora melhore as taxas de sucesso de provisionamento, tal comportamento pode se
 Se desativar o provisionamento em excesso, você poderá acabar com uma taxa maior de VMs por conta de armazenamento, mas não recomendamos ir além de 40.
 
 
-## Limites (Plataforma versus Personalizado)
-Um conjunto de escala criado em uma imagem de plataforma é limitado a 100 VMs e recomendamos 5 contas de armazenamento para essa escala. No entanto, um conjunto de escala criado em uma imagem personalizada (criada por você) deve criar todos os vhds de disco de sistema operacional em uma conta de armazenamento. Desta forma, o número máximo de VMs em um conjunto de escala criado em uma imagem personalizada é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
+## Limites
+Um conjunto de dimensionamento compilado em uma imagem personalizada (criada por você) deve criar todos os vhds de disco do SO em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento compilado em uma imagem personalizada é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
 
+Um conjunto de dimensionamento criado em uma imagem da plataforma é limitado a 100 VMs (recomendamos 5 contas de armazenamento para esse dimensionamento).
 
-## Grande Escala
+Para ter mais VMs que esses limites permitem, você precisará implantar vários conjuntos de dimensionamento. [Para obter um exemplo de como fazer isso, consulte este modelo.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-Um conjunto de escala é limitado a 100 VMs para imagens de plataforma e 20 para imagens personalizadas (40 sem provisionamento em excesso). Para obter mais, você precisará implantar vários conjuntos de escala. Para ver um exemplo de como fazer isso, consulte este modelo: https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

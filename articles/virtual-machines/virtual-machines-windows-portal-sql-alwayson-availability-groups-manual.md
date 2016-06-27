@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurar manualmente o ARM de Grupos de Disponibilidade AlwaysOn (GUI) | Microsoft Azure"
-	description="Crie um Grupo de Disponibilidade AlwaysOn em Máquinas Virtuais do Azure. Este tutorial usa principalmente a interface do usuário e ferramentas em vez de scripts."
+	pageTitle="Configurar manualmente o grupo de disponibilidade Always On na VM do Azure - Resource Manager"
+	description="Crie um grupo de disponibilidade AlwaysOn em máquinas virtuais do Azure. Este tutorial usa principalmente a interface do usuário e ferramentas em vez de scripts."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,20 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="06/09/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)
+# Configurar manualmente o grupo de disponibilidade Always On na VM do Azure - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: Automático](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-Este tutorial ponta a ponta mostra como implementar os grupos de disponibilidade usando o SQL Server AlwaysOn em execução nas máquinas virtuais do Azure Resource Manager.
+Este tutorial de ponta a ponta mostra como implementar grupos de disponibilidade do SQL Server em máquinas virtuais do Azure Resource Manager.
 
-Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
+Ao final do tutorial, sua solução será formada pelos seguintes elementos:
 
 - Uma rede virtual que contém duas sub-redes, incluindo uma de front-end e uma de back-end
 
@@ -36,7 +38,7 @@ Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos
 
 - Um cluster WSFC de três nós com o modelo de quórum de Nó Principal
 
-- Um balanceador de carga interno para fornecer um endereço IP aos grupos de disponibilidade AlwaysOn
+- Um balanceador de carga interno para fornecer um endereço IP aos grupos de disponibilidade
 
 - Um grupo de disponibilidade com duas réplicas de confirmação síncrona de um banco de dados de disponibilidade
 
@@ -46,7 +48,7 @@ A figura abaixo é uma representação gráfica da solução.
 
 Observe que se trata de uma das configurações possíveis. Por exemplo, você pode minimizar o número de VMs para um grupo de disponibilidade de duas réplicas para economizar horas de computação no Azure usando o controlador de domínio como a testemunha de compartilhamento de arquivo de quórum em um cluster do WSFC de dois nós. Esse método reduz a contagem de VMs em uma em comparação com a configuração acima.
 
->[AZURE.NOTE] A conclusão deste tutorial exige uma quantidade significativa de tempo. Você também pode compilar essa solução inteira automaticamente. No Portal do Azure, há uma configuração de galeria para grupos de disponibilidade AlwaysOn com um Ouvinte. Isso configura tudo o que você precisa para Grupos de Disponibilidade AlwaysOn automaticamente. Para obter mais informações, confira [Portal - Gerenciador de Recursos](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+>[AZURE.NOTE] A conclusão deste tutorial exige uma quantidade significativa de tempo. Você também pode compilar essa solução inteira automaticamente. No Portal do Azure, há uma configuração de galeria para grupos de disponibilidade Always On com um ouvinte. Isso configura tudo o que você precisa para grupos de disponibilidade automaticamente. Para saber mais, confira [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
 Este tutorial pressupõe o seguinte:
 
@@ -54,25 +56,23 @@ Este tutorial pressupõe o seguinte:
 
 - Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
-- Você já tem uma compreensão sólida dos Grupos de Disponibilidade AlwaysOn. Para obter mais informações, consulte [Grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Você já tem uma compreensão sólida dos grupos de disponibilidade. Para saber mais, confira [Grupos de disponibilidade Always On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Se você estiver interessado em usar os Grupos de Disponibilidade AlwaysOn com o SharePoint, consulte também [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Se você estiver interessado em usar os grupos de disponibilidade com o SharePoint, confira também [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx) (Configurar grupos de disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013).
 
-## Criar conjuntos de disponibilidade, rede e grupo de recursos
-
-### Conecte-se à sua assinatura do Azure e crie um grupo de recursos
+## Criar grupo de recursos
 
 1. Entre no [Portal do Azure](http://portal.azure.com). 
 
 1. Clique em **+Novo** e, em seguida, digite **Grupo de recursos** na janela de pesquisa **Marketplace**.
 
- ![Grupo de recursos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+    ![Grupo de recursos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
-1. Clique em **Grupo de recursos** 
+1. Clique em **Grupo de recursos**
 
- ![Novo grupo de recursos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![Novo grupo de recursos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
-1. Clique em **Criar**. 
+1. Clique em **Criar**.
 
 1. Na folha **Grupo de recursos**, em **Nome do grupo de recursos**, digite **SQL-HA-RG**
 
@@ -86,7 +86,7 @@ Este tutorial pressupõe o seguinte:
 
 O Azure criará o novo grupo de recursos e fixará um atalho para o grupo de recursos no portal.
 
-### Criar rede e sub-redes
+## Criar rede e sub-redes
 
 A próxima etapa é criar as redes e sub-redes no grupo de recursos do Azure.
 
@@ -96,17 +96,17 @@ Para criar a rede virtual:
 
 1. No Portal do Azure, clique no novo grupo de recursos e depois em **+** para adicionar um novo item ao grupo de recursos. O Azure abre a folha **Tudo**. 
 
- ![Novo Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
+    ![Novo Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
 1. Pesquise pela **rede virtual**.
 
- ![Pesquisar pela Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+    ![Pesquisar pela Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 1. Clique em **Rede virtual**.
 
 1. Na folha **Rede virtual**, clique no modelo de implantação do **Gerenciador de Recursos** e depois em **Criar**.
 
- ![Criar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+    ![Criar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
 
  
@@ -127,7 +127,7 @@ Observe que o espaço de endereço e o intervalo de endereços da sub-rede podem
 
 Clique em **Criar**
 
-   ![Configurar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 O Azure fará com que você retorne ao painel do portal e o notificará quando a nova rede for criada.
 
@@ -145,17 +145,17 @@ Neste ponto, sua rede virtual conterá uma sub-rede chamada Subnet-1. Os control
 
 1. Na folha **Configurações**, clique em **Sub-redes**.
 
-   Observe a sub-rede que você já criou.
+    Observe a sub-rede que você já criou.
 
-   ![Configurar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+    ![Configurar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
-1. Crie uma segunda sub-rede. Clique em **+ Sub-rede**. 
+1. Crie uma segunda sub-rede. Clique em **+ Sub-rede**.
 
  Na folha **Adicionar Sub-rede**, configure a sub-rede digitando **subnet-2** em **Nome**. O Azure especificará automaticamente um **intervalo de endereços** válido. Verifique se este intervalo de endereços tem pelo menos 10 endereços nele. Em um ambiente de produção, você poderá exigir mais endereços.
 
 Clique em **OK**.
 
-   ![Configurar Rede Virtual](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 Aqui está um resumo das definições de configuração para a rede virtual e ambas as sub-redes.
 
@@ -171,7 +171,7 @@ Aqui está um resumo das definições de configuração para a rede virtual e am
 | **Grupo de recursos** | **SQL-HA-RG** |
 | **Localidade** | Especifique o mesmo local que você escolheu para o grupo de recursos. |
 
-### Criar conjuntos de disponibilidade
+## Criar conjuntos de disponibilidade
 
 Antes de criar máquinas virtuais, você precisa criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planejados ou não. Um conjunto de disponibilidade do Azure é um grupo lógico de recursos que o Azure coloca em domínios de falha física e em domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade terão recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não serão desativados para manutenção ao mesmo tempo. [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-windows-manage-availability.md).
 
@@ -190,7 +190,7 @@ Configure dois conjuntos de disponibilidade de acordo com os parâmetros na tabe
 
 Depois de criar os conjuntos de disponibilidade, retorne ao grupo de recursos no Portal do Azure.
 
-## Criar e configurar controladores de domínio
+## Criar controladores de domínio
 
 Neste ponto, você criou a rede, as sub-redes, os conjuntos de disponibilidade e um balanceador de carga para a Internet. Você está pronto para criar as máquinas virtuais para os controladores de domínio.
 
@@ -376,7 +376,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 
 Agora que você concluiu a configuração do Active Directory e dos objetos de usuário, você criará duas VMs do SQL Server e uma VM do servidor testemunha e associará as três a esse domínio.
 
-## Criar os servidores SQL e configurar o cluster
+## Criar Servidores SQL
 
 ###Criar e configurar as VMs do SQL Server
 
@@ -474,6 +474,8 @@ Você usará esses endereços para configurar o serviço DNS para cada VM. Para 
 
 1. Repita as etapas acima no **sqlserver-1** e no **cluster-fsw**.
 
+## Criar o cluster
+
 ### Adicione o recurso de **Clustering de Failover** a cada VM de cluster.
 
 1. RDP para **sqlserver-0**.
@@ -570,7 +572,7 @@ Agora que você criou o cluster, verifique a configuração e adicione os nós r
 
 1. Faça logoff da sessão de área de trabalho remota.
 
-## Configurar Grupos de Disponibilidade AlwaysOn
+## Configurar grupos de disponibilidade
 
 Nesta seção, você fará o seguinte no **sqlserver-0** e no **sqlserver-1**:
 
@@ -578,11 +580,11 @@ Nesta seção, você fará o seguinte no **sqlserver-0** e no **sqlserver-1**:
 
 - Abra o firewall para ter acesso remoto ao SQL Server no processo do SQL Server e na porta de investigação
 
-- Habilitar o recurso de Grupos de Disponibilidade AlwaysOn
+- Habilitar o recurso dos grupos de disponibilidade
 
 - Alterar a conta de serviço do SQL Server para **CORP\\SQLSvc1** e **CORP\\SQLSvc2**, respectivamente
 
-Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a seguir as percorrerá em ordem. Siga as etapas para o **sqlserver-0** e para o **sqlserver-1**:
+Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a seguir as percorrerá em ordem. Execute as etapas para o **sqlserver-0** e para o **sqlserver-1**:
 
 ### Adicione a conta de instalação como função de servidor fixa do sysadmin em cada SQL Server
 
@@ -618,7 +620,7 @@ Essa solução exige duas regras de firewall em cada SQL Server. A primeira regr
 
 Conclua todas as etapas em ambos os servidores SQL.
 
-### Habilite o recurso Grupos de Disponibilidade AlwaysOn em cada SQL Server
+### Habilite o recurso grupos de disponibilidade em cada SQL Server
 
 Siga estas etapas em ambos os servidores SQL.
 
@@ -704,7 +706,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 ### Crie o Grupo de Disponibilidade:
 
-1. Volte para a sessão da Área de Trabalho Remota para o **sqlserver-0**. No **Pesquisador de Objetos** no SSMS, clique com o botão direito do mouse em **Alta Disponibilidade AlwaysOn** e clique em **Assistente de Novo Grupo de Disponibilidade**, conforme mostrado abaixo.
+1. Volte para a sessão da área de trabalho remota para o **sqlserver-0**. No **Pesquisador de Objetos** no SSMS, clique com o botão direito do mouse em **Alta Disponibilidade AlwaysOn** e clique em **Assistente de Novo Grupo de Disponibilidade**, conforme mostrado abaixo.
 
 	![Inicie o Assistente de Novo Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
 
@@ -756,7 +758,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 >[AZURE.WARNING] Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel AlwaysOn** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover WSFC com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
 
-## Configurar um balanceador de carga interno no Azure e um ouvinte do grupo de disponibilidade do cluster
+## Configurar o balanceador de carga interno
 
 Para se conectar diretamente ao grupo de disponibilidade, você precisa configurar um balanceador de carga interno no Azure e, em seguida, criar o ouvinte no cluster. Esta seção fornece uma visão geral de alto nível dessas etapas. Para obter instruções detalhadas, confira [Configurar um balanceador de carga interno para um grupo de disponibilidade do AlwaysOn no Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -764,7 +766,7 @@ Para se conectar diretamente ao grupo de disponibilidade, você precisa configur
 
 1. No Portal do Azure, acesse **SQL-HA-RG** e clique em **+ Adicionar**.
 
-1. Pesquise pelo **Balanceador de Carga**. Escolha o balanceador de carga publicado pela Microsoft e clique em **Criar**.
+1. Pesquise pelo **Balanceador de carga**. Escolha o balanceador de carga publicado pela Microsoft e clique em **Criar**.
 
 1. Configure os seguintes parâmetros para o balanceador de carga.
 
@@ -841,7 +843,7 @@ A próxima etapa é configurar um ouvinte do grupo de disponibilidade AlwaysOn n
 
 1. Em **Gerenciador de Cluster de Failover**, clique com o botão direito do mouse no recurso do grupo de disponibilidade e, então, clique em **Propriedades**. Na guia **Dependências**, defina o grupo de recursos como dependente do nome de rede do ouvinte.
 
-1. Defina a propriedade de porta do ouvinte para 1433. Para fazer isso, abra o SQL Server Management Studio, clique com o botão direito do mouse no ouvinte do grupo de disponibilidade e selecione Propriedades. Defina a **Porta** para 1433.
+1. Defina a propriedade de porta do ouvinte para 1433. Para fazer isso, abra o SQL Server Management Studio, clique com o botão direito do mouse no ouvinte do grupo de disponibilidade e selecione Propriedades. Defina a **Porta** como 1433.
 
 1. Neste ponto, você pode [colocar o ouvinte online](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
 
@@ -861,4 +863,4 @@ Para testar a conexão:
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

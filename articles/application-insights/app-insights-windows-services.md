@@ -127,7 +127,7 @@ Os eventos também aparecem nas janelas de diagnóstico e de saída.
 
 Retorne para a folha de seu aplicativo no portal do Azure.
 
-Os primeiros eventos serão exibidos na janela de transmissão ao vivo.
+Os primeiros eventos serão exibidos no [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
 
 
 ## Canal de persistência 
@@ -256,4 +256,4 @@ O código do canal de persistência está no [GitHub](https://github.com/Microso
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Exibir operações de implantação com a API REST do Azure Resource Manager
@@ -28,6 +28,8 @@
 Se você recebeu um erro durante a implantação de recursos do Azure, você talvez queira ver mais detalhes sobre as operações de implantação que foram executadas. A API REST fornece operações que permitem encontrar os erros e determinar as possíveis correções.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+É possível evitar alguns erros validando o modelo e a infraestrutura antes da implantação. Você também pode registrar informações adicionais sobre solicitações e respostas durante a implantação que podem ser úteis mais tarde para a solução de problemas. Para obter informações sobre como validar e registrar informações de solicitação e resposta, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-rest.md) (Implantar um grupo de recursos com modelos do Azure Resource Manager).
 
 ## Solucionar problemas com a API REST
 
@@ -58,7 +60,7 @@ Se você recebeu um erro durante a implantação de recursos do Azure, você tal
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
-    Na resposta, observe, em particular, os elementos **provisioningState**, **correlationId** e **error**. **correlationId** é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema.
+    Na resposta, observe em particular os elementos **provisioningState**, **correlationId** e **error**. **correlationId** é usado para acompanhar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico na solução de um problema.
     
         { 
           ...
@@ -110,7 +112,7 @@ Se você recebeu um erro durante a implantação de recursos do Azure, você tal
 ## Próximas etapas
 
 - Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, veja [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
-- Para validar sua implantação antes de executá-la, confira [Implantar um grupo de recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
+- Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

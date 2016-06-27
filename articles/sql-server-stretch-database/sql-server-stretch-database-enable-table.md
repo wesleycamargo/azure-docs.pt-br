@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Habilitar o Banco de Dados de Stretch para uma tabela
@@ -118,4 +118,4 @@ Para obter mais informações, consulte [CREATE TABLE (Transact-SQL)](https://ms
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

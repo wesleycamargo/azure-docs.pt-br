@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure
@@ -110,4 +110,4 @@ Na última seção, você enviou um trabalho e o trabalho falhou.
 - [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

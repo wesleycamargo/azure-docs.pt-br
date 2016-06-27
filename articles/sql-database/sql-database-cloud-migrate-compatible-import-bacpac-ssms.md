@@ -57,10 +57,10 @@ Este artigo mostra como importar de um arquivo [BACPAC](https://msdn.microsoft.c
 - [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Saiba mais
+## Recursos adicionais
 
 - [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

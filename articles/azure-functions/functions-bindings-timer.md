@@ -26,14 +26,13 @@ Este artigo explica como configurar e codificar gatilhos de temporizador no Azur
 
 ## function.json para gatilho de temporizador
 
-O arquivo *function.json* fornece uma expressão e uma opção de agenda que indica se a função deve ser disparada imediatamente.
+O arquivo *function.json* fornece uma expressão de agendamento.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -54,15 +53,13 @@ Veja alguns exemplos de expressão de agendamento.
 Para disparar uma vez a cada cinco minutos:
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-Para disparar imediatamente e então a cada duas horas depois disso:
+Para disparar uma vez a cada duas horas:
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
 ```
 
 ## Exemplo de código C# de gatilho de temporizador
@@ -80,4 +77,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

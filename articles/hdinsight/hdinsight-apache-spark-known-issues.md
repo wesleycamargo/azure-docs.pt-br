@@ -65,15 +65,6 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 
 A seguir estão alguns problemas conhecidos relacionados aos notebooks do Jupyter.
 
-### Não é possível baixar os notebooks do Jupyter no formato .ipynb
-
-Se você estiver executando a versão mais recente dos notebooks do Jupyter para HDInsight Spark e tentar baixar uma cópia do notebook como um arquivo **.ipynb** da interface do usuário do notebook Jupyter, verá um erro interno do servidor.
-
-**Atenuação:**
-
-1.	Baixar o notebook em outro formato que não o ipynb (por exemplo, .txt) terá êxito.  
-2.	Se você precisa do arquivo ipynb, poderá baixá-lo do seu contêiner de cluster na sua conta de armazenamento em **/HdiNotebooks**. Isso se aplica somente à versão mais recente dos notebooks do Jupyter para HDInsight, que dá suporte a backups de notebook na conta de armazenamento. Dito isso, as versões anteriores dos notebooks do Jupyter para HDInsight Spark não apresentam esse problema.
-
 
 ### Notebooks com caracteres não ASCII nos nomes de arquivos
 
@@ -113,10 +104,6 @@ Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no noteboo
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-### A reversão para o ponto de verificação pode falhar
-
-Você pode criar pontos de verificação nos notebooks do Jupyter no caso de precisar reverter para uma versão anterior do Notebook. No entanto, se o estado atual dos notebooks tiver uma consulta SQL com visualização automática, a reversão para um ponto de verificação armazenado anteriormente poderá resultar em um erro.
-
 ##Consulte também
 
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -143,7 +130,7 @@ Você pode criar pontos de verificação nos notebooks do Jupyter no caso de pre
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -159,4 +146,4 @@ Você pode criar pontos de verificação nos notebooks do Jupyter no caso de pre
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

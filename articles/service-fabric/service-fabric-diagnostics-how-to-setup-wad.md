@@ -47,7 +47,9 @@ Para implantar o a extensão de diagnóstico nas VMs do cluster como parte da cr
 
 ![Configuração de Diagnóstico do Azure no portal para a criação do cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-Os Logs de Suporte são **necessários** para a equipe de suporte do Azure poder resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e serão armazenados em uma das contas de armazenamento criadas no grupo de recursos. A definição Diagnóstico configura eventos no nível do aplicativo, incluindo eventos de [Ator](service-fabric-reliable-actors-diagnostics.md), eventos de [Serviço Confiável](service-fabric-reliable-services-diagnostics.md) e alguns eventos do Service Fabric no nível do sistema a serem armazenados no armazenamento do Azure. Os produtos como o [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou seu próprio processo podem selecionar os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se um processo para remover eventos da tabela não for implementado, a tabela continuará a crescer. Ao criar um cluster usando o portal, é recomendável que você exporte o modelo depois que a implantação for concluída. Modelos podem ser exportados do portal da seguinte forma:
+Os Logs de Suporte são **necessários** para a equipe de suporte do Azure poder resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e serão armazenados em uma das contas de armazenamento criadas no grupo de recursos. A definição Diagnóstico configura eventos no nível do aplicativo, incluindo eventos de [Ator](service-fabric-reliable-actors-diagnostics.md), eventos de [Serviço Confiável](service-fabric-reliable-services-diagnostics.md) e alguns eventos do Service Fabric no nível do sistema a serem armazenados no armazenamento do Azure. Os produtos como o [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou seu próprio processo podem selecionar os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se um processo para remover eventos da tabela não for implementado, a tabela continuará a crescer.
+
+Ao criar um cluster usando o porta, é altamente recomendável que você baixe o modelo *antes de clicar em OK* para criar o cluster. Para obter detalhes, veja [Configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Isso lhe dará um modelo ARM que pode ser usado para o cluster que você está prestes a criar. Isso é necessário para fazer alterações posteriormente. Nem todas as alterações podem ser feitas usando o portal. Os modelos podem ser exportados do portal usando as etapas a seguir, mas pode ser mais difícil usar esses modelos porque eles podem ter alguns valores nulos que deverão ter valores fornecidos ou nem todas as informações necessárias estarão presentes.
 
 1. Abra seu grupo de recursos
 2. Selecione Configurações para exibir o painel Configurações
@@ -56,7 +58,7 @@ Os Logs de Suporte são **necessários** para a equipe de suporte do Azure poder
 5. Selecione Exportar Modelo para exibir o painel Modelo
 6. Selecione Salvar em arquivo para exportar um arquivo. zip contendo os arquivos de modelo, parâmetro e do PowerShell.
 
-Depois de exportar os arquivos, uma modificação será necessária. Edite o arquivo **parameters.json** e remova o elemento **adminPassword**. Isso fará com que a senha seja solicitada quando o script de implantação for executado. Usar o modelo baixado para atualizar uma configuração
+Depois de exportar os arquivos, uma modificação será necessária. Edite o arquivo **parameters.json** e remova o elemento **adminPassword**. Isso fará com que a senha seja solicitada quando o script de implantação for executado. Ao executar o script de implantação, você precisará corrigir os valores de parâmetro nulo. Usar o modelo baixado para atualizar uma configuração
 
 1. Extraia o conteúdo para uma pasta no computador local
 2. Modificar o conteúdo para refletir a nova configuração
@@ -181,7 +183,7 @@ Após modificar o arquivo **template.json** conforme descrito, republique o mode
 
 
 ## Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
-Para atualizar o diagnóstico para coletar logs de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm), que descrevem a configuração do diagnóstico para um cluster existente. Você precisará atualizar a seção *EtwEventSourceProviderConfiguration* no arquivo **template.json** para adicionar entradas ao novo EventSources antes de aplicar a atualização de configuração por meio do comando *New-AzureRmResourceGroupDeployment* do PowerShell.
+Para atualizar o diagnóstico para coletar logs de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm), que descrevem a configuração do diagnóstico para um cluster existente. Você precisará atualizar a seção *EtwEventSourceProviderConfiguration* no arquivo **template.json** para adicionar entradas ao novo EventSources antes de aplicar a atualização de configuração por meio do comando *New-AzureRmResourceGroupDeployment* do PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo **ServiceEventSource.cs** gerado pelo Visual Studio.
 
 
 ## Próximas etapas
@@ -191,4 +193,4 @@ Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fab
 ## Artigos relacionados
 * [Aprenda a coletar contadores de desempenho ou logs usando extensões de diagnóstico](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

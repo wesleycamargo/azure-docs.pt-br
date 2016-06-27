@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/15/2016"
 	ms.author="cynthn"/>
 
 #Sobre máquinas virtuais do Linux no Azure
@@ -38,4 +38,4 @@ Avalie uma máquina virtual criando uma máquina virtual simples rapidamente. Pa
 
 Como o tutorial ajuda a criar uma máquina virtual rapidamente, ele mostra apenas uma maneira de fazer isso, em vez de descrever as várias ferramentas que podem ser usada para criar máquinas virtuais. Para obter um resumo dessas ferramentas e os links para as instruções, veja [Diferentes maneiras de criar uma máquina virtual Linux](virtual-machines-linux-creation-choices.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

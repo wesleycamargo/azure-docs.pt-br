@@ -3,8 +3,8 @@
    description="Os ativos de credenciais na Automação do Azure contêm credenciais de segurança que podem ser usadas para a autenticação em recursos acessados pelo runbook ou pela configuração DSC. Este artigo descreve como criar ativos de credenciais e usá-los em um runbook ou uma configuração DSC."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="06/09/2016"
    ms.author="bwren" />
 
 # Ativos de credenciais na Automação do Azure
@@ -27,7 +27,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de crede
 
 |Cmdlets|Descrição|
 |:---|:---|
-|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|Recupera informações sobre um ativo de credencial. Você só pode recuperar a credencial propriamente dita da atividade **Get-AutomationCredential**.|
+|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|Recupera informações sobre um ativo de credencial. Você só pode recuperar a credencial propriamente dita da atividade **Get-AutomationPSCredential**.|
 |[New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Cria uma nova credencial de Automação.|
 |[Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Remove uma credencial de Automação.|
 |[Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|Define as propriedades de uma credencial de Automação existente.|
@@ -42,10 +42,10 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 
 >[AZURE.NOTE] Evite usar variáveis no parâmetro –Name de Get-AutomationPSCredential, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de credenciais no momento do design.
 
-## Criando uma nova credencial
+## Criando um novo ativo de credencial
 
 
-### Para criar uma nova variável com o portal clássico do Azure
+### Para criar um novo ativo de credencial com o portal clássico do Azure
 
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
 1. Clique em **Adicionar Configuração** na parte inferior da janela.
@@ -54,7 +54,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 1. Conclua o assistente e clique na caixa de seleção para salvar a nova credencial.
 
 
-### Para criar uma nova credencial com o portal do Azure
+### Para criar um novo ativo de credencial com o portal do Azure
 
 1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
 1. Clique na parte **Credenciais** para abrir a folha **Credenciais**.
@@ -62,7 +62,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 1. Preencha o formulário e clique em **Criar** para salvar a nova credencial.
 
 
-### Para criar uma nova credencial do PowerShell com o Windows PowerShell
+### Para criar um novo ativo de credencial com o Windows PowerShell
 
 Os comandos de exemplo a seguir mostram como criar uma nova credencial de automação. Um objeto PSCredential é criado pela primeira vez com o nome e a senha e, em seguida, é usado para criar o ativo de credencial. Como alternativa, você pode usar o cmdlet **Get-Credential** para ser solicitado a digitar um nome e uma senha.
 
@@ -92,17 +92,20 @@ Você adiciona uma atividade **Get-AutomationPSCredential** a um runbook gráfic
 
 ![Adicionar a credencial à tela](media/automation-credentials/credential-add-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Configurando a autenticação para recursos do Azure](automation-configuring.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
+A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráfico. Nesse caso, ela está sendo usada para fornecer autenticação para um runbook para os recursos do Azure, conforme descrito em [Autenticar Runbooks com uma conta de Usuário do Azure AD](automation-sec-configure-aduser-account.md). A primeira atividade recupera a credencial que tem acesso à assinatura do Azure. A atividade **Add-AzureAccount** usa essa credencial para fornecer autenticação para qualquer atividade que vier depois dela. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) está disponível, já que **Get-AutomationPSCredential** está esperando um único objeto.
 
 ![Adicionar a credencial à tela](media/automation-credentials/get-credential.png)
 
 ## Usando uma credencial do PowerShell na DSC
 Embora as Configurações DSC na Automação do Azure possam fazer referência aos ativos de credencial usando **Get-AutomationPSCredential**, os ativos de credencial também podem ser transmitidos por meio de parâmetros, se desejado. Para obter mais informações, veja [Compilando configurações na DSC de Automação do Azure](automation-dsc-compile.md#credential-assets).
 
-## Artigos relacionados
+## Próximas etapas
 
-- [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- Para saber mais sobre links na criação gráfica, veja [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- Para entender os diferentes métodos de autenticação com Automação, consulte [Segurança da Automação do Azure](automation-security-overview.md)
+- Para começar a usar os runbooks Gráficos, confira [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
+- Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

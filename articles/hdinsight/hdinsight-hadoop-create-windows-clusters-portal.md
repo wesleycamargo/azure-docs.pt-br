@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/21/2016"
+   ms.date="06/10/2016"
    ms.author="jgao"/>
 
 # Crie clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
@@ -70,8 +70,8 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
   * **Configuração Opcional**: para selecionar a versão do cluster, bem como definir outras configurações opcionais, como adicionar uma **Rede Virtual**, definir um **Metastore Externo** para armazenar dados do Hive e do Oozie, use as Ações de Script para personalizar um cluster para instalar componentes personalizados ou use contas de armazenamento adicionais com o cluster.
 
-  		* **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-  		* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
+  		* **Versão do HDInsight**: selecione a versão que deseja usar para o cluster. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).
+  		* **Rede virtual**: selecione uma rede virtual do Azure e a sub-rede, se você deseja colocar o cluster em uma rede virtual.  
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
@@ -142,4 +142,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md) - aprenda como enviar trabalhos ao HDInsight de forma programática
 * [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

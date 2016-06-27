@@ -17,9 +17,9 @@ ms.author="cristyg"/>
 
 # Configurar recursos de armazenamento local
 
-Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução. Você pode armazenar informações em sua instância de máquina virtual para que o código em execução na instância possa acessar o recurso de armazenamento local ao precisar gravar ou ler um arquivo. Por exemplo, um recurso de armazenamento local pode ser usado para armazenar em cache os dados que talvez precisem ser acessados novamente enquanto o serviço está em execução no Azure. Você também pode configurar o recurso de armazenamento local para armazenar arquivos durante a inicialização. Para obter mais informações sobre como configurar recursos de armazenamento local para inicialização, consulte [Use Local Storage to Store Files During Startup (Usar armazenamento local para armazenar arquivos durante inicialização)](https://msdn.microsoft.com/library/azure/hh974419.aspx)
+Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução. Você pode armazenar informações em sua instância de máquina virtual para que o código em execução na instância possa acessar o recurso de armazenamento local ao precisar gravar ou ler um arquivo. Por exemplo, um recurso de armazenamento local pode ser usado para armazenar em cache os dados que talvez precisem ser acessados novamente enquanto o serviço está em execução no Azure. Você também pode configurar o recurso de armazenamento local para armazenar arquivos durante a inicialização. Para obter mais informações sobre como configurar recursos de armazenamento local para inicialização, consulte [Use Local Storage to Store Files During Startup (Usar armazenamento local para armazenar arquivos durante inicialização)](cloud-services-startup-tasks-common.md#create-files-in-local-storage-from-a-startup-task)
 
-Um recurso de armazenamento local é declarado no arquivo de definição de serviço. Você pode declarar qualquer número de recursos de armazenamento local para uma função. Cada recurso de armazenamento local é reservado para cada instância dessa função. A quantidade mínima de espaço em disco que você pode alocar para um recurso de armazenamento local é 1 MB. A quantidade máxima que você pode alocar para qualquer recurso local determinado depende do tamanho da máquina virtual especificada para a função. O tamanho de cada máquina virtual tem uma alocação de armazenamento total correspondente. Além disso, o espaço total alocado para todos os recursos de armazenamento local declarados para uma função não pode exceder o tamanho máximo alocado para o tamanho da máquina virtual. Para obter mais informações sobre a quantidade máxima de espaço em disco alocado para cada tamanho de máquina virtual, consulte [Configurar tamanhos para serviços de nuvem](https://msdn.microsoft.com/library/azure/ee814754.aspx).
+Um recurso de armazenamento local é declarado no arquivo de definição de serviço. Você pode declarar qualquer número de recursos de armazenamento local para uma função. Cada recurso de armazenamento local é reservado para cada instância dessa função. A quantidade mínima de espaço em disco que você pode alocar para um recurso de armazenamento local é 1 MB. A quantidade máxima que você pode alocar para qualquer recurso local determinado depende do tamanho da máquina virtual especificada para a função. O tamanho de cada máquina virtual tem uma alocação de armazenamento total correspondente. Além disso, o espaço total alocado para todos os recursos de armazenamento local declarados para uma função não pode exceder o tamanho máximo alocado para o tamanho da máquina virtual. Para obter mais informações sobre a quantidade máxima de espaço em disco alocada para cada tamanho de máquina virtual, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
 
 > [AZURE.NOTE]
 >
@@ -56,7 +56,7 @@ O arquivo de definição de serviço a seguir mostra dois recursos de armazename
 
 Para obter mais informações sobre o arquivo de definição de serviço, consulte [Esquema de definição de serviço do Azure (arquivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE] Se estiver usando as Ferramentas do Azure para Microsoft Visual Studio, você poderá definir um recurso de armazenamento local nas páginas **Propriedades** da função. Para obter mais informações, consulte [Configuring the Azure Application with Visual Studio (Configurando o aplicativo do Azure com o Visual Studio)](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Se estiver usando as Ferramentas do Azure para Microsoft Visual Studio, você poderá definir um recurso de armazenamento local nas páginas **Propriedades** da função.
 
 ## Acessando um recurso de armazenamento local de forma programática
 
@@ -102,6 +102,6 @@ O código em execução em uma instância de função pode acessar um recurso de
 
 ## Próximas etapas
 
-- [Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
+- [Configurar um serviço de nuvem para o Azure](cloud-services-model-and-package.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

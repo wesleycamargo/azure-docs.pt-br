@@ -22,6 +22,7 @@ O Docker é uma plataforma popular de geração de imagens e gerenciamento de co
 
 - Para fazer rapidamente um protótipo de um aplicativo ou se você já conhece e usa o Docker Machine, você pode [usar o driver do Azure do Docker Machine](./virtual-machines-linux-docker-machine.md) para implantar hosts do Docker no Azure.
 - Para uma implantação baseada em modelo, a extensão de VM do Docker para máquinas virtuais do Azure pode ser usada. Essa abordagem pode se integrar a implantações de modelo do Azure Resource Manager e inclui todos os benefícios relacionados, como acesso baseado em função, diagnóstico e configuração após a implantação.
+- A extensão de VM do Docker também oferece suporte ao Docker Compose, que usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente.  
 - Você também pode [implantar um cluster completo do Docker Swarm nos Serviços de Contêiner do Azure](../container-service/container-service-deployment.md) para implantações escalonáveis prontas para produção que aproveitam as ferramentas de gerenciamento e agendamento adicionais fornecidas pelo Swarm.
 
 Este artigo se concentra no uso de modelos do Resource Manager para implantar a Extensão de VM do Docker em um ambiente personalizado e pronto para produção definido por você.
@@ -135,6 +136,7 @@ Leia etapas mais detalhadas para as diferentes opções de implantação:
 
 1. [Usar o computador Docker com o driver do Azure](./virtual-machines-linux-docker-machine.md)  
 2. [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implantar um cluster do Serviço de Contêiner do Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

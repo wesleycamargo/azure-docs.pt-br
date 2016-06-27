@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/08/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -65,20 +65,18 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Servidor do Banco de Dados SQL - O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
 - Máquinas Virtuais
 - Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
-
-## Serviços dão suporte parcial à movimentação
-
-Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
-
 - Redes Virtuais
 
 ## Serviços não dão suporte à movimentação
 
 Os serviços que atualmente não dão suporte à transferência de um recurso são:
 
+- Application Gateway
 - Application Insights
 - Rota Expressa
+- Conjuntos de Escala de Máquinas Virtuais
 - Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
+- Gateway de VPN
 
 ## Limitações do Serviço de Aplicativo
 
@@ -136,7 +134,7 @@ Ao mover recursos para uma **nova assinatura**, as seguintes restrições se apl
 
 Você pode mover alguns recursos por meio do portal; no entanto, nem todos os provedores de recursos que dão suporte à operação de movimentação fornecem essa funcionalidade no portal.
 
-Para mover um recurso, selecione o recurso e, em seguida, selecione o botão **Mover**.
+Para mover um recurso, selecione o recurso e selecione o botão **Mover**.
 
 ![mover recursos](./media/resource-group-move-resources/move-resources.png)
 
@@ -274,4 +272,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Como usar marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

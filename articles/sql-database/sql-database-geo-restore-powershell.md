@@ -19,12 +19,12 @@
 # Restaurar um Banco de Dados SQL do Azure de um backup com redundância geográfica usando o PowerShell
 
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-restore.md)
 - [Portal do Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-Este artigo mostra como restaurar seu banco de dados para um novo servidor usando a restauração geográfica com o PowerShell.
 
-A [Restauração Geográfica](sql-database-geo-restore.md) possibilita restaurar um banco de dados por meio de um backup com redundância geográfica para criar um novo banco de dados. O banco de dados pode ser criado em qualquer servidor em qualquer região do Azure. Como usa um backup com redundância geográfica como sua fonte, ele pode ser usado para recuperar um banco de dados mesmo que este esteja inacessível devido a uma interrupção. A restauração geográfica está habilitada automaticamente para todas as camadas de serviço sem custo extra.
+Este artigo mostra como restaurar seu banco de dados para um novo servidor usando a restauração geográfica com o PowerShell.
 
 [AZURE.INCLUDE [Iniciar sua sessão do PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -60,4 +60,4 @@ A [Restauração Geográfica](sql-database-geo-restore.md) possibilita restaurar
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

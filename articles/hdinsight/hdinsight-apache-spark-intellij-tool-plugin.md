@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -82,13 +82,17 @@ Você também pode acompanhar um video [aqui](https://mix.office.com/watch/1nqkq
 
 	Você também pode criar seu próprio artefato clicando no ícone **+**, realçado na imagem acima.
 
-4. Adicione o código-fonte do aplicativo.
+4. Na caixa de diálogo **Estrutura do Projeto**, clique em **Projeto**. Se o **SDK do Projeto** for definido como 1.8, defina **Nível de linguagem do projeto** como **7 - Diamonds, ARM, multi-catch etc**.
 
-	1. No **Explorador de Projeto**, clique com o botão direito do mouse em **src**, aponte para **Novo** e clique em **Scala class** (Classe do Scala).
+	![Definir o nível de linguagem do projeto](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
+
+5. Adicione o código-fonte do aplicativo.
+
+	1. No **Gerenciador de Projetos**, clique com o botão direito do mouse em **src**, aponte para **Novo** e clique em **Classe do Scala**.
 
 		![Adicionar código-fonte](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-	2. Na caixa de diálogo **Create New Scala Class** (Criar Nova Classe do Scala), forneça um nome, para **Tipo** escolha **Objeto** e clique em **OK**.
+	2. Na caixa de diálogo **Criar Nova Classe do Scala**, forneça um nome, para **Tipo** escolha **Objeto** e clique em **OK**.
 
 		![Adicionar código-fonte](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -162,19 +166,19 @@ Você pode executar várias operações usando o plug-in do HDInsight.
 
 ### Acesse a exibição do trabalho no plug-in
 
-1. No **HDInsight Explorer** (Explorer do HDInsight), expanda o nome do cluster Spark e clique em **Trabalhos**.
+1. No **HDInsight Explorer**, expanda o nome do cluster Spark e clique em **Trabalhos**.
 
-2. No painel direito, a guia **Spark Job View** (Exibição do Trabalho do Spark) exibe todos os aplicativos que foram executados no cluster. Clique no nome do aplicativo para o qual você deseja ver mais detalhes.
+2. No painel direito, a guia **Exibição de Trabalho do Spark** exibe todos os aplicativos que foram executados no cluster. Clique no nome do aplicativo para o qual você deseja ver mais detalhes.
 
 	![Acessar a exibição de trabalhos](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
-3. As caixas de **Mensagem de Erro**, **Saída do Trabalho**, **Livy Job Logs** (Logs de Trabalho do Livy) e **Spark Driver Logs** (Logs do Driver do Spark) são populados com base no aplicativo selecionado.
+3. As caixas de **Mensagem de Erro**, **Saída do Trabalho**, **Logs de Trabalho do Livy** e **Logs do Driver do Spark** são preenchidas com base no aplicativo selecionado.
 
-4. Você também pode abrir a **Spark History UI** (Interface do Usuário de Histórico do Spark) e a **YARN UI** (Interface do Usuário do YARN) (no nível do aplicativo) clicando nos respectivos botões na parte superior da tela.
+4. Você também pode abrir a **Interface do Usuário de Histórico do Spark** e a **Interface do Usuário do YARN** (no nível do aplicativo) clicando nos respectivos botões na parte superior da tela.
 
 ### Acessar o Servidor de Histórico do Spark
 
-1. No **HDInsight Explorer** (Explorer do HDInsight), clique com o botão direito do mouse no nome do cluster Spark e escolha **Open Spark History UI** (Abrir a Interface do Usuário de Histórico do Spark). Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
+1. No **HDInsight Explorer**, clique com o botão direito do mouse no nome do cluster Spark e escolha **Abrir a Interface do Usuário de Histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
 
 2. No painel do Servidor de Histórico do Spark, procure o aplicativo que você acabou de executar usando o nome do aplicativo. No código acima, defina o nome do aplicativo usando `val conf = new SparkConf().setAppName("MyClusterApp")`. Portanto, o nome do aplicativo Spark era **MyClusterApp**.
 
@@ -193,7 +197,7 @@ Você pode usar o plug-in Ferramentas do HDInsight para IntelliJ IDEA para execu
 
 ### Pré-requisito
 
-Durante a execução do aplicativo Spark Scala local em um computador Windows, você pode receber uma exceção, conforme explicado em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), que ocorre devido à ausência do WinUtils.exe no Windows. Para solucionar esse erro, você deve [baixar aqui o executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em uma localização como **C:\\WinUtils\\bin**. Em seguida, adicione uma variável de ambiente **HADOOP\_HOME** e defina o valor da variável como **C\\WinUtils**.
+Durante a execução do aplicativo Spark Scala local em um computador Windows, você pode receber uma exceção, conforme explicado em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), que ocorre devido à ausência do WinUtils.exe no Windows. Para solucionar esse erro, você deve [baixar aqui o executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\\WinUtils\\bin**. Em seguida, adicione uma variável de ambiente **HADOOP\_HOME** e defina o valor da variável como **C\\WinUtils**.
 
 ### Executar um aplicativo Scala Spark local	 
 
@@ -209,11 +213,11 @@ Durante a execução do aplicativo Spark Scala local em um computador Windows, v
 
 	* Forneça um nome de projeto e o local do projeto.
 	* Para **SDK do Projeto**, forneça uma versão de Java superior a 7.
-	* Para **Scala SDK** (SDK do Scala), clique em **Criar**, clique em **Baixar** e selecione a versão do Scala a ser usada. **Não use a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
+	* Para **SDK do Scala**, clique em **Criar**, clique em **Baixar** e selecione a versão do Scala a ser usada. **Não use a versão 2.11.x**. Este exemplo usa a versão **2.10.6**.
 
 		![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* Para o **SDK do Spark**, baixe e use o SDK [daqui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Você também pode ignorar isso e usar o [Repositório do Spark Maven](http://mvnrepository.com/search?q=spark) em vez disso, no entanto, certifique-se de ter o repositório maven correto instalado para desenvolver aplicativos Spark. (Por exemplo, você precisará certificar-se de que a parte do Streaming Spark está instalada se estiver usando o Streaming Spark. Além disso, verifique se você está utilizando o repositório marcado como Scala 2.10 - não use o repositório marcado como Scala 2.11.)
+	* Para o **SDK do Spark**, baixe e use o SDK [aqui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Você também pode ignorar isso e usar o [Repositório do Spark Maven](http://mvnrepository.com/search?q=spark) em vez disso, no entanto, certifique-se de ter o repositório maven correto instalado para desenvolver aplicativos Spark. (Por exemplo, você precisará certificar-se de que a parte do Streaming Spark está instalada se estiver usando o Streaming Spark. Além disso, verifique se você está utilizando o repositório marcado como Scala 2.10 - não use o repositório marcado como Scala 2.11.)
 
 		![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
 
@@ -223,7 +227,7 @@ Durante a execução do aplicativo Spark Scala local em um computador Windows, v
 
 	![Aplicativo Scala local](./media/hdinsight-apache-spark-intellij-tool-plugin/local-app.png)
 
-4.  Clique com o botão direito do mouse no aplicativo **LogQuery** e clique em **"Run 'LogQuery'"** (“Executar ‘LogQuery’”). Você verá uma saída como esta na guia **Executar** na parte inferior.
+4.  Clique com o botão direito do mouse no aplicativo **LogQuery** e clique em **"Run 'LogQuery'"** ("Executar 'LogQuery'"). Você verá uma saída como esta na guia **Executar** na parte inferior.
 
 	![Resultado da execução local do Aplicativo Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
@@ -317,4 +321,4 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

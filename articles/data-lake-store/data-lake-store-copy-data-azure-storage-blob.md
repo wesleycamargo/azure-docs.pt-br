@@ -110,7 +110,7 @@ Por exemplo:
 
 ## Considerações para o uso do AdlCopy
 
-* O AdlCopy não dá suporte a cópia de dados de fontes que têm mais de 1000 arquivos e pastas, coletivamente. Uma abordagem alternativa seria distribuir os arquivos/pastas em subpastas diferentes e usar o caminho para as subpastas como a origem em vez disso.
+* AdlCopy (para a versão 1.0.4), oferece suporte à cópia de dados de fontes que, juntas, têm mais de milhares de arquivos e pastas. No entanto, se você encontrar problemas ao copiar um conjunto de dados grande, poderá distribuir os arquivos/pastas em subpastas diferentes e usar o caminho para as subpastas como a origem em vez disso.
 
 ## Próximas etapas
 
@@ -118,4 +118,4 @@ Por exemplo:
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 
 # Implantar vários executáveis de convidado
@@ -66,6 +66,8 @@ Veja a seguir uma descrição dos parâmetros que estão sendo usados:
 - **/exe**: define o arquivo executável que o Service Fabric deve iniciar, neste caso `node.exe`.
 - **/ma**: define o argumento usado para iniciar o arquivo executável. Como o Node.js não está instalado, o Service Fabric precisa iniciar o servidor Web do Node.js executando `node.exe bin/www`. `/ma:'bin/www'` informa à ferramenta de empacotamento para usar `bin/ma` como o argumento para node.exe.
 - **/AppType**: define o nome do tipo de aplicativo do Service Fabric.
+
+>[AZURE.NOTE] Você também pode usar o Visual Studio para gerar o pacote do aplicativo como parte de um projeto de aplicativo. Se você optar por vincular a origem no projeto do Visual Studio, criando a solução do Visual Studio, garantirá que seu pacote de aplicativo será atualizado com as alterações na fonte.
 
 Se você navegar até o diretório especificado no parâmetro /target, será possível ver que a ferramenta criou um pacote totalmente funcional do Service Fabric, como mostrado abaixo:
 
@@ -135,6 +137,8 @@ No PowerShell ou no shell de comando, executamos a ferramenta de empacotamento c
 
 Para adicionar o MongoDB ao seu pacote de aplicativos do Service Fabric é necessário garantir que o parâmetro /target aponte para o mesmo diretório que já contém o manifesto do aplicativo com o aplicativo Node.js. Também é preciso garantir que você esteja usando o mesmo nome de ApplicationType.
 
+>[AZURE.NOTE] Você também pode usar o Visual Studio para gerar o pacote do aplicativo como parte de um projeto de aplicativo. Se você optar por vincular a origem no projeto do Visual Studio, criando a solução do Visual Studio, garantirá que seu pacote de aplicativo será atualizado com as alterações na fonte.
+
 Vamos navegar até o diretório e examinar o que a ferramenta criou.
 
 ```
@@ -190,6 +194,8 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
+>[AZURE.NOTE] Usando o Visual Studio, você pode publicar o aplicativo localmente, ao depurar (F5) ou usar o assistente de publicação.
+
 Depois que o aplicativo for publicado com êxito no cluster local, você poderá acessar o aplicativo Node.js na porta inserida no manifesto do serviço do aplicativo Node.js, por exemplo http://localhost:3000.
 
 Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes como um único aplicativo do Service Fabric. Você também aprendeu como implantá-lo no Service Fabric para que ele possa beneficiar dos recursos do Service Fabric, como alta disponibilidade e integração do sistema de integridade.
@@ -198,4 +204,4 @@ Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes 
 
 - Saiba como [empacotar um aplicativo convidado manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

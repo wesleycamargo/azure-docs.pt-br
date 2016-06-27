@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Visualização de acesso condicional do Azure para aplicativos SaaS
 
-O Acesso Condicional do Azure para aplicativos SaaS está disponível para visualização pública. A visualização permite que você configure as regras de acesso de autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável.
+O Acesso Condicional do Azure para aplicativos SaaS está disponível para visualização pública. A visualização permite que você configure as regras de acesso de MFA (autenticação multifator) por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável.
 
 Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização. Esses recursos estarão disponíveis para os clientes que compraram uma licença Azure Active Directory Premium.
 
 ## Pré-requisitos do cenário
-* Assinatura no Active Directory Premium do Azure
+* Licença do Azure Active Directory Premium
 
 * Um locatário do Active Directory do Azure federado ou gerenciado
 
-* Inquilinos federados exigem que MFA (Multi-Factor Authentication) esteja habilitada.
+* Locatários federados exigem que a autenticação multifator esteja habilitada.
 
 ## Problemas conhecidos nesta versão de Visualização
-Essa visualização se aplica a aplicativos SaaS federados pré-integrados, aplicativos que usam o logon único de senha, aplicativos de linha de negócios, aplicativos desenvolvidos e registrados, e o Proxy de Aplicativo do AD do Azure. Alguns aplicativos adicionais ainda estão sendo habilitados.
+Essa visualização se aplica a aplicativos SaaS federados pré-integrados, aplicativos que usam o logon único de senha, aplicativos de linha de negócios, aplicativos desenvolvidos e registrados, e o Proxy de Aplicativo do Azure AD. Alguns aplicativos adicionais ainda estão sendo habilitados.
 
-##Configurar regras de acesso por aplicativo
+## Configurar regras de acesso por aplicativo
 
 Esta seção descreve como configurar as regras de acesso por aplicativo.
 
-1. Faça logon no Portal do Microsoft Azure como um Administrador.
+1. Entre no portal clássico do Azure usando uma conta que seja um administrador global no Azure AD.
 2. No painel esquerdo, selecione **Active Directory**.
 3. Na guia Diretório, selecione o diretório.
 4. Selecione a guia **Aplicativos**.
@@ -58,19 +58,19 @@ Os grupos de segurança também podem ser excluídos explicitamente da política
 
 ![Configurando regras de acesso condicional com MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
-##Regras de acesso condicional com MFA
-Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário, essa configuração terá precedência sobre as regras de autenticação multifator do aplicativo. Isso significa que, para um usuário que foi configurado por uma autenticação multifator por usuário, será necessário executar a autenticação multifator, mesmo que eles tenham sido isentos das regras de autenticação multifator do aplicativo. Saiba mais sobre autenticação multifator e configurações por usuário.
+## Regras de acesso condicional com MFA
+Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário, essa configuração no usuário será combinada com as regras de autenticação multifator do aplicativo. Isso significa que, para um usuário que foi configurado por uma autenticação multifator por usuário, será necessário executar a autenticação multifator, mesmo que eles tenham sido isentos das regras de autenticação multifator do aplicativo. Saiba mais sobre autenticação multifator e configurações por usuário.
 
-###Opções de regra de acesso
+### Opções de regra de acesso
 A visualização atual dá suporte às seguintes opções:
 
-* **Exigir Multi-Factor Authentication**: com essa opção, os usuários aos quais as regras de acesso se aplicam precisarão concluir a autenticação multifator antes de acessar o aplicativo ao qual a política se aplica.
+* **Exigir autenticação multifator**: com essa opção, os usuários aos quais as regras de acesso se aplicam precisarão concluir a autenticação multifator antes de acessar o aplicativo ao qual a política se aplica.
 
-* **Exigir Multi-Factor Authentication quando não estiver no trabalho**: com essa opção, um usuário proveniente de um IP confiável não precisará realizar a autenticação multifator. Os intervalos IP confiáveis podem ser configurados na página de configurações de autenticação multifator
+* **Exigir autenticação multifator quando não estiver no trabalho**: com essa opção, um usuário proveniente de um endereço IP confiável não precisará realizar a autenticação multifator. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de autenticação multifator ou ao usar a configuração de intervalos de endereços IP públicos na guia Configurar do diretório.
 
-* **Bloquear o acesso quando não estiver no trabalho**: com essa opção, um usuário que não vêm de um IP confiável será bloqueado. Os intervalos IP confiáveis podem ser configurados na página de configurações de autenticação multifator.
+* **Bloquear o acesso quando não estiver no trabalho**: com essa opção, um usuário que não vem de um endereço IP confiável será bloqueado. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de multi-factor authentication.
 
-###Status da regra de configuração
+### Status da regra de configuração
 O status da regra de acesso permite ativar ou desativar as regras. Quando as regras de acesso estão desativadas, o requisito de autenticação multifator não será imposto.
 
 ### Avaliação da regra de acesso
@@ -87,9 +87,9 @@ O exemplo a seguir mostra como habilitar a MFA local usando o [cmdlet Set-MsolDo
 
 Além de definir esse sinalizador, a instância do AD FS do locatário federado deve ser configurada para realizar a autenticação multifator. Siga as instruções para implantar a Azure Multi-Factor Authentication local.
 
-##Artigos relacionados
+## Artigos relacionados
 
 - [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

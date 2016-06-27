@@ -1,17 +1,19 @@
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
 
-## Incremental and complete deployments
+## Implantações incrementais e completas
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+Por padrão, o Gerenciador de Recursos trata as implantações como atualizações incrementais para o grupo de recursos. Com a implantação incremental, o Gerenciador de Recursos:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **deixa inalterados** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
 
-With complete deployment, Resource Manager:
+Com a implantação completa, o Gerenciador de Recursos:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **exclui** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
  
-You specify the type of deployment through the **Mode** property.
+Especifique o tipo de implantação por meio da propriedade **Mode**.
+
+<!---HONumber=AcomDC_0615_2016-->

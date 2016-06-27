@@ -112,9 +112,9 @@ Execute as seguintes etapas no cliente para habilitar o gerenciamento remoto.
 
 7. Inicie uma sessão do Windows PowerShell no dispositivo digitando o seguinte comando:
 
-     `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
+     `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] Para criar uma sessão do Windows PowerShell para ser usada com o dispositivo virtual StorSimple, acrescente o parâmetro `–port` e especifique a porta pública que você configurou na comunicação remota do dispositivo virtual StorSimple.
+     >[AZURE.NOTE] Para criar uma sessão do Windows PowerShell para ser usada com o dispositivo virtual StorSimple, acrescente o parâmetro `–Port` e especifique a porta pública que você configurou na comunicação remota do dispositivo virtual StorSimple.
 
      Neste momento, uma sessão do Windows PowerShell remota já deve estar ativa para o dispositivo.
 
@@ -250,15 +250,15 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 
 3. Crie uma nova credencial, digitando:
 
-     `$cred = new-object pscredential @("<IP of target device>\SSAdmin", (convertto-securestring -force -asplaintext "<Device Administrator Password>"))`
+     `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
     Onde <*IP do dispositivo de destino*> é o endereço IP de DATA 0 do seu dispositivo; por exemplo, **10.126.173.90** conforme mostrado na imagem anterior do arquivo hosts. Além disso, forneça a senha de administrador do seu dispositivo.
 
 4. Crie uma sessão, digitando:
 
-     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
+     `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    Para o nome CN no cmdlet, forneça o <*número de série do dispositivo de destino*>. Esse número de série foi mapeado para o endereço IP de DATA 0 no arquivo de hosts em seu host remoto; por exemplo, **SHX0991003G44MT**, como mostrado na imagem a seguir.
+    Para o parâmetro -ComputerName no cmdlet, forneça o <*número de série do dispositivo de destino*>. Esse número de série foi mapeado para o endereço IP de DATA 0 no arquivo de hosts em seu host remoto; por exemplo, **SHX0991003G44MT**, como mostrado na imagem a seguir.
 
 5. Tipo:
 
@@ -274,4 +274,4 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 
 - Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

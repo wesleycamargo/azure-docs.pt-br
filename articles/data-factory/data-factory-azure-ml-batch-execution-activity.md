@@ -86,9 +86,9 @@ Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsõe
 	        "linkedServiceName": "MyAzureMLLinkedService",
             "typeProperties":
             {
-                "webServiceInput": "DecisionTreeInputBlob ",
+                "webServiceInput": "DecisionTreeInputBlob",
                 "webServiceOutputs": {
-                    "output1": "DecisionTreeResultBlob "
+                    "output1": "DecisionTreeResultBlob"
                 }                
             },
 	        "policy": {
@@ -242,9 +242,9 @@ Recomendamos que você estude o tutorial [Compile seu primeiro pipeline com o Da
 		        "linkedServiceName": "MyAzureMLLinkedService",
                 "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob ",
+                    "webServiceInput": "DecisionTreeInputBlob",
                     "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob "
+                        "output1": "DecisionTreeResultBlob"
                     }                
                 },
 		        "policy": {
@@ -772,4 +772,4 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

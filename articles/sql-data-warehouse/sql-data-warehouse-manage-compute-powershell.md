@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (PowerShell)
@@ -41,7 +41,7 @@ Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação]
 
 ### Instale a versão mais recente do Azure PowerShell
 
-> [AZURE.NOTE]  Para usar o Azure PowerShell com o SQL Data Warehouse, você precisa instalar a versão 1.0.3 ou superior do Azure PowerShell. Para verificar a versão atual, execute o comando **Get-Module -ListAvailable -Name Azure**. Você pode instalar a versão mais recente do [Microsoft Web Platform Installer][]. Para saber mais, confira [Como instalar e configurar o Azure PowerShell][].
+> [AZURE.NOTE]  Para usar o Azure PowerShell com o SQL Data Warehouse, você precisa instalar a versão 1.0.3 ou superior do Azure PowerShell. Para verificar a versão atual, execute o comando **Get-Module -ListAvailable -Name Azure**. Você pode instalar a versão mais recente do [Microsoft Web Platform Installer][]. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell][].
 
 ### Introdução aos cmdlets do Azure PowerShell
 
@@ -124,16 +124,15 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-
+[Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

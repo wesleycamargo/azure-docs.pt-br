@@ -51,4 +51,8 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Bancos de Dados SQL com PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
 
-<!---HONumber=AcomDC_0504_2016-->
+## Recursos adicionais
+
+Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

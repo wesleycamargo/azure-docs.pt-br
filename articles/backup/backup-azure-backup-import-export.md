@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="01/28/2016"
-   ms.author="jimpark;nkolli;trinadhk"/>
+   ms.date="06/14/2016"
+   ms.author="jimpark;nkolli;trinadhk;saurse"/>
 
 # Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure dispõe de muitas eficiências internas para poupar custos de armazenamento e rede. O Backup do Azure não apenas compacta os dados, mas também faz o backup de todo o conteúdo apenas uma vez, e de deltas/incrementais depois disso. Portanto, se houver um volume de arquivo de 10 TB do qual está sendo feito o backup, o Backup do Azure enviará 10 TB como parte da RI (Replicação Inicial) e apenas deltas como parte da Replicação Delta. Assim, a largura de banda de WAN máxima necessária durante a RI. Para reduzir a dependência de WAN na RI, o Backup do Azure dá suporte ao backup offline usando o Serviço de Importação/Exportação do Azure.
@@ -29,7 +29,7 @@ Com o Backup do Azure e a Importação/Exportação do Azure, é simples e fáci
 1. É importante familiarizar-se com o fluxo de trabalho de exportação da Importação do Azure listado [aqui](../storage/storage-import-export-service.md).
 2. Antes de iniciar o fluxo de trabalho, certifique-se de que foi criado um cofre de backup do Azure, as credenciais do cofre foram baixadas, o agente do Backup do Azure foi instalado no seu Windows Server/cliente Windows/System Center Data Protection Manager (SCDPM) e de que o computador está registrado no cofre do Backup do Azure.
 3. Baixe as configurações do arquivo de publicação do Azure [aqui](https://manage.windowsazure.com/publishsettings) no computador por meio do qual você planeja fazer backup dos nossos dados.
-4. Prepare um *local de preparo*, que pode ser um compartilhamento de rede ou um disco adicional no computador. Certifique-se de que o local de preparo tenha espaço em disco suficiente para armazenar sua cópia inicial. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB (embora uma quantidade menor seja usada). A área de preparo é um “armazenamento provisório” e é usada temporariamente durante esse fluxo de trabalho.
+4. Prepare um *local de preparo*, que pode ser um compartilhamento de rede ou um disco adicional no computador. Certifique-se de que o local de preparo tenha espaço em disco suficiente para armazenar sua cópia inicial. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB (embora uma quantidade menor seja usada). A área de preparo é um “armazenamento provisório” e é usada temporariamente durante esse fluxo de trabalho.
 5. Gravador de unidade SATA externa e uma unidade SATA externa de 3,5 polegadas. Somente discos rígidos SATA II de 3,5 polegadas dão suporte ao uso com o serviço Importar/Exportar. Não há suporte para discos rígidos com mais de 8 TB. Você pode anexar um disco SATA II/III externamente a maioria dos computadores usando um adaptador USB para SATA II/III. Consulte a documentação da Importação/Exportação do Azure para saber o conjunto mais recente de unidades aceitas pelo serviço.
 6. Habilite o BitLocker no computador ao qual o gravador de unidade SATA está conectado.
 7. Baixe a ferramenta de Importação/Exportação do Azure [aqui](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) no computador ao qual o gravador de unidade SATA está conectado.
@@ -119,4 +119,4 @@ Quando os dados de backup iniciais estiverem disponíveis em sua conta de armaze
 - Se tiver dúvidas sobre o fluxo de trabalho de importação/exportação do Azure, consulte este [artigo](../storage/storage-import-export-service.md).
 - Consulte a seção “Backup Offline” das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->
