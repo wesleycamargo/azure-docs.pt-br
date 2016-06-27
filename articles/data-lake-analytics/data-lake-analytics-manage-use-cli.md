@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gerenciar a Análise Azure Data Lake usando a CLI (interface de linha de comando) do Azure
@@ -173,7 +173,7 @@ O catálogo do U-SQL é usado para estruturar dados e código para que eles poss
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-Os tipos incluem database, schema, assembly, externaldatasource, table, tablevaluedfunction ou tablestatistics.
+Os tipos incluem database, schema, assembly, external data source, table, table valued function ou table statistics.
 
 ###Criar segredo do catálogo
 
@@ -191,11 +191,11 @@ Os tipos incluem database, schema, assembly, externaldatasource, table, tableval
 <!-- ################################ -->
 ## Usar grupos ARM
 
-Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
-Um serviço da Análise do Data Lake pode incluir os seguintes componentes:
+Um serviço de Análise Data Lake pode incluir os seguintes componentes:
 
-- Conta da Análise Data Lake do Azure
+- Conta da Análise Azure Data Lake
 - Conta padrão do Armazenamento do Azure Data Lake obrigatória
 - Adicionar outras contas do Armazenamento do Azure Data Lake
 - Contas do Armazenamento do Azure adicionais
@@ -214,4 +214,4 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,32 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="carlrab"/>
 
 # Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o Transact-SQL
 
-
-
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-replication-overview.md)
 - [Portal do Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-Este artigo mostra como configurar a Replicação Geográfica para um Banco de Dados SQL do Azure usando o Transact-SQL.
+Este artigo mostra como configurar a Replicação Geográfica Ativa para um Banco de Dados SQL do Azure usando o Transact-SQL.
 
 Para iniciar o failover, consulte [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
 
-Você pode configurar até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
+Para configurar a replicação geográfica ativa usando Transact-SQL, você precisará do seguinte:
 
-
-Para configurar a Replicação Geográfica, você precisa do seguinte:
-
-- Uma assinatura do Azure - Se você não tiver uma assinatura do Azure, basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página, em seguida, voltar para concluir este artigo.
-- Um servidor do Banco de Dados SQL do Azure lógico <MyLocalServer> e um banco de dados SQL <MyDB> -O banco de dados primário que você deseja replicar em uma região geográfica diferente.
+- Uma assinatura do Azure.
+- Um servidor do Banco de Dados SQL do Azure lógico <MyLocalServer> e um banco de dados SQL <MyDB> -O banco de dados primário que você deseja replicar.
 - Um ou mais servidores lógicos do Banco de Dados SQL do Azure <MySecondaryServer(n)> - os servidores lógicos que serão os servidores parceiros nos quais você criará bancos de dados secundários.
 - Um logon que é o DBManager no primário, ter o db\_ownership do banco de dados local que você replicará geograficamente e ser o DBManager no servidor parceiro para o qual você vai configurar a Replicação Geográfica.
 - A versão mais recente do SQL Server Management Studio - Para obter a versão mais recente do SQL Server Management Studio (SSMS), vá para [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obter informações sobre como usar o SQL Server Management Studio para gerenciar os servidores lógicos e os bancos de dados do Banco de Dados SQL do Azure, confira [Gerenciamento do Banco de Dados SQL do Azure usando o SQL Server Management Studio](sql-database-manage-azure-ssms.md)
@@ -183,4 +178,4 @@ Use as etapas a seguir para monitorar uma parceria de Replicação Geográfica.
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

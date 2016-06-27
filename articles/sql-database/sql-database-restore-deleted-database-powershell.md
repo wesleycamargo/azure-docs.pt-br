@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,17 +19,10 @@
 
 # Restaurar um Banco de Dados SQL do Azure usando o PowerShell
 
-
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-restore-deleted-database.md)
 - [Portal do Azure](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-Este artigo mostra como restaurar um Banco de Dados SQL do Azure excluído.
-
-No caso de um banco de dados excluído, o Banco de Dados SQL do Azure permite restaurar o banco de dados excluído até o momento da exclusão. O Banco de Dados SQL do Azure armazena o backup do banco de dados excluído pelo período de retenção do banco de dados.
-
-O período de retenção de um banco de dados excluído é determinado pela camada de serviço do banco de dados enquanto ela existiu ou pelo número de dias em que o banco de dados existe, o que for menor. Para saber mais sobre a retenção de banco de dados, consulte a [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-
 
 [AZURE.INCLUDE [Iniciar sua sessão do PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -57,13 +50,17 @@ O período de retenção de um banco de dados excluído é determinado pela cama
 ## Próximas etapas
 
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
-
-
+- [Restaurar um banco de dados excluído](sql-database-restore-deleted-database.md)
+- [Restaurar um banco de dados excluído usando o Portal do Azure](sql-database-restore-deleted-database-portal.md)
+- [Restaurar um banco de dados excluído usando a API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
 
 ## Recursos adicionais
 
+- [Restauração pontual](sql-database-point-in-time-restore.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Restauração geográfica](sql-database-geo-restore.md)
+- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

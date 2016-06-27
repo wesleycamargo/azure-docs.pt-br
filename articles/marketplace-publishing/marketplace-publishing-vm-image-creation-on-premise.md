@@ -25,7 +25,7 @@ Para o desenvolvimento local, você deve baixar o VHD do sistema operacional da 
 ### Localize uma URL para Blobs
 Para baixar o VHD, primeiro localize a URL para Blobs do disco do sistema operacional.
 
-Localize a URL para Blobs do novo [Portal do Microsoft Azure](https://ms.portal.azure.com):
+Localize a URL para Blobs do novo [Portal do Microsoft Azure](https://portal.azure.com):
 
 1.	Vá para **Procurar** > **VMs** e selecione a VM implantada.
 2.	Em **Configurar**, selecione o bloco **Discos**, que abre a folha Discos.
@@ -43,8 +43,7 @@ Localize a URL para Blobs do novo [Portal do Microsoft Azure](https://ms.portal.
 
 ### Baixe um VHD
 Depois de conhecer a URL para Blobs, você pode baixar o VHD usando o [Portal do Azure](http://manage.windowsazure.com/) ou o PowerShell.
-
-> [AZURE.NOTE]No momento da criação deste guia, a funcionalidade para baixar um VHD ainda não estava presente no novo Portal do Microsoft Azure.
+> [AZURE.NOTE] No momento da criação deste guia, a funcionalidade para baixar um VHD ainda não estava presente no novo Portal do Microsoft Azure.
 
 **Baixar o VHD do sistema operacional pelo atual [Portal do Azure](http://manage.windowsazure.com/)**
 
@@ -139,4 +138,4 @@ Com a [ferramenta de linha de comando do Linux](../virtual-machines/command-line
 - [Criar uma imagem de máquina virtual para o Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

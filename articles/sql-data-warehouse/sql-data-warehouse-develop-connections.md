@@ -155,10 +155,10 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 <!--Azure.com references-->
 [conexão e consulta]: ./sql-data-warehouse-get-started-connect.md
 [design de tabelas]: ./sql-data-warehouse-develop-table-design.md
-[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
+[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

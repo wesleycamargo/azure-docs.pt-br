@@ -13,29 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o portal do Azure
 
 
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-replication-overview.md)
 - [Portal do Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-Este artigo mostra como configurar a Replicação Geográfica para o Banco de Dados SQL usando o [portal do Azure](http://portal.azure.com).
+Este artigo mostra como configurar a replicação geográfica ativa para o Banco de Dados SQL usando o [portal do Azure](http://portal.azure.com).
 
 Para iniciar o failover, consulte [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-portal.md).
 
 >[AZURE.NOTE] Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
 
-Você pode configurar até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
+Para configurar a replicação geográfica usando o portal do Azure, você precisará do seguinte:
 
-Para configurar a Replicação Geográfica, você precisa do seguinte:
-
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
+- Uma assinatura do Azure. 
 - Um Banco de Dados SQL do Azure - O banco de dados primário que você deseja replicar em uma região geográfica diferente.
 
 
@@ -135,4 +133,4 @@ A operação encerra permanentemente a replicação para o banco de dados secund
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

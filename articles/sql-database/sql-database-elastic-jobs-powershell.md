@@ -17,7 +17,7 @@
 # Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](sql-database-elastic-jobs-create-and-manage.md)
+- [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -238,21 +238,7 @@ Quando alterar as senhas, use o cmdlet [**Set-AzureSqlJobCredential**](https://m
 
 Para executar um trabalho em todos os bancos de dados em um conjunto de fragmentos (criado usando a [biblioteca do cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)) use um mapa de fragmentos como destino para o bancos de dados. Este exemplo requer que você crie um aplicativo fragmentado usando a biblioteca do cliente de Banco de Dados Elástico. Consulte [Introdução ao exemplo de ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
-###Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
-
-Este exemplo cria um gerenciador de mapas de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos.
-
-1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico**. Siga as etapas até a etapa 7 na seção [Baixe e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). No final da etapa 7, você verá o seguinte prompt de comando:
-
-	![prompt de comando][1]
-
-2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-  
-3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
-
-	![Confirmação do Visual Studio][2]
-
-Crie um destino para o mapa de fragmentos usando o cmdlet [**New-AzureSqlJobCredential**](https://msdn.microsoft.com/library/mt346063.aspx). O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico deve ser especificado como um destino.
+O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico deve ser especificado como um destino.
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -694,4 +680,4 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

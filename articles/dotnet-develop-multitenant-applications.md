@@ -38,7 +38,7 @@ Um aplicativo multilocatário implementado adequadamente oferece os seguintes be
 
 Em resumo, existem muitas considerações que você deve levar em conta para fornecer um serviço altamente escalonável, também há vários objetivos e requisitos que são comuns a muitos aplicativos multilocatários. Alguns podem não ser relevantes em cenários específicos, e a importância de requisitos e metas individuais será diferente em cada cenário. Como um provedor do aplicativo multilocatário, você também terá metas e requisitos, como atender as metas e requisitos dos locatários, lucratividade, cobrança, vários níveis de serviço, provisionamento, capacidade de manutenção, monitoramento e automação.
 
-Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][].
+Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][]. Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatários, confira [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 O Azure oferece muitos recursos que permitem resolver os principais problemas encontrados durante a criação de um sistema multilocatário.
 
@@ -95,4 +95,4 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 [Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
  description="Visão geral do gerenciamento de dispositivo Hub IoT do Azure: dispositivos gêmeos, consultas de dispositivo e trabalhos do dispositivo"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Visão geral do gerenciamento de dispositivos do Hub IoT do Azure (preview)
 
@@ -24,7 +24,7 @@ Há três principais conceitos de gerenciamento de dispositivo no IoT do Azure:
 
 1.  **Dispositivo gêmeo:** a representação do dispositivo físico no Hub IoT.
 
-2.  **Consultas de dispositivo**: permitem encontrar dispositivos gêmeos e gerar uma compreensão agregada deles. Por exemplo, você poderia encontrar todos os dispositivos gêmeos com uma versão de firmware 1.0.
+2.  **Consultas de dispositivo**: permitem encontrar dispositivos gêmeos e gerar uma compreensão agregada de vários dispositivos gêmeos. Por exemplo, você poderia executar uma consulta para encontrar todos os dispositivos gêmeos com uma versão de firmware 1.0.
 
 3.  **Trabalhos do dispositivo**: uma ação a ser executada em um ou mais dispositivos físicos, como atualização de firmware, reinicialização e redefinição de fábrica.
 
@@ -103,17 +103,9 @@ A biblioteca do cliente de DM terá duas responsabilidades principais no gerenci
 
 Você pode saber mais sobre essas responsabilidades e a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
-## Próximas etapas
+## Próxima etapa
 
-Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azure, é possível acompanhar os tutoriais:
-
-- [Introdução ao gerenciamento de dispositivo Hub IoT do Azure][lnk-get-started]
-
-- [Como usar o dispositivo gêmeo][lnk-tutorial-twin]
-
-- [Como encontrar dispositivos gêmeos usando consultas][lnk-tutorial-queries]
-
-- [Como usar trabalhos do dispositivo para atualizar o firmware do dispositivo][lnk-tutorial-jobs]
+Para continuar a aprender sobre os recursos de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Introdução ao gerenciamento de dispositivos do Hub IoT do Azure][lnk-get-started].
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

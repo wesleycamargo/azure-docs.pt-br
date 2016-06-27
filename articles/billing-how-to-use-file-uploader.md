@@ -19,9 +19,9 @@
 
 # Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure
 
-Quando você [criar uma nova solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support), o utilitário Carregamento de Arquivo poderá ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que você ache relevantes para o incidente.
+Quando você [criar uma nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário Upload de Arquivo poderá ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que considere relevantes para o incidente.
 
->[AZURE.NOTE]Para proteger sua privacidade, não inclua nenhuma informação pessoal em seu carregamento.
+>[AZURE.NOTE] Para proteger sua privacidade, não inclua nenhuma informação pessoal em seu carregamento.
 
 Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 
@@ -63,4 +63,4 @@ Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0615_2016-->

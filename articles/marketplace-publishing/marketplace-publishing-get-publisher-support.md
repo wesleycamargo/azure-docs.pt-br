@@ -23,7 +23,7 @@ A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Ga
 
 - Se você for um publicador no Azure Marketplace e ainda estiver desenvolvendo sua VM, você deve se comprometer com o Microsoft Onboarding ou equipes de computação.
 
-- Se você for um publicador no Marketplace e tiver dúvida sobre um cliente, informe ao seu cliente para solicitar suporte por meio de links de suporte em https://ms.portal.azure.com/.
+- Se você for um publicador no Marketplace e tiver dúvida sobre um cliente, informe ao seu cliente para solicitar suporte por meio de links de suporte em https://portal.azure.com/.
 
 - Se você for um editor no Marketplace e tiver perguntas relacionadas ao seu aplicativo ou serviço, continue lendo abaixo.
 
@@ -79,7 +79,9 @@ Descreva o problema como totalmente possível e forneça quaisquer arquivos (cap
 
 Depois que você tiver enviado seu problema, abordaremos o reconhecimento de recebimento dentro de 24 horas e atribuir o problema de uma prioridade e severidade. Nossa equipe dedicada de engenheiros de suporte ajudará com a resolução de acordo com os tempos de resposta do SLA.
 
-![Confirmação][6] Se você precisar falar conosco sobre seu problema, use o número de confirmação em todas as correspondências. Se você poderá ver o progresso em seu problema a qualquer momento.
+![Confirmação][6]
++ Se precisar falar conosco sobre seu problema, use o número de confirmação em todas as correspondências.
++ Você pode exibir o andamento da resolução do seu problema a qualquer momento.
 
 ## Próximas etapas
 
@@ -92,4 +94,4 @@ Para saber como solucionar problemas de suporte específico, visite, [Problemas 
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0615_2016-->

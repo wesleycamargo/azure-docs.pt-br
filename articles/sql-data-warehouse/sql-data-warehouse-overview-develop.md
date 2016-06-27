@@ -62,7 +62,6 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 [rótulos]: sql-data-warehouse-develop-label.md
 [looping]: sql-data-warehouse-develop-loops.md
 [dinamização de dados]: sql-data-warehouse-develop-pivot-unpivot.md
-[renomear objetos]: sql-data-warehouse-develop-rename.md
 [estatísticas]: sql-data-warehouse-develop-statistics.md
 [procedimentos armazenados]: sql-data-warehouse-develop-stored-procedures.md
 [design de tabela]: sql-data-warehouse-develop-table-design.md
@@ -76,7 +75,8 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 [Referência a Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[renomear objetos]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

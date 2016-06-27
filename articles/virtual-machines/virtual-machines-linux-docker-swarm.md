@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Introdução ao uso do docker com o swarm no Azure"
    description="Descreve como criar um grupo de VMs com a Extensão de VM Docker e usar o swarm para criar um cluster Docker."
@@ -25,7 +24,7 @@
 
 Este tópico mostra uma forma muito simples de usar o [docker](https://www.docker.com/) com o [swarm](https://github.com/docker/swarm) para criar um cluster gerenciado por swarm no Azure. Ele cria quatro máquinas virtuais no Azure, uma que atuará como o Gerenciador de Swarm e três atuando como parte do cluster dos hosts do docker. Quando tiver terminado, você pode usar o swarm para visualizar o cluster e começar a usar o docker nele. Além disso, as chamadas da CLI do Azure neste tópico usam o modo de gerenciamento do serviço (asm).
 
-> [AZURE.NOTE] Este tópico usa o docker com swarm e a CLI do Azure *sem* a **docker-machine** para mostrar como as diferentes ferramentas funcionam juntas, mas permanecem independentes. A **docker-machine** tem a opção **--swarm** que permite que você use a **docker-machine** para adicionar nós diretamente a um swarm. Para obter um exemplo, confira a documentação da [máquina docker](https://github.com/docker/machine). Caso você tenha perdido a execução da **máquina docker** nas VMs do Azure, confira [Como usar a máquina docker com o Azure](virtual-machines-linux-classic-docker-machine.md).
+> [AZURE.NOTE] Este tópico usa o docker com swarm e a CLI do Azure *sem* a **docker-machine** para mostrar como as diferentes ferramentas funcionam juntas, mas permanecem independentes. A **docker-machine** tem a opção **--swarm** que permite que você use a **docker-machine** para adicionar nós diretamente a um swarm. Para obter um exemplo, confira a documentação da [máquina docker](https://github.com/docker/machine). Caso você tenha perdido a execução da **máquina docker** nas VMs do Azure, confira [Como usar a máquina docker com o Azure](virtual-machines-linux-docker-machine.md).
 
 ## Criar hosts do docker com máquinas virtuais do Azure
 
@@ -135,7 +134,7 @@ Vá executar as coisas em seu swarm. Para procurar inspiração, confira [https:
 
 <!-- links -->
 
-[docker-machine-azure]: virtual-machines-linux-classic-docker-machine.md
+[docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

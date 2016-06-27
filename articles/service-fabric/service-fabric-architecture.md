@@ -23,7 +23,7 @@ O Service Fabric é criado com subsistemas em camadas. Esses subsistemas permite
 * Altamente disponível
 * Escalonável
 * Gerenciáveis
-* Testando
+* Testável
 
 A figura a seguir mostra os subsistemas principais do Service Fabric.
 
@@ -45,11 +45,11 @@ O subsistema de confiabilidade fornece o mecanismo para manter o estado de um se
 * O Gerenciador de Recursos coloca o domínio de falha entre réplicas de serviço no cluster e garante que todas as unidades de failover estejam operacionais. O Gerenciador de Recursos também faz o balanceamento de recursos de serviço no pool compartilhado subjacente de nós de cluster para atingir a distribuição de carga uniforme ideal.
 
 ## Subsistema de gerenciamento
-O subsistema de gerenciamento oferece serviços de ponta a ponta e gerenciamento de ciclo de vida do aplicativo. Cmdlets do PowerShell e APIs administrativas permitem provisionar, implantar, corrigir, atualizar e desprovisionar aplicativos sem perda de disponibilidade. O subsistema de gerenciamento faz isso por meio dos serviços a seguir.
+O subsistema de gerenciamento oferece serviços de ponta a ponta e gerenciamento de ciclo de vida do aplicativo. Os cmdlets do PowerShell e as APIs administrativas permitem provisionar, implantar, corrigir, atualizar e desprovisionar aplicativos sem perda de disponibilidade. O subsistema de gerenciamento faz isso por meio dos serviços a seguir.
 
-* Gerenciador de cluster - esse é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos nos nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
-* Gerenciador de integridade – este serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
-* Repositório de imagem – este serviço permite o armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
+* **Gerenciador de Cluster**: esse é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos nos nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
+* **Gerenciador de Integridade**: esse serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
+* **Repositório de Imagens**: esse serviço permite o armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
 
 
 ## Subsistema de hospedagem
@@ -61,4 +61,4 @@ Esse subsistema fornece um sistema de mensagens confiável dentro do cluster e d
 ## Subsistema de capacidade de teste
 Capacidade de teste é um conjunto de ferramentas desenvolvidas especificamente para testar serviços criados com base na malha de serviço. As ferramentas permitem que um desenvolvedor induza com facilidade falhas significativas e execute cenários de teste para praticar e validar os vários estados e transições pelos quais o serviço passa durante o ciclo de vida, tudo de uma maneira segura e controlada. A capacidade de teste também fornece um mecanismo para executar testes mais longos que podem iterar por várias possíveis falhas sem perder a disponibilidade. Isso fornece a você um ambiente de teste em produção.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

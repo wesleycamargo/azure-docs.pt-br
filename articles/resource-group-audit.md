@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
@@ -125,4 +125,4 @@ As operações REST para trabalhar com o log de auditoria fazem parte da [API RE
 - Para saber mais sobre os comandos para solucionar problemas de implantações, consulte [Solucionando problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para saber como impedir exclusões em um recurso para todos os usuários, consulte [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -32,16 +32,13 @@ Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as 
 <table border="1">
     <tr>
         <td><strong>Obter as ferramentas</strong></td>
-
         <td>Baixe o SDK dos Serviços BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço do BizTalk</strong> (Transformação), que são implantados em seu Serviço BizTalk.
         <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
         </td>
     </tr>
-
     <tr>
         <td><strong>Criar contratos de parceiro</strong></td>
-
         <td>Abre o Portal dos Serviços BizTalk hospedados no Azure onde você adiciona parceiros e cria contratos EDI X12, AS2 e EDIFACT.
         <br/><br/>
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no Portal dos Serviços BizTalk</a> lista as etapas para começar.
@@ -236,17 +233,14 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 
 ##### Para remover ou exibir métricas no gráfico:
 1. Selecione a guia **Processo**.
-2. Selecione **Adicionar Métricas** na barra de tarefas:  
-![Selecione Adicionar Métricas][AddMetrics]
+2. Selecione **Adicionar Métricas** na barra de tarefas: ![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento**.
 5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.  
 
-	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
-![A métrica Uso de CPU fica esmaecida][GrayedMetric]
+	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico: ![A métrica Uso de CPU fica esmaecida][GrayedMetric]
 
-	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico:  
-![A métrica Uso de CPU está habilitada][EnabledMetric]
+	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico: ![A métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 
@@ -365,4 +359,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

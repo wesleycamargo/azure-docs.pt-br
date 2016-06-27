@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/14/2016"
 	ms.author="stefsch"/>
 
 # Introdução ao ambiente de Serviço de Aplicativo
@@ -29,6 +29,8 @@ Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de ap
 Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
 
 Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual. Os clientes têm um controle refinado sobre o tráfego de entrada e saída da rede de aplicativos, e os aplicativos podem estabelecer conexões seguras de alta velocidade por meio de redes virtuais com recursos corporativos locais.
+
+Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para obter uma visão geral sobre como os Ambientes de Serviço de Aplicativo permitem expansão e acesso seguro à rede, consulte [Aprofundamento no AzureCon][AzureConDeepDive] em Ambientes de Serviço de Aplicativo!
 
@@ -106,4 +108,4 @@ Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a 
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

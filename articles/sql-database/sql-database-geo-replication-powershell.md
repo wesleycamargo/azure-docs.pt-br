@@ -13,31 +13,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell
 
-
-
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-replication-overview.md)
 - [Portal do Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-Este artigo mostra como configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell.
+Este artigo mostra como configurar a Replicação Geográfica Ativa para o Banco de Dados SQL do Azure com o PowerShell.
 
 Para iniciar o failover, consulte [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
 
-Você pode configurar até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
 
-Para configurar a Replicação Geográfica, você precisa do seguinte:
 
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure, basta clicar em **CONTA GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
-- Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar para uma região geográfica diferente.
+Para configurar a replicação geográfica ativa usando o PowerShell, você precisará do seguinte:
+
+- Uma assinatura do Azure. 
+- Um Banco de Dados SQL do Azure - o banco de dados primário que você deseja replicar.
 - Azure PowerShell 1.0 ou posterior. Você pode baixar e instalar os módulos do Azure PowerShell seguindo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -165,4 +163,4 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

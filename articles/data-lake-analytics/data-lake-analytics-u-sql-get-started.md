@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: introdução à linguagem U-SQL da Análise do Azure Data Lake
@@ -112,7 +112,7 @@ Use **SELECT** para transformar conjuntos de linhas:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-A cláusula WHERE usa [expressão booliana C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Você pode usar a linguagem de expressão do C# para fazer suas próprias expressões e funções. Você pode até mesmo executar uma filtragem mais complexa combinando-os com associações lógicas (e) e desassociações (ou).
+A cláusula WHERE usa [expressão booliana C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Você pode usar a linguagem de expressão do C# para fazer suas próprias expressões e funções. Você pode até mesmo executar uma filtragem mais complexa combinando-os com associações lógicas (ANDs) e desassociações (ORs).
 
 O script a seguir usa o método DateTime.Parse() e um conjunto.
 
@@ -317,7 +317,7 @@ O script a seguir cria uma exibição chamada *SearchlogView* no banco de dados 
         FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
     
-O script a seguir demonstra usando o modo de exibição definido:
+O script a seguir demonstra como usar o modo de exibição definido:
 
     @res =
         SELECT
@@ -409,7 +409,7 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Usando funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
+- [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Queremos saber sua opinião
@@ -419,4 +419,4 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 - [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Um tour pela Análise no Application Insights" 
+	pageTitle="Um tour pelo Analytics no Application Insights | Microsoft Azure" 
 	description="Exemplos curtos de todas as principais consultas na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -22,14 +22,12 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 Vamos analisar algumas consultas básicas para começar.
 
 ## Conectar-se aos dados do Application Insights
 
-Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
+Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
 
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-tour/001.png)
 
@@ -112,9 +110,9 @@ Você também pode renomear e definir novas colunas:
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* Os [nomes de coluna](app-insights-analytics-reference.md#names) podem incluir espaços ou símbolos se eles estiverem entre colchetes, desta forma: `['...']` ou `["..."]`
+* Os [nomes de coluna](app-insights-analytics-reference.md#names) poderão incluir espaços ou símbolos se eles estiverem entre colchetes, desta forma: `['...']` ou `["..."]`
 * `%` é o operador de módulo normal. 
-* `1d` (que é o dígito um e um 'd') é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
+* `1d` (que é o dígito um e um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
 * O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. De modo que `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
 
 As [expressões](app-insights-analytics-reference.md#scalars) podem incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
@@ -151,7 +149,7 @@ Você pode mesclá-lo escolhendo as propriedades que te interessam:
 
 ## Medidas e propriedades personalizadas
 
-Se o seu aplicativo anexa eventos [dimensões personalizadas (propriedades) e medidas personalizadas](app-insights-api-custom-events-metrics.md#properties), você os verá nos objetos `customDimensions` e `customMeasurements`.
+Se o seu aplicativo anexar eventos [dimensões personalizadas (propriedades) e medidas personalizadas](app-insights-api-custom-events-metrics.md#properties), você os verá nos objetos `customDimensions` e `customMeasurements`.
 
 
 Por exemplo, se o seu aplicativo inclui:
@@ -175,7 +173,7 @@ Para extrair esses valores na Análise:
 
 ``` 
 
-> [AZURE.NOTE] Em [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntos na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. Mas na Análise, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual elas tenham sido realizadas, e as métricas exibidas em seus próprios fluxos `metrics`.
+> [AZURE.NOTE] Em [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntos na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. Porém no Analytics, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual elas tenham sido realizadas, e as métricas exibidas em seus próprios fluxos `metrics`.
 
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator): agregar grupos de linhas
@@ -474,4 +472,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

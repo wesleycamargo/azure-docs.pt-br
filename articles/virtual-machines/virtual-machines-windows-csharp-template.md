@@ -454,8 +454,8 @@ Nesta etapa, você usará as classes [ResourceGroup](https://msdn.microsoft.com/
           credential,
           groupName",
           storageName,
-          deploymentName}",
-          subscriptionId}");
+          deploymentName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Etapa 7: Adicionar código para excluir os recursos
@@ -497,4 +497,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

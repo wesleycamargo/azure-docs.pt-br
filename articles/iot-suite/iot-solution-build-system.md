@@ -2,16 +2,16 @@
 	pageTitle="Exemplo de IoT do Azure do MyDriving: crie-o | Microsoft Azure"
 	description="Crie um aplicativo que apresenta uma demonstração abrangente de como projetar um sistema de IoT usando o Microsoft Azure, incluindo o Stream Analytics, o Aprendizado de Máquina e os Hubs de Eventos."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -438,7 +438,7 @@ Supomos que:
 
 Para obter mais informações, consulte:
 
--   Resumo dos [limites e cotas do serviço do Azure](../azure-subscription-service-limits/#iot-hub-limits)
+-   Resumo dos [limites e cotas do serviço do Azure](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) do Azure
 
@@ -462,4 +462,4 @@ Aguardamos seu contato!
 
 Recomendamos o [Guia de Referência do MyDriving](http://aka.ms/mydrivingdocs), que é uma descrição abrangente do design do sistema e seus componentes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

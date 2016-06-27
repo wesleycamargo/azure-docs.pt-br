@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -61,6 +61,7 @@ A maioria dos serviços do Azure tem suporte na Rota Expressa.
 	- CDN
 	- Teste de carga do Visual Studio Team Services
 	- Multi-factor Authentication
+	- Gerenciador de Tráfego
 
 ## Dados e conexões
 
@@ -177,7 +178,7 @@ Você pode atualizar a largura de banda do circuito de Rota Expressa usando o cm
 ### O que é a Rota Expressa Premium?
 Rota Expressa premium é uma coleção de recursos listados abaixo.
 
- - Limite maior na tabela de roteamento, de 4.000 rotas a 10.000 rotas para emparelhamento público e emparelhamento privado.
+ - Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
  - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
  - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
  - Conectividade com serviços do Office 365 e CRM Online.
@@ -217,6 +218,8 @@ Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de R
 
 ## Rota Expressa e serviços do Office 365 e CRM Online
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 ### Como criar um circuito de Rota Expressa para conectar aos serviços do Office 365 e CRM Online?
 
 1. Examine a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) para certificar-se de que você atende os requisitos
@@ -248,4 +251,4 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 ### O Dynamics AX pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

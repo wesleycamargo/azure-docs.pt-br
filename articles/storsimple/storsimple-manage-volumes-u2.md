@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="06/10/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
@@ -42,13 +42,13 @@ Volumes afixados localmente são volumes totalmente provisionados que não coloc
 
 Volumes afixados localmente são totalmente provisionados; portanto, você deve ter espaço suficiente no dispositivo ao criá-los. Você pode provisionar volumes afixados localmente até um tamanho máximo de 8 TB no dispositivo StorSimple 8100 e 20 TB no dispositivo 8600. O StorSimple reserva o espaço local restante no dispositivo para instantâneos, metadados e processamento de dados. Você pode aumentar o tamanho de um volume afixado localmente para o espaço máximo disponível, mas não é possível diminuir o tamanho de um volume depois de criado.
 
-Quando você cria um volume afixado localmente, o espaço disponível para criação de volumes em camadas é reduzido. O inverso também é verdadeiro: se você tiver volumes em camadas existentes, o espaço disponível para criar volume afixado localmente será menor do que os limites máximos mencionados acima.
+Quando você cria um volume afixado localmente, o espaço disponível para criação de volumes em camadas é reduzido. O inverso também é verdadeiro: se você tiver volumes em camadas existentes, o espaço disponível para criar volume afixado localmente será menor do que os limites máximos mencionados acima. Para saber mais sobre volumes locais, confira as [Perguntas frequentes sobre volumes afixados localmente](storsimple-local-volume-faq.md).
 
 ### Volumes em camadas
 
 Volumes em camadas são volumes escassamente provisionados no qual os dados acessados com frequência permanecem locais no dispositivo e os menos usados são colocados automaticamente em camadas na nuvem. Provisionamento dinâmico é uma tecnologia de virtualização em que o armazenamento disponível parece exceder os recursos físicos. Em vez de reservar armazenamento suficiente com antecedência, o StorSimple usa o provisionamento dinâmico para alocar espaço suficiente para atender às necessidades atuais. A natureza elástica de armazenamento em nuvem facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento em nuvem para atender às demandas de mudança.
 
-Se você estiver usando o volume em camadas para dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** altera o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivo grandes para a nuvem.
+Se você estiver usando o volume em camadas para dados de arquivamento, marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** alterará o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivo grandes para a nuvem.
 
 >[AZURE.NOTE] Volumes de arquivamento criados com uma versão anterior à atualização 2 do StorSimple serão importados em camadas, com a caixa de seleção de arquivamento marcada.
 
@@ -271,7 +271,7 @@ Conclua as seguintes etapas para excluir um volume.
 
 5. Quando solicitado a confirmar, clique em **Sim**. O volume será excluído e a página **Volumes** mostrará a lista atualizada de volumes dentro do contêiner.
 
-    >[AZURE.NOTE] Se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
+    >[AZURE.NOTE] Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço do StorSimple Manager atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.<br> Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
  
 ## Monitorar um volume
 
@@ -299,4 +299,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

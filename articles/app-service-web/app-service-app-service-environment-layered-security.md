@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/14/2016" 
 	ms.author="stefsch"/>
 
 # Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo
@@ -89,7 +89,9 @@ Com o NSG aplicado à sub-rede, somente três Ambientes do Serviço de Aplicativ
 
 
 ## Informações e links adicionais ##
-[Grupos de segurança de rede][NetworkSecurityGroupsClassic] de configuração em redes virtuais clássicas.
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+
+Configurando [grupos de segurança de rede][NetworkSecurityGroupsClassic] em redes virtuais clássicas.
 
 Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambientes do Serviço de Aplicativo.
 
@@ -109,4 +111,4 @@ Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambient
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

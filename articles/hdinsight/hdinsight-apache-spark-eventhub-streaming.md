@@ -24,7 +24,7 @@ Streaming Spark estende a API de núcleo do Spark para criar aplicativos de proc
 
 Neste tutorial, você aprenderá a criar um Hub de eventos do Azure, a receber mensagens em um Hub de eventos usando um aplicativo de console em Java e a recuperá-las em paralelo usando um aplicativo Spark escrito em Scala. Esse aplicativo consome os dados transmitidos por meio de Hubs de Eventos e os encaminha para saídas diferentes (Blob de Armazenamento do Azure, tabela Hive e tabela SQL).
 
-> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [portal Clássico do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [portal Clássico do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal do Azure](https://portal.azure.com/).
 
 **Pré-requisitos:**
 
@@ -391,4 +391,4 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

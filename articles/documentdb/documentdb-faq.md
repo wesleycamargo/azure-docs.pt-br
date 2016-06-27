@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
@@ -43,7 +43,7 @@ Sim, o Banco de Dados de Documentos suporta transações entre documentos expres
 O Banco de Dados de Documentos é uma boa escolha para novos aplicativos Web, móveis, de jogos e IoT, em que a escala automática, o desempenho previsível, a ordem rápida dos tempos de resposta de milissegundos e a capacidade de consultar dados sem esquema são importantes. O Banco de Dados de Documentos funciona bem em contextos de desenvolvimento rápido e dá suporte à iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são [casos de uso comuns do Banco de Dados de Documentos](documentdb-use-cases.md).
 
 ### Como o Banco de Dados de Documentos oferece desempenho previsível?
-Uma RU (Unidade de Solicitação) é a medida de produtividade no Banco de Dados de Documentos. 1 RU corresponde à produtividade do GET de um documento de 1 KB. Toda operação no Banco de Dados de Documentos, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de Unidade de Solicitação baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de Unidade de Solicitação única.
+Uma RU (Unidade de Solicitação) é a medida de produtividade no Banco de Dados de Documentos. 1 RU corresponde à produtividade do GET de um documento de 1 KB. Toda operação no Banco de Dados de Documentos, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de Unidade de Solicitação baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de Unidade de Solicitação única.
 
 Cada coleção do Banco de Dados de Documentos pode ser reservada com produtividade provisionada em termos de Unidades de Solicitação da produtividade por segundo. Em aplicativos de qualquer escala, você pode avaliar o desempenho das solicitações individuais para medir seus valores de unidade de solicitação e provisionar coleções para lidar com a soma total de unidades de solicitação entre todas as solicitações. Também é possível escalar ou reduzir verticalmente a produtividade de sua coleção conforme as necessidades do aplicativo aumentam. Para saber mais sobre unidades de solicitação e ajuda para determinar as necessidades de sua coleção, leia sobre o [gerenciamento de desempenho e capacidade](documentdb-manage.md).
 
@@ -60,7 +60,7 @@ Não há limite teórico para a quantidade total de produtividade à qual uma co
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/) para obter mais informações. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
 
 ### Existe uma conta gratuita disponível?
-Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
+Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
 Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou agende um [chat individual com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
@@ -120,4 +120,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

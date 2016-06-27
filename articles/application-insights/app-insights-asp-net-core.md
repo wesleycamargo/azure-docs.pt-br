@@ -60,4 +60,4 @@ Os modos de exibição no portal se enquadram em duas categorias principais:
 
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

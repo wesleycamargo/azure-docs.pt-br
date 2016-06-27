@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Referência da Análise no Application Insights" 
+	pageTitle="Referência do Analytics no Application Insights | Microsoft Azure" 
 	description="Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -20,33 +20,22 @@
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 ## Índice
 
-|Consultas e operadores|Agregações|Escalares|Números|Data e hora|Cadeia de caracteres|Matrizes, objetos e dinâmico
-|---|---|---|---|---|---|---
-|[count](#count-operator)|[qualquer](#any)|[Literais boolianos](#boolean-literals)|[Operadores aritméticos](#arithmetic-operators)|[Expressões de data e hora](#date-and-time-expressions)|[GUIDs](#guids)|[Literais de matriz e objeto](#array-and-object-literals)
-|[extend](#extend-operator)|[argmax](#argmax)|[Operadores boolianos](#boolean-operators)|[Literais numéricos](#numeric-literals)|[Literais de data e hora](#date-and-time-literals)|[Literais de cadeia de caracteres ofuscados](#obfuscated-string-literals)|[Funções de objeto dinâmico](#dynamic-object-functions)
-|[join](#join-operator)|[argmin](#argmin)|[Conversões](#casts)|[abs](#abs)|[ago](#ago)|[Literais de cadeia de caracteres](#string-literals)|[Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses)
-|[cláusula Let](#let-clause)|[avg](#avg)|[Comparações escalares](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Comparações de cadeias de caracteres](#string-comparisons)|[Expressões de caminho JSON](#json-path-expressions)
-|[limite](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Nomes](#names)
-|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
-|[analisar](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
-|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
-|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
-|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[substitui](#replace)|[todynamic](#todynamic)
-|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
-|[renderizar política](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
-|[restringir cláusula](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
-|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
-|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[onde](#where-operator)||||[totimespan](#totimespan)||
-|||||[weekofyear](#weekofyear)||
+**Consultas e operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Agregações** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Escalares** [Literais Boolianos](#boolean-literals) | [Operadores boolianos](#boolean-operators) | [Conversões](#casts) | [Comparações escalares](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Números** [Operadores aritméticos](#arithmetic-operators) | [Literais numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Data e hora** [Expressões de data e hora](#date-and-time-expressions) | [Literais de data e hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**Cadeia de caracteres** [GUIDs](#guids) | [Literais de cadeias de caracteres ocultos](#obfuscated-string-literals) | [Literais de cadeias de caracteres](#string-literals) | [Comparações de cadeia de caracteres](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Matrizes, objetos e dinâmica** [Literais de matriz e objeto](#array-and-object-literals) | [Funções de objeto dinâmico](#dynamic-object-functions) | [Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses) | [Expressões de caminho JSON](#json-path-expressions) | [Nomes](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
 
 
 
@@ -67,7 +56,7 @@ Cada filtro prefixado pelo caractere de barra vertical `|` é uma instância de 
 
 Consultas podem conter quebras de linha simples, mas são finalizadas por uma linha em branco. Elas podem conter comentários entre `//` e o fim da linha.
 
-Uma consulta pode ser prefixada por uma ou mais [cláusulas let](#let-clause), que definem escalares, tabelas ou funções que podem ser usadas na consulta.
+Uma consulta pode ser prefixada por uma ou mais [cláusulas let](#let-clause), que definem escalares, tabelas ou funções que podem ser usados na consulta.
 
 ```AIQL
 
@@ -120,7 +109,7 @@ Acrescente uma ou mais colunas calculadas a uma tabela.
 **Argumentos**
 
 * *T:* a tabela de entrada.
-* *ColumnName:* o nome das colunas a serem adicionadas. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou '\_'. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *ColumnName:* o nome das colunas a serem adicionadas. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Expression:* um cálculo sobre as colunas existentes.
 
 **Retorna**
@@ -156,10 +145,10 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 
 **Argumentos**
 
-* *Table1* - o 'lado esquerdo' da junção.
-* *Table2* - o 'lado direito' da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
-* *CommonColumn* - uma coluna que tem o mesmo nome nas duas tabelas.
-* *Kind* - especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
+* *Tabela1*: o “lado esquerdo” da junção.
+* *Tabela2*: o “lado direito” da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
+* *CommonColumn*: uma coluna que tem o mesmo nome nas duas tabelas.
+* *Kind*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
 
 **Retorna**
 
@@ -239,7 +228,7 @@ Uma cláusula let associa um [nome](#names) a um resultado de tabela, um valor e
 
     let name = (parameterName : type [, ...]) { plain_query }; query
 
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid` e [`dynamic`](#dynamic-type)
 * *plain\_query:* uma consulta não prefixada por uma cláusula let.
 
 **Exemplos**
@@ -286,7 +275,7 @@ Há um limite implícito quanto ao número de linhas retornadas ao cliente, mesm
 
 Expande uma lista de uma célula dinamicamente tipada (JSON) para que cada entrada tenha uma linha separada. Todas as outras células em uma linha expandida são duplicadas.
 
-(Confira também [`summarize makelist`](#summarize-operator), que executa a função oposta.)
+(Veja também [`summarize makelist`](#summarize-operator), que executa a função oposta.)
 
 **Exemplo**
 
@@ -333,7 +322,7 @@ A coluna expandida sempre tem um tipo dinâmico. Use uma conversão, como `todat
 Há suporte para dois modos de expansões de recipiente de propriedades:
 
 * `bagexpansion=bag`: os recipientes de propriedades são expandidos como recipientes de propriedades de entrada única. Essa é a expansão padrão.
-* `bagexpansion=array`: os recipientes de propriedades são expandidos como estruturas de matriz `[`*key*`,`*value*`]` de dois elementos, permitindo o acesso uniforme a chaves e valores (bem como, por exemplo, a execução de uma agregação de contagem distinta sobre nomes de propriedades). 
+* `bagexpansion=array`: os recipientes de propriedades são expandidos como estruturas de `[`*valor*`,`chave*`]` de matriz de dois elementos, permitindo o acesso uniforme a chaves e valores (bem como, por exemplo, a execução de uma agregação de contagem distinta sobre nomes de propriedades). 
 
 **Exemplos**
 
@@ -351,7 +340,7 @@ Divide um registro de exceção em linhas para cada item no campo de detalhes.
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -370,12 +359,12 @@ Extrai valores de uma cadeia de caracteres. Pode usar a correspondência de expr
 * `T`: a tabela de entrada.
 * `kind`: 
  * `simple` (padrão): as cadeias de caracteres `Match` são cadeias de caracteres simples.
- * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como null e a análise continua 
+ * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como nula e a análise continua 
  * `regex`: as cadeias de caracteres `Match` são expressões regulares.
 * `Text`: uma coluna ou outra expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
-* *Match:* fazer a correspondência com a próxima parte da cadeia de caracteres e a descartar.
+* *Match:* fazer a correspondência com a próxima parte da cadeia de caracteres e descartá-la.
 * *Column:* atribuir a próxima parte da cadeia de caracteres a esta coluna. A coluna será criada se ainda não existir.
-* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date, double. 
+* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date ou double. 
 
 
 **Retorna**
@@ -485,7 +474,7 @@ Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas 
 **Argumentos**
 
 * *T:* a tabela de entrada.
-* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou '\_'. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Expression:* expressão escalar opcional que faz referência às colunas de entrada. 
 
     É válido retornar uma nova coluna calculada com o mesmo nome que uma coluna existente na entrada.
@@ -639,7 +628,7 @@ Classifica as linhas da tabela de entrada em ordem de acordo com uma ou mais col
 **Argumentos**
 
 * *T:* a tabela de entrada a ser classificada.
-* *Column:* coluna de *T* de acordo com a qual a classificação deve ser feita. O tipo dos valores deve ser numérico, de data, hora ou cadeia de caracteres.
+* *Column:* coluna de *T* de acordo com qual a classificação deve ser feita. O tipo dos valores deve ser numérico, de data, hora ou cadeia de caracteres.
 * `asc` Classificar em ordem crescente, do mais baixo para o mais alto. O padrão é `desc`, em ordem decrescente, do mais alto para o mais baixo.
 
 **Exemplo**
@@ -676,11 +665,11 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 
 **Argumentos**
 
-* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou '\_'. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
-* *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Confira [agregações](#aggregations).
+* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Veja [agregações](#aggregations).
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
-Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
+Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, o Analytics a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
 
 Se você não fornecer uma *GroupExpression*, toda a tabela será resumida em uma única linha de saída.
 
@@ -743,7 +732,7 @@ Produz resultados hierárquicos, onde cada nível é uma busca detalhada do nív
 
 * N:int - número de linhas a serem retornadas ou passadas para o próximo nível. Em uma consulta com três níveis onde N é 5, 3 e 3, o número total de linhas será 45.
 * COLUMN - uma coluna a ser agrupada para agregação. 
-* AGGREGATION - uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
+* AGGREGATION: uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
 
 
 ### operador union
@@ -763,7 +752,7 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
 * *Tabela1*, *Tabela2*...
  *  O nome de uma tabela, como `requests`, ou de uma tabela definida em uma [cláusula let](#let-clause) ou
  *  Uma expressão de consulta, como `(requests | where success=="True")`
- *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` pode formar a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com 'e', juntamente com a tabela 'exceções'.
+ *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` pode formar a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com “e”, juntamente com a tabela “exceções”.
 * `kind`: 
  * `inner`: o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
  * `outer`: o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
@@ -829,7 +818,7 @@ As linhas em *T* para as quais o *Predicate* é `true`.
 
 Para obter o desempenho mais rápido:
 
-* **Use comparações simples** entre os nomes de coluna e as constantes. ('Constant' significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause).)
+* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constant” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause).)
 
     Por exemplo, prefira `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -1085,7 +1074,7 @@ Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* 
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Confira também o [operador `mvexpand`](#mvexpand-operator) da função oposta.
+Veja também o [operador `mvexpand`](#mvexpand-operator) da função oposta.
 
 
 ### max, min
@@ -1101,16 +1090,24 @@ Calcula o número mínimo de *Expr*.
 **Dica**: isso fornece o mínimo ou o máximo por conta própria; por exemplo, o preço mais alto ou mais baixo. No entanto, se você quiser outras colunas na linha, por exemplo, o nome do fornecedor com o menor preço, use [argmin ou argmax](#argmin-argmax).
 
 
-<a name="percentile"></a> <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
-Retorna uma estimativa para a *Expression* do percentual especificado no grupo. A precisão depende da densidade da população na região do percentil.
+Retorna uma estimativa para a *Expression* do percentil especificado no grupo. A precisão depende da densidade da população na região do percentil.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Como `percentile()`, mas calcula um número de valores de percentil (que é mais rápido do que calcular cada percentil individualmente).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Percentil ponderado. Use isso para dados agregados previamente. `WeightExpression` é um inteiro que indica quantas linhas originais são representadas por cada linha agregada.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Como `percentilew()`, mas calcula um número de valores de percentil.
 
 **Exemplos**
 
@@ -1135,7 +1132,6 @@ Calcule simultaneamente vários percentuais para nomes de solicitação diferent
 
 Os resultados mostram que para a solicitação /Events/Index, 5% das solicitações recebem respostas em menos de 2,44 s, metade delas em 3,52 s, e 5% são mais lentas do que 6,85 s.
 
-
 Calcule várias estatísticas:
 
     requests 
@@ -1145,7 +1141,43 @@ Calcule várias estatísticas:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Erro de estimativa em percentuais
+#### Percentis ponderados
+
+Use as funções de percentil ponderada em casos em que os dados foram agregados previamente.
+
+Por exemplo, suponha que seu aplicativo executa vários milhares de operações por segundo, e você deseja saber a sua latência. A solução mais simples seria gerar uma solicitação do Application Insights ou eventos personalizados para cada operação. Isso criaria muito tráfego, embora a amostragem adaptável poderia reduzi-lo. Mas você decide implementar uma solução ainda melhor: você vai escrever um código em seu aplicativo para agregar os dados antes de enviá-los para o Application Insights. A agregação/resumo será enviado em intervalos regulares, reduzindo a taxa de dados para talvez alguns pontos por minuto.
+
+Seu código recebe um fluxo de medições de latência em milissegundos. Por exemplo:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+Ele conta as medidas nas compartimentalizações a seguir: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodicamente, ele faz uma série de chamadas TrackEvent, um para cada bucket, com medidas personalizadas em cada chamada:
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+No Analytics, você verá um determinado grupo de eventos como este:
+
+`opCount` | `latency`| que significa
+---|---|---
+8 | 10 | = 8 operações na compartimentalização de 10 ms
+6 | 20 | = 6 operações na compartimentalização de 20 ms
+3 | 30 | = 3 operações na compartimentalização de 30 ms
+1 | 40 | = 1 operações na compartimentalização de 40 ms
+
+Para obter uma imagem precisa da distribuição original das latências de evento, usamos `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+Os resultados são os mesmos, como se tivéssemos usado `percentiles` sem formatação no conjunto original de medidas.
+
+> [AZURE.NOTE] Percentis ponderados não são aplicáveis a [dados de amostra](app-insights-sampling.md), em que cada linha de amostra representa uma amostra aleatória de linhas originais, em vez de uma compartimentalização. As funções de percentil simples são apropriadas para dados de amostra.
+
+#### Erro de estimativa em percentuais
 
 A agregação de percentis fornece um valor aproximado usando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
@@ -1394,17 +1426,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | 
-| * | Multiplicar | 
-| / | Dividir | 
-| % | Módulo | 
-|| 
-|`<` |Menor 
-|`<=`|Menor ou Igual a 
-|`>` |Maior 
-|`>=`|Maior ou Igual a 
-|`<>`|Diferente de 
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -1625,7 +1647,7 @@ Extrai uma parte especificada de uma data como um número inteiro.
 
 **Argumentos**
 
-* `part:String` -{"Ano", "Mês", "Dia", "Hora", "Minuto", "Segundo", "Milissegundo", "Microssegundo", "Nanossegundo"}
+* `part:String`: {"Ano", "Mês", "Dia", "Hora", "Minuto", "Segundo", "Milissegundo", "Microssegundo", "Nanossegundo"}
 * `datetime`
 
 **Retorna**
@@ -1816,7 +1838,7 @@ A barra invertida (``) é usada para caracteres de escape como `\t` (guia), `\n`
 
 Literais de cadeia de caracteres ofuscados são cadeias de caracteres que serão obscurecidas pela Análise quando ela produzir a saída da cadeia de caracteres (por exemplo, durante o rastreamento). O processo de ofuscação substitui todos os caracteres ocultados por um caractere de início (`*`).
 
-Para formar um literal de cadeia de caracteres ocultados, preceda `h` ou 'H'. Por exemplo:
+Para formar um literal de cadeia de caracteres ocultados, preceda `h` ou “H”. Por exemplo:
 
 ```
 h'hello'
@@ -2113,7 +2135,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Contudo, use `arraylength` e outras funções da Análise (não use ".length").
+* Contudo, use `arraylength` e outras funções do Analytics (não use ".length")
 
 **Casting**: em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
@@ -2183,10 +2205,10 @@ Observe que o `indexer` é usado para marcar onde você deve usar um índice num
 
 Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argumento de cadeia de caracteres JSON:
 
-* `parsejson('[43, 21, 65]')` - uma matriz de números
+* `parsejson('[43, 21, 65]')`: uma matriz de números
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
-* `parsejson('21')` - um único valor de tipo dinâmico contendo um número
-* `parsejson('"21"')` - um único valor de tipo dinâmico contendo uma cadeia de caracteres
+* `parsejson('21')`: um único valor de tipo dinâmico contendo um número
+* `parsejson('"21"')`: um único valor de tipo dinâmico contendo uma cadeia de caracteres
 
 Observe que, diferentemente do JavaScript, o JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
 
@@ -2426,4 +2448,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

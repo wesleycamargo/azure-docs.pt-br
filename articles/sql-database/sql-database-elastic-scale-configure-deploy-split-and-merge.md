@@ -30,7 +30,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ## Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de firewall**, certifique-se de que a configuração **Permitir acesso aos serviços do Azure** esteja definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -151,14 +151,14 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Certifique-se de que o nome do servidor não comece com **https://**.
+* Certifique-se de que o nome do servidor não comece com ****https://**.
 * Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra https://manage.windowsazure.com, clique em “Bancos de dados SQL” à esquerda, clique em “Servidores” na parte superior e selecione seu servidor. Clique em **Configurar** na parte superior e verifique se a configuração dos **Serviços do Azure** estão definidas como “Sim”. (Consulte a seção Pré-requisitos na parte superior deste artigo).
 
 ## Testar a implantação do serviço
 
 ### Conectar-se com um navegador da Web
 
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal Clássico do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua **http://** por **https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal Clássico do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### Testes com scripts do PowerShell
 
@@ -339,4 +339,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

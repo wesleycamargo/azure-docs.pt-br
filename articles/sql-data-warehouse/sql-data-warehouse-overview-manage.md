@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Gerenciar bancos de dados no SQL Data Warehouse do Azure
@@ -42,7 +42,7 @@ O [Portal do Azure][] é um portal com base na Web no qual você pode criar, atu
 Para começar a usar o portal do Azure, consulte [Criar um SQL Data Warehouse (Portal do Azure)][].
 
 ### SQL Server Data Tools no Visual Studio
-O [SSDT][] \(SQL Server Data Tools) no Visual Studio permite que você se conecte, gerencie e desenvolva seus bancos de dados. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou com outros ambientes de desenvolvimento integrados (IDEs), tente usar o SSDT no Visual Studio.
+O [SSDT][] (SQL Server Data Tools) no Visual Studio permite que você se conecte, gerencie e desenvolva seus bancos de dados. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou com outros ambientes de desenvolvimento integrados (IDEs), tente usar o SSDT no Visual Studio.
 
 O SSDT inclui o Pesquisador de Objetos do SQL Server, que permite a visualização, conexão e execução de scripts em bancos de dados do SQL Data Warehouse. Para conectar-se rapidamente ao SQL Data Warehouse, você pode simplesmente clicar no botão **Abrir no Visual Studio** na barra de comandos ao exibir os detalhes do banco de dados no Portal Clássico do Azure.
 
@@ -89,7 +89,7 @@ Para saber mais sobre gerenciamento de segurança, vá até a [Visão geral de s
 
 ## Backup e restauração
 
-Ter backups confiáveis de seus dados é uma parte essencial de qualquer banco de dados de produção. O SQL Data Warehouse mantém seus dados seguros fazendo backup automaticamente de seus bancos de dados ativos em intervalos regulares. Esses backups permitem que você se recupere de cenários em que corromper ou descartar acidentalmente seus dados ou banco de dados. Para ver a política de retenção e agendamento do backup de dados, consulte [Alta confiabilidade][]. Para saber mais sobre como restaurar um banco de dados, consulte [Restore from snapshot][] \(Restaurar do instantâneo).
+Ter backups confiáveis de seus dados é uma parte essencial de qualquer banco de dados de produção. O SQL Data Warehouse mantém seus dados seguros fazendo backup automaticamente de seus bancos de dados ativos em intervalos regulares. Esses backups permitem que você se recupere de cenários em que corromper ou descartar acidentalmente seus dados ou banco de dados. Para agendamento de backup de dados, política de retenção e como restaurar um banco de dados, confira [Restaurar do instantâneo][].
 
 ## Próximas etapas
 Usar bons princípios de design de banco de dados tornará mais fácil gerenciar seus bancos de dados no SQL Data Warehouse. Para saber mais, vá até a [Visão geral de desenvolvimento][].
@@ -103,13 +103,12 @@ Usar bons princípios de design de banco de dados tornará mais fácil gerenciar
 [Conectar-se ao Azure SQL Data Warehouse com o Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Conectar e consultar com sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Visão geral de desenvolvimento]: sql-data-warehouse-overview-development.md
-[Alta confiabilidade]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitorar sua carga de trabalho usando DMVs]: sql-data-warehouse-manage-monitor.md
 [Pausar a computação]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Restaurar do instantâneo]: sql-data-warehouse-restore-database-overview.md
 [Retomar a computação]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Dimensionar o desempenho]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Visão geral de segurança]: sql-data-warehouse-overview-security.md
+[Visão geral de segurança]: sql-data-warehouse-overview-manage-security.md
 [Práticas recomendadas do SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 [Exibições do sistema do SQL Data Warehouse]: sql-data-warehouse-reference-tsql-system-views.md
 
@@ -119,4 +118,4 @@ Usar bons princípios de design de banco de dados tornará mais fácil gerenciar
 <!--Other web references-->
 [Portal do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

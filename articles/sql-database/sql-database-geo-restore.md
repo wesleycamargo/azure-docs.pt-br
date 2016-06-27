@@ -18,18 +18,19 @@
 
 # Visão geral: restauração geográfica do Banco de Dados SQL
 
+> [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-restore.md)
+- [Portal do Azure](sql-database-geo-restore-portal.md)
+- [PowerShell](sql-database-geo-restore-powershell.md)
+
 A restauração geográfica permite restaurar o banco de dados SQL do backup diário mais recente, sendo habilitado automaticamente para todos os níveis de serviço sem nenhum custo extra. A restauração geográfica usa um backup com redundância geográfica como sua fonte, podendo ser usado para recuperar um banco de dados mesmo que ele esteja inacessível devido a uma interrupção.
 
 Iniciar a restauração geográfica cria um novo banco de dados SQL que pode ser criado em qualquer servidor de qualquer região do Azure.
 
-
-|Tarefa (Portal) | PowerShell | REST |
-|:--|:--|:--|
-| [Recuperar um banco de dados SQL de uma cópia em uma região diferente](sql-database-geo-restore-portal.md) | [PowerShell](sql-database-geo-restore-powershell.md) | [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |
+> [AZURE.NOTE] Você também pode usar [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 
-
-A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde ele está hospedado. Semelhante à [recuperação pontual](sql-database-point-in-time-restore.md), a restauração geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura a partir da cópia de backup replicado geograficamente e, portanto, é resistente a falhas de armazenamento na região primária.
+A restauração geográfica será a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde ele está hospedado. O banco de dados pode ser criado em qualquer servidor em qualquer região do Azure. A restauração geográfica depende dos [backups automatizados de banco de dados](sql-database-automated-backups.md) no armazenamento do Azure com redundância geográfica e restaura da cópia de backup replicada geograficamente e, portanto, é resistente a interrupções de armazenamento na região primária.
 
 
 
@@ -56,6 +57,12 @@ O tempo de recuperação é afetado por vários fatores: o tamanho e o nível de
 
 Embora a restauração geográfica esteja disponível para todos os níveis de serviço, ela é a mais básica dentre as soluções de recuperação de desastres disponíveis no Banco de Dados SQL com RPO e ERT (Tempo de Recuperação Estimado) mais longos. Para bancos de dados Básicos com tamanho máximo de 2 GB, a restauração geográfica fornece uma solução de DR razoável com um ERT de 12 horas. Para bancos de dados Standard ou Premium maiores, se desejar obter tempos de recuperação significativamente menores ou reduzir a probabilidade de perda de dados, considere usar a Replicação Geográfica Ativa. A Replicação Geográfica Ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter detalhes, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
+## Próximas etapas
+
+- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Restauração geográfica usando o Portal do Azure](sql-database-geo-restore-portal.md)
+- [Restauração geográfica usando o PowerShell](sql-database-geo-restore-powershell.md)
+
 ## Recursos adicionais
 
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
@@ -63,6 +70,5 @@ Embora a restauração geográfica esteja disponível para todos os níveis de s
 - [Restauração pontual](sql-database-point-in-time-restore.md)
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

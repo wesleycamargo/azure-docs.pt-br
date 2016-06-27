@@ -507,7 +507,7 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
  - [Construções Transact-SQL sem suporte do OLTP Na Memória](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-## Etapas adicionais
+## Próximas etapas
 
 
 - Experimente [Usar o OLTP Na Memória em um Aplicativo SQL do Azure existente.](sql-database-in-memory-oltp-migration.md)
@@ -537,4 +537,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="jgao"/>
 
 # Criar aplicativos .NET HDInsight de autenticação não interativa
@@ -89,7 +89,7 @@ Você deve atribuir o aplicativo a uma [função](../active-directory/role-based
 
 ##Desenvolver aplicativos do cliente HDInsight
 
-Crie um aplicativo de console .net do C# seguindo as instruções encontrada em [Enviar trabalhos Hadoop no HDInsight](hdinsight-submit-hadoop-jobs-programmatically/#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Em seguida, substitua o método GetTokenCloudCredentials por:
+Crie um aplicativo de console .net do C# seguindo as instruções encontrada em [Enviar trabalhos Hadoop no HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Em seguida, substitua o método GetTokenCloudCredentials por:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -122,4 +122,4 @@ ou o CLI do Azure:
 - [Autenticação de uma entidade de serviço com o Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

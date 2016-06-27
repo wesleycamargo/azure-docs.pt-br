@@ -58,11 +58,11 @@ A replicação transacional é uma tecnologia interna e integrada ao SQL Server 
 - [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Preview do SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
 
-## Saiba mais
+## Recursos adicionais
 
 - [Replicação Transacional](https://msdn.microsoft.com/library/mt589530.aspx)
 - [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

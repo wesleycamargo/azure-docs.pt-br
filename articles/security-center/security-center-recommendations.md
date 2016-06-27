@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -38,7 +38,7 @@ Em [Configurando políticas de segurança na Central de Segurança do Azure](sec
 - Habilitar a coleta de dados.
 - Escolher quais recomendações ver como parte da política de segurança.
 
-As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [ACLs para pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria do banco de dados SQL, Transparent Data Encryption do banco de dados SQL e firewalls do aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria do banco de dados SQL, Transparent Data Encryption do banco de dados SQL e firewalls do aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
 
 ### Monitorar as recomendações
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **Recomendações** na folha **Central de Segurança** permite saber o número total de recomendações identificadas pela Central de Segurança.
@@ -57,25 +57,24 @@ As recomendações são mostradas em um formato de tabela, em que cada linha rep
     - **Aberta**: a recomendação ainda não foi resolvida.
     - **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é exigido que você realize nenhuma ação.
     - **Resolvida**: a recomendação já foi concluída (nesse caso, a linha ficará esmaecida).
-- **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
+- **SEVERIDADE**: descreve a gravidade dessa recomendação específica:
     - **Alta**: existe uma vulnerabilidade em um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e ela requer atenção.
     - **Média**: existe uma vulnerabilidade, e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
     - **Baixa**: existe uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje vê-las.)
 
 Use a tabela a seguir como referência para ajudá-lo a entender as recomendações disponíveis e o que cada uma delas fará se você as aplicar.
 
-> [AZURE.NOTE] Você compreenderá os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
+> [AZURE.NOTE] Você deve compreender os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
 
 |Recomendações|Descrição|
 |-----|-----|
-|Habilitar Coleta de Dados para máquinas virtuais/assinaturas|Recomenda que você habilite a coleta de dados na política de segurança para cada uma de suas assinaturas ou para as VMs selecionadas.|
+|[Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md)|Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas.|
 |Resolver regras de linha de base incompatíveis|Recomenda que você alinhe as configurações do sistema operacional com as linhas de base recomendadas, por exemplo, não permitir o armazenamento de senhas.|
-|Aplicar atualizações do sistema|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs (somente VMs do Windows).|
-|Configurar ACLs para pontos de extremidade|Recomenda que você configure listas de controle de acesso para restringir o acesso de entrada nas máquinas virtuais (somente as clássicas).|
+|Aplicar atualizações do sistema|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs.|
 |[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica).|
 |Finalizar a configuração de firewall do aplicativo Web|Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, serão concluídas as alterações de configuração necessárias.|
 |[Habilitar Antimalware](security-center-enable-antimalware.md)|Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows).|
-|Habilitar Grupos de Segurança de Rede em interfaces de rede/sub-redes|Recomenda que você habilite NSGs (grupos de segurança de rede) em sub-redes e em interfaces de rede (somente VMs do Gerenciador de Recursos).|
+|Habilitar Grupos de Segurança de Rede em interfaces de rede/sub-redes|Recomenda que você habilite NSGs (grupos de segurança de rede) em sub-redes e em interfaces de rede.|
 |Restringir o acesso por meio de pontos de extremidade externos públicos|Recomenda que você configure regras de tráfego de entrada para NSGs.|
 |Habilitar a auditoria do servidor SQL|Recomenda que você habilite auditoria para servidores Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais).|
 |Habilitar auditoria para Banco de Dados SQL|Recomenda que você habilite auditoria para bancos de dados do Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais).|
@@ -110,12 +109,12 @@ O [Antimalware da Microsoft](../security/azure-security-antimalware.md) agora es
 ## Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Aprenda a gerenciar e a responder a alertas de segurança.
-- [Monitorando soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorar o status de integridade de suas soluções de parceiro.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – Encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
+- [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
+- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
+- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -124,4 +123,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -44,8 +44,7 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
 1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Experimentar agora**.
 2. Entre com sua conta da Microsoft ou com sua conta corporativa ou de estudante.
-3. Na seção **Sobre você**, digite suas informações pessoais.
-![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. Na seção **Sobre você**, digite suas informações pessoais. ![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Observação**: o endereço de email e as informações sobre o país que você fornecer ao se inscrever para uma assinatura do Azure sempre serão associados à assinatura e não podem ser alterados posteriormente.</br>
 4. Em **Verificação por seção** de telefone, você deve fornecer um número de telefone para receber um código de verificação que você pode fornecer para concluir o processo de verificação.
@@ -62,11 +61,11 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. Na seção **Contrato**, marque a caixa se você concordar com o contrato de assinatura, os detalhes da oferta e a política de privacidade. Em seguida, selecione **Inscrever-se**. A captura de tela de exemplo é para a versão em inglês do contrato. O formulário de contrato pode variar por país.
 
- ![Inscrição](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> Pode levar alguns minutos para que a sua assinatura seja configurada. Se a configuração de assinatura não for concluída em 15 minutos, contate o [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter assistência. </br> Se você receber uma mensagem de erro, siga as etapas na mensagem para resolver o problema. Uma mensagem de erro típica é:
+ ![Inscrição](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> Pode levar alguns minutos para que a sua assinatura seja configurada. Se a configuração de assinatura não for concluída em 15 minutos, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter assistência. </br> Se você receber uma mensagem de erro, siga as etapas na mensagem para resolver o problema. Uma mensagem de erro típica é:
 
  **Não foi possível concluir a operação. Tente novamente mais tarde ou recarregue a página da Web** </br>
 
- Neste caso, tente usar outro navegador para concluir o processo de inscrição. Se o problema persistir, contate o [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.</br>
+ Neste caso, tente usar outro navegador para concluir o processo de inscrição. Se o problema persistir, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.</br>
 7. Quando a assinatura estiver pronta, selecione **Começar a gerenciar meu serviço** para começar.</br> ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 <a name="UpgradeFreeToPYG"></a>
@@ -89,4 +88,4 @@ Se você tiver comprado créditos do Azure via Open de um revendedor e recebido 
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

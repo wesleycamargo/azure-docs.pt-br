@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
@@ -24,7 +24,7 @@
 
 *Por [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-Neste tutorial, você aprenderá como tirar um aplicativo Web do WordPress existente criado por meio da galeria no Azure e convertê-lo em uma instalação Multisite WordPress. Além disso, você aprenderá a atribuir um domínio personalizado para cada um dos subsites dentro de sua instalação.
+Neste tutorial, você aprenderá converter um aplicativo Web do WordPress criado por meio da galeria no Azure em uma instalação multissite do WordPress. Além disso, você aprenderá a atribuir um domínio personalizado para cada um dos subsites dentro de sua instalação.
 
 Presume-se que você tem uma instalação existente do WordPress. Se você não fizer isso, siga as orientações apresentadas no [criar um site do WordPress da galeria no Azure][website-from-gallery]
 
@@ -66,7 +66,7 @@ A rede agora está configurada no banco de dados, mas há uma etapa restante par
 Depois que você clicar no botão **Instalar** na página *Instalação da Rede*, o WordPress tentará atualizar os arquivos `wp-config.php` e `web.config`. No entanto, você sempre deve verificar os arquivos para garantir que as atualizações foram bem-sucedidas. Caso contrário, esta tela apresentará as atualizações necessárias. Editar e salvar os arquivos.
 
 
-Depois de fazer essas atualizações, você precisará fazer logoff e um novo logon no painel wp-admin.
+Depois de fazer essas atualizações, você precisará fazer logoff e depois fazer logon no painel wp-admin.
 
 Agora deve haver um menu adicional na barra de admin de rotulado **Meus Sites** Esse menu permite que você controle sua nova rede através do **Admin de rede** painel de controle.
 
@@ -105,7 +105,7 @@ Quando as *Configurações de SSL* forem exibidas, você verá os campos onde di
 
 ![Caixa de diálogo domínios personalizados gerenciar][wordpress-manage-domains]
 
-Depois de digitar seu domínio na caixa de texto, o Azure verificará o registro CNAME que você criou anteriormente. Se o DNS não totalmente tem propigated, um indicador vermelho será exibido. Se tiver êxito, você verá uma marca de seleção verde.
+Depois de digitar seu domínio na caixa de texto, o Azure verificará o registro CNAME que você criou anteriormente. Se o DNS não tiver sido propagado totalmente, um indicador vermelho será exibido. Se tiver êxito, você verá uma marca de seleção verde.
 
 Anote o endereço IP listado na parte inferior da caixa de diálogo. Será necessário configurar o registro para o seu domínio.
 
@@ -120,7 +120,7 @@ Usando o endereço IP da etapa anterior, volte para o Gerenciador de DNS e confi
 
 ## Instalar e configurar o plug-in
 
-Multissite WordPress atualmente não tem um método para mapear domínios personalizados. No entanto, há um plug-in chamado [mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] que adiciona a funcionalidade para você. Login à parte de seu site do administrador de rede e instalar o **mapeamento de domínio do WordPress MU** plug-in.
+Atualmente, o multissite do WordPress não tem um método interno para mapear domínios personalizados. No entanto, há um plug-in chamado [mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] que adiciona a funcionalidade para você. Login à parte de seu site do administrador de rede e instalar o **mapeamento de domínio do WordPress MU** plug-in.
 
 Após instalar e ativar o plug-in, visite **configurações** > **mapeamento de domínio** para configurar o plug-in. Na primeira caixa de texto, *endereço IP do servidor*, insira o endereço de IP é usada para configurar o registro para o domínio. Defina qualquer *opções de domínio* você desejo (os padrões geralmente são bem) e clique em **salvar**
 
@@ -153,4 +153,4 @@ Aplicativos Web do Azure permitem que você adicione um número ilimitado de dom
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

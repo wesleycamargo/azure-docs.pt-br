@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/20/2016"
+   	ms.date="06/13/2016"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o Azure CLI
@@ -36,7 +36,7 @@ As etapas neste documento fornecem orientação durante o processo de criação 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __CLI do Azure__.
+- __CLI do Azure__. As etapas neste documento foram testadas pela última vez com a versão 0.10.1 da CLI do Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -69,7 +69,7 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
 5. Criar uma nova conta de armazenamento. Ela será usada como o armazenamento padrão do cluster HDInsight.
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Substitua __groupname__ pelo nome do grupo criado na etapa anterior:
      * Substitua __location__ pelo mesmo local usado na etapa anterior. 
@@ -88,7 +88,7 @@ As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sess
 
 6. Crie um novo cluster HDInsight.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Substitua __groupname__ pelo nome do grupo de recursos.
     * Substitua __location__ pelo mesmo local usado nas etapas anteriores.
@@ -121,4 +121,4 @@ Agora que você criou com êxito um cluster HDInsight usando a CLI do Azure, use
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

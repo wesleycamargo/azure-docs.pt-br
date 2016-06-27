@@ -22,8 +22,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Introdução à segurança](sql-database-get-started-security.md)
-- [Concessão de acesso](sql-database-manage-logins.md)
+- [Tutorial de introdução](sql-database-get-started-security.md)
+- [Conceder acesso](sql-database-manage-logins.md)
 
 
 Comece aqui para obter uma visão geral dos conceitos de acesso do Banco de Dados SQL para administradores, não administradores e funções.
@@ -137,12 +137,6 @@ As funções de banco de dados podem ser funções internas, como **db\_owner**,
 Há mais de 100 permissões que podem ser concedidas ou negadas individualmente no Banco de Dados SQL. Muitas dessas permissões são aninhadas. Por exemplo, a permissão `UPDATE` em um esquema inclui a permissão `UPDATE` em cada tabela dentro desse esquema. Assim como ocorre na maioria dos sistemas de permissão, a negação de uma permissão substitui uma concessão. Devido à natureza aninhada e ao número de permissões, talvez seja necessário realizar um estudo cuidadoso para criar um sistema de permissões apropriado a fim de proteger corretamente o banco de dados. Comece com a lista de permissões em [Permissões (mecanismo de banco de dados)](https://msdn.microsoft.com/library/ms191291.aspx) e examine o [gráfico com tamanho de pôster](http://go.microsoft.com/fwlink/?LinkId=229142) das permissões.
 
 
-### Saiba mais
-
-[Protegendo o Banco de Dados SQL](sql-database-security.md)
-
-[Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589.aspx)
-
 ## Próximas etapas
 
 [Protegendo o Banco de Dados SQL](sql-database-security.md)
@@ -157,4 +151,11 @@ Há mais de 100 permissões que podem ser concedidas ou negadas individualmente 
 
 [Concessão de acesso a um objeto de banco de dados](https://msdn.microsoft.com/library/ms365327.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+## Recursos adicionais
+
+[Protegendo o Banco de Dados SQL](sql-database-security.md)
+
+[Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589.aspx)
+
+<!---HONumber=AcomDC_0615_2016-->

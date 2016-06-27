@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Dimensionar automaticamente máquinas em um conjunto de escalas de máquina virtual
@@ -37,17 +37,15 @@ Neste tutorial, você pode implantar os seguintes recursos e extensões:
 
 Para obter mais informações sobre os recursos do Gerenciador de recursos, confira [Computação do Azure, Rede e Provedores de Armazenamento no Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-O modelo que você cria neste tutorial é semelhante a um modelo que pode ser encontrado na Galeria de modelos. Para obter mais informações, confira [Implantar um simples Conjunto de Dimensionamento de VM com VMs do Windows e um Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
-
 ## Etapa 1: instalar o PowerShell do Azure
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
 
 ## Etapa 2: Criar um grupo de recursos e uma conta de armazenamento
 
-1. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos **vmsstestrg1**. Confira [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos como **vmsstestrg1**. Confira [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-2. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para criar uma conta de armazenamento chamada **vmsstestsa**. Mantenha a janela do Microsoft Azure PowerShell aberta para etapas posteriormente neste tutorial.
+2. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para criar uma conta de armazenamento denominada **vmsstestsa**. Mantenha a janela do Microsoft Azure PowerShell aberta para etapas posteriormente neste tutorial.
 
 ## Etapa 3: Criar o modelo
 Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recursos do Azure juntos usando uma descrição JSON dos recursos e parâmetros de implantação associados.
@@ -94,9 +92,8 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
     
 3. As variáveis podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione essas variáveis sob o elemento pai de variáveis que você adicionou ao modelo.
 
-        "apiVersion": "2016-03-30"
-        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
-        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
+        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
         "vmSize": "Standard_A0",
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
@@ -118,10 +115,10 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
         "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
-        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	    "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="pt-BR"/></PerformanceCounterConfiguration>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="pt-BR"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -153,7 +150,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 5. Adicione o recurso de rede virtual. Confira [Provedor de Recurso de Rede](../virtual-network/resource-groups-networking.md) para obter mais informações.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
@@ -177,7 +174,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 6. Adicione os recursos de endereço IP público que são usados pelo balanceador de carga e interface de rede.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP1')]",
           "location": "[resourceGroup().location]",
@@ -189,7 +186,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP2')]",
           "location": "[resourceGroup().location]",
@@ -204,7 +201,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 7. Adicione o recurso de balanceador de carga que é usado pelo conjunto de dimensionamento. Para obter mais informações, confira [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md).
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
           "type": "Microsoft.Network/loadBalancers",
           "location": "[resourceGroup().location]",
@@ -247,7 +244,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 8. Adicione o recurso de interface de rede que é usado pela máquina virtual separada. Como máquinas em um conjunto de escala de máquina virtual não são diretamente acessíveis usando um endereço IP público, uma máquina virtual separada é criada na mesma rede virtual como o conjunto de escala e é usada para acessar remotamente as máquinas no conjunto.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "[variables('nicName1')]",
           "location": "[resourceGroup().location]",
@@ -276,7 +273,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 9. Adicione a máquina virtual separada à mesma rede do conjunto de escala.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
@@ -302,7 +299,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
               "osDisk": {
                 "name": "osdisk1",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"        
@@ -322,7 +319,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "[variables('apiVersion')]",
+              "apiVersion": "2016-03-30",
               "name": "[parameters('vmSSName')]",
               "location": "[resourceGroup().location]",
               "dependsOn": [
@@ -343,11 +340,11 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
@@ -410,7 +407,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
                           },
                           "protectedSettings": {
                             "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+                            "storageAccountKey": "[listkeys(variables('accountid'), '2015-06-15').key1]",
                             "storageAccountEndPoint": "https://core.windows.net"
                           }
                         }
@@ -472,7 +469,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
     Para este tutorial, estes são os valores importantes:
 
     - **metricName** - Esse é o mesmo que o contador de desempenho que definimos na variável wadperfcounter. Usando essa variável, a extensão de Diagnóstico coleta o contador **Processor(\_Total)\\% Processor Time**.
-    - **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
+- **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
     - **timeGrain** – Esta é a granularidade das métricas que são coletadas. Neste modelo, ele é definido como 1 minuto.
     - **statistic** – Isso determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx. Neste modelo estamos procurando o uso médio de CPU total entre as máquinas virtuais no conjunto de dimensionamento.
     - **timeWindow** – Esta, se o intervalo de tempo em que os dados de instância são coletados. Deve estar entre 5 minutos e 12 horas.
@@ -567,7 +564,9 @@ Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de
     
 ## Próximas etapas
 
-- Gerencie o conjunto de escala que você acabou de criar usando as informações fornecidas em [Manage virtual machines in a Virtual Machine Scale Set (Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual)](virtual-machine-scale-sets-windows-manage.md).
-- Saiba mais sobre a escala vertical revisando [Vertical autoscale with Virtual Machine Scale sets (Dimensionamento automático vertical com conjuntos de escala de máquina virtual)](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Gerencie o conjunto de dimensionamento que você acabou de criar usando as informações em [Gerenciar máquinas virtuais em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-manage.md).
+- Saiba mais sobre o dimensionamento vertical revisando [Dimensionamento vertical automático com conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Encontre exemplos de recursos de monitoramento do Azure Insights nos [exemplos de início rápido do PowerShell do Azure Insights](../azure-portal/insights-powershell-samples.md)
+- Saiba mais sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usar logs de auditoria para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

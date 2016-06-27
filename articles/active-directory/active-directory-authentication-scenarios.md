@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
@@ -203,10 +203,9 @@ A sessão do usuário expira quando a vida útil do token emitido pelo Azure AD 
 
 ### SPA (Aplicativo de Página Única)
 
+Esta seção descreve a autenticação para um Aplicativo de Página Única que usa o Azure AD e a concessão de autorização implícita de OAuth 2.0 para proteger o back-end de sua API da Web. Aplicativos de Página Única normalmente são estruturados como uma camada de apresentação de JavaScript (front-end) que é executada no navegador e um back-end de API da Web que é executado em um servidor e implementa a lógica comercial do aplicativo. Para saber mais sobre a concessão de autorização implícita e ajudá-lo a decidir se ela é adequada para seu cenário de aplicativo, consulte [Noções básicas sobre o fluxo de concessão implícita de OAuth2 no Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-Esta seção descreve a autenticação para um aplicativo de página única que usa o Azure AD para proteger o back-end de sua API da Web. Aplicativos de página única normalmente são estruturados como uma camada de apresentação de JavaScript (front-end) que é executada no navegador e um back-end de API da Web que é executado em um servidor e implementa a lógica comercial do aplicativo. Nesse cenário, quando o usuário faz logon, o front-end de JavaScript usa a [biblioteca de autenticação do Active Directory para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e o protocolo de concessão implícita do OAuth 2.0 para obter um token de ID (id\_token) do Azure AD. O token é armazenado em cache e o cliente o anexa à solicitação como o token de portador ao fazer chamadas paro o back-end de sua API da Web, que é protegido usando o middleware OWIN.
-
-
+Nesse cenário, quando o usuário faz logon, o front-end de JavaScript usa a [Biblioteca de Autenticação do Active Directory para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e a concessão de autorização implícita para obter um token de ID (id\_token) do Azure AD. O token é armazenado em cache e o cliente o anexa à solicitação como o token de portador ao fazer chamadas paro o back-end de sua API da Web, que é protegido usando o middleware OWIN.
 #### Diagrama
 
 ![Diagrama de Aplicativo de Página Única](./media/active-directory-authentication-scenarios/single_page_app.png)
@@ -469,4 +468,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="06/10/2016" 
 	ms.author="raynew"/>
 
 # Failover na Recuperação de Site
@@ -49,8 +49,8 @@ Site do VMM para Azure | Com suporte | Com suporte | Com suporte
 Azure para site do VMM | Sem suporte | Com suporte | Sem suporte 
 Site do Hyper-V para Azure | Com suporte | Com suporte | Com suporte
 Azure para site do Hyper-V | Sem suporte | Com suporte | Sem suporte
-Site da VMware para Azure | Com suporte (cenário avançado)<br/><br/> Sem suporte (cenário herdado) |Este cenário usa replicação contínua, de modo que não há distinção entre failover planejado e não planejado. Selecione **Failover** | ND
-Servidor físico para Azure | Sem suporte | Este cenário usa replicação contínua, de modo que não há distinção entre failover planejado e não planejado. Selecione **Failover** | ND
+Site da VMware para Azure | Com suporte (cenário avançado)<br/><br/> Sem suporte (cenário herdado) |Sem suporte | Suportado
+Servidor físico para Azure | Com suporte (cenário avançado)<br/><br/> Sem suporte (cenário herdado) | Sem suporte | Suportado
 
 ## Failover e failback
 
@@ -256,4 +256,4 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 	>[AZURE.NOTE] Se você cancelar o trabalho de failback durante a etapa de Sincronização de Dados, a VM local ficará em um estado corrompido. Isso ocorre porque a Sincronização de Dados copia os dados mais recentes dos discos da VM do Azure para os discos de dados locais e, até que a sincronização seja concluída, o disco de dados pode não estar em um estado consistente. Se a VM local for inicializada após o cancelamento da Sincronização de Dados, talvez ela não seja inicializada. Dispare novamente o failover para concluir a Sincronização de Dados.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

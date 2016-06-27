@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferenças de Transact-SQL de Banco de Dados SQL do Azure
@@ -36,7 +36,7 @@ Este tópico aborda os recursos que estão disponíveis com o banco de dados SQL
 
 ## Recursos para os quais há suporte parcial no Banco de Dados SQL V12
 
-O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos existentes nas instruções Transact-SQL correspondentes do SQL Server 2016. Por exemplo, a instrução CREATE PROCEDURE está disponível; no entanto, a opção WITH ENCRYPTION de CREATE PROCEDURE não está disponível. Consulte os tópicos de sintaxe vinculados para obter detalhes sobre as áreas de cada instrução para as quais há suporte.
+O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos existentes nas instruções Transact-SQL correspondentes do SQL Server 2016. Por exemplo, a instrução CREATE PROCEDURE está disponível; no entanto, nenhuma opção de CREATE PROCEDURE está disponível. Consulte os tópicos de sintaxe vinculados para obter detalhes sobre as áreas de cada instrução para as quais há suporte.
 
 - Bancos de dados: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMVs geralmente estão disponíveis para recursos que também estão disponíveis
@@ -64,7 +64,7 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - Eventos: eventos, notificações de eventos, notificações de consulta
 - Recursos relacionados à localização de arquivos de banco de dados, o tamanho e os arquivos de banco de dados que são gerenciados automaticamente pelo Microsoft Azure.
 - Recursos relacionados à alta disponibilidade, que é gerenciada por meio de sua conta do Microsoft Azure: backup, restauração, AlwaysOn, espelhamento de banco de dados, envio de logs e modos de recuperação. Para obter mais informações, consulte Backup e restauração do Banco de dados SQL do Azure.
-- Recursos que dependem do leitor de log: Replicação, Change Data Capture.
+- Recursos que dependem do leitor de log em execução no Banco de Dados SQL: replicação push, Change Data Capture.
 - Recursos que dependem do SQL Server Agent ou do banco de dados MSDB: trabalhos, alertas, operadores, gerenciamento baseado em políticas, database mail, servidores de gerenciamento central.
 - FILESTREAM
 - Funções: fn\_get\_sql, fn\_virtualfilestats e fn\_virtualservernodes
@@ -108,4 +108,4 @@ A referência do Transact-SQL inclui tópicos relacionados a versões do SQL Ser
 
 Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas há pequenas diferenças entre produtos. As diferenças são indicadas em pontos médios no tópico, conforme apropriado.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

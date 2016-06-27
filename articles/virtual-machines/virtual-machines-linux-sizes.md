@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="06/07/2016"
+ ms.date="06/08/2016"
  ms.author="cynthn"/>
 
 # Tamanhos das máquinas virtuais no Azure
@@ -23,4 +23,4 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

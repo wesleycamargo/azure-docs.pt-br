@@ -150,13 +150,17 @@ Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, confira
 
 Para converter os bancos de dados existentes para usar as ferramentas, consulte [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para criar um novo pool com o [tutorial](sql-database-elastic-pool-create-portal.md).
+Para criar um novo pool, confira o [tutorial Criar pool elástico](sql-database-elastic-pool-create-portal.md).
 
-## Saiba mais
+Para monitorar e gerenciar um pool de Banco de Dados Elástico, confira [Monitorar e gerenciar um pool de Banco de Dados Elástico](sql-database-elastic-pool-manage-portal.md).
 
-[O que é um Pool de Banco de Dados Elástico do Azure?](sql-database-elastic-pool.md)
+## Recursos adicionais
 
-[Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+- [O que é um Pool de Banco de Dados Elástico do Azure?](sql-database-elastic-pool.md)
+- [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+- [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Perguntas e solicitações de recursos
 
@@ -172,4 +176,4 @@ Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](h
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

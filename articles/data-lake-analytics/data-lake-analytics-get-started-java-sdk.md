@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: introdução à Análise Azure Data Lake usando o SDK do Java
@@ -75,7 +75,17 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
 	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
@@ -95,7 +105,9 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 5. Abra **Main.java** e substitua o bloco de código existente pelo código a seguir. Além disso, forneça os valores para os parâmetros chamados no trecho de código, como **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName**, **\_resourceGroupName** e substitua os espaços reservados por **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
 
 	O código percorre o processo de criar contas do Repositório Data Lake e da Análise Data Lake, criar arquivos no repositório, executar um trabalho, obter o status do trabalho, baixar a saída do trabalho e, finalmente, excluir a conta.
- 
+
+>[AZURE.NOTE] Atualmente, há um problema conhecido com o Serviço do Azure Data Lake. Se o aplicativo de exemplo for interrompido ou encontrar um erro, talvez seja necessário excluir manualmente as contas do Repositório Data Lake e do Data Lake Analytics criadas pelo script. Se você não estiver familiarizado com o Portal, o guia [Gerenciar análises do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md) ajudará você a começar.
+
 
 		package com.company;
 
@@ -255,6 +267,8 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
+				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+ 
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
@@ -383,10 +397,10 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 ## Consulte também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
-- Para ver uma consulta mais complexa, veja [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
+- Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
 - Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para conhecer o U-SQL, confira [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md) e [Referência à linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

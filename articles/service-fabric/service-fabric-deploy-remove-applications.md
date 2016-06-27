@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # Implantar um aplicativo
@@ -30,7 +30,9 @@ Assim que um [tipo de aplicativo é empacotado][10], ele está pronto para impla
 
 O carregamento do pacote de aplicativos coloca-o em um local acessível por componentes internos do Service Fabric. Você pode usar o PowerShell para executar o carregamento. Antes de executar qualquer comando do PowerShell neste artigo, sempre usando **Connect-ServiceFabricCluster** para se conectar ao cluster da Malha do Serviço.
 
-Suponhamos que você tenha uma pasta denominada *MyApplicationType* que contém o manifesto de aplicativo necessário, o(s) manifesto(s) de serviço e os pacotes de dados/configuração/códigos. O comando **Copy-ServiceFabricApplicationPackage** carregará o pacote. Por exemplo:
+Suponhamos que você tenha uma pasta denominada *MyApplicationType* que contém o manifesto de aplicativo necessário, o(s) manifesto(s) de serviço e os pacotes de dados/configuração/códigos. O comando **Copy-ServiceFabricApplicationPackage** carregará o pacote no repositório de imagens do cluster. O cmdlet **Get-ImageStoreConnectionStringFromClusterManifest**, que faz parte do módulo do PowerShell do SDK do Service Fabric, é usado para obter a cadeia de conexão do repositório de imagens. Para importar o módulo do SDK, execute *Import-Module "$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1"*.
+
+O exemplo a seguir carrega o pacote:
 
 ~~~
 PS D:\temp> dir
@@ -175,12 +177,6 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## Solucionar problemas
 
 ### Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -194,7 +194,7 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 1.	Baixe o agent.zip. Para fazer isso:
 
-    a. Entre em seu projeto de equipe, como **https://[your-VSTS-account-name].visualstudio.com**.
+    a. Entre em seu projeto de equipe, como ****https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Selecione o ícone de “engrenagem” no canto superior direito da tela.
 
@@ -261,6 +261,8 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 3. Adicione os novos arquivos ao controle do código-fonte envie por push ao VSTS.
 
+>[AZURE.NOTE] Se você tiver usado um certificado diferente para gerenciar o cluster do Service Fabric, repita as etapas em 'Importar o certificado de automação', usando esse certificado.
+
 ### Criar a definição de build
 
 1.	Crie uma definição de build vazia. Para fazer isso:
@@ -302,11 +304,11 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 ### Adicionar uma etapa de "Compilação"
 
-1.	Na guia **Compilar**, escolha o comando **Add build step…**
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
 2.	Selecione **Compilar** > **MSBuild**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o para **Compilar**.
+3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Compilar**.
 
 4. Selecione estes valores:
 
@@ -320,11 +322,11 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 ### Adicionar uma etapa de "Pacote"
 
-1.	Na guia **Compilar**, escolha o comando **Add build step…**
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
 2.	Selecione **Compilar** > **MSBuild**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o para **Pacote**.
+3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Pacote**.
 
 4. Selecione estes valores:
 
@@ -341,11 +343,13 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 Se uma compilação anterior não tiver sido limpa após sua execução (por exemplo, se a compilação tiver sido cancelada antes de poder ser limpa), poderá haver um grupo de recursos existente em conflito com o novo. Para evitar conflitos, limpe qualquer grupo de recursos restante (e seus recursos associados) antes de criar um novo.
 
-1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**
+>[AZURE.NOTE] Ignore esta etapa se você quiser criar e reutilizar o mesmo cluster para cada compilação.
+
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
 2.	Selecione **Implantar** > **Implantação de Grupo de Recursos do Azure**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o para **Remover grupo de recursos do cluster**.
+3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Remover grupo de recursos do cluster**.
 
 4. Selecione estes valores:
 
@@ -361,11 +365,11 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
 
 ### Adicionar uma etapa para “Provisionar cluster seguro”
 
-1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
 2.	Selecione **Implantar** > **Implantação de Grupo de Recursos do Azure**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o para **Provisionar cluster seguro**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Provisionar e implantar em cluster seguro**.
 
 4. Selecione estes valores:
 
@@ -383,19 +387,23 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
 
 ### Adicionar uma etapa para "Implantar"
 
-1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
 2.	Selecione **Utilitário** > **PowerShell**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o para **Implantar**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Pacote**.
 
-4. Selecione estes valores:
+4. Selecione esses valores (substitua os valores de PublishProfile e de -ApplicationPackagePath por seus caminhos reais):
 
     |Nome da configuração|Valor|
     |---|---|
     |Tipo|**Caminho do arquivo**|
     |Nome do arquivo do script|Clique no botão **...** e navegue até o diretório **Scripts** dentro de seu projeto de aplicativo. Selecione `Deploy-FabricApplication.ps1`.|
     |Argumentos|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] Uma maneira fácil de criar um arquivo xml de perfil de publicação de trabalho é criá-lo no Visual Studio, como mostrado aqui: https://azure.microsoft.com/pt-BR/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] Se você quiser dar suporte à implantação do aplicativo para um cluster ao substituir o aplicativo existente em vez de atualizá-lo, adicione este Argumento do Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Além disso, certifique-se de que o perfil de publicação selecionado não esteja configurado para permitir uma atualização. Isso removerá qualquer ApplicationType existente antes de instalar a compilação mais recente.
 
 5.	Salve definição de build.
 
@@ -409,17 +417,17 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
 
 ### Experimente
 
-Selecione **Enfileirar Compilação** para iniciar um build. As compilações também serão disparadas no envio por push ou no check-in.
+Selecione **Enfileirar Compilação** para iniciar uma compilação. As compilações também serão disparadas no envio por push ou no check-in.
 
 ## Soluções alternativas
 
 As instruções anteriores criam um novo cluster para cada build e o remove ao final do build. Se você preferir que cada build execute uma atualização de aplicativo (para um cluster existente), use as etapas a seguir:
 
-1.	Crie manualmente um cluster de teste por meio do Portal do Azure ou do Azure PowerShell seguindo [estas instruções](service-fabric-cluster-creation-via-portal.md).
+1.	Crie manualmente um cluster de teste por meio do portal do Azure ou do Azure PowerShell seguindo [estas instruções](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configure o perfil de publicação para dar suporte à atualização do aplicativo seguindo [estas instruções](service-fabric-visualstudio-configure-upgrade.md).
 
-4.	Remova as etapas de build **Remover grupo de recursos de cluster** e **Provisionar cluster** de sua definição de build.
+4.	Remova as etapas de compilação **Remover grupo de recursos de cluster** e **Provisionar cluster** de sua definição de compilação.
 
 ## Próximas etapas
 
@@ -429,4 +437,4 @@ Para saber mais sobre a integração contínua com aplicativos do Service Fabric
  - [Implantar um agente de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Criar e configurar uma definição de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

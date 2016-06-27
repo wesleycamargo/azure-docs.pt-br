@@ -52,7 +52,7 @@ O procedimento a seguir guiará você pela configuração do gateway de VPN no P
 
 Antes de configurar o gateway, primeiro você precisará criar sua rede virtual. Para obter as etapas criar uma rede virtual para conectividade entre locais, consulte [Configurar uma rede virtual com uma conexão VPN site a site](vpn-gateway-site-to-site-create.md) ou [Configurar uma rede virtual com uma conexão VPN ponto a site](vpn-gateway-point-to-site-create.md). Em seguida, use as etapas abaixo para configurar o gateway de VPN e coletar as informações necessárias para configurar seu dispositivo VPN.
 
-Se você já tiver um gateway de VPN e quiser alterar o tipo de roteamento, consulte [Como alterar seu tipo roteamento de gateway de VPN](#how-to-change-your-vpn-gateway-type).
+Se você já tiver um gateway de VPN e quiser alterar o tipo de roteamento, consulte [Como alterar o tipo de roteamento VPN para seu gateway](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 ## Criar um gateway de VPN
 
@@ -168,4 +168,4 @@ Se você quiser configurar uma conexão VPN ponto a site, consulte [Configurar u
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

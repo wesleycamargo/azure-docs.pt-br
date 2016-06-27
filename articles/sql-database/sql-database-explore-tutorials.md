@@ -105,7 +105,7 @@ Nos tutoriais a seguir, você aprenderá sobre a [migração de um banco de dado
 
 ##Desenvolver
 
-Nos tutoriais a seguir, você aprenderá sobre [conectividade do cliente para o Banco de Dados SQL do Azure](sql-database-connect-central-recommendations.md) e sobre o uso de [bibliotecas de conectividade](sql-database-libraries.md).
+Nos tutoriais a seguir, você aprenderá sobre [Desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md) e o uso de [bibliotecas de conectividade](sql-database-libraries.md).
 
 | Tutorial | Descrição |
 |---|---|---|
@@ -180,4 +180,4 @@ Nesse tutorial, você aprenderá sobre a [Sincronização de Dados](http://downl
 
 [Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

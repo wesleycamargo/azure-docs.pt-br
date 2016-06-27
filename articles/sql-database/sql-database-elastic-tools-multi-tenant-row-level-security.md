@@ -18,7 +18,9 @@
 
 # Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha 
 
-[Ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e [segurança em nível de linha (RLS)](https://msdn.microsoft.com/library/dn765131) oferecem um poderoso conjunto de recursos para dimensionar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure de maneira flexível e eficiente. Este artigo ilustra como usar essas tecnologias em conjunto para criar um aplicativo com uma camada de dados altamente dimensionável e compatível com fragmentos multilocatários usando **ADO.NET SqlClient** e/ou **Entity Framework**.
+[Ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e [segurança em nível de linha (RLS)](https://msdn.microsoft.com/library/dn765131) oferecem um poderoso conjunto de recursos para dimensionar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure de maneira flexível e eficiente. Confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para saber mais.
+
+Este artigo ilustra como usar essas tecnologias em conjunto para criar um aplicativo com uma camada de dados altamente dimensionável e compatível com fragmentos multilocatários usando **ADO.NET SqlClient** e/ou **Entity Framework**.
 
 * **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandir a camada de dados de um aplicativo por meio de práticas de fragmentação padrão do setor usando um conjunto de bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos usando a Biblioteca Cliente do Banco de Dados Elástico ajuda a automatizar e simplificar muitas das tarefas infraestruturais normalmente associadas à fragmentação. 
 
@@ -302,9 +304,20 @@ GO
 
 ## Resumo 
 
-Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos. Para saber mais, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131).
+Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos. Para obter mais informações, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Recursos adicionais
+
+- [O que é um Pool de Banco de Dados Elástico do Azure?](sql-database-elastic-pool.md)
+- [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+- [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+## Perguntas e solicitações de recursos
+
+Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
@@ -312,4 +325,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

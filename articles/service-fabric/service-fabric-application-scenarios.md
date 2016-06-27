@@ -37,7 +37,7 @@ A plataforma Malha do Serviço no Azure é ideal para as seguintes categorias de
 ## Projetar aplicativos compostos de microsserviços com e sem monitoração de estado
 A criação de aplicativos com funções de trabalho com o serviço de nuvem do Azure é um exemplo de serviços sem monitoração de estado. Por outro lado, os microsserviços com monitoração de estado mantêm o estado autoritário além da solicitação e de sua resposta. Isso fornece alta disponibilidade e consistência do estado por meio de APIs simples que oferecem garantias transacionais feitas pela replicação. Os serviços com monitoração de estado do Service Fabric democratiza a alta disponibilidade, incorporando-a a todos os tipos de aplicativo, e não apenas a bancos de dados e outros armazenamentos de dados. Essa é uma progressão natural. Os aplicativos já passaram do uso de bancos de dados totalmente relacionais para bancos de dados NoSQL de alta disponibilidade. Agora os próprios aplicativos podem ter seu estado e dados "hot" gerenciados dentro deles para ganhos de desempenho adicionais sem sacrificar a disponibilidade, a consistência e a confiabilidade.
 
-Ao criar aplicativos que consistem em microsserviços, você normalmente tem uma combinação de aplicativos Web sem estado (ASP.NET, node.js, etc.) chamando serviços de camada intermediária de negócios com e sem monitoração de estado, tudo implantado no mesmo cluster do Service Fabric usando os comandos de implantação do Service Fabric. Cada um desses serviços não depende de escala, confiabilidade e uso de recursos, melhorando consideravelmente a agilidade no gerenciamento de ciclo de vida e desenvolvimento.
+Ao criar aplicativos que consistem em microsserviços, você normalmente tem uma combinação de aplicativos Web sem estado (ASP.NET, Node.js etc.) chamando serviços de camada intermediária de negócios com e sem monitoração de estado, tudo implantado no mesmo cluster do Service Fabric usando os comandos de implantação do Service Fabric. Cada um desses serviços não depende de escala, confiabilidade e uso de recursos, melhorando consideravelmente a agilidade no gerenciamento de ciclo de vida e desenvolvimento.
 
 Os microsserviços com monitoração de estado simplificam o design dos aplicativos porque eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente necessários para abordar os requisitos de disponibilidade e de latência de um aplicativo totalmente sem monitoração de estado. Uma vez que os serviços com monitoramento de estado são, de forma natural, altamente disponíveis e baixa latência, isso significa que há menos partes móveis para gerenciar no seu aplicativo como um todo. Os diagramas a seguir ilustram as diferenças entre criar um aplicativo sem monitoração de estado e um com monitoração de estado. Ao aproveitar os modelos de programação dos [serviços confiáveis](service-fabric-reliable-services-introduction.md) e [atores confiáveis](service-fabric-reliable-actors-introduction.md), os serviços com monitoração de estado reduzem a complexidade do aplicativo, ao mesmo tempo que alcançam uma alta taxa de transferência e baixa latência.
 
@@ -50,22 +50,15 @@ Os microsserviços com monitoração de estado simplificam o design dos aplicati
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-
-Comece a criar serviços com e sem monitoração de estado com o modelos de programação dos [serviços confiáveis](service-fabric-reliable-services-quick-start.md) e [atores confiáveis](service-fabric-reliable-actors-get-started.md) do Service Fabric.
-
-Confira também os seguintes tópicos:
-
-[Fale-me sobre os microsserviços](service-fabric-overview-microservices.md)
-
-[Definir e gerenciar o estado do serviço](service-fabric-concepts-state.md)
-
-[Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
-
-[Dimensionar serviços do Service Fabric](service-fabric-concepts-scalability.md)
-
-[Particionar serviços do Service Fabric](service-fabric-concepts-partitioning.md)
+* Comece a criar serviços com e sem monitoração de estado com o modelos de programação dos [reliable services](service-fabric-reliable-services-quick-start.md) e [reliable actors](service-fabric-reliable-actors-get-started.md) do Service Fabric.
+* Confira também os seguintes tópicos:
+    * [Fale-me sobre os microsserviços](service-fabric-overview-microservices.md)
+    * [Definir e gerenciar o estado do serviço](service-fabric-concepts-state.md)
+    * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
+    * [Dimensionar serviços do Service Fabric](service-fabric-concepts-scalability.md)
+    * [Particionar serviços do Service Fabric](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->
