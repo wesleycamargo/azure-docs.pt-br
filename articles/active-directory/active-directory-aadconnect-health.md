@@ -56,13 +56,13 @@ O Azure AD Connect Health for Sync monitora e fornece informações sobre as sin
 
 O vídeo a seguir fornecerá uma visão geral do Azure AD Connect Health para sincronização
 
-[Azure Active Directory Connect Health: monitoramento do mecanismo de sincronização](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 
 ## Introdução ao Azure AD Connect Health
 É muito fácil começar a usar o Azure AD Connect Health. Siga as etapas abaixo:
 
-1. [Obter o Azure AD Premium](active-directory-get-started-premium) ou [iniciar uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Obter o Azure AD Premium](active-directory-get-started-premium.md) ou [iniciar uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 2. [Baixe e Instale os agentes do Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) nos seus servidores de identidade.
 
@@ -80,7 +80,7 @@ O vídeo a seguir fornecerá uma visão geral do Azure AD Connect Health para si
 
 
 ## Portal do Azure AD Connect Health
-O portal do Azure AD Connect Health permite exibir alertas, o monitoramento do desempenho e a análise de uso. O https://aka.ms/aadconnecthealth leva você à folha principal do Azure AD Connect Health. Você pode pensar uma folha como uma janela. Na folha principal, você vê o Início Rápido, os Serviços no Azure AD Connect Health e opções de configuração adicionais. Abaixo a captura de tela é uma breve explicação de cada um deles. Depois que você tiver implantado os agentes, os identificadores dos serviços do Azure AD Connect Health estarão monitorando.
+O portal do Azure AD Connect Health permite exibir alertas, o monitoramento do desempenho e a análise de uso. O https://aka.ms/aadconnecthealth leva você à folha principal do Azure AD Connect Health. Você pode pensar uma folha como uma janela. Na folha principal, você vê o Início Rápido, os Serviços no Azure AD Connect Health e opções de configuração adicionais. Abaixo a captura de tela é uma breve explicação de cada um deles. Depois que você tiver implantado os agentes, p serviço de integridade identifica automaticamente os serviços que o Azure AD Connect Health está monitorando.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -106,4 +106,4 @@ O portal do Azure AD Connect Health permite exibir alertas, o monitoramento do d
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

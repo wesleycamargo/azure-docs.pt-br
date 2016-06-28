@@ -46,9 +46,7 @@ Quando você visita um serviço com URLs que não são específicas do locatári
 
 > [AZURE.NOTE]
 >
-
 - O nome do seu domínio deve aparecer como "Ativo" na seção **Active Directory** > **Diretório** > **Domínios** do portal clássico do Azure onde você configurou a identidade visual.
-
 - A identidade visual da página de entrada não se transfere para a página de entrada do consumidor da Microsoft. Se você entrar com uma conta da Microsoft pessoal, talvez veja uma lista com identidade visual de blocos de usuários renderizados pelo AD do Azure, mas a identidade visual da sua organização não se aplicará à página de entrada da conta da Microsoft.
 
 
@@ -221,4 +219,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->
