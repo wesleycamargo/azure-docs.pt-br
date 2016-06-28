@@ -44,9 +44,9 @@ Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar. 
 
 Como você usa a autenticação multifator|Descrição
 :------------- | :------------- | 
-[Eu a uso com o Office 365](#creating-and-deleting-app-passwords-with-office-365)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
+[Eu a uso com o Office 365](#Criação e exclusão de senhas de aplicativo com o Office 365)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
 [Não sei](#creating-and-deleting-app-passwords-with-myapps-portal)|Isso significa que você desejará criar senhas de aplicativo por meio de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[Eu a uso com o Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
+[Eu a uso com o Microsoft Azure](#Crie senhas de aplicativo no portal do Azure)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
 
 ## Criação e exclusão de senhas de aplicativo com o Office 365 
 
