@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analisar dados com o Aprendizado de Máquina do Azure | Microsoft Azure"
-   description="Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções."
+   description="Use o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,30 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Aprendizado de Máquina do Azure][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Este tutorial mostrará como criar um modelo de aprendizado de máquina preditivo com o Aprendizado de Máquina do Azure usando seus dados do SQL Data Warehouse do Azure. Neste tutorial, vamos criar uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
+Este tutorial usa o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
+
 ## Pré-requisitos
-Para acompanhar este tutorial, você precisará
+Para acompanhar este tutorial, você precisará:
 
-- SQL Data Warehouse com o banco de dados de exemplo do AdventureWorksDW.
+- Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][] e optar por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][].
 
-[Criar um SQL Data Warehouse][] mostra como provisionar um banco de dados com dados de exemplo. Se você já tiver um banco de dados do SQL Data Warehouse mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][].
-
-
-## Etapa 1: obter dados
-Leremos os dados da exibição dbo.vTargetMail no banco de dados do AdventureWorksDW.
+## 1\. Obter dados
+Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
 
 1. Entre no [Estúdio de Aprendizado de Máquina do Azure][] e clique em Meus Testes.
 2. Clique em **+NOVO** e selecione **Teste em Branco**.
@@ -71,8 +70,8 @@ Execute o teste clicando em **Executar** na tela do teste. ![Executar o teste][1
 Após o teste terminar de ser executado com êxito, clique na porta de saída na parte inferior do módulo Leitor e selecione **Visualizar** para ver os dados importados. ![Exibir dados importados][3]
 
 
-## Etapa 2: limpar dados
-Removeremos algumas colunas que não são relevantes para o modelo.
+## 2\. Limpar os dados
+Para limpar os dados, remova algumas colunas que não são relevantes para o modelo. Para fazer isso:
 
 1. Arraste o módulo **Colunas do Projeto** na tela.
 2. Clique em **Iniciar seletor de colunas** no painel Propriedades para especificar quais colunas você deseja remover. ![Colunas do projeto][4]
@@ -80,7 +79,7 @@ Removeremos algumas colunas que não são relevantes para o modelo.
 3. Exclua duas colunas: CustomerAlternateKey e GeographyKey. ![Remover colunas desnecessárias][5]
 
 
-## Etapa 3: criar modelo
+## 3\. Compilar o modelo
 Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquina e 20% para testar o modelo. Usaremos os algoritmos de “Duas Classes” para esse problema de classificação binária.
 
 1. Arraste o módulo **Divisão** na tela.
@@ -92,7 +91,7 @@ Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquin
 5. Selecione a coluna **BikeBuyer** como a coluna a ser prevista. ![Selecionar a Coluna a prever][8]
 
 
-## Etapa 4: pontuar modelo
+## 4\. Pontuar o modelo
 Agora, testaremos o desempenho do modelo nos dados de teste. Vamos comparar o algoritmo de nossa escolha com um algoritmo diferente para ver que tem um desempenho melhor.
 
 1. Arraste o módulo **Modelo de Pontuação** na tela. Primeira entrada: modelo treinado Segunda entrada: dados de teste ![Pontuar o modelo][9]
@@ -116,18 +115,18 @@ Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é 
 Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Aprendizado de Máquina no Azure][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
@@ -135,8 +134,5 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-load-sample-databases.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Aprendizado de Máquina do Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

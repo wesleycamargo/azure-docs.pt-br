@@ -10,11 +10,18 @@ Não, há suporte ao o BGP somente em gateways de VPN Baseados em Rota.
 
 Sim, você pode usar seu próprio ASNs públicos ou privados para suas redes locais e para redes virtuais do Azure.
 
+#### Há ASNs reservados pelo Azure?
+
+Sim, os seguintes ASNs estão reservados pelo Azure para emparelhamentos internos e externos:
+
+- ASNs públicos: 8075, 8076, 12076
+- ASNs privados: 65515, 65517, 65518, 65519, 65520
+
+Não é possível especificar esses ASNs para seus dispositivos VPN locais ao conectar-se a gateways de VPN do Azure.
+
 ### Posso usar o mesmo ASN para redes de VPN locais e VNets do Azure?
 
 Não, você deverá atribuir ASNs diferentes entre suas redes locais e as VNets do Azure se os estiver conectando junto com o BGP. Os Gateways de VPN do Azure têm um ASN padrão de 65515 atribuído, quer o BGP esteja habilitado ou não para a conectividade entre locais. Você pode substituir esse padrão atribuindo um ASN diferente ao criar o gateway de VPN ou alterar o ASN depois de criar o gateway. Você precisará atribuir ASNs locais aos Gateways de Rede Local do Azure correspondentes.
-
-
 
 ### Quais prefixos de endereço os gateways de VPN do Azure anunciarão para mim?
 
@@ -23,6 +30,14 @@ O Gateway de VPN do Azure anunciará as seguintes rotas para seus dispositivos d
 - Seus prefixos de endereços de VNet
 - Prefixos de endereços para cada Gateway de Rede Local conectado ao gateway de VPN do Azure
 - As rotas obtidas de outras sessões de emparelhamento de BGP conectadas ao gateway de VPN do Azure, **exceto rotas padrão sobrepostas com qualquer prefixo de VNet**.
+
+#### Posso anunciar a rota padrão (0.0.0.0/0) para gateways de VPN do Azure?
+
+Não no momento.
+
+#### Posso anunciar os prefixos exatamente como meus prefixos de Rede Virtual?
+
+Não, o anúncio dos mesmos prefixos como qualquer um de seus prefixos de endereço de sua Rede Virtual será bloqueado ou filtrado pela plataforma do Azure.
 
 ### Posso usar o BGP com minhas conexões VNet para VNet?
 
@@ -63,3 +78,5 @@ O Gateway de Rede Local do Azure especifica os prefixos de endereços iniciais p
 ### O que devo adicionar a meu dispositivo VPN local para a sessão de emparelhamento de BGP?
 
 Você deve adicionar uma rota de host do endereço IP de Par de BGP do Azure em seu dispositivo VPN apontando para o túnel de VPN S2S IPsec. Por exemplo, se o IP de Par de VPN do Azure for "10.12.255.30", você deverá adicionar uma rota de host para "10.12.255.30" com uma interface de nexthop da interface de túnel IPsec correspondente em seu dispositivo VPN.
+
+<!---HONumber=AcomDC_0622_2016-->

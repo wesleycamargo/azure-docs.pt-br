@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um Azure SQL Data Warehouse
@@ -44,7 +44,7 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
 	- **Nome do banco de dados**: o nome que será usado para referenciar o SQL Data Warehouse. Esse nome tem que ser exclusivo do servidor.
 	
-    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, consulte nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, consulte nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços](https://azure.microsoft.com/pt-BR/pricing/details/sql-data-warehouse/).
 
     - **Assinatura**: selecione a assinatura na qual esse SQL Data Warehouse será cobrado.
 
@@ -62,10 +62,10 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
 ## Próximas etapas
 
-Agora que você criou um SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) e começar a consultar.
+Agora que você criou um SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-connect-overview.md) e começar a consultar.
 
 Para carregar dados no SQL Data Warehouse, veja a [visão geral de carregamento](./sql-data-warehouse-overview-load.md).
 
 Se você estiver tentando migrar um banco de dados existente para o SQL Data Warehouse, confira a [Visão geral de migração](./sql-data-warehouse-overview-migrate.md) ou use o [Utilitário de migração](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

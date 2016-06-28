@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Introdução ao Hub IoT do Azure para .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Introdução
-
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos (IoT) (Internet das Coisas) e uma solução de back-end. Um dos maiores desafios enfrentados pelos projetos IoT é como conectar os dispositivos de forma confiável e segura para a solução de back-end. Para enfrentar esse desafio, o hub IoT:
-
-- Oferece, de forma confiável, mensagens em larga escala do dispositivo para a nuvem e da nuvem para o dispositivo.
-- Permite proteger as comunicações usando credenciais de segurança e controle de acesso por dispositivo.
-- Inclui bibliotecas de dispositivo para as plataformas e idiomas mais populares.
-
-Este tutorial mostra como:
-
-- Use o portal do Azure para criar um hub IoT.
-- Crie uma identidade de dispositivo em seu hub IoT.
-- Crie um dispositivo simulado que envia a telemetria para o back-end de nuvem e recebe comandos de seu back-end de nuvem.
 
 No final deste tutorial, você terá três aplicativos de console do Windows:
 
@@ -105,7 +91,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 
     ![Chave do dispositivo gerada pelo aplicativo][12]
 
-> [AZURE.NOTE] O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Para obter mais informações, consulte [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].
+> [AZURE.NOTE] O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].
 
 ## Receber mensagens do dispositivo para a nuvem
 
@@ -262,7 +248,7 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 
 - [Enviar mensagens da Nuvem para o Dispositivo com o Hub IoT][lnk-c2d-tutorial] mostra como enviar mensagens para dispositivos e como processar os comentários de entrega produzidos pelo Hub IoT.
 - [Processar mensagens do Dispositivo para a Nuvem][lnk-process-d2c-tutorial] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
-- [Carregando arquivos de dispositivos][lnk-upload-tutorial] descreve um padrão que usa mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
+- [Carregando arquivos de dispositivos][lnk-upload-tutorial] mostra como carregar arquivos de dispositivos.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -291,4 +277,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

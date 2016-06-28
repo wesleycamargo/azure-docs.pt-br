@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;viviali"/>
 
 # Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory
@@ -84,4 +84,4 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 - [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

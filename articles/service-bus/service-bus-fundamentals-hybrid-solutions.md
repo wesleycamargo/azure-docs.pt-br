@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Barramento de Serviço do Azure | Microsoft Azure" 
-	description="Introdução às maneiras diferentes de poder usar o Barramento de Serviço para conectar os aplicativos do Azure com outro software." 
+	description="Uma introdução ao uso do Barramento de Serviço para conectar os aplicativos do Azure a outro software." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/09/2016" 
+	ms.date="06/20/2016" 
 	ms.author="sethm"/>
 
 # Barramento de Serviço do Azure
@@ -39,7 +39,7 @@ Dentro de um namespace, você pode usar uma ou mais instâncias de quatro mecani
 
 Quando você cria uma fila, tópico, retransmissão ou Hub de eventos, você atribui um nome. Combinado com o qualquer que seja o nome dado ao namespace, este nome cria um identificador exclusivo para o objeto. Os aplicativos podem fornecer esse nome ao barramento de serviço e usar essa fila, tópico, retransmissão ou Hub de eventos para se comunicar uns com os outros.
 
-Para usar qualquer um desses objetos, os aplicativos do Windows podem usar o Windows Communication Foundation (WCF). Para filas, tópicos e Hubs de eventos, os aplicativos Windows também podem usar APIs de mensagens definidas pelo barramento de serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas, tópicos e Hubs de eventos usando APIs REST sobre HTTP.
+Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Para filas, tópicos e Hubs de Eventos, os aplicativos do Windows podem usar APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas, tópicos e Hubs de eventos usando APIs REST sobre HTTP.
 
 É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Service Bus é um mecanismo de comunicação genérico na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
 
@@ -75,17 +75,17 @@ Filas são úteis em algumas situações. Eles permitem que os aplicativos se co
  
 **Figura 3: Com base no filtro que um aplicativo de assinatura especifica, ele pode receber algumas ou todas as mensagens enviadas para um tópico do Barramento de Serviço.**
 
-Um tópico é semelhante em muitas formas a uma fila. Mensagens de envio de remetentes a um tópico da mesma maneira que eles enviam mensagens para uma fila e essas mensagens parecem como com filas. A grande diferença é que tópicos permitem que cada aplicativo receptor crie sua própria assinatura definindo um *filtro*. Um assinante verá apenas as mensagens que correspondem ao filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
+Um *tópico* é semelhante em muitas formas a uma fila. Mensagens de envio de remetentes a um tópico da mesma maneira que eles enviam mensagens para uma fila e essas mensagens parecem como com filas. A grande diferença é que tópicos permitem que cada aplicativo receptor crie sua própria *assinatura* definindo um *filtro*. Um assinante verá apenas as mensagens que correspondem ao filtro. Por exemplo, a Figura 3 mostra um remetente e um tópico com três assinantes, cada um com seu próprio filtro:
 
 - Assinante 1 recebe apenas as mensagens que contêm a propriedade *vendedor = "&"*.
 - Assinante 2 recebe mensagens que contêm a propriedade *vendedor = "Ruby"* e/ou conter um *valor* propriedade cujo valor é maior que 100.000. Talvez Ruby seja a gerente de vendas e, portanto, ela deseja ver próprias vendas e todas as vendas grandes independentemente de quem realizá-las.
 - Assinante 3 definiu seu filtro como *True*, que significa que ele recebe todas as mensagens. Por exemplo, esse aplicativo pode ser responsável por manter uma trilha de auditoria e, portanto, ele precisa ver todas as mensagens.
 
-Assim como acontece com filas, os assinantes de um tópico podem ler mensagens usando **ReceiveAndDelete** ou **PeekLock**. Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por vários assinantes. Essa abordagem, conhecida como *publicar e assinar*, é útil sempre que vários aplicativos estejam interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
+Assim como acontece com filas, os assinantes de um tópico podem ler mensagens usando **ReceiveAndDelete** ou **PeekLock**. Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por várias assinaturas. Essa abordagem, conhecida como *publicar e assinar* (ou *pub/sub*), é útil sempre que vários aplicativos estejam interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
 
 ## Retransmissão
 
-Filas e tópicos fornecem comunicação unidirecional assíncrona por meio de um agente. O tráfego flui em apenas uma direção, e não há nenhuma conexão direta entre remetentes e receptores. Mas e se você não quiser isso? Suponha que seus aplicativos precisam enviar e receber mensagens, ou talvez você deseja um link direto entre eles e você não precisa de um agente para armazenar mensagens. Para lidar com cenários como este, o barramento de serviço fornece retransmissões, como mostra a Figura 4.
+Filas e tópicos fornecem comunicação unidirecional assíncrona por meio de um agente. O tráfego flui em apenas uma direção, e não há nenhuma conexão direta entre remetentes e receptores. Mas e se você não quiser isso? Suponha que seus aplicativos precisam enviar e receber mensagens, ou talvez você deseja um link direto entre eles e você não precisa de um agente para armazenar mensagens. Para lidar com cenários como este, o barramento de serviço fornece *retransmissões*, como mostra a Figura 4.
 
 ![][4]
  
@@ -95,7 +95,7 @@ Esta é a questão óbvia para perguntar sobre retransmissões: por que usar um?
 
 Suponha que você deseja conectar dois aplicativos locais, ambos em execução dentro de data centers corporativos. Cada um desses aplicativos fica atrás de um firewall, e cada centro de dados provavelmente usará a conversão de endereços de rede (NAT). O firewall bloqueia os dados de entrada em tudo menos algumas portas e NAT significa que cada aplicativo da máquina seja executado e não tenha um endereço IP fixo que você pode acessar diretamente de fora do data center. Sem alguma ajuda extra, conectar esses aplicativos por meio da Internet pública é algo problemático.
 
-Uma retransmissão do Service Bus fornece essa Ajuda. Para a comunicação bidirecional por meio de uma retransmissão, cada aplicativo estabelece uma conexão TCP de saída com o Service Bus e mantém aberta. Toda a comunicação entre os dois aplicativos percorrida por essas conexões. Porque cada conexão foi estabelecida de dentro do data center, o firewall permitirá o tráfego de entrada para cada aplicativo sem abrir novas portas. Essa abordagem também contorna o problema NAT, porque cada aplicativo tem um ponto de extremidade consistente em toda a comunicação. Trocando dados por meio de retransmissão, os aplicativos podem evitar os problemas que seriam caso contrário dificultam a comunicação.
+Uma retransmissão do Barramento de Serviço pode ajudar. Para a comunicação bidirecional por meio de uma retransmissão, cada aplicativo estabelece uma conexão TCP de saída com o Service Bus e mantém aberta. Toda a comunicação entre os dois aplicativos percorre essas conexões. Porque cada conexão foi estabelecida de dentro do data center, o firewall permite o tráfego de entrada para cada aplicativo sem abrir novas portas. Essa abordagem também contorna o problema NAT, porque cada aplicativo tem um ponto de extremidade consistente em toda a comunicação. Trocando dados por meio de retransmissão, os aplicativos podem evitar os problemas que seriam caso contrário dificultam a comunicação.
 
 Para usar retransmissões do Barramento de Serviço, aplicativos se baseiam no WCF (Windows Communication Foundation). O Service Bus fornece ligações do WCF que tornam simples para aplicativos do Windows interagir por meio de retransmissões. Aplicativos que já usam o WCF podem normalmente apenas especificar uma dessas vinculações e conversar entre si através de uma retransmissão. Ao contrário das filas e dos tópicos, no entanto, usar as retransmissões de aplicativos não Windows, ao mesmo tempo possível, requer o algum esforço de programação; Não há bibliotecas padrão são fornecidas.
 
@@ -103,9 +103,9 @@ Ao contrário das filas e dos tópicos, aplicativos não criam explicitamente re
 
 As retransmissões são a solução ideal quando você precisa direcionar a comunicação. Por exemplo, considere um sistema de reservas de viagens em execução em um data center local que deve ser acessado de outros computadores, dispositivos móveis e quiosques de check-in. Os aplicativos em execução em todos esses sistemas poderiam confiar nas retransmissões do Barramento de Serviço na nuvem para se comunicar, onde quer que eles estejam em execução.
 
-## Hubs de Evento
+## Hubs de Eventos
 
-Hubs de Evento é um sistema de ingestão altamente escalável que pode processar milhões de eventos por segundo, permitindo que seu aplicativo processe e analise quantidades maciças de dados produzidos pelos dispositivos e aplicativos conectados. Por exemplo, você poderia usar um Hub de eventos para coletar dados de desempenho do mecanismo ao vivo de uma frota de carros. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento. Para obter mais informações sobre os Hubs de eventos, consulte a [Visão geral de Hubs de evento](../event-hubs/event-hubs-overview.md).
+[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) é um sistema de ingestão altamente escalável que pode processar milhões de eventos por segundo, permitindo que seu aplicativo processe e analise quantidades maciças de dados produzidos pelos dispositivos e aplicativos conectados. Por exemplo, você poderia usar um Hub de eventos para coletar dados de desempenho do mecanismo ao vivo de uma frota de carros. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento. Para obter mais informações sobre os Hubs de eventos, consulte a [Visão geral de Hubs de evento](../event-hubs/event-hubs-overview.md).
 
 ## Resumo
 
@@ -115,7 +115,7 @@ A conexão de aplicativos sempre fez parte da criação de soluções completas 
 
 Agora que você aprendeu os conceitos básicos do barramento de serviço do Azure, siga estes links para obter mais informações.
 
-- Como usar as [filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+- Como usar [filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 - Como usar [tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - Como usar a [retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 - [Exemplos do Barramento de Serviço](service-bus-samples.md)
@@ -125,4 +125,4 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

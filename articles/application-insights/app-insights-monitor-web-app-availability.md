@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="06/21/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -69,7 +69,7 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 
 - **Alertas** serão, por padrão, enviados a você se houver falhas em três locais em cinco minutos. Uma falha em um único local provavelmente é um problema de rede, não um problema com seu site. Porém, você pode alterar o limite para ser mais ou menos sensível e também pode alterar a quem os emails devem ser enviados.
 
-    Você pode configurar um [webhook](../azure-portal/insights-webhooks-alerts.md), que é chamado quando um alerta é gerado.
+    Você pode configurar um [webhook](../azure-portal/insights-webhooks-alerts.md), que é chamado quando um alerta é gerado. (Mas observe que, no momento, os parâmetros de consulta não são passados como Propriedades.)
 
 #### Testar mais URLs
 
@@ -430,4 +430,4 @@ Abra as portas 80 (http) e 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

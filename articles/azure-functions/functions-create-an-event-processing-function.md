@@ -24,14 +24,6 @@ O Azure Functions é uma experiência de computação sob demanda controlada por
 
 Este tópico mostra como criar uma nova função em C#, executada com base em um temporizador de eventos para adicionar mensagens a uma fila de armazenamento.
 
-Você também pode assistir a um vídeo curto para ver como essas etapas são executadas no portal.
-
-## Assista ao vídeo
-
-O vídeo a seguir mostra como executar as etapas básicas deste tutorial
-
-[AZURE.VIDEO create-an-event-processing-azure-function]
-
 ## Pré-requisitos 
 
 Antes de criar uma função, você precisa ter uma conta ativa do Azure. Se você ainda não tiver uma conta do Azure, [há contas gratuitas disponíveis](https://azure.microsoft.com/free/).
@@ -42,7 +34,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. Antes
 
 1. Vá para o [portal do Azure Functions](https://functions.azure.com/signin) e entre com sua conta do Azure.
 
-2. Se você tiver um aplicativo de funções existente para usar, selecione-o em **Seus aplicativos de função** e clique em **Abrir**. Para criar um novo aplicativo de funções, digite um **Nome** exclusivo para ele ou aceite o que foi gerado, selecione sua **Região** preferencial e clique em **Criar + introdução**.
+2. Se você tiver um aplicativo de função existente para usar, selecione-o em **Seus aplicativos de função** e clique em **Abrir**. Para criar um novo aplicativo de função, digite um **Nome** exclusivo para ele ou aceite o que foi gerado, selecione sua **Região** preferencial e clique em **Criar + introdução**.
 
 3. No aplicativo de funções, clique em **+ Nova Função** > **TimerTrigger - C#** > **Criar**. Isso cria uma função com um nome padrão que é executado na agenda padrão de uma vez a cada minuto.
 
@@ -85,8 +77,8 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para codificação de funções e definição de gatilhos e de associações.
 + [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico e como escolher o plano certo.  
++ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

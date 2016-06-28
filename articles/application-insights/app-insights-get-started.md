@@ -61,8 +61,9 @@ O que você deseja | O que fazer | O que você ganha
 
 
 
-## <a name="video"></a>Vídeos
+## <a name="video"></a>Vídeo
 
+[![Introdução animada](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -76,4 +77,4 @@ O que você deseja | O que fazer | O que você ganha
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->
