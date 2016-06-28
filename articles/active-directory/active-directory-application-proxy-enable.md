@@ -30,7 +30,7 @@ Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter
 
 - Uma [assinatura premium ou básica](active-directory-editions.md) do Microsoft Azure AD e um diretório do Azure AD do qual você seja administrador global.
 - Um servidor executando o Windows Server 2012 R2 ou Windows 8.1 ou posterior em que você possa instalar o Conector do Proxy de Aplicativo. O servidor envia solicitações HTTPS aos serviços de Proxy de Aplicativo na nuvem e precisa de uma conexão HTTPS para os aplicativos que você está publicando.
-- Se houver um firewall no caminho, verifique se o ele está aberto para que o Conector possa fazer solicitações HTTPS (TCP) para o Proxy de Aplicativo. O Conector usa essas portas com subdomínios que fazem parte dos domínios de alto nível: msappproxy.net e servicebus.windows.net. Não esqueça de abrir **todas ** as seguintes portas para o tráfego de **saída**:
+- Se houver um firewall no caminho, verifique se o ele está aberto para que o Conector possa fazer solicitações HTTPS (TCP) para o Proxy de Aplicativo. O Conector usa essas portas com subdomínios que fazem parte dos domínios de alto nível: msappproxy.net e servicebus.windows.net. Não esqueça de abrir **todas** as seguintes portas para o tráfego de **saída**:
 
 	| Número da porta | Descrição |
 	| --- | --- |
