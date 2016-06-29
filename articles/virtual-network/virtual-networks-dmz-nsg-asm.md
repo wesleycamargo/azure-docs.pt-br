@@ -20,7 +20,7 @@
 
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
-Este exemplo criará uma DMZ simples com quatro Windows Servers e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da DMZ. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
+Este exemplo criará uma DMZ simples com quatro Windows Servers e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
 
 ![DMZ de entrada com NSG][1]
 
@@ -66,7 +66,7 @@ Com essas regras associadas a cada sub-rede, se uma solicitação HTTP tiver ent
 
 Há uma regra de saída padrão que permite o tráfego de saída para a Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. Para bloquear o tráfego em ambas as direções, é necessário o roteamento definido pelo usuário; isso é explorado "Exemplo 3" abaixo.
 
-Cada regra é abordada em mais detalhes como se segue (Observação: qualquer item na lista abaixo que comece com um sinal de cifrão (por exemplo, $NSGName) é uma variável definida pelo usuário do script na seção de referência deste documento):
+Cada regra é abordada em mais detalhes como se segue (**Observação**: qualquer item na lista abaixo que comece com um sinal de cifrão (por exemplo, $NSGName) é uma variável definida pelo usuário do script na seção de referência deste documento):
 
 1. Primeiro, um grupo de segurança de rede deve ser criado para conter as regras:
 
@@ -550,4 +550,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

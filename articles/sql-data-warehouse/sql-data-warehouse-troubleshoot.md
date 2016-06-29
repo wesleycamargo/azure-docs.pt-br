@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solução de problemas do Azure SQL Data Warehouse
@@ -116,7 +116,7 @@ Veja o artigo [Práticas recomendadas do SQL Data Warehouse][] para saber mais s
 [aprender a monitorar suas consultas]: ./sql-data-warehouse-manage-monitor.md
 [Gerenciar estatísticas no SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [instruções de provisionamento]: ./sql-data-warehouse-get-started-provision.md
-[Configurar o acesso ao servidor de firewall para o IP do cliente]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[Configurar o acesso ao servidor de firewall para o IP do cliente]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 ou 2015]: ./sql-data-warehouse-get-started-connect.md
 [Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [estatísticas]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ Veja o artigo [Práticas recomendadas do SQL Data Warehouse][] para saber mais s
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

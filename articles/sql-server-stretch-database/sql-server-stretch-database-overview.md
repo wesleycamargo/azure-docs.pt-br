@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visão geral do Stretch Database | Microsoft Azure"
-	description="Saiba como o Stretch Database migra seus dados históricos de forma transparente e segura para a nuvem do Microsoft Azure."
+	description="Saiba como o Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -18,7 +18,7 @@
 
 # Visão geral do Stretch Database
 
-O Stretch Database migra seus dados históricos de forma transparente e segura para a nuvem do Microsoft Azure.
+O Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure.
 
 Se você deseja começar com o Stretch Database imediatamente, consulte [Introdução executando Habilitar Banco de Dados para o assistente Stretch](sql-server-stretch-database-wizard.md).
 
@@ -34,17 +34,17 @@ O Stretch Database oferece os seguintes benefícios:
 **Mantém seus dados seguros mesmo durante a migração** Aproveite a tranquilidade enquanto amplia, com segurança, os seus aplicativos mais importantes para a nuvem. Sempre Criptografado do SQL Server fornece criptografia para seus dados em movimento. RLS (Segurança de Nível de Linha) e outros recursos de segurança avançados do SQL Server também funcionam com o Stretch Database para proteger seus dados.
 
 ## Qual é a função do Stretch Database?
-Depois que você habilita o Stretch Database para uma instância, um banco de dados e pelo menos uma tabela do SQL Server, ele começa a migrar silenciosamente os dados históricos para o Azure.
+Depois que você habilita o Stretch Database para uma instância, um banco de dados e pelo menos uma tabela do SQL Server, ele começa a migrar silenciosamente os dados passivos para o Azure.
 
--   Se você armazenar dados históricos em uma tabela separada, poderá migrar toda a tabela.
+-   Se armazenar dados inativos em uma tabela separada, você poderá migrar toda a tabela.
 
--   Se a sua tabela contiver dados históricos e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração.
+-   Se sua tabela contiver dados ativos e inativos, você poderá especificar um predicado de filtro para selecionar as linhas para migração.
 
 O Stretch Database assegura que nenhum dado seja perdido se ocorrer uma falha durante a migração. Ele também tem uma lógica de repetição para lidar com problemas de conexão que podem ocorrer durante a migração. Um modo de exibição de gerenciamento dinâmico fornece o status da migração.
 
 Você pode pausar a migração de dados para solucionar problemas no servidor local ou para maximizar a largura de banda de rede disponível.
 
-Você não precisa alterar as consultas e aplicativos de cliente existentes. Você continua a ter um acesso contínuo aos dados locais e remotos, mesmo durante a migração dos dados. Há uma pequena quantidade de latência para consultas remotas, mas você enfrentará essa latência apenas ao consultar dados históricos.
+Você não precisa alterar as consultas e aplicativos de cliente existentes. Você continua a ter um acesso contínuo aos dados locais e remotos, mesmo durante a migração dos dados. Há uma pequena quantidade de latência para consultas remotas, mas você enfrentará essa latência apenas ao consultar dados passivos.
 
 ![Visão geral do Stretch Database][StretchOverviewImage1]
 
@@ -54,12 +54,12 @@ Se você puder fazer as seguintes declarações, o Stretch Database poderá ajud
 |Se você for um tomador de decisões|Se você for um DBA|
 |------------------------------|-------------------|
 |Preciso manter dados transacionais por um longo período.|O tamanho das minhas tabelas está saindo do controle.|
-|Às vezes, eu preciso consultar os dados históricos.|Meus usuários dizem que querem acesso aos dados históricos, mas raramente os usam.|
+|Às vezes, eu preciso consultar os dados passivos.|Meus usuários dizem que querem acesso aos dados passivos, mas raramente os usam.|
 |Tenho aplicativos, incluindo aplicativos mais antigos, que não quero atualizar.|Preciso comprar e adicionar mais armazenamento frequentemente.|
 |Quero encontrar um jeito de economizar dinheiro com armazenamento.|Não consigo fazer backup ou restaurar essas tabelas grandes no SLA.|
 
 ## Quais tipos de bancos de dados e tabelas são candidatos ao Stretch Database?
-O Stretch Database destina-se a bancos de dados transacionais com grandes quantidades de dados históricos, geralmente armazenados em uma pequena quantidade de tabelas. Essas tabelas podem conter mais de um bilhão de linhas.
+O Stretch Database destina-se a bancos de dados transacionais com grandes quantidades de dados passivos, geralmente armazenados em uma pequena quantidade de tabelas. Essas tabelas podem conter mais de um bilhão de linhas.
 
 Se você usar o recurso de tabela temporal do SQL Server 2016, use o Stretch Database para migrar toda ou parte da tabela de histórico associada para o armazenamento econômico no Azure. Para obter mais informações, confira [Gerenciar a retenção de dados históricos em Tabelas temporais com versão do sistema](https://msdn.microsoft.com/library/mt637341.aspx).
 
@@ -123,4 +123,4 @@ O Stretch Database não altera o modelo de permissões de um banco de dados exis
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

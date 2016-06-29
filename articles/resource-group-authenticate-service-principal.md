@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Usar o Azure PowerShell para criar um aplicativo do Active Directory para acessar recursos
@@ -115,7 +115,7 @@ Você criou um aplicativo do Active Directory e uma entidade de serviço para es
 
 Nesta seção, você executará as etapas para criar um aplicativo do AD com um certificado.
 
-1. Crie um certificado autoassinado.
+1. Crie um certificado autoassinado. Se você tiver o Windows 10 ou o Windows Server 2016 Technical Preview, execute o seguinte comando: 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -126,6 +126,12 @@ Nesta seção, você executará as etapas para criar um aplicativo do AD com um 
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     Se você não tiver o Windows 10 ou o Windows Server 2016 Technical Preview, baixe o script [gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) do PowerShell. Execute os seguintes comandos para gerar um certificado.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
 
 2. Recupere o valor da chave a partir do certificado.
 
@@ -203,10 +209,10 @@ Agora, você já deve ser autenticado como a entidade de serviço do aplicativo 
 
 ## Próximas etapas
   
-- Para obter exemplos de autenticação .NET, confira [SDK do Azure Resource Manager para .NET](resource-manager-net-sdk.md).
-- Para obter exemplos de autenticação Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md). 
-- Para obter exemplos de autenticação Python, confira [Autenticação de Gerenciamento de Recursos para Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
-- Para obter exemplos de autenticação REST, confira [APIs REST do Resource Manager](resource-manager-rest-api.md).
-- Para obter etapas detalhadas sobre como integrar um aplicativo do Azure para gerenciar recursos, consulte [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
+- Para obter exemplos de autenticação do .NET, confira [SDK do Azure Resource Manager para .NET](resource-manager-net-sdk.md).
+- Para obter exemplos de autenticação do Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md). 
+- Para obter exemplos de autenticação do Python, confira [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Autenticação de Gerenciamento de Recursos para o Python).
+- Para obter exemplos de autenticação de REST, confira [APIs REST do Gerenciador de Recursos](resource-manager-rest-api.md).
+- Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar recursos, confira [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

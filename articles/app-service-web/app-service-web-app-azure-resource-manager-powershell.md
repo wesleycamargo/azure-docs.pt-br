@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/14/2016"
 	ms.author="aelnably"/>
 
 # Usando o PowerShell baseado no Azure Resource Manager para gerenciar aplicativos Web do Azure#
@@ -42,11 +42,22 @@ Exemplo para usar este cmdlet:
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### Criar um Plano do Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo ###
+Para criar um novo plano do serviço de aplicativo em um ASE (ambiente do serviço de aplicativo), o mesmo comando **New-AzureRmAppServicePlan** pode ser usado com parâmetros extra para especificar o nome do ASE e o nome do grupo de recursos ao qual o ASE pertence.
+
+Exemplo para usar este cmdlet:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+Para saber mais sobre o ambiente do serviço de aplicativo, consulte [Introdução ao Ambiente do Serviço de Aplicativo](app-service-app-service-environment-intro.md)
+
 ### Listar os Planos do Serviço de Aplicativo existentes ###
 
-Para listar os Planos do Serviço de Aplicativo existentes, use o cmdlet **Get-AzureRmAppServicePlan**.
+Para listar os planos do serviço de aplicativo existentes, use o cmdlet **Get-AzureRmAppServicePlan**.
 
-Para listar todos os Planos do Serviço de Aplicativo na sua assinatura, use **Get-AzureRmAppServicePlan**
+Para listar todos os planos do serviço de aplicativo na sua assinatura, use:
+
+    Get-AzureRmAppServicePlan
 
 Para listar todos os Planos de Serviço de Aplicativo em um grupo de recursos específico, use:
 
@@ -59,7 +70,7 @@ Para obter um Plano do Serviço de Aplicativo, use:
 
 ### Configurar um Plano do Serviço de Aplicativo existente ###
 
-Para alterar as configurações para um Plano do Serviço de Aplicativo existente, use o cmdlet **Set-AzureRmAppServicePlan**. Você pode alterar o tipo, o tamanho das funções de trabalho e o número de funções de trabalho
+Para alterar as configurações para um plano do serviço de aplicativo existente, use o cmdlet **Set-AzureRmAppServicePlan**. Você pode alterar o tipo, o tamanho das funções de trabalho e o número de funções de trabalho
 
     Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Tier Standard -WorkerSize Medium -NumberofWorkers 9
 
@@ -83,7 +94,7 @@ Para alterar o tipo de um Plano do Serviço de Aplicativo existente, use:
 
 ### Excluir um Plano do Serviço de Aplicativo existente ###
 
-Para excluir um Plano do Serviço de Aplicativo existente, todos os aplicativos Web atribuídos precisam ser movidos ou excluídos primeiro e, em seguida, usando o cmdlet **Remove-AzureRmAppServicePlan**, você pode excluir o Plano do Serviço de Aplicativo.
+Para excluir um plano do serviço de aplicativo existente, todos os aplicativos Web atribuídos precisam ser movidos ou excluídos primeiro e, em seguida, usando o cmdlet **Remove-AzureRmAppServicePlan**, você pode excluir o plano do serviço de aplicativo.
 
     Remove-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup
 
@@ -96,8 +107,8 @@ Para criar um novo aplicativo Web, use o cmdlet **New-AzureRmWebApp**.
 A seguir estão as descrições dos diferentes parâmetros:
 
 - **Name**: o nome do aplicativo Web.
-- **AppServicePlan**: nome do plano de serviço usado para hospedar o aplicativo Web.
-- **ResourceGroupName**: grupo de recursos que hospeda o Plano do Serviço de Aplicativo.
+- **AppServicePlan**: o nome do plano de serviço usado para hospedar o aplicativo Web.
+- **ResourceGroupName**: o grupo de recursos que hospeda o plano do serviço de Aplicativo.
 - **Location**: a localização do aplicativo Web.
 
 Exemplo para usar este cmdlet:
@@ -110,7 +121,7 @@ Para criar um novo aplicativo Web em um ASE (Ambiente do Serviço de Aplicativo)
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"  -ASEName ContosoASEName -ASEResourceGroupName ContosoASEResourceGroupName
 
-Para saber mais sobre o ambiente do Serviço de Aplicativo, consulte [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
+Para saber mais sobre o ambiente do serviço de aplicativo, consulte [Introdução ao Ambiente do Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 
 ### Excluir um aplicativo Web existente ###
 
@@ -194,14 +205,14 @@ Para redefinir a senha de publicação do FTP e a implantação da Web de um apl
 
 ### Gerenciar certificados de aplicativo Web ###
 
-Para saber mais sobre como gerenciar certificados de aplicativos Web, consulte [Associação de certificados SSL usando PowerShell](app-service-web-app-powershell-ssl-binding.md)
+Para saber mais sobre como gerenciar certificados de aplicativo Web, consulte [Associação de certificados SSL usando o PowerShell](app-service-web-app-powershell-ssl-binding.md)
 
 
 
 ### Próximas etapas ###
-- Para saber sobre o suporte do PowerShell do Azure Resource Manager, consulte [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
-- Para saber mais sobre os Ambientes de Serviço de Aplicativo, consulte [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md).
-- Para saber mais sobre como gerenciar certificados SSL do Serviço de Aplicativo usando o PowerShell, consulte [Associação de certificados SSL usando PowerShell.](app-service-web-app-powershell-ssl-binding.md)
-- Para saber mais sobre a lista completa de cmdlets PowerShell baseados no Azure Resource Manager para aplicativos Web do Azure, consulte [Referência de cmdlets do Azure dos cmdlets do PowerShell do Azure Resource Manager de aplicativos Web.](https://msdn.microsoft.com/library/mt619237.aspx)
+- Para saber sobre o suporte do Azure Resource Manager ao PowerShell, consulte [Usando o Azure PowerShell com o Azure Resource Manager.](../powershell-azure-resource-manager.md)
+- Para saber mais sobre os Ambientes do Serviço de Aplicativo, consulte [Introdução ao Ambiente do Serviço de Aplicativo.](app-service-app-service-environment-intro.md)
+- Para saber mais sobre como gerenciar certificados SSL do Serviço de Aplicativo usando o PowerShell, consulte [Associação de certificados SSL usando o PowerShell.](app-service-web-app-powershell-ssl-binding.md)
+- Para saber mais sobre a lista completa de cmdlets PowerShell baseados no Azure Resource Manager para aplicativos Web do Azure, consulte [Referência de Cmdlets do Azure dos Cmdlets do PowerShell do Azure Resource Manager de Aplicativos Web.](https://msdn.microsoft.com/library/mt619237.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

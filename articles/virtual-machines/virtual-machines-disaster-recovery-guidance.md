@@ -1,6 +1,6 @@
 <properties
-	pageTitle="O que fazer caso uma interrupção de serviço do Azure afete as Máquinas Virtuais do Azure | Microsoft Azure"
-	description="Saiba o que fazer caso uma interrupção de serviço do Azure afete as Máquinas Virtuais do Azure."
+	pageTitle="O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure | Microsoft Azure"
+	description="Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kmouss"
@@ -16,50 +16,50 @@
 	ms.date="05/16/2016"
 	ms.author="kmouss;aglick"/>
 
-#O que fazer caso uma interrupção de serviço do Azure afete as Máquinas Virtuais do Azure
+#O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure
 
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
-A Microsoft fornece SLAs (Contratos de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
+A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
 
-O Azure já tem muitos recursos de plataforma internos que dão suporte a aplicativos altamente disponíveis. Para saber mais sobre esses serviços, confira [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](https://aka.ms/drtechguide).
+O Azure já tem muitos recursos internos de plataforma que oferecem suporte a aplicativos altamente disponíveis. Para saber mais sobre esses serviços, leia [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](https://aka.ms/drtechguide).
 
-Este documento aborda a recuperação de desastre verdadeira, quando uma região inteira sofre uma interrupção devido a um grande desastre natural ou a uma interrupção do serviço generalizada. Essas ocorrências são raras, mas você deve se preparar para a possibilidade de que haja uma interrupção em toda a região. Se toda a região sofrer uma interrupção de serviço, as cópias localmente redundantes dos dados poderão estar temporariamente indisponíveis. Se você tiver habilitado a Replicação geográfica, haverá três cópias adicionais dos blobs de Armazenamento do Azure e tabelas armazenadas em uma região diferente. Em caso de interrupção regional completa ou de um desastre no qual a região primária não seja recuperável, o Azure remapeia todas as entradas de DNS para a região geográfica replicada.
- 
->[AZURE.NOTE]Lembre-se de que você não tem nenhum controle sobre esse processo, e ele ocorrerá somente para falhas em toda a região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [Estratégias de Dados para Recuperação de Desastre](https://aka.ms/drtechguide#DSDR).
+Este artigo aborda um cenário real de recuperação de desastre, quando uma região inteira sofre uma interrupção devido a um grande desastre natural ou a uma interrupção do serviço generalizada. Essas ocorrências são raras, mas você deve se preparar para a possibilidade de uma interrupção em toda uma região. Se toda a região sofrer uma interrupção de serviço, as cópias localmente redundantes dos dados poderão estar temporariamente indisponíveis. Se você tiver habilitado a replicação geográfica, haverá três cópias adicionais dos blobs de Armazenamento do Azure e tabelas armazenadas em uma região diferente. No caso de uma interrupção regional completa ou de um desastre no qual a região primária não seja recuperável, o Azure remapeia todas as entradas de DNS para a região geográfica replicada.
 
-Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes para Máquina Virtual do Azure no caso de uma interrupção de serviço de toda a região em que seu aplicativo da Máquina Virtual do Azure é implantado.
+>[AZURE.NOTE]Lembre-se de que você não tem nenhum controle sobre esse processo e de que ele ocorrerá apenas em caso de interrupção do serviço em toda uma região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [Estratégias de Dados para Recuperação de Desastre](https://aka.ms/drtechguide#DSDR).
 
-##Opção 1: aguardar a recuperação 
+Para ajudar você a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes para a máquina virtual do Azure no caso de uma interrupção de serviço de toda a região em que seu aplicativo da máquina virtual do Azure é implantado.
+
+##Opção 1: aguardar a recuperação
 Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. Você pode ver o status atual do serviço no nosso [Painel de integridade do serviço Azure](https://azure.microsoft.com/status/).
 
->[AZURE.NOTE]Essa será a melhor opção se você não tiver instalado o ASR (Azure Site Recovery), o backup de VM (Máquina Virtual), o RA-GRS (Armazenamento com Redundância Geográfica de Acesso de Leitura) ou o GRS (Redundância Geográfica) antes da interrupção. Se você configurou o armazenamento GRS (ou RA-GRS) para a conta de armazenamento em que estão armazenados os seus VHDs de VM, você pode procurar sobre como recuperar o VHD da imagem base e tentar provisionar uma nova VM por meio dele. Essa não é uma opção preferencial, pois não há nenhuma garantia de sincronização de dados, a menos que o backup da VM do Azure ou ASR sejam usados não sendo, portanto, garantido que funcione.
+>[AZURE.NOTE]Essa será a melhor opção se você não tiver instalado o Azure Site Recovery, o backup de máquina virtual, o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica antes da interrupção. Se você configurou o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica para a conta de armazenamento na qual os VHDs (discos rígidos virtuais) de sua VM estão armazenados, você poderá recuperar o VHD da imagem base e tentar provisionar uma nova VM por meio dele. Essa não é uma opção preferencial, pois não há nenhuma garantia de sincronização de dados, a menos que o backup da VM do Azure ou o Azure Site Recovery seja usado. Consequentemente, não há garantia de funcionamento dessa opção.
 
-Para clientes que desejam acesso imediato às máquinas virtuais, estão disponíveis as duas opções abaixo.
+Para clientes que desejam acesso imediato às máquinas virtuais, as duas opções abaixo estão disponíveis.
 
->[AZURE.NOTE]Lembre-se de que ambas as opções abaixo têm a possibilidade de perda parcial de dados.
+>[AZURE.NOTE]Lembre-se de que as duas opções abaixo têm a possibilidade de perda parcial de dados.
 
-##Opção 2: Restaurar uma VM (Máquina Virtual) de um backup 
-Para clientes que têm um backup da VM configurado, você pode restaurar a máquina virtual de seu ponto de backup e recuperação.
+##Opção 2: Restaurar uma VM de um backup
+Para os clientes que configuraram um backup de VM, você pode restaurar a VM de seu ponto de backup e recuperação.
 
-Siga estas etapas para restaurar uma nova VM por meio de um Backup do Azure, consulte Restauração de máquinas virtuais no Azure.
+Para restaurar uma nova VM a partir do Backup do Azure, confira [Restauração de máquinas virtuais no Azure](../backup/backup-azure-restore-vms.md).
 
-Para ajudar a planejar sua infraestrutura de backup de Máquinas Virtuais do Azure, leia o artigo [Planejar sua infraestrutura de backup de VM no Azure](../backup/backup-azure-vms-introduction.md).
+Para ajudar a planejar sua infraestrutura de backup de máquinas virtuais do Azure, confira [Planejar sua infraestrutura de backup de VM no Azure](../backup/backup-azure-vms-introduction.md).
 
-##Opção 3: Iniciar um failover usando o ASR (Azure Site Recovery) 
-Se tiver configurado o Azure Site Recovery para trabalhar com suas máquinas virtuais do Azure afetadas, você poderá restaurar as VMs de suas réplicas. Essas réplicas podem residir no Azure ou até mesmo localmente. Nesse caso, você pode criar novas VMs por meio da réplica existente. Siga estas etapas para restaurar suas VMs de uma Réplica do Azure Site Recovery, consulte [Migrar máquinas virtuais IaaS do Azure entre regiões do Azure com o Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
+##Opção 3: Iniciar um failover usando o Azure Site Recovery
+Se tiver configurado o Azure Site Recovery para trabalhar com suas máquinas virtuais do Azure afetadas, você poderá restaurar as VMs de suas réplicas. Essas réplicas podem residir no Azure ou no local. Nesse caso, você pode criar novas VMs a partir de sua réplica existente. Para restaurar suas VMs de uma réplica do Azure Site Recovery, confira [Migrar máquinas virtuais IaaS do Azure entre regiões do Azure com o Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
 
->[AZURE.NOTE]Embora o sistema operacional de Máquina Virtual do Azure e os discos de dados sejam replicados para um VHD (Disco Rígido Virtual) secundário, se estiverem em uma conta de armazenamento GRS ou RA-GRS, cada VHD será replicado de forma independente e esse nível de replicação não garantirá a consistência entre os VHDs replicados. Se seu aplicativo e/ou bancos de dados que usam esses discos de dados tiverem dependências entre si, não será garantido que todos os VHDs serão replicados como um único instantâneo. Também não é garantido que a réplica de VHD do armazenamento GRS ou RA-GRS resultará em um instantâneo consistente de aplicativo para inicializar a VM.
+>[AZURE.NOTE]Embora o sistema operacional de máquina virtual do Azure e os discos de dados sejam replicados em um VHD secundário, se eles estiverem em uma conta de armazenamento com redundância geográfica ou de armazenamento com redundância geográfica de acesso de leitura, cada VHD será replicado independentemente. Esse nível de replicação não garante a consistência entre os VHDs replicados. Se o seu aplicativo e/ou bancos de dados que usam esses discos de dados tiverem dependências entre si, não haverá garantia de que todos os VHDs serão replicados como um único instantâneo. Também não há garantia de que a réplica de VHD do armazenamento com redundância geográfica ou do armazenamento com redundância geográfica de acesso de leitura resultará em um instantâneo consistente de aplicativo para inicializar a VM.
 
-##Referências 
-[Recuperação de Desastre e Alta Disponibilidade para Aplicativos do Azure](https://aka.ms/drtechguide)
+##Próximas etapas
+Para saber mais sobre como implementar uma estratégia de alta disponibilidade e recuperação de desastres, consulte [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](https://aka.ms/drtechguide).
 
-[Orientação técnica sobre a continuação de negócios do Azure](http://aka.ms/bctechguide)
+Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [Orientação técnica sobre a continuidade de negócios do Azure](http://aka.ms/bctechguide).
 
-[Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md)
+Para saber como fazer backup de VMs, confira [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md).
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+Saiba como usar o Azure Site Recovery para orquestrar e automatizar a proteção de suas máquinas físicas (e virtuais) com Windows e Linux que serão executadas em VMs Hyper-V e VMWare, confira [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
-Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/20/2016"
 	ms.author="sethm"/>
 
 
 # Mensagens do Barramento de Serviço: entrega de dados flexível na nuvem
 
-Mensagens do Barramento de Serviço do Azure é um serviço confiável de entrega de informações. A finalidade desse serviço é facilitar a comunicação. Quando dois ou mais participantes desejam trocar informações, eles precisam de um mecanismo de comunicação. As mensagens do Barramento de Serviço são um mecanismo de comunicação agenciado ou de terceiros. Isso é semelhante a um serviço postal no mundo físico. Os serviços postais tornam muito fácil enviar tipos diferentes de cartas e pacotes com uma variedade de garantias de entrega em qualquer lugar do mundo.
+As mensagens do Barramento de Serviço do Microsoft Azure é um serviço de entrega de informações confiáveis. A finalidade desse serviço é facilitar a comunicação. Quando dois ou mais participantes desejam trocar informações, eles precisam de um mecanismo de comunicação. As mensagens do Barramento de Serviço são um mecanismo de comunicação agenciado ou de terceiros. Isso é semelhante a um serviço postal no mundo físico. Os serviços postais tornam muito fácil enviar tipos diferentes de cartas e pacotes com uma variedade de garantias de entrega em qualquer lugar do mundo.
 
 Semelhante ao serviço postal de entrega de cartas, as mensagens do Barramento de Serviço são uma entrega de informações flexível do remetente e do destinatário. O serviço de mensagens garante que as informações sejam entregues mesmo se as duas partes nunca estiverem online ao mesmo tempo, ou se elas não estão disponíveis no mesmo exato momento. Dessa forma, o sistema de mensagens é semelhante ao envio de uma carta, enquanto que a comunicação não agenciada é semelhante ao fazer uma chamada telefônica (ou como uma chamada telefônica costumava ser - antes da chamada em espera e da ID de chamador, que são muito mais mensagens agenciadas).
 
@@ -39,7 +39,7 @@ O sistema de mensagens de retransmissão oferece muitos benefícios, mas exige q
 
 ## Sistema de mensagens agenciado
 
-Ao contrário do esquema do sistema de mensagens de retransmissão, o [sistema de mensagens agenciado](service-bus-fundamentals-hybrid-solutions.md) pode ser pensado como assíncrono, ou "temporariamente separado". Os produtores (remetentes) e consumidores (destinatários) não precisam estar online ao mesmo tempo. A infraestrutura do sistema de mensagens armazena mensagens de maneira confiável em um "agente" (como uma fila) até que a parte consumidora esteja pronta para recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados, ou voluntariamente, para manutenção, por exemplo, ou devido a uma falha de componente, sem afetar o sistema inteiro. Além disso, o aplicativo de recebimento talvez tenha que ficar online apenas durante determinados períodos do dia, como um sistema de gerenciamento de inventário, que precisa ser executado apenas no fim do dia.
+Ao contrário do esquema do sistema de mensagens de retransmissão, o [sistema de mensagens agenciado](service-bus-queues-topics-subscriptions.md) pode ser pensado como assíncrono, ou "temporariamente separado". Os produtores (remetentes) e consumidores (destinatários) não precisam estar online ao mesmo tempo. A infraestrutura do sistema de mensagens armazena mensagens de maneira confiável em um "agente" (como uma fila) até que a parte consumidora esteja pronta para recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados, ou voluntariamente, para manutenção, por exemplo, ou devido a uma falha de componente, sem afetar o sistema inteiro. Além disso, o aplicativo de recebimento talvez tenha que ficar online apenas durante determinados períodos do dia, como um sistema de gerenciamento de inventário, que precisa ser executado apenas no fim do dia.
 
 Os principais componentes da infraestrutura do sistema de mensagens agenciado do Barramento de Serviço são filas, tópicos e assinaturas. A principal diferença é que tópicos oferecem suporte a recursos de publicação/assinatura que podem ser usados para roteamento baseado em conteúdo sofisticado e lógica de entrega, incluindo o envio para vários destinatários. Esses componentes permitem novos cenários de sistema de mensagens assíncrono, como separação temporal, publicação/assinatura e balanceamento de carga. Para saber mais sobre essas entidades de sistema de mensagens, consulte [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md).
 
@@ -49,11 +49,11 @@ Assim como na infraestrutura do sistema de mensagens de retransmissão, o recurs
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
-- [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
+- [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
-- [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Como usar os tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

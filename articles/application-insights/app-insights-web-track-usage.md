@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/12/2016" 
 	ms.author="awills"/>
  
 # Análise de uso para aplicativos Web com o Application Insights
@@ -152,32 +152,22 @@ Mas você ainda gostaria que o Application Insights registrasse o número de vez
 
 ## Eventos personalizados
 
-Use eventos personalizados para . Você pode enviá-los por meio de aplicativos de dispositivos, páginas da Web ou um servidor Web:
-
-*JavaScript*
+Escreva telemetria personalizada para registrar eventos específicos. Especialmente em um aplicativo de página única, você vai querer saber com que frequência o usuário executa ações específicas ou atinge certas metas:
 
     appInsights.trackEvent("GameEnd");
 
-*C#*
+Por exemplo, para registrar os cliques em um link:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
-    tc.TrackEvent("GameEnd");
-
-*VB*
-
-    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
-    tc.TrackEvent("GameEnd")
+    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
 
 
-Os eventos personalizados mais frequentes são listados na folha visão geral.
+## Ver contagens de eventos personalizados
 
-![Na folha Visão Geral, role para baixo e clique em Eventos Personalizados.](./media/app-insights-web-track-usage/04-events.png)
-
-Clique no cabeçalho da tabela para ver o número total de eventos. Você pode segmentar o gráfico por diversos atributos, como o nome do evento:
+Abrir o Metrics Explorer e adicionar um gráfico para exibir Eventos. Segmento por nome:
 
 ![Selecione um gráfico que mostra apenas uma métrica. Ative o Agrupamento. Escolha uma propriedade. Nem todas as propriedades estão disponíveis.](./media/app-insights-web-track-usage/06-eventsSegment.png)
 
-O recurso particularmente útil encontrado nas linhas do tempo é que você pode correlacionar alterações com outras métricas e eventos. Por exemplo, nos momentos em que mais jogos são executados, você esperaria ver um aumento também nos jogos abandonados. Mas o aumento nos jogos abandonados é desproporcional, e você gostaria de saber se a carga elevada está causando problemas que os usuários consideram inaceitáveis.
+
 
 ## Analisar eventos específicos
 
@@ -376,4 +366,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

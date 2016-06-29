@@ -171,10 +171,9 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | -------- | ----------- | -------- | 
 | type | A propriedade type deve ser definida como: **Web** | Sim | 
 | Url | URL para a origem da Web | Sim |
+| authenticationType | Anônimo ou Básico. | Sim |
 | userName | Nome de usuário para autenticação básica. | Sim (para autenticação básica)
 | Senha | Senha de autenticação básica. | Sim (para autenticação básica)
-| authenticationType | Anônima, Básica ou API da Web. | Sim |
-| apiKey | ApiKey para autenticação de API da Web. | Sim (para autenticação de API da Web)|   
 
 ### Usando a autenticação anônima
 
@@ -284,6 +283,6 @@ Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](htt
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Desempenho e Ajuste  
-Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -23,7 +23,7 @@ Service Fabric é uma plataforma de sistemas distribuídos que facilita o empaco
 ## Conceitos de infraestrutura
 **Cluster**: um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas.
 
-**Nó**: uma máquina ou VM que faz parte de um cluster é chamado de nó. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada máquina ou VM tem um serviço do Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização, e esse serviço inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único PC ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
+**Nó**: uma máquina ou VM que faz parte de um cluster é chamado de nó. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada máquina ou VM tem um serviço do Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização e então inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
 
 ## Conceitos de aplicativo
 **Tipo de Aplicativo**: o nome/versão atribuído a uma coleção de tipos de serviço. Essas informações são definidas em um arquivo `ApplicationManifest.xml`, inserido em um diretório de pacote de aplicativos que é então copiado para o armazenamento de imagens do cluster do Service Fabric. Assim, você pode criar um aplicativo nomeado desse tipo de aplicativo dentro do cluster.
@@ -84,10 +84,10 @@ Leia o artigo [Escolher um modelo de programação para o serviço](service-fabr
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-Para saber mais sobre o Service Fabric
+Para saber mais sobre o Service Fabric:
 
 - [Visão geral da Malha do Serviço](service-fabric-overview.md)
 - [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 - [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

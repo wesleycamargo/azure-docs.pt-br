@@ -151,7 +151,7 @@ Configure o índice da coluna Rótulo do módulo [Treinar Modelo][train-model] c
 
 Clique no módulo [Importar Dados][import-data] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP* e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados]\[split] \(0,7, por exemplo).
+Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados][split] \(0,7, por exemplo).
  
 ![Avaliar um classificador Multiclass](media/machine-learning-evaluate-model-performance/10.png)
 

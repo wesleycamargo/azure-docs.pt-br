@@ -1,7 +1,7 @@
 
 
 
-Para criar máquinas virtuais baseadas em imagens Oracle, entre no [portal do Azure](https://ms.portal.azure.com/), clique em **Marketplace**, clique em **Computação** e digite **Oracle** na caixa Pesquisa. Selecione uma imagem e siga as instruções para configurar a imagem no Microsoft Azure. Observe que as imagens Oracle da Microsoft no [portal Azure](https://ms.portal.azure.com/) são executadas no Windows e imagens Oracle da Oracle são executadas no Oracle Linux.
+Para criar máquinas virtuais baseadas em imagens Oracle, entre no [portal do Azure](https://portal.azure.com/), clique em **Marketplace**, clique em **Computação** e digite **Oracle** na caixa Pesquisa. Selecione uma imagem e siga as instruções para configurar a imagem no Microsoft Azure. Observe que as imagens Oracle da Microsoft no [portal Azure](https://portal.azure.com/) são executadas no Windows e imagens Oracle da Oracle são executadas no Oracle Linux.
 
 ##Imagens de máquina virtual baseadas no Windows
 Veja a seguir uma lista das imagens de máquina virtual Oracle disponíveis que são executadas no Windows Server no Azure. Essas imagens são pré-pagas, o que significa que taxas de licença do Oracle estão incluídas em seu uso. A Microsoft não publica mais imagens do Banco de Dados do Oracle ou do WebLogic no Azure Marketplace. Você ainda pode criar sua própria imagem personalizada e usar o modelo Traga sua Própria Licença para executar o software Oracle no Microsoft Azure.
@@ -26,4 +26,4 @@ Veja a seguir uma lista das imagens pré-configuradas de máquina virtual Oracle
 
 [Imagens de máquinas virtuais Oracle — diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

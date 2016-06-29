@@ -1,18 +1,11 @@
-<properties 
-   pageTitle="Ativos de variáveis na Automação do Azure | Microsoft Azure"
-   description="Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure. Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos."
-   services="automation"
-   documentationCenter=""
-   authors="mgoedtel"
-   manager="stevenka"
-   editor="tysonn" />
-<tags 
+<properties pageTitle="Ativos de variáveis na Automação do Azure | Microsoft Azure | Microsoft Azure" description="Variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure. Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação textual e gráfica." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<tags  
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren" />
 
 # Ativos variáveis na Automação do Azure
@@ -183,9 +176,9 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 ![Obter variável complexa filtrada](media/automation-variables/get-complex-variable-filter.png)
 
 
-## Artigos relacionados
+## Próximas etapas
 
-- [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
- 
+- Para saber mais sobre como interligar as atividades na criação gráfica, confira [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow) (Links na criação gráfica)
+- Para começar a usar os runbooks Gráficos, confira [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md) 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

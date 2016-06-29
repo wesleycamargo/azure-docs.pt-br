@@ -3,7 +3,7 @@
    description="Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Restauração geográfica e Replicação geográfica Ativa do Banco de Dados SQL do Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Restaurar um Banco de Dados SQL ou fazer failover para um secundário
 
@@ -72,7 +72,7 @@ Se você estiver usando failover de replicação geográfica de opções de rest
 
 Já que o banco de dados recuperado residirá em um servidor diferente, você precisa atualizar a cadeia de conexão do seu aplicativo para apontar para esse servidor.
 
-Para obter mais informações sobre como alterar as cadeias de conexão, consulte [Conexões com o Banco de Dados SQL do Azure: recomendações centrais](sql-database-connect-central-recommendations.md).
+Para saber mais sobre como alterar as cadeias de conexão, confira a linguagem de desenvolvimento apropriada para sua [biblioteca de conexão](sql-database-libraries.md).
 
 ### Configurar regras de firewall
 
@@ -110,4 +110,4 @@ Se a auditoria for necessária para acessar o banco de dados, você precisará h
 - [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

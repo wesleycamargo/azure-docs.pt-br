@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -47,21 +47,21 @@ Podemos tirar as seguintes conclusões desta tabela.
 -	Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 250 mil *10 = 2,5 milhões de RPS.
 -	A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
-| Camada de preços | Tamanho | Largura de banda disponível | Tamanho de chave de 1 KB |
-|----------------------|--------|----------------------------|--------------------------------|
-| **Tamanhos de cache padrão** | &nbsp; |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** | **RPS (solicitações por segundo)** |
-| C0 | 250 MB | 5 / 0,625 | 600 |
-| C1 | 1 GB | 100 / 12,5 | 12\.200 |
-| C2 | 2,5 GB | 200 / 25 | 24\.000 |
-| C3 | 6 GB | 400 / 50 | 49\.000 |
-| C4 | 13 GB | 500 / 62,5 | 61\.000 |
-| C5 | 26 GB | 1000 / 125 | 115\.000 |
-| C6 | 53 GB | 2000 / 250 | 150\.000 |
-| **Tamanhos de cache Premium** | &nbsp; | &nbsp; | **RPS (solicitações por segundo) por fragmento** |
-| P1 | 6 GB | 1000 / 125 | 140\.000 |
-| P2 | 13 GB | 2000 / 250 | 220\.000 |
-| P3 | 26 GB | 2000 / 250 | 220\.000 |
-| P4 | 53 GB | 4000 / 500 | 250\.000 |
+| Camada de preços | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho de chave de 1 KB |
+|--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
+| **Tamanhos de cache padrão** | | | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** | **RPS (solicitações por segundo)** |
+| C0 | 250 MB | Compartilhado | 5 / 0,625 | 600 |
+| C1 | 1 GB | 1 | 100 / 12,5 | 12\.200 |
+| C2 | 2,5 GB | 2 | 200 / 25 | 24\.000 |
+| C3 | 6 GB | 4 | 400 / 50 | 49\.000 |
+| C4 | 13 GB | 2 | 500 / 62,5 | 61\.000 |
+| C5 | 26 GB | 4 | 1000 / 125 | 115\.000 |
+| C6 | 53 GB | 8 | 2000 / 250 | 150\.000 |
+| **Tamanhos de cache Premium** | | **Núcleos de CPU por fragmento** | | **RPS (solicitações por segundo) por fragmento** |
+| P1 | 6 GB | 2 | 1000 / 125 | 140\.000 |
+| P2 | 13 GB | 4 | 2000 / 250 | 220\.000 |
+| P3 | 26 GB | 4 | 2000 / 250 | 220\.000 |
+| P4 | 53 GB | 8 | 4000 / 500 | 250\.000 |
 
 
 Para obter instruções sobre como baixar as ferramentas do Redis como `redis-benchmark.exe`, consulte a seção [Como posso executar comandos do Redis?](#cache-commands)
@@ -139,7 +139,7 @@ Na maioria dos casos, os valores padrão do cliente são suficientes. Você pode
 
 O ThreadPool do CLR tem dois tipos de threads: "Trabalho" e "Porta de conclusão E/S" (também conhecida como IOCP).
 
--	Os threads de trabalho são usados em situações como o processamento de `Task.Run(…)` ou métodos `ThreadPool.QueueUserWorkItem(…)`. Esses threads também são usados por vários componentes no CLR quando o trabalho precisa ser executado em um thread em segundo plano.
+-	Os threads de trabalho são usados em situações como o processamento dos métodos `Task.Run(…)` ou `ThreadPool.QueueUserWorkItem(…)`. Esses threads também são usados por vários componentes no CLR quando o trabalho precisa ser executado em um thread em segundo plano.
 -	Os threads IOCP são usados quando há E/S assíncrona (por exemplo, lendo da rede).  
 
 O pool de threads fornece novos threads de trabalho ou de conclusão de E/S sob demanda (sem qualquer limitação) até atingir a configuração de "Mínimo" para cada tipo de thread. Por padrão, o número mínimo de threads é definido como o número de processadores em um sistema.
@@ -170,7 +170,7 @@ Como definir essa configuração:
 
 -	No ASP.NET, use a [configuração "minIoThreads"][] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir isso por meio de programação (veja abaixo) do seu método Application\_Start em global.asax.cs.
 
-> **Observação importante:** o valor especificado nesse elemento de configuração é uma configuração *por núcleo*. Por exemplo, se você tiver uma máquina com quatro núcleos e desejar que sua configuração de minIOThreads seja 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
+> **Observação importante:** o valor especificado nesse elemento de configuração é uma configuração *por núcleo*. Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
 
 -	Fora do ASP.NET, use a API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
@@ -228,7 +228,7 @@ Você pode usar qualquer um dos comandos listados em [Comandos do Redis](http://
 <a name="cache-emulator"></a>
 ## Há um emulador local para o Cache Redis do Azure?
 
-Não há nenhum emulador local para o Cache Redis do Azure, mas é possível executar a versão MSOpenTech do redis-server.exe por meio das [ferramentas de linha de comando do Redis](https://github.com/MSOpenTech/redis/releases/) no computador local e conectá-lo para obter uma experiência semelhante ao emulador de cache local, conforme mostrado no exemplo a seguir.
+Não há nenhum emulador local para o Cache Redis do Azure, mas é possível executar a versão MSOpenTech do redis-server.exe nas [ferramentas de linha de comando do Redis](https://github.com/MSOpenTech/redis/releases/) no computador local e conectá-lo para obter uma experiência semelhante ao emulador de cache local, conforme mostrado no exemplo a seguir.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -244,7 +244,7 @@ Não há nenhum emulador local para o Cache Redis do Azure, mas é possível exe
 	    }
 	}
 
-Opcionalmente, é possível configurar um arquivo [redis.conf](http://redis.io/topics/config) para corresponder mais de perto às [configurações de cache padrão](cache-configure.md#default-redis-server-configuration) do Cache Redis do Azure online se desejado.
+Se desejar, é possível configurar um arquivo [redis.conf](http://redis.io/topics/config) para corresponder mais de perto às [configurações de cache padrão](cache-configure.md#default-redis-server-configuration) do Cache Redis do Azure online.
 
 <a name="cache-common-patterns"></a>
 ## Quais são alguns padrões comuns de cache e considerações a respeito?
@@ -285,4 +285,4 @@ Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como
 
 [configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

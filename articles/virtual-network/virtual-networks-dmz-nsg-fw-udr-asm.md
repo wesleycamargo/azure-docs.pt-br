@@ -20,7 +20,7 @@
 
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
-Este exemplo criará uma DMZ com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da DMZ. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
+Este exemplo criará uma DMZ com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
 
 ![DMZ bidirecional com NVA, NSG e UDR][1]
 
@@ -28,7 +28,7 @@ Este exemplo criará uma DMZ com um firewall, quatro servidores Windows, Roteame
 Neste exemplo, há uma assinatura que contém o seguinte:
 
 - Três serviços de nuvem: “SecSvc001”, “FrontEnd001” e “BackEnd001”
-- Uma Rede Virtual, “CorpNetwork”, com três sub-redes; “SecNet”, “FrontEnd” e “BackEnd”
+- Uma rede virtual, “CorpNetwork”, com três sub-redes; “SecNet”, “FrontEnd” e “BackEnd”
 - Um dispositivo virtual de rede, neste exemplo um firewall, conectado à sub-rede SecNet
 - Um Windows Server que representa um servidor Web de aplicativos ("IIS01")
 - Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
@@ -36,7 +36,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 
 Na seção de referências abaixo, há um script do PowerShell que criará a maior parte do ambiente descrito acima. A criação das VMs e das Redes Virtuais, embora seja feita por script de exemplo, não será descrita em detalhes neste documento.
 
-Para criar o ambiente;
+Para compilar o ambiente:
 
   1.	Salve o arquivo xml de configuração de rede incluído na seção de referências (atualizado com nomes, localização e endereços IP que correspondam ao cenário determinado)
   2.	Atualize as variáveis do usuário no script para fazer a correspondência do ambiente em que o script deve ser executado (assinaturas, nomes de serviço, etc.)
@@ -44,7 +44,7 @@ Para criar o ambiente;
 
 **Observação**: a região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
 
-Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas;
+Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas:
 
 1.	Configure as regras de firewall; isso será abordado na seção: Descrição da regra de firewall.
 2.	Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ.
@@ -110,22 +110,22 @@ Para este exemplo, os comandos a seguir são usados para criar a tabela de rotas
 
 2.	Assim que a tabela de rotas for criada, as rotas definidas pelo usuário específico poderão ser adicionadas. Neste trecho, todo o tráfego (0.0.0.0/0) será roteado por meio do dispositivo virtual (uma variável, $VMIP[0], é usada para passar o endereço IP atribuído quando o dispositivo virtual tiver sido criado anteriormente no script). No script, uma regra correspondente também será criada na tabela Frontend.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. A entrada de rota acima substituirá a rota "0.0.0.0/0" padrão, mas a regra 10.0.0.0/16 padrão ainda existiria e permitiria o tráfego na Rede Virtual para rotear diretamente ao destino e não para o Dispositivo Virtual de Rede. Para corrigir esse comportamento, adicione a regra a seguir.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. Neste ponto, há uma opção a ser feita. Com as duas rotas acima, todo o tráfego será roteado para o firewall para avaliação, até mesmo o tráfego de uma única sub-rede. Isso pode ser desejável, mas para permitir que o tráfego de uma sub-rede seja roteado localmente sem o envolvimento do firewall, uma terceira regra muito específica poderá ser adicionada. Essa rota declara que qualquer destino de endereço para a sub-rede local só poderá ser roteado para lá diretamente (NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	Por fim, com a tabela de roteamento criada e preenchida com rotas definidas pelo usuário, a tabela deverá estar associada a uma sub-rede. No script, a tabela de rotas de front-end também está associada à sub-rede Frontend. Este é o script de associação para a sub-rede Backend.
@@ -145,8 +145,8 @@ A configuração do Encaminhamento IP é um único comando e pode ser feito no m
 
 1.	Chame a instância da VM que seja o seu dispositivo virtual, neste caso, o firewall, e habilite o Encaminhamento IP (observação; todos os itens em vermelho que começam com um cifrão (por exemplo, $VMName[0] são uma variável definida pelo usuário no script na seção de referência deste documento. O zero entre colchetes, [0], representa a primeira VM na matriz de VMs; para que o script de exemplo funcione sem modificações, a primeira VM (VM 0) deverá ser o firewall):
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## Grupos de segurança de rede (NSG)
 Neste exemplo, um grupo NSG é criado e então carregado com uma única regra. Esse grupo é então associado somente às sub-redes Frontend e Backend (e não a SecNet). Declarativamente, a seguinte regra está sendo criada:
@@ -528,7 +528,7 @@ Lembre-se também de que os Grupos de Segurança de Rede existem para o tráfego
 Salve o Script Completo em um arquivo de script do PowerShell. Salve a Configuração de Rede em um arquivo chamado "NetworkConf2.xml". Modifique as variáveis definidas pelo usuário como necessário. Execute o script e então siga as instruções de configuração de regra de Firewall acima.
 
 #### Script Completo
-Esse script se baseará nas variáveis definidas pelo usuário;
+Esse script se baseará nas variáveis definidas pelo usuário:
 
 1.	Conectar-se a uma assinatura do Azure
 2.	Criar uma nova conta de armazenamento
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

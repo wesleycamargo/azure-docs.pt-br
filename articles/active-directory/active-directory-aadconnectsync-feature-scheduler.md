@@ -38,6 +38,8 @@ Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncSch
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+Se você vir **O comando de sincronização ou o cmdlet não está disponível** quando executar esse cmdlet, o módulo do PowerShell não estará carregado. Isso poderá ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell do que as configurações padrão. Se você vir esse erro, execute `Import-Module ADSync` para disponibilizar o cmdlet.
+
 - **AllowedSyncCycleInterval**. O AD do Azure com maior frequência permitirá a realização das sincronizações. Você não pode sincronizar com maior frequência do que isso e ainda ter suporte.
 - **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você alterar CustomizedSyncCycleInterval, isso entrará em vigor após o próximo ciclo de sincronização.
 - **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir isso como um valor menor do que AllowedSyncInterval, a última opção será usada.
@@ -92,7 +94,7 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 
 1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle` do PowerShell.
 2. Parar o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** nas Ações.
+    - Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
@@ -108,7 +110,7 @@ Você pode iniciar um perfil para um Conector desta forma:
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Os nomes a serem usados como [Nomes de conector](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [Nomes de perfil de execução](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) podem ser encontrados na [Interface do usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+Os nomes a serem usados como [Nomes de conector](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [Nomes de Perfil de Execução](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) podem ser encontrados na [Interface do Usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Invocar perfil de execução](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
 
@@ -142,4 +144,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

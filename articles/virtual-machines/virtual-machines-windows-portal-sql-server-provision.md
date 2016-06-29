@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/21/2016"
 	ms.author="jroth" />
 
 # Provisionar uma máquina virtual do SQL Server no Portal do Azure
@@ -240,7 +240,7 @@ O acesso à máquina permite que você altere diretamente as configurações da 
 
 Neste tutorial, selecionamos o acesso **Público** para a máquina virtual e a **Autenticação do SQL Server**. Essas configurações definiram automaticamente a máquina virtual para permitir conexões do SQL Server de qualquer cliente pela internet (supondo que o logon do SQL esteja correto).
 
->[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar uma Máquina Virtual do SQL Server](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] Se você não selecionou a opção Público durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar uma Máquina Virtual do SQL Server](virtual-machines-windows-sql-connect.md).
 
 As seções a seguir mostram como se conectar à instância do SQL Server em sua VM de um computador diferente pela internet.
 
@@ -251,4 +251,6 @@ Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas 
 
 Para obter uma visão geral em vídeo do SQL Server nas máquinas virtuais do Azure, assista ao vídeo [A VM do Azure é a melhor plataforma para o SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0608_2016-->
+[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server em máquinas virtuais do Azure.
+
+<!---HONumber=AcomDC_0622_2016-->

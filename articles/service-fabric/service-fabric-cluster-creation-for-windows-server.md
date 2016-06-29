@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar um cluster do Azure Service Fabric localmente ou na nuvem | Microsoft Azure"
-   description="Saiba como criar um cluster do Azure Service Fabric em qualquer computador (físico ou virtual) que executar o Windows Server, seja localmente ou na nuvem."
+   pageTitle="Criar um cluster do Azure Service Fabric local ou em qualquer nuvem | Microsoft Azure"
+   description="Saiba como criar um cluster do Azure Service Fabric em qualquer computador (físico ou virtual) que executar o Windows Server, seja localmente ou em qualquer nuvem."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/12/2016"
+   ms.date="06/14/2016"
    ms.author="chackdan"/>
 
 
@@ -23,7 +23,11 @@ O Azure Service Fabric permite a criação de clusters do Service Fabric em quai
 
 Este artigo explica as etapas necessárias para criar um cluster usando o pacote autônomo do Service Fabric local, mas ele pode ser adaptada facilmente a qualquer outro ambiente, como na nuvem.
 
+>[AZURE.NOTE] Atualmente, essa Oferta Autônoma está em versão de visualização. [Clique aqui](http://go.microsoft.com/fwlink/?LinkID=733084) se quiser baixar uma cópia do EULA agora.
+
+<a id="downloadpackage"></a>
 ## Baixar o pacote autônomo do Service Fabric
+
 
 [Baixe o pacote autônomo do Service Fabric para Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), que se chama *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
@@ -82,6 +86,7 @@ Quando especifica UDs em *ClusterConfig.JSON*, você pode escolher somente o nom
 ### Etapa 5: Baixar o pacote autônomo do Service Fabric para Windows Server
 [Baixe o pacote autônomo do Service Fabric Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) e descompacte o pacote em um computador de implantação que não faz parte do cluster ou em um dos computadores que farão parte do cluster.
 
+<a id="createcluster"></a>
 ## Criar o cluster
 
 Após ter concluído as etapas descritas na seção de planejamento e preparação acima, você está pronto para criar o cluster.
@@ -91,8 +96,8 @@ Abra *ClusterConfig.JSON* do pacote baixado. Você pode usar qualquer editor de 
 
 |**Parâmetro de configuração**|**Descrição**|
 |-----------------------|--------------------------|
-|NodeTypes|Os tipos de nós permitem separar os nós do cluster em vários grupos. Um cluster precisa ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características em comum. <br> *Name* - é o nome do tipo de nó. <br>*EndPoints* - são vários pontos de extremidade (portas) nomeados que estão associados esse tipo de nó. Você pode usar qualquer número da porta que desejar, desde que ele não entre em conflito com qualquer outra coisa no manifesto e não esteja sendo usado por outro programa no computador/VM <br> *PlacementProperties* - descrevem propriedades para esse tipo de nó, que você usará como restrições de posicionamento para serviços do sistema ou seus serviços. Essas propriedades de nó são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó incluem se o nó tem ou não um disco rígido ou placa de vídeo, o número de eixos no seu disco rígido, núcleos e outras propriedades físicas. <br> *Capacities* - as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que tem capacidade para uma métrica chamada "MemoryInMb" e que tem 2048 MB de memória disponível por padrão. Essas capacidades são usadas no tempo de execução para garantir que serviços que necessitam de uma quantidade específica de recursos sejam colocados em nós que tenham os recursos restantes disponíveis.|
-|Nós|Os detalhes de cada um de nós que farão parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com o endereço IP. <br> Se você usar os mesmos endereços IP para todos os nós, um cluster one-box será criado e você poderá usá-lo para fins de teste. Clusters one-box não devem ser usados para a implantação de cargas de trabalho de produção.|
+|NodeTypes|Os tipos de nós permitem separar os nós do cluster em vários grupos. Um cluster precisa ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características em comum. <br> *Name* - é o nome do tipo de nó. <br>*EndPoints* - são vários pontos de extremidade (portas) nomeados que estão associados esse tipo de nó. Você pode usar qualquer número da porta que desejar, desde que ele não entre em conflito com qualquer outra coisa no manifesto e não esteja sendo usado por outro programa no computador/VM <br> *PlacementProperties* - descrevem propriedades para esse tipo de nó, que você usará como restrições de posicionamento para serviços do sistema ou seus serviços. Essas propriedades de nó são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó incluem se o nó tem ou não um disco rígido ou placa de vídeo, o número de eixos no seu disco rígido, núcleos e outras propriedades físicas. <br> *Capacidades* - as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que tem capacidade para uma métrica chamada "MemoryInMb" e que tem 2048 MB de memória disponível por padrão. Essas capacidades são usadas no tempo de execução para garantir que serviços que necessitam de uma quantidade específica de recursos sejam colocados em nós que tenham os recursos restantes disponíveis.|
+|Nós|Os detalhes de cada um de nós que farão parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com o endereço IP. <br> Se você usar os mesmos endereços IP para todos os nós, um cluster one-box será criado e será possível usá-lo para fins de teste. Clusters one-box não devem ser usados para a implantação de cargas de trabalho de produção.|
 
 ### Etapa 2: Executar o script de criação de cluster
 Depois de ter modificado a configuração do cluster no documento JSON e adicionado todas as informações do nó a ele, execute o script do PowerShell de criação de cluster na pasta do pacote e transmita para ele o caminho para o arquivo de configuração e o local da raiz do pacote.
@@ -115,4 +120,4 @@ Leia os artigos a seguir para começar com o desenvolvimento e a implantação d
 Leia mais sobre clusters do Azure e clusters autônomos:
 - [Visão geral do recurso de criação de cluster autônomo e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

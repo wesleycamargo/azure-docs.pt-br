@@ -103,7 +103,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 44 | [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md) | Apresenta um exemplo de código Node.js que pode ser usado para se conectar ao Banco de Dados SQL do Azure. |
 | 45 | [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) | Apresenta um exemplo de código Phyton que pode ser usado para se conectar ao Banco de Dados SQL do Azure. |
 | 46 | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) | Dê um exemplo de código Ruby que você pode executar para se conectar ao Banco de Dados SQL do Azure. |
-| 47 | [Conectando-se ao Banco de Dados SQL: práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md) | Um tópico de ponto de partida que reúne links e recomendações de práticas recomendadas para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP. |
+| 47 | [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) | Um tópico de ponto de partida que reúne links e recomendações de práticas recomendadas para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP. |
 | 48 | [Criar e implantar um aplicativo Web Forms do ASP.NET seguro com associação, OAuth e Banco de Dados SQL no Serviço de Aplicativo do Azure](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | Este tutorial mostra como criar um aplicativo com Web Forms ASP.NET 4.5 seguro que incorpora um banco de dados SQL e implanta o aplicativo no Azure. |
 | 49 | [Obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código](sql-database-client-id-keys.md) | Obtenha a ID do cliente e a chave para acessar o Banco de Dados SQL do código. |
 | 50 | [Introdução às Tabelas Temporais no Banco de Dados SQL do Azure](sql-database-temporal-tables.md) | Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure. |
@@ -378,4 +378,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 
 - Elemento gráfico do Roteiro de Aprendizagem: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

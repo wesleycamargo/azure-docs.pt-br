@@ -33,34 +33,36 @@ Primeiro, crie um grupo de recursos.
 
 1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser criados.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort Location | Select Location
         
     Você deverá ver algo assim:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Substitua o valor **$locName** por um local na lista. Crie a variável.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Substitua o valor **$rgName** por um nome para o novo grupo de recursos. Crie a variável e o grupo de recursos.
 
@@ -74,13 +76,13 @@ Primeiro, crie um grupo de recursos.
 1. Substitua o valor de **$stName** por um nome para a conta de armazenamento. Teste a exclusividade do nome.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Se esse comando retornar **False**, o nome proposto será exclusivo no Azure. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
+    Se esse comando retornar **True**, o nome proposto será exclusivo no Azure. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
     
 2. Agora, execute o comando para criar a conta de armazenamento.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Etapa 4: criar uma rede virtual
 
@@ -170,4 +172,4 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 - Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

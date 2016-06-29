@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando a Análise - a ferramenta de pesquisa avançada do Application Insights" 
+	pageTitle="Usando a Análise, a ferramenta de pesquisa avançada do Application Insights | Microsoft Azure" 
 	description="Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -23,7 +23,6 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Abrir Análise
 
@@ -60,9 +59,9 @@ Você pode escolher as colunas que gostaria de ver. Expanda qualquer item para v
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Clique no cabeçalho de uma coluna como uma maneira rápida de reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para isso, você deve usar o operador [superior](app-insights-analytics-reference.md#top-operator) ou [classificar](app-insights-analytics-reference.md#sort-operator).
+> [AZURE.NOTE] Clique no cabeçalho de uma coluna como uma maneira rápida de reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para isso, você deve usar o operador [top](app-insights-analytics-reference.md#top-operator) ou [sort](app-insights-analytics-reference.md#sort-operator).
 
-Mas é recomendável usar os operadores [pegar](app-insights-analytics-reference.md#take-operator), [superior](app-insights-analytics-reference.md#top-operator) ou [resumir](app-insights-analytics-reference.md#summarize-operator) para evitar o download de tabelas enormes do servidor. Mesmo assim, há um limite automático de 10 mil linhas por consulta.
+Mas é recomendável usar os operadores [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) ou [summarize](app-insights-analytics-reference.md#summarize-operator) para evitar o download de tabelas enormes do servidor. Mesmo assim, há um limite automático de 10 mil linhas por consulta.
 
 
 ## Diagramas
@@ -75,15 +74,15 @@ Se você tiver várias colunas dos tipos corretos, você poderá escolher os eix
 
 ![](./media/app-insights-analytics-using/100.png)
 
-Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [política de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
+Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
 
 ## Exportar para o Excel
 
-Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar para o Excel**.
+Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar para Excel**.
 
 ## Exportar para o Power BI
 
-1. Coloque o cursor em uma consulta e escolha **Exportar para o Power BI**.
+1. Coloque o cursor em uma consulta e escolha **Exportar para Power BI**.
 
     ![](./media/app-insights-analytics-using/240.png)
 
@@ -91,7 +90,7 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 3. Copie o script em Linguagem M no editor de consulta avançada do Power BI Desktop.
  * Abra o arquivo exportado.
- * No Power BI Desktop, selecione: **Obter Dados, Consulta em Branco, Editor Avançado** e cole o script em linguagem M.
+ * No Power BI Desktop, selecione: **Obter Dados, Consulta Nula, Editor Avançado** e cole o script em Linguagem M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -104,4 +103,4 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

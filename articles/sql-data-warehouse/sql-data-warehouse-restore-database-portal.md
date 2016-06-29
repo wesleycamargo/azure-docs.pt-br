@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restaurar um banco de dados no SQL Data Warehouse do Azure (Portal) | Microsoft Azure"
-   description="Tarefas do portal do Azure para restaurar um banco de dados ativo ou excluído no SQL Data Warehouse do Azure."
+   pageTitle="Restaurar um SQL Data Warehouse do Azure (Portal) | Microsoft Azure"
+   description="Tarefas do portal do Azure para restaurar um Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,30 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Restaurar um banco de dados no SQL Data Warehouse do Azure (Portal)
+# Restaurar um Azure SQL Data Warehouse (Portal)
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Visão geral][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-Tarefas do PowerShell para restaurar um banco de dados ativo ou excluído no SQL Data Warehouse do Azure.
-
-Tarefas neste tópico:
-
-- Restaurar um banco de dados dinâmico
-- Restaurar um banco de dados excluído
+Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando o Portal do Azure.
 
 ## Antes de começar
 
-Verifique a capacidade de DTU do Banco de Dados SQL. Como o SQL Data Warehouse restaura para um novo banco de dados no servidor SQL lógico, é importante verificar se o servidor SQL para o qual você está restaurando possui capacidade de DTU suficiente para o novo banco de dados. Consulte esta postagem no blog para obter mais informações sobre [como exibir e aumentar a cota de DTU][].
+**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor lógico SQL Server. Esse servidor lógico tem um limite de capacidade medido em DTUs. Antes de restaurar um SQL Data Warehouse, é importante verificar se o servidor lógico SQL Server que hospeda seu banco de dados tem capacidade DTU suficiente para o banco de dados que está sendo restaurado. Confira esta postagem no blog para saber mais sobre [como exibir e aumentar a cota de DTU][].
 
 
-## Restaurar um banco de dados dinâmico
+## Restaurar um banco de dados ativo ou pausado
 
 Para restaurar um banco de dados:
 
@@ -46,7 +41,6 @@ Para restaurar um banco de dados:
 4. Na parte superior da folha do banco de dados, clique em **Restaurar**.
 5. Especifique um novo **Nome do banco de dados**, selecione um **Ponto de Restauração** e clique em **Criar**.
 6. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**.
-
 
 ## Restaurar um banco de dados excluído
 
@@ -62,14 +56,16 @@ Para restaurar um banco de dados excluído:
 
 
 ## Próximas etapas
-Para saber mais, confira [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][] e [Visão geral de gerenciamento][].
+Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: sql-database-business-continuity.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
+[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
+[Visão geral]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
@@ -79,4 +75,4 @@ Para saber mais, confira [Visão geral de continuidade de negócios do Banco de 
 <!--Other Web references-->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Fazer backup de bancos de dados habilitados para o Stretch
@@ -64,4 +64,4 @@ Para verificar o número de horas de dados que o Stretch Database retém tempora
 
 [Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

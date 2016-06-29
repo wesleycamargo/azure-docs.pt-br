@@ -34,7 +34,7 @@ Você pode proteger seus dados com o serviço de Backup tirando instantâneos de
 
 ## Restaurar um ponto de recuperação
 
-1. Entre no [portal do Azure](http://ms.portal.azure.com/)
+1. Entre no [Portal do Azure](http://portal.azure.com/)
 
 2. No menu do Azure, clique em **Procurar** e, na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
@@ -167,4 +167,4 @@ Agora que você pode restaurar suas VMs, consulte o artigo de solução de probl
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

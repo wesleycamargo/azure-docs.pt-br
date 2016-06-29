@@ -3,7 +3,7 @@
 	description="As atualizações mais recentes das ferramentas do Visual Studio para análise do desenvolvedor"
 	services="application-insights"
     documentationCenter=""
-	authors="aruna"
+	authors="acearun"
 	manager="douge"/>
 <tags
 	ms.service="application-insights"
@@ -11,11 +11,26 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/09/2016"
 	ms.author="acearun"/>
 
 # Notas de versão - ferramentas de análise do desenvolvedor
 ##### Análise do Application Insights e do HockeyApp no Visual Studio
+## Versão 7.0.1
+O Application Insights agora dá suporte a projetos do ASP.NET Core RC2 no Visual Studio. Você pode adicionar o Application Insights a novos projetos do ASP.NET Core RC2 na caixa de diálogo Novo Projeto, ou a um projeto existente clicando no projeto no Gerenciador de Soluções e escolhendo "Adicionar Application Insights Telemetry…"
+
+![Suporte do .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+
+Também há novo suporte a projetos ASP.NET 5 RC1 e ASP.NET Core RC2 na janela Ferramentas de Diagnóstico. Você verá eventos do Application Insights como solicitações e exceções do seu aplicativo ASP.NET ao depurar localmente em seu computador. De cada evento, você pode fazer drill down para obter mais informações, clicando em "Pesquisa".
+
+![Suporte a Ferramentas de Diagnóstico](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+
+Outros novos recursos:
+
+* Tornamos a experiência de Pesquisa de do Application Insights mais rápida e intuitiva, aplicando automaticamente intervalos de tempo e filtros de detalhes conforme você os seleciona
+* Na Pesquisa do Application Insights, há agora uma opção para ir para o código da telemetria de solicitação
+* Fizemos aprimoramentos à experiência de entrada do HockeyApp.
+
 ## Versão 5.2
 Estamos felizes em anunciar a introdução de cenários do HockeyApp no Visual Studio. A primeira integração que habilitamos é uma distribuição beta dos aplicativos Universais do Windows e do Windows Forms no VS.
 
@@ -87,7 +102,7 @@ Se já estiver usando rastreamento com NLog, Log4Net ou System.Diagnostics, voc�
 - Clique com o botão direito do mouse no Nó do projeto -> Application Insights -> Configurar Application Insights. Verifique se aparece a opção de adicionar o adaptador correto à janela de configuração.
 - Ou quando você compilar a solução, observe o pop-up que aparece no canto superior direito da tela e clique em configurar. ![Notificação de Registro](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-Depois de instalar o adaptador de log, você poderá executar o aplicativo e verificar se visualiza os dados na guia de ferramentas de diagnóstico, como se segue: ![Rastreamentos](./media/app-insights-release-notes-vsix/Traces.png)
+Depois de instalar o adaptador de log, você poderá executar o aplicativo e verificar se visualiza os dados na guia de ferramentas de diagnóstico, conforme demonstrado a seguir: ![Rastreamentos](./media/app-insights-release-notes-vsix/Traces.png)
 ###-Usuário pode saltar/localizar o código em que a propriedade de evento de telemetria é emitida
 Com a nova versão, o usuário pode clicar em qualquer valor nos detalhes do evento e isso pesquisará uma cadeia de caracteres correspondente na solução aberta atual. Os resultados serão exibidos na lista "Encontrar Resultados" do Visual Studio, conforme mostrado abaixo: ![Localizar Correspondência](./media/app-insights-release-notes-vsix/FindMatch.png)
 ###-Nova tela para usuário não conectado na janela de Pesquisa
@@ -149,4 +164,4 @@ Em *Connect();* 2015, [anunciamos](https://azure.microsoft.com/blog/deep-diagnos
 
 Em versões futuras da extensão Application Insights, vamos introduzir novas funcionalidades para permitir uma experiência mais integrada entre o HockeyApp e o Visual Studio. A partir de agora, é possível começar a usar o HockeyApp apenas adicionando a referência do NuGet: veja a [documentação](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para obter mais informações.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

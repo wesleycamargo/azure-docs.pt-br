@@ -49,7 +49,7 @@ Antes de criar uma Máquina Virtual de Ciência de Dados da Microsoft, você dev
 
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados da Microsoft:
 
-1.	Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Clique no botão **Criar** na parte inferior para ser levado para um assistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 As seções a seguir fornecem as **entradas** para cada uma das **5 etapas** (enumeradas à direita da figura acima) do assistente usado para criar a Máquina Virtual de ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
@@ -147,4 +147,4 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Saiba como criar soluções completas de análise de ponta a ponta sistematicamente usando o [Processo de Ciência de Dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter amostras de aprendizado de máquina e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

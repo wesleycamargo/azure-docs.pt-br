@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Implantar um conjunto de escala de máquina virtual usando o Visual Studio
@@ -75,7 +75,7 @@ Agora você pode editar o Modelo para personalizá-lo de acordo com as necessida
 
 	![Novo grupo de recursos][new_resource]
 
-9. Em seguida, selecione o botão **Editar Parâmetros** para inserir parâmetros que serão transmitidos para o Modelo; alguns valores como o nome de usuário e a senha para o SO são necessários para criar a implantação.
+9. Em seguida, selecione o botão **Editar Parâmetros** para inserir parâmetros que serão transmitidos para o Modelo; alguns valores como o nome de usuário e a senha para o SO são necessários para criar a implantação. Se você não tiver as Ferramentas do PowerShell para o Visual Studio instaladas, será recomendável marcar "Salvar senhas" para evitar um prompt oculto da linha de comando do PowerShell ou usar o [suporte keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
 	![Editar parâmetros][edit_parameters]
 
@@ -85,7 +85,7 @@ Agora você pode editar o Modelo para personalizá-lo de acordo com as necessida
 
 ## Explorando seu Conjunto de Escala de VM
 
-Depois que a implantação for concluída, é possível exibir o novo Conjunto de Escala de VM no **Gerenciador de Nuvem** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Escala de VM no [Portal do Azure](https://portal.azure.com) e no [Gerenciador de Recursos do Azure](https://resources.azure.com/).
+Depois que a implantação for concluída, é possível exibir o novo Conjunto de Escala de VM no **Gerenciador de Nuvem** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Dimensionamento da VM no [Portal do Azure](https://portal.azure.com) e no [Azure Resource Manager](https://resources.azure.com/).
 
 ![Gerenciador de Nuvem][cloud_explorer]
 
@@ -107,4 +107,4 @@ Depois de implantar com êxito os Conjuntos de Escala de VM por meio do Visual S
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

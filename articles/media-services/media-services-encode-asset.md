@@ -220,7 +220,7 @@ ErrorCancelingTask|Categoria de erros para cobrir falhas durante a tentativa de 
 TransientError|Categoria de erros para abordar problemas transitórios (por exemplo, problemas de rede temporários com o Armazenamento do Azure)
 
 
-Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 
@@ -242,4 +242,4 @@ Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [tíquete de sup
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

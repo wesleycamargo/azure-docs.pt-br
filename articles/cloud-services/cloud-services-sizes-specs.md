@@ -143,13 +143,12 @@ Para banco de dados maiores, farms de servidores SharePoint e aplicativos de alt
 | Standard\_D12\_v2 | 4 | 28 GB | Alto | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | Alto | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | Muito alto | 800 GB |
-| Standard\_D15\_v2 | 20 | 140 GB | Muito alto | 1000 GB |
 
 ## Configurar tamanhos para os Serviços de Nuvem
 
 Você pode especificar o tamanho da Máquina Virtual de uma instância de função como parte do modelo de serviço descrito pelo [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). O tamanho da função determina o número de núcleos de CPU, a capacidade de memória e o tamanho do sistema de arquivos local alocados para uma instância em execução. Escolha o tamanho da função com base em requisitos de recurso do aplicativo.
 
-Veja um exemplo de definição do tamanho da função como [Standard\_D2](#general-purpose-d) para uma instância de função web:
+Veja um exemplo de definição do tamanho da função como [Standard\_D2](#general-purpose-d) para uma instância de Função Web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -157,4 +156,4 @@ Veja um exemplo de definição do tamanho da função como [Standard\_D2](#gener
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

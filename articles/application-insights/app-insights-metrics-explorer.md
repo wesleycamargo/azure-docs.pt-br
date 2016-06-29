@@ -176,15 +176,16 @@ Se você editar uma folha mas em seguida decidir voltar ao conjunto original sal
 
 ![Nos botões na parte superior do Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-## Live Stream: métricas instantâneas para um monitoramento preciso
+<a name="live-metrics-stream"></a>
+## Live Metrics Stream: métricas instantâneas para um monitoramento preciso
 
-O Live Stream mostra as métricas do aplicativo no momento exato, com uma latência quase de tempo real, de 1 segundo. Isso é muito útil quando você está lançando um novo build e deseja ter certeza de que tudo está funcionando como esperado ou investigar um incidente em tempo real.
+O Live Metrics Stream mostra as métricas do aplicativo no momento exato, com uma latência quase de tempo real de 1 segundo. Isso é muito útil quando você está lançando um novo build e deseja ter certeza de que tudo está funcionando como esperado ou investigar um incidente em tempo real.
 
 ![Na folha Visão Geral, clique em Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
-Ao contrário do Metrics Explorer, o Live Stream exibe um conjunto fixo de métricas. Os dados persistem somente durante o período em que estão no gráfico e, em seguida, são descartados.
+Ao contrário do Metrics Explorer, o Live Metrics Stream exibe um conjunto fixo de métricas. Os dados persistem somente durante o período em que estão no gráfico e, em seguida, são descartados.
 
-O Live Stream está disponível com o SDK do Application Insights para ASP.NET, versão 2.1.0 ou posterior.
+O Live Metrics Stream está disponível com o SDK do Application Insights para ASP.NET, versão 2.1.0 ou posterior.
 
 ## Definir alertas
 
@@ -228,7 +229,7 @@ A [Análise](app-insights-analytics.md) é uma maneira mais versátil de analisa
     Se quiser definir filtros diferentes em gráficos diferentes, crie-os em folhas diferentes e os salve como favoritos separados. Se desejar, você poderá fixá-los ao painel para que eles sejam exibidos lado a lado.
 
 * Se você agrupar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar “agrupar por” ou escolha uma propriedade de agrupamento diferente.
-* Haverá dados de desempenho (CPU, taxa de E/S etc) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Esses dados não estão disponíveis para sites do Azure.
+* Haverá dados de desempenho (CPU, taxa de E/S etc.) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Esses dados não estão disponíveis para sites do Azure.
 
 
 
@@ -246,4 +247,4 @@ A [Análise](app-insights-analytics.md) é uma maneira mais versátil de analisa
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

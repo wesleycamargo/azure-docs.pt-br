@@ -20,7 +20,7 @@
 
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
-Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da DMZ. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
+Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
 
 ![DMZ de entrada com NVA e NSG][1]
 
@@ -28,7 +28,7 @@ Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos
 Neste exemplo, há uma assinatura que contém o seguinte:
 
 - Dois serviços de nuvem: "FrontEnd001" e "BackEnd001"
-- Uma Rede Virtual, “CorpNetwork”, com duas sub-redes, “FrontEnd” e “BackEnd”
+- Uma rede virtual, “CorpNetwork”, com duas sub-redes: “FrontEnd” e “BackEnd”
 - Um único grupo de segurança de rede que é aplicado a ambas as sub-redes
 - Um dispositivo virtual de rede, neste exemplo um Firewall NextGen Barracuda, conectado à sub-rede Frontend
 - Um Windows Server que representa um servidor Web de aplicativos ("IIS01")
@@ -39,7 +39,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 
 Na seção de referências abaixo, há um script do PowerShell que criará a maior parte do ambiente descrito acima. A criação das VMs e das Redes Virtuais, embora seja feita por script de exemplo, não será descrita em detalhes neste documento.
  
-Para criar o ambiente;
+Para compilar o ambiente:
 
   1.	Salve o arquivo xml de configuração de rede incluído na seção de referências (atualizado com nomes, localização e endereços IP que correspondam ao cenário determinado)
   2.	Atualize as variáveis do usuário no script para fazer a correspondência do ambiente em que o script deve ser executado (assinaturas, nomes de serviço, etc.)
@@ -47,7 +47,7 @@ Para criar o ambiente;
 
 **Observação**: a região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
 
-Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas;
+Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas:
 
 1.	Configure as regras de firewall; isso será abordado na seção abaixo: Regras de Firewall.
 2.	Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ.
@@ -214,7 +214,7 @@ Mais exemplos e uma visão geral de limites de segurança de rede podem ser enco
 Salve o Script Completo em um arquivo de script do PowerShell. Salve a Configuração de Rede em um arquivo chamado "NetworkConf2.xml". Modifique as variáveis definidas pelo usuário como necessário. Execute o script e então siga as instruções de configuração de regra de Firewall acima.
 
 #### Script Completo
-Esse script se baseará nas variáveis definidas pelo usuário;
+Esse script se baseará nas variáveis definidas pelo usuário:
 
 1.	Conectar-se a uma assinatura do Azure
 2.	Criar uma nova conta de armazenamento
@@ -566,4 +566,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

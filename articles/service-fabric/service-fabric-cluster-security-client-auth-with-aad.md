@@ -14,24 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# PREVIEW: criar um cluster do Service Fabric usando o Azure Active Directory para autenticação de cliente
+# Criar um cluster do Service Fabric usando o Azure Active Directory para autenticação de cliente
 
 Você pode proteger o acesso aos pontos de extremidade de gerenciamento de um cluster do Service Fabric usando o AAD (Azure Active Directory). Este artigo aborda como criar os artefatos do AAD necessários, como preenchê-los durante a criação do cluster e como se conectar a esses grupos posteriormente.
-
->[AZURE.IMPORTANT] A integração do AAD com clusters do Service Fabric está em preview no momento. Tudo descrito neste artigo está disponível no tempo de execução do Service Fabric 5.0, mas é recomendável não usá-lo para clusters de produção no momento.
 
 ## Modelar um cluster do Service Fabric no AAD
 
 O AAD permite às organizações (conhecidas como locatários) gerenciarem o acesso de usuários a aplicativos, os quais são divididos em aplicativos com uma interface do usuário de logon baseada na Web e aplicativos com uma experiência de cliente nativo. Neste documento, vamos pressupor que você já tenha criado um locatário. Se não, comece lendo [Como obter um locatário do Azure Active Directory](../active-directory/active-directory-howto-tenant.md).
 
-Clusters do Service Fabric oferecem uma variedade de pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) baseado na Web e o [Visual Studio](service-fabric-manage-application-in-visual-studio.md). Como resultado, você criará dois aplicativos do AAD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
+Os clusters do Service Fabric oferecem uma variedade de pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) baseado na Web e o [Visual Studio](service-fabric-manage-application-in-visual-studio.md). Como resultado, você criará dois aplicativos do AAD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
 
 Para simplificar algumas das etapas envolvidas na configuração do AAD com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell.
 
->[AZURE.NOTE] Você deve executar essas etapas *antes de* criar o cluster, por isso em casos em que os scripts esperam nomes e pontos de extremidade de cluster, eles devem ser os valores planejados, não aqueles que você já criou.
+>[AZURE.NOTE] Você deve executar essas etapas *antes* de criar o cluster, por isso em casos em que os scripts esperam nomes e pontos de extremidade de cluster, eles devem ser os valores planejados, não aqueles que você já criou.
 
 1. [Baixe os scripts][sf-aad-ps-script-download] em seu computador.
 
@@ -70,7 +68,7 @@ Agora que você criou os aplicativos do AAD, você pode criar o cluster do Servi
 
 Observe que o AAD só é usado para autenticação de cliente do cluster. Para criar um cluster seguro, é necessário também fornecer um certificado, que será usado para proteger a comunicação entre os nós do cluster e para fornecer autenticação de servidor para pontos de extremidade de gerenciamento do cluster. Você pode encontrar um [modelo ARM para um cluster seguro na galeria de início rápido do Azure][secure-cluster-arm-template] ou seguir as instruções fornecidas no arquivo Leiame do [projeto do grupo de recursos do Service Fabric no Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-Adicione a saída do trecho de código do modelo ARM do script `SetupApplication` como um par de fabricSettings, managementEndpoint, etc. Se você fechou a janela, o trecho de código também é mostrado abaixo:
+Adicione a saída do trecho de código do modelo ARM do script `SetupApplication` como um par de fabricSettings, managementEndpoint etc. Se você fechou a janela, o trecho de código também é mostrado abaixo:
 
 ```json
   "azureActiveDirectory": {
@@ -97,7 +95,7 @@ Depois de criar os aplicativos para representar seu cluster, você precisará at
 
     ![Atribuir usuários a funções][assign-users-to-roles-dialog]
 
->[AZURE.NOTE] Para obter mais informações sobre as funções no Service Fabric, veja [Controle de acesso baseado em função para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
+>[AZURE.NOTE] Para saber mais sobre as funções no Service Fabric, veja [Controle de acesso baseado em função para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## Conectando ao cluster
 
@@ -160,4 +158,4 @@ Para resolver esse problema, adicione **http://<i></i>localhost** como um URI de
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

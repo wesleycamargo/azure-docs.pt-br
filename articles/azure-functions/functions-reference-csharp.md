@@ -20,7 +20,11 @@
 
 # Referência do desenvolvedor de C# do Azure Functions
 
-A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como agente de função e tokens de cancelamento.
+> [AZURE.SELECTOR]
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.js](../articles/azure-functions/functions-reference-node.md)
+ 
+A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como agente de função e tokens de cancelamento.
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -30,7 +34,7 @@ O formato `.csx` permite escrever menos "clichê" e se concentrar em escrever ap
 
 ## Associando a argumentos
 
-Várias associações estão associadas a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada associação possui seus próprios tipos com suporte, que estão documentados por associação; por exemplo, um gatilho de blob pode dar suporte a cadeia de caracteres, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
+Várias associações estão vinculadas a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada associação possui seus próprios tipos com suporte, que estão documentados por associação; por exemplo, um gatilho de blob pode dar suporte a cadeia de caracteres, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -52,7 +56,7 @@ Para registrar em log a saída nos seus logs de streaming em C#, você pode incl
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -72,7 +76,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## Token de cancelamento
 
-Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora sempre seja melhor escrever código que pode lidar com falhas, em casos em que você deseja lidar com solicitações de desligamento normal, defina uma argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
+Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora sempre seja melhor escrever o código que pode lidar com as falhas, em casos em que você deseja lidar com solicitações de desligamento normal, defina um argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -87,7 +91,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importando namespaces
 
-Se você precisar importar namespaces, poderá fazer como geralmente faz, com a cláusula `using`.
+Se precisar importar namespaces, você poderá fazer como geralmente faz, com a cláusula `using`.
 
 ```csharp
 using System.Net;
@@ -134,7 +138,7 @@ Os seguintes assemblies são adicionados automaticamente pelo ambiente de hosped
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas especias e podem ser referenciados por simplename (por exemplo, `#r "AssemblyName"`):
+Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas especiais e podem ser referenciados por simplename (por exemplo, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -142,11 +146,11 @@ Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas es
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Se você precisar fazer referência a um assembly particular, poderá carregar o arquivo do assembly para uma pasta `bin` referente à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta de função, consulte a seção a seguir sobre gerenciamento de pacotes.
+Se precisar fazer referência a um assembly particular, você poderá carregar o arquivo do assembly em uma pasta `bin` relativa à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta de função, consulte a seção a seguir sobre gerenciamento de pacotes.
 
 ## Gerenciamento de pacote
 
-Para usar os pacotes do NuGet em uma função C#, carregue um arquivo *project.json* para a pasta da função no sistema de arquivos do aplicativo da função. Aqui está um arquivo *project.json* de exemplo que adiciona uma referência à versão 1.1.0 do Microsoft.ProjectOxford.Face:
+Para usar os pacotes do NuGet em uma função C#, carregue um arquivo *project.json* na pasta da função, no sistema de arquivos do aplicativo de funções. Aqui está um arquivo *project.json* de exemplo que adiciona uma referência à versão 1.1.0 do Microsoft.ProjectOxford.Face:
 
 ```json
 {
@@ -160,9 +164,9 @@ Para usar os pacotes do NuGet em uma função C#, carregue um arquivo *project.j
 }
 ```
 
-Somente o .NET Framework 4.6 é permitido. Desse modo, tenha certeza de que o arquivo *project.json* especifica `net46`, como mostrado aqui.
+Somente o .NET Framework 4.6 tem suporte. Desse modo, tenha certeza de que o arquivo *project.json* especifica `net46`, como mostrado aqui.
 
-Quando você carrega um arquivo *project.json*, o tempo de execução obtém os pacotes e adiciona automaticamente referências aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"`. Basta adicionar as instruções `using` obrigatórias ao arquivo *run.csx* para usar os tipos definidos nos pacotes NuGet.
+Quando você carrega um arquivo *project.json*, o tempo de execução obtém os pacotes e adiciona referências automaticamente aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"`. Basta adicionar as instruções `using` obrigatórias ao arquivo *run.csx* para usar os tipos definidos nos pacotes NuGet.
 
 
 ### Como carregar um arquivo project.json
@@ -171,9 +175,9 @@ Quando você carrega um arquivo *project.json*, o tempo de execução obtém os 
 
 	Isso também permite acessar os logs de streaming nos quais a saída da instalação do pacote será exibida.
 
-2. Para carregar um arquivo project.json, use um dos métodos descritos na seção **Como atualizar os arquivos de aplicativo de funções** do tópico [Referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
+2. Para carregar um arquivo project.json, use um dos métodos descritos na seção **Como atualizar os arquivos de aplicativo de funções** do [tópico Referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
-3. Depois que o arquivo *project.json* é carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
+3. Depois que o arquivo *project.json* for carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -254,4 +258,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

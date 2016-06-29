@@ -89,7 +89,7 @@ Se você quiser manter suas configurações personalizadas, use [ALTER DATABASE 
 
 [Análise de Desempenho de Banco de Dados SQL](sql-database-performance.md)
 
-## Saiba mais
+## Recursos adicionais
 
 Para obter mais informações, confira os seguintes artigos:
 
@@ -101,4 +101,4 @@ Para obter mais informações, confira os seguintes artigos:
 
 - [Monitorando o desempenho usando o Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -26,7 +26,7 @@ Este tópico descreve como criar e implantar um módulo R personalizado no Apren
 ## O que é um módulo R personalizado?
 Um **módulo personalizado** é um módulo definido pelo usuário que pode ser carregado no seu espaço de trabalho e executado como parte de um experimento de Aprendizado de Máquina do Azure. Um **módulo R personalizado** é um módulo personalizado que executa uma função R definida pelo usuário. R é uma linguagem de programação para a computação estatística e gráficos que é amplamente usada por cientistas estatísticos e para implementar algoritmos estatísticos. Atualmente, R é a única linguagem com suporte em módulos personalizados, mas o suporte para idiomas adicionais será adicionado em futuras versões.
 
-Módulos personalizados têm o **status de primeira classe** no Aprendizado de Máquina do Azure no sentido de que podem ser usados como qualquer outro módulo. Eles podem ser executados com outros módulos, incluídos em visualizações ou testes publicados. Os usuários têm controle sobre o algoritmo implementado pelo módulo, as portas de entrada e saída a ser usadas, os parâmetros de modelagem e outros vários comportamentos de tempo de execução. Um módulo personalizado só está disponível no espaço de trabalho no qual ele foi criado e não é possível publicar testes da comunidade.
+Módulos personalizados têm o **status de primeira classe** no Aprendizado de Máquina do Azure no sentido de que podem ser usados como qualquer outro módulo. Eles podem ser executados com outros módulos, incluídos em visualizações ou testes publicados. Os usuários têm controle sobre o algoritmo implementado pelo módulo, as portas de entrada e saída a ser usadas, os parâmetros de modelagem e outros vários comportamentos de tempo de execução. Uma experiência contendo módulos personalizados também pode ser publicada na Cortana Intelligence Gallery para fácil compartilhamento.
 
 ## Arquivos em um módulo R personalizado
 Um módulo R personalizado é definido por um arquivo .zip que contém, no mínimo, dois arquivos:
@@ -362,4 +362,4 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

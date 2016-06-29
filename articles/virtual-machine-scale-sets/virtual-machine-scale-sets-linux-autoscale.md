@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Dimensionar automaticamente computadores Linux em um conjunto de escala de máquina virtual
@@ -37,23 +37,21 @@ Neste tutorial, você pode implantar os seguintes recursos e extensões:
 
 Para obter mais informações sobre os recursos do Gerenciador de recursos, confira [Computação do Azure, Rede e Provedores de Armazenamento no Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
 
-O modelo que você cria neste tutorial é semelhante a um modelo que pode ser encontrado na Galeria de modelos. Para saber mais, confira [Implantar um conjunto de escala de VM simples com VMs do Linux e um Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/).
-
 Antes de começar as etapas neste tutorial, [instale a CLI do Azure](../xplat-cli-install.md).
 
 ## Etapa 1: Criar um grupo de recursos e uma conta de armazenamento
 
-1. **Entrar no Microsoft Azure** - Na interface de linha de comando (Bash, Terminal, Prompt de comando), verifique se você está no modo do Resource Manager digitando `azure config mode arm` e, em seguida, [entre com sua ID corporativa ou de estudante](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo as instruções para obter uma experiência de logon interativa com sua conta do Azure.
+1. **Entrar no Microsoft Azure** - na interface de linha de comando (Bash, Terminal, Prompt de comando), verifique se você está no modo Gerenciador de Recursos digitando `azure config mode arm`, em seguida, [entre com sua ID corporativa ou de estudante](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa com sua conta do Azure.
 
 	> [AZURE.NOTE] Se você tiver uma ID de trabalho ou escolar e se souber que não tem a autenticação de dois fatores habilitada, poderá usar `azure login -u` juntamente com a ID de trabalho ou escolar para efetuar logon sem uma sessão interativa. Se você não tiver uma ID de trabalho ou escolar, poderá [criar uma ID de trabalho ou escolar de sua conta da Microsoft pessoal](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 2. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos **vmsstest1**.
 
-        azure group create vmsstestrg1 westus
+        azure group create vmsstestrg1 centralus
 
-3. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Crie uma conta de armazenamento chamada **vmsstestsa**. Mantenha a janela da interface de comando aberta para etapas posteriormente neste tutorial.
+3. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Crie uma conta de armazenamento denominada **vmsstestsa**. Mantenha a janela da interface de comando aberta para etapas posteriormente neste tutorial.
 
-        azure storage account create --type LRS -g vmsstestrg1 -l westus vmsstestsa
+        azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
 ## Etapa 2: Criar o modelo
 Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recursos do Azure juntos usando uma descrição JSON dos recursos e parâmetros de implantação associados.
@@ -100,9 +98,8 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
 3. As variáveis podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione essas variáveis sob o elemento pai de variáveis que você adicionou ao modelo.
 
-        "apiVersion": "2016-03-30"
-        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
-        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
+        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
         "vmSize": "Standard_A0",
         "imagePublisher": "Canonical",
         "imageOffer": "UbuntuServer",
@@ -124,10 +121,10 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
         "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
-        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
         "wadlogs": "<WadCfg><DiagnosticMonitorConfiguration>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="pt-BR"/></PerformanceCounterConfiguration>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="pt-BR"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -144,7 +141,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "name": "[concat(parameters('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
+          "name": "[concat(parameters('resourcePrefix'), variables('storageAccountSuffix')[copyIndex()])]",
           "apiVersion": "2015-06-15",
           "copy": {
             "name": "storageLoop",
@@ -159,7 +156,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 5. Adicione o recurso de rede virtual. Confira [Provedor de Recurso de Rede](../virtual-network/resource-groups-networking.md) para obter mais informações.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
@@ -183,7 +180,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 6. Adicione os recursos de endereço IP público que são usados pelo balanceador de carga e interface de rede.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP1')]",
           "location": "[resourceGroup().location]",
@@ -195,7 +192,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP2')]",
           "location": "[resourceGroup().location]",
@@ -210,7 +207,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 7. Adicione o recurso de balanceador de carga que é usado pelo conjunto de dimensionamento. Para obter mais informações, confira [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md).
         
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
           "type": "Microsoft.Network/loadBalancers",
           "location": "[resourceGroup().location]",
@@ -253,7 +250,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 8. Adicione o recurso de interface de rede que é usado pela máquina virtual separada. Como máquinas em um conjunto de escala de máquina virtual não são diretamente acessíveis usando um endereço IP público, uma máquina virtual separada é criada na mesma rede virtual como o conjunto de escala e é usada para acessar remotamente as máquinas no conjunto.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "[variables('nicName1')]",
           "location": "[resourceGroup().location]",
@@ -282,7 +279,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 9. Adicione a máquina virtual separada à mesma rede do conjunto de escala.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
@@ -309,7 +306,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
               "osDisk": {
                 "name": "osdisk1",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"
@@ -329,7 +326,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "[variables('apiVersion')]",
+              "apiVersion": "2016-03-30",
               "name": "[parameters('vmSSName')]",
               "location": "[resourceGroup().location]",
               "dependsOn": [
@@ -350,11 +347,11 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
@@ -417,7 +414,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
                           },
                           "protectedSettings": {
                             "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey":"[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+                            "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
                             "storageAccountEndPoint":"https://core.windows.net"
                           }
                         }
@@ -502,7 +499,7 @@ O modelo pode ser carregado da sua interface de linha de comando, desde que voc�
 		export AZURE_STORAGE_ACCOUNT={account_name}
 		export AZURE_STORAGE_ACCESS_KEY={key}
 
-	Você pode obter a chave clicando no ícone de chave ao exibir o recurso de conta de armazenamento no Portal do Azure. Ao usar um prompt de comando do Windows, digite **set** em vez de exportar.
+	Você pode obter a chave clicando no ícone de chave ao exibir o recurso de conta de armazenamento no Portal do Azure. Ao usar um prompt de comando do Windows, digite **set** em vez de export.
 
 2. Crie o contêiner para armazenar o modelo:
 
@@ -546,7 +543,7 @@ Você pode obter informações sobre os conjuntos de dimensionamento de máquina
 
  - Conecte-se à máquina virtual de jumpbox exatamente como faria com qualquer outra máquina e, em seguida, você pode acessar remotamente as máquinas virtuais no conjunto de dimensionamento para monitorar os processos individuais.
 
->[AZURE.NOTE]Uma API REST completa para obter informações sobre conjuntos de escala pode ser encontrada nos [Conjuntos de escala de máquina virtual](https://msdn.microsoft.com/library/mt589023.aspx).
+>[AZURE.NOTE]Uma API REST completa para obter informações sobre os conjuntos de dimensionamento pode ser encontrada nos [Conjuntos de Dimensionamento da Máquina Virtual](https://msdn.microsoft.com/library/mt589023.aspx).
 
 ## Etapa 6: remover os recursos
 
@@ -556,6 +553,8 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 ## Próximas etapas
 
-Confira o modelo para [Escalar automaticamente um Conjunto de Escala de VM que executa um aplicativo Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) que configura uma pilha LAMP para praticar a funcionalidade de colocação em escala automática dos Conjuntos de Escala de Máquina Virtual.
+- Encontre exemplos de recursos de monitoramento do Azure Insights em [exemplos de início rápido da CLI de plataforma cruzada do Azure Insights](../azure-portal/insights-cli-samples.md)
+- Saiba mais sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usar logs de auditoria para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Confira o modelo para [Dimensionar automaticamente um Conjunto de Dimensionamento da VM que executa um aplicativo Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) que configura uma pilha LAMP para praticar a funcionalidade de dimensionamento automático dos Conjuntos de Dimensionamento da Máquina Virtual.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

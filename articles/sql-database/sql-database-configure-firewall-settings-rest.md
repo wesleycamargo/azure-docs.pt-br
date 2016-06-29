@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Visão geral](sql-database-firewall-configure.md)
 - [Portal do Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -73,4 +74,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

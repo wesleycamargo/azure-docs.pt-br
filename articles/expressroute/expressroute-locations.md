@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2016"
+   ms.date="06/17/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -31,7 +31,7 @@ Você terá acesso aos serviços do Azure em todas as regiões dentro de uma reg
 |---|---|---|
 |**América do Norte**|Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro do Canadá, Leste do Canadá|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal+, Cidade de Quebec+, Toronto|
 |**América do Sul**|Sul do Brasil|São Paulo|
-|**Europa**|Norte da Europa, Europa Ocidental|Amsterdã, Dublin, Londres, Newport(Gales) +, Paris +|
+|**Europa**|Norte da Europa, Europa Ocidental|Amsterdã, Dublin, Londres, Newport(Gales) +, Paris|
 |**Ásia**|Ásia Oriental, Sudeste Asiático|Hong Kong, Cingapura|
 |**Japão**|Oeste do Japão, Leste do Japão|Osaka, Tóquio|
 |**Austrália**|Sudeste da Austrália, Leste da Austrália|Melbourne, Sydney|
@@ -62,16 +62,18 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Suportado | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 |**CenturyLink** | Em breve | Em breve| Vale do Silício |
 |**China Telecom Global** | Com suporte | Sem suporte | Hong Kong |
-|**Cologix** | Com suporte | Em breve | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Suportado | Em breve | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Com suporte | Amsterdã, Dublin, Londres, Tóquio |
 | **Comcast** | Suportado | Suportado | Chicago, Vale do Silício, Washington D.C. |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Suportado | Suportado | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** | Suportado | Suportado | Amsterdã |
+| **GÉANT** | Em breve | Em breve | Amsterdã+ |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Suportado | Suportado | Osaka, Tóquio |
 | **[InterCloud](https://www.intercloud.com/)** | Suportado | Suportado | Amsterdã, Londres, Cingapura, Washington, D.C. |
 | **Internet Solutions - Cloud Connect** | Suportado | Suportado | Amsterdã, Londres |
-| **Interxion** | Com suporte | Suportado | Amsterdã, Londres |
+| **Interxion** | Com suporte | Suportado | Amsterdã, Londres, Paris |
+| **Jisc** | Em breve | Em breve | Londres+ | 
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Com suporte | Amsterdã, Chicago, Dallas, Las Vegas+, Londres, Seattle, SVale do Silício, Washington, D.C. |
 | **Megaport** | Suportado | Suportado | Dallas, Las Vegas+, Los Angeles, Melbourne, Nova Iorque, Seattle, Cingapura, Sydney, Washington, D.C. |
 | **MTN** | Com suporte | Com suporte | Londres |
@@ -99,9 +101,9 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Provedor de serviços** |**Microsoft Azure** | **Office 365** | **Locais** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Suportado | Chicago, Washington D.C. |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Chicago, Nova York, Washington, D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Suportado | Chicago, Dallas+, Nova York, Washington, D.C. |
 | **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Com suporte | Em breve | Chicago, Nova York+, Washington, D.C. |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Com suporte | Chicago, Nova York, Washington, D.C. |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Suportado | Chicago, Dallas+, Nova York, Washington, D.C. |
 
 #### China
 
@@ -130,6 +132,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 	- [InterXion](http://www.interxion.com/)
 	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
+	- [Cologix](http://www.cologix.com/)
 - Faça com que seu provedor de conectividade estenda sua rede para o local de emparelhamento de sua escolha.
 	- Certifique-se de que seu provedor de conectividade estenda sua conectividade de maneira altamente disponível para que não exista nenhum ponto de falha.
 - Solicite um circuito da Rota Expressa com o Exchange como o provedor de conectividade para conectar-se à Microsoft.
@@ -148,7 +151,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Ásia, Europa, EUA |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europa |
-|**[Nimbo](http://www.nimbo.com/)**|EUA||
+|**[Serviços Profissionais da Equinix](http://www.equinix.com/services/consulting/)**|EUA||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Ásia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | EUA |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | EUA |
@@ -161,4 +164,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

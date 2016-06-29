@@ -57,7 +57,7 @@ Crie usando a opção **Criar com VNET** e ESCOLHA ingressar em um domínio.
 O Azure RemoteApp dá suporte a contas da Microsoft e a contas do Active Directory do Azure, mas nem todas as coleções dão suporte a todos os métodos.
 
 | Tipo de conta | | Nuvem | Nuvem + VNET | Híbrido |
-|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
 | Conta da Microsoft | | Sim | Sim | Não |
 | Active Directory do Azure (Azure AD) | | | | |
 | | Somente AD do Azure | Sim | Sim | Não |
@@ -91,4 +91,4 @@ OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

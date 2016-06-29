@@ -40,6 +40,6 @@
 
 Se você tiver configurado um cartão de crédito ou débito como a forma de pagamento, o pagamento será feito automaticamente. Para alterar o cartão a qualquer momento, veja [Como alterar Pagamentos ou Créditos para uma assinatura do Azure](billing-how-to-change-credit-card.md).
 
-Se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

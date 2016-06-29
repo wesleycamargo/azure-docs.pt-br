@@ -29,13 +29,15 @@ Se você recebeu um erro durante a implantação de recursos do Azure, você tal
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
+É possível evitar alguns erros validando o modelo e a infraestrutura antes da implantação. Você também pode registrar informações adicionais sobre solicitações e respostas durante a implantação que podem ser úteis mais tarde para a solução de problemas. Para obter informações sobre como validar e registrar informações de solicitação e resposta, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md) (Implantar um grupo de recursos com modelos do Azure Resource Manager).
+
 ## Usar os logs de auditoria para solucionar problemas
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
 Para ver os erros de uma implantação, use as seguintes etapas:
 
-1. Para recuperar entradas de log, execute o comando **Get-AzureRmLog**. É possível usar os parâmetros **ResourceGroup** e **Status** para retornar apenas os eventos que falharam para um único grupo de recursos. Caso você não especifique uma hora de início e término, serão retornadas as entradas da última hora. Por exemplo, para recuperar as operações com falha na última hora de execução:
+1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog**. É possível usar os parâmetros **ResourceGroup** e **Status** para retornar apenas os eventos que falharam para um único grupo de recursos. Caso você não especifique uma hora de início e término, serão retornadas as entradas da última hora. Por exemplo, para recuperar as operações com falha na última hora de execução:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
@@ -99,7 +101,7 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 
 2. Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
         
     O que retorna as operações no seguinte formato:
         
@@ -141,7 +143,7 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 ## Próximas etapas
 
 - Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, veja [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
+- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
 - Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

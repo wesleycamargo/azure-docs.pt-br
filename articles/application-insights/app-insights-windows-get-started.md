@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="06/20/2016"
 	ms.author="awills"/>
 
 # Análise de aplicativos do Windows Phone e da Windows Store
@@ -33,8 +33,8 @@ Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insig
 
 Também é possível usar [Application Insights para aplicativos da Área de Trabalho do Windows](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] Em 15 de junho de 2016, vamos parar de mostrar dados no Application Insights para aplicativos do iOS, do Android, da Windows Store e do Windows Phone.
-> 
-> [Mais informações sobre esta alteração](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+> [AZURE.NOTE] Em breve, você será capaz de usar a [Análise do Application Insights](app-insights-analytics.md) e a [Exportação Contínua](app-insights-export-telemetry.md) com telemetria enviada do SDK do HockeyApp.
+>
+> [Mais informações sobre esta alteração.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

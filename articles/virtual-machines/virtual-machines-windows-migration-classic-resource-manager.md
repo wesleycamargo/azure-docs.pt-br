@@ -81,14 +81,12 @@ Os recursos a seguir não têm suporte para visualização pública. Se preferir
 
 Provedor de recursos | Recurso
 ---------- | ------------
-Computação | Diagnóstico de inicialização.
 Computação | Discos de máquina virtual não associados.
 Computação | Imagens de máquinas virtuais.
 Rede | IPs reservados não associados (se não anexados a uma VM). Há suporte para IPs reservados anexados a VMs.
 Rede | Grupos de segurança de rede não associados (se não anexados a uma rede virtual ou a uma interface de rede). Há suporte para NSGs referenciados pelas redes virtuais.
 Rede | ACLs de ponto de extremidade.
 Rede | Gateways de rede virtual (site a site, Rota Expressa do Azure, ponto a site).
-Armazenamento | Contas de armazenamento.
 
 ### Configurações sem suporte
 
@@ -103,7 +101,6 @@ Computação | Máquinas virtuais que têm alertas e políticas de Escala Autom�
 Computação | Extensões de VM do XML (Depurador, Implantação da Web e Depuração Remota do Visual Studio) | Não há suporte para isso. Recomendamos a remoção dessas extensões da máquina virtual para continuar a migração.
 Computação | Serviços de nuvem que contêm funções de trabalho/web | Não há suporte para esse recurso no momento.
 Rede | Redes virtuais que contêm máquinas virtuais e funções de trabalho/web | Não há suporte para esse recurso no momento.
-Rede | Sub-redes que contêm espaços no nome | Não há suporte para esse recurso no momento.
 Serviço de aplicativo do Azure | Redes virtuais que contêm ambientes do Serviço de Aplicativo | Não há suporte para esse recurso no momento.
 Azure HDInsight | Redes virtuais que contêm serviços do HDInsight | Não há suporte para esse recurso no momento.
 Serviços de Ciclo de Vida do Microsoft Dynamics | Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics | Não há suporte para esse recurso no momento.
@@ -226,4 +223,4 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 - [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
