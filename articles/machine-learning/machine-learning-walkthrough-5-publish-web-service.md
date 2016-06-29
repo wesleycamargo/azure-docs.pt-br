@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -48,7 +48,7 @@ Digamos que decidimos que o modelo de árvore aumentada foi o melhor modelo a us
 
 - [Computador de vetor de suporte de duas classes][two-class-support-vector-machine]
 - Módulos [Treinar modelo][train-model] e [Modelo de pontuação][score-model] que foram conectados a ele
-- [Normalizar dados][normalize-data] \(ambos)
+- [Normalizar dados][normalize-data] (ambos)
 - [Avaliar modelo][evaluate-model]
 
 Selecione o módulo e pressione a tecla Delete, ou clique com o botão direito do mouse no módulo e selecione **Excluir**.
@@ -105,18 +105,22 @@ Você pode configurar o serviço clicando na guia **CONFIGURAÇÃO**. Assim, voc
 ![Configurar o serviço Web][5]
 
 ## Teste do serviço Web
-Na página **PAINEL**, clique no botão **Testar** em **Ponto de extremidade padrão**. Um diálogo aparecerá e solicitará dados de entrada para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito alemão original.
+Na página **PAINEL**, clique no botão **Testar** em **Ponto de extremidade padrão**.
+
+![Teste do serviço Web][7]
+
+Um diálogo aparecerá e solicitará dados de entrada para o serviço. Existem as mesmas colunas que apareciam no conjunto de dados de risco de crédito alemão original.
 
 Insira um conjunto de dados e clique em **OK**.
 
-No serviço Web, os dados entram por meio do módulo **Entrada do serviço Web**, por meio do módulo [Editar Metadados][edit-metadata] e para o [Modelo de Pontuação][score-model], em que é pontuado. Os resultados saem, então, do serviço Web por meio da **saída do serviço Web**.
+No serviço Web, os dados entram por meio do módulo **Entrada do serviço Web**, por meio do módulo [Editar Metadados][edit-metadata] e para o módulo [Modelo de Pontuação][score-model], em que é pontuado. Os resultados saem do serviço Web por meio da **saída do serviço Web**.
 
-> [AZURE.TIP] Da maneira como configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] são retornados. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Se desejar retornar algo diferente, como apenas o valor do risco de crédito, você poderá inserir um módulo [Selecionar Colunas no Conjunto de Dados][select-columns] entre [Modelo de Pontuação][score-model] e a **Saída do serviço Web** para eliminar colunas que você não deseja que o serviço Web retorne.
+> [AZURE.TIP] Da maneira como configuramos o teste de previsão, todos os resultados do módulo [Modelo de Pontuação][score-model] são retornados. Isso inclui todos os dados de entrada, o valor do risco de crédito e a probabilidade de pontuação. Se desejar retornar algo diferente, como apenas o valor do risco de crédito, você poderá inserir um módulo [Selecionar Colunas no Conjunto de Dados][select-columns] entre [Modelo de Pontuação][score-model] e a **Saída do serviço Web** para eliminar colunas que não deseja que o serviço Web retorne.
 
 ## Gerenciar o serviço Web
-Assim que tiver implantado o serviço Web, você pode gerenciá-lo do [portal clássico do Azure](https://manage.windowsazure.com).
+Assim que tiver implantado o serviço Web, você pode gerenciá-lo no [portal clássico do Azure](https://manage.windowsazure.com).
 
-1. Entre no [Portal clássico do Azure](https://manage.windowsazure.com).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 3. Clique no espaço de trabalho.
 4. Clique na guia **SERVIÇOS WEB**.
@@ -141,6 +145,7 @@ Para obter mais informações, consulte:
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->
@@ -155,4 +160,4 @@ Para obter mais informações, consulte:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [select-columns]: https://msdn.microsoft.com/pt-BR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

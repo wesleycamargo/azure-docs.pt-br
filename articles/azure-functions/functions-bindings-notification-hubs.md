@@ -131,7 +131,7 @@ Este exemplo mostra como usar o tipo `Notification` definido na [Biblioteca de H
 	  }
 	}
 
-Para saber mais sobre o carregamento do seu arquivo project.json, veja [carregando um arquivo project.json](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+Para obter mais informações sobre o carregamento do seu arquivo project.json, confira [uploading a project.json file](functions-reference.md#fileupdate) (carregando um arquivo project.json).
 
 Código de exemplo:
 
@@ -155,4 +155,4 @@ Código de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

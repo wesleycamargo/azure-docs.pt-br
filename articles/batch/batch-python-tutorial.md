@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/08/2016"
+	ms.date="06/17/2016"
 	ms.author="marsma"/>
 
 # Introdução ao cliente Python do Lote do Azure
@@ -59,10 +59,6 @@ Problema após o comando **pip** para instalar os pacotes do Lote e do Armazenam
 Ou você pode instalar os pacotes Python do [azure-batch][pypi_batch] e [azure-storage][pypi_storage] manualmente.
 
 > [AZURE.TIP] Talvez seja necessário prefixar seus comandos com `sudo`, por exemplo, `sudo pip install -r requirements.txt`, se você estiver usando uma conta sem privilégios (recomendada). Para saber mais sobre como instalar pacotes Python, veja [Installing Packages (Instalando pacotes)][pypi_install] em readthedocs.io.
-
-### Gerenciador do Lote do Azure (opcional)
-
-O [Gerenciador do Lote do Azure][github_batchexplorer] é um utilitário gratuito incluído no repositório [azure-batch-samples][github_samples] no GitHub. Embora não seja necessário para concluir este tutorial, pode ser útil ao desenvolver e depurar suas soluções do Lote.
 
 ## Exemplo de código do tutorial do Python do Lote
 
@@ -123,7 +119,7 @@ O Lote inclui suporte interno para a interação com o Armazenamento do Azure. O
 - **input**: as tarefas baixarão os arquivos de dados a serem processados do contêiner *input*.
 - **output**: quando as tarefas concluírem o processamento dos arquivos de entrada, carregarão os resultados no contêiner *output*.
 
-Para interagir com uma conta do Armazenamento e criar contêineres, usamos o pacote [azure-storage][pypi_storage] para criar um objeto [BlockBlobService][py_blockblobservice] -- o “cliente de blob”. Em seguida, criamos três contêineres na conta do Armazenamento usando o cliente de blob.
+Para interagir com uma conta do Armazenamento e criar contêineres, usamos o pacote [azure-storage][pypi_storage] para criar um objeto [BlockBlobService][py_blockblobservice], o “cliente de blob”. Em seguida, criamos três contêineres na conta do Armazenamento usando o cliente de blob.
 
 ```python
  # Create the blob client, for use in obtaining references to
@@ -233,7 +229,7 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que oferecem a
 
 - **Assinatura de acesso compartilhado do contêiner**: como cada tarefa conclui seu trabalho em nós de computação, ele carrega o arquivo de saída no contêiner *output* no Armazenamento do Azure. Para fazer isso, *python\_tutorial\_task.py* usa uma assinatura de acesso compartilhado do contêiner que fornece acesso de gravação ao contêiner. A função `get_container_sas_token` em *python\_tutorial\_client.py* obtém a assinatura de acesso compartilhado do contêiner, que é passada como um argumento de linha de comando para as tarefas. A Etapa 5, [Adicionar tarefas a um trabalho](#step-5-add-tasks-to-job), discute o uso de SAS do contêiner.
 
-> [AZURE.TIP] Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: Noções básicas sobre o modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Criar e usar uma SAS com o serviço Blob](../storage/storage-dotnet-shared-access-signature-part-2.md), para saber mais sobre como fornecer acesso seguro aos dados em sua conta de Armazenamento.
+> [AZURE.TIP] Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: noções básicas sobre o modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: criar e usar uma SAS com o serviço Blob](../storage/storage-dotnet-shared-access-signature-part-2.md), para saber mais sobre como fornecer acesso seguro aos dados em sua conta de Armazenamento.
 
 ## Etapa 3: Criar pool do Lote
 
@@ -420,7 +416,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] Quando acessarem variáveis de ambiente como `$AZ_BATCH_NODE_SHARED_DIR` ou executam um aplicativo não encontrado no `PATH` do nó, as linhas de comando da tarefa deverão ser prefixadas com o `/bin/bash` (Linux) ou o `cmd /c` (Windows). Isso executará explicitamente o shell de comandos e o instruirá a terminar após a execução do comando. Esse requisito será desnecessário se suas tarefas executarem um aplicativo no `PATH` do nó (como *python* no trecho acima).
+> [AZURE.IMPORTANT] Quando acessarem variáveis de ambiente como `$AZ_BATCH_NODE_SHARED_DIR` ou executam um aplicativo não encontrado no `PATH` do nó, as linhas de comando da tarefa deverão invocar o shell explicitamente, como no caso de `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Esse requisito é desnecessário se suas tarefas de executar um aplicativo no `PATH` do nó e não faz referência a variáveis de ambiente.
 
 No loop `for` no trecho de código acima, você verá que a linha de comando da tarefa é construída com cinco argumentos de linha de comando passados para *python\_tutorial\_task.py*:
 
@@ -558,9 +554,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Executar o script de exemplo
 
-Quando você executar o script *python\_tutorial\_client.py*, a saída do console será semelhante à seguinte. Você verá uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` enquanto os nós de computação do pool estiverem sendo criados, iniciados, e os comandos na tarefa de inicialização do pool estiverem sendo executados. Use o [portal do Azure][azure_portal] ou o [Gerenciador do Lote][github_batchexplorer] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [portal do Azure][azure_portal] ou o [Gerenciador do Armazenamento do Microsoft Azure][storage_explorer] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
+Quando você executar o script *python\_tutorial\_client.py*, a saída do console será semelhante à seguinte. Você verá uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` enquanto os nós de computação do pool estiverem sendo criados, iniciados, e os comandos na tarefa de inicialização do pool estiverem sendo executados. Use o [portal do Azure][azure_portal] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [portal do Azure][azure_portal] ou o [Gerenciador do Armazenamento do Microsoft Azure][storage_explorer] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
 
-O tempo de execução típico é de **aproximadamente 5-7 minutos** ao executar o aplicativo em sua configuração padrão.
+O tempo de execução típico é de **aproximadamente 5 a 7 minutos** ao executar o aplicativo em sua configuração padrão.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -592,7 +588,7 @@ Press ENTER to exit...
 
 ## Próximas etapas
 
-Fique à vontade para fazer alterações em *python\_tutorial\_client.py* e em *python\_tutorial\_task.py* para fazer experiências com cenários de computação diferentes. Por exemplo, tente adicionar um atraso de execução a *python\_tutorial\_task.py* para simular tarefas demoradas e para monitorá-las com o recurso *Mapa de Calor* do Gerenciador do Lote. Tente adicionar mais tarefas ou ajustar o número de nós de computação. Adicione lógica para verificar e permitir o uso de um pool existente para acelerar o tempo de execução.
+Fique à vontade para fazer alterações em *python\_tutorial\_client.py* e em *python\_tutorial\_task.py* para fazer experiências com cenários de computação diferentes. Por exemplo, tente adicionar um atraso de execução a *python\_tutorial\_task.py* para simular tarefas demoradas e para monitorá-las no portal. Tente adicionar mais tarefas ou ajustar o número de nós de computação. Adicione lógica para verificar e permitir o uso de um pool existente para acelerar o tempo de execução.
 
 Agora que você está familiarizado com o fluxo de trabalho básico de uma solução do Lote, é hora de se aprofundar nos recursos adicionais do serviço Lote.
 
@@ -603,10 +599,8 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
@@ -664,4 +658,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

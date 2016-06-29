@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Análise – a ferramenta de pesquisa avançada do Application Insights" 
+	pageTitle="Analytics: a ferramenta de pesquisa avançada do Application Insights | Microsoft Azure" 
 	description="Visão geral da Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,6 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
 Uma consulta típica é formada por uma tabela de *origem* seguida de uma série de *operadores* separados por `|`.
@@ -54,7 +53,7 @@ Também há operações estatísticas avançadas:
 A linguagem tem muitos recursos atrativos:
 
 * [Filtre](app-insights-analytics-reference.md#where-operator) a telemetria bruta de aplicativos por qualquer campo, incluindo suas métricas e propriedades personalizadas.
-* [Una](app-insights-analytics-reference.md#join-operator) várias tabelas – correlacione as solicitações com exibições de página, as chamadas de dependência, as exceções e os rastreamentos de log.
+* [Una](app-insights-analytics-reference.md#join-operator) várias tabelas: correlacione as solicitações com exibições de página, as chamadas de dependência, as exceções e os rastreamentos de log.
 * [Agregações](app-insights-analytics-reference.md#aggregations) estatísticas poderosas.
 * Tão potente quando o SQL, mas muito fácil para consultas complexas: em vez de aninhar instruções, você redireciona os dados de uma operação elementar para a próxima.
 * Visualizações imediatas e eficientes.
@@ -69,7 +68,7 @@ A linguagem tem muitos recursos atrativos:
 ## Conectar-se aos dados do Application Insights
 
 
-Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
+Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
 
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics/001.png)
 
@@ -82,4 +81,4 @@ No momento, os resultados da consulta são limitados apenas a uma semana de dado
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

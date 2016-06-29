@@ -173,20 +173,15 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 - <span style="color:green;">NOVO</span> [Falha em Habilitar Proteção com o erro "Não foi possível habilitar a proteção para a máquina virtual". Erro 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
 - <span style="color:green;">NOVO</span> [Erro 23848 de migração dinâmica — a máquina virtual será movida usando o tipo Live. Isso pode interromper o status da proteção de recuperação da máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
 -   [Falha na habilitação da proteção, pois o Agente não está instalado no computador host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
-
 -   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois há poucos recursos de computação](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
-
 -   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois não há uma rede lógica anexada](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
-
 -   [Não é possível conectar-se ao computador host de réplica, pois não foi possível estabelecer conexão](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
 
 ### Recuperação
-
 -   A VMM não conseguiu concluir a operação do host -
-
     -   [Failover para o ponto de recuperação selecionado para a máquina virtual: erro geral de acesso negado.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
-    -   [Falha do Hyper-V ao fazer failover no ponto de recuperação selecionado para a máquina virtual: operação anulada. Tente um ponto de recuperação mais recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [O Hyper-V não conseguiu fazer failover para o ponto de recuperação selecionado para a máquina virtual: operação anulada. Tente um ponto de recuperação mais recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
     -   Não foi possível estabelecer uma conexão com o servidor (0x00002EFD)
         -   [O Hyper-V não conseguiu habilitar a replicação inversa para a máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
         -   [O Hyper-V não conseguiu habilitar a replicação para a máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
@@ -197,12 +192,14 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 -   [Ocorreu uma operação fora de banda em uma máquina virtual e não foi possível confirmar o failover](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Failover de Teste
     -   [Não foi possível iniciar o failover, pois o failover de teste está em andamento](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+-   <span style="color:green;">NOVO</span> O failover atinge o tempo limite com 'WaitForScriptExecutionTask da tarefa PreFailoverWorkflow atingiu o tempo limite' devido às definições de configuração do Grupo de Segurança de Rede associado à Máquina Virtual ou a sub-rede à qual o computador pertence. Veja ['WaitForScriptExecutionTask da tarefa PreFailoverWorkflow atingiu o tempo limite'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para obter detalhes.
+
 
 ### Servidor de Configuração, Servidor de Processo, Destino Mestre
 Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
-— [o host ESXi no qual o PS/CS está hospedado como uma VM falha com uma screen of death roxa.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+-   [O host ESXi no qual o PS/CS está hospedado como uma VM falha com uma tela roxa.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Solução de problemas da área de trabalho remota após failover
 -   Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. [Use o documento de solução de problemas para fazer o RDP na VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_1217_2015---->
+<!---HONumber=AcomDC_0615_2016-->

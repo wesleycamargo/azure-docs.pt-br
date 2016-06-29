@@ -14,11 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="06/14/2016"
 	ms.author="sstein" />
 
 # Visão geral: Replicação Geográfica Ativa para o Banco de Dados SQL
 
+> [AZURE.SELECTOR]
+- [Visão geral](sql-database-geo-replication-overview.md)
+- [Portal do Azure](sql-database-geo-replication-portal.md)
+- [PowerShell](sql-database-geo-replication-powershell.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
 A Replicação Geográfica Ativa permite que você configure até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
 
@@ -28,7 +33,7 @@ Se, por qualquer motivo, o seu banco de dados primário falhar ou simplesmente p
 
 O recurso de Replicação Geográfica Ativa implementa um mecanismo para fornecer a redundância de banco de dados na mesma região do Microsoft Azure ou em regiões diferentes (redundância geográfica). A Replicação Geográfica Ativa replica de forma assíncrona as transações confirmadas de um banco de dados para até quatro cópias do banco de dados em servidores diferentes. Quando a Replicação Geográfica Ativa é configurada, um banco de dados secundário é criado no servidor especificado. O banco de dados original se torna o banco de dados primário. O banco de dados primário replica de forma assíncrona as transações confirmadas para cada um dos bancos de dados secundários. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de sempre serem transacionalmente consistentes com as alterações confirmadas no banco de dados primário.
 
-Um dos principais benefícios da Replicação Geográfica Ativa é que ela fornece uma solução de recuperação de desastre no nível do banco de dados com tempo de recuperação muito baixo. Ao colocar o banco de dados secundário em um servidor em uma região diferente, você adiciona resiliência máxima ao aplicativo. A redundância entre regiões habilita os aplicativos a se recuperar de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. A figura a seguir mostra que um exemplo de Replicação Geográfica Ativa configurada em um banco de dados Premium com um primário na região Oeste dos EUA e um secundário na região Leste dos EUA.
+Um dos principais benefícios da Replicação Geográfica Ativa é que ela fornece uma solução de recuperação de desastre no nível do banco de dados com tempo de recuperação muito baixo. Ao colocar o banco de dados secundário em um servidor em uma região diferente, você adiciona resiliência máxima ao aplicativo. A redundância entre regiões habilita os aplicativos a se recuperar de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. A figura a seguir mostra que um exemplo de Replicação Geográfica Ativa configurada em um banco de dados Premium com um primário na região Centro-Norte dos EUA e um secundário na região Centro-Sul dos EUA.
 
 ![Relacionamento de Replicação Geográfica](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
 
@@ -76,4 +81,4 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

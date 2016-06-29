@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso da Pesquisa de Diagnóstico" 
+	pageTitle="Usando a Pesquisa de Diagnóstico | Microsoft Azure" 
 	description="Pesquisar e filtrar eventos, solicitações e rastreamentos de log individuais." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Uso de Pesquisa de diagnóstico no Application Insights
@@ -63,9 +63,22 @@ Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.
 
 Selecione qualquer item de telemetria para ver os campos-chave e itens relacionados. Se você quiser ver o conjunto completo de campos, clique em "...".
 
-![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/10-detail.png)
+
+![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 Para localizar o conjunto completo de campos, use cadeias de caracteres simples (sem curingas). Os campos disponíveis dependem do tipo de telemetria.
+
+## Criar um item de trabalho
+
+Você pode criar um bug no Visual Studio Team Services com os detalhes de qualquer item de telemetria.
+
+![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/42.png)
+
+Na primeira vez que fizer isso, será solicitado que você configure um link para sua conta e projeto do Team Services.
+
+![Preencha a URL do servidor do Team Services e o Nome do projeto e, em seguida, clique em Autorizar](./media/app-insights-diagnostic-search/41.png)
+
+(Você também pode chegar à folha de configuração em Configurações > Itens de Trabalho.)
 
 ## Filtrar tipos de evento
 
@@ -158,8 +171,8 @@ Estas são algumas expressões de pesquisa que você pode usar:
 Exemplo de consulta | Efeito 
 ---|---
 lento|Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento"
-banco de dados|As correspondências banco de dados01, banco de dadosAB, ...<br/>? não são permitidas no início de um termo de pesquisa.
-banco de dados* |As correspondências banco de dados, banco de dados01, banco de dadosNNNN<br/> * não são permitidas no início de um termo de pesquisa
+banco de dados|Corresponde ao banco de dados01, banco de dadosAB, ...<br/>? não é permitido no início de um termo de pesquisa.
+banco de dados* |Corresponde ao banco de dados, banco de dados01, banco de dadosNNNN<br/> * não é permitido no início de um termo de pesquisa
 maçã AND banana|Encontra eventos que contêm os dois termos. Use "AND” em letras maiúsculas, e não "and".
 maçã OR banana<br/>maçã|Encontra eventos que contêm um dos dois termos. Use "OR" não "or".</br/>Forma abreviada.
 maçã NOT banana<br/>maçã -banana|Encontre eventos que contêm um dos termos, mas não o outro.<br/>Forma abreviada.
@@ -221,4 +234,4 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

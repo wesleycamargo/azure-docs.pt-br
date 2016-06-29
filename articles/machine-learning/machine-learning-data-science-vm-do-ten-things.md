@@ -42,7 +42,7 @@ Neste artigo, mostrarei detalhadamente como usar sua DSVM para executar várias 
 
 - Você também precisará de uma assinatura do Azure. Você pode se inscrever para uma avaliação gratuita [aqui](https://azure.microsoft.com/free/).
 
-- As instruções para o provisionamento de uma Máquina Virtual de Ciência de Dados no Portal do Azure estão disponíveis em [Criação de uma máquina virtual](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+- As instruções para o provisionamento de uma Máquina Virtual de Ciência de Dados no Portal do Azure estão disponíveis em [Criação de uma máquina virtual](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1\. Explorar dados e desenvolver modelos usando o Microsoft R Server ou Python
 
@@ -910,4 +910,4 @@ Você pode aproveitar outros serviços de análise e dados do Azure listados nes
 ## Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

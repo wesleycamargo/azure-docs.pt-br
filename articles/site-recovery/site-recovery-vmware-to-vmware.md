@@ -3,7 +3,7 @@
 	description="Use este artigo para replicar máquinas virtuais VMware ou servidores físicos Windows/Linux para um site secundário com o Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
-	authors="rayne-wiselman"
+	authors="nsoneji"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="raynew"/>
+	ms.date="06/14/2016"
+	ms.author="nisoneji"/>
 
 
 # Replicar máquinas virtuais VMware locais ou servidores físicos em um site secundário
@@ -57,52 +57,86 @@ Leia sobre as últimas[atualizações](#updates). Você instalará os arquivos d
 3. Servidores de processo
 3. Servidores de destino mestre.
 4. Servidores vContinuum.
+5. Servidor de origem (somente para Windows Server)
 
 Instale da seguinte maneira:
 
-1. Baixe o arquivo zip [atualização](http://aka.ms/scoutupdates). Este arquivo zip contém os seguintes arquivos:
+1. Baixe o arquivo zip [atualização](https://aka.ms/asr-scout-update3). Este arquivo zip contém os seguintes arquivos:
 
-	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
-	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
-	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
-	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
-	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
+	-  RX\_8.0.3.0\_GA\_Update\_3\_6684045\_17Mar16.tar.gz
+	-  CX\_Windows\_8.0.3.0\_GA\_Update\_3\_5048668\_16Mar16.exe
+	-  UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe
+	-  UA\_RHEL6-64\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.zip
+	-  vCon\_Windows\_8.0.3.0\_GA\_Update\_3\_6873369\_16Mar16.exe
+
 2. Extraia o arquivo zip.
-2. **Servidor RX**: copie **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**para o servidor RX e extraia. Na pasta extraída, execute **/Install**.
-2. **Servidor de configuração/servidor de processo**: copie **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe** para o servidor de configuração e servidor de processo. Clique duas vezes para executá-lo.
-3. **Servidor de destino mestre Windows**: para atualizar a cópia de agente unificado, copie **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** para o servidor mestre de destino. Clique duas vezes nele para executá-lo. Observe que o agente unificado para Windows não é aplicável no servidor de origem. Ele deve ser instalado somente no servidor de destino mestre do Windows.
-4. **Servidor de destino mestre Linux**: para atualizar o agente unificado, copie **UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** para o servidor de destino mestre e extraia-o. Na pasta extraída, execute **/Install**.
-5. **vContinuum server**: copie **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe** para o servidor vContinuum. Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.
+3. **Servidor RX**: copie **RX\_8.0.3.0\_GA\_Update\_3\_6684045\_17Mar16.tar.gz** para o servidor RX e extraia. Na pasta extraída, execute **/Install**.
+4. **Servidor de configuração/servidor de processo**: copie **CX\_Windows\_8.0.3.0\_GA\_Update\_3\_5048668\_16Mar16.exe** para o servidor de configuração e servidor de processo. Clique duas vezes para executá-lo.
+5. **Servidor de destino mestre Windows**: para atualizar a cópia de agente unificado, copie **UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe** para o servidor mestre de destino. Clique duas vezes nele para executá-lo. Observe que o agente unificado também se aplica ao servidor de origem. Ele deve ser instalado no servidor de origem e onde for mencionado a seguir.
+6. **Servidor de destino mestre Linux**: para atualizar o agente unificado, copie **UA\_RHEL6-64\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.zip** para o servidor de destino mestre e extraia-o. Na pasta extraída, execute **/Install**.
+7. **vContinuum server**: copie **vCon\_Windows\_8.0.3.0\_GA\_Update\_3\_6873369\_16Mar16.exe** para o servidor vContinuum. Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.
+8. **Servidor de origem Windows**: para atualizar a cópia de agente unificado **UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe** para o servidor de origem. Clique duas vezes nele para executá-lo. 
 
 ## Etapa 4: Configurar a replicação
-5. Configure a replicação entre os sites do VMware de origem e de destino.
-6. Para obter orientação, use a documentação do InMage Scout baixada com o produto. Como alternativa, você pode acessar a documentação da seguinte maneira:
+1. Configure a replicação entre os sites do VMware de origem e de destino.
+2. Para obter orientação, use a documentação do InMage Scout baixada com o produto. Como alternativa, você pode acessar a documentação da seguinte maneira:
 
-	- [Notas de versão](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage_Scout_Standard_Release_Notes.pdf)
-	- [Matriz de compatibilidade](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage_Scout_Standard_Compatibility_Matrix.pdf)
-	- [Guia do usuário](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
-	- [Guia do usuário do RX](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage_ScoutCloud_RX_User_Guide_8.0.1.pdf)
-	- [Guia de instalação rápida](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage_Scout_Standard_Quick_Install_Guide.pdf)
+	- [Notas de versão](https://aka.ms/asr-scout-release-notes)
+	- [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
+	- [Guia do usuário](https://aka.ms/asr-scout-user-guide)
+	- [Guia do usuário do RX](https://aka.ms/asr-scout-rx-user-guide)
+	- [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide)
 
 
 ## Atualizações
 
-### ASR Scout 8.0.1 Atualização de 03Dec15
+### ASR Scout 8.0.1 Atualização 3
+A Atualização 3 inclui as seguintes correções de bugs e aprimoramentos:
 
-As correções na atualização de 3/dez/15 incluem:
+1. O servidor de configuração e o RX não conseguiram registrar no cofre ASR quando estavam atrás do proxy.
+2. O número de horas de RPO não alcançado não é atualizado no relatório de integridade.
+3. O servidor de configuração não é sincronizado com o RX quando os detalhes de hardware ESX ou de rede contêm caracteres UTF-8.
+4. Os computadores de controlador de domínio do Windows 2008 Server R2 não inicializam após a recuperação.
+5. A sincronização offline não está funcionando conforme o esperado. 
+6. Após o failover da VM, a exclusão de par de replicação fica presa na UI CX por um longo tempo e o usuário não pode fazer a operação de retomada de failback.
+7. Operações de instantâneo geral otimizadas feitas por trabalho de consistência para ajudar a reduzir a desconexão de aplicativos, como clientes SQL.
+8. Melhor desempenho do VACP, reduzindo o uso de memória necessário para criar instantâneos no Windows.
+9. Serviço de instalação por push falha quando a senha tem mais de 16 caracteres
+10. vContinuum não está verificando e solicitando novas credenciais vCenter quando as credenciais são alteradas.
+11. No cache de destino mestre do Linux (cachemgr), o gerenciador não está baixando arquivos do servidor de processo, resultando em limitação de pares de replicação.
+12. Quando a ordem dos discos de cluster do MSCS físico não é igual em todos os nós, a replicação não é definida para alguns dos volumes de cluster. <br/>Observação: para se beneficiar dessa correção, o cluster precisará ser protegido novamente.  
+13. A Funcionalidade SMTP não está funcionando conforme o esperado depois que o RX é atualizado de Scout 7.1 para Scout 8.0.1.
+14. Adicionadas mais estatísticas no log para que a operação de reversão possa controlar o tempo gasto para concluí-la.
+15. Suporte adicionado para sistemas operacionais Linux no servidor de origem 
+	- RHEL 6 Atualização 7
+	- CentOS 6 Atualização 7 
+16. As interfaces do usuário de RX e CX agora podem mostrar a notificação para o par que entra no modo bitmap.
+17. As correções de segurança a seguir foram adicionadas em RX.
+
+**#**|**Descrição do problema**|**Procedimentos de implementação**
+---|---|---
+1\. |Autorização ignorada por meio de violação de parâmetros|Acesso restringido a usuários não aplicáveis
+2\. |Solicitação entre sites forjada|Conceito token-página implementado e gerando aleatoriamente para cada página. <br/>Com isso, você verá <br/>1) somente instância de logon único para o mesmo usuário.,br/>2) a atualização da página não funcionará e redirecionará para o painel. <br/>
+3\. |Carregamento de arquivo mal-intencionado|Arquivos restritos a certas extensões. São permitidos: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, zip
+4\. | Script persistente entre sites | Validações de entrada adicionadas
+
+
+>[AZURE.NOTE]
+>
+>-	Todas as atualizações de ASR são cumulativas. A Atualização 3 possui todas as correções das Atualizações 1 e 2. A Atualização 3 pode ser aplicada diretamente a 8.0.1 GA.
+>-	As atualizações CS e RX não podem ser revertidas quando são aplicadas ao sistema.
+
+### ASR Scout 8.0.1 Atualização de 3/12/15 (Atualização 2)
+
+As correções na Atualização 2 incluem:
 
 - **O servidor de configuração** — corrige um problema que impediu que o recurso de medição gratuito por 31 dias funcionasse conforme o esperado quando o servidor de configuração foi registrado na Recuperação de Site.
 - **Agente unificado** — corrige um problema na Atualização 1 para o Destino Mestre, que faz com que a atualização não seja instalada no servidor de destino mestre quando ele é atualizado da versão 8.0 para a 8.0.1.
 
->[AZURE.NOTE]
->
->-	Todas as atualizações de ASR são cumulativas.
->-	As atualizações CS e RX não podem ser revertidas quando são aplicadas ao sistema.
-
 
 ### ASR Scout 8.0.1 Update 1
 
-Essa última atualização inclui correções de bugs e novos recursos:
+A Atualização 1 inclui correções de bugs e novos recursos:
 
 - 31 dias de proteção gratuita por instâncias de servidor. Isso lhe permite testar a funcionalidade ou configurar uma verificação de conceito.
 	- Todas as operações no servidor, incluindo failover e failback, são gratuitas pelos primeiros 31 dias a partir da hora em que um servidor é protegido pela primeira vez usando o ASR Scout.
@@ -130,4 +164,4 @@ Essa última atualização inclui correções de bugs e novos recursos:
 
 Publique qualquer pergunta no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0615_2016-->

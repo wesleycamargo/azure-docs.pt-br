@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restaurar um banco de dados no SQL Data Warehouse do Azure (Visão Geral) | Microsoft Azure"
+   pageTitle="Restaurar um SQL Data Warehouse do Azure (Visão geral) | Microsoft Azure"
    description="Visão geral das opções de restauração para recuperar um banco de dados no SQL Data Warehouse do Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Restaurar um banco de dados no SQL Data Warehouse do Azure (Visão Geral)
+# Recuperar um SQL Data Warehouse do Azure (Visão geral)
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Visão geral][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-Descreve as opções de restauração de um banco de dados no SQL Data Warehouse do Azure. Elas incluem a restauração de um data warehouse em atividade e de um data warehouse excluído. Data warehouses em atividade e excluídos são restaurados por meio dos instantâneos automáticos criados de todos os data warehouses.
+O Azure SQL Data Warehouse protege seus dados com armazenamento com redundância local e backups automatizados. Os Backups Automatizados fornecem uma maneira sem administradores de proteger seus bancos de dados contra danos ou exclusão acidental. No caso em que um usuário modifica ou exclui dados involuntária ou acidentalmente, você pode garantir a continuidade de negócios com a restauração do seu banco de dados para um determinado ponto anterior. O SQL Data Warehouse usa instantâneos do Armazenamento do Azure para fazer backup de seu banco de dados sem interrupções e sem a necessidade de tempo de inatividade.
 
-## Cenários de recuperação
+## Backups automatizados
 
-**Recuperação de falhas de infraestrutura:** esse cenário refere-se à recuperação depois de problemas de infraestrutura, como falhas de disco, etc. Um cliente deseja garantir a continuidade de negócios com uma infraestrutura altamente disponível e tolerante a falhas.
+Os bancos de dados **ativos** terão o backup feito automaticamente pelo menos a cada oito horas e mantidos por sete dias. Isso permite que você restaure o banco de dados ativo para um dos vários pontos de restauração dos últimos sete dias.
 
-**Recuperação de erros do usuário:** esse cenário refere-se à recuperação depois da corrupção ou exclusão de dados involuntária ou acidental. No caso em que um usuário modifica ou exclui dados involuntária ou acidentalmente, um cliente deseja garantir a continuidade de negócios com a restauração do banco de dados para um determinado ponto anterior.
+Quando um banco de dados é pausado, não haverá novos instantâneos e os instantâneos anteriores serão retirados depois de sete dias. Se um banco de dados estiver pausado por mais de sete dias, o último instantâneo será salvo, garantindo que você sempre tenha pelo menos um backup.
 
-## Políticas de instantâneo
+Quando um banco de dados é descartado, o último instantâneo é salvo por sete dias.
 
-[AZURE.INCLUDE [Política de retenção de backup do SQL Data Warehouse](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+Execute essa consulta para ver quando o último backup foi feito em sua instância:
 
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-## Funcionalidades de restauração do banco de dados
+Se você precisar manter um backup por mais de sete dias, poderá simplesmente restaurar um dos seus pontos de restauração para um novo banco de dados e opcionalmente pausar esse banco de dados para pagar apenas o espaço de armazenamento do backup.
 
-Vamos observar como o SQL Data Warehouse aumenta a confiabilidade do seu banco de dados e permite a recuperação e operação contínua nos cenários mencionados acima.
+## Redundância de dados
 
+Além de backups, o SQL Data Warehouse também protege seus dados com Armazenamento Premium [LRS (localmente redundante)][] do Azure. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. A redundância de dados faz com que os dados possam sobreviver problemas de infraestrutura, como falhas de disco, etc. A redundância de dados garante a continuidade de negócios com uma infraestrutura altamente disponível e tolerante a falhas.
 
-### Redundância de dados
+## Restaurar um banco de dados
 
-O SQL Data Warehouse armazena todos os dados no Armazenamento Premium [LRS](../storage/storage-redundancy.md) (armazenamento com redundância local) do Azure, mantendo três cópias de seus dados.
+Restaurar um SQL Data Warehouse é uma operação simples que pode ser feita no portal do Azure ou automatizada usando o PowerShell ou APIs REST.
 
-### Restauração do banco de dados
-
-A restauração do banco de dados foi desenvolvida para restaurar seu banco de dados para um determinado ponto anterior. O serviço do Azure SQL Data Warehouse protege todos os bancos de dados com instantâneos automáticos de armazenamento pelo menos a cada oito horas e os mantêm por sete dias para fornecer a você um conjunto distinto de pontos de restauração. Os recursos de restauração e instantâneos automáticos fornecem uma maneira que não exige administração para proteger bancos de dados contra corrupção ou exclusão acidentais. Para saber mais sobre a restauração de banco de dados, consulte [Tarefas de restauração de banco de dados][].
 
 ## Próximas etapas
-Para outras tarefas de gerenciamento importantes, consulte [Visão geral de gerenciamento][].
+Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Visão geral de gerenciamento]: sql-data-warehouse-overview-management.md
-[Tarefas de restauração de banco de dados]: sql-data-warehouse-manage-database-restore-portal.md
+[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
+[LRS (localmente redundante)]: ../storage/storage-redundancy.md
+[Visão geral]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

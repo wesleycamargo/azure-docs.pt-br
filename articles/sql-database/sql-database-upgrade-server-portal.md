@@ -37,7 +37,7 @@ Durante o processo de atualização para V12 você vai atualizar qualquer banco 
 
 Além disso, migrar para um [pool de banco de dados elástico](sql-database-elastic-pool.md) pode ser mais econômico do que a atualização para níveis de desempenho individual (faixas de preço) para bancos de dados únicos. Os pools também simplificam o gerenciamento de banco de dados porque você só precisa gerenciar as configurações de desempenho para o pool em vez de gerenciar separadamente os níveis de desempenho de bancos de dados individuais. Se você tiver bancos de dados em vários servidores, considere movê-los para o mesmo servidor, aproveitando para colocá-los em um pool. Você pode facilmente [migrar automaticamente dos servidores V11 diretamente para pools de banco de dados elásticos usando o PowerShell](sql-database-upgrade-server-powershell.md). Você também pode usar o portal para migrar os bancos de dados V11 para um pool, mas no portal, você já deve ter um servidor V12 para criar um pool. Instruções são fornecidas mais tarde neste artigo para criar o pool após a atualização do servidor se você tiver [bancos de dados que podem se beneficiar de um pool](sql-database-elastic-pool-guidance.md).
 
-Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connect-central-recommendations.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
+Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connectivity-issues.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
 
 A atualização para o V12 do banco de dados SQL não poderá ser desfeita. Após uma atualização, o servidor não pode ser revertido para V11.
 
@@ -167,4 +167,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

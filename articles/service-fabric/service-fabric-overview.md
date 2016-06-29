@@ -24,7 +24,7 @@ O Service Fabric permite criar e gerenciar aplicativos escalonáveis e confiáve
 
 Por que uma abordagem de microsserviços é importante? Os dois motivos principais são:
 
-1. Eles permitem escalar diferentes partes do seu aplicativo conforme as suas necessidades
+1. Eles permitem dimensionar diferentes partes do seu aplicativo conforme as suas necessidades.
 
 2. As equipes de desenvolvimento podem ser mais ágeis na distribuição de alterações, fornecendo assim recursos aos seus clientes mais rápido e com mais frequência.
 
@@ -71,7 +71,7 @@ Ao usar a Malha do Serviço, você pode:
 
 - Desenvolver aplicativos massivamente escalonáveis, que são autorrecuperáveis.
 
-- Desenvolva aplicativos compostos por microsserviços usando o modelo de programação do Service Fabric ou simplesmente hospede executáveis convidados e outras estruturas de aplicativo de sua preferência, como ASP.NET Core 1, node.js, etc.
+- Desenvolva aplicativos compostos por microsserviços usando o modelo de programação do Service Fabric ou simplesmente hospede executáveis convidados e outras estruturas de aplicativo de sua preferência, como ASP.NET Core 1, Node.js etc.
 
 - Desenvolva microsserviços com e sem monitoração de estado e torne-os altamente confiáveis.
 
@@ -103,11 +103,11 @@ Ao usar a Malha do Serviço, você pode:
 ## Próximas etapas
 
 * Para mais informações:
-	* [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
-	* [Visão geral da terminologia](service-fabric-technical-overview.md)
+    * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
+    * [Visão geral da terminologia](service-fabric-technical-overview.md)
 * Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric  
 * [Como escolher uma estrutura do modelo de programação](service-fabric-choose-framework.md) para seu serviço
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

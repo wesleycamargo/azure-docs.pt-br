@@ -38,7 +38,7 @@ Além disso, migrar para um [pool de banco de dados elástico](sql-database-elas
 
 Você pode facilmente migrar automaticamente dos servidores V11 diretamente para os pools de banco de dados elásticos executando as etapas neste artigo.
 
-Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connect-central-recommendations.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
+Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connectivity-issues.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
 
 A atualização para o V12 do banco de dados SQL não poderá ser desfeita. Após uma atualização, o servidor não pode ser revertido para V11.
 
@@ -201,4 +201,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

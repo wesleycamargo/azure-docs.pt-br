@@ -29,7 +29,7 @@ A última coisa que um desenvolvedor quer fazer é aprender algo novo apenas par
 
 Ao escolher um banco de dados, você não deve precisar aprender uma nova linguagem. O Banco de Dados SQL tem muitos exemplos de código para ajudá-lo a começar, para a plataforma na qual você está trabalhando (isto é, Linux, Mac OS ou Windows). Além disso, o Portal de Gerenciamento do Azure, o PowerShell e as APIs REST o ajudarão a ganhar produtividade adicional durante o desenvolvimento.
 
-[Ler a documentação](https://msdn.microsoft.com/library/mt654049%28v=sql.1%29.aspx)
+[Ler a documentação](sql-database-develop-overview.md)
 
 ## As ferramentas certas para o trabalho
 
@@ -39,7 +39,7 @@ Com o Banco de Dados SQL, você não precisa aprender uma nova ferramenta quando
 
 Com recursos garantidos, tutoriais sobre como criar seu primeiro Banco de Dados SQL, solução de problemas de consultas e exemplos de código de início rápido&mdash;a obtenção da resposta correta à sua pergunta de banco de dados nunca está muito longe de ser encontrada.
 
-[Ler a documentação](sql-database-connect-central-recommendations.md)
+[Ler a documentação](sql-database-technical-overview.md)
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 
@@ -47,10 +47,10 @@ Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [C
 
 Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-started/) e [crie seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 
-## Saiba mais
+## Recursos adicionais
 
 Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

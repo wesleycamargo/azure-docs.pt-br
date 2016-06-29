@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # Mova os circuitos da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos
@@ -110,4 +110,4 @@ Siga as instruções descritas em [Mover um circuito da Rota Expressa do clássi
 	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
 	- [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

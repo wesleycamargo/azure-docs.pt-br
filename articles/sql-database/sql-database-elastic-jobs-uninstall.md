@@ -21,7 +21,7 @@ Componentes de **trabalhos do banco de dados elástico** podem ser desinstalados
 
 ##Desinstalar componentes de trabalhos de banco de dados elástico usando o Portal do Azure
 
-1. Abra o [Portal do Azure](https://ms.portal.azure.com/).
+1. Abra o [Portal do Azure](https://portal.azure.com/).
 2. Navegue até a assinatura que contém os componentes de **trabalhos do banco de dados elástico**, ou seja, a assinatura na qual os componentes do banco de dados elástico foram instalados.
 3. Clique em **Procurar** e clique em **Grupos de recursos**.
 4. Selecione o grupo de recursos chamado "\_\_ElasticDatabaseJob".
@@ -64,4 +64,4 @@ Para uma visão geral de trabalhos de banco de dados elástico, consulte [Visão
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

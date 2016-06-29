@@ -114,7 +114,7 @@ Mais recentemente, o Azure lançou a API REST de [Gerenciamento de recursos do A
 
 Há vários sistemas populares que podem implantar grupos inteiros de VMs e instalar o Docker (ou outros sistemas de host de contêineres do Linux) nelas como um grupo automatizável. Para obter os links diretos, consulte a seção [contêineres e ferramentas](#containers-and-vm-technologies) abaixo. Há vários sistemas que fazem isso de forma mais ou menos ampla, e essa lista não é exaustiva. Dependendo das suas habilidades e do contexto, eles podem ou não ser úteis.
 
-O Docker tem seu próprio conjunto de ferramentas de criação de VMs ([docker-machine](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)) e uma ferramenta de balanceamento de carga e gerenciamento de cluster de contêineres do Docker ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Além disso, a [Extensão de VM do Docker do Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) vem com suporte padrão para [`docker-compose`](https://docs.docker.com/compose/), que pode implantar contêineres de aplicativos configurados em vários contêineres.
+O Docker tem seu próprio conjunto de ferramentas de criação de VMs ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) e uma ferramenta de balanceamento de carga e gerenciamento de cluster de contêineres do Docker ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Além disso, a [Extensão de VM do Docker do Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) vem com suporte padrão para [`docker-compose`](https://docs.docker.com/compose/), que pode implantar contêineres de aplicativos configurados em vários contêineres.
 
 Além disso, você pode experimentar o [DCOS (Sistema Operacional de Data  
 Center) do Mesosphere](http://docs.mesosphere.com/install/azurecluster/). O DCOS baseia-se no "kernel de sistemas distribuídos" de software livre [mesos](http://mesos.apache.org/), que permite que você trate seu data center como um serviço endereçável. O DCOS tem pacotes internos para vários sistemas importantes, como [Spark](http://spark.apache.org/) e [Kafka](http://kafka.apache.org/) (e outros), bem como serviços internos como [Marathon](https://mesosphere.github.io/marathon/) (um sistema de controle de contêineres) e [Chronos](https://mesosphere.github.io/chronos/) (um agendador distribuído). O Mesos foi derivado de lições aprendidas com o Twitter, AirBnb e outras empresas de escala da Web.
@@ -166,7 +166,7 @@ Docker no Microsoft Azure:
 - [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Usando a extensão de VM Docker do portal do Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
 - [Introdução rápida ao Docker no Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
-- [Como usar a máquina docker no Azure](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [Como usar a máquina docker no Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Como usar o docker com avanço no Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Introdução ao Docker e Redija no Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Usando um modelo do grupo de recursos do Azure para criar rapidamente um host Docker no Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
@@ -217,4 +217,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows](https:
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

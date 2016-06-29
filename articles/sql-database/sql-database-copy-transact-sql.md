@@ -30,7 +30,7 @@
 As etapas a seguir mostram como copiar um banco de dados SQL com o Transact-SQL. A operação de cópia do banco de dados copia um banco de dados SQL para um novo banco de dados usando a instrução [CREATE DATABASE](). A cópia é um backup de instantâneo do banco de dados que você cria no mesmo servidor ou em um servidor diferente.
 
 
-> [AZURE.NOTE] O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> [AZURE.NOTE] O Banco de Dados SQL do Azure [cria e mantém backups](sql-database-automated-backups.md) automaticamente de cada banco de dados de usuário que você pode restaurar.
 
 
 Quando o processo de cópia for concluído, o novo banco de dados será um banco de dados totalmente funcional independente do banco de dados de origem. O novo banco de dados é transacionalmente consistente com o banco de dados de origem no momento da conclusão da cópia. O desempenho e a camada de nível de serviço (faixa de preço) da cópia do banco de dados são iguais aos do banco de dados de origem. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões podem ser gerenciados independentemente.
@@ -102,4 +102,4 @@ Monitore o processo de cópia consultando as exibições sys.databases e sys.dm\
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

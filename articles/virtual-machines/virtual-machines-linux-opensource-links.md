@@ -23,7 +23,7 @@
 
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Linux no modelo de implantação clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo do Gerenciador de Recursos.
 
 ## Introdução
 - [Introdução ao Linux no Azure](virtual-machines-linux-intro-on-azure.md)
@@ -58,7 +58,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 - [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Usando a extensão de VM Docker do portal do Azure](virtual-machines-linux-classic-portal-use-docker.md)
 - [Introdução rápida ao Docker no Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-- [Como usar a máquina docker no Azure](virtual-machines-linux-classic-docker-machine.md)
+- [Como usar a máquina docker no Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [Como usar clusters MySQL](virtual-machines-linux-classic-mysql-cluster.md)
@@ -192,4 +192,4 @@ Como o mundo dos desenvolvimentos, gerenciamento e otimização é muito extenso
 
 - [Plug-in Packer para o Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

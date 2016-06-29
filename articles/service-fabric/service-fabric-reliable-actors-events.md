@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="06/13/2016"
    ms.author="amanbha"/>
 
 
@@ -59,7 +59,7 @@ No cliente, crie um proxy para o ator que publica o evento e assine para receber
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-                    
+
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
@@ -78,4 +78,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
  - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

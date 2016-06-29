@@ -19,14 +19,14 @@
 
 # Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure
 
-É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos backups que são realizados automaticamente pelo Banco de Dados SQL do Azure, com base no nível de desempenho selecionado.
+É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos [backups que são realizados automaticamente](sql-database-automated-backups.md) pelo Banco de Dados SQL do Azure, com base no nível de desempenho selecionado.
 
 ## Etapas de preparação: renomear a tabela e restaurar uma cópia do banco de dados
 1. Identifique a tabela no banco de dados SQL do Azure que deseja substituir pela cópia restaurada. Use o Microsoft SQL Management Studio para renomear a tabela. Por exemplo, renomeie a tabela como &lt;table name&gt;\_old.
 
 	**Observação** Para evitar o bloqueio, certifique-se de que não há nenhuma atividade em execução na tabela que está sendo renomeada. Se tiver problemas, lembre-se de executar esse procedimento durante uma janela de manutenção.
 
-2. Restaure um backup do banco de dados para um estado no qual deseja recuperar. Para fazer isso, veja as etapas em [Recuperar um Banco de Dados SQL do Azure de um erro de usuário](../sql-database/sql-database-user-error-recovery.md).
+2. Restaure um backup do banco de dados para um estado no qual deseja recuperar. Para fazer isso, veja as etapas em [Recuperar um Banco de Dados SQL do Azure de um erro de usuário](sql-database-user-error-recovery.md).
 
 	**Observações**:
 	- O nome do banco de dados restaurado estará no formato DBName+TimeStamp; por exemplo, **Adventureworks2012\_2016-01-01T22-12Z**. Essa etapa não substituirá o nome do banco de dados existente no servidor. Esta é uma medida de segurança, e destina-se a permitir que o usuário verifique o banco de dados restaurado antes de remover seu banco de dados atual e renomear o banco de dados restaurado para uso em produção.
@@ -67,4 +67,8 @@
 ## Etapa de verificação
 1. Consulte e teste a tabela recém-copiada para certificar-se de que os dados estão intactos. Após a confirmação, é possível remover a tabela renomeada na seção **Etapas de preparação** (por exemplo, &lt;table name&gt;\_old).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Próximas etapas
+
+[Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md)
+
+<!---HONumber=AcomDC_0615_2016-->

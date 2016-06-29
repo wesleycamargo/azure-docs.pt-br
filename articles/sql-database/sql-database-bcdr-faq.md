@@ -3,7 +3,7 @@
    description="Perguntas frequentes que os clientes fazem e as respectivas respostas sobre recursos internos e opcionais para continuidade dos negócios e recuperação de desastres com o Banco de Dados SQL do Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Perguntas frequentes sobre continuidade dos negócios
 
@@ -54,4 +54,4 @@ Não há nenhuma funcionalidade interna para restauração em massa. O [banco de
 
 Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

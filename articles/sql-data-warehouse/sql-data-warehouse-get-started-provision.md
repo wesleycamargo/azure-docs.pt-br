@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um Azure SQL Data Warehouse
@@ -62,10 +62,10 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
 ## Próximas etapas
 
-Agora que você criou um SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-get-started-connect.md) e começar a consultar.
+Agora que você criou um SQL Data Warehouse, está pronto para [Conectar](./sql-data-warehouse-connect-overview.md) e começar a consultar.
 
 Para carregar dados no SQL Data Warehouse, veja a [visão geral de carregamento](./sql-data-warehouse-overview-load.md).
 
 Se você estiver tentando migrar um banco de dados existente para o SQL Data Warehouse, confira a [Visão geral de migração](./sql-data-warehouse-overview-migrate.md) ou use o [Utilitário de migração](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

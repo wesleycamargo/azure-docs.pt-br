@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/21/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Circuitos da Rota Expressa e domínios de roteamento
@@ -61,6 +61,8 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para saber ma
  
 ### Emparelhamento da Microsoft
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 A conectividade com todos os outros serviços online da Microsoft (como serviços do Office 365) será por emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Consulte a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) para obter mais informações.
 
 Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços com suporte, custos e detalhes de configuração. Consulte a página [Locais da Rota Expressa](expressroute-locations.md) para saber mais sobre a lista de provedores de conectividade que dão suporte ao emparelhamento da Microsoft.
@@ -90,4 +92,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 	- [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

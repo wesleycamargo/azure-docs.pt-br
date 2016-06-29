@@ -3,7 +3,7 @@
 	description="Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure por meio da sincronização de conteúdo de uma pasta de nuvem."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
 
-Uma das opções de implantação para o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) é sincronizar o conteúdo de serviços populares de armazenamento em nuvem como o Dropbox e OneDrive.
+Este tutorial mostra como implantar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizando o conteúdo de serviços populares de armazenamento em nuvem como o Dropbox e o OneDrive.
 
 ## <a name="overview"></a>Visão geral da implantação de sincronização de conteúdo
 
@@ -41,4 +41,4 @@ Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](http
  
 Mais informações para a implantação do Dropbox estão disponíveis em [Implantar por meio do Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

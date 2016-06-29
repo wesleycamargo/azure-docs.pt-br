@@ -724,7 +724,9 @@ Se você quiser acessar uma VM do Azure que esteja executando o Linux após o fa
 - Um ponto de extremidade público deve ser criado para permitir conexões de entrada na porta SSH (porta TCP 22, por padrão).
 - Se a VM for acessada por meio de uma conexão VPN (Rota Expressa ou VPN site a site), então o cliente poderá ser usado para se conectar diretamente à VM via SSH.
 
+**Na VM do Windows/Linux do Azure após o failover**:
 
+Se você tiver um Grupo de Segurança de Rede associado à Máquina Virtual ou à sub-rede à qual o computador pertence, certifique-se de que o Grupo de Segurança de Rede tenha uma regra de saída para permitir HTTP/HTTPS. Além disso, certifique-se de que o DNS da rede para a qual a máquina virtual está obtendo failover esteja configurado corretamente. Caso contrário, o failover poderia atingir o tempo limite com o erro -'WaitForScriptExecutionTask da tarefa PreFailoverWorkflow atingiu o tempo limite'. Para compreender isso em detalhes, consulte a seção Recuperação no [Guia de monitoramento e de solução de problemas](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Execute um teste de failover
 
@@ -831,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

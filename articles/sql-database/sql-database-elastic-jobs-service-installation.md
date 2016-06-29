@@ -156,7 +156,7 @@ Após a [criação de um pool de Banco de Dados Elástico](sql-database-elastic-
 
 **Tempo estimado para conclusão:** 10 minutos.
 
-1. Na exibição de painel do pool de banco de dados elástico, por meio do **Portal do Azure**, clique em [Criar trabalho](https://ms.portal.azure.com/#).
+1. Na exibição de painel do pool de banco de dados elástico, por meio do **Portal do Azure**, clique em [Criar trabalho](https://portal.azure.com/#).
 2. Se estiver criando um trabalho pela primeira vez, será necessário instalar os **trabalhos de Banco de Dados Elástico** clicando em **TERMOS DA VISUALIZAÇÃO**.
 3. Aceite os termos clicando na caixa de seleção.
 4. No modo de exibição "Instalar serviços", clique em **CREDENCIAIS DO TRABALHO**.
@@ -187,4 +187,4 @@ Certifique-se de que uma credencial com os direitos apropriados para a execuçã
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -28,6 +28,7 @@ Há três etapas distintas:
 2. Carregar o certificado no Cofre da Chave do Azure.
 3. Fornecer o local e os detalhes do certificado ao processo de criação de cluster do Service Fabric.
 
+<a id="acquirecerts"></a>
 ## Etapa 1: adquirir o(s) certificado(s) X.509.
 
 Para clusters que estão executando cargas de trabalho de produção, você deve usar um certificado X.509 assinado pela [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) para proteger o cluster. Para obter detalhes sobre como obter esses certificados, vá para [Como obter um certificado](http://msdn.microsoft.com/library/aa702761.aspx).
@@ -156,17 +157,17 @@ Os certificados necessários são especificados no nível do tipo de nó nas Con
 
  Você pode especificar, como opção, outros certificados para as máquinas do cliente que você usa para executar operações no cluster. Por padrão, a impressão digital que você especificou nos parâmetros obrigatórios é adicionada à lista autorizada de impressões digitais com permissão para executar operações do cliente.
 
-**Cliente de administração**: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações de administrador e somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações de administrador.
+**Cliente de Administração**: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações de administrador e somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações de administrador.
 
 - **Autorizar por** Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorizar não é uma boa prática de segurança, mais acrescenta flexibilidade.
-- **Nome de assunto** só será necessário caso você tenha especificado a autorização pelo nome do assunto.
-- **Impressão digital do emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
+- **Nome do Assunto** Só será necessário caso você tenha especificado a autorização pelo nome do assunto.
+- **Impressão Digital do Emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
 
-**Cliente somente leitura**: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações somente leitura.
+**Cliente Somente Leitura**: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações somente leitura.
 
 - **Autorizar por** Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorização não é uma boa prática de segurança, mais acrescenta flexibilidade.
-- **Nome de assunto** só será necessário caso você tenha especificado a autorização pelo nome do assunto.
-- **Impressão digital do emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
+- **Nome do Assunto** Só será necessário caso você tenha especificado a autorização pelo nome do assunto.
+- **Impressão Digital do Emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
 
 ## Próximas etapas
 Depois de configurar a segurança de certificado no seu cluster, retome o processo de criação de cluster em [Etapa 4: Concluir a criação do cluster](service-fabric-cluster-creation-via-portal.md#step-4--complete-the-cluster-creation).
@@ -178,4 +179,4 @@ Depois de um cluster com segurança de certificado ser criado, você pode poster
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Diferentes maneiras de criar uma VM do Linux | Microsoft Azure"
-	description="Lista as diferentes maneiras de criar uma máquina virtual do Linux no Azure e fornece links para mais instruções"
+	description="Lista as diferentes maneiras de criar uma máquina virtual do Linux no Azure e fornece links para ferramentas e tutoriais para cada método"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,18 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Diferentes maneiras de criar uma máquina virtual do Linux com o Gerenciador de Recursos
 
 O Azure oferece maneiras diferentes de criar uma VM usando o modelo de implantação do Resource Manager para se adaptar a diferentes usuários e finalidades. Este artigo resume essas diferenças e as opções que você pode fazer para criar máquinas virtuais (VMs) do Linux.
 
-## Opções da ferramenta
+## CLI do Azure 
 
-### Shell de comando: CLI do Azure 
-
-Na CLI, use a interface de linha de comando do Azure. Você pode ler mais sobre [como instalar a CLI do Azure](../xplat-cli-install.md) via npm, o contêiner do Docker, ou instalar um script. Os tutoriais a seguir fornecem exemplos sobre como usar a CLI do Azure:
+Você pode ler mais sobre [como instalar a CLI do Azure](../xplat-cli-install.md) via npm, o contêiner do Docker, ou instalar um script. Os tutoriais a seguir fornecem exemplos sobre como usar a CLI do Azure:
 
 * [Criar uma VM do Linux na CLI do Azure para desenvolvimento e teste](virtual-machines-linux-quick-create-cli.md) 
 
@@ -33,7 +31,7 @@ Na CLI, use a interface de linha de comando do Azure. Você pode ler mais sobre 
 
 * [Criar uma VM Linux a partir do zero usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md)
 
-### GUI: portal do Azure
+## Portal do Azure
 
 A interface gráfica do usuário do [portal do Azure](https://portal.azure.com) é uma maneira fácil de experimentar uma VM, especialmente se você estiver começando a usar o Azure, uma vez que não há nada para instalar em seu sistema. Use o portal do Azure para criar a VM:
 
@@ -65,4 +63,4 @@ Se você precisar de personalizações específicas, poderá usar uma imagem com
 
 * Etapas rápidas para [redefinir uma senha ou chaves SSH e gerenciar os usuários](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

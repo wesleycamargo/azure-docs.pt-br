@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute no Azure: recursos técnicos para lote e HPC (Computação de Alto Desempenho)
@@ -34,11 +34,11 @@ O [Lote](https://azure.microsoft.com/services/batch/) é um serviço de platafor
 
 * [Documentação](https://azure.microsoft.com/documentation/services/batch/)
 
-* Referência do [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) e da API [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Referência do [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) e da API [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * Referência da [Biblioteca do .NET de gerenciamento do lote](https://msdn.microsoft.com/library/mt463120.aspx)
 
-* [Tutorial: Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md)
+* Tutoriais: Introdução à [Biblioteca de lote do Azure para .NET](batch-dotnet-get-started.md) e para o [cliente Python do Lote](batch-python-tutorial.md)
 
 * [Fórum do lote](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurebatch)
 
@@ -122,7 +122,7 @@ O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-windows
 
 ## Plano gráfico da arquitetura
 
-* [HPC e orquestração de dados usando o Lote do Azure e o Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) e o [artigo](../data-factory/data-factory-data-processing-using-batch.md)
+* [HPC e orquestração de dados usando o Lote do Azure, o Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) e o [artigo](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Soluções do setor
 
@@ -157,4 +157,4 @@ O Azure oferece [diversos tamanhos](../virtual-machines/virtual-machines-windows
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

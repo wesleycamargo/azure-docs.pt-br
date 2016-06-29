@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
@@ -198,11 +198,11 @@ As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de
 
 1.  Adicione a saída do Power BI ao Stream Analytics (ASA).
 
-    -  Você precisará seguir as instruções em [Stream Analytics do Azure e Power BI: um painel de análise em tempo real para dados de streaming](stream-analytics\stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Stream Analytics do Azure como painel do Power BI.
+    -  Você precisará seguir as instruções em [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md) (Stream Analytics do Azure e Power BI: um painel de análise e visibilidade em tempo real dos dados de streaming) para configurar a saída do seu trabalho do Stream Analytics do Azure como painel do Power BI.
 
 	- Localize o trabalho do stream analytics em seu [portal de gerenciamento do Azure](https://manage.windowsazure.com). O nome do trabalho deve ser: NomeDaSuaSolução+"trabalhodestreaming"+número aleatório+"asapbi" (ou seja, demostreamingjob123456asapbi).
 
-	- Configure a saída da consulta ASA, que é **PBIoutput**. Verifique se o **Alias de Saída** é igual ao de sua consulta. Você pode nomear o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **'EnergyStreamData'**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (*por exemplo*, "O trabalho do Stream Analytics myteststreamingjob12345asablob foi iniciado com êxito").
+	- Adicione uma saída do Power BI para o trabalho do ASA. Defina o **Alias de saída** como **‘PBIoutput’**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (*por exemplo*, "O trabalho do Stream Analytics myteststreamingjob12345asablob foi iniciado com êxito").
 
 2. Faça logon no [Power BI online](http://www.powerbi.com)
 
@@ -225,8 +225,7 @@ As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de
 
 	-	Passe o mouse sobre esse bloco no painel, clique no ícone "editar" no canto superior direito para alterar seu título para "Demandar por Carimbo de Data/Hora"
 
-4.	Crie outros blocos de painel com base em conjuntos de dados apropriados. O modo de exibição de painel final é exibido abaixo.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Crie outros blocos de painel com base em conjuntos de dados apropriados. A exibição final do painel é mostrada abaixo. ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### Configurar o painel de caminho frio
@@ -253,8 +252,7 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 
 	-	Na pasta **"DemandForecastingDataGeneratorv1.0"** que você baixou, clique duas vezes no arquivo **'Power BI Template\\DemandForecastPowerBI.pbix'**. As visualizações inicias se baseiam em dados fictícios. **Observação:** se você vir uma mensagem de erro, verifique se instalou a versão mais recente do Power BI desktop
 
-		Depois de abri-lo, na parte superior do arquivo, clique em **"Editar Consultas"**. Na janela pop-up, clique duas vezes em **"Origem"** no painel à direita.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Depois de abri-lo, na parte superior do arquivo, clique em **"Editar Consultas"**. Na janela pop-up, clique duas vezes em **"Origem"** no painel à direita. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Na janela pop-out, substitua **"Servidor"** e **"Banco de dados"** por seus próprios nomes de servidor e de banco de dados e clique em **"OK"**. Para o nome do servidor, especifique a porta 1433 (**NomeDaSuaSolução.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem na tela.
 
@@ -282,6 +280,9 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 	-   Agende a atualização com base em suas necessidades. Para saber mais, confira [Atualizar dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
+## **Como excluir a solução**
+Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução dele incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução excluirá todos os componentes provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique com botão no nome da solução no painel esquerdo do modelo de solução e clique em Excluir.
+
 ## **Ferramentas de estimativa de custo**
 
 As duas ferramentas a seguir estão disponíveis para ajudar você a entender melhor os custos totais envolvidos do Modelo de Solução de Previsão de demanda para energia em sua assinatura:
@@ -290,4 +291,7 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0413_2016-->
+## **Confirmações**
+Este artigo foi escrito pelo cientista de dados Yijing Chen e pelo engenheiro de software Qiu Min da Microsoft.
+
+<!---HONumber=AcomDC_0615_2016-->

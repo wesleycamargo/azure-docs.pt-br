@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/21/2016"
     ms.author="magoedte;bwren"/>
 
 # O meu primeiro runbook gráfico
@@ -113,7 +113,7 @@ Agora que temos uma variável para conter a ID de assinatura, podemos configurar
 13.  Clique em **CERTIFICATETHUMBPRINT** e na folha de Valor do Parâmetro, selecione **Saída de atividade** para a **Fonte de dados**. Selecione **Obter Conexão Executar Como** da lista, na caixa de texto **caminho de Campo** escreva **CertificateThumbrprint**, e em seguida, clique em **OK**. 
 14.  Clique em **SERVICEPRINCIPAL**, e na folha de Valor do Parâmetro, selecione **ConstantValue** para a **Fonte de dados**, clique na opção **True**, e em seguida, clique em **OK**.
 15.  Clique em **TENANTID** e na folha de Valor do Parâmetro, selecione **Saída de atividade** para a **Fonte de dados**. Selecione **Obter Conexão Executar Como** da lista, na caixa de texto **caminho de Campo** escreva **TenantId**, e em seguida, clique em **OK** duas vezes.  
-16.  No controle Biblioteca, digite **Set-AzureRmContext** na caixa de texto de pesquisa.
+16.  No controle Biblioteca, digite **Get-AzureRmContext** na caixa de texto de pesquisa.
 17.	 Adicionar **Set-AzureRmContext** à tela.
 18.	 Na tela, selecione **Set-AzureRmContext** e no painel de controle da Configuração, digite **Especificar ID de Assinatura** na caixa de texto **Rótulo**.
 19.	 Clique em **Parâmetros** e a folha Configuração do Parâmetro da Atividade aparecerá. 
@@ -130,7 +130,7 @@ Seu runbook deve ser semelhante ao seguinte: <br>![Configuração da autenticaç
 Agora, adicionaremos uma atividade **Start-AzureRmVM** para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual na sua assinatura do Azure e, por enquanto, embutiremos esse nome no cmdlet.
 
 1. No controle Biblioteca, digite **Start-AzureRm** na caixa de texto de pesquisa.
-2. Adicione **Start-AzureRmVM** à tela, então, clique e arraste-a para baixo de **Especificar Id de Assinatura**.
+2. Adicione **Start-AzureRmVM** à tela, então, clique e arraste-a para baixo de **Conectar ao Azure**.
 3. Passe o mouse sobre **Especificar Id de Assinatura** até que um círculo apareça na parte inferior da forma. Clique no círculo e arraste a seta para **Start-AzureRmVM**. 
 4.	Selecione **Start-AzureRmVM**. Clique em **Parâmetros** e **Conjunto de Parâmetros** para exibir os conjuntos de **Start-AzureRmVM**. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Observe que **ResourceGroupName** e **Name** têm pontos de exclamação ao lado deles. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
 5.	Selecione **Name**. Selecione a **Expressão do PowerShell** para a **Fonte de dados** e digite o nome da máquina virtual entre aspas duplas com a qual iniciaremos este runbook. Clique em **OK**.<br>![Valor do Parâmetro Name do Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -193,15 +193,15 @@ Agora, modificaremos o runbook para que ele tente iniciar a máquina virtual ape
 17. Para a **Expressão da condição**, digite *$ActivityOutput['Get Status'] -eq "Stopped"*. Agora, **Start-AzureRmVM** será executada apenas se a máquina virtual estiver parada.
 18.	No controle de biblioteca, expanda **Cmdlets** e **Microsoft.PowerShell.Utility**.
 19.	Adicione **Write-Output** à tela duas vezes.<br> ![Runbook com Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. No primeiro controle **Write-Output**, altere o valor **Rótulo** para *Notificar VM Iniciada*.
+20. No primeiro controle **Write-Output**, clique em **Parâmetros** e altere o valor **Rótulo** para *Notificar VM Iniciada*.
 21. Para **InputObject**, altere a **Fonte de dados** para **Expressão do PowerShell** e digite a expressão *"$VMName.Name iniciada com êxito."*.
-22. No primeiro controle **Write-Output**, altere o valor **Rótulo** para *Notificar VM Iniciada*
+22. No segundo controle **Write-Output**, clique em **Parâmetros** e altere o valor **Rótulo** para *Falha ao Notificar VM Iniciada*
 23. Para **InputObject**, altere a **Fonte de dados** para a **Expressão do PowerShell** e digite a expressão *"$VMName não pôde iniciar."*.
 24. Criar um link de **Start-AzureRmVM** para **Notificar VM Iniciada** e **Falha ao Notificar VM Iniciada**.
 25. Selecione o link para **Notificar VM Iniciada** e altere **Aplicar condição** para **True**.
 26. Para a **Expressão da condição**, digite *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Agora, o controle Write-Output será executado apenas se a máquina virtual for iniciada com êxito.
 27. Selecione o link para **Falha ao Notificar VM Iniciada** e altere **Aplicar condição** para **True**.
-28. Para a **Expressão da condição**, digite *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*. Agora, o controle Write-Output será executado apenas se a máquina virtual não for iniciada com êxito. 
+28. Para a **Expressão da condição**, digite *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*. Agora, o controle Write-Output será executado apenas se a máquina virtual não for iniciada com êxito.
 29.	Salve o runbook e abra o Painel de teste.
 30.	Inicie o runbook com a máquina virtual parada e ela deve ser iniciada.
 
@@ -209,6 +209,6 @@ Agora, modificaremos o runbook para que ele tente iniciar a máquina virtual ape
 
 -	Para saber mais sobre a Criação Gráfica, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 -	Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
--	Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+-	Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

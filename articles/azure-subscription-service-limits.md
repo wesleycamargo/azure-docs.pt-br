@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -53,6 +53,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [Análises Data Lake](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [Banco de Dados de Documentos](#documentdb-limits)
+- [Hubs de Evento](#event-hubs-limits)
 - [Hub IoT](#iot-hub-limits)
 - [Cofre da Chave](#key-vault-limits)
 - [Serviços de Mídia](#media-services-limits)
@@ -177,6 +178,7 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](./documentdb/documentdb-increase-limits.md).
 
 ### Limites do Mobile Engagement
 
@@ -217,6 +219,9 @@ Para obter informações mais detalhadas sobre outros limites, incluindo o taman
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Limites de Hubs de Eventos
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Limites de Barramento de Serviço
 
@@ -300,4 +305,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

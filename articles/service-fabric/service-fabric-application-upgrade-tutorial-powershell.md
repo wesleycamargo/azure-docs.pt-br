@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="06/13/2016"
    ms.author="subramar"/>
 
 
@@ -29,13 +29,12 @@ Com as atualizações monitoradas sem interrupção do Service Fabric, o adminis
 
 ## Etapa 1: criar e implantar o exemplo de Objetos Visuais
 
-Essas etapas podem ser executadas baixando o aplicativo do GitHub e adicionando os arquivos **webgl-utils.js** e **gl-matrix-min.js** ao projeto, conforme mencionado no arquivo Leiame do exemplo. Sem isso, o aplicativo não funcionará.
 
-Após adicioná-los ao projeto, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **Publicar** no item de menu do Service Fabric da maneira abaixo. Confira o [Tutorial de atualização de aplicativos do Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber mais. Se preferir, você pode usar o PowerShell para implantar o seu aplicativo.
+Crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **Publicar** no item de menu do Service Fabric como a seguir. Confira o [Tutorial de atualização de aplicativos do Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber mais. Se preferir, você pode usar o PowerShell para implantar o seu aplicativo.
 
 > [AZURE.NOTE] Antes de qualquer um dos comandos do Service Fabric poder ser usado no PowerShell, você precisa primeiro conectar ao cluster usando o cmdlet `Connect-ServiceFabricCluster`. Da mesma forma, supõe-se que o Cluster já esteja configurado no computador local. Consulte o artigo [configurando o ambiente de desenvolvimento de Malha do serviço](service-fabric-get-started.md).
 
-Depois de criar o projeto no Visual Studio, você pode usar o comando do PowerShell **Copy-ServiceFabricApplicationPackage** para copiar o pacote de aplicativos para o ImageStore. Esta etapa é seguida pelo registro do aplicativo no tempo de execução do Service Fabric usando o cmdlet **Register-ServiceFabricApplicationPackage**. A etapa final é iniciar uma instância do aplicativo usando o cmdlet **New-ServiceFabricApplication**. Essas três etapas são semelhantes a usar o item de menu **Implantar** no Visual Studio.
+Depois de criar o projeto no Visual Studio, você pode usar o comando do PowerShell **Copy-ServiceFabricApplicationPackage** para copiar o pacote de aplicativos para o ImageStore. Esta etapa é seguida pelo registro do aplicativo no tempo de execução do Service Fabric usando o cmdlet **Register-ServiceFabricApplicationPackage**. A etapa final é iniciar uma instância do aplicativo usando o cmdlet **New-ServiceFabricApplication**. Estas três etapas são semelhantes a usar o item de menu **Implantar** no Visual Studio.
 
 Agora, você pode usar o [Gerenciador de Malha do serviço para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo tem um serviço Web que pode ser acessado no Internet Explorer, digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na barra de endereços. Você deve ver alguns objetos visuais flutuantes moverem-se na tela. Além disso, você pode usar **Get-ServiceFabricApplication** para verificar o status do aplicativo.
 
@@ -45,7 +44,7 @@ Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais n
 
 Selecione o projeto VisualObjects.ActorService dentro da solução VisualObjects e abra o arquivo StatefulVisualObjectActor.cs. Nesse arquivo, navegue até o método `MoveObject`, desmarque o comentário `this.State.Move()` e remova os comentários `this.State.Move(true)`. Essa alteração fará os objetos girarem após a atualização do serviço.
 
-Também precisamos atualizar o arquivo *ServiceManifest.xml* (em PackageRoot) do projeto **VisualObjects.ActorService**. Atualize o *CodePackage* e a versão de serviço para 2.0, e as linhas correspondentes no arquivo *ServiceManifest.xml*. Você pode usar a opção *Editar Arquivos de Manifesto do Visual Studio* depois de clicar com o botão direito na solução para fazer as alterações no arquivo de manifesto.
+Também precisamos atualizar o arquivo *ServiceManifest.xml* (em PackageRoot) do projeto **VisualObjects.ActorService**. Atualize o *CodePackage* e a versão de serviço para 2.0, e as linhas correspondentes no arquivo *ServiceManifest.xml*. Você pode usar a opção *Editar Arquivos de Manifesto* do Visual Studio depois de clicar com o botão direito na solução para fazer as alterações no arquivo de manifesto.
 
 
 Depois que as alterações forem feitas, o manifesto deverá se parecer com o seguinte (as partes realçadas mostram as alterações):
@@ -65,7 +64,7 @@ Agora, precisamos atualizar o arquivo *ApplicationManifest.xml* (localizado no p
 ```
 
 
-Agora, compile o projeto selecionando apenas o projeto **ActorService**, clicando duas vezes e selecionando **Compilar** no Visual Studio. (Se você selecionar **Recompilar todos**, talvez seja necessário atualizar as versões também para os outros projetos, no *ServiceManifest.xml* e no *ApplicationManifest.xml*, já que o código pode ter sido alterado.) Agora, vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em ***VisualObjectsApplication***, selecionar o menu do Service Fabric e escolher **Pacote**. Isso deve criar um pacote de aplicativos que pode ser implantado. Seu aplicativo atualizado está pronto para ser implantado agora.
+Agora, compile o projeto selecionando apenas o projeto **ActorService**, clicando duas vezes e selecionando **Compilar** no Visual Studio. (Se você selecionar **Recompilar todos**, talvez seja necessário atualizar as versões também para os outros projetos, no *ServiceManifest.xml* e no *ApplicationManifest.xml*, já que o código pode ter sido alterado). Agora, vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em ***VisualObjectsApplication***, selecionar o menu do Service Fabric e escolher **Pacote**. Isso deve criar um pacote de aplicativos que pode ser implantado. Seu aplicativo atualizado está pronto para ser implantado agora.
 
 
 ## Etapa 3: decida sobre as diretivas de integridade e parâmetros de atualização
@@ -126,7 +125,7 @@ Você talvez queira tentar alterar as versões e mudar da versão 2 para a vers�
 
 ## Próximas etapas
 
-[Atualização do Aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
+[Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
 Controle como seu aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 
@@ -134,6 +133,6 @@ Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [serial
 
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

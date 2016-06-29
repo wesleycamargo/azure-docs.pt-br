@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar o Azure Resource Manager dos grupos de disponibilidade AlwaysOn | Microsoft Azure"
+	pageTitle="Configurar automaticamente o grupo de disponibilidade Always On na VM do Azure - Resource Manager"
 	description="Crie um grupo de disponibilidade AlwaysOn com as máquinas virtuais do Azure no modo do Azure Resource Manager. Este tutorial usa principalmente a interface do usuário para criar a solução inteira automaticamente."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,20 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure Resource Manager (GUI)
+# Configurar automaticamente o grupo de disponibilidade Always On na VM do Azure - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: Automático](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
 Este tutorial de ponta a ponta mostra como criar um grupo de disponibilidade do SQL Server com máquinas virtuais do Gerenciador de Recursos do Azure. O tutorial usa folhas do Azure para configurar um modelo. Você revisará as configurações padrão, digitará as configurações necessárias e atualizará as folhas enquanto percorre este tutorial.
 
->[AZURE.NOTE] No Portal de Gerenciamento do Azure, há uma nova configuração de galeria para grupos de disponibilidade AlwaysOn com um ouvinte. Isso configura tudo o que você precisa para grupos de disponibilidade automaticamente. Para obter mais informações, confira [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Oferta do SQL Server AlwaysOn na Galeria do Portal Clássico do Microsoft Azure).
 
 Ao final do tutorial, sua solução de grupo de disponibilidade do SQL Server no Azure consistirá nos seguintes elementos:
 
@@ -50,9 +51,9 @@ Este tutorial pressupõe o seguinte:
 
 - Você já tem uma conta do Azure. Se não tiver uma, [inscreva-se para uma conta de avaliação](http://azure.microsoft.com/pricing/free-trial/).
 
-- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, confira [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md)
+- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
-- Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, confira [Grupos de disponibilidade AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
 >[AZURE.NOTE] Se você estiver interessado em usar os grupos de disponibilidade com o SharePoint, confira também [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx) (Configurar grupos de disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013).
 
@@ -66,7 +67,7 @@ Neste tutorial, você usará o portal do Azure para:
 
 - Conectar-se a um dos controladores de domínio e a um dos SQL Servers
 
-## Provisionar um grupo de disponibilidade da galeria com o modelo de implantação do Resource Manager
+## Provisionar o cluster da galeria
 
 O Azure fornece uma imagem da galeria para a solução inteira. Para localizar o modelo:
 
@@ -256,4 +257,4 @@ Agora você está conectado ao controlador de domínio primário. Para usar o pr
 
 Agora você está conectado ao SQL Server com protocolo RDP. Você pode abrir o SQL Server Management Studio, conectar-se à instância padrão do SQL Server e verificar se o grupo de disponibilidade está configurado.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

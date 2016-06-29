@@ -263,7 +263,7 @@ Use esse método ao se conectar com um nome de entidade do AD do Azure usando o 
 Use este método se você estiver conectado no Windows usando as credenciais de um domínio que não está federado com o Azure, ou quando usar a autenticação do AD do Azure usando o Azure AD baseado no domínio de cliente ou inicial.
 
 1. Inicie o Management Studio e, na caixa de diálogo **Conectar ao Servidor** (ou **Conectar ao Mecanismo de Banco de Dados**), na caixa **Autenticação**, selecione **Autenticação da Senha do Active Directory**.
-2. Na caixa **Nome de usuário**, digite seu nome de usuário do Active Directory do Azure no formato ****username@domain.com**. Essa deve ser uma conta do Active Directory do Azure ou uma conta de um domínio federado com o Active Directory do Azure.
+2. Na caixa **Nome de usuário**, digite seu nome de usuário do Active Directory do Azure no formato **username@domain.com**. Essa deve ser uma conta do Active Directory do Azure ou uma conta de um domínio federado com o Active Directory do Azure.
 3. Na caixa **Senha**, digite sua senha de usuário para a conta do Azure Active Directory ou conta de domínio federado. ![Selecione Autenticação de Senha do AD][12]
 
 4. Clique no botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual deseja se conectar.
@@ -367,4 +367,4 @@ Para saber mais, veja [Blog de segurança do SQL Server](https://blogs.msdn.micr
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

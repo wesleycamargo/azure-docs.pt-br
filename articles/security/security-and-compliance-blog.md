@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="06/08/2016"
    ms.author="terrylan"/>
 
 # Blog de Segurança e Conformidade do Azure
@@ -28,6 +28,14 @@ Não deixe de conferir o blog da equipe de Segurança e Conformidade do Azure pa
 
 **Artigos recentes** (esta seção será atualizada semanalmente com links para novas postagens):
 
+[Catálogo de Segurança de Infraestrutura do Azure em breve](https://blogs.msdn.microsoft.com/azuresecurity/2016/06/06/azure-infrastructure-security-book-coming-soon/) (6 de junho de 2016)
+
+[Percepções sobre a Segurança do Contêiner com o ACS (Serviço de Contêiner do Azure)](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/26/insights-on-container-security-with-azure-container-service-acs/) (26 de maio de 2016)
+
+[Site de Informações de Segurança do Azure em Azure.com](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/azure-security-information-site-on-azure-com/) (24 de maio de 2016)
+
+[Aperfeiçoar a segurança, migrando do Gerenciamento de Serviços do Azure para o Gerenciamento de Recursos do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/improve-security-by-migrating-from-azure-service-management-to-azure-resource-management/) (24 de maio de 2016)
+
 [O Azure Disk Encryption para Máquinas Virtuais do Windows alcança disponibilidade geral](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (20 de maio de 2016)
 
 [Avanços na Detecção de Ameaças da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/) (17 de maio de 2016)
@@ -40,4 +48,4 @@ Não deixe de conferir o blog da equipe de Segurança e Conformidade do Azure pa
 
 [O que a responsabilidade compartilhada na nuvem significa?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (18 de abril de 2016)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -23,7 +23,8 @@
 
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o **Aplicativo de Monitoramento e Gerenciamento**. Você também pode assistir ao vídeo a seguir para saber mais sobre como usar o aplicativo de gerenciamento e monitoramento.
    
-> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
+
+> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
 ## Iniciando o Aplicativo de Monitoramento e Gerenciamento a
 Para iniciar o Aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitoramento e Gerenciamento** na folha **DATA FACTORY** do seu data factory.
@@ -313,4 +314,4 @@ Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

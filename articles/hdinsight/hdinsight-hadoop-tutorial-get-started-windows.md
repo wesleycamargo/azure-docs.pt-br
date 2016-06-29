@@ -57,7 +57,7 @@ Quando cria um cluster, você cria recursos de computação do Azure que contêm
 
 **Para criar um cluster Hadoop**
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **NOVO**, em **Análises de Dados** e em **HDInsight**. O portal abre uma folha **Novo Cluster HDInsight**.
 
     ![Criar um novo cluster no Portal do Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Criar um novo cluster no Portal do Azure")
@@ -97,7 +97,7 @@ Agora que você criou um cluster HDInsight, a próxima etapa é executar um trab
 
 **Para executar um trabalho do Hive pelo painel do cluster**
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR TUDO** e em **Clusters HDInsight** para ver uma lista de clusters, incluindo o cluster que você criou na seção anterior.
 3. Clique no nome do cluster que deseja usar para executar o trabalho do Hive e clique em **Painel** na parte superior da folha.
 4. Uma página da Web é aberta em uma guia diferente do navegador. Insira a conta e a senha do usuário do Hadoop. O nome de usuário padrão é **admin**; a senha é a que você inseriu durante a criação do cluster.
@@ -222,7 +222,7 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

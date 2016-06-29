@@ -24,7 +24,7 @@ Um modelo do [Azure Resource Manager](../resource-group-authoring-templates.md) 
 
 Você pode usar o novo recurso **Modelos** no [Portal do Azure](https://portal.azure.com) juntamente com o provedor de recursos **Microsoft.Gallery** como uma extensão do [Azure Marketplace](https://azure.microsoft.com/marketplace/) para permitir aos usuários criar, gerenciar e implantar modelos privados de uma biblioteca pessoal.
 
-Este documento explica a você como adicionar, gerenciar e compartilhar um **Modelo** privado usando o Portal do Azure.
+Este documento explica como adicionar, gerenciar e compartilhar um **Modelo** privado usando o Portal do Azure.
 
 ## Diretrizes
 
@@ -61,29 +61,30 @@ Há duas maneiras de criar um recurso de **modelo** no portal do Azure.
 
 ### B. Método 2: adicionar um novo recurso de modelo por meio de navegação
 
-Você também pode adicionar um novo **Modelo** do zero usando o botão de comando +Adicionar em **Procurar > Modelos**. Você precisará fornecer um nome, um descrição e o JSON do modelo do Resource Manager.
+Você também pode adicionar um novo **Modelo** do zero usando o botão de comando +Adicionar em **Procurar > Modelos**. Você precisará fornecer um nome, uma descrição e o JSON do modelo do Resource Manager.
 
 ![Adicionar Modelo](media/add-template-portal1.PNG) <br />
 
-> [AZURE.NOTE] Microsoft.Gallery é um provedor de recursos do Azure baseado em locatário. O recurso de modelo está vinculado ao usuário que o criou. Ele não fica associado a um assinatura específica. A assinatura só precisa ser escolhida quando o modelo for implantado.
+> [AZURE.NOTE] Microsoft.Gallery é um provedor de recursos do Azure baseado em locatário. O recurso de modelo está vinculado ao usuário que o criou. Ele não está associado a nenhuma assinatura específica.  
+A assinatura só precisa ser escolhida quando o modelo for implantado.
 
 ## Exibir recursos de modelo
 
-Todos os **modelos** disponíveis para você podem ser exibidos em **Procurar > Modelos**. Isso inclui **modelos** que você criou e os que foram compartilhados com você com vários níveis de permissões. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) abaixo.
+Todos os **modelos** disponíveis podem ser exibidos em **Procurar > Modelos**. Isso inclui **modelos** que você criou e os que foram compartilhados com você com vários níveis de permissões. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) abaixo.
 
-![Exibir modelo](media/view-template-portal1.PNG) <br />
+![Exibir Modelo](media/view-template-portal1.PNG) <br />
 
 Você pode exibir os detalhes de um **modelo** clicando em um item na lista.
 
-![Exibir modelo](media/view-template-portal2c.png) <br />
+![Exibir Modelo](media/view-template-portal2c.png) <br />
 
 ## Editar um recurso de modelo
 
-Você pode iniciar o fluxo de edição de um **modelo** clique no item com o botão direito do mouse na lista Procurar ou escolhendo o botão de comando Editar.
+Inicie o fluxo de edição de um **modelo** clicando no item com o botão direito do mouse na lista Procurar ou escolhendo o botão de comando Editar.
 
 ![Editar modelo](media/edit-template-portal1a.PNG) <br />
 
-Você pode editar a descrição ou o texto do modelo do Resource Manager. Você não pode editar o nome, já que ele é um nome de recurso do Resource Manager. Quando você editar o JSON do modelo do Resource Manager, faremos o teste de validação para garantir que ele é um JSON válido. Escolha **OK** e **Salvar** para salvar o modelo atualizado.
+Edite a descrição ou o texto do modelo do Resource Manager. Você não pode editar o nome, já que ele é um nome de recurso do Resource Manager. Quando você editar o JSON do modelo do Resource Manager, faremos o teste de validação para garantir que ele é um JSON válido. Escolha **OK** e **Salvar** para salvar o modelo atualizado.
 
 ![Editar modelo](media/edit-template-portal2a.PNG) <br />
 
@@ -93,7 +94,7 @@ Depois que o **modelo** for salvo, você verá uma notificação de confirmaçã
 
 ## Implantar um recurso de modelo
 
-Você pode implantar qualquer **modelo** para o qual tem permissões **leitura**. O fluxo de implantação inicia a folha de implantação padrão de modelo do Azure. Preencha os valores dos parâmetros de modelo do Resource Manager para prosseguir com a implantação.
+Você pode implantar qualquer **modelo** para o qual tiver permissões de **leitura**. O fluxo de implantação inicia a folha de implantação padrão de modelo do Azure. Preencha os valores dos parâmetros de modelo do Resource Manager para prosseguir com a implantação.
 
 ![Implantar o modelo](media/deploy-template-portal1b.png) <br />
 
@@ -113,7 +114,7 @@ Selecione **Compartilhar** no item de navegação clicando com o botão direito 
 
 ![Compartilhar modelo](media/share-template-portal1a.png) <br />
 
- Agora você pode escolher uma função e um usuário ou grupo para fornecer acesso a determinado **modelo**. As funções disponíveis são Proprietário, Leitor e Colaborador. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) abaixo.
+ Agora você pode escolher uma função e um usuário ou grupo para fornecer acesso a determinado **modelo**. As funções disponíveis são Proprietário, Leitor e Colaborador. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) acima.
 
 ![Compartilhar modelo](media/share-template-portal2b.png) <br />
 
@@ -131,4 +132,4 @@ Clique em **Selecionar** e **OK**. Agora você pode ver os usuários ou grupos a
 - Para conhecer as funções que podem ser usadas em um modelo do Resource Manager, veja [Funções do modelo](../resource-group-template-functions.md).
 - Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

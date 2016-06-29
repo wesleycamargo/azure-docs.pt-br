@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database"
-   ms.date="03/28/2016"
+   ms.date="06/15/2016"
    ms.author="carlrab"/>
 
 #Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
@@ -195,4 +195,4 @@ Com as tabelas temporais versionadas pelo sistema, a tabela de histórico pode a
 
 Para obter informações detalhadas sobre as Tabelas Temporais, confira a [documentação do MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Visite o Channel 9 para ouvir uma [história de sucesso real de implementação temporal de cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e veja uma [demonstração temporal dinâmica](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

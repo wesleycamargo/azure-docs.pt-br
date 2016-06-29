@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -28,7 +28,7 @@ Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ### Como posso obter a Central de Segurança do Azure?
-A Central de Segurança do Azure vem habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**). Talvez você veja algumas recomendações de segurança no painel instantaneamente. Isso ocorre porque o serviço pode avaliar o estado de segurança de alguns controles com base em sua configuração no Azure. Para ativar o conjunto completo de monitoramento, recomendações e recursos de alerta de segurança, você precisará [habilitar a coleta de dados](#data-collection).
+A Central de Segurança do Azure vem habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**).
 
 ## Cobrança
 
@@ -37,24 +37,27 @@ Confira [Preços da Central de Segurança do Azure](https://azure.microsoft.com/
 
 ## Coleta de dados
 
-### Como posso habilitar a coleta de dados?<a name=data-collection></a>
-Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política de segurança**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando a **Coleta de dados** estiver habilitada, ela coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
+A Central de Segurança coleta dados de suas máquinas virtuais para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusá-la [desabilitando a coleta de dados](#how-do-i-disable-data-collection) na política da Central de Segurança.
+
+### Como desabilitar a coleta de dados?
+
+Você pode desabilitar a **Coleta de dados** para uma assinatura na política de segurança a qualquer momento. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a **Coleta de dados**. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
+
+> [AZURE.NOTE] As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você deve selecionar uma assinatura para desativar a coleta de dados.
+
+### Como habilitar a coleta de dados?
+Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando a **Coleta de dados** estiver habilitada, ela coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da coleta de dados ocorre apenas no nível da assinatura.
 
-### O que acontece quando eu habilito a coleta de dados?
-A coleta de dados é habilitada por meio do agente de monitoramento do Azure e da extensão de monitoramento de segurança do Azure. A extensão de monitoramento de segurança do Azure verifica várias configurações de segurança e as envia nos vestígios do [ETW (Rastreamento de Eventos para o Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Além disso, o sistema operacional cria entradas de log de eventos. O agente de monitoramento do Azure lê as entradas do registro de eventos e os vestígios de ETW e os copia para sua conta de armazenamento para análise. Essa é a conta de armazenamento configurada na política de segurança. Para mais informações sobre a conta de armazenamento, consulte a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”
+### O que acontece quando a coleta de dados é habilitada?
+A coleta de dados é habilitada por meio do agente de monitoramento do Azure e da extensão de monitoramento de segurança do Azure. A extensão de Monitoramento de Segurança do Azure verifica várias configurações de segurança relevantes e as envia para os rastreamentos do [ETW (Rastreamento de Eventos para Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Além disso, o sistema operacional cria entradas de log de eventos. O agente de monitoramento do Azure lê as entradas do registro de eventos e os vestígios de ETW e os copia para sua conta de armazenamento para análise. Essa é a conta de armazenamento configurada na política de segurança. Para mais informações sobre a conta de armazenamento, consulte a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”
 
 ### A extensão do Agente de monitoramento ou o Monitoramento de segurança afetam o desempenho do meu servidor?
 O agente e a extensão consomem uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho.
 
-### Como faço para reverter se eu não quiser mais que a coleta de dados permaneça habilitada?
-Você pode desabilitar a **Coleta de dados** para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política de segurança**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a coleta de dados. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
-
-> [AZURE.NOTE] As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você deve selecionar uma assinatura para desativar a coleta de dados.
-
-### Onde meus dados são armazenados?<a name=where-is-my-data-stored></a>
-Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política de segurança**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para escolher uma região. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
+### Onde meus dados são armazenados?
+Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para escolher uma região.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a seleção da região de sua conta de armazenamento ocorre apenas no nível da assinatura.
 
@@ -127,4 +130,4 @@ Máquinas virtuais Linux com suporte:
 - Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
 - SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

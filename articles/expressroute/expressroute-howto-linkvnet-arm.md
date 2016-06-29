@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="06/09/2016"
    ms.author="ganesr" />
 
 # Vincular uma rede virtual a um circuito de Rota Expressa
@@ -75,8 +75,8 @@ O proprietário do circuito cria uma autorização. Isso resulta na criação de
 O seguinte trecho de cmdlet mostra como criar uma autorização:
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
@@ -105,8 +105,8 @@ O proprietário do circuito pode examinar todas as autorizações emitidas em um
 O proprietário do circuito pode adicionar autorizações usando o cmdlet a seguir.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
@@ -117,7 +117,7 @@ O proprietário do circuito pode adicionar autorizações usando o cmdlet a segu
 O proprietário do circuito pode revogar/excluir autorizações usando o seguinte cmdlet:
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
 
 ### Operações do usuário do circuito
 
@@ -138,4 +138,4 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

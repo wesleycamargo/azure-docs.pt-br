@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
@@ -154,5 +154,6 @@ Escolha **SQL Server em VMs do Azure** se:
 - Confira [Tutorial do Banco de Dados SQL: criar um Banco de Dados SQL em alguns minutos usando o portal do Azure](sql-database-get-started.md) para obter uma introdução ao Banco de Dados SQL.
 - Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
+- Confira [SQL Server em uma máquina virtual do Azure: roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
