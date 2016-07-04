@@ -151,7 +151,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do ** Tinfoil Security**, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Tinfoil Security**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Atribuir Usuários")
 

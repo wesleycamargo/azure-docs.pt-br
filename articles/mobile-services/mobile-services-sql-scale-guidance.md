@@ -74,8 +74,8 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 6. Verifique se as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
     - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
 
-    - *Porcentagem de E/S de Dados * (disponível apenas nos tipos Básico/Standard/Premium)
-    - *Porcentagem de E/S de Log * (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Dados* (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Log* (disponível apenas nos tipos Básico/Standard/Premium)
     - *Armazenamento* 
 7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
 

@@ -21,7 +21,7 @@
 
 ## WinRM no Gerenciamento de Serviços do Azure vs. Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico
 
 * Para uma visão geral do Azure Resource Manager, consulte este [artigo](../resource-group-overview.md)
 * Para encontrar as diferenças entre o Gerenciamento de Serviços do Azure e o Azure Resource Manager, consulte este [artigo](../resource-manager-deployment-model.md)

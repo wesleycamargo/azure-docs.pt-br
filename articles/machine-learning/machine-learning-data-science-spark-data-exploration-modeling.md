@@ -963,7 +963,7 @@ Tempo necessário para executar a célula acima: 49,21 segundos
 
 O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.
 
-****Treinar e avaliar**
+**Treinar e avaliar**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

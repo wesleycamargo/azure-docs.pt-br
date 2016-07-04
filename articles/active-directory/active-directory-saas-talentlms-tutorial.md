@@ -106,10 +106,10 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon remoto**.
     5.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL de logoff remoto**.
-    6.  Na caixa de texto **TargetedID**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
-7.  Na caixa de texto **Nome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Na caixa de texto **Sobrenome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
-9.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+    6.  Na caixa de texto **TargetedID**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
+7.  Na caixa de texto **Nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  Na caixa de texto **Sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+9.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
 10. Clique em **Salvar**.
 
 9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.

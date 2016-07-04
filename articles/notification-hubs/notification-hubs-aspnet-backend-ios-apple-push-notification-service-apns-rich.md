@@ -96,7 +96,7 @@ Em um alto nível:
             }
         }
 
-	>[AZURE.NOTE](optional) Veja [Como inserir e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para saber mais sobre como adicionar e obter recursos de projeto.
+	>[AZURE.NOTE] (optional) Veja [Como inserir e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para saber mais sobre como adicionar e obter recursos de projeto.
 
 7. Em **NotificationsController.cs**, redefina **NotificationsController** com os trechos a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:
 

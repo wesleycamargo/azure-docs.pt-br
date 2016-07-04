@@ -1164,7 +1164,7 @@ Tempo necessário para executar a célula acima: 25,98 segundos
 
 O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.
 
-****Treinar e avaliar**
+**Treinar e avaliar**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ Use `unpersist()` para excluir objetos armazenados em cache na memória.
 PythonRDD[122] em RDD em PythonRDD.scala:43
 
 
-****Imprima o caminho para os arquivos de modelo a ser usado no notebook de consumo. **Para consumo e pontuação de um conjunto de dados independente, você precisará copiar e colar esses nomes de arquivo no “Notebook de consumo”.
+**Imprima o caminho para os arquivos de modelo a ser usado no notebook de consumo. **Para consumo e pontuação de um conjunto de dados independente, você precisará copiar e colar esses nomes de arquivo no “Notebook de consumo”.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
