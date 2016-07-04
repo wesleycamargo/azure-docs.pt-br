@@ -1,0 +1,107 @@
+<properties 
+	pageTitle="O que é o Processo de Ciência de Dados de Equipe | Microsoft Azure" 
+	description="O Processo de Ciência de Dados de Equipe é um método sistemático para a criação de aplicativos inteligentes que aproveitam a análise avançada." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"
+	manager="paulettm" 
+	editor="cgronlun" />
+
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/17/2016" 
+	ms.author="bradsev;gopitk" />
+
+
+# O que é o TDSP (Processo de Ciência de Dados de Equipe)?
+
+O TDSP (Processo de Ciência de Dados de Equipe) fornece uma abordagem sistemática para a criação de aplicativos inteligentes que permite às equipes de cientistas de dados colaborarem de maneira eficiente por todo o ciclo de vida de atividades necessárias para transformar esses aplicativos em produtos.
+
+Especificamente, no momento, o TDSP fornece às equipes de ciência de dados:
+
+- **Metodologia**: descreve uma sequência de etapas que definem o ciclo de vida de desenvolvimento, fornecendo orientação sobre como definir o problema, analisar os dados relevantes, criar e avaliar os modelos preditivos e implantar esses modelos em aplicativos corporativos. 
+- **Recursos**: ferramentas e tecnologias, como a VM de Ciência de Dados, para simplificar a configuração de ambientes para atividades de ciência de dados, e orientação prática para integração de novas tecnologias.
+
+Veja a seguir o ciclo de vida de desenvolvimento do TDSP:
+
+![TDSP-poster](./media/data-science-process-overview/TDSP-poster-simplified.png)
+
+
+O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo TDSP.
+
+As etapas no processo são diagramadas e vinculadas no [roteiro de aprendizagem do TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) e descritas abaixo.
+
+
+## Etapas de planejamento e preparação 
+
+## P1. Planejamento de tecnologia e negócios
+
+Iniciar um projeto de análise, definindo suas metas de negócios e os problemas. Eles são especificados em termos de **requisitos de negócios**. Um objetivo central desta etapa é identificar as variáveis de negócios essenciais (previsão de vendas ou a probabilidade de um pedido ser fraudulento, por exemplo) que a análise precisa prever para atender a esses requisitos. Normalmente, o planejamento adicional é essencial para o desenvolvimento de uma compreensão das **fontes de dados** necessárias para atender aos objetivos do projeto de uma perspectiva analítica. Por exemplo, não é incomum descobrir que os sistemas existentes precisam coletar e registrar tipos de dados adicionais para solucionarem o problema e atingirem os objetivos do projeto. Para obter orientação, confira [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) (Planejar o ambiente para o Processo de Ciência de Dados de Equipe) e [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
+
+
+## P2. Planejar e preparar a infraestrutura
+
+Um ambiente de análise para o Processo de Ciência de Dados de Equipe envolve vários componentes:
+
+- **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem, 
+- uma **infraestrutura de processamento** para pré-processamento, exploração e modelagem de dados
+- uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.  
+
+A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para ver as opções, confira [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md) (Configurar ambientes de ciência de dados para uso no Processo de Ciência de Dados de Equipe).
+
+
+## Etapas da análise:  
+
+## 1\. Ingerir dados na plataforma de dados 
+
+A primeira etapa é trazer os dados relevantes de várias fontes, seja de dentro ou de fora da empresa, para ambientes de análise em que os dados podem ser processados. O **formato** dos dados na fonte pode ser diferente do formato exigido pelo destino. Dessa forma, também pode ser necessário que as ferramentas de ingestão façam algumas transformações de dados. Para obter opções, consulte [Carregar dados em ambientes de armazenamento para análise](machine-learning-data-science-ingest-data.md)
+
+Além da ingestão inicial dos dados, serão necessários muitos aplicativos inteligentes para a atualização regular dos dados como parte de um processo de aprendizado em andamento. Isso pode ser feito configurando um **pipeline de dados** ou um fluxo de trabalho. Isso faz parte da parte interativa do processo que inclui a recriação e a reavaliação dos modelos analíticos usados pelo aplicativo inteligente que esteja implantando a solução. Consulte, por exemplo, [Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md).
+
+
+## 2\. Explorar e visualizar os dados 
+
+A próxima etapa será obter uma compreensão mais profunda dos dados investigando as **estatísticas de resumo**, os relacionamentos e usando técnicas como a **visualização**. O tratamento de problemas de **qualidade de dados** e de integridade, como valores ausentes, incompatibilidades de tipos de dados e relacionamentos de dados inconsistentes também é feito aqui. As transformações de pré-processamento são usadas para limpar os dados brutos antes que outra análise ou modelagem possa acontecer. Para obter uma descrição, consulte [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
+
+
+## 3\. Gerar e escolher recursos 
+
+Os cientistas de dados, em colaboração com os especialistas de domínio, devem identificar os recursos que capturam as propriedades relevantes do conjunto de dados e que podem ser usados com mais eficiência para a previsão das principais variáveis de negócios identificadas durante o planejamento. Esses novos recursos podem ser derivados de dados existentes ou podem exigir a coleta de dados adicionais. Esse processo é conhecido como **engenharia de recursos** e é uma das principais etapas da criação de um sistema eficiente de análise preditiva. Esta etapa requer uma combinação criativa de experiência de domínio e das ideias obtidas na etapa de exploração de dados. Para obter diretrizes, confira [Feature engineering in the Team Data Science Process (Engenharia de recurso no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-create-features.md).
+
+
+## 4\. Criar e treinar modelos de AM 
+
+Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, confira [How to choose algorithms for Team Azure Machine Learning (Como escolher algoritmos para Aprendizado de Máquina do Azure de Equipe)](machine-learning-algorithm-choice.md).
+
+Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
+
+- um conjunto de dados de treinamento, 
+- um conjunto de dados de validação, 
+- um conjunto de dados de testes 
+
+Os modelos são criados usando o **conjunto de dados de treinamento**. A combinação ideal de modelos (com os parâmetros ajustados) é selecionada por meio da execução dos modelos e da medição dos erros de previsão para o **conjunto de dados de validação**. Por fim, o **conjunto de dados de testes** é usada para avaliar o desempenho do modelo escolhido em dados independentes que não foram usados para treinar ou validar o modelo. Para obter procedimentos, consulte [Como avaliar o desempenho do modelo no Aprendizado de Máquina do Azure](machine-learning-evaluate-model-performance.md).
+
+
+## 5\. Implantar e consumir os modelos no produto
+
+Assim que tivermos um conjunto de modelos com um bom desempenho, eles poderão ser **operacionalizados** para o consumo de outros aplicativos. Dependendo dos requisitos de negócios, as previsões serão feitas em **tempo real** ou em **lotes**. Para ser operacionalizada, os modelos precisam ser expostos com uma **interface de API aberta**, que é facilmente consumida de diversos aplicativos, como sites, planilhas, painéis online, ou aplicativos de linha de negócios ou de back-end. Consulte [Implantar um serviço Web de Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
+
+
+## Resumo e próximas etapas
+
+O [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) é modelado como uma sequência de etapas repetidas que **oferecem diretrizes** sobre as tarefas necessárias ao uso de uma análise avançada para a criação de um aplicativo inteligente. Cada etapa também fornece detalhes sobre como usar diversas tecnologias da Microsoft para concluir as tarefas descritas.
+
+Embora o TDSP não prescreva tipos específicos de artefato de **documentação**, é uma prática recomendada documentar os resultados da exploração de dados, a modelagem e a avaliação e salvar o código pertinente para que a análise possa ser iterada quando necessário. Isso também permite a reutilização do trabalho de análise enquanto você estiver trabalhando em outros aplicativos que envolvam dados e tarefas de previsão semelhantes.
+
+Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Consulte, por exemplo:
+
+- [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+- [Ciência de Dados usando Spark no Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
+- [Ciência de dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta](machine-learning-data-science-process-data-lake-walkthrough.md)
+
+<!---HONumber=AcomDC_0622_2016-->

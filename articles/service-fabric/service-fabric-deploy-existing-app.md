@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 # Implantar um executável convidado à Service Fabric
 
-Você pode executar qualquer tipo de aplicativo, como o Node.js, o Java ou os aplicativos nativos no Service Fabric do Azure. A terminologia de Service Fabric se refere a esses tipos de aplicativos como executáveis convidados. Os executáveis convidados são tratados pela Service Fabric como serviços sem monitoração de estado. Como resultado, eles serão colocados em nós em um cluster, com base na disponibilidade e outras métricas. Este artigo descreve como empacotar e implantar um executável convidado em um cluster de Service Fabric usando o Visual Studio ou um utilitário de linha de comando
+Você pode executar qualquer tipo de aplicativo, como o Node.js, o Java ou os aplicativos nativos no Service Fabric do Azure. A terminologia de Service Fabric se refere a esses tipos de aplicativos como executáveis convidados. Os executáveis convidados são tratados pela Service Fabric como serviços sem monitoração de estado. Como resultado, eles serão colocados em nós em um cluster, com base na disponibilidade e outras métricas. Este artigo descreve como empacotar e implantar um executável convidado em um cluster do Service Fabric usando o Visual Studio ou um utilitário de linha de comando.
 
 ## Benefícios de executar um executável convidado no Service Fabric
 
@@ -233,8 +233,8 @@ Para executáveis convidados, é muito útil poder ver logs do console para desc
 
 * `ConsoleRedirection` pode ser usado para redirecionar as saídas do console (stdout e stderr) para um diretório de trabalho. Dessa forma, elas podem ser usadas para verificar se não há erros durante a instalação ou execução do aplicativo no cluster do Service Fabric.
 
-	* `FileRetentionCount` determina quantos arquivos são salvos no diretório de trabalho. Um valor de 5, por exemplo, significa que os arquivos de log das cinco execução anteriores são armazenados no diretório de trabalho.
-	* `FileMaxSizeInKb` especifica o tamanho máximo dos arquivos de log.
+	* O `FileRetentionCount` determina quantos arquivos são salvos no diretório de trabalho. Um valor de 5, por exemplo, significa que os arquivos de log das cinco execução anteriores são armazenados no diretório de trabalho.
+	* O `FileMaxSizeInKb` especifica o tamanho máximo dos arquivos de log.
 
 Arquivos de log são salvos em um dos diretórios de trabalho do serviço. Para determinar onde os arquivos estão localizados, use o Gerenciador do Service Fabric para determinar em qual nó o serviço está sendo executado e qual diretório de trabalho está sendo usado. Esse processo é abordado mais adiante neste artigo.
 
@@ -284,17 +284,19 @@ Se você navegar até o diretório usando o Gerenciador de Servidores, poderá l
 
 O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar você a implantar um executável convidado em um cluster do Service Fabric. Você precisa passar pelo seguinte para concluir a publicação:
 
-1. Escolha Arquivo -> Novo Projeto e crie um novo Aplicativo do Service Fabric
-2. Escolha Executável Convidado como o Modelo de Serviço
-3. Clique em Procurar para selecionar a pasta com o executável e preencha o restante dos parâmetros para criar o novo serviço
-  - *Comportamento de Pacote de Código* pode ser definido para copiar todo o conteúdo da pasta para o projeto do Visual Studio, o que será útil se o executável não for alterado. Se você espera que o executável mude e se quiser a capacidade de obter novas compilações dinamicamente, poderá optar por vincular para a pasta.
+>[AZURE.NOTE] Este recurso requer o [SDK versão 2.1.150](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/)
+
+1. Escolha Arquivo -> Novo Projeto e crie um novo Aplicativo do Service Fabric.
+2. Escolha Executável Convidado como o Modelo de Serviço.
+3. Clique em Procurar para escolher a pasta com o executável e preencha o restante dos parâmetros para criar o novo serviço.
+  - O *Comportamento do Pacote de Códigos* pode ser definido para copiar todo o conteúdo da pasta para o projeto do Visual Studio, o que será útil se o executável não for alterado. Se você espera que o executável mude e se quiser a capacidade de obter novas compilações dinamicamente, poderá optar por vincular para a pasta.
   - *Programa* escolhe o nome do executável que deve ser executado para iniciar o serviço.
   - *Argumentos* especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
   - *WorkingFolder* especifica o diretório de trabalho para o processo que será iniciado. Você pode especificar dois valores:
   	- *CodeBase* especifica o diretório de trabalho que será definido no diretório de código no pacote de aplicativos (diretório `Code` na estrutura mostrada abaixo).
     - *CodePackage* especifica que o diretório de trabalho será definido como a raiz do pacote de aplicativos (`MyServicePkg`).
-4. Dê um nome ao seu serviço e clique em OK
-5. Se seu serviço precisar de um ponto de extremidade para comunicação, agora você pode adicionar o Protocolo, a Porta e o Tipo para o arquivo ServiceManifest.xml (por exemplo): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+4. Dê um nome ao seu serviço e clique em OK.
+5. Se seu serviço precisar de um ponto de extremidade para comunicação, você poderá adicionar o Protocolo, a Porta e o Tipo ao arquivo ServiceManifest.xml (por exemplo): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```.
 6. Agora você pode experimentar o pacote e publicar a ação em seu cluster local ao depurar a solução no Visual Studio. Quando estiver pronto, você poderá publicar o aplicativo em um cluster remoto ou fazer check-in da solução para controle de origem.
 
 >[AZURE.NOTE] Você pode usar pastas vinculadas ao criar o projeto de aplicativo no Visual Studio. Isso vinculará ao local de origem de dentro do projeto, tornando possível a atualização do convidado executável em seu destino de origem, fazendo com que essas atualizações se tornem parte do pacote de aplicativo na compilação.
@@ -302,8 +304,8 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar voc�
 ## Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Como uma próxima etapa, confira o conteúdo adicional deste tópico.
 
-- [Amostra de empacotamento e implantação de um convidado executável no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
+- [Amostra de empacotamento e implantação de um executável convidado no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
 - [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 - [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

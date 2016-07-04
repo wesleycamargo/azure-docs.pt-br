@@ -21,20 +21,12 @@
 
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](sql-database-copy.md)
+- [Visão geral](sql-database-copy.md)
+- [Portal do Azure](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-
-
-As etapas a seguir mostram como copiar um banco de dados SQL com o PowerShell. A operação de cópia do banco de dados copia um banco de dados SQL para um novo banco de dados usando o cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). A cópia é um backup de instantâneo do banco de dados que você cria no mesmo servidor ou em um servidor diferente.
-
-> [AZURE.NOTE] O Banco de Dados SQL do Azure [cria e mantém backups](sql-database-automated-backups.md) automaticamente de cada banco de dados de usuário que você pode restaurar.
-
-Quando o processo de cópia for concluído, o novo banco de dados será um banco de dados totalmente funcional independente do banco de dados de origem. O novo banco de dados é transacionalmente consistente com o banco de dados de origem no momento da conclusão da cópia. O desempenho e a camada de nível de serviço (faixa de preço) da cópia do banco de dados são iguais aos do banco de dados de origem. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões podem ser gerenciados independentemente.
-
-
-Quando você copia um banco de dados no mesmo servidor lógico, os mesmos logons podem ser usados em ambos os bancos de dados. A entidade de segurança usada para copiar o banco de dados se tornará o proprietário do banco de dados (DBO) do banco de dados. Todos os usuários do banco de dados, suas permissões e seus identificadores de segurança (SIDs) são copiados para a cópia do banco de dados.
+As etapas a seguir mostram como copiar um banco de dados SQL com PowerShell para o mesmo servidor ou outro servidor. A operação de cópia do banco de dados usa o cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx).
 
 
 Para concluir este artigo, você precisa do seguinte:
@@ -87,6 +79,10 @@ Depois de executar **Start-AzureSqlDatabaseCopy**, você poderá verificar o sta
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
+## Resolver logons
+
+Para resolver logons após a conclusão da operação de cópia, confira [Resolver logons](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
+
 
 ## Exemplo de script do PowerShell
 
@@ -115,14 +111,18 @@ Depois de executar **Start-AzureSqlDatabaseCopy**, você poderá verificar o sta
 
 ## Próximas etapas
 
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
-- [Exportar o banco de dados para um BACPAC](sql-database-export-powershell.md)
+- Confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) para ter uma visão geral de como copiar um Banco de Dados SQL do Azure.
+- Confira [Copy an Azure SQL database using the Azure Portal (Copiar um banco de dados SQL do Azure usando o Portal do Azure)](sql-database-copy-portal.md) para copiar um banco de dados usando o Portal do Azure.
+- Confira [Copiar um banco de dados SQL do Azure usando o Transact-SQL](sql-database-copy-transact-sql.md) para copiar um banco de dados usando o Transact-SQL.
+- Confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md) para saber mais sobre como gerenciar logons e usuários ao copiar um banco de dados para um servidor lógico diferente.
 
 
 ## Recursos adicionais
 
+- [Gerenciar logons](sql-database-manage-logins.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
+- [Exportar o banco de dados para um BACPAC](sql-database-export.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

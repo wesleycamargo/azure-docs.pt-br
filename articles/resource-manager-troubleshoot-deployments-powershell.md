@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
 # Exibir operações de implantação com o Azure PowerShell
@@ -25,11 +25,89 @@
 - [CLI do Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Se você recebeu um erro durante a implantação de recursos do Azure, você talvez queira ver mais detalhes sobre as operações de implantação que foram executadas. O Azure PowerShell fornece cmdlets que permitem a fácil localização dos erros e determinar as possíveis correções.
+Você pode exibir as operações para uma implantação por meio do Azure PowerShell. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O PowerShell fornece cmdlets que permitem encontrar facilmente os erros e determinar as possíveis correções.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 É possível evitar alguns erros validando o modelo e a infraestrutura antes da implantação. Você também pode registrar informações adicionais sobre solicitações e respostas durante a implantação que podem ser úteis mais tarde para a solução de problemas. Para obter informações sobre como validar e registrar informações de solicitação e resposta, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md) (Implantar um grupo de recursos com modelos do Azure Resource Manager).
+
+## Usar operações de implantação para solucionar problemas
+
+1. Para obter o status geral de uma implantação, use e comando **Get-AzureRmResourceGroupDeployment**. É possível filtrar os resultados para exibir apenas as implantações que falharam.
+
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    O que retorna as implantações com falha no seguinte formato:
+        
+        DeploymentName          : Microsoft.Template
+        ResourceGroupName       : ExampleGroup
+        ProvisioningState       : Failed
+        Timestamp               : 6/14/2016 9:55:21 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+                    Name                Type                 Value
+                    ===============     ===================  ==========
+                    storageAccountName  String               tfstorage9855
+                    adminUsername       String               tfadmin
+                    adminPassword       SecureString
+                    dnsNameforLBIP      String               dns
+                    vmNamePrefix        String               myVM
+                    imagePublisher      String               MicrosoftWindowsServer
+                    imageOffer          String               WindowsServer
+                    imageSKU            String               2012-R2-Datacenter
+                    lbName              String               myLB
+                    nicNamePrefix       String               nic
+                    publicIPAddressName String               myPublicIP
+                    vnetName            String               myVNET
+                    vmSize              String               Standard_D1
+
+        Outputs                 :
+        DeploymentDebugLogLevel :
+
+2. Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
+
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
+        
+    Que retorna várias operações com cada uma no seguinte formato:
+        
+        Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+        OperationId    : A3EB2DA598E0A780
+        Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+                         duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
+                         serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
+        PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+                         serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
+
+3. Para obter mais detalhes sobre as operações com falha, recupere as propriedades das operações com o estado **Falha**.
+
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+        
+    Que retorna todas as operações com falha com cada uma no seguinte formato:
+        
+        provisioningOperation : Create
+        provisioningState     : Failed
+        timestamp             : 2016-06-14T21:54:55.1468068Z
+        duration              : PT3.1449887S
+        trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+        serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+        statusCode            : BadRequest
+        statusMessage         : @{error=}
+        targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+                                Microsoft.Network/publicIPAddresses/myPublicIP;
+                                resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
+
+    Observe a ID de rastreamento da operação. Você usará isso na próxima etapa para focar em uma determinada operação.
+
+4. Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
+
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+        
+    Que retorna:
+        
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 ## Usar os logs de auditoria para solucionar problemas
 
@@ -41,109 +119,42 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    É possível especificar um timespan específico. No próximo exemplo, buscaremos as ações com falha nos últimos 14 dias.
+    É possível especificar um timespan específico. No próximo exemplo, buscaremos as ações com falha do último dia.
 
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
     Caso contrário, é possível definir uma hora exata de início e término para as ações com falha:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
-2. Caso esse comando retorne um número excessivo de entradas e propriedades, você poderá concentrar seus esforços de auditoria recuperando a propriedade **Properties**. Também incluiremos o parâmetro **DetailedOutput** para ver as mensagens de erro.
+2. Se esse comando retornar entradas e propriedades demais, você poderá focar seus esforços de auditoria recuperando a propriedade **Properties**. Também incluiremos o parâmetro **DetailedOutput** para ver as mensagens de erro.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
     O que retorna as propriedades das entradas de log no seguinte formato:
         
         Content
         -------
-        {}
-        {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-        {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+        {} 
+        {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
+        {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. É possível refinar ainda mais os resultados examinando a mensagem de status de determinada entrada.
+3. Com base nesses resultados, focaremos no segundo elemento. Além disso, você pode refinar ainda mais os resultados examinando a mensagem de status dessa entrada.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    O que retorna a mensagem de status no seguinte formato:
+    Que retorna:
         
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 
-## Usar operações de implantação para solucionar problemas
-
-1. Para obter o status geral de uma implantação, use e comando **Get-AzureRmResourceGroupDeployment**. É possível filtrar os resultados para exibir apenas as implantações que falharam.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-        
-    O que retorna as implantações com falha no seguinte formato:
-        
-        DeploymentName    : ExampleDeployment
-        ResourceGroupName : ExampleGroup
-        ProvisioningState : Failed
-        Timestamp         : 8/27/2015 8:03:34 PM
-        Mode              : Incremental
-        TemplateLink      :
-        Parameters        :
-        Name             Type                       Value
-        ===============  =========================  ==========
-        siteName         String                     ExampleSite
-        hostingPlanName  String                     ExamplePlan
-        siteLocation     String                     West US
-        sku              String                     Free
-        workerSize       String                     0
-        
-        Outputs           :
-
-2. Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
-
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
-        
-    O que retorna as operações no seguinte formato:
-        
-        Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
-        OperationId : 8518B32868A437C8
-        Properties  : @{ProvisioningOperation=Create; ProvisioningState=Failed; Timestamp=2016-03-16T20:05:37.2638161Z;
-                      Duration=PT2.8834832S; TrackingId=192fbfbf-a2e2-40d6-b31d-890861f78ed3; StatusCode=Conflict;
-                      StatusMessage=; TargetResource=}
-
-3. Para obter mais detalhes sobre a operação, recupere o objeto **Properties**.
-
-        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
-        
-    O que retorna as propriedades da operação no seguinte formato:
-        
-        ProvisioningOperation : Create
-        ProvisioningState     : Failed
-        Timestamp             : 2016-03-16T20:05:37.2638161Z
-        Duration              : PT2.8834832S
-        TrackingId            : 192fbfbf-a2e2-40d6-b31d-890861f78ed3
-        StatusCode            : Conflict
-        StatusMessage         : @{Code=Conflict; Message=Website with given name mysite already exists.; Target=;
-        Details=System.Object[]; Innererror=}
-        TargetResource        : @{Id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
-        Microsoft.Web/Sites/mysite; ResourceType=Microsoft.Web/Sites; ResourceName=mysite}
-
-4. Para se concentrar na mensagem de status das operações com falha, use o seguinte comando:
-
-        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
-        
-    O que retorna a mensagem de status no seguinte formato:
-        
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
 
 ## Próximas etapas
 
-- Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
-- Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
+- Para obter ajuda com a resolução de determinados erros de implantação, consulte [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
+- Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

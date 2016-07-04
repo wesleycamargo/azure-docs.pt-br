@@ -131,7 +131,7 @@ Atualmente, os aliases com suporte são:
 
 | Nome do alias | Descrição |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | O tipo de recurso com suporte é Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | O tipo de recurso com suporte é Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -140,12 +140,18 @@ Atualmente, os aliases com suporte são:
 | Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-
-Para saber mais sobre ações, confira [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md). Atualmente, a política só funciona em solicitações PUT.
+Atualmente, a política só funciona em solicitações PUT.
 
 ## Efeito
-A política dá suporte a três tipos de efeito - **negar**, **auditar** e **acrescentar**.
+A política dá suporte a três tipos de efeito: **negar**, **auditar** e **acrescentar**.
 
 - Negar gera um evento no log de auditoria e causa uma falha da solicitação
 - Auditar gera um evento no log de auditoria, mas não causa falha da solicitação
@@ -462,4 +468,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

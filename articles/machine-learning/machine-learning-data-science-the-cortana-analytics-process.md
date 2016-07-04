@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="O que é o Processo de Análise da Cortana (CAP)? | Microsoft Azure" 
-	description="O Processo de Análise da Cortana é um método de ciência de dados sistemático para a criação de aplicativos inteligentes que aproveitam a análise avançada." 
+	pageTitle="O que é o Processo de Ciência de Dados de Equipe | Microsoft Azure" 
+	description="O Processo de Ciência de Dados de Equipe é um método sistemático para a criação de aplicativos inteligentes que aproveitam a análise avançada." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
@@ -13,37 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev;gopitk" />
 
 
-# O que é o Processo de Análise da Cortana (CAP)?
+# O que é o TDSP (Processo de Ciência de Dados de Equipe)?
 
-O Processo de Análise da Cortana (CAP) é um método de ciência de dados sistemática que descreve uma sequência de etapas que aproveita a análise avançada para criar aplicativos inteligentes. As etapas do CAP oferecem **diretrizes** sobre como definir o problema, analisar os dados relevantes, criar e avaliar os modelos de previsão e implantar os modelos de aplicativos inteligentes.
+O TDSP (Processo de Ciência de Dados de Equipe) fornece uma abordagem sistemática para a criação de aplicativos inteligentes que permite às equipes de cientistas de dados colaborarem de maneira eficiente por todo o ciclo de vida de atividades necessárias para transformar esses aplicativos em produtos. O TDSP descreve uma sequência de etapas que fornecem **diretrizes** sobre como definir o problema, configurar as ferramentas e o ambiente necessários, analisar dados relevantes, criar e avaliar modelos preditivos e, em seguida, implantar esses modelos em aplicativos corporativos.
 
-Estas são as etapas do **Processo de Análise da Cortana**:
+Veja a seguir as etapas em **Processo de Ciência de Dados de Equipe**:
 
 ![Fluxo de trabalho do CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo CAP.
+O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo TDSP.
 
-As etapas no processo são diagramadas e vinculadas no [Roteiro de aprendizagem do CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e descritas abaixo.
+As etapas no processo são diagramadas e vinculadas no [roteiro de aprendizagem do TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e descritas abaixo.
 
 ## Etapas de preparação 
 
 ## P1. Planejar o projeto de análise 
 
-Iniciar um projeto de análise, definindo suas metas de negócios e os problemas. Eles são especificados em termos de **requisitos de negócios**. Um objetivo central desta etapa é identificar as variáveis de negócios essenciais (previsão de vendas ou a probabilidade de um pedido ser fraudulento, por exemplo) que a análise precisa prever para atender a esses requisitos. Normalmente, o planejamento adicional é essencial para o desenvolvimento de uma compreensão das **fontes de dados** necessárias para atender aos objetivos do projeto de uma perspectiva analítica. Por exemplo, não é incomum descobrir que os sistemas existentes precisam coletar e registrar tipos de dados adicionais para solucionarem o problema e atingirem os objetivos do projeto. Para obter diretrizes, consulte [Planejar seu ambiente para o Processo de Análise da Cortana](machine-learning-data-science-plan-your-environment.md) e [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
+Iniciar um projeto de análise, definindo suas metas de negócios e os problemas. Eles são especificados em termos de **requisitos de negócios**. Um objetivo central desta etapa é identificar as variáveis de negócios essenciais (previsão de vendas ou a probabilidade de um pedido ser fraudulento, por exemplo) que a análise precisa prever para atender a esses requisitos. Normalmente, o planejamento adicional é essencial para o desenvolvimento de uma compreensão das **fontes de dados** necessárias para atender aos objetivos do projeto de uma perspectiva analítica. Por exemplo, não é incomum descobrir que os sistemas existentes precisam coletar e registrar tipos de dados adicionais para solucionarem o problema e atingirem os objetivos do projeto. Para obter orientação, confira [Plan your environment for the Team Data Science Process (Planejar o ambiente para o Processo de Ciência de Dados de Equipe)](machine-learning-data-science-plan-your-environment.md) e [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
 
 ## P2. Configurar o ambiente de análise 
 
-Um ambiente de análise para o Processo de Análise da Cortana envolve vários componentes:
+Um ambiente de análise para o Processo de Ciência de Dados de Equipe envolve vários componentes:
 
 - **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem, 
 - uma **infraestrutura de processamento** para pré-processamento, exploração e modelagem de dados
 - uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.  
 
-A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para obter opções, consulte [Configure ambientes de ciência da dados para uso no Processo de Análise da Cortana](machine-learning-data-science-environment-setup.md).
+A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para ver as opções, confira [Set up data science environments for use in the Team Data Science Process (Configurar ambientes de ciência de dados para uso no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-environment-setup.md).
 
 ## Etapas da análise:  
 
@@ -61,12 +61,12 @@ A próxima etapa será obter uma compreensão mais profunda dos dados investigan
 
 ## 3\. Desenvolver recursos 
 
-Os cientistas de dados, em colaboração com os especialistas de domínio, devem identificar os recursos que capturam as propriedades relevantes do conjunto de dados e que podem ser usados com mais eficiência para a previsão das principais variáveis de negócios identificadas durante o planejamento. Esses novos recursos podem ser derivados de dados existentes ou podem exigir a coleta de dados adicionais. Esse processo é conhecido como **engenharia de recursos** e é uma das principais etapas da criação de um sistema eficiente de análise preditiva. Esta etapa requer uma combinação criativa de experiência de domínio e das ideias obtidas na etapa de exploração de dados. Para obter diretrizes, consulte [Engenharia de recurso no Processo de Análise da Cortana](machine-learning-data-science-create-features.md).
+Os cientistas de dados, em colaboração com os especialistas de domínio, devem identificar os recursos que capturam as propriedades relevantes do conjunto de dados e que podem ser usados com mais eficiência para a previsão das principais variáveis de negócios identificadas durante o planejamento. Esses novos recursos podem ser derivados de dados existentes ou podem exigir a coleta de dados adicionais. Esse processo é conhecido como **engenharia de recursos** e é uma das principais etapas da criação de um sistema eficiente de análise preditiva. Esta etapa requer uma combinação criativa de experiência de domínio e das ideias obtidas na etapa de exploração de dados. Para obter diretrizes, confira [Feature engineering in the Team Data Science Process (Engenharia de recurso no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-create-features.md).
 
 
 ## 4\. Criar modelos de previsão 
 
-Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, consulte [Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
+Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, confira [How to choose algorithms for Team Azure Machine Learning (Como escolher algoritmos para Aprendizado de Máquina do Azure de Equipe)](machine-learning-algorithm-choice.md).
 
 Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
 
@@ -83,17 +83,17 @@ Assim que tivermos um conjunto de modelos com um bom desempenho, eles poderão s
 
 ## Resumo e próximas etapas
 
-O [Processo do Cortana Analytics](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é modelado como uma sequência de etapas repetidas que **oferecem diretrizes** sobre as tarefas necessárias ao uso de uma análise avançada para a criação de um aplicativo inteligente. Cada etapa também fornece detalhes sobre como usar diversas tecnologias da Microsoft para concluir as tarefas descritas.
+O [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é modelado como uma sequência de etapas repetidas que **oferecem diretrizes** sobre as tarefas necessárias ao uso de uma análise avançada para a criação de um aplicativo inteligente. Cada etapa também fornece detalhes sobre como usar diversas tecnologias da Microsoft para concluir as tarefas descritas.
 
-Embora o CAP não prescreva tipos específicos de artefatos de **documentação**, é uma prática recomendada documentar os resultados de exploração de dados, a modelagem e a avaliação e salvar o código pertinente para que a análise possa ser iterada quando necessário. Isso também permite a reutilização do trabalho de análise enquanto você estiver trabalhando em outros aplicativos que envolvam dados e tarefas de previsão semelhantes.
+Embora o TDSP não prescreva tipos específicos de artefato de **documentação**, é uma prática recomendada documentar os resultados da exploração de dados, a modelagem e a avaliação e salvar o código pertinente para que a análise possa ser iterada quando necessário. Isso também permite a reutilização do trabalho de análise enquanto você estiver trabalhando em outros aplicativos que envolvam dados e tarefas de previsão semelhantes.
 
 Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Consulte, por exemplo:
 
-- [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [O Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+- [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 - [Ciência de Dados usando Spark no Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
 - [Ciência de dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

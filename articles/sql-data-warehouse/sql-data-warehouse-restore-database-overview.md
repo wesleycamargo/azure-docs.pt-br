@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/15/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -23,19 +23,17 @@
 - [Visão geral][]
 - [Portal][]
 - [PowerShell][]
-- [REST][]
-
-O Azure SQL Data Warehouse protege seus dados com armazenamento com redundância local e backups automatizados. Os Backups Automatizados fornecem uma maneira sem administradores de proteger seus bancos de dados contra danos ou exclusão acidental. No caso em que um usuário modifica ou exclui dados involuntária ou acidentalmente, você pode garantir a continuidade de negócios com a restauração do seu banco de dados para um determinado ponto anterior. O SQL Data Warehouse usa instantâneos do Armazenamento do Azure para fazer backup de seu banco de dados sem interrupções e sem a necessidade de tempo de inatividade.
+- [REST][] O Azure SQL Data Warehouse protege seus dados usando armazenamento com redundância local e backups automatizados. Os Backups Automatizados fornecem uma maneira sem administradores de proteger seus bancos de dados contra danos ou exclusão acidental. No caso em que um usuário modifica ou exclui dados involuntária ou acidentalmente, você pode garantir a continuidade de negócios com a restauração do seu banco de dados para um determinado ponto anterior. O SQL Data Warehouse usa instantâneos do Armazenamento do Azure para fazer backup de seu banco de dados sem interrupções e sem a necessidade de tempo de inatividade.
 
 ## Backups automatizados
 
 Os bancos de dados **ativos** terão o backup feito automaticamente pelo menos a cada oito horas e mantidos por sete dias. Isso permite que você restaure o banco de dados ativo para um dos vários pontos de restauração dos últimos sete dias.
 
-Quando um banco de dados é pausado, não haverá novos instantâneos e os instantâneos anteriores serão retirados depois de sete dias. Se um banco de dados estiver pausado por mais de sete dias, o último instantâneo será salvo, garantindo que você sempre tenha pelo menos um backup.
+Quando um banco de dados é pausado, os novos backups serão interrompidos e os backups anteriores serão removidos depois que completarem sete dias. Se um banco de dados for pausado por mais de sete dias, o backup mais recente será salvo, garantindo que você sempre tenha pelo menos um backup.
 
-Quando um banco de dados é descartado, o último instantâneo é salvo por sete dias.
+Quando um banco de dados for descartado, o último backup será salvo por sete dias.
 
-Execute essa consulta para ver quando o último backup foi feito em sua instância:
+Execute essa consulta no seu SQL Data Warehouse ativo para ver quando o último backup foi feito:
 
 ```sql
 select top 1 *
@@ -55,12 +53,12 @@ Restaurar um SQL Data Warehouse é uma operação simples que pode ser feita no 
 
 
 ## Próximas etapas
-Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
+Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
+[Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
 [LRS (localmente redundante)]: ../storage/storage-redundancy.md
 [Visão geral]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
@@ -72,4 +70,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

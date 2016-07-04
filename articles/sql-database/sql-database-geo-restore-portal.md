@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -41,14 +41,12 @@ Para restaurar um banco de dados no Portal do Azure, faça o seguinte:
 
 ## Próximas etapas
 
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
-- [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
-
+- Para obter as etapas detalhadas de como restaurar um Banco de Dados SQL do Azure usando o portal do Azure de um backup com redundância geográfica, confira [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md) (Restauração geográfica com o Portal do Azure)
+- Para obter informações detalhadas sobre como restaurar um Banco de Dados SQL do Azure de um backup com redundância geográfica, confira [Geo-Restore using PowerShell](sql-database-geo-restore.md) (Restauração geográfica com o PowerShell)
+- Para uma discussão completa sobre como se recuperar de uma interrupção, confira [Recover from an outage](sql-database-disaster-recovery.md) (Recuperação de uma interrupção)
 
 ## Recursos adicionais
 
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Cenários de continuidade dos negócios](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

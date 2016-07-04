@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Pontuar modelos de aprendizado de máquina criados no Spark 
@@ -120,7 +120,7 @@ Para saber mais sobre os kernels para notebooks do Jupyter e as “palavras mág
 
 Esta seção contém o código para uma série de tarefas necessárias para ingerir os dados a serem pontuados. Leia um exemplo de 0,1% associado do arquivo de corrida de táxi e tarifa (armazenado como um arquivo. tsv), formate os dados e crie um quadro de dados limpo.
 
-Os arquivos de corrida de táxi e tarifa foram associados com base no procedimento fornecido no tópico: [O processo do Cortana Analytics em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+Os arquivos de corrida de táxi e tarifa foram associados com base no procedimento fornecido no tópico: [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -385,7 +385,7 @@ O código nesta seção mostra como carregar um modelo de regressão linear do a
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -610,4 +610,4 @@ Se você preferir uma experiência de cliente gratuito de código, use os [Aplic
 
 **Validação cruzada e limpeza de hiperparâmetro**: veja [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) (Modelagem e exploração de dados avançadas com Spark) sobre como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

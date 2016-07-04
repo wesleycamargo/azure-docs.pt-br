@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="06/15/2016"
 	ms.author="bsiva"/>
 
 # Replicar entre máquinas virtuais locais do Hyper-V e o Azure usando o PowerShell e o Azure Resource Manager
@@ -82,21 +82,12 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 	Na saída desses comandos, se o **RegistrationState** estiver definido como **Registrado**, você poderá seguir para a Etapa 2. Caso contrário, você deverá registrar o provedor ausente em sua assinatura.
 
-	Para registrar o provedor do Azure para a Recuperação de Site, execute o seguinte comando:
+	Para registrar o provedor do Azure para a Recuperação de Site e os Serviços de Recuperação, execute os seguintes comandos:
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
-	Da mesma forma, se estiver usando os cmdlets dos Serviços de Recuperação pela primeira vez em sua assinatura, será necessário registrar o provedor do Azure para os Serviços de Recuperação. Antes de poder fazer isso, primeiro habilite o acesso ao provedor dos Serviços de Recuperação em sua assinatura executando o seguinte comando:
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] Após a conclusão bem-sucedida desse comando, poderá levar até uma hora para habilitar o acesso ao provedor dos Serviços de Recuperação em sua assinatura. As tentativas de registrar o provedor dos Serviços de Recuperação em sua assinatura usando o comando `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` poderão falhar durante o processo. Se isso acontecer, aguarde uma hora e tente novamente.
-
-	Depois de habilitar o acesso ao provedor dos Serviços de Recuperação em sua assinatura, registre o provedor em sua assinatura executando o seguinte comando:
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-
-	Verifique se os provedores foram registrados com êxito usando os comandos `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` e `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
+	Verifique se os provedores foram registrados com êxito usando os seguintes comandos: `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` e `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 
 
@@ -116,7 +107,7 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 	É possível recuperar uma lista de cofres existentes usando o cmdlet `Get-AzureRmRecoveryServicesVault`.
 
-> [AZURE.NOTE] Se você quiser executar operações nos cofres da Recuperação de Site criados usando o portal clássico ou o módulo do PowerShell do Gerenciamento de Serviços do Azure, você poderá recuperar uma lista de cofres desse tipo usando o cmdlet `Get-AzureRmSiteRecoveryVault`. É necessário criar um novo cofre dos Serviços de Recuperação para todas as novas operações. Há suporte para os cofres da Recuperação de Site criados anteriormente, mas eles não têm os recursos mais recentes.
+> [AZURE.NOTE] Se quiser executar operações nos cofres da Recuperação de Site criados usando o portal clássico ou o módulo do PowerShell do Gerenciamento de Serviços do Azure, você poderá recuperar uma lista de cofres desse tipo usando o cmdlet `Get-AzureRmSiteRecoveryVault`. É necessário criar um novo cofre dos Serviços de Recuperação para todas as novas operações. Há suporte para os cofres da Recuperação de Site criados anteriormente, mas eles não têm os recursos mais recentes.
 
 ## Etapa 3: Configurar o contexto do Cofre dos Serviços de Recuperação
 
@@ -266,4 +257,4 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 [Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

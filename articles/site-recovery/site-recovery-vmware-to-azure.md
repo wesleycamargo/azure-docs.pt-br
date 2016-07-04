@@ -88,7 +88,7 @@ Você vai configurar um computador local como o servidor de configuração.
 
 **Pré-requisito** | **Detalhes**
 --- | ---
-**Servidor de configuração**| Você precisa de uma máquina virtual ou computador físico local executando o Windows Server 2012 R2. Todos os componentes locais da Recuperação de Site estão instalados nesse computador.<br/><br/>Para replicação de VM VMware, recomendamos que você implante o servidor como uma VM VMware altamente disponível. Se você estiver replicando computadores físicos, então o computador poderá ser um servidor físico.<br/><br/> O failback para o site local do Azure é sempre para VMs VMware, independentemente de o failover ter sido em VMs ou em servidores físicos. Se você não implantar o servidor de configuração como uma VM VMware, será necessário configurar um servidor de destino mestre como a VM VMware para receber o tráfego de failback.<br/><br/>Se o servidor for uma VM VMware, o tipo de adaptador de rede deverá ser VMXNET3. Se usar um tipo diferente de adaptador de rede, você precisará instalar uma [atualização VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) no servidor vSphere 5.5.<br/><br/>O servidor deve ter um endereço IP estático.<br/><br/>O servidor não deve ser um Controlador de Domínio.<br/><br/>O nome do host do servidor deve ter 15 caracteres ou menos.<br/><br/>O sistema operacional deve ser somente em inglês.<br/><br/> Você precisará instalar o VMware vSphere PowerCLI 6.0. no servidor de configuração.<br/><br/>O servidor de configuração precisa de acesso à Internet. O acesso de saída é necessário conforme o seguinte:<br/><br/>acesso temporário no HTTP 80 durante a instalação dos componentes da Recuperação de Site (para baixar o MySQL)<br/><br/>Acesso contínuo de saída em HTTPS 443 para gerenciamento de replicação<br/><br/>Acesso de saída contínuo em HTTPS 9443 para tráfego de replicação (essa porta pode ser modificada)<br/><br/>O servidor também precisará de acesso às seguintes URLs para que ele possa se conectar ao Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>Se você tiver regras de firewall baseadas no endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permita os intervalos de endereços IP para a região do Azure de sua assinatura e para o Oeste dos EUA.<br/><br/>Permita esta URL para o download do MySQL: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+**Servidor de configuração**| Você precisa de uma máquina virtual ou computador físico local executando o Windows Server 2012 R2. Todos os componentes locais da Recuperação de Site estão instalados nesse computador.<br/><br/>Para replicação de VM VMware, recomendamos que você implante o servidor como uma VM VMware altamente disponível. Se você estiver replicando computadores físicos, então o computador poderá ser um servidor físico.<br/><br/> O failback para o site local do Azure é sempre para VMs VMware, independentemente de o failover ter sido em VMs ou em servidores físicos. Se você não implantar o servidor de configuração como uma VM VMware, será necessário configurar um servidor de destino mestre como a VM VMware para receber o tráfego de failback.<br/><br/>Se o servidor for uma VM VMware, o tipo de adaptador de rede deverá ser VMXNET3. Se usar um tipo diferente de adaptador de rede, você precisará instalar uma [atualização VMware](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) no servidor vSphere 5.5.<br/><br/>O servidor deve ter um endereço IP estático.<br/><br/>O servidor não deve ser um Controlador de Domínio.<br/><br/>O nome do host do servidor deve ter 15 caracteres ou menos.<br/><br/>O sistema operacional deve ser somente em inglês.<br/><br/> Você precisará instalar o VMware vSphere PowerCLI 6.0. no servidor de configuração.<br/><br/>O servidor de configuração precisa de acesso à Internet. O acesso de saída é necessário conforme o seguinte:<br/><br/>acesso temporário no HTTP 80 durante a instalação dos componentes da Recuperação de Site (para baixar o MySQL)<br/><br/>Acesso contínuo de saída em HTTPS 443 para gerenciamento de replicação<br/><br/>Acesso de saída contínuo em HTTPS 9443 para tráfego de replicação (essa porta pode ser modificada)<br/><br/>O servidor também precisará de acesso às seguintes URLs para que ele possa se conectar ao Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>Se você tiver regras de firewall baseadas no endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs de datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443).<br/><br/>Permita os intervalos de endereços IP para a região do Azure de sua assinatura e para o Oeste dos EUA.<br/><br/>Baixe o MySQL desta URL: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 ## Pré-requisitos de host do VMware vCenter/vSphere
@@ -145,10 +145,10 @@ O servidor de processo de Recuperação de Site pode descobrir automaticamente a
 1.	Certifique-se de que o computador que você está usando para o servidor de configuração esteja em conformidade com os [pré-requisitos](#configuration-server-prerequisites). Em particular, certifique-se de que o computador esteja conectado à Internet com estas configurações:
 
 	- Permitir o acesso a essas URLs: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net
-	- Permita acesso a [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) para baixar o MySQL.
-	- Permita a comunicação de firewall para o Azure com os [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).
+- Permita acesso a [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) para baixar o MySQL.
+	- Permita a comunicação de firewall para o Azure com os [intervalos de IPs do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443).
 
-2.	Baixe e instale o [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) no servidor de configuração.
+2.	Baixe e instale o [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) no servidor de configuração. (Atualmente, outras versões do PowerCLI não são compatíveis, incluindo versões R da versão 6.0.)
 
 
 ## Criar um cofre dos Serviços de Recuperação
@@ -532,10 +532,10 @@ Os instaladores estão disponíveis no servidor de processo em **C:\\Arquivos de
 
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
-Windows Server (somente 64 bits) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
+Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
 #### Instalar manualmente em um servidor Windows
@@ -834,4 +834,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

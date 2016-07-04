@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 # Conectar-se ao Banco de Dados SQL usando Node.js
@@ -38,8 +38,14 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx) (Prova de conceito, conectar-se ao SQL usando Node.js)
 
-## Recursos adicionais
+## Próximas etapas
 
-Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
+* Mais informações sobre o [Microsoft Node.js Driver para SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Recursos adicionais 
+
+* [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+
+<!---HONumber=AcomDC_0622_2016-->

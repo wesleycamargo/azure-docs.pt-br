@@ -105,13 +105,13 @@ A tabela a seguir compara a STLF e a LTLF em relação aos atributos mais import
 
 |Atributo|Previsão de Carga a Curto Prazo|Previsão de Carga a Longo Prazo|
 |---|---|---|
-|Horizonte de Previsão|De uma hora a 48 horas|De uma semana a seis meses ou mais|
+|Horizonte de Previsão|De uma hora a 48 horas|De 1 a 6 meses ou mais|
 |Granularidade de dados|Por hora|Por hora ou por dia|
 |Casos de uso típicos|<ul><li>Equilíbrio de demanda/fornecimento</li><li>Previsão de horário de pico</li><li>Resposta à demanda</li></ul>|<ul><li>Planejamento a longo prazo</li><li>Planejamento de ativos da rede</li><li>Planejamento de recursos</li></ul>|
 |Indicadores típicos|<ul><li>Dia ou semana</li><li>Hora do dia</li><li>Temperatura por hora</li></ul>|<ul><li>Mês do ano</li><li>Dia do mês</li><li>Temperatura e clima a longo prazo</li></ul>|
 |Intervalo de dados históricos|Dois a três anos de dados|Cinco a dez anos de dados|
-|Precisão típica|MAPE* de 95% ou mais|MAPE* de 75% ou mais|
-|Frequência de previsão|Produzida a cada hora ou a cada 24 horas|Produzida uma vez por semana, mensalmente ou trimestralmente|
+|Precisão típica|MAPE* de 5% ou menos|MAPE* de 25% ou menos|
+|Frequência de previsão|Produzida a cada hora ou a cada 24 horas|Produzida uma vez por mês, trimestre ou ano|
 *[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – Erro Percentual Médio
 
 Como pode ser visto nesta tabela, é muito importante distinguir entre os cenários de previsão a curto e a longo prazo, já que eles representam necessidades comerciais diferentes e podem ter padrões de implantação e de consumo diferentes.
@@ -167,8 +167,7 @@ Em muitos casos, o cliente pode estar interessado em criar uma justificativa de 
 
 Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
 
-Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria:
-![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria: ![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Como o Cortana Intelligence Suite fornece um modelo de preços pré-pagos, não é necessário incorrer em um componente de custo fixo para essa fórmula. Esta fórmula pode ser calculada de forma diária, mensal ou anual.
 
@@ -385,4 +384,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

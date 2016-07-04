@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
@@ -38,7 +38,7 @@ Há alguns detalhes importantes referentes a cada um desses itens.
 - Redes Virtuais usadas para hospedar um ASE devem ser Redes Virtuais Regionais clássicas “v1” 
 - **A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação**
 - Somente um ASE pode existir em uma sub-rede
-- Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
+- Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam *os* intervalos de endereço público *ou* espaços de endereço RFC1918 (ou seja, os endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a sub-rede antecipadamente e selecioná-la na UX de criação do ASE.
 
 Cada implantação de ASE é um serviço hospedado que o Azure gerencia e mantém. Os recursos de computação hospedando as funções de sistema ASE não podem ser acessadas pelo cliente, embora o cliente gerencie a quantidade de instâncias e seus tamanhos.
 
@@ -49,7 +49,7 @@ Se você quiser que a Rede Virtual tenha um grupo de recursos separado do ASE, p
 ### Criação Rápida ###
 A experiência de criação para um ASE não tem um conjunto de padrões para habilitar a experiência de criação rápida. Você pode criar rapidamente um ASE simplesmente inserindo um nome para a implantação. Por sua vez, isso criará um ASE na região mais próxima a você com:
 
-- Rede Virtual com 512 endereços 
+- Rede virtual com 512 endereços usando um espaço de endereço privado RFC1918
 - sub-rede com 256 endereços
 - Pool de front-end com dois recursos de computação P2
 - Pool de trabalho com dois recursos de computação P1
@@ -64,7 +64,9 @@ O nome especificado para o ASE será usado para os aplicativos Web criados no AS
 Ter os padrões será muito útil para um determinado número de situações, mas muitas vezes você precisará ajustar algo. As próximas seções percorrerão cada uma das seções de configuração relacionadas ao ASE.
 
 ### Rede Virtual ###
-Embora haja uma opção de criação rápida que cria automaticamente uma nova VNET, o recurso também oferece suporte à seleção de uma VNET existente e à criação manual de uma VNET. Você poderá selecionar uma rede virtual existente (somente redes virtuais clássicas "v1" têm suporte neste momento) se ela for grande o suficiente para dar suporte à implantação de um Ambiente do Serviço de Aplicativo. A Rede Virtual deve ter oito endereços ou mais. Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
+Embora haja uma opção de criação rápida que cria automaticamente uma nova VNET, o recurso também oferece suporte à seleção de uma VNET existente e à criação manual de uma VNET. Você poderá selecionar uma rede virtual existente (somente redes virtuais clássicas "v1" têm suporte neste momento) se ela for grande o suficiente para dar suporte à implantação de um Ambiente do Serviço de Aplicativo. A Rede Virtual deve ter oito endereços ou mais.
+
+Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam *os* intervalos de endereço público *ou* espaços de endereço RFC1918 (ou seja, os endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a sub-rede antecipadamente e selecioná-la na UX de criação do ASE.
 
 Se você selecionar uma VNET pré-existente, você também terá que especificar uma sub-rede para usar ou então criar uma nova. A sub-rede precisa ter oito endereços ou mais e não pode ter qualquer outro recurso. A criação do ASE falhará se você tentar usar uma sub-rede que já tenha VMs alocadas para ele.
 
@@ -143,6 +145,7 @@ Há dependências adicionais que não estão disponíveis para personalização,
 
 
 ## Introdução
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente de Serviço de Aplicativo][WhatisASE]
 
@@ -165,4 +168,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

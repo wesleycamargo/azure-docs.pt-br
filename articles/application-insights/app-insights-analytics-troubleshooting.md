@@ -72,9 +72,7 @@ Ocorreu um erro de autenticação (durante a autenticação ou durante a geraç�
 
     Na Lista de sites, se qualquer uma das seguintes URLs estiverem incluídas, verifique se as outras também estão:
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404 ... Recurso não encontrado
@@ -126,4 +124,4 @@ Abra [um tíquete de suporte](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

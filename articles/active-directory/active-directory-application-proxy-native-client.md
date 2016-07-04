@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
-
-> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 O Proxy de Aplicativo Active Directory do Azure é amplamente usado para publicar os aplicativos de navegador, como SharePoint, Outlook Web Access e linha personalizada de aplicativos comerciais. Ele também pode ser usado para publicar aplicativos cliente nativos, que são diferentes de aplicativos Web porque são instalados em um dispositivo. Isso é feito com suporte a tokens emitidos pelo Azure AD que são enviados em cabeçalhos HTTP Authorize padrão.
 
@@ -36,7 +34,7 @@ Configure seu aplicativo nativo da seguinte maneira:
 
 1. Entre no portal clássico do Azure.
 2. Selecione o ícone do Active Directory no menu esquerdo e selecione seu diretório.
-3. No menu superior, clique em **Aplicativos**. Se nenhum aplicativo tiver sido adicionado ao diretório, essa página mostrará apenas o link **Adicionar um Aplicativo**. Clique no link ou, se preferir, você pode clicar no botão **Adicionar**, na barra de comandos.
+3. No menu superior, clique em **Aplicativos**. Se nenhum aplicativo tiver sido adicionado ao diretório, essa página mostrará apenas o link **Adicionar um Aplicativo**. Clique no link ou, se preferir, você poderá clicar no botão **Adicionar**, na barra de comandos.
 4. Na página **O que você deseja fazer**, clique no link **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
 5. Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **Aplicativo cliente nativo**. Clique no ícone de seta para continuar.
 6. Na página **Informações do aplicativo**, forneça o **URI de redirecionamento** para o aplicativo cliente nativo e clique na marca de seleção para concluir.
@@ -48,7 +46,7 @@ O aplicativo foi adicionado e você será levado para a página Início Rápido 
 Habilite o aplicativo nativo para ser exposto a outros aplicativos no seu diretório:
 
 1. No menu superior, clique em **Aplicativos**, selecione o novo aplicativo nativo e clique em **Configurar**.
-2. Role para baixo até a seção **permissões para outros aplicativos**. Clique no botão **Adicionar aplicativo**, selecione o aplicativo de proxy ao qual você deseja conceder acesso de aplicativo nativo e clique na marca de seleção no canto inferior direito. No menu suspenso **Permissões Delegadas**, selecione a nova permissão.
+2. Role para baixo até a seção **permissões para outros aplicativos**. Clique no botão **Adicionar aplicativo**, selecione o aplicativo de proxy ao qual você deseja conceder acesso de aplicativo nativo e clique na marca de seleção no canto inferior direito. No menu suspenso **Permissões Delegadas**, escolha a nova permissão.
 
 ![Captura de tela de Permissões para outros aplicativos - adicionar aplicativo](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
 
@@ -87,6 +85,6 @@ Para saber mais sobre o fluxo do aplicativo nativo, consulte [Aplicativo nativo 
 - [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
 - [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 
-Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

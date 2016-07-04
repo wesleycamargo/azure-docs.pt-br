@@ -15,8 +15,8 @@ Se você tiver problemas para se conectar a um aplicativo, experimente as etapas
 
 - Reiniciar a máquina virtual
 - Recrie o ponto de extremidade/as regras de firewall /as regras de NSG (grupo de segurança de rede)
-	- [Gerenciar pontos de extremidade dos Serviços de Nuvem](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Gerenciar Grupos de Segurança de Rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modelo clássico: gerenciar pontos de extremidade dos Serviços de Nuvem](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modelo do Resource Manager: gerenciar Grupos de Segurança de Rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Conectar-se de um local diferente, como uma rede virtual do Azure diferente
 - Reimplantar a máquina virtual
 	- [Reimplantar VM do Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
@@ -74,8 +74,8 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - O firewall do host na VM de destino está permitindo o tráfego de solicitação de entrada e de resposta de saída.
 - O software de detecção de invasão ou de monitoramento de rede em execução na VM de destino está permitindo o tráfego.
 - Os pontos de extremidade dos Serviços de Nuvem ou os Grupos de Segurança de Rede estão permitindo o tráfego
-	- [Gerenciar pontos de extremidade dos Serviços de Nuvem](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Gerenciar Grupos de Segurança de Rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modelo clássico: gerenciar pontos de extremidade dos Serviços de Nuvem](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modelo do Resource Manager: gerenciar Grupos de Segurança de Rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Um componente separado em execução na VM, no caminho entre a VM de teste e a sua VM, como um balanceador de carga ou firewall, está permitindo o tráfego.
 
 Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segurança avançada para determinar se as regras de firewall excluem o tráfego de entrada e de saída do seu aplicativo.
@@ -90,12 +90,14 @@ Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da W
 
 Se não conseguir acessar o aplicativo, verifique o seguinte:
 
-- Para VMs criadas usando o modelo de implantação clássica, esse configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
+- Para VMs criadas com o modelo de implantação clássico:
+	- A configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
+	- Essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego vindo da Internet.
 	- Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
-- Para VMs criadas usando o modelo de implantação clássica, essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego da Internet.
-	- Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
-- Para VMs criadas usando o modelo de implantação Resource Manager, essa configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
-- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações.
+	
+- Para VMs criadas com o modelo de implantação do Resource Manager:
+	- A configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
+	- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações.
 	- Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../articles/virtual-network/virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
@@ -115,3 +117,5 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0622_2016-->

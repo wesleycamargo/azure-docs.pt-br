@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticação e Autorização do Barramento de Serviço | Microsoft Azure"
-   description="Visão geral da autenticação SAS."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Autenticação e Autorização do Barramento de Serviço | Microsoft Azure"
+    description="Visão geral da autenticação SAS."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticação e autorização do Barramento de Serviço
 
@@ -67,10 +67,10 @@ O suporte à autenticação ACS para o Barramento de Serviço está incluído no
 
 ## Próximas etapas
 
-Continue lendo [Autenticação SAS com Barramento de Serviço](service-bus-shared-access-signature-authentication.md) para obter mais detalhes sobre SAS.
+Continue lendo [Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço](service-bus-shared-access-signature-authentication.md) para obter mais detalhes sobre SAS.
 
 Para obter uma visão geral de alto nível do SAS no Barramento de Serviço, confira [Assinaturas de Acesso Compartilhado](service-bus-sas-overview.md).
 
 Você pode encontrar mais informações sobre tokens de ACS em [Como solicitar um token do ACS usando o protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

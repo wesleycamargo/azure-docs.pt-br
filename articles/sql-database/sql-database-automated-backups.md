@@ -3,7 +3,7 @@
    description="Saiba mais sobre backups internos do Banco de Dados SQL que permitem a você reverter um Banco de Dados SQL do Azure para um ponto anterior ou copiar um banco de dados para um novo banco de dados em uma região geográfica (por até 35 dias)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Visão geral: backups automatizados do Banco de Dados SQL
 
@@ -30,11 +30,20 @@ O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento m
 
 Todos os bancos de dados Basic, Standard e Premium são protegidos por backups automáticos. Os backups completos são feitos a cada semana, os backups diferenciais a cada dia e os backups de log a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente, isso é concluído em 30 minutos, mas pode demorar mais. Se um banco de dados já for grande, por exemplo, se for criado como o resultado de uma cópia ou de uma restauração de banco de dados de um banco de dados grande, então o primeiro backup completo poderá demorar mais para ser concluído. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato dos backups completos e diferenciais é determinado pelo sistema para balancear a carga total. Os arquivos de backup são armazenados em uma conta de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para garantir a disponibilidade para fins de recuperação de desastre.
 
-## Recursos adicionais
+## Próximas etapas
 
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
+- [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- [Restaurar um banco de dados excluído](sql-database-restore-deleted-database.md)
+- [Restauração pontual](sql-database-point-in-time-restore.md)
 - [Restauração geográfica](sql-database-geo-restore.md)
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Copiar um banco de dados](sql-database-copy.md)
+
+## Recursos adicionais
+
+- [Recuperação de uma interrupção](sql-database-disaster-recovery.md)
+- [Recuperar de um erro de usuário](sql-database-user-error-recovery.md)
+- [Executando a análise de recuperação de desastre](sql-database-disaster-recovery-drills.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

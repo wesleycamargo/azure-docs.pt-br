@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Desativar e excluir uma Matriz Virtual StorSimple
@@ -101,4 +101,4 @@ Conclua as etapas a seguir para excluir o dispositivo:
 
 - Para saber como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar a sua Matriz Virtual StorSimple](storsimple-ova-manager-service-administration.md). 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

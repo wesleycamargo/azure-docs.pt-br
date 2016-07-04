@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Seleção de recursos no Processo de Análise da Cortana | Microsoft Azure" 
+	pageTitle="Seleção de recursos no Processo de Ciência de Dados de Equipe | Microsoft Azure" 
 	description="Explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
 	services="machine-learning"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="zhangya;bradsev" />
 
 
-# Seleção de recursos no Processo de Análise da Cortana
+# Seleção de recursos no TDSP (Processo de Ciência de Dados de Equipe)
 
 Este tópico explica as finalidades da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure.
 
@@ -26,7 +26,7 @@ Este tópico explica as finalidades da seleção de recursos e fornece exemplos 
 
 Este tópico explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure.
 
-A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do CAP.
+A engenharia e a seleção de recursos é uma parte do processo de TDSP descrito em [What is the Team Data Science Process? (O que é o Processo de Ciência de Dados de Equipe?)](data-science-process-overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
 * **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
 * **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
@@ -74,4 +74,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/25/2016"
+    ms.date="06/22/2016"
     ms.author="adegeo"/>
 
 # Conectando funções dos Serviços de Nuvem do Azure a um controlador de domínio do AD personalizado hospedado no Azure
 
-Primeiro iremos definir a uma Rede Virtual (VNET) no Azure. Em seguida, adicionaremos um Controlador de Domínio Active Directory (hospedado em uma Máquina Virtual do Azure) à VNET. Em seguida, adicionaremos funções de serviço de nuvem existentes à VNET pré-criada e as conectaremos posteriormente ao controlador de domínio.
+Primeiro iremos definir a uma Rede Virtual (VNet) no Azure. Em seguida, adicionaremos um Controlador de Domínio do Active Directory (hospedado em uma Máquina Virtual do Azure) à VNet. Em seguida, adicionaremos funções de serviço de nuvem existentes à VNet pré-criada e as conectaremos posteriormente ao controlador de domínio.
 
 Antes de começar, algumas das coisas que você precisa ter em mente:
 
 1.	Este tutorial usa o Powershell, portanto, certifique-se de que o Powershell do Azure esteja instalado e pronto. Para obter ajuda na configuração do Powershell do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-2.	As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNET.
+2.	As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNet.
 
 Siga este guia passo a passo e, se tiver algum problema, deixe um comentário abaixo. Alguém entrará em contato com você (sim, lemos comentários).
 
@@ -95,7 +95,7 @@ Depois de fazer logon na VM, configure sua Máquina virtual como um Controlador 
 
 ## Adicionar seu Serviço de Nuvem à Rede Virtual
 
-Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNET que acabou de criar. Para fazer isso, modifique seu cscfg do serviço de nuvem adicionando as seções relevantes ao seu cscfg usando o Visual Studio ou o editor de sua escolha.
+Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNet que acabou de criar. Para fazer isso, modifique seu cscfg do serviço de nuvem adicionando as seções relevantes ao seu cscfg usando o Visual Studio ou o editor de sua escolha.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -110,7 +110,7 @@ Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNET
     </Dns>
     <!--optional-->
 
-    <!--VNET settings-->
+    <!--VNet settings-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -119,7 +119,7 @@ Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNET
         </Subnets>
         </InstanceAddress>
     </AddressAssignments>
-    <!--VNET settings-->
+    <!--VNet settings-->
 
     </NetworkConfiguration>
 </ServiceConfiguration>
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 Também gostaríamos de receber seus comentários sobre se seria útil ter uma extensão que promovesse uma máquina virtual para um controlador de domínio. Então, se você acha que seria, informe-nos na seção de comentários.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -153,14 +153,20 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 | Implantação ativa-ativa para balanceamento de carga de aplicativo | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + alteração da cadeia de conexão SQL + teste de verificação de aplicativo
 | Implantação ativa-passiva para preservação de dados | Acesso somente leitura < 5 s Acesso de leitura/gravação = zero | Acesso somente leitura = tempo de detecção de falha de conectividade + teste de verificação de aplicativo <br>Acesso de leitura/gravação = tempo para atenuar a interrupção
 
+## Próximas etapas
+
+- Para saber mais sobre como usar e configurar a Replicação Geográfica Ativa para recuperação de desastre, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastre, confira [Restauração Geográfica](sql-database-geo-restore.md)
 
 ## Recursos adicionais
 
-
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
+- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
+- [Restauração pontual](sql-database-point-in-time-restore.md)
+- [Restauração geográfica](sql-database-geo-restore.md)
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

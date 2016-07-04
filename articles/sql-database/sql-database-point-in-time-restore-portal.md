@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -45,17 +45,13 @@ Para restaurar um banco de dados no Portal do Azure, faça o seguinte:
 
 ## Próximas etapas
 
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Recuperação pontual usando a API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para obter as etapas detalhadas de como recuperar para um determinado momento usando o PowerShell, confira [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md) (Recuperação Pontual usando o PowerShell).
+- Para obter informações sobre como recuperar para um determinado momento usando a API REST, confira [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Recuperação Pontual usando a API REST).
+- Para obter uma visão geral da Recuperação Pontual, confira [Point-In-Time Restore](sql-database-point-in-time-restore.md) (Restauração Pontual).
+- Para uma discussão completa sobre como se recuperar de um erro de usuário ou aplicativo, confira [User error recovery](sql-database-user-error-recovery.md) (Recuperação de erro do usuário).
 
 ## Recursos adicionais
 
-- [Restaurar um banco de dados excluído](sql-database-restore-deleted-database.md)
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Cenários de continuidade dos negócios](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

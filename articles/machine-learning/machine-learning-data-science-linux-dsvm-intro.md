@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provisionar a Máquina Virtual de Ciência de Dados Linux 
@@ -177,7 +177,7 @@ Você tem a opção de vários editores de código. Isso inclui vi/VIM, Emacs, g
 
 **VIM** e **Emacs** são editores baseados em texto. No Emacs, instalamos um pacote complementar chamado ESS (Emacs Speaks Statistics) que facilita o trabalho com R no editor Emacs. Mais informações podem ser encontradas em: [ESS](http://ess.r-project.org/).
 
-**Eclipse** é um IDE de software livre, extensível e que dá suporte a vários idiomas. A edição para desenvolvedores de Java é a instância instalada na VM. Há plug-ins disponíveis para várias linguagens populares, os quais podem ser instalados para estender o ambiente do Eclipse. Também temos um plug-in instalado no Eclipse chamado **Kit de ferramentas do Azure para Eclipse**, que permite a você criar, desenvolver, testar e implantar com facilidade aplicativos do Azure usando o ambiente de desenvolvimento do Eclipse, o qual dá suporte a linguagens como Java. Também há um **SDK do Azure para Java** que permite o acesso a diferentes serviços do Azure de dentro de um ambiente Java. É possível encontrar mais informações sobre o Kit de ferramentas do Azure para Eclipse em [Kit de ferramentas do Azure para Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** é um IDE de software livre, extensível e que dá suporte a vários idiomas. A edição para desenvolvedores de Java é a instância instalada na VM. Há plug-ins disponíveis para várias linguagens populares, os quais podem ser instalados para estender o ambiente do Eclipse. Também temos um plug-in instalado no Eclipse chamado **Kit de ferramentas do Azure para Eclipse**, que permite a você criar, desenvolver, testar e implantar com facilidade aplicativos do Azure usando o ambiente de desenvolvimento do Eclipse, o qual dá suporte a linguagens como Java. Também há um **SDK do Azure para Java** que permite o acesso a diferentes serviços do Azure de dentro de um ambiente Java. É possível encontrar mais informações sobre o kit de ferramentas do Azure para Eclipse em [Kit de ferramentas do Azure para Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** é instalado por meio do pacote texlive, juntamente com um pacote complementar do Emacs chamado [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html), que simplifica a criação de seus documentos do LaTex no Emacs.
 
@@ -228,7 +228,7 @@ Para acessar o **Postgres**:
 ### Ferramentas do Azure 
 As ferramentas do Azure a seguir são instaladas na VM:
 
-- **Interface de Linha de Comando do Azure**: a CLI (Interface de Linha de Comando) do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas ***azure help***. Para obter mais informações, consulte a [página de documentação da CLI do Azure](../virtual-machines-command-line-tools/).
+- **Interface de Linha de Comando do Azure**: a CLI (Interface de Linha de Comando) do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas ***azure help***. Para saber mais, confira a [página de documentação da CLI do Azure](../virtual-machines-command-line-tools.md).
 - **Gerenciador do Armazenamento do Microsoft Azure**: o Gerenciador do Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar/baixar os dados de e para os blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando ***StorageExplorer***. Você precisa estar conectado de um cliente X2go ou ter a configuração do encaminhamento X11. 
 - **Bibliotecas do Azure**: a seguir estão algumas das bibliotecas que foram instaladas e estão, portanto, disponíveis para você:
 
@@ -354,7 +354,7 @@ Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerad
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

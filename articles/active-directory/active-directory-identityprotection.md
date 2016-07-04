@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -246,8 +246,8 @@ O Azure AD Identity Protection ajuda a gerenciar a mitigação e correção de u
 ![Política de risco do usuário](./media/active-directory-identityprotection/503.png "Política de risco do usuário") 
 <br>
 
-- alternar o estado de sua política: 
-<br><br> 
+- alternar o estado de sua política:
+ <br><br> 
 ![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA") 
 <br>
 
@@ -448,5 +448,6 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
  - [Fluxos do Azure Active Directory Identity Protection](active-directory-identityprotection-flows.md)
  - [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossário do Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md).
+ - [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

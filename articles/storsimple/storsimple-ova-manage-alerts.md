@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para exibir e gerenciar alertas para o StorSimple Virtual Array.
@@ -31,7 +31,7 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 
 >[AZURE.NOTE] Você pode inserir um máximo de 20 endereços de email por dispositivo virtual.
 
-Depois de habilitar a notificação por email para um dispositivo virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por *storsimple-alerts-noreply@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para um dispositivo virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas por **storsimple-alerts-noreply@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
 
 #### Para habilitar a notificação por email de alertas para um dispositivo virtual
 
@@ -45,7 +45,7 @@ Depois de habilitar a notificação por email para um dispositivo virtual, os me
 
     2. No campo **Administradores do serviços de email**, selecione **SIM** se desejar que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
 
-    3. No campo **Outros destinatários de email**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato *someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
+    3. No campo **Outros destinatários de email**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira os nomes no formato **someone@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
 
         ![configuração da notificação de alertas](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -109,7 +109,7 @@ Alguns eventos serão removidos pelo sistema se outro evento for disparado com n
 
 ## Classificação e análise de alertas
 
-Talvez seja mais eficiente executar relatórios sobre alertas, para que você possa analisá-los e limpá-los em grupos. Além disso, a guia **Alertas** pode exibir até 250 alertas. Se você excedeu o número de alertas, nem todos os alertas serão exibidos no modo de exibição padrão. Você pode combinar os campos a seguir para personalizar quais alertas são exibidos:
+A guia **Alertas** pode exibir até 250 alertas. Se você excedeu o número de alertas, nem todos os alertas serão exibidos no modo de exibição padrão. Você pode combinar os campos a seguir para personalizar quais alertas são exibidos:
 
 - **Status**– Você pode exibir alertas **Ativos** ou **Removidos**. Alertas ativos ainda estão sendo disparados em seu sistema, embora os alertas removidos tenham sido limpos manualmente por um administrador ou por meio de programação porque o sistema atualizou a condição de alerta com novas informações.
 
@@ -182,4 +182,4 @@ As tabelas a seguir listam alguns dos alertas do Microsoft Azure StorSimple que 
 
 - [Saiba mais sobre o StorSimple Virtual Array](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

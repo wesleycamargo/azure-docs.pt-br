@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # Exibições do sistema
@@ -128,7 +128,7 @@
 
 ## DMVs do SQL Server disponíveis no SQL Data Warehouse
 
-O SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server (DMVs). Essas exibições, quando consultadas no SQL Data Warehouse, estão comunicando o estado do Banco de dados SQL em execução nas distribuições.
+O SQL Data Warehouse expõe muitas das exibições de gerenciamento dinâmico do SQL Server (DMVs). Essas exibições, quando consultadas no SQL Data Warehouse, estão comunicando o estado dos Bancos de Dados SQL em execução nas distribuições.
 
 Como o SQL Data Warehouse se baseia na tecnologia do MPP da Microsoft, o SQL Data Warehouse e o Parallel Data Warehouse (PDW do sistema de plataforma de análise) usam as mesmas exibições do sistema.
 
@@ -236,4 +236,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

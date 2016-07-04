@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Análise com o Application Insights" 
+	pageTitle="Análise com o Application Insights | Microsoft Azure" 
 	description="Análise de dispositivo e aplicativo Web. Acompanhe o uso e desempenho de seu aplicativo Web online. Detecte, faça triagem e diagnostique problemas. Monitore e melhore continuamente o sucesso com seus usuários." 
 	services="application-insights" 
     documentationCenter=""
@@ -128,6 +128,7 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
 ## Vídeos
 
+[![Introdução animada](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -157,4 +158,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

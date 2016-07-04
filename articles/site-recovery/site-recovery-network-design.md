@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/08/2016"
+	ms.date="06/21/2016"
 	ms.author="pratshar"/>
 
 #  Criando sua infraestrutura de rede para a recuperação de desastres
@@ -179,4 +179,4 @@ A postagem [ Configuração da Infraestrutura de Rede como um Site de Recuperaç
 
 [Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e de destino quando um servidor VMM está sendo usado para gerenciar o site primário.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

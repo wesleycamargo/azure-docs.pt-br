@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;bradsev" />
 
 # Mover dados para o SQL Server em uma máquina virtual do Azure
 
-Neste tópico, são descritas as opções para a movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de um SQL Server local para o SQL Server em uma máquina virtual do Azure. Essas tarefas para mover dados para a nuvem fazem parte do Processo de Análise do Cortana fornecido pelo Azure.
+Neste tópico, são descritas as opções para a movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de um SQL Server local para o SQL Server em uma máquina virtual do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
 
 Para um tópico que descreve as opções para movimentação de dados para um Banco de Dados SQL do Azure para Aprendizado de máquina, consulte [Mover dados para um banco de dados do SQL Azure para Aprendizado de máquina do Azure](machine-learning-data-science-move-sql-azure.md).
 
-O **menu** abaixo leva a tópicos que descrevem como ingerir dados em outros ambientes de destino nos quais os dados podem ser armazenados e processados durante o CAPS (Processo do Cortana Analytics).
+O **menu** abaixo vincula-se a tópicos que descrevem a inclusão de dados em outros ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
 
 [AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
@@ -224,4 +224,4 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

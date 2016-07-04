@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/31/2016"
+   ms.date="06/21/2016"
    ms.author="vturecek;mikhegn"/>
 
 # Depurar seu aplicativo do Service Fabric usando o Visual Studio
@@ -146,4 +146,4 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

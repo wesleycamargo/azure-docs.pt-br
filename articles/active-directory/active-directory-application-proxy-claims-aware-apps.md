@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 
 # Trabalhando com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
-
-> [AZURE.IMPORTANT] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Aplicativos com reconhecimento de declarações executam um redirecionamento para o STS (Serviço de Token de Segurança), que por sua vez solicita as credenciais do usuário em troca de um token antes de redirecionar o usuário para o aplicativo. Para habilitar o Proxy de aplicativo a trabalhar com esses redirecionamentos, as etapas a seguir precisam ser executadas.
 
@@ -39,7 +37,7 @@ Antes de executar este procedimento, certifique-se de que o STS para o qual o ap
 
 1. Abra o Gerenciamento de ADFS.
 2. Acesse a guia **Objetos de Confiança de Terceira Parte Confiável**, clique com o botão direito do mouse no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**. ![Objeto de confiança de terceira parte confiável, clique com o botão direito do mouse no nome do aplicativo - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
-3. Na guia **Pontos de Extremidade**, em **Tipo de Ponto de Extremidade**, selecione **Web Services Federation**.
+3. Na guia **Pontos de Extremidade**, em **Tipo de Ponto de Extremidade**, selecione **WS-Federation**.
 4. Em **URL Confiável**, insira a URL que você inseriu no Proxy de Aplicativo em **URL Externa** e clique em **OK**. ![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## Consulte também
@@ -49,6 +47,6 @@ Antes de executar este procedimento, certifique-se de que o STS para o qual o ap
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 - [Habilitar aplicativos clientes nativos para interagir com aplicativos de proxy](active-directory-application-proxy-native-client.md)
 
-Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

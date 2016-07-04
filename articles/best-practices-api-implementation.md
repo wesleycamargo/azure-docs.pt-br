@@ -958,7 +958,7 @@ A mesma API da Web pode ser utilizada por muitos aplicativos cliente em execuç�
 
 	Se você prefere implementar notificações, as opções disponíveis incluem:
 
-	- Usar um Hub de Notificação do Azure para enviar respostas assíncronas para aplicativos cliente. A página [Notificação de Usuários nos Hubs de Notificação do Azure](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) no site da Microsoft fornece mais detalhes.
+	- Usar um Hub de Notificação do Azure para enviar respostas assíncronas para aplicativos cliente. A página [Notificação de Usuários nos Hubs de Notificação do Azure](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) no site da Microsoft fornece mais detalhes.
 
 	- Usar o modelo Comet para manter uma conexão de rede persistente entre o cliente e o servidor que hospeda a API da Web, e usar essa conexão para enviar mensagens do servidor por push de volta para o cliente. O artigo da revista MSDN [Criando um Aplicativo Comet Simples no Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) descreve um exemplo de solução.
 
@@ -1143,7 +1143,7 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - Para obter informações detalhadas sobre o tratamento de exceções de HTTP com a API Web ASP.NET, visite a página [Tratamento de Exceções em API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling) no site da Microsoft.
 - O artigo [Tratamento Global de Erros de API da Web](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) no site da Microsoft descreve como implementar uma estratégia global de tratamento e registro de erros para uma API da web.
 - A página [Executar tarefas em segundo plano com WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md), no site da Microsoft, fornece informações e exemplos sobre como usar os WebJobs para realizar operações em segundo plano em um site do Azure.
-- A página [Notificação de Usuários nos Hubs de Notificação do Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md), no site da Microsoft, mostra como você pode usar um Hub de notificação do Azure para enviar respostas assíncronas a aplicativos cliente.
+- A página [Notificação de Usuários nos Hubs de Notificação do Azure](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md), no site da Microsoft, mostra como você pode usar um Hub de notificação do Azure para enviar respostas assíncronas a aplicativos cliente.
 - A página [Gerenciamento de API](https://azure.microsoft.com/services/api-management/) no site da Microsoft descreve como publicar um produto que fornece acesso controlado e seguro a uma API da Web.
 - A página [Referência de API REST de Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) no site da Microsoft descreve como usar a API REST de Gerenciamento de API para criar aplicativos de gerenciamento personalizados.
 - A página [Métodos de roteamento do Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-routing-methods.md), no site da Microsoft, resume como o Gerenciador de Tráfego do Azure pode ser usado para realizar o balanceamento de carga de solicitações entre várias instâncias de um site que hospeda uma API da Web.
@@ -1151,4 +1151,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

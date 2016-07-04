@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Explorar dados na Máquina Virtual do SQL Server no Azure
@@ -71,8 +71,8 @@ Agora, você pode trabalhar com o quadro de dados Pandas conforme abordado nos t
 
 ## Processo de Análise do Cortana no exemplo de ação
 
-Para obter um exemplo passo a passo completo do Processo de Análise do Cortana usando um conjunto de dados público, consulte [O Processo de Análise do Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo completo do Processo do Cortana Analytics usando um conjunto de dados público, confira [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

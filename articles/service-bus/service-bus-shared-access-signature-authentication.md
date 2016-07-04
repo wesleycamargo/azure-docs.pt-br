@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticação de Assinatura de Acesso Compartilhado com o Barramento de Serviço | Microsoft Azure"
-   description="Detalhes sobre a autenticação SAS com o Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Autenticação de Assinatura de Acesso Compartilhado com o Barramento de Serviço | Microsoft Azure"
+    description="Detalhes sobre a autenticação SAS com o Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticação de assinatura de acesso compartilhado com Barramento de serviço
 
@@ -25,7 +25,7 @@ O suporte à autenticação SAS está incluído no SDK do Azure versão 2.0 e po
 
 A autenticação SAS no Barramento de Serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do Barramento de Serviço. Os clientes solicitam acesso aos recursos do Barramento de Serviço ao apresentarem um token SAS. Esse token consiste no URI do recurso sendo acessado e uma expiração assinada com a chave configurada.
 
-Você pode configurar as regras de autorização da Assinatura de Acesso Compartilhado em [retransmissões](service-bus-fundamentals-hybrid-solutions.md#relays), [filas](service-bus-fundamentals-hybrid-solutions.md#queues), [tópicos](service-bus-fundamentals-hybrid-solutions.md#topics) e [Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/) do Barramento de Serviço.
+Você pode configurar as regras de autorização da Assinatura de Acesso Compartilhado em [retransmissões](service-bus-fundamentals-hybrid-solutions.md#relays), [filas](service-bus-fundamentals-hybrid-solutions.md#queues), [tópicos](service-bus-fundamentals-hybrid-solutions.md#topics) e [Hubs de Eventos](service-bus-fundamentals-hybrid-solutions.md#event-hubs) do Barramento de Serviço.
 
 A autenticação SAS utiliza os seguintes elementos:
 
@@ -35,7 +35,7 @@ A autenticação SAS utiliza os seguintes elementos:
 
 ## Configuração da autenticação de Assinatura de Acesso Compartilhado
 
-Você pode configurar a regra [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) em namespaces, filas ou tópicos do Barramento de Serviço. A configuração de um [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) em uma assinatura do Barramento de Serviço não tem suporte no momento, mas você pode usar regras configuradas em um namespace ou em um tópico para proteger o acesso a assinaturas. Para obter um exemplo funcional que ilustre este procedimento, confira o exemplo [Usando a autenticação de Assinatura de Acesso Compartilhado (SAS) com assinaturas do Barramento de Serviço](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
+Você pode configurar a regra [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) em namespaces, filas ou tópicos do Barramento de Serviço. A configuração de um [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) em uma assinatura do Barramento de Serviço não tem suporte no momento, mas você pode usar regras configuradas em um namespace ou em um tópico para proteger o acesso a assinaturas. Para obter um exemplo funcional que ilustre este procedimento, confira o exemplo [Usando a autenticação de Assinatura de Acesso Compartilhado (SAS) com assinaturas do Barramento de Serviço](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 Você pode configurar até 12 dessas regras em um namespace, fila ou tópico do Barramento de Serviço. As regras configuradas em um namespace do Barramento de Serviço se aplicam a todas as entidades nesse namespace.
 
@@ -52,7 +52,7 @@ Os parâmetros de chave de uma [SharedAccessAuthorizationRule](https://msdn.micr
 |*SecondaryKey*|Uma chave secundária de 256 bits codificada em base64 para assinatura e validação do token SAS.|
 |*AccessRights*|Uma lista de direitos de acesso concedidos pela regra de autorização. Esses direitos podem ser qualquer coleção de direitos Escutar, Enviar e Gerenciar.|
 
-Quando um namespace do Barramento de Serviço é provisionado, uma [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) com [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) definido como **RootManageSharedAccessKey** é criada por padrão. Dois objetos [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) padrão também são configurados para hubs de notificação: um com os direitos Escutar, Enviar e Gerenciar e outro somente com os direitos Escutar.
+Quando um namespace do Barramento de Serviço é provisionado, uma [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) com [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) definido como **RootManageSharedAccessKey** é criada por padrão.
 
 ## Regenerar e revogar as chaves para as regras de Autorização de Acesso Compartilhado
 
@@ -94,7 +94,7 @@ Para um exemplo funcional completo de um aplicativo do Barramento de Serviço qu
 
 ## Acessar regras de autorização de Acesso Compartilhado em um namespace
 
-As operações na raiz do namespace do Barramento de Serviço exigem a autenticação de certificado. Você deve carregar um certificado de gerenciamento da sua assinatura do Azure. Para carregar um certificado de gerenciamento, clique em **Configurações** no painel esquerdo do [portal clássico do Azure][]. Para saber mais sobre certificados de gerenciamento do Azure, confira [Visão geral dos certificados do Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+As operações na raiz do namespace do Barramento de Serviço exigem a autenticação de certificado. Você deve carregar um certificado de gerenciamento da sua assinatura do Azure. Para carregar um certificado de gerenciamento, clique em **Configurações** no painel esquerdo do [portal clássico do Azure][]. Para saber mais sobre certificados de gerenciamento do Azure, confira [Visão geral sobre certificados do Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 O ponto de extremidade para acessar regras de autorização de acesso compartilhado em um namespace do Barramento de Serviço é o seguinte:
 
@@ -258,4 +258,4 @@ Confira [Autenticação e autorização do Barramento de Serviço](service-bus-a
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

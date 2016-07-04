@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,11 +49,10 @@
 
 ## Próximas etapas
 
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Restaurar um banco de dados excluído](sql-database-restore-deleted-database.md)
-- [Restaurar um banco de dados excluído usando o Portal do Azure](sql-database-restore-deleted-database-portal.md)
-- [Restaurar um banco de dados excluído usando a API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para obter as etapas detalhadas de como restaurar um banco de dados excluído usando o Portal do Azure, confira [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md) (Restaurar um banco de dados excluído usando o Portal do Azure).
+- Para obter informações sobre como restaurar um banco de dados excluído, confira [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Restaurar um banco de dados excluído usando a API REST).
+- Para obter informações detalhadas sobre como restaurar um banco de dados excluído, confira [Restore a deleted database](sql-database-restore-deleted-database.md) (Restaurar um banco de dados excluído)
+- Para obter informações detalhadas sobre os backups automatizados do Banco de Dados SQL do Azure, confira [SQL Database automated backups](sql-database-automated-backups.md) (Backups automáticos do Banco de Dados SQL).
 
 ## Recursos adicionais
 
@@ -63,4 +62,4 @@
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

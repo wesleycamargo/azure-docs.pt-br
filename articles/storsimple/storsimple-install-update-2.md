@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/21/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 2 no dispositivo StorSimple
@@ -91,4 +91,4 @@ Realize as etapas a seguir para aplicar essa atualização como um hotfix.
 
 Saiba mais sobre a [versão da Atualização 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->
