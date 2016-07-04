@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) no Azure com o Microsoft HPC Pack
@@ -31,18 +31,12 @@ Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de
 
 * (Marketplace) [Cluster HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 
-* (Início rápido) [Criar um cluster HPC Pack com nós de computação do Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-
-### Imagens de VM do Azure
-
-* [HPC Pack no Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-
+* (Início rápido) [Criar um cluster HPC Pack com nós de computação do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
 
 ### Script de implantação do PowerShell
 
-* [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
+* [Criar um cluster Linux HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
 
 ### Tutoriais
 
@@ -65,4 +59,4 @@ Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de
 
 * [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

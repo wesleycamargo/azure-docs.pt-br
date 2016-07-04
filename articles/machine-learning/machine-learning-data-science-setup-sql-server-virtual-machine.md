@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
@@ -233,7 +233,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 1.  No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
@@ -251,7 +251,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 ##<a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Aprendizado de Máquina do Azure
 
-Nos estágios posteriores do Processo da Cortana Analytics, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para compilar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Este tópico é abordado em mais detalhes por meio dos links de guia do Processo da Cortana Analytics. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
+Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para criar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo **Importar Dados** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Esse tópico é abordado mais detalhadamente por meio dos links de guia do Processo de Ciência de Dados de Equipe. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
 
 2.	No painel **Propriedades** do [módulo Importar Dados](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
 
@@ -285,9 +285,9 @@ A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a 
 
 ## A sua VM SQL Server do Azure está pronta para uso: o que vem a seguir?
 
-Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados e outras tarefas em conjunto com o Aprendizado de Máquina do Azure e Processo de Análise do Cortana (CAP).
+Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados, bem como para outras tarefas em conjunto com o Aprendizado de Máquina do Azure e o TDSP (Processo de Ciência de Dados de Equipe).
 
-As próximas etapas no processo de ciência de dados estão mapeados no [Guia de aprendizado: processamento de dados avançado no Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
+As próximas etapas no processo de ciência de dados são mapeadas no [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movem dados para o HDInsight, que os processam e que obtêm amostras deles como parte da preparação para o aprendizado com base nos dados com o Aprendizado de Máquina do Azure.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -306,4 +306,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

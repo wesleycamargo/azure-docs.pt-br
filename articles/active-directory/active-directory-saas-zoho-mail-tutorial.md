@@ -2,16 +2,16 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Zoho Mail | Microsoft Azure" 
     description="Saiba como usar o Zoho Mail com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
+    ms.date="06/20/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zoho Mail
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Zoho Mail, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zoho-mail-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Zoho Mail**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Zoho Mail**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configurar o logon único")
 
@@ -78,9 +78,14 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada no Zoho Mail**, digite a URL usando o padrão "**http://company.ZohoMail.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configurar a URL do Aplicativo")
+
+	a. Na caixa de texto **URL de Logon do ZohoMail**, digite sua URL usando o seguinte padrão: `http://<company name>.ZohoMail.com`
+
+	b. Clique em **Próximo**.
+
 
 4.  Na página **Configurar logon único no Zoho Mail**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
@@ -100,18 +105,18 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Detalhes da Autenticação do SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "Detalhes da Autenticação do SAML")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
-    4.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Zoho Mail**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
+    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **PublicKey**.
     6.  Para **Algoritmo**, selecione **RSA**.
     7.  Clique em **OK**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configurar o logon único")
 
@@ -136,9 +141,9 @@ Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles de
     1.  Digite o **Nome**, **Sobrenome**, **ID do Email** e **Senha** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **OK**.  
 
-        >[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+        >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Zoho Mail ou APIs fornecidas pelo Zoho Mail para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Zoho Mail ou APIs fornecidas pelo Zoho Mail para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -146,7 +151,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Zoho Mail, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Zoho Mail**, clique em **Atribuir usuários**.
 
@@ -158,4 +163,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

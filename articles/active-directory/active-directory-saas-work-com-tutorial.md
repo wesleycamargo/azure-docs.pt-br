@@ -2,22 +2,21 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Work.com | Microsoft Azure" 
     description="Saiba como usar o Work.com com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Work.com
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Work.com.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Work.com. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Work.com com logon único habilitado
@@ -39,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Work.com, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-work-com-tutorial/IC700993.png "Active Directory")
 
@@ -67,10 +66,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML.  
-Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML. Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
 
->[AZURE.NOTE]Para configurar o logon único, você ainda precisa definir um nome de domínio personalizado Work.com. Você precisa definir pelo menos um nome de domínio, testá-lo e implantá-lo em toda a sua organização.
+>[AZURE.NOTE] Para configurar o logon único, você ainda precisa definir um nome de domínio personalizado Work.com. Você precisa definir pelo menos um nome de domínio, testá-lo e implantá-lo em toda a sua organização.
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -88,7 +86,7 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     ![Domínio implantado para o usuário](./media/active-directory-saas-work-com-tutorial/IC784377.png "Domínio implantado para o usuário")
 
-5.  Em uma janela de navegador da Web diferente, faça logon no seu portal do Azure.
+5.  Em uma janela de navegador da Web diferente, faça logon no portal clássico do Azure.
 
 6.  Na página de integração de aplicativos do **Work.com**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
@@ -98,7 +96,7 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar o logon único")
 
-8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ *http://company.my.salesforce.com*”) e clique em **Avançar**:
+8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ **http://company.my.salesforce.com*”)) e clique em **Avançar**:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo")
 
@@ -129,19 +127,19 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.  
 
-        >[AZURE.NOTE]Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
+        >[AZURE.NOTE] Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
 
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
+    2.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Para carregar o certificado baixado, clique em **Procurar**.
-    4.  Na caixa de texto **ID de Entidade**, digite **https://salesforce-work.com**.
-    5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
+    4.  Na caixa de texto **ID de Entidade**, digite ****https://salesforce-work.com**.
+5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
-    7.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
-    8.  No portal do Azure, na página do diálogo **Configurar logon único no Work.com**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
+    7.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
+    8.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
     9.  Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**.
     10. Clique em **Salvar**.
 
-15. No painel de navegação à esquerda, no seu portal do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**.
+15. No painel de navegação à esquerda, no portal clássico do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**.
 
     ![Meu Domínio](./media/active-directory-saas-work-com-tutorial/IC794115.png "Meu Domínio")
 
@@ -153,14 +151,13 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     ![Identidade visual da página de logon](./media/active-directory-saas-work-com-tutorial/IC784366.png "Identidade visual da página de logon")
 
-18. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+18. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configurar o logon único")
 
 ##Configurando o provisionamento de usuários
   
-Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com.  
-No caso do Work.com, o provisionamento é uma tarefa manual.
+Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com. No caso do Work.com, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
@@ -186,9 +183,9 @@ No caso do Work.com, o provisionamento é uma tarefa manual.
     2.  Selecione **Função**, **Licença de Usuário** e **Perfil**.
     3.  Clique em **Salvar**.  
 
-        >[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa.
+        >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Work.com ou APIs fornecidas pelo Work.com para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Work.com ou APIs fornecidas pelo Work.com para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -196,7 +193,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Work.com, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do Work.com, clique em **Atribuir usuários**.
 
@@ -210,4 +207,4 @@ Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

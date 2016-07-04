@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -105,11 +105,13 @@ Na lista de banco de dados da folha **Utilização de Recursos do Banco de Dados
 
 Você pode adicionar regras a recursos que enviam emails para as pessoas ou cadeias de caracteres de alerta para pontos de extremidade da URL quando o recurso atingir o limite de utilização que você configurou.
 
+> [AZURE.IMPORTANT]O monitoramento de utilização de recursos para Pools Elásticos tem um atraso de pelo menos 20 minutos. No momento, não é permitido definir alertas de menos de 30 minutos para Pools Elásticos. Todos os alertas definidos para Pools Elásticos com um período (parâmetro chamado "-WindowSize" na API do PowerShell) de menos de 30 minutos não podem ser disparados. Verifique se todos os alertas que você define para Pools Elásticos usam um período (WindowSize) de 30 minutos ou mais.
+
 **Para adicionar um alerta a qualquer recurso:**
 
-1. Clique no gráfico **Utilização de recursos** para abrir a folha **Métrica**, clique em **Adicionar alerta** e preencha as informações na folha **Adicionar uma regra de alerta** (**Recurso** é configurado automaticamente para ser o pool com que você está trabalhando).
-2. Digite um **Nome** e **Descrição** que identifiquem o alerta para você e os destinatários.
-3. Escolha na lista uma **Métrica** segundo a qual deseja gerar o alerta.
+1. Clique no gráfico **Utilização de recursos** para abrir a folha **Métrica**, clique em **Adicionar alerta** e preencha as informações na folha **Adicionar uma regra de alerta** (**Recurso** é configurado automaticamente para ser o pool com o qual você está trabalhando).
+2. Digite um **Nome** e uma **Descrição** que identifiquem o alerta para você e os destinatários.
+3. Escolha na lista uma **Métrica** para a qual deseja o alerta.
 
     O gráfico mostra dinamicamente a utilização de recursos para a métrica para ajudá-lo a escolher um limite.
 
@@ -131,7 +133,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 	![Clique em Adicionar ao pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
 	
-3. Na folha **Adicionar bancos de dados**, selecione o banco de dados ou os bancos de dados para adicionar ao pool. Em seguida, clique em **Selecionar**.
+3. Na folha **Adicionar bancos de dados**, escolha os bancos de dados para adicionar ao pool. Em seguida, clique em **Selecionar**.
 
 	![Selecione os bancos de dados a serem adicionados](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
@@ -145,7 +147,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
 ## Remover um banco de dados de um pool elástico
 
-1. Na folha **Configurar pool**, selecione os bancos de dados a serem removidos.
+1. Na folha **Configurar pool**, escolha os bancos de dados a serem removidos.
 
     ![lista de bancos de dados](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
@@ -153,7 +155,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
     ![lista de bancos de dados](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
-    Agora, a folha **Configurar pool** lista o banco de dados que você selecionou para remoção, com o status definido como **Pendente**.
+    Agora, a folha **Configurar pool** lista o banco de dados que você escolheu para remoção, com o status definido como **Pendente**.
     
     ![visualização de adição ou remoção de banco de dados](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
@@ -163,7 +165,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
 ## Alterar as configurações de desempenho de um pool
 
-À medida que você monitora a utilização de recursos de um pool, poderá descobrir que alguns ajustes são necessários. Talvez o pool precise de uma alteração nos limites de armazenamento ou de desempenho. Pode ser útil alterar as configurações de banco de dados no pool. Você pode alterar a configuração do pool a qualquer momento para obter o melhor equilíbrio entre desempenho e custo. Para obter mais informações, consulte [Quando um Pool de Banco de Dados Elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
+À medida que você monitora a utilização de recursos de um pool, poderá descobrir que alguns ajustes são necessários. Talvez o pool precise de uma alteração nos limites de armazenamento ou de desempenho. Pode ser útil alterar as configurações de banco de dados no pool. Você pode alterar a configuração do pool a qualquer momento para obter o melhor equilíbrio entre desempenho e custo. Confira [Quando um pool de banco de dados elástico deve ser usado?](sql-database-elastic-pool-guidance.md) para saber mais.
 
 **Para alterar as eDTUs ou os limites de armazenamento por pool e as eDTUs por banco de dados:**
 
@@ -187,7 +189,7 @@ Trabalhos elásticos facilitam a execução de scripts Transact-SQL em qualquer 
 
 Antes de usar os trabalhos, instale os componentes de trabalhos elásticos e forneça suas credenciais. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 
-Consulte [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use as ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados e consultar ou criar transações.
+Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
 
 
 
@@ -211,4 +213,4 @@ Consulte [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-datab
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

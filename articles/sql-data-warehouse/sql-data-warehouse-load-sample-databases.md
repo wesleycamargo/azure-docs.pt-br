@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carregar dados de amostra no SQL Data Warehouse
 
-Depois de ter [criado uma instância do banco de dados do SQL Data Warehouse][create a SQL Data Warehouse database instance], a próxima etapa será criar e carregar algumas tabelas. Você pode usar os scripts de exemplo Adventure Works que criamos para o SQL Data Warehouse para criar e carregar tabelas para a empresa fictícia chamada Adventure Works. Esses scripts usam o sqlcmd para executar o SQL e o bcp para carregar os dados. Se você ainda não tiver essas ferramentas instaladas, siga estes links para [instalar o bcp][] e [instalar o sqlcmd][].
+Siga estas etapas simples para carregar e consultar o banco de dados de exemplo da Adventure Works. Esses scripts usam sqlcmd para executar SQL, criando tabelas e exibições. Depois que as tabelas tiverem sido criadas, os scripts usarão bcp para carregar os dados. Se você ainda não tiver o sqlcmd e o bcp instalados, siga estes links para [instalar o bcp][] e [instalar o sqlcmd][].
 
-Siga estas etapas simples para carregar o banco de dados de exemplo da Adventure Works para o SQL DW...
+##Carregar dados de exemplo
 
-1. Baixe os [Scripts de Exemplo da Adventure Works para o SQL Data Warehouse][].
+1. Baixe o arquivo zip de [Scripts de exemplo da Adventure Works para o SQL Data Warehouse][].
 
 2. Extraia os arquivos do zip baixado em um diretório no computador local.
 
@@ -43,7 +43,7 @@ Siga estas etapas simples para carregar o banco de dados de exemplo da Adventure
 	* Coletará estatísticas sobre cada coluna para cada tabela da Adventure Works
 
 
-##Consultará os dados de exemplo
+##Consultar dados de exemplo
 
 Agora que você carregou alguns dados de exemplo no SQL Data Warehouse, poderá executar rapidamente algumas consultas. Para executar uma consulta, conecte-se ao banco de dados da Adventure Works recém-criado no SQL DW do Azure usando o Visual Studio e o SSDT, conforme descrito no documento para [conectar][].
 
@@ -85,11 +85,10 @@ Agora que você teve a oportunidade de experimentar algumas consultas com dados 
 [carregar]: ./sql-data-warehouse-overview-load.md
 [conectar]: ./sql-data-warehouse-get-started-connect.md
 [migrar o código]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [instalar o bcp]: ./sql-data-warehouse-load-with-bcp.md
 [instalar o sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[Scripts de Exemplo da Adventure Works para o SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
+[Scripts de exemplo da Adventure Works para o SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

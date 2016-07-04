@@ -171,7 +171,7 @@ Depois que o Gerador de Dados é iniciado, o pipeline começa a obter os hidrata
 
 1. Verificar os dados do Armazenamento de Blobs do Azure
 
-	Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente **Armazenamento de Blobs do Azure** de sua solução na tela na qual você implantou a solução com êxito, e clicar em **Abrir** no painel direito, você será levado ao [Portal de gerenciamento do Azure](https://portal.azure.com). No portal, clique em **Blobs**. No painel seguinte, você verá uma lista de Contêineres. Clique em **"energysadata"**. No painel seguinte, você verá a pasta **"demandongoing"**. Dentro da pasta rawdata, você verá pastas com nomes como date=2016-01-28 etc. Caso você visualize essas pastas, isso indica que os dados brutos estão sendo gerados com êxito no computador e armazenados no armazenamento de blobs. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
+	Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente **Armazenamento de Blobs do Azure ** de sua solução na tela na qual você implantou a solução com êxito, e clicar em **Abrir** no painel direito, você será levado ao [Portal de gerenciamento do Azure](https://portal.azure.com). No portal, clique em **Blobs**. No painel seguinte, você verá uma lista de Contêineres. Clique em **"energysadata"**. No painel seguinte, você verá a pasta **"demandongoing"**. Dentro da pasta rawdata, você verá pastas com nomes como date=2016-01-28 etc. Caso você visualize essas pastas, isso indica que os dados brutos estão sendo gerados com êxito no computador e armazenados no armazenamento de blobs. Você deverá ver arquivos com tamanhos finitos em MB nessas pastas.
 
 2. Verifique os dados do Banco de Dados SQL do Azure.
 
@@ -294,4 +294,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 ## **Confirmações**
 Este artigo foi escrito pelo cientista de dados Yijing Chen e pelo engenheiro de software Qiu Min da Microsoft.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

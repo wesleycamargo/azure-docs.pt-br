@@ -77,7 +77,7 @@ Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 
 	c. O número mínimo de VMs para o tipo de nó primário é determinado pela camada de confiabilidade que você escolhe. O padrão para a camada de confiabilidade é Prata. Leia mais no documento sobre como [escolher a durabilidade e a confiabilidade do cluster do Service Fabric](service-fabric-cluster-capacity.md).
 
-	c. Escolha o número de VMs para o tipo de nó. Você pode expandir ou reduzir o número de VMs em um tipo de nó posteriormente, mas no tipo de nó primário, o mínimo é determinado pelo nível de confiabilidade que você escolheu. Outros tipos de nó podem ter um mínimo de uma VM.
+	c. Escolha o número de VMs para o tipo de nó. Você pode escalar ou reduzir verticalmente o número de VMs em um tipo de nó posteriormente, mas no tipo de nó primário, o mínimo é determinado pelo nível de confiabilidade que você escolheu. Os outros tipos de nó podem ter um mínimo de 1 VM.
 
 
   	![Captura de tela de criação de um tipo de nó.][CreateNodeType]
@@ -225,4 +225,4 @@ Depois de criar um cluster, saiba mais sobre como protegê-lo e implantar aplica
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

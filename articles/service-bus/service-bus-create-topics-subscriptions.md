@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço
@@ -47,7 +47,7 @@ Com essa configuração, cada mensagem dos terminais de PDV será disponibilizad
 
 ## Mostrar-me o código
 
-[Criar aplicativos que usem filas do Barramento de Serviço](service-bus-create-queues.md) descreve como se inscrever em uma conta do Barramento de Serviço e criar um namespace de serviço. Para usar o namespace do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. A maneira mais fácil de referenciar as dependências do Barramento de Serviço é instalar o [pacote Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) do Barramento de Serviço. Você também pode encontrar o assembly como parte do SDK do Azure. O download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/).
+[Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) descreve como se inscrever em uma conta do Azure e criar um namespace de serviço. Para usar o namespace do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. A maneira mais fácil de referenciar as dependências do Barramento de Serviço é instalar o [pacote Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) do Barramento de Serviço. Você também pode encontrar o assembly como parte do SDK do Azure. O download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/).
 
 ### Criar o tópico e as assinaturas
 
@@ -150,4 +150,4 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 
 Consulte [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) para informações sobre como usar as filas no cenário de varejo de PDV.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

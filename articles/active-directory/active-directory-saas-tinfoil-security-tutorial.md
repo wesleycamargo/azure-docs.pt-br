@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Tinfoil Security | Microsoft Azure"
     description="Saiba como usar o Tinfoil Security com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Tinfoil Security
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Tinfoil Security, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Tinfoil Security**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativo do **Tinfoil Security**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configurar o logon único")
 
@@ -80,7 +80,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Resposta do Tinfoil Security**, digite a URL do ACS (Serviço de Declaração do Consumidor) do Tinfoil Security (por exemplo: "**https://www.tinfoilsecurity.com/saml/consume*") e clique em **Avançar**.
 
-    >[AZURE.NOTE]Você poderá obter a URL do ACS dos Metadados do Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata)).
+    >[AZURE.NOTE] Você poderá obter a URL do ACS dos Metadados do Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata)).
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configurar a URL do Aplicativo")
 
@@ -104,15 +104,15 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     1.  Selecione **Habilitar SAML**.
     2.  Clique em **Configuração Manual**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Tinfoil Security**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de Post do SAML**.
+    3.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Tinfoil Security**, copie o valor de **URL de SSO do SAML** e cole-o na caixa de texto **URL de Post do SAML**.
     4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado do SAML**.  
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     5.  Copie a **ID da sua Conta**.
     6.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurar o logon único")
 
@@ -141,7 +141,7 @@ Para permitir que os usuários do AD do Azure façam logon no Tinfoil Security, 
 
 2.  Se o usuário for um usuário de SaaS do Tinfoil Security regular, ele pode adicionar um colaborador a qualquer um dos sites do usuário. Isso dispara um processo para enviar um convite para o email especificado para criar uma nova conta de usuário do Tinfoil Security.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Tinfoil Security ou APIs fornecidas pelo Tinfoil Security para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Tinfoil Security ou APIs fornecidas pelo Tinfoil Security para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -149,7 +149,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao Tinfoil Security, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do ** Tinfoil Security**, clique em **Atribuir usuários**.
 
@@ -161,4 +161,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

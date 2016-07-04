@@ -43,6 +43,10 @@ As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST d
 
 	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+##Endereço de controle de acesso
+
+O endereço de controle de acesso dos Serviços de Mídia é https://wamsprodglobal001acs.accesscontrol.windows.net, exceto para a região Norte da China, em que é https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
+
 ##Obtendo um token de acesso
 
 Para acessar os serviços de mídia diretamente por meio da API REST, recupere um token de acesso do ACS e use-o durante todas as solicitações HTTP feitas no serviço. Esse token é semelhante aos outros tokens fornecidos pelo ACS com base nas declarações de acesso fornecidas no cabeçalho de uma solicitação HTTP e usando o protocolo OAuth v2. Não é necessário qualquer outro pré-requisito antes de conectar-se diretamente aos serviços de mídia.
@@ -173,4 +177,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

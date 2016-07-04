@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Como identificar cenários e planejar o processamento de dados analíticos avançados
 
-Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas e que ajudarão a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita no documento [O que é o CAP (Processo de Análise da Cortana)?](machine-learning-data-science-the-cortana-analytics-process.md). Cada uma dessas etapas exigirá recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
+Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas e que ajudarão a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita no documento [What is the Team Data Science Process (TDSP)?](data-science-process-overview.md) [O que é o TDSP (Processo de Ciência de Dados de Equipe)?]. Cada uma dessas etapas exigirá recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -47,7 +47,7 @@ As perguntas sobre logística dizem respeito à localização da **fonte de dado
 
 4. **Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?** Considere o uso do ADF (Azure Data Factory) quando os dados precisarem ser migrados de forma contínua, particularmente se um cenário híbrido que acesse os recursos locais e de nuvem estiver envolvido ou quando os dados forem transacionados ou quando for necessário modificá-los ou adicionar lógica de negócios a eles durante a migração. Para saber mais, confira [Mover dados de um servidor SQL local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 
-5. **Quanto dos dados será movido para o Azure?** Os conjuntos de dados muito grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Estúdio de Aprendizado de Máquina na próxima seção. Nesses casos, uma amostra dos dados poderá ser usada durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Dados de exemplo no Processo de Análise da Cortana](machine-learning-data-science-sample-data.md).
+5. **Quanto dos dados será movido para o Azure?** Os conjuntos de dados muito grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Estúdio de Aprendizado de Máquina na próxima seção. Nesses casos, uma amostra dos dados poderá ser usada durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md) (Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
 
 ## Perguntas sobre características de dados: tipo, formato e tamanho
@@ -80,7 +80,7 @@ Para obter informações sobre as limitações de outros serviços do Azure usad
 
 ## Perguntas sobre qualidade de dados: exploração e pré-processamento
 
-1. **O que você sabe sobre seus dados?** Explore os dados quando precisar compreender suas características básicas. Quais padrões ou tendências eles exibem, quais exceções que possuem ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a plotagem de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como explorar um conjunto de dados em vários ambientes do Azure, confira [Explorar dados no Processo de Análise da Cortana](machine-learning-data-science-explore-data.md).
+1. **O que você sabe sobre seus dados?** Explore os dados quando precisar compreender suas características básicas. Quais padrões ou tendências eles exibem, quais exceções que possuem ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a plotagem de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process (Dados de exemplo no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-explore-data.md).
 
 2. **Os dados exigem pré-processamento ou limpeza?** O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
 
@@ -114,4 +114,4 @@ Depois de responder às perguntas na seção anterior, você está pronto para d
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

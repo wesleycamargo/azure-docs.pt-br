@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -93,30 +93,6 @@ O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em Int
     }
 
 
-<a id="length" />
-### length
-
-**comprimento (matriz ou cadeia de caracteres)**
-
-Retorna o número de elementos em uma matriz ou o número de caracteres em uma cadeia de caracteres. Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-Para saber mais sobre como usar essa função com uma matriz, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-
-Ou você pode usar com uma cadeia de caracteres:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [substitui](#replace)
 - [split](#split)
@@ -455,7 +432,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base **http://contoso.com/resources/**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir ****http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base ****http://contoso.com/resources/**.
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 
@@ -465,11 +442,96 @@ O exemplo a seguir mostra como criar um link para um modelo aninhado com base no
 
 O Gerenciador de Recursos fornece diversas funções para trabalhar com valores de matriz.
 
-Para combinar várias matrizes em uma única matriz, use [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-Para obter o número de elementos em uma matriz, use [length](#length).
+<a id="length" />
+### length
 
-Para dividir um valor de cadeia de caracteres em uma matriz de valores de cadeia de caracteres, use [split](#split).
+**comprimento (matriz ou cadeia de caracteres)**
+
+Retorna o número de elementos em uma matriz ou o número de caracteres em uma cadeia de caracteres. Essa função pode ser usada com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** faz referência a uma matriz de nomes a serem usados durante a criação de sites da web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Para saber mais sobre como usar essa função com uma matriz, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+
+Ou você pode usar com uma cadeia de caracteres:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Retorna uma matriz ou cadeia de caracteres com o número especificado de elementos ou caracteres desde o início da matriz ou cadeia de caracteres.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| originalValue | Sim | A matriz ou cadeia de caracteres da qual obter os elementos ou caracteres.
+| numberToTake | Sim | O número de elementos ou caracteres a serem obtidos. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia retornará. Se for maior do que o tamanho da cadeia de caracteres ou matriz especificada, todos os elementos da matriz ou cadeia de caracteres retornarão.
+
+O exemplo a seguir usa o número especificado de elementos da matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Retorna uma matriz ou cadeia de caracteres com todos os elementos ou caracteres após o número especificado na matriz ou cadeia de caracteres.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| originalValue | Sim | A matriz ou cadeia de caracteres a ser usada para ignorar os elementos ou caracteres.
+| numberToSkip | Sim | O número de elementos ou caracteres a serem ignorados. Se esse valor for 0 ou menor, todos os elementos da matriz ou cadeia de caracteres retornarão. Se for maior do que o tamanho da cadeia de caracteres ou matriz, uma matriz ou cadeia de caracteres vazia retornará. 
+
+O exemplo a seguir ignora o número especificado de elementos na matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Funções de valor de implantação
 
@@ -815,4 +877,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

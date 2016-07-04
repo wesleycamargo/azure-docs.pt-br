@@ -247,8 +247,7 @@ As superfícies de controle físico intermediário são aquelas em que qualquer 
 Consulte os seguintes artigos para obter informações adicionais:
 
 - [ SDL Threat Modeling Tool (Ferramenta de modelagem de risco do SDL)](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Microsoft Azure IoT reference architecture (Arquitetura de referência da IoT do Microsoft Azure)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

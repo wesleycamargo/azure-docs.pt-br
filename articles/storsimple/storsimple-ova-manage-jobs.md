@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para exibir os trabalhos para o StorSimple Virtual Array
@@ -72,4 +72,4 @@ Essas falhas serão aplicadas aos trabalhos de backup, restauração, atualizaç
 
 [Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

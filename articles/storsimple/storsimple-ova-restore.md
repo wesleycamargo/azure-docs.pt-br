@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Restaurar de um backup de sua Matriz Virtual StorSimple
 
 ## Visão geral 
 
-Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este artigo descreve passo a passo como restaurar um conjunto de backup de seus volumes ou compartilhamentos para sua StorSimple Virtual Array. O artigo também fornece detalhes sobre como a recuperação em nível de item funciona em sua StorSimple Virtual Array que está configurada como um servidor de arquivos.
+Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016 ou posterior. Este artigo descreve passo a passo como restaurar um conjunto de backup de seus volumes ou compartilhamentos para seu StorSimple Virtual Array. O artigo também fornece detalhes sobre como a recuperação em nível de item funciona em sua StorSimple Virtual Array que está configurada como um servidor de arquivos.
 
 
 ## Restaurar compartilhamentos de um conjunto de backup
 
 
-Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem espaço suficiente no dispositivo para concluir esta operação. Para restaurar de um backup, no [portal clássico do Azure](https://manage.windowsazure.com/), execute as etapas a seguir.
+**Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem espaço suficiente no dispositivo para concluir esta operação.** Para restaurar de um backup, execute as etapas a seguir no [portal clássico do Azure](https://manage.windowsazure.com/).
 
 #### Para restaurar um compartilhamento
 
@@ -37,7 +37,7 @@ Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem e
 
 2.  Na parte inferior da página, clique em **Restaurar como novo**.
 
-3.  Isso iniciará o assistente **Restaurar como novo compartilhamento**. Na página **Especificar nome e local**:
+3.  Isso iniciará o assistente **Restaurar como novo compartilhamento**. Na página **Especifique o nome e a localização**:
 
 
 	1.  Verifique o nome do dispositivo de origem. Ele deve ser o dispositivo que contém o compartilhamento que você deseja restaurar. A seleção do dispositivo está esmaecida. Para selecionar um dispositivo de origem diferente, você precisará sair do assistente e selecionar novamente o conjunto de backup mais uma vez.
@@ -52,7 +52,7 @@ Antes de tentar restaurar os compartilhamentos, certifique-se de que você tem e
 
 1.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso o levará até a página **Trabalhos**.
 
-2.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue de volta à página **Compartilhamentos** em seu dispositivo.
+2.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração estiver 100% concluída, navegue de volta à página **Compartilhamentos** em seu dispositivo.
 
 3.  Agora você pode exibir o novo compartilhamento restaurado na lista de compartilhamentos em seu dispositivo. Observe que a restauração é feita para o mesmo tipo do compartilhamento. Um compartilhamento em camadas é restaurado como em camadas, e um compartilhamento fixado localmente é restaurado como um compartilhamento fixado localmente.
 
@@ -74,7 +74,7 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 5.  Na parte inferior da página, clique em **Restaurar como novo**. O assistente **Restaurar como novo volume** será iniciado.
 
-1.  Na página **Especificar nome e local**:
+1.  Na página **Especifique o nome e a localização**:
 
 
 	1.  Verifique o nome do dispositivo de origem. Esse deve ser o dispositivo que contém o volume que você deseja restaurar. A seleção do dispositivo está indisponível. Para selecionar um dispositivo de origem diferente, você precisará sair do assistente e selecionar novamente o conjunto de backup mais uma vez.
@@ -93,7 +93,7 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso o levará até a página **Trabalhos**.
 
-3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração for 100% concluída, navegue de volta à página **Volumes** em seu dispositivo.
+3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração estiver 100% concluída, navegue de volta à página **Volumes** em seu dispositivo.
 
 4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo. Observe que a restauração é feita para o mesmo tipo de volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
 
@@ -107,7 +107,7 @@ Cada compartilhamento tem uma pasta *.backups* que contém os backups mais recen
 
 1.  Ao executar a ILR, você pode exibir os backups por meio do Windows Explorer. Clique no compartilhamento específico em busca do qual você deseja pesquisar o backup. Você verá uma pasta *.backups* criada no compartilhamento que armazena todos os backups. Expanda a pasta *.backups* para exibir os backups. A pasta mostrará então a exibição detalhada de toda a hierarquia de backup. Este modo de exibição é criado sob demanda e sua criação geralmente leva apenas alguns segundos.
 
-	Os últimos 5 backups são exibidos dessa maneira. Isso inclui tanto os backups agendados padrão quanto os manuais.
+	Os últimos 5 backups são exibidos dessa forma e podem ser usados para realizar uma recuperação em nível de item. Os 5 backups recentes incluem tanto os backups agendados padrão quanto os manuais.
 
 	
 	-   **Backups agendados** nomeados como &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
@@ -130,6 +130,6 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 ## Próximas etapas
 
-Saiba mais sobre como [administrar o StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar seu StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

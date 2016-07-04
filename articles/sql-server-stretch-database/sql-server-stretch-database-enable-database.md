@@ -18,7 +18,7 @@
 
 # Habilitar o Banco de Dados de Stretch para um banco de dados
 
-Para configurar um banco de dados para o Banco de Dados de Stretch, escolha **Tarefas | Stretch | Habilitar** para um banco de dados no SQL Server Management Studio para abrir o assistente **Habilitar Banco de Dados para Stretch**. Você também pode usar o Transact-SQL para habilitar o Banco de Dados de Stretch para um banco de dados.
+Para configurar um banco de dados existente no Stretch Database, escolha **Tarefas | Stretch | Habilitar** para que um banco de dados no SQL Server Management Studio abra o assistente **Habilitar Banco de Dados para Stretch**. Você também pode usar o Transact-SQL para habilitar o Banco de Dados de Stretch para um banco de dados.
 
 Se você selecionar **Tarefas | Stretch | Habilitar** para uma tabela e ainda não tiver habilitado o banco de dados para o Banco de Dados de Stretch, o assistente irá configurar o banco de dados para o Banco de Dados de Stretch e permitirá que você configure as tabelas como parte do processo. Siga as etapas neste tópico em vez das etapas em [Habilitar Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-database.md).
 
@@ -133,4 +133,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

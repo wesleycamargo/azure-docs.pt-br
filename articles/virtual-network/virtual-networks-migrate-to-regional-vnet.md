@@ -41,13 +41,13 @@ As redes virtuais que estão associadas a grupos de afinidades serão habilitada
 	
 	Edite as seguintes linhas no arquivo de configuração de rede substituindo os valores pelos seus:
 
-	**Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+	**Valor antigo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+	**Novo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Salve suas alterações e [importe](virtual-networks-using-network-configuration-file.md) a configuração de rede para o Azure.
 
->[AZURE.INFO] Esta migração NÃO gera tempo de inatividade para seus serviços.
+>[AZURE.NOTE] Esta migração NÃO gera tempo de inatividade para seus serviços.
 
 ## Grupos de afinidades e VMs
 
@@ -66,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

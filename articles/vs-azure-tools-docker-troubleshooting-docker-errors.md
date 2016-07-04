@@ -1,7 +1,7 @@
 <properties
    pageTitle="Solucionando problemas de erros do cliente Docker no Windows usando o Visual Studio | Microsoft Azure"
    description="Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -21,7 +21,7 @@ Ao trabalhar com o Visual Studio Tools para Docker Preview, você pode encontrar
 
 ##Falha ao configurar Program.cs a fim de fornecer suporte ao Docker
 
-Ao adicionar suporte ao docker, o `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` deve ser adicionado ao WebHostBuilder(). Se Program.cs, a função Main() ou uma nova classe WebHostBuilder não for encontrado, um aviso será exibido. É necessário usar UseUrls() para permitir que o Kestrel escute o tráfego de entrada, além do localhost, quando for executado dentro de um contêiner do docker. Após a conclusão, o código terá a seguinte aparência:
+Ao adicionar suporte ao docker, o `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` deve ser adicionado ao WebHostBuilder(). Se em Program.cs a função `Main()` ou uma nova classe WebHostBuilder não for encontrada, um aviso será exibido. `.UseUrls()` é necessário para permitir que Kestrel ouça o tráfego de entrada, além de localhost quando executado dentro de um contêiner do docker. Após a conclusão, o código terá a seguinte aparência:
 
 ```
 public class Program
@@ -29,7 +29,7 @@ public class Program
     public static void Main(string[] args)
     {
         var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? String.Empty)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
             .UseIISIntegration()
@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configurou o WebHost para escutar o tráfego da URL de entrada. [Ferramentas do Docker para Visual Studio](http://aka.ms/DockerToolsForVS) configurarão uma variável de ambiente no modo dockerfile.debug/release da seguinte maneira:
+UseUrls() configurou o WebHost para escutar o tráfego da URL de entrada. As [Ferramentas do Docker para Visual Studio](http://aka.ms/DockerToolsForVS) irão configurar uma variável de ambiente no modo dockerfile.debug/release da seguinte maneira:
 
 ```
 # Configure the listening port to 80
@@ -49,11 +49,11 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
 
 ## O mapeamento de volume não está funcionando
-Para habilitar os recursos de Editar e Atualizar, o mapeamento do volume está configurado para compartilhar o código-fonte de seu projeto na pasta .app dentro do contêiner. Quando arquivos forem alterados em sua máquina host, os contêineres/diretório do aplicativo usarão o mesmo diretório. No docker-compose.debug.yml, a configuração a seguir permite o mapeamento do volume:
+Para habilitar os recursos de Editar e Atualizar, o mapeamento do volume está configurado para compartilhar o código-fonte de seu projeto na pasta .app dentro do contêiner. Quando os arquivos forem alterados em seu computador host, o diretório /app dos contêineres usará o mesmo diretório. Em docker-compose.debug.yml, a configuração a seguir permite o mapeamento do volume
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
 
 Para testar se o mapeamento do volume está funcionando, tente o seguinte comando:
@@ -61,8 +61,7 @@ Para testar se o mapeamento do volume está funcionando, tente o seguinte comand
 **No Windows**
 
 ```
-docker run -it -v /c/Users/Public:/wormhole busybox
-cd wormhole
+a
 / # ls
 ```
 
@@ -84,17 +83,17 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Observação:** *ao trabalhar com VMs Linux, o sistema de arquivos do contêiner diferencia maiúsculas de minúsculas.*
+**Observação:** *ao trabalhar com as VMs do Linux, o sistema de arquivos do contêiner irá diferenciar as letras maiúsculas das minúsculas.*
 
 Se você não conseguir ver o conteúdo, tente o seguinte:
 
 **Docker para a versão beta do Windows**
 - Verifique se o aplicativo de área de trabalho Docker para Windows está em execução procurando o ícone moby na bandeja do sistema e verificando se ele está branco e funcional.
-- Verifique se o mapeamento de volume está configurado clicando com o botão direito do mouse no ícone do Moby na bandeja do sistema, selecionando Configurações e clicando em **Gerenciar unidades compartilhadas...**
+- Verifique se o mapeamento do volume está configurado clicando com o botão direito no ícone moby na bandeja do sistema, selecionando as configurações e clicando em **Gerenciar unidades compartilhadas...**
 
 **Caixa de ferramentas do Docker com VirtualBox**
 
-Por padrão, a VirtualBox é compartilha `C:\Users` como `c:/Users`. Se possível, mova o projeto abaixo desse diretório. Caso contrário, adicione manualmente ao VirtualBox [Pastas compartilhadas](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
+Por padrão, o VirtualBox compartilha `C:\Users` como `c:/Users`. Se possível, mova o projeto abaixo desse diretório. Caso contrário, adicione manualmente ao VirtualBox as [Pastas compartilhadas](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
 	
 ##Compilação: falha ao criar a imagem, erro ao verificar a conexão TLS: o host não está em execução
 
@@ -103,30 +102,37 @@ Por padrão, a VirtualBox é compartilha `C:\Users` como `c:/Users`. Se possíve
 ##Usar o Microsoft Edge como o navegador padrão
 
 Se você estiver usando o navegador Microsoft Edge, o site pode não abrir se o Edge considerar que o endereço IP não é seguro. Para corrigir isso, execute as seguintes etapas:
-1. Na caixa Executar do Windows, digite `Internet Options`.
-2. Selecione **Opções da Internet** quando elas forem exibidas. 
-2. Selecione a guia **Segurança**.
-3. Selecione a zona da **Intranet Local**.
-4. Selecione **Sites**. 
-5. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista. 
-6. Atualize a página no Edge e verá o site em funcionamento. 
-7. Para saber mais sobre esse problema, visite a postagem do blog de Scott Hanselman, [Microsoft Edge can't see or open VirtualBox-hosted local web sites (O Microsoft Edge não pode ver ou abrir sites da Web locais hospedados na VirtualBox)](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
+
+1. Vá para **Opções da Internet**.
+    - No Windows 10, você pode digitar `Internet Options` na caixa Executar do Windows.
+    - No Internet Explorer, você pode ir para o menu **Configurações** e selecionar **Opções da Internet**. 
+1. Selecione **Opções da Internet** quando forem exibidas. 
+1. Selecione a guia **Segurança**.
+1. Selecione a zona **Intranet Local**.
+1. Selecione **Sites**. 
+1. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista. 
+1. Atualize a página no Edge e verá o site em funcionamento. 
+1. Para obter mais informações sobre esse problema, visite a postagem do blog de Scott Hanselman, [O Microsoft Edge não pode ver nem abrir sites da Web locais hospedados no VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
 
 ##Solução de problemas da versão 0.15 ou anterior
 
 
 ###A execução do aplicativo faz com que o PowerShell abra, exiba um erro e feche. A página do navegador não abre.
 
-Isso pode ser um erro durante a `docker-compose-up`. Para exibir o erro, execute as seguintes etapas:
+Isso pode ser um erro durante `docker-compose-up`. Para exibir o erro, execute as seguintes etapas:
 
-1. Abra o arquivo `Properties\launchSettings.json`
+1. Abra o arquivo `Properties\launchSettings.json`.
 1. Localize a entrada do Docker.
 1. Localize a linha que começa assim:
 
+    ```
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+    ```
 	
 1. Adicione o parâmetro `-noexit` para que a linha agora se pareça com o seguinte. Isso manterá o PowerShell aberto para que você possa exibir o erro.
 
+    ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+    ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

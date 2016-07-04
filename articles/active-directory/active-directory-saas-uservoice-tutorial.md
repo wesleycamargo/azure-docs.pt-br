@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o UserVoice | Microsoft Azure" 
     description="Saiba como usar o UserVoice com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o UserVoice
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o UserVoice, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-uservoice-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir a autenticação dos usuári
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **UserVoice**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativo do **UserVoice**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configurar logon único")
 
@@ -102,15 +102,15 @@ O objetivo desta seção é descrever como permitir a autenticação dos usuári
     ![Editar a autenticação de usuário](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Editar a autenticação de usuário")
 
     1.  Clique em **SSO (Logon Único)**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no UserVoice**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **Entrada Remota de SSO**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no UserVoice**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **Saída Remota de SSO**.
+    2.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **Entrada Remota de SSO**.
+    3.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logoff Remoto** e cole-o na **caixa de texto Saída Remota de SSO**.
     4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado SHA1 atual**.  
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI)
 
     5.  Clique em **Salvar Configurações de Autenticação**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configurar logon único")
 
@@ -143,7 +143,7 @@ Para permitir que os usuários do AD do Azure façam logon no UserVoice, eles de
     1.  Na caixa de texto Emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar**.
     2.  Clique em **Convidar**.
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do AAD.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -151,7 +151,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao UserVoice, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos **UserVoice**, clique em **Atribuir usuários**.
 
@@ -163,4 +163,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

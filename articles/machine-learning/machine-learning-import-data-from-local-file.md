@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -40,4 +40,4 @@ Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo 
 
 Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho. Você pode encontrar o conjunto de dados, juntamente com todos os conjuntos de dados de exemplo pré-carregados, na lista **Conjuntos de Dados Salvos** na paleta de módulos quando estiver editando um experimento. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

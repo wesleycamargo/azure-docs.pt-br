@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Introdução ao StorSimple Virtual Array
@@ -57,10 +57,10 @@ A tabela a seguir descreve algumas das principais vantagens que a solução de M
 
 | Recurso | Benefício |
 |---------|---------|
-| Integração transparente | A Matriz Virtual dá suporte ao protocolo SMB ou iSCSI. Isso garante que os dados armazenados na nuvem, no data center ou em servidores remotos pareçam estar armazenados em um único local.|
-| Redução nos custos de armazenamento | Com o StorSimple, você provisionar armazenamento local suficiente para atender às demandas atuais. Conforme as necessidades de armazenamento crescem, o StorSimple distribui dados em camadas para um armazenamento em nuvem com bom custo/benefício. Na nuvem, ele usa eliminação de duplicação e compactação de dados para reduzir ainda mais as despesas e os requisitos de armazenamento.|
-| Gerenciamento simplificado do armazenamento | O StorSimple fornece gerenciamento centralizado na nuvem. Você pode usar as ferramentas baseadas na Web para configurar e gerenciar dados armazenados na Matriz Virtual, em um servidor remoto e na nuvem.| 
-| Aprimoramento da recuperação de desastres e conformidade | O StorSimple não exige muito tempo para recuperação. Em vez disso, ele restaura os metadados imediatamente e os dados armazenados conforme necessário. Isso significa que as operações normais podem continuar com um mínimo de interrupção.|
+| Integração transparente | A Matriz Virtual dá suporte ao protocolo SMB ou iSCSI. A movimentação de dados entre a camada de local e a camada de nuvem é contínua e transparente para o usuário.|
+| Redução nos custos de armazenamento | Com o StorSimple, você provisiona armazenamento local suficiente para atender às demandas atuais pelos dados mais usados e de grande interesse. Conforme as necessidades de armazenamento crescem, o StorSimple distribui dados de menor interesse em camadas para um armazenamento em nuvem com bom custo/benefício. As duplicatas são removidas e os dados são comprimidos antes de serem enviados à nuvem para reduzir ainda mais os custos e os requisitos de armazenamento.|
+| Gerenciamento simplificado do armazenamento | O StorSimple fornece gerenciamento centralizado na nuvem usando o StorSimple Manager para gerenciar vários dispositivos.| 
+| Aprimoramento da recuperação de desastres e conformidade | O StorSimple facilita uma recuperação de desastres mais rápida restaurando os metadados imediatamente e restaurando os dados conforme necessário. Isso significa que as operações normais podem continuar com um mínimo de interrupção.|
 | Mobilidade de dados | Os dados carregados na nuvem podem ser acessados de outros locais para fins de recuperação e migração. Observe que você pode restaurar dados somente para a Matriz Virtual original. No entanto, você usa recursos de recuperação de desastre para restaurar toda a Matriz Virtual para outra Matriz Virtual.|
 
 ## Fluxos de trabalho
@@ -184,4 +184,4 @@ Os recursos de proteção de dados StorSimple permitem que você crie backups so
 
 Saiba como [preparar o portal do Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

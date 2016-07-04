@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/15/2016"
 	ms.author="danlep"/>
 
 # Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
@@ -25,19 +25,19 @@ Este artigo fornece a sintaxe e as opções de comandos da CLI do Azure que, nor
 
 Para começar, primeiro [instale a CLI do Azure](xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](xplat-cli-connect.md).
 
-Para ver as opções e a sintaxe de comandos atuais na linha de comando no modo de Gerenciamento de Serviços, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
+Para ver a sintaxe do comando atual e as opções na linha de comando no modo asm, digite `azure help` ou para exibir a ajuda de um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
 Parâmetros opcionais são mostrados entre colchetes (por exemplo, `[parameter]`). Todos os outros parâmetros são obrigatórios.
 
 Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro `-v` fornece uma saída detalhada, e o parâmetro `-vv` fornece uma saída mais detalhada ainda. A opção `--json` produzirá o resultado no formato JSON bruto.
 
-## Definindo o modo de Gerenciamento de Serviços
+## Configurando o modo asm
 
-Atualmente, o modo de gerenciamento de serviços é habilitado por padrão quando você instala a CLI. Se necessário, use o seguinte comando para habilitar os comandos de gerenciamento de serviço de CLI do Azure.
+Atualmente, o modo asm é habilitado por padrão quando você instala pela primeira vez a CLI. Se for necessário, use o seguinte comando para definir o modo asm.
 
 	azure config mode asm
 
->[AZURE.NOTE] O modo do Gerenciador de Recursos do Azure e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+>[AZURE.NOTE] O modo Azure Resource Manager e o modo asm da CLI são mutuamente excludentes. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
 
 ## Gerenciar suas informações de conta e configurações de publicação
 Uma maneira que a CLI pode se conectar à sua conta é usando as informações da assinatura do Azure. (Veja [Conectar-se a uma assinatura do Azure por meio da CLI do Azure](xplat-cli-connect.md) para obter outras opções.) Essas informações podem ser obtidas no portal clássico do Azure em um arquivo de configurações de publicação conforme descrito aqui. É possível importar o arquivo de configurações de publicação como uma definição de configuração local persistente que será usada pela CLI para operações posteriores. Você precisa importar as configurações de publicação apenas uma vez.
@@ -1879,10 +1879,8 @@ Esse comando oferece suporte às seguintes opções adicionais:
 + **-e** ou **--label** &lt;label>: o rótulo para a conta de armazenamento.
 + **-d** ou **--description** &lt;description>: a descrição da conta de armazenamento.
 + **-l** ou **--location** &lt;name>: a região geográfica em que a conta de armazenamento é criada.
-+ **-a** ou **--affinity-group** &lt;name>: o grupo de afinidade com o qual associar a conta de armazenamento
-+ **--kind**: o tipo de conta: Armazenamento ou Blob de armazenamento 
-+ **--sku-name**: indica o tipo de conta a criar: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
-+ **--access-tier**: especifica a camada de armazenamento: Quente ou então Fria
++ **-a** ou **--affinity-group** &lt;name>: o grupo de afinidade com o qual associar a conta de armazenamento 
++ **--type**: indica o tipo de conta a criar: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
 
 **storage account set [options] <name>**
 
@@ -1898,8 +1896,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 + **-e** ou **--label** &lt;label>: o rótulo para a conta de armazenamento.
 + **-d** ou **--description** &lt;description>: a descrição da conta de armazenamento.
 + **-l** ou **--location** &lt;name>: a região geográfica em que a conta de armazenamento é criada.
-+ **--sku-name**: indica o novo tipo de conta: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
-+ **--access-tier**: especifica a camada de armazenamento: Quente ou então Fria
++ **--type**: indica o novo tipo de conta: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
 
 **storage account delete [options] <name>**
 
@@ -2353,4 +2350,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -39,9 +39,9 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 
 1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser criados.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Substitua o valor **$locName** por um local na lista, por exemplo, **EUA Central**. Crie a variável.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Substitua o valor **$locName** por uma localização na lista, por exemplo, **centralus**. Crie a variável.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@ Uma conta de armazenamento é necessária para armazenar o modelo que você pret
 1. Substitua o valor $stName pelo nome (letras minúsculas e números somente) da conta de armazenamento. Teste a exclusividade do nome.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Se esse comando retornar **False**, o nome proposto será exclusivo.
+    Se esse comando retornar **True**, o nome proposto será exclusivo.
     
 2. Agora, execute o comando para criar a conta de armazenamento.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Substitua {blob-storage-endpoint} pelo ponto de extremidade do armazenamento de blobs em sua conta. Substitua {storage-account-name} pelo nome da sua conta de armazenamento. Substitua {primary-storage-key} pela chave de acesso primária. Execute estes comandos para criar o contêiner no qual os arquivos estão armazenados. Você pode obter os valores de ponto de extremidade e de chave do Portal do Azure.
 
@@ -497,4 +497,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

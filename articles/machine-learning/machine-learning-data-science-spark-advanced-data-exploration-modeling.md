@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Modelagem e exploração de dados avançados com o Spark 
@@ -759,7 +759,7 @@ Tempo necessário para executar a célula acima: 2,67 segundos
 
 **Plote a curva ROC.**
 
-*predictionAndLabelsDF* é registrado como uma tabela, *tmp\_results*, na célula anterior. *tmp\_results* pode ser usado para fazer consultas e gerar resultados no quadro de dados sqlResults para plotagem. O código é o seguinte:
+*predictionAndLabelsDF* é registrado como uma tabela, *tmp\_results*, na célula anterior. *tmp\_results* pode ser usado para fazer consultas e gerar resultados no quadro de dados sqlResults para plotagem. Veja o código.
 
 
 	# QUERY RESULTS                              
@@ -1215,7 +1215,7 @@ Tempo necessário para executar a célula acima: 20,9 segundos
 
 **Plotar**
 	
-*tmp\_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela serão gerados no quadro de dados *sqlResults* para plotagem. O código é o seguinte:
+*tmp\_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela serão gerados no quadro de dados *sqlResults* para plotagem. Veja o código
 
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1496,4 +1496,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 **Consumo de modelo:** para saber como pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) (Pontuar e avaliar modelos de aprendizado de máquina criados com o Spark).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

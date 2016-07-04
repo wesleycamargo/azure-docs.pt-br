@@ -52,15 +52,18 @@ Se apenas quiser pausar a migração de dados, consulte [Pausar e retomar o Banc
 
 ### Usar o Transact-SQL para desabilitar o Banco de Dados de Stretch para uma tabela
 
--   Para desabilitar o Stretch para uma tabela e copiar os dados remotos para a tabela do Azure de volta para o SQL Server, execute o comando a seguir. Este comando não pode ser cancelado.
+-   Para desabilitar o Stretch para uma tabela e copiar os dados remotos para a tabela do Azure de volta para o SQL Server, execute o comando a seguir. Depois de todos os dados remotos terem sido copiados do Azure de volta para o SQL Server, o Stretch será desabilitado para a tabela.
+
+    Este comando não pode ser cancelado.
 
     ```tsql
-    ALTER TABLE <table name>
+	USE <Stretch-enabled database name>;
+    GO
+    ALTER TABLE <Stretch-enabled table name>  
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
+    GO
     ```
-    >   [AZURE.NOTE] Copiar os dados remotos para a tabela do Azure novamente para o SQL Server incorre em custos de transferência de dados. Para obter mais informações, consulte [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
-
-    Depois de todos os dados remotos terem sido copiados do Azure de volta para o SQL Server, o Stretch será desabilitado para a tabela.
+    >   [AZURE.NOTE] Copiar os dados remotos para a tabela do Azure novamente para o SQL Server incorre em custos de transferência de dados. Para obter mais informações, confira [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 -   Para desabilitar o Stretch de uma tabela e abandonar os dados remotos, execute o comando a seguir.
 
@@ -98,4 +101,4 @@ ALTER DATABASE <database name>
 
 [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

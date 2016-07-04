@@ -3,7 +3,7 @@
    description="Visão geral do Azure Resource Health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Visão geral do Azure Resource Health
 
@@ -59,22 +59,28 @@ Clicar no bloco abrirá a folha de assinatura de Integridade de recursos, que li
 ![Bloco Integridade de recursos](./media/resource-health-overview/resourceHealthTile.png)
 
 ### API de integridade de recursos
-Além da experiência do portal do Azure, também há uma API que pode ser usada para consultar o Resource Health. A API dá suporte a chamadas para obter a integridade de todos os recursos em uma assinatura, todos os recursos em um grupo de recursos ou a integridade de um recurso específico.
+Além da experiência do Portal do Azure, também há um conjunto de APIs que pode ser usado para consultar o Resource Health. As APIs disponíveis permitem que os usuários solicitem a integridade atual de todos os recursos em uma assinatura, todos os recursos em um grupo de recursos ou a integridade de um único recurso.
 
-Antes de usar a API para consultar o Resource Health, a assinatura deve ser registrada no serviço com o envio de uma solicitação POST à seguinte URL:
+Outra API permite que os usuários solicitem a integridade histórica de um único recurso. A resposta é uma coleção de estados de integridade do Resource dos últimos 14 dias. Caso o recurso possa ter sido afetado por uma interrupção declarada, o estado da integridade incluirá uma anotação chamada serviceImpactingEvents, com mais detalhes sobre a interrupção.
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Antes de usar a API para consultar o Resource Health, a assinatura deve ser registrada no serviço com o envio de uma solicitação POST à seguinte URL: volume
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 A seguir estão exemplos de como chamar a API do Resource Health
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## O que significa o status de integridade do recurso?
@@ -111,7 +117,7 @@ O serviço não recebeu informações sobre esse recurso por mais de cinco minut
 ![A integridade do recurso é desconhecida](./media/resource-health-overview/unknown.png)
 
 ## Eventos que afetam o serviço
-Se o recurso puder ser afetado por um Evento que Afeta o Serviço em andamento, será exibida uma faixa na parte superior da folha Integridade de recursos. Clicar na faixa abrirá a folha Eventos de Auditoria, em que podem ser obtidas mais informações sobre a interrupção.
+Se o recurso puder ser afetado por um Evento que Afeta o Serviço em andamento, será exibida uma faixa na parte superior da folha Integridade de recursos. Clicar na faixa abrirá a folha Eventos de Auditoria, que exibirá informações adicionais sobre a interrupção.
 
 ![A integridade de recursos pode ser afetada por um SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
@@ -126,4 +132,4 @@ O Resource Health relata o status do banco de dados SQL, não do SQL Server. Emb
 ## Comentários
 Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

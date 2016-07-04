@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="06/21/2016"
    ms.author="carlrab" />
 
 # Diretrizes e limitações gerais do Banco de Dados SQL do Azure
@@ -35,7 +35,7 @@ O Banco de Dados SQL do Microsoft Azure não dá suporte ao SQL Server Agent ou 
 
 ## Suporte ao agrupamento do SQL Server
 
-O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure é **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, em que **LATIN1\_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. É possível alterar o agrupamento de bancos de dados V12 usando o Transact-SQL. Para obter mais informações sobre como definir o agrupamento, veja [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microsoft Azure é **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, em que **LATIN1\_GENERAL** é inglês (Estados Unidos), **CP1** é a página de código 1252, **CI** diferencia maiúsculas de minúsculas e **AS** diferencia acentos. Não é possível alterar o agrupamento dos bancos de dados V12. Para obter mais informações sobre como definir o agrupamento, veja [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Requisitos de nomenclatura
 
@@ -63,4 +63,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

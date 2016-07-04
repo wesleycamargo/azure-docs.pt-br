@@ -51,3 +51,4 @@ As funcionalidades de diferentes dispositivos IoT variam. Por um lado, alguns di
 
 Alguns dispositivos herdados e restritos podem não ter sido projetados especificamente para a implantação de IoT. Esses dispositivos podem não ter a capacidade de criptografar dados, conectar-se à Internet, fornecer auditoria avançada, etc. Nesses casos, usar um gateway de campo moderno e seguro para agregar dados de dispositivos herdados pode fornecer a segurança necessária para conectar esses dispositivos pela Internet. Nesse caso, os gateways de campo fornecem autenticação segura, negociação de sessões criptografadas, recebimento de comandos da nuvem e muitos outros recursos de segurança.
 
+<!---HONumber=AcomDC_0622_2016-->

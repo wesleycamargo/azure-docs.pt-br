@@ -1,77 +1,53 @@
+## Associar uma conta do Armazenamento do Azure ao Hub IoT
+
+Como o dispositivo simulado carrega um arquivo em um blob do Armazenamento do Azure, é necessário ter uma conta do Armazenamento do Azure associada ao Hub IoT. Você pode usar uma conta de armazenamento existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. É possível associar uma conta do Armazenamento do Azure ao Hub IoT seguindo as instruções em [Gerenciar hubs IoT por meio do portal do Azure].
+
 ## Carregar um arquivo por meio de um dispositivo simulado
 
 Nesta seção, você modificará o aplicativo do dispositivo simulado criado em [Enviar mensagens da nuvem para o dispositivo com o Hub IoT] para receber mensagens da nuvem para o dispositivo do hub IoT.
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto **SimulatedDevice** e em **Gerenciar Pacotes NuGet...**. 
+1. No Visual Studio, clique com o botão direito do mouse no projeto **SimulatedDevice**, clique em **Adicionar** e em **Item Existente**. Navegue até um arquivo de imagem e inclua-o no projeto. Este tutorial pressupõe que a imagem é denominada `image.jpg`.
 
-    Isto mostra a janela Gerenciar Pacotes NuGet.
+2. Clique com o botão direito do mouse na imagem e clique em **Propriedades**. Verifique se **Copiar para Diretório de Saída** está definido como **Copiar sempre**.
 
-2. Pesquise por `WindowsAzure.Storage`, clique em **Instalar** e aceite os termos de uso.
-
-    Isso baixa, instala e adiciona uma referência ao [SDK do Armazenamento do Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage/).
+    ![][1]
 
 3. No arquivo **Program.cs**, adicione as seguintes instruções na parte superior do arquivo:
 
         using System.IO;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Blob;
 
-4. Na classe **Program**, altere o método **ReceiveC2dAsync** da seguinte maneira:
+4. Adicione o seguinte método à classe **Programa**:
          
-        private static async void ReceiveC2dAsync()
+        private static async void SendToBlobAsync()
         {
-            Console.WriteLine("\nReceiving cloud to device messages from service");
-            while (true)
+            string fileName = "image.jpg";
+            Console.WriteLine("Uploading file: {0}", fileName);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
+            using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
             {
-                Message receivedMessage = await deviceClient.ReceiveAsync();
-                if (receivedMessage == null) continue;
-
-                if (receivedMessage.Properties.ContainsKey("command") && receivedMessage.Properties["command"] == "FileUpload")
-                {
-                    UploadFileToBlobAsync(receivedMessage);
-                    continue;
-                }
-
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
-                Console.ResetColor();
+                await deviceClient.UploadToBlobAsync(fileName, sourceData);
             }
+
+            watch.Stop();
+            Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
         }
 
-    Isso faz com que **ReceiveC2dAsync** diferencie mensagens com a propriedade `command` definida como `FileUpload`, que será tratada pelo método **UploadFileToBlobAsync**.
+    O método `UploadToBlobAsync` usa o nome de arquivo e a fonte de transmissão do arquivo a ser carregado e manipula o upload para o armazenamento. O aplicativo de console exibe o tempo necessário para carregar o arquivo.
 
-    Adicione o método abaixo para manipular os comandos de upload de arquivo.
-   
-        private static async Task UploadFileToBlobAsync(Message fileUploadCommand)
-        {
-            var fileUri = fileUploadCommand.Properties["fileUri"];
-            var blob = new CloudBlockBlob(new Uri(fileUri));
+5. Adicione o seguinte método ao método **Main**, logo antes da linha `Console.ReadLine()`:
 
-            byte[] data = new byte[10 * 1024 * 1024];
-            Random rng = new Random();
-            rng.NextBytes(data);
+        SendToBlobAsync();
 
-            MemoryStream msWrite = new MemoryStream(data);
-            msWrite.Position = 0;
-            using (msWrite)
-            {
-                await blob.UploadFromStreamAsync(msWrite);
-            }
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Uploaded file to: {0}", fileUri);
-            Console.ResetColor();
-
-            await deviceClient.CompleteAsync(fileUploadCommand);
-        }
-
-    Esse método usa o SDK do Armazenamento do Azure para carregar um blob de 10 MB gerado aleatoriamente para o URI especificado. Veja [Armazenamento do Azure - Como usar blobs] para obter mais informações sobre como carregar blobs.
-
-> [AZURE.NOTE] É importante lembrar que essa implementação do dispositivo simulado conclui a mensagem da nuvem para o dispositivo somente depois que o blob for carregado. Essa abordagem simplifica o processamento dos arquivos carregados no back-end, pois a confirmação de entrega representa a disponibilidade do arquivo carregado para processamento. No entanto, como explicado no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D], uma mensagem que não seja concluída antes do *tempo limite de visibilidade* (geralmente 1 minuto) é colocada de volta na fila de dispositivo e o método **ReceiveAsync()** a receberá novamente. Para cenários em que o upload de arquivo possa levar mais tempo, talvez seja preferível que o dispositivo simulado mantenha um armazenamento durável dos atuais trabalhos de upload. Isso permite que o dispositivo simulado conclua a mensagem da nuvem para o dispositivo antes de concluir o upload do arquivo e, em seguida, envie uma mensagem do dispositivo para a nuvem notificando o back-end da conclusão.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] (Tratamento de falhas transitórias) do MSDN.
 
 <!-- Links -->
-[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
-[Armazenamento do Azure - Como usar blobs]: ../articles/storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Sobre o Armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Gerenciar hubs IoT por meio do portal do Azure]: ../articles/iot-hub-manage-through-portal/#file-upload
 
 <!-- Images -->
+[1]: ../articles/iot-hub/media/iot-hub-csharp-csharp-file-upload/image-properties.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

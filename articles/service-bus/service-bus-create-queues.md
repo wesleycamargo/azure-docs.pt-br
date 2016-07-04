@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Criar aplicativos que usem as filas do Barramento de Serviço
@@ -53,13 +53,13 @@ A utilização de filas de mensagens para intermediar entre produtores de mensag
 
 A seção a seguir mostra como usar o Barramento de Serviço para criar esse aplicativo.
 
-### Inscrever-se em uma conta e em uma assinatura do Barramento de Serviço
+### Inscrever-se em uma conta do Azure
 
 Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma conta gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Criar um namespace de serviço
 
-Quando você tiver uma assinatura, poderá criar um novo namespace. Dê um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço. Cada namespace age como um contêiner de escopo para um conjunto de entidades do Barramento de Serviço.
+Quando tiver uma assinatura, você poderá [criar um novo namespace](service-bus-create-namespace-portal.md). Cada namespace age como um contêiner de escopo para um conjunto de entidades do Barramento de Serviço. Dê um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço.
 
 ### Instalar o pacote NuGet
 
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### Recebendo mensagens da fila
 
-A maneira mais fácil de receber mensagens da fila é usar um objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que pode ser criado diretamente de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx), usando o [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Os receptores da mensagem poderão trabalhar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**. O [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) é definido quando o receptor da mensagem é criado como um parâmetro para a chamada a [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
+Para receber mensagens da fila, você pode usar um objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que pode ser criado diretamente de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) usando [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Os receptores da mensagem poderão trabalhar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**. O [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) é definido quando o receptor da mensagem é criado como um parâmetro para a chamada a [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
 
 
 Quando você usar o modo **ReceiveAndDelete**, a recepção será uma operação única; ou seja, quando o Barramento de Serviço receber a solicitação, marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem caso ocorra uma falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Já que o Barramento de Serviço marcou a mensagem como consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, terá perdido a mensagem consumida antes da falha.
 
 No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca a mensagem como sendo consumida.
 
-Dois outros resultados são possíveis. Primeiro, se o aplicativo não for capaz de processar a mensagem por algum motivo, ele chamará [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) na mensagem recebida (em vez do método [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente.
+Dois outros resultados são possíveis. Primeiro, se o aplicativo não for capaz de processar a mensagem por algum motivo, ele chamará [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) na mensagem recebida (em vez do método [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente (basicamente executando uma operação [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) por padrão).
 
 Observe que, se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é geralmente chamado de processamento *Pelo Menos Uma Vez*. Isso significa que cada mensagem será processada pelo menos uma vez mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, será necessária lógica adicional no aplicativo para detectar duplicatas. Isso pode ser feito com base na propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem. O valor dessa propriedade permanece constante nas tentativas de entrega. Isso é conhecido como processamento *Exatamente Uma Vez*.
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos sobre filas, veja [Criar aplicativos que usam tópicos e assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando as funcionalidades de publicação/assinatura dos tópicos e das assinaturas do Barramento de Serviço.
+Agora que você aprendeu os conceitos básicos sobre filas, veja [Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando as funcionalidades de publicação/assinatura dos tópicos e das assinaturas do Barramento de Serviço.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

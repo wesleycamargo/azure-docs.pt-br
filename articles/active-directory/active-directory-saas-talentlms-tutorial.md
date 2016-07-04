@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao TalentLMS | Microsoft Azure" 
     description="Saiba como usar o TalentLMS com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TalentLMS
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o TalentLMS, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-talentlms-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **TalentLMS**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativo do **TalentLMS**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar logon único")
 
@@ -99,20 +99,20 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Logon Único](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Logon Único")
 
     1.  Na lista **Tipo de integração de SSO**, selecione **SAML 2.0**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **IdP (Provedor de Identidade)**.
+    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no TalentLMS**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **IdP (Provedor de Identidade)**.
     3.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de entrada remota**.
-    5.  No portal do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de saída remota**.
+    4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon remoto**.
+    5.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL de logoff remoto**.
     6.  Na caixa de texto **TargetedID**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
 7.  Na caixa de texto **Nome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 8.  Na caixa de texto **Sobrenome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
 9.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
 10. Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configurar o logon único")
 
@@ -133,7 +133,7 @@ Para permitir que os usuários do AD do Azure façam logon no TalentLMS, eles de
     1.  Digite os valores dos atributos relacionados da conta de usuário do Azure AD nas seguintes caixas de texto: **Nome**, **Sobrenome** e **Endereço de email**.
     2.  Clique em **Adicionar Usuário**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TalentLMS ou as APIs fornecidas pelo TalentLMS para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do TalentLMS ou as APIs fornecidas pelo TalentLMS para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -141,7 +141,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao TalentLMS, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **TalentLMS**, clique em **Atribuir usuários**.
 
@@ -153,4 +153,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Sobre discos e VHDs para máquinas virtuais do Azure
@@ -31,4 +31,4 @@ Assim como qualquer outro computador, as máquinas virtuais do Azure usam os dis
 -  [Configure o software RAID](virtual-machines-linux-configure-raid.md) para redundância.
 -  [Capture uma máquina virtual do Linux](virtual-machines-linux-classic-capture-image.md) para implantar rapidamente VMs adicionais.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

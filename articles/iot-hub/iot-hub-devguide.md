@@ -70,7 +70,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![Configurações de dispositivo para a nuvem][img-eventhubcompatible]
 
-> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -491,7 +491,7 @@ O Hub IoT tem dois pontos de extremidade REST para dar suporte ao upload de arqu
 
 #### Notificar o Hub IoT de um upload de arquivo concluído
 
-O dispositivo é responsável por carregar o arquivo para o armazenamento usando os SDKs do Armazenamento do Azure. Quando o upload for concluído, o dispositivo envia um POST para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` usando a ID de correlação recebida do GET inicial.
+O dispositivo é responsável por carregar o arquivo para o armazenamento usando os SDKs do Armazenamento do Azure. Quando o carregamento for concluído, o dispositivo enviará um POST para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` usando a ID de correlação recebida do GET inicial.
 
 #### Notificações de upload de arquivo
 
@@ -561,7 +561,7 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 
 Por exemplo, se você comprar uma única unidade S1, obterá uma restrição de 100 conexões por segundo. Isso significa que serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade do dispositivo.
 
-Para uma discussão aprofundada do comportamento de limitação do Hub IoT, veja a postagem do blog [Hub IoT throttling and you][lnk-throttle-blog] \(A limitação do Hub IoT e você).
+Para uma discussão aprofundada do comportamento de limitação do Hub IoT, veja a postagem do blog [Hub IoT throttling and you][lnk-throttle-blog] (A limitação do Hub IoT e você).
 
 >[AZURE.NOTE] A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
@@ -624,4 +624,4 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

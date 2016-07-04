@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/20/2016"
    ms.author="hanuk;jroth;aglick"/>
 
 #Recuperação de desastres e alta disponibilidade para aplicativos baseados no Microsoft Azure
@@ -54,9 +54,9 @@ Considere os seguintes SLAs para um serviço do Azure que usa os serviços do Az
 
 |Serviço do Azure|Contrato de Nível de Serviço |Possíveis minutos de tempo de inatividade/mês (30 dias)|
 |:------------|:-----|:----------------------------------------:|
-|Computação |99,95%|21,6 |
-|Banco de Dados SQL |99,90%|43,2 |
-|Armazenamento |99,90%|43,2 |
+|Computação |99,95%|21,6 minutos |
+|Banco de Dados SQL |99,99%|4,3 minutos |
+|Armazenamento |99,90%|43,2 minutos |
 
 Você deve planejar para inatividade de todos os serviços em momentos diferentes. Neste exemplo simplificado, o número total de minutos por mês em que o aplicativo pode estar inativo é 108 minutos. Um mês de 30 dias tem um total de 43.200 minutos. 108 minutos é 0,25% do número total de minutos em um mês de 30 dias (43.200 minutos). Isso fornece uma disponibilidade efetiva de 99,75% para o serviço de nuvem.
 
@@ -131,4 +131,4 @@ Ao criar seu plano de recuperação de desastres e disponibilidade do aplicativo
 
 Este artigo faz parte de uma série de artigos com foco na recuperação de desastres e alta disponibilidade para aplicativos do Azure. O próximo artigo desta série é [Alta disponibilidade para aplicativos baseados no Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
