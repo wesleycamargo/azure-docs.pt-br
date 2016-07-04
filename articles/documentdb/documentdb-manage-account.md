@@ -33,7 +33,7 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 3. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** em **Recurso**. ![Sessão de consistência padrão][6]
 
 4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
-5. O andamento da operação pode ser monitorado por meio do hub de Notificações do Portal do Azure.
+
 
 > [AZURE.NOTE] Pode ser que demore um pouco para que uma alteração na configuração padrão da consistência entre em vigor na sua conta do Banco de Dados de Documentos.
 

@@ -1005,8 +1005,6 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |	modelId |	Identificador exclusivo do modelo |
 | nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 |
 | apiVersion | 1.0 | 
-||| 
-|
 |||
 | Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
