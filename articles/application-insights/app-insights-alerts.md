@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -41,9 +41,9 @@ Para receber um email quando uma métrica ultrapassar um limite, inicie no Metri
 * Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
 * Observe as unidades quando você for solicitado para inserir o valor de limite.
 * O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
-* Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse recurso.
-* Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “Proprietários de email” foi marcada ou não). 
-* Defina um [endereço de webhook](../azure-portal/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responderá aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido.
+* Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](app-insights-resources-roles-access-control.md) (não o recurso).
+* Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
+* Defina um [endereço de webhook](../azure-portal/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responderá aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
 
 *Não vejo o botão Adicionar Alerta.* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Consulte Configurações -> Usuários. [Saiba mais sobre o controle de acesso][roles].
@@ -126,4 +126,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

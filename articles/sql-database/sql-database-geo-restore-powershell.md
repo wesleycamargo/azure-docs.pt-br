@@ -12,17 +12,17 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Restaurar um Banco de Dados SQL do Azure de um backup com redundância geográfica usando o PowerShell
+
 
 > [AZURE.SELECTOR]
 - [Visão geral](sql-database-geo-restore.md)
 - [Portal do Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
-
 
 Este artigo mostra como restaurar seu banco de dados para um novo servidor usando a restauração geográfica com o PowerShell.
 
@@ -51,13 +51,13 @@ Este artigo mostra como restaurar seu banco de dados para um novo servidor usand
 
 ## Próximas etapas
 
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
+- Para obter as etapas detalhadas de como restaurar um Banco de Dados SQL do Azure usando o portal do Azure de um backup com redundância geográfica, confira [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md) (Restauração geográfica com o Portal do Azure)
+- Para obter informações detalhadas sobre como restaurar um Banco de Dados SQL do Azure de um backup com redundância geográfica, confira [Geo-Restore using PowerShell](sql-database-geo-restore.md) (Restauração geográfica com o PowerShell)
+- Para uma discussão completa sobre como se recuperar de uma interrupção, confira [Recover from an outage](sql-database-disaster-recovery.md) (Recuperação de uma interrupção)
 
 
 ## Recursos adicionais
 
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Cenários de continuidade dos negócios](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

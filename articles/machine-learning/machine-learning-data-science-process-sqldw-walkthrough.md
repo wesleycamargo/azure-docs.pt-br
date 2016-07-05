@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O Processo do Cortana Analytics em ação: usando o SQL Data Warehouse | Microsoft Azure"
+	pageTitle="O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse | Microsoft Azure"
 	description="Processo e Tecnologia de Análise Avançada em ação"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
-# Processo do Cortana Analytics em ação: usando o SQL Data Warehouse
+# O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 
 Neste tutorial, orientamos você através da compilação e implantação de um modelo de aprendizado de máquina usando o SQL Data Warehouse (SQL DW) para um conjunto de dados publicamente disponíveis: o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
 
-O procedimento segue o fluxo de trabalho do [CAP(Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Aprendizado de Máquina do Azure.
+O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Aprendizado de Máquina do Azure.
 
 
 ## <a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
@@ -91,7 +91,7 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 
 **Instale o Visual Studio 2015 e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Conectar-se ao Azure SQL Data Warehouse com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
+**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Connect to Azure SQL Data Warehouse with Visual Studio (Conectar-se ao Azure SQL Data Warehouse com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 >[AZURE.NOTE] Execute a seguinte consulta SQL no banco de dados que você criou no SQL Data Warehouse (em vez da consulta fornecida na etapa 3 do tópico de conexão) para **criar uma chave mestra**.
 
@@ -920,7 +920,7 @@ Veja na figura abaixo um exemplo de teste de pontuação. Quando estiver pronto 
 
 
 ## Resumo
-Para recapitular o que fizemos neste tutorial passo a passo: você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados públicos, passando pelo Processo do Cortana Analytics até a aquisição dos dados para o treinamento de modelo e, em seguida, até a implantação de um serviço Web do Aprendizado de Máquina do Azure.
+Vamos recapitular o que fizemos neste tutorial passo a passo: você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados público, passando pelo Processo de Ciência de Dados de Equipe, desde a aquisição dos dados até o treinamento de modelo e, em seguida, até a implantação de um serviço Web do Aprendizado de Máquina do Azure.
 
 ### Informações de licença
 
@@ -964,4 +964,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

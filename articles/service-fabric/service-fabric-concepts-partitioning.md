@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/15/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl"/>
 
 # Particionar Reliable Services do Service Fabric
@@ -124,15 +124,15 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
 3. Dê ao projeto o nome de “AlphabetPartitions”.
 4. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Com Estado** e dê a ele o nome “Alphabet.Processing”, como mostra a imagem abaixo.
 
-    ![Captura de tela de serviço com estado](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+    ![Captura de tela de serviço com estado](./media/service-fabric-concepts-partitioning/createstateful.png)
 
-5. Defina o número de partições. Abra o arquivo ApplicationManifest.xml no projeto AlphabetPartitions e atualize o parâmetro Processing\_PartitionCount para 26, como mostrado abaixo.
+5. Defina o número de partições. Abra o arquivo Applicationmanifest.xml localizado na pasta ApplicationPackageRoot do projeto AlphabetPartitions e atualize o parâmetro Processing\_PartitionCount para 26, conforme mostrado abaixo.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-
-    Você deve também atualizar as propriedades LowKey e HighKey do elemento StatefulService, como mostrado abaixo.
+    
+    Você também deve atualizar as propriedades LowKey e HighKey do elemento StatefulService no ApplicationManifest.xml, como mostrado abaixo.
 
     ```xml
     <Service Name="Processing">
@@ -145,7 +145,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
 6. Para que o serviço fique acessível, abra um ponto de extremidade em uma porta adicionando o elemento de ponto de extremidade do ServiceManifest.xml (localizado na pasta PackageRoot) para o serviço Alphabet.Processing, conforme mostrado abaixo:
 
     ```xml
-    <Endpoint Name="ProcessingServiceEndpoint" Protocol="http" Type="Internal" />
+    <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
 
     Agora o serviço está configurado para escutar um ponto de extremidade interno com 26 partições.
@@ -163,23 +163,24 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+         return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
     }
-    private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
+    private ICommunicationListener CreateInternalListener(ServiceContext context)
     {
-        EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+            
+         EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+         string uriPrefix = String.Format(
+                "{0}://+:{1}/{2}/{3}-{4}/",
+                internalEndpoint.Protocol,
+                internalEndpoint.Port,
+                context.PartitionId,
+                context.ReplicaOrInstanceId,
+                Guid.NewGuid());
 
-        string uriPrefix = String.Format(
-            "{0}://+:{1}/{2}/{3}-{4}/",
-            internalEndpoint.Protocol,
-            internalEndpoint.Port,
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
-            Guid.NewGuid());
+         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
 
-        string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
-        string uriPublished = uriPrefix.Replace("+", nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
+         string uriPublished = uriPrefix.Replace("+", nodeIP);
+         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
 
@@ -234,31 +235,31 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
 10. Vamos adicionar um serviço sem estado ao projeto para ver como você pode chamar uma partição específica.
 
     Esse serviço serve como uma interface web simples que aceita lastname como um parâmetro de cadeia de caracteres de consulta, determina a chave de partição e envia-o para o serviço Alphabet.Processing para processamento.
-
-11. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Sem Estado** e dê a ele o nome “Alphabet.WebApi”, como mostrado abaixo.
-
-    ![Captura de tela de serviço sem estado](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    
+11. Na caixa de diálogo **Criar um Serviço**, escolha o **Serviço sem Estado** e dê a ele o nome de "Alphabet.Web", como mostrado abaixo.
+    
+    ![Captura de tela de serviço sem estado](./media/service-fabric-concepts-partitioning/createnewstateless.png).
 
 12. Atualize as informações de ponto de extremidade no ServiceManifest.xml do serviço Alphabet.WebApi para abrir uma porta, conforme mostrado abaixo.
 
     ```xml
-    <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
+    <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
 
-13. Você precisa retornar uma coleção de ServiceInstanceListeners. Novamente, você pode optar por implementar um HttpCommunicationListener simples.
+13. Você precisa retornar uma coleção de ServiceInstanceListeners na classe Web. Novamente, você pode optar por implementar um HttpCommunicationListener simples.
 
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
     }
-    private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
+    private ICommunicationListener CreateInputListener(ServiceContext context)
     {
         // Service instance's URL is the node's IP & desired port
-        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        EndpointResourceDescription inputEndpoint = context.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
         string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+        var uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
 
@@ -272,12 +273,13 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
         {
             string lastname = context.Request.QueryString["lastname"];
             char firstLetterOfLastName = lastname.First();
-            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+            ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
 
             ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
             ResolvedServiceEndpoint ep = partition.GetEndpoint();
+                
             JObject addresses = JObject.Parse(ep.Address);
-            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            string primaryReplicaAddress = (string)addresses["Endpoints"].First();
 
             UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
             primaryReplicaUriBuilder.Query = "lastname=" + lastname;
@@ -285,7 +287,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
             string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
             output = String.Format(
-                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    "Result: {0}. <p>Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
                     result,
                     partitionKey,
                     firstLetterOfLastName,
@@ -312,13 +314,13 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
-    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
     ```
 
     Lembre-se de que, neste exemplo, estamos usando 26 partições com uma chave de partição por partição. Em seguida, obtemos a partição de serviço `partition` para essa chave usando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
 
     ```CSharp
-    private static readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
+    private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
 
     O método `ResolveAsync` usa o URI do serviço, a chave da partição e um token de cancelamento como parâmetros. O URI do serviço para o serviço de processamento é `fabric:/AlphabetPartitions/Processing`. Em seguida, obtemos o ponto de extremidade da partição.
@@ -331,7 +333,7 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
 
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
-    string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+    string primaryReplicaAddress = (string)addresses["Endpoints"].First();
 
     UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
     primaryReplicaUriBuilder.Query = "lastname=" + lastname;
@@ -351,12 +353,12 @@ Antes de escrever qualquer código, você precisa pensar sobre as chaves de part
     ```
 
 16. Depois de concluir a implantação, você pode verificar o serviço e todas as respectivas partições no Gerenciador do Service Fabric.
-
-    ![Captura de tela do Gerenciador do Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-
-17. Insira `http://localhost:8090/?lastname=somename` em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra está sendo armazenado na mesma partição.
-
-    ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+    
+    ![Captura de tela do Gerenciador do Service Fabric](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
+    
+17. Insira `http://localhost:8081/?lastname=somename` em um navegador para testar a lógica de particionamento. Você verá que cada sobrenome iniciado com a mesma letra está sendo armazenado na mesma partição.
+    
+    ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
@@ -372,4 +374,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy
@@ -78,4 +78,4 @@ Para transferir os blobs entre os contêineres do Azure, use o comando a seguir 
 > 2. Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados.  
 > 3.  Não é possível especificar um arquivo de blob específico para baixar usando o parâmetro /Source. Para baixar um arquivo específico, especifique o nome do arquivo de blob a ser baixado usando o parâmetro /Pattern. O parâmetro /S pode ser usado para que AzCopy procure recursivamente um padrão de nome de arquivo. Sem o parâmetro padrão, o AzCopy baixará todos os arquivos nesse diretório.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

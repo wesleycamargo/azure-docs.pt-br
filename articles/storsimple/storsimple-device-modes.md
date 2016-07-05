@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # Alterar o modo do dispositivo StorSimple
@@ -98,4 +98,4 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 
 Saiba como [aplicar atualizações do modo normal e de manutenção](storsimple-update-device.md) no dispositivo StorSimple.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

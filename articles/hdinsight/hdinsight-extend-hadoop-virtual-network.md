@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2016"
+   ms.date="06/20/2016"
    ms.author="larryfr"/>
 
 
@@ -67,10 +67,6 @@ Para obter mais informações sobre os recursos, benefícios e capacidades das r
 ###Redes virtuais baseadas em local
 
 O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualmente não funciona com redes virtuais baseadas em grupo de afinidade.
-
-###Sub-redes
-
-É altamente recomendável que você crie uma única sub-rede para cada cluster do HDInsight.
 
 ###Rede virtual clássica ou v2
 
@@ -309,4 +305,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

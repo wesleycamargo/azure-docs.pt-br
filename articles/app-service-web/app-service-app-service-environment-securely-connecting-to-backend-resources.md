@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo #
@@ -34,9 +34,7 @@ Uma limitação se aplica ao tráfego de saída de um ambiente de Serviço de Ap
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Requisitos de DNS e conectividade de saída ##
-Observe que, para um Ambiente do Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída ao Armazenamento do Azure no mundo todo, bem como conectividade com o banco de dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes do Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
-
-O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes do Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
+Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE está na seção "Conectividade de rede necessária" do artigo [Configuração de rede para a Rota Expressa](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
 Também é recomendável que todos os servidores DNS personalizados em uma rede virtual sejam configurados antes da criação de um Ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente do Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente do Serviço de Aplicativo. Se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
@@ -88,6 +86,7 @@ O resultado final é um conjunto de regras de segurança que bloqueiam o acesso 
 
 
 ## Introdução
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
@@ -116,4 +115,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

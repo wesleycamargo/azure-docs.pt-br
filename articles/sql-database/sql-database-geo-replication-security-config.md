@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como gerenciar a segurança após a recuperação de desastre"
-	description="Este tópico explica as considerações sobre segurança para gerenciar cenários de Replicação Geográfica Ativa para o Banco de Dados SQL."
+	pageTitle="Como gerenciar a segurança após a restauração de um banco de dados para um novo servidor ou fazer failover de um banco de dados para uma cópia de banco de dados secundária | Microsoft Azure"
+	description="Este tópico explica considerações de segurança para gerenciar a segurança após uma restauração ou failover de um banco de dados."
 	services="sql-database"
 	documentationCenter="na"
 	authors="carlrabeler"
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/10/2016"
+	ms.date="06/16/2016"
 	ms.author="carlrab" />
 
-# Como gerenciar a segurança após a recuperação de desastre
+# Como gerenciar a segurança do Banco de Dados SQL do Azure após a recuperação de desastre
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
 
@@ -27,7 +27,7 @@ Este tópico descreve os requisitos de autenticação para configurar e controla
 
 ## Recuperação de desastre com usuários independentes
 
-Com a [versão V12 do Banco de Dados SQL do Azure](sql-database-v12-whats-new.md), o Banco de Dados SQL agora dá suporte a usuários independentes. Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, veja [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários banco de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada.
 
@@ -46,7 +46,6 @@ A preparação do acesso do usuário a uma replicação geográfica secundária 
 >[AZURE.NOTE] Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, eles ficarão limitados à conta de administrador do servidor.
 
 Configurar logons no servidor de destino envolve três etapas descritas abaixo:
-
 
 #### 1\. Determine os logons com acesso ao banco de dados primário:
 A primeira etapa do processo é determinar quais logons devem ser duplicados no servidor de destino. Isso é feito com um par de instruções SELECT, uma no banco de dados mestre lógico no servidor de origem e outra no próprio banco de dados primário.
@@ -89,15 +88,20 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 
 ## Próximas etapas
 
-- Para obter mais informações sobre como gerenciar logons e acesso ao banco, consulte [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
-- Para saber mais sobre usuários de bancos de dados independentes, consulte [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+- Para obter mais informações sobre como gerenciar o acesso ao banco de dados e os logons, confira [SQL Database security: Manage database access and login security](sql-database-manage-logins.md) (Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados).
+- Para obter mais informações sobre os usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+- Para obter informações sobre como usar e configurar a replicação geográfica ativa, confira [Active Geo-Replication](sql-database-geo-replication-overview.md) (Replicação Geográfica Ativa)
+- Para obter informações sobre como usar a restauração geográfica, confira [Geo-Restore](sql-database-geo-restore.md) (Restauração Geográfica)
 
 ## Recursos adicionais
 
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
+- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
+- [Restauração pontual](sql-database-point-in-time-restore.md)
+- [Restauração geográfica](sql-database-geo-restore.md)
 - [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

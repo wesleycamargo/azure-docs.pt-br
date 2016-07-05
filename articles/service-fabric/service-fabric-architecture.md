@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="06/09/2016"
    ms.author="rsinha"/>
 
 # Arquitetura do Service Fabric
@@ -61,4 +61,4 @@ Esse subsistema fornece um sistema de mensagens confiável dentro do cluster e d
 ## Subsistema de capacidade de teste
 Capacidade de teste é um conjunto de ferramentas desenvolvidas especificamente para testar serviços criados com base na malha de serviço. As ferramentas permitem que um desenvolvedor induza com facilidade falhas significativas e execute cenários de teste para praticar e validar os vários estados e transições pelos quais o serviço passa durante o ciclo de vida, tudo de uma maneira segura e controlada. A capacidade de teste também fornece um mecanismo para executar testes mais longos que podem iterar por várias possíveis falhas sem perder a disponibilidade. Isso fornece a você um ambiente de teste em produção.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

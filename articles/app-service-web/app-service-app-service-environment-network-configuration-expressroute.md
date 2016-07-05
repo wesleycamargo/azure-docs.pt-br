@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Detalhes da configuração de rede para Ambientes de Aplicativo de Serviço com a Rota Expressa 
@@ -29,7 +29,7 @@ Os clientes podem conectar um circuito da [Rota Expressa do Azure][ExpressRoute]
 Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo que não podem ser inicialmente atendidos em uma rede virtual conectada a uma Rota Expressa. Os Ambientes do Serviço de Aplicativo exigem tudo o que se segue para que funcionem corretamente:
 
 
--  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+-  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo nas portas 80 e 443. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
 -  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Pontos de extremidade do Banco de Dados SQL sãs resolvidos no seguinte domínio: *database.windows.net*.
 -  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
 -  Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
@@ -114,6 +114,7 @@ Depois que as etapas acima forem confirmadas, você precisará excluir a máquin
 Prossiga então com a criação de um Ambiente do Serviço de Aplicativo.
 
 ## Introdução
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
@@ -137,4 +138,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

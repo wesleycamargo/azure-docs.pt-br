@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="06/17/2016"
    ms.author="v-sharos" />
 
 # Implantar seu dispositivo StorSimple local no Portal do governo
@@ -279,4 +279,4 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

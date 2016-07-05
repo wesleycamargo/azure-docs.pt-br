@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/06/2016"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
@@ -81,4 +81,7 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   - Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
   - Adicione a nova VM à mesma rede virtual.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Próximas etapas
+Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+
+<!---HONumber=AcomDC_0622_2016-->

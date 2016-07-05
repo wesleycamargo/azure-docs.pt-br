@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Configurar o Multipath I/O no host do Windows Server para a Matriz Virtual StorSimple
 
 ## Visão geral
 
-Este artigo descreve como instalar o recurso MPIO (Multipath I/O) no host do Windows Server, aplicar definições de configuração específica apenas para volumes StorSimple e verificar o MPIO para volumes StorSimple. O procedimento presume que sua Matriz Virtual StorSimple 1200 com duas interfaces de rede esteja conectada a um host do Windows Server com duas interfaces de rede. As informações contidas neste artigo aplicam-se apenas à matriz virtual. Para saber mais sobre dispositivos StorSimple 8000 series, acesse [Configurar o MPIO para host do StorSimple](storsimple-configure-mpio-windows-server.md).
+Este artigo descreve como instalar o recurso MPIO (Multipath I/O) no host do Windows Server, aplicar definições de configuração específica apenas para volumes StorSimple e verificar o MPIO para volumes StorSimple. O procedimento presume que sua Matriz Virtual 1200 StorSimple com duas interfaces de rede esteja conectada a um host do Windows Server com duas interfaces de rede. As informações contidas neste artigo aplicam-se apenas à matriz virtual. Para saber mais sobre dispositivos StorSimple 8000 series, acesse [Configurar o MPIO para host do StorSimple](storsimple-configure-mpio-windows-server.md).
 
-O recurso MPIO no Windows Server ajuda a criar configurações de armazenamento altamente disponíveis e tolerantes a falhas. O MPIO usa componentes redundantes do caminho físico — adaptadores, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Recursos e visão geral do MPIO").
+O recurso MPIO no Windows Server ajuda a criar configurações de armazenamento altamente disponíveis e tolerantes a falhas. O MPIO usa componentes redundantes do caminho físico – adaptadores, cabos e comutadores – para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Recursos e visão geral do MPIO").
 
 Para a alta disponibilidade de sua solução StorSimple, configure o MPIO nos hosts do Windows Server conectados à Matriz Virtual 1200 StorSimple (também conhecida como o dispositivo virtual local). Assim, os servidores de host podem tolerar uma falha de link, rede ou interface.
 
@@ -67,7 +67,7 @@ Como mostrado na figura anterior:
 
 - A matriz virtual StorSimple provisionada no Hyper-V é um dispositivo ativo de único nó configurado como um servidor iSCSI.
 
-- Duas interfaces de rede virtual são habilitadas na sua matriz. Na interface de usuário local da sua matriz virtual 1200, verifique se duas interfaces de rede estão habilitadas navegando até **Configurações de Rede**, como mostrado abaixo:
+- Duas interfaces de rede virtual são habilitadas na sua matriz. Na interface de usuário da Web local da sua matriz virtual 1200, verifique se duas interfaces de rede estão habilitadas navegando até **Configurações de Rede**, como mostrado abaixo:
 
 	![Interfaces de rede habilitadas na 1200](./media/storsimple-ova-configure-mpio-windows-server/mpio9.png)
 	
@@ -103,7 +103,7 @@ Depois de configurar o MPIO no Windows Server, os volumes criados na matriz Stor
 
 	>[AZURE.IMPORTANT] **Se você estiver usando uma rede privada para as conexões iSCSI, digite o endereço IP da porta DADOS que está conectada à rede privada.**
 
-4. Repita as etapas de 2 a 3 para uma segunda interface de rede (por exemplo, Ethernet 2) na sua matriz.
+4. Repita as etapas 2 e 3 para uma segunda interface de rede (por exemplo, Ethernet 2) na sua matriz.
 
 5. Selecione a guia **Destinos** na caixa de diálogo **Propriedades do Iniciador iSCSI**. Para sua matriz virtual, você deve ver a superfície de cada volume como um destino em **Destinos Descobertos**. Nesse caso, três destinos (correspondente ao três volumes) devem ser descobertos.
 
@@ -178,4 +178,4 @@ Depois de configurar o MPIO no Windows Server, os volumes criados na matriz Stor
 Saiba mais sobre como [usar o serviço StorSimple Manager para administrar a Matriz Virtual StorSimple](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

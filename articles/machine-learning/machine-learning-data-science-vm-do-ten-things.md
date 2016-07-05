@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados
@@ -910,4 +910,4 @@ Você pode aproveitar outros serviços de análise e dados do Azure listados nes
 ## Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

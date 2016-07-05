@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
@@ -111,7 +111,7 @@ Depois de se conectar à máquina virtual, a próxima tarefa é instalar os paco
 
 4. **Instalar o kerberos:** no terminal do PuTTY, digite o comando a seguir.
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![Instalar o kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
@@ -177,4 +177,4 @@ Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-
 - [Installing Kerberos](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalando o Kerberos)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: Guia de integração do Windows)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

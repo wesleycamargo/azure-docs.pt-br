@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/20/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de falhas locais no Azure
@@ -98,7 +98,7 @@ Os serviços se beneficiam da replicação apenas pelo uso do Armazenamento do A
 
 ###Gerenciamento de recursos
 
-As contas de armazenamento criadas depois de 7 de junho de 2012 podem ter até 200 TB (o máximo anterior era 100 TB). Se espaço adicional for necessário, os aplicativos deverão ser criados para usar várias contas de armazenamento.
+As contas de armazenamento criadas depois de maio de 2014 podem ter até 500 TB (o máximo anterior era 200 TB). Se espaço adicional for necessário, os aplicativos deverão ser criados para usar várias contas de armazenamento.
 
 ###Discos de máquina virtual
 
@@ -223,4 +223,4 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

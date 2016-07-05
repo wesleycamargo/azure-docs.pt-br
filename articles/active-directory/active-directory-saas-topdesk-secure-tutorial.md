@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure | Microsoft Azure"
     description="Saiba como usar o TOPdesk - Secure com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure
   
@@ -39,7 +39,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o TOPdesk - Secure, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
 
@@ -97,7 +97,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
         >[AZURE.NOTE] Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
 
-6.  Em outra janela do navegador da Web, faça logon em seu portal do **Active Directory do Azure** como administrador.
+6.  Em outra janela do navegador da Web, faça logon no **portal clássico do Azure** como administrador.
 
 7.  Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Configurar logon único**, para abrir o diálogo **Configurar Logon Único**.
 
@@ -111,9 +111,9 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "*https://qssolutions.topdesk.net*").
-    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "**https://qssolutions.topdesk.net*")).
+2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+3.  Clique em **Próximo**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
@@ -152,10 +152,10 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
     2.  Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
     3.  Para carregar o arquivo de logotipo que você recebeu da equipe de suporte do TOPdesk, em **Ícone do logotipo**, clique em **Procurar**.
     4.  Na caixa de texto **Atributo do nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
+5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
     6.  Clique em **Salvar**.
 
-17. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+17. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configurar o logon único")
 
@@ -190,7 +190,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao TOPdesk - Secure, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Atribuir usuários**.
 
@@ -202,4 +202,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

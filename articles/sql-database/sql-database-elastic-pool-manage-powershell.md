@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # Monitorar e gerenciar um pool de banco de dados elástico com o PowerShell 
@@ -107,6 +107,8 @@ Para recuperar as métricas:
 
 Você pode adicionar regras de alerta a recursos para enviar notificações de email ou cadeias de caracteres de alerta para [pontos de extremidade da URL](https://msdn.microsoft.com/library/mt718036.aspx) quando o recurso atingir um limite de utilização que você configurou. Use o cmdlet Add-AzureRmMetricAlertRule.
 
+> [AZURE.IMPORTANT]O monitoramento de utilização de recursos para Pools Elásticos tem um atraso de pelo menos 20 minutos. No momento, não é permitido definir alertas de menos de 30 minutos para Pools Elásticos. Todos os alertas definidos para Pools Elásticos com um período (parâmetro chamado "-WindowSize" na API do PowerShell) de menos de 30 minutos não podem ser disparados. Verifique se todos os alertas que você define para Pools Elásticos usam um período (WindowSize) de 30 minutos ou mais.
+
 Este exemplo adiciona um alerta para ser notificado quando consumo de eDTU do pool ultrapassar determinado limite.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@ Este exemplo adiciona um alerta para ser notificado quando consumo de eDTU do po
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## Adicionar alertas para todos os bancos de dados em um pool
 
-Você pode adicionar regras de alerta para todos os banco de dados em um pool elástico para enviar notificações por email ou cadeias de caracteres de alerta para [pontos de extremidade de URL](https://msdn.microsoft.com/library/mt718036.aspx) quando um recurso atingir um limite de utilização configurado pelo alerta.
+Você pode adicionar regras de alerta a todos os bancos de dados em um pool elástico para enviar notificações por email ou cadeias de caracteres de alerta para [pontos de extremidade de URL](https://msdn.microsoft.com/library/mt718036.aspx) quando um recurso atingir um limite de utilização configurado pelo alerta.
+
+> [AZURE.IMPORTANT] O monitoramento de utilização de recursos para Pools Elásticos tem um atraso de pelo menos 20 minutos. No momento, não é permitido definir alertas de menos de 30 minutos para Pools Elásticos. Todos os alertas definidos para Pools Elásticos com um período (parâmetro chamado "-WindowSize" na API do PowerShell) de menos de 30 minutos não podem ser disparados. Verifique se todos os alertas que você define para Pools Elásticos usam um período (WindowSize) de 30 minutos ou mais.
 
 Este exemplo adiciona um alerta a cada banco de dados em um pool para ser notificado quando consumo de DTU do banco de dados ficar acima de um determinado limite.
 
@@ -156,7 +160,7 @@ Este exemplo adiciona um alerta a cada banco de dados em um pool para ser notifi
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
@@ -166,12 +170,12 @@ Este exemplo adiciona um alerta a cada banco de dados em um pool para ser notifi
 
 ## Coletar e monitorar dados de uso de recursos em vários pools em uma assinatura
 
-Quando você tiver um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente. Em vez disso, os cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL podem ser combinadas para coletar dados de uso de recursos de vários pools e bancos de dados para monitoramento e análise de uso de recursos. Uma [implementação de exemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de tal um conjunto de scripts do PowerShell pode ser encontrada no repositório de exemplos do SQL Server do GitHub junto com a documentação sobre o que ele faz e como usá-lo.
+Quando você tiver um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente. Em vez disso, os cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL podem ser combinadas para coletar dados de uso de recursos de vários pools e bancos de dados para monitoramento e análise de uso de recursos. Uma [implementação de exemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de tal conjunto de scripts do powershell pode ser encontrada no repositório de exemplos do SQL Server no GitHub com a documentação sobre o que ele faz e como usá-lo.
 
 Para usar esta implementação de exemplo, siga as etapas listadas abaixo.
 
 
-1. Baixe os [scripts e documentação](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+1. Baixe os [scripts e a documentação](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modifique os scripts para seu ambiente. Especifique um ou mais servidores nos quais os pools elásticos são hospedados.
 3. Especifique um banco de dados de telemetria no qual as métricas coletadas serão armazenadas. 
 4. Personalize o script para especificar a duração da execução de scripts.
@@ -270,6 +274,6 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 ## Próximas etapas
 
 - [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
-- Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): usar ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
+- Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

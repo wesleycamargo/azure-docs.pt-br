@@ -28,7 +28,10 @@ Abra os modos de exibição de catálogo **sys.databases** e **sys.tables** para
 Para ver quanto espaço uma tabela habilitada para Stretch está usando no SQL Server, execute a seguinte instrução.
 
  ```tsql
- EXEC sp_spaceused '<table name>', 'true', 'LOCAL_ONLY';
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
+GO
  ```
 ## Gerenciar a migração de dados
 
@@ -48,8 +51,17 @@ Para ver sugestões de solução de problema, confira [Monitorar e solucionar pr
 ### <a name="RemoteInfo"></a>Obter informações sobre bancos de dados e tabelas remotas usadas pelo Stretch Database
 Abra os modos de exibição de catálogo **sys.remote\_data\_archive\_databases** e **sys.remote\_data\_archive\_tables** para ver informações sobre as tabelas e bancos de dados remotos nos quais os dados migrados são armazenados. Para saber mais, confira [sys.remote\_data\_archive\_databases (Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) e [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
+Para ver quanto espaço uma tabela habilitada para Stretch está usando no Azure, execute a seguinte instrução.
+
+ ```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
+GO
+ ```
+
 ### Excluir os dados migrados  
-Se você quiser excluir dados que já foram migrados para o Azure, execute as etapas descritas em [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
+Se você quiser excluir os dados que já foram migrados para o Azure, execute as etapas descritas em [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
 
 ## Gerenciar o esquema da tabela
 
@@ -57,9 +69,9 @@ Se você quiser excluir dados que já foram migrados para o Azure, execute as et
 Não altere o esquema de uma tabela remota do Azure que está associada a uma tabela do SQL Server configurada para o Banco de Dados de Stretch. Especificamente, não modifique o nome ou o tipo de dados de uma coluna. O recurso Banco de Dados de Stretch faz várias suposições sobre o esquema da tabela remota em relação ao esquema da tabela do SQL Server. Se você alterar o esquema remoto, o Banco de Dados de Stretch deixará de funcionar para a tabela alterada.
 
 ### Reconciliar as colunas da tabela  
-Se você excluiu acidentalmente as colunas da tabela remota, execute **sp\_rda\_reconcile\_columns** para adicionar colunas à tabela remota que existe na tabela do SQL Server habilitada para Stretch, mas não na tabela remota. Para saber mais, confira [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
+Se você excluiu acidentalmente as colunas da tabela remota, execute **sp\_rda\_reconcile\_columns** para adicionar colunas à tabela remota que existe na tabela do SQL Server habilitada para Stretch, mas não na tabela remota. Para obter mais informações, confira [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
 
-  > [IMPORTANTE] Quando **sp\_rda\_reconcile\_columns** recria colunas acidentalmente excluídas da tabela remota, ele não restaura os dados existentes nas colunas excluídas.
+  > [!IMPORTANT] Quando **sp\_rda\_reconcile\_columns** recria colunas acidentalmente excluídas da tabela remota, ele não restaura os dados que estavam anteriormente nas colunas excluídas.
 
 O **sp\_rda\_reconcile\_columns** não exclui colunas da tabela remota que existem na tabela remota, mas não na tabela do SQL Server habilitada para Stretch. Se houver colunas na tabela remota do Azure que não existem mais na tabela do SQL Server habilitada para Stretch, essas colunas extras não impedirão o Stretch Database de funcionar normalmente. Opcionalmente, você pode remover as colunas extras manualmente.
 
@@ -73,16 +85,16 @@ Consultas que incluem tabelas habilitadas para o Stretch devem executar mais len
 -   As condições de sua rede podem estar degradadas. Entre em contato com o administrador de rede para obter informações sobre problemas recentes ou interrupções.
 
 ### Aumentar o nível de desempenho do Azure para operações com uso intenso de recursos, como a indexação
-Quando você compila, recompila ou reorganiza um índice em uma tabela grande configurada para o Stretch Database, e antecipa uma quantidade grande de consultas nos dados migrados no Azure durante esse período, considere o aumento do nível de desempenho do banco de dados remoto do Azure correspondente durante a operação. Para saber mais sobre níveis de desempenho e preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+Quando você compila, recompila ou reorganiza um índice em uma tabela grande configurada para o Stretch Database, e antecipa uma quantidade grande de consultas nos dados migrados no Azure durante esse período, considere o aumento do nível de desempenho do banco de dados remoto do Azure correspondente durante a operação. Para obter mais informações sobre os níveis de desempenho e os preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 ### Não é possível pausar o serviço do SQL Server Stretch Database no Azure  
- Selecione os níveis de desempenho e de preços adequados. Se você aumentar temporariamente o nível de desempenho para uma operação com uso pesado de recursos, restaure-o ao nível anterior após a conclusão da operação. Para saber mais sobre níveis de desempenho e preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+ Selecione os níveis de desempenho e de preços adequados. Se você aumentar temporariamente o nível de desempenho para uma operação com uso pesado de recursos, restaure-o ao nível anterior após a conclusão da operação. Para obter mais informações sobre os níveis de desempenho e os preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 ## Alterar o escopo das consultas  
  Consultas em tabelas habilitadas para o Stretch retornam dados locais e remotos por padrão. Você pode alterar o escopo das consultas para todas as consultas de todos os usuários, ou apenas para uma única consulta de um administrador.
 
 ### Alterar o escopo das consultas para todas as consultas de todos os usuários  
- Para alterar o escopo de todas as consultas de todos os usuários, execute o procedimento armazenado **sys.sp\_rda\_set\_query\_mode**. Você pode reduzir o escopo para consultar apenas os dados locais, desabilitar todas as consultas ou restaurar a configuração padrão. Para saber mais, confira [sys.sp\_rda\_set\_query\_mode](https://msdn.microsoft.com/library/mt703715.aspx).
+ Para alterar o escopo de todas as consultas de todos os usuários, execute o procedimento armazenado **sys.sp\_rda\_set\_query\_mode**. Você pode reduzir o escopo para consultar apenas os dados locais, desabilitar todas as consultas ou restaurar a configuração padrão. Para obter mais informações, confira [sys.sp\_rda\_set\_query\_mode](https://msdn.microsoft.com/library/mt703715.aspx).
 
 ### <a name="queryHints"></a>Alterar o escopo das consultas para uma única consulta de um administrador  
  Para alterar o escopo de uma única consulta de um membro da função db\_owner, adicione a dica de consulta **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *value* )** à instrução SELECT. A dica de consulta REMOTE\_DATA\_ARCHIVE\_OVERRIDE pode ter os seguintes valores.
@@ -95,7 +107,10 @@ Quando você compila, recompila ou reorganiza um índice em uma tabela grande co
 Por exemplo, a consulta a seguir retorna apenas resultados locais.
 
  ```tsql  
-SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ...  
+ USE <Stretch-enabled database name>;
+ GO
+ SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
+ GO
 ```  
 
 ## <a name="adminHints"></a>Fazer exclusões e atualizações administrativas  
@@ -114,4 +129,4 @@ SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_O
 
 [Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

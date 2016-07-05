@@ -65,7 +65,7 @@ Nesse caso, você criará uma expressão regular que inclua todas as origens que
  
 > [AZURE.TIP] O **Azure CDN da Verizon** usa [Expressões Regulares Compatíveis com Perl](http://pcre.org/) como seu mecanismo de expressões regulares. Você pode usar uma ferramenta como [Regular Expressions 101](https://regex101.com/) para validar a expressão regular. Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.
 
-Se a expressão regular for correspondente, a borda da CDN da regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem pela origem que enviou a solicitação. Você também pode adicionar outros cabeçalhos CORS, como **Access-Control-Allow-Methods**.
+Se a expressão regular for correspondente, a regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem pela origem que enviou a solicitação. Você também pode adicionar outros cabeçalhos CORS, como **Access-Control-Allow-Methods**.
 
 ![Exemplo de regras com expressões regulares](./media/cdn-cors/cdn-cors-regex.png)
  
@@ -81,4 +81,4 @@ Em vez de expressões regulares, você pode criar uma regra separada para cada o
 
 Em perfis Padrão do Azure CDN, o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o [armazenamento em cache da cadeia de caracteres de consulta](cdn-query-string.md). Você precisa habilitar a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

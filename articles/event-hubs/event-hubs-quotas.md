@@ -21,4 +21,4 @@ Esta seção lista as cotas e limites básicos nos Hubs de Eventos do Microsoft 
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!----HONumber=AcomDC_0615_2016-->

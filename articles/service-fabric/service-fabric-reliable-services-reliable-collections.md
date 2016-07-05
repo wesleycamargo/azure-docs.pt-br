@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -102,8 +102,10 @@ Observe que o cenário de deadlock acima é um ótimo exemplo de como um Bloquei
 - Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetValueAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
 - Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como structs e tipos internos são pass-by-value, você não precisa fazer uma cópia em profundidade neles.
 - Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
+- Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
+- Os enumeradores construídos dentro do escopo de uma transação não devem ser usados fora do escopo da transação.
 - Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
-- Certifique-se de que a implementação de `IComparable<TKey>` está correta. O sistema depende disso para mesclar os pontos de verificação.
+- Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende disso para mesclar os pontos de verificação.
 - Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
 
 Eis aqui algumas coisas que se deve manter em mente:
@@ -123,4 +125,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

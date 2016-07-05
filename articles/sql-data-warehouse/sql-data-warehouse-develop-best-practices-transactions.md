@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="06/21/2016"
    ms.author="jrj;barbkess"/>
 
 # Otimização de transações para o SQL Data Warehouse
 
-Este artigo explica como garantir que seu código transacional seja escrito para maximizar a eficiência de suas alterações.
+Este artigo explica como otimizar o desempenho do seu código transacional ao minimizar o risco para reversões longas.
 
-## Entendimento conceitual das transações e do registro em log
+## Transações e registro em log
 
 As transações são um componente importante de um mecanismo de banco de dados relacional. O SQL Data Warehouse usa transações durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. As instruções individuais `INSERT`, `UPDATE` e `DELETE` são exemplos de transações implícitas. As transações explícitas são escritas explicitamente por um desenvolvedor usando `BEGIN TRAN`, `COMMIT TRAN` ou `ROLLBACK TRAN` e em geral são usadas quando várias instruções de modificação precisam ser agrupadas em uma única unidade atômica.
 
@@ -30,7 +30,8 @@ O SQL Data Warehouse do Azure confirma as alterações no banco de dados usando 
 - Processar dados usando lotes com escopo para evitar transações de longa execução singulares
 - Adotar um padrão de alternância de partições para grandes modificações de uma determinada partição
 
-## Registro mínimo em log versus registro total em log
+## Registro mínimo em log vs. registro total em log
+
 Ao contrário de operações totalmente registradas em log, que usam o log de transações para acompanhar cada linha alterada, as operações minimamente registradas em log controlam apenas as alocações de extensão e as alterações de metadados. Portanto, o registro mínimo em log só envolve o registro das informações necessárias para reverter a transação no caso de uma falha ou de uma solicitação explícita (`ROLLBACK TRAN`). Como muito menos informações são rastreadas no log de transações, uma operação minimamente registrada em log tem um desempenho melhor do que uma operação totalmente registrada em log de tamanho similar. Além disso, como ocorrem menos gravações no log de transações, uma quantidade menor de dados de log será gerada e, portanto, é mais eficiente em relação à E/S.
 
 >[AZURE.NOTE] As operações minimamente registradas em log podem participar de transações explícitas. Como todas as alterações nas estruturas de alocação são rastreadas, é possível reverter operações minimamente registradas em log. É importante entender que a alteração é registrada "minimamente" em log, ou seja, não tem o log cancelado.
@@ -39,7 +40,7 @@ Ao contrário de operações totalmente registradas em log, que usam o log de tr
 
 As seguintes operações podem ser minimamente registradas em log:
 
-- CREATE TABLE AS SELECT (CTAS)
+- CREATE TABLE AS SELECT ([CTAS][])
 - INSERT..SELECT
 - CREATE INDEX
 - ALTER INDEX REBUILD
@@ -54,9 +55,9 @@ As seguintes operações podem ser minimamente registradas em log:
 - SELECT..INTO
 -->
 
-## Condições de log mínimo para as operações de carregamento em massa.
+## Registro mínimo em log com carregamento em massa
 
-`CTAS` e `INSERT...SELECT` são ambas operações de carregamento em massa. No entanto, ambas são influenciadas pela definição da tabela de destino e dependem do cenário de carga. A seguir, uma tabela que explica se a operação em massa será total ou minimamente registrada em log:
+`CTAS` e `INSERT...SELECT` são operações de carregamento em massa. No entanto, ambas são influenciadas pela definição da tabela de destino e dependem do cenário de carga. A seguir, uma tabela que explica se a operação em massa será total ou minimamente registrada em log:
 
 | Índice principal | Cenário de carga | Modo de registro em log |
 | --------------------------- | -------------------------------------------------------- | ------------ |
@@ -69,25 +70,13 @@ As seguintes operações podem ser minimamente registradas em log:
 
 Vale a pena observar que todas as gravações para atualizar índices secundários ou não clusterizados sempre serão operações com log completo.
 
-> [AZURE.IMPORTANT] O SQL Data Warehouse possui 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
+> [AZURE.IMPORTANT] O SQL Data Warehouse possui 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas que estiverem sendo inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
 
 Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas vezes, conter uma combinação de linhas total e minimamente registradas em log. Um índice clusterizado é uma árvore balanceada (árvore b) das páginas. Se a página que estiver sendo gravada já contiver linhas de outra transação, então essas gravações serão totalmente registradas em log. No entanto, se a página estiver vazia, a gravação para essa página será minimamente registrada em log.
 
-## Operações totalmente registradas
-Há outras instruções, além das atualizações de índices secundários, que são operações totalmente registradas em log.
- 
-As instruções `UPDATE` e `DELETE` são **sempre** operações totalmente registradas em log.
+## Otimizando exclusões
 
-No entanto, essas instruções podem ser otimizadas para que possam ser executadas com mais eficiência.
-
-A seguir, quatro exemplos explicando como otimizar seu código para operações totalmente registradas em log:
-
-- `CTAS`
-- Partições de tabela
-- Operações em lote
-
-### Otimização de operações grandes de exclusão usando CTAS
-Se você precisar excluir uma grande quantidade de dados em uma tabela ou uma partição geralmente faz mais sentido `SELECT` os dados que deseja manter criando uma nova tabela com [CTAS][]. Depois de criar, use um par de comandos [RENAME OBJECT][] para trocar os nomes das tabelas.
+`DELETE` é uma operação totalmente registrada em log. Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente faz mais sentido `SELECT` os dados que deseja manter, que pode ser executada como uma operação minimamente registrada em log. Para isso, crie uma nova tabela com [CTAS][]. Depois de criada, use [RENAME][] para alternar sua tabela antiga com a recentemente criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,8 +106,9 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-### Otimização de grandes atualizações usando CTAS
-Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, geralmente pode ser muito mais eficiente usar uma operação minimamente registrada em log, como [CTAS][].
+## Otimizando atualizações
+
+`UPDATE` é uma operação totalmente registrada em log. Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, geralmente pode ser muito mais eficiente usar uma operação minimamente registrada em log, como [CTAS][].
 
 No exemplo abaixo, uma atualização completa de tabela foi convertida em um `CTAS` para permitir o registro mínimo em log.
 
@@ -180,8 +170,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 > [AZURE.NOTE] A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Data Warehouse. Para obter mais detalhes, consulte a seção de gerenciamento de carga de trabalho no artigo sobre [simultaneidade][].
 
-### Alternância de partições para atualizar dados
-Quando houver modificações em larga escala dentro de uma partição, fará sentido considerar uma alternância de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
+## Otimizando com alternância de partição
+
+Quando houver modificações em larga escala dentro de uma [partição de tabela][], fará sentido considerar um padrão de alternância de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
 
 As etapas para executar uma alternância de partições são as seguintes:
 1. Criar uma partição de saída vazia
@@ -236,7 +227,7 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Este procedimento maximiza a reutilização de código e deixa o exemplo de alternância de partições mais compacto.
+Esse procedimento maximiza a reutilização de código e deixa o exemplo de alternância de partições mais compacto.
 
 O código a seguir demonstra as cinco etapas mencionadas acima para obter uma rotina de alternância de partições completa.
 
@@ -341,7 +332,8 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-### Operações de modificação de dados em lotes de partes gerenciáveis
+## Minimizar o registro em log com pequenos lotes
+
 Para grandes operações de modificação de dados, talvez faça sentido dividir a operação em partes ou em lotes para abranger a unidade de trabalho.
 
 Um exemplo funcional é fornecido abaixo. O tamanho do lote foi definido como um número trivial para realçar a técnica. Na realidade, o tamanho do lote seria significativamente maior.
@@ -402,39 +394,34 @@ BEGIN
 END
 ```
 
-## Orientações adicionais sobre as operações de pausa e de dimensionamento
-O SQL Data Warehouse do Azure permite pausar, retomar e dimensionar seu data warehouse sob demanda. Quando você pausa ou dimensiona o SQL Data Warehouse, deve entender que todas as transações em trânsito serão encerradas imediatamente, fazendo com que qualquer transação aberta seja revertida. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes da operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar totalmente seu banco de dados do SQL Data Warehouse do Azure.
+## Diretrizes de pausa e dimensionamento
+
+O SQL Data Warehouse do Azure permite pausar, retomar e dimensionar seu data warehouse sob demanda. Quando você pausa ou dimensiona o SQL Data Warehouse, deve entender que todas as transações em trânsito serão encerradas imediatamente, fazendo com que qualquer transação aberta seja revertida. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar seu banco de dados do Azure SQL Data Warehouse.
 
 > [AZURE.IMPORTANT] As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que operações minimamente registradas em log semelhantes.
 
 O melhor cenário é permitir que as transações de modificação de dados em trânsito sejam concluídas antes da pausa ou do dimensionamento do SQL Data Warehouse. No entanto, isso pode não sempre ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
-- Grave novamente operações de longa usando [CTAS][]
+- Grave novamente operações de longa duração usando [CTAS][]
 - Divida a operação em partes, trabalhando com um subconjunto de linhas
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento e conteúdo relacionados aos exemplos mostrados, consulte os seguintes artigos:
 
-- [Desenvolvimento][]
-- [Transações][]
-- [Partições de tabela][]
-- [Simultaneidade][]
-- [CTAS][]
-- [RENAME (Transact-SQL)][]
+Confira [Transações no SQL Data Warehouse][] para saber mais sobre níveis de isolamento e limites transacionais. Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
-<!--ACOM references-->
-[Desenvolvimento]: sql-data-warehouse-overview-develop.md
-[Transações]: sql-data-warehouse-develop-transactions.md
-[Partições de tabela]: sql-data-warehouse-develop-table-partitions.md
-[table partition]: sql-data-warehouse-develop-table-partitions.md
-[simultaneidade]: sql-data-warehouse-develop-concurrency.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-
+<!--Article references-->
+[Transações no SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[partição de tabela]: ./sql-data-warehouse-develop-table-partitions.md
+[simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[Práticas recomendadas para o Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!-- Other web references -->
+
+<!---HONumber=AcomDC_0622_2016-->

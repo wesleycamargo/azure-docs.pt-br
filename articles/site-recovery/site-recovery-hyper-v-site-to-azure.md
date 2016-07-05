@@ -403,7 +403,7 @@ Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faç
 
 **Na VM do Azure após o failover**:
 
-- Adicione um ponto de extremidade público para o protocolo RDP (porta 3389) e especifique as credenciais de logon.
+- Adicione um Endereço IP público à NIC associada à VM do Azure para permitir o RDP.
 - Verifique se não há nenhuma política de domínio que o impeça de se conectar a uma máquina virtual usando um endereço público.
 - Tente se conectar. Se você não puder se conectar, verifique se a VM está em execução. Para obter mais dicas de solução de problemas, leia este [artigo](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -468,4 +468,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

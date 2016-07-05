@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="anhoh"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
@@ -21,6 +21,9 @@
 Se você está pensando em implementar experiências de pesquisa incríveis para seus dados no Banco de Dados de Documentos, use o indexador da Pesquisa do Azure para o Banco de Dados de Documentos! Neste artigo, mostraremos como integrar o Banco de Dados de Documentos do Azure à Pesquisa do Azure sem precisar escrever nenhum código para manter a infraestrutura de indexação!
 
 Para isso, você precisa [configurar uma conta da Pesquisa do Azure](../search/search-create-service-portal.md) (não é necessário atualizar para a pesquisa padrão) e chamar a [API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para criar uma **fonte de dados** do Banco de Dados de Documentos e um **indexador** para essa fonte de dados.
+
+Para enviar solicitações para interagir com as APIs REST, você pode usar o [Postman](https://www.getpostman.com/), o [Fiddler](http://www.telerik.com/fiddler), ou qualquer outra ferramenta de sua preferência.
+
 
 ##<a id="Concepts"></a>Conceitos do indexador da Pesquisa do Azure
 
@@ -42,11 +45,11 @@ Emita uma solicitação HTTP POST para criar uma nova fonte de dados no serviço
     Content-Type: application/json
     api-key: [Search service admin key]
 
-A `api-version` é obrigatória. Os valores válidos incluem `2015-02-28` ou uma versão posterior.
+A `api-version` é obrigatória. Os valores válidos incluem `2015-02-28` ou uma versão posterior. Visite as [versões de API na Pesquisa do Azure](../search/search-api-versions.md) para ver todas as versões de API da Pesquisa com suporte.
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-- **name**: O nome da fonte de dados.
+- **nome**: escolha qualquer nome para representar o banco de dados do Banco de Dados de Documentos.
 
 - **type**: Use `documentdb`.
 
@@ -56,13 +59,15 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 
 - **container**:
 
-    - **name**: obrigatório. Especifique a coleção do Banco de Dados de Documentos a ser indexada.
+    - **name**: obrigatório. Especifique a ID da coleção do Banco de Dados de Documentos a ser indexada.
 
     - **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
 
 - **dataChangeDetectionPolicy**: opcional. Consulte a [Política de Detecção de Alteração de Dados](#DataChangeDetectionPolicy) abaixo.
 
 - **dataDeletionDetectionPolicy**: opcional. Consulte a [Política de Detecção de Exclusão de Dados](#DataDeletionDetectionPolicy) abaixo.
+
+Veja abaixo um [exemplo de corpo da solicitação](#CreateDataSourceExample).
 
 ###<a id="DataChangeDetectionPolicy"></a>Capturando documentos alterados
 
@@ -75,7 +80,7 @@ A finalidade de uma política de detecção de alteração de dados é identific
 
 Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE` da sua consulta. Por exemplo:
 
-    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
+    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
 ###<a id="DataDeletionDetectionPolicy"></a>Capturando documentos excluídos
@@ -88,7 +93,7 @@ Quando linhas são excluídas da tabela de origem, você deve excluí-las també
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
+> [AZURE.NOTE] Você precisará incluir a propriedade softDeleteColumnName em sua cláusula SELECT se estiver usando uma projeção personalizada.
 
 ###<a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
 
@@ -121,7 +126,7 @@ Se a fonte de dados for criada com êxito, você receberá uma resposta de HTTP 
 
 ##<a id="CreateIndex"></a>Etapa 2: Criar um índice
 
-Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do Portal do Azure](../search/search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do Portal do Azure](../search/search-create-index-portal.md) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -269,4 +274,4 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
 
  - Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

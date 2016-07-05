@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.author="delhan"/>
 
 # Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure
@@ -74,4 +74,8 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
   3. Selecione a VM redimensionada, clique em **Iniciar** e inicie cada uma das VMs paradas.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Próximas etapas
+
+Se você encontrar problemas ao criar uma nova VM do Windows no Azure, consulte [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Windows no Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+
+<!---HONumber=AcomDC_0622_2016-->

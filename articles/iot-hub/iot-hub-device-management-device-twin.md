@@ -3,7 +3,7 @@
 	description="Tutorial do Hub IoT do Azure para o gerenciamento de dispositivo que descreve como usar dispositivos gêmeos."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Tutorial: Como usar o dispositivo gêmeo com C# (visualização)
 
@@ -139,4 +139,4 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

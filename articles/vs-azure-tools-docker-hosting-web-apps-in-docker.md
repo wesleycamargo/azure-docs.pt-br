@@ -1,99 +1,92 @@
 <properties
-   pageTitle="Implantar um contêiner ASP.NET em um host remoto do Docker | Microsoft Azure"
-   description="Saiba como usar as Ferramentas do Visual Studio para Docker para publicar um aplicativo Web ASP.NET 5 em um contêiner do Docker executado em uma máquina do host do Docker no Azure"   
-   services="visual-studio-online"
+   pageTitle="Implantar um contêiner do Docker do Linux do ASP.NET Core em um host do Docker remoto | Microsoft Azure"
+   description="Saiba como usar as Ferramentas do Visual Studio para Docker para implantar um aplicativo Web do ASP.NET Core em um contêiner do Docker em execução em uma VM do Linux do Host do Docker do Azure"   
+   services="azure-container-service"
    documentationCenter=".net"
    authors="allclark"
    manager="douge"
    editor=""/>
 
 <tags
-   ms.service="visual-studio-online"
+   ms.service="azure-container-service"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark"/>
+   ms.author="allclark;stevelas"/>
 
 # Implantar um contêiner ASP.NET em um host remoto do Docker
 
 ## Visão geral
-O Docker é um mecanismo de contêiner leve, semelhante em alguns pontos a uma máquina virtual, que você pode usar para hospedar aplicativos e serviços. O Visual Studio oferece suporte ao Docker no Ubuntu, no CoreOS e no Windows. Este tutorial explica como usar a extensão [Ferramentas do Visual Studio 2015 para Docker](http://aka.ms/DockerToolsForVS) para publicar um aplicativo ASP.NET 5 em um host do Docker no Azure.
+O Docker é um mecanismo de contêiner leve, semelhante em alguns pontos a uma máquina virtual, que você pode usar para hospedar aplicativos e serviços. Este tutorial explica como usar a extensão [Ferramentas do Visual Studio 2015 para Docker](http://aka.ms/DockerToolsForVS) para implantar um aplicativo ASP.NET Core em um host do Docker no Azure usando o PowerShell.
 
-## 1\. Pré-requisitos
+## Pré-requisitos
 Para concluir este tutorial, você precisará:
 
 - Criar uma VM de Host do Docker no Azure, conforme descrito em [Usar o computador Docker com o driver do Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
-- Instalar o [Visual Studio 2015](https://www.visualstudio.com/pt-BR/downloads/download-visual-studio-vs.aspx)
+- Instalar o [Visual Studio 2015 Atualização 2](https://go.microsoft.com/fwlink/?LinkId=691978)
 - Instalar as [Ferramentas do Visual Studio 2015 para Docker - Prévia](http://aka.ms/DockerToolsForVS)
 
-## 2\. Criar um aplicativo Web ASP.NET 5
+## 1\. Criar um aplicativo Web ASP.NET 5
 As etapas a seguir guiarão você na criação de um aplicativo básico ASP.NET 5 que será usado neste tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 3\. Adicionar suporte ao Docker
+## 2\. Adicionar suporte ao Docker
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 4\. Apontar para o host remoto do Docker
+## 3\. Use o Script do PowerShell DockerTask.ps1 
 
-1.  No **Gerenciador de Soluções** do Visual Studio, localize a pasta **Propriedades** e expanda-a.
-1.  Abra o arquivo *Docker.props*.
+1.  Abra um prompt do PowerShell para o diretório-raiz do seu projeto. 
 
-    ![Abrir o arquivo Docker.props][0]
+    ```
+    PS C:\Src\WebApplication1>
+    ```
 
-1.  Altere o valor de **DockerMachineName** para o nome do seu host remoto do Docker. Se você não souber o nome do seu host remoto do Docker, execute ```docker-machine ls``` no prompt do Windows PowerShell. Use o valor listado na coluna **Nome** para o host desejado.
+1.  Valide o host remoto em execução. Você deve ver o estado = Em execução
 
-    ![Alterar nome da máquina do Docker][1]
+    ```
+    docker-machine ls
+    NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
+    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
+    ```
 
-1.  Reinicie o Visual Studio.
+    > [AZURE.NOTE] Se estiver usando a versão Beta do Docker, o host não será listado aqui.
 
-## 5\. Configurar o ponto de extremidade do host do Docker no Azure
-Antes de implantar o aplicativo do Visual Studio no Azure, adicione o ponto de extremidade 80 à Máquina Virtual do Host do Docker para que depois você possa exibir o aplicativo no navegador. Isso pode ser feito no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) ou pelo Windows PowerShell:
+1.  Compilar o aplicativo usando o parâmetro -Build
 
-- **Use o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) para configurar o ponto de extremidade do Host do Docker do Azure**
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    ```  
 
-    1.  Navegue até o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). 
-    
-    1.  Selecione **MÁQUINAS VIRTUAIS**.
-    
-    1.  Selecione a máquina virtual do Host do Docker.
-    
-    1.  Escolha a guia **PONTOS DE EXTREMIDADE**.
-    
-    1.  Selecione **ADICIONAR** (na parte inferior da página).
-    
-    1.  Siga as instruções para expor a porta 80, que é usada pelo script de implantação por padrão.
+    > [AZURE.NOTE] Se você estiver usando a versão Beta do Docker, omita o argumento -Machine
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > ```  
 
-- **Usar o Windows PowerShell para configurar o ponto de extremidade do Host do Docker no Azure**
 
-    1. Abra o Windows PowerShell
-    1. Insira o comando a seguir no prompt do Windows PowerShell (alterando os valores entre os colchetes angulares para que correspondam ao seu ambiente):  
+1.  Executar o aplicativo usando o parâmetro -Run
 
-        ```PowerShell
-        C:\PS>Get-AzureVM -ServiceName "<your_cloud_service_name>" -Name "<your_vm_name>" | Add-AzureEndpoint -Name "<endpoint_name>" -Protocol "tcp" -PublicPort 80 -LocalPort 80 | Update-AzureVM
-        ```
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    ```
 
-## 6\. Criar e executar o aplicativo
-Ao implantar em hosts remotos, o recurso de mapeamento de volume usado para Editar e Atualizar o desenvolvimento não funcionará. Portanto, você precisará usar a *configuração de versão* ao criar seu aplicativo para evitar a configuração de mapeamento de volume. Siga estas etapas para executar o aplicativo.
+    > [AZURE.NOTE] Se você estiver usando a versão Beta do Docker, omita o argumento -Machine
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > ```
 
-1.  Na barra de ferramentas do Visual Studio, selecione a configuração **Versão**
+	Quando o docker for concluído, você deverá ver resultados semelhantes ao seguinte:
 
-1.  Altere o destino de inicialização para **Docker**.
-
-1.  Selecione o ícone do **Docker** para criar e executar o aplicativo.
-
-![Iniciar aplicativo][2]
-
-Você deverá ver resultados semelhantes ao seguinte.
-
-![Exibir aplicativo][3]
+    ![Exibir aplicativo][3]
 
 [0]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
 [1]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

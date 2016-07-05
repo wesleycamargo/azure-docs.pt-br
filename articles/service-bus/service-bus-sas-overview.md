@@ -13,12 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/22/2016"
     ms.author="darosa;sethm"/>
 
 # As Assinaturas de Acesso Compartilhado
 
-*Assinaturas de acesso compartilhado*(SAS) são o mecanismo de segurança principal para o Barramento de Serviço, incluindo Hubs de eventos, sistema de mensagens agenciado (filas e tópicos) e sistema de mensagens de retransmissão. Este artigo discute as Assinaturas de acesso compartilhado, como elas funcionam e como usá-las de maneira independente da plataforma.
+SAS (*Assinaturas de Acesso Compartilhado*) são o mecanismo de segurança principal para o Barramento de Serviço, incluindo Hubs de Eventos, sistema de mensagens agenciado (filas e tópicos) e sistema de mensagens de retransmissão. Este artigo discute as Assinaturas de acesso compartilhado, como elas funcionam e como usá-las de maneira independente da plataforma.
 
 ## Visão geral das SAS
 
@@ -186,13 +186,13 @@ Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP 
 
 Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **"$cbs"** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **"ReplyTo"** dentro da mensagem AMQP; esse é o nó em que o serviço responde ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
 
-As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite). Isso será útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&#35;. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se você não precisar desse conhecimento avançado sobre AMQP, poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que farão exatamente isso para você.
+As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite). Isso será útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&#35;. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se não precisar desse conhecimento avançado sobre AMQP, você poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que farão exatamente isso para você.
 
 ### C&#35;
 
 ```
 /// <summary>
-/// Send Claim Based Security (CBS) token
+/// Send claim-based security (CBS) token
 /// </summary>
 /// <param name="shareAccessSignature">Shared access signature (token) to send</param>
 private bool PutCbsToken(Connection connection, string sasToken)
@@ -253,10 +253,10 @@ Depois de enviar o token SAS pelo link do remetente, o editor deverá ler a resp
 
 Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para saber mais sobre o que você pode fazer com esses tokens SAS.
 
-Para obter mais informações sobre a autenticação do Barramento de Serviço, veja [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md).
+Para saber mais sobre a autenticação do Barramento de Serviço, confira [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md).
 
 Encontre mais exemplos de SAS no C# e no Java Script [nesta postagem no blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

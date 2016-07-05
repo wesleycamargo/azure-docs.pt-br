@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/30/2016" 
+    ms.date="06/13/2016" 
     ms.author="elizapo" />
 
 # Como o Azure RemoteApp salva configurações e dados de usuário?
@@ -159,4 +159,4 @@ Você também pode salvar suas credenciais executando o seguinte:
 
 Isso permite ignorar o parâmetro -Credential no cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

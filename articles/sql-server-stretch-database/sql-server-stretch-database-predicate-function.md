@@ -18,7 +18,7 @@
 
 # Selecionar linhas para migrar pelo uso de um predicado de filtro (Stretch Database)
 
-Se você armazenar dados do histórico em uma tabela separada, poderá configurar o Banco de Dados de Stretch para migrar toda a tabela. Por outro lado, se sua tabela contiver dados do histórico e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração. O predicado de filtro é uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
+Se armazenar os dados inativos em uma tabela separada, você poderá configurar o Stretch Database para migrar toda a tabela. Por outro lado, se sua tabela contiver dados ativos e inativos, você poderá especificar um predicado de filtro para selecionar as linhas para migrar. O predicado de filtro é uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
 
 >   [AZURE.NOTE] Se você fornecer um predicado de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Banco de Dados de Stretch aplica o predicado de filtro à tabela usando o operador CROSS APPLY.
 
@@ -567,4 +567,4 @@ Uma conta com privilégios de db\_owner comprometida pode fazer o que está desc
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

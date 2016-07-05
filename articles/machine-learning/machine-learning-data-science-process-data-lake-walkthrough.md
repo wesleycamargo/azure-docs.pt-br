@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -734,11 +734,11 @@ Ao executar esse passo a passo, você terá criado um ambiente de ciência de da
 
 ## O que vem a seguir?
 
-O roteiro de aprendizagem para o [CAP (Processo de Análise do Cortana)](http://aka.ms/datascienceprocess) fornece links para tópicos que descrevem cada etapa no processo de análise avançada. Há diversas instruções passo a passo vinculadas ao **Processo de Ciência de Dados Completo em Ação**, que demonstra como usar recursos e serviços nos diversos cenários de análise preditiva do pacote do Cortana:
+O roteiro de aprendizagem do [TDSP (Processo de Ciência de Dados de Equipe)](http://aka.ms/datascienceprocess) fornece links para tópicos que descrevem cada etapa do processo de análise avançada. Há diversas instruções detalhadas listadas na página [Passo a passo do Processo de Ciência de Dados de Equipe](data-science-process-walkthroughs.md) que demonstram como usar recursos e serviços nos diversos cenários de análise preditiva:
 
-- [Processo do Cortana Analytics em ação: usando o SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [O Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
-- [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Visão geral da Ciência de dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md)
+- [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
+- [O Processo de Ciência de Dados de Equipe: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Visão geral do Processo de Ciência de Dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

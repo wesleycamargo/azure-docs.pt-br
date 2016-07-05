@@ -629,7 +629,7 @@ Também é possível adicionar a opção do Swagger ao arquivo `azureMobile.js` 
 
 ## <a name="push">Notificações por push
 
-Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
+Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](./notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Como adicionar notificações por push
 
@@ -917,4 +917,4 @@ O portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -74,10 +74,11 @@ A rede virtual usada com seu ASE pode ser uma daquelas criadas durante a criaç�
 Há algumas restrições sobre a rede virtual usada para um ASE:
 
 - No momento, há suporte apenas para as redes virtuais V1 “clássicas”.
-- a VNET deve ser uma VNET regional
-- As redes virtuais usadas para hospedar um ASE devem usar os endereços RFC1918 (ou seja, os endereços privados)
-- deve haver uma sub-rede com oito ou mais endereços nos quais o ASE é implantado
+- A VNET deve ser uma VNET regional
+- Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam *os* intervalos de endereço público *ou* espaços de endereço RFC1918 (ou seja, os endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a sub-rede antecipadamente e selecioná-la na UX de criação do ASE.
+- Deve haver uma sub-rede com oito ou mais endereços nos quais o ASE é implantado
 - Quando uma sub-rede é usada para hospedar um ASE, o intervalo de endereços da sub-rede não pode ser alterado. Por esse motivo, recomendamos que a sub-rede contenha pelo menos 64 endereços a fim acomodar qualquer crescimento futuro do ASE 
+- **A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação.**
 
 Ao contrário do serviço hospedado que contém o ASE, a [Rede Virtual][virtualnetwork] e a sub-rede estão sob o controle do usuário. A administração da sua Rede Virtual é feita por meio da interface do usuário da Rede Virtual ou do Powershell.
 
@@ -176,6 +177,7 @@ Se você deseja excluir um ambiente do serviço de aplicativo, simplesmente use 
 ![][9]
 
 ## Introdução
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md)
 
@@ -208,4 +210,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->
