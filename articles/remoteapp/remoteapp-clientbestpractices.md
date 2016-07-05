@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -26,4 +26,4 @@ As informações a seguir podem ajudá-lo a usar clientes do RemoteApp do Azure:
 
 - O RemoteApp desconectará automaticamente se você estiver inativo por um determinado período de tempo. Para evitar a perda de dados, é recomendável fechar os aplicativos quando você terminar de usar o serviço.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Trabalhando com acesso condicional
-> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
 Você pode configurar regras de acesso para conceder acesso condicional a aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
 
@@ -33,7 +32,7 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 
 - Assinatura no Active Directory Premium do Azure
 - Um locatário do Active Directory do Azure federado ou gerenciado
-- Inquilinos federados exigem que o MFA (Multi-Factor Authentication) esteja habilitado ![Configurar regras de acesso - exigir Multi-Factor Authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+- Os locatários federados exigem que o MFA (Multi-Factor Authentication) esteja habilitado ![Configurar regras de acesso - exigir Multi-Factor Authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configure a multi-factor authentication por aplicativo
 1. Entre como administrador no portal clássico do Azure.
@@ -55,7 +54,7 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 ## Configurar a MFA para serviços de federação
 Para locatários federados, a MFA (Multi-Factor Authentication) pode ser executada pelo Active Directory do Azure ou pelo servidor AD FS local. Por padrão, a MFA ocorrerá em qualquer página hospedada pelo Active Directory do Azure. Para configurar a MFA local, execute o Windows PowerShell e use a propriedade –SupportsMFA para definir o módulo do AD do Azure.
 
-O exemplo a seguir mostra como habilitar a MFA local usando o [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) no locatário contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+O exemplo a seguir mostra como habilitar o MFA local usando o [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) no locatário contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
 Além de definir esse sinalizador, a instância do AD FS do locatário federado deve ser configurada para realizar a autenticação multifator. Siga as instruções para [implantar o Microsoft Azure Multi-Factor Authentication local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
@@ -67,6 +66,6 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 - [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 - [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
 
-Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

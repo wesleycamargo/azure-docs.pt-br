@@ -24,7 +24,7 @@ Este artigo explica como configurar e codificar associações do Hub de Notifica
 
 [AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
 
-Suas funções podem enviar notificações por push usando um Hub de Notificação do Azure configurado com muito poucas linhas de código. No entanto, o hub de notificação deve estar configurado para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber mais sobre a configuração de um Hub de Notificação do Azure e sobre o desenvolvimento de aplicativos cliente que se registram para receber notificações, consulte [Introdução aos Hubs de Notificações](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) e clique em sua plataforma de cliente de destino na parte superior.
+Suas funções podem enviar notificações por push usando um Hub de Notificação do Azure configurado com muito poucas linhas de código. No entanto, o hub de notificação deve estar configurado para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber mais sobre a configuração de um Hub de Notificação do Azure e sobre o desenvolvimento de aplicativos cliente que se registram para receber notificações, consulte [Introdução aos Hubs de Notificação](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e clique em sua plataforma de cliente de destino na parte superior.
 
 ## function.json para associação de saída do Hub de Notificação do Azure
 
@@ -32,7 +32,7 @@ O arquivo function.json fornece as seguintes propriedades:
 
 - `name`: nome da variável usada no código de função para a mensagem do hub de notificação.
 - `type`: deve ser definido como *"notificationHub"*.
-- `tagExpression`: as expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos que se registraram para receber notificações que correspondem à expressão de marca. Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression`: as expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos que se registraram para receber notificações que correspondem à expressão de marca. Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
 - `hubName`: nome do recurso de hub de notificação no portal do Azure.
 - `connection`: essa cadeia de conexão deve ser uma cadeia de conexão de **Configuração de Aplicativo** definida com o valor *DefaultFullSharedAccessSignature* para seu hub de notificação.
 - `direction`: deve ser definido como *”out”*. 
@@ -68,7 +68,7 @@ Você também pode adicionar manualmente uma cadeia de conexão a um hub existen
 
 ## Exemplo de código de Hub de Notificação do Azure para um gatilho de temporizador do Node.js 
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates.md) que contém `location` e `message`.
+Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 
 ## Exemplo de código de Hub de Notificação do Azure para um gatilho de fila do C#
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates.md) que contém `message`.
+Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `message`.
 
 
 	using System;
@@ -107,7 +107,7 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 	    return templateProperties;
 	}
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates.md) que contém `message` usando uma cadeia de caracteres JSON válida.
+Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `message` usando uma cadeia de caracteres JSON válida.
 
 	using System;
 	 
@@ -155,4 +155,4 @@ Código de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

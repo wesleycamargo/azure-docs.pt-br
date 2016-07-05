@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="data-management" 
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -120,4 +120,4 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

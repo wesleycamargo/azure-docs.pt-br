@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -44,4 +44,4 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 
 Consulte [Criar uma imagem do RemoteApp do Azure](remoteapp-imageoptions.md) para obter mais informações sobre a criação de imagens para o RemoteApp do Azure.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

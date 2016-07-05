@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -21,7 +21,7 @@
 
 Neste tópico, são apresentadas consultas genéricas do Hive que criam tabelas do Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
-Esse **menu** liga os tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o Processo de Análise do Cortana (CAPS).
+Este **menu** vincula-se a tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
 
 [AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
@@ -38,7 +38,7 @@ Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas
 
 Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactado** e que os dados foram carregado no contêiner padrão (ou em um adicional) da conta de armazenamento usada pelo cluster do Hadoop.
 
-Se você deseja praticar no _Dados de Viagens de Táxi em NYC_, é necessário primeiro baixar todos os 24 arquivos dos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">Dados de Viagens de Táxi em NYC</a> (12 arquivos Trip e 12 arquivos Fare), **descompactar** todos os arquivos em arquivos CSV e carregá-los para o contêiner padrão (ou adicional) da conta de armazenamento do Azure criada pelo procedimento descrito no tópico [Personalizar os clusters do Hadoop do Azure HDInsight para processo e tecnologia de análise avançada](machine-learning-data-science-customize-hadoop-cluster.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](machine-learning-data-science-process-hive-walkthrough/#upload).
+Se você deseja praticar no _Dados de Viagens de Táxi em NYC_, é necessário primeiro baixar todos os 24 arquivos dos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">Dados de Viagens de Táxi em NYC</a> (12 arquivos Trip e 12 arquivos Fare), **descompactar** todos os arquivos em arquivos CSV e carregá-los para o contêiner padrão (ou adicional) da conta de armazenamento do Azure criada pelo procedimento descrito no tópico [Personalizar os clusters do Hadoop do Azure HDInsight para processo e tecnologia de análise avançada](machine-learning-data-science-customize-hadoop-cluster.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
 
 ## <a name="submit"></a>Como enviar consultas de Hive
@@ -245,4 +245,4 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

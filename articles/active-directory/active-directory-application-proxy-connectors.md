@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 # Publicar aplicativos em redes e locais separados usando grupos de Conectores
 
-> [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-
 Grupos de conectores são úteis para uma série de cenários, incluindo:
-
 
 - Sites com vários datacenters interconectados. Nesses casos, você deseja manter o tráfego dentro do datacenter o máximo possível, porque links entre datacenters normalmente são caros e lentos. Você pode implantar Conectores em cada datacenter para servir apenas os aplicativos que residem dentro do datacenter. Essa abordagem minimiza os links entre datacenters e fornece uma experiência totalmente transparente para os usuários.
 - Gerenciar aplicativos instalados em redes isoladas que não fazem parte da rede corporativa principal. Você pode usar grupos de Conectores para instalar Conectores dedicados em redes isoladas para isolar também os aplicativos para a rede.
@@ -44,7 +41,7 @@ Você pode criar quantos grupos de Conectores desejar. A criação de grupo de C
 ## Etapa 2: Atribuir Conectores aos seus grupos
 Após a criação dos grupos de Conectores, mova os Conectores para o grupo apropriado.
 
-1. Em **Proxy de Aplicativo**, clique em **Gerenciar Conectores**.
+1. Em **Proxy de aplicativo**, clique em **Gerenciar Conectores**.
 2. Em **Grupo**, selecione o grupo desejado para cada Conector. Observe que podem ser necessários até 10 minutos para que os Conectores fiquem ativos no novo grupo. ![Captura de tela de conectores de proxy de aplicativo - selecione o grupo do menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 
 ## Etapa 3: Atribuir aplicativos aos grupos de Conectores
@@ -61,6 +58,6 @@ A última etapa é atribuir cada aplicativo ao grupo de Conectores que vai servi
 - [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 
-Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

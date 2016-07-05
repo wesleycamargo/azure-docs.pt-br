@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="06/20/2016"
    ms.author="toddabel"/>
 
 
@@ -60,4 +60,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Usando ElasticSearch como um repositório de rastreamento do aplicativo de Malha de Serviços](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

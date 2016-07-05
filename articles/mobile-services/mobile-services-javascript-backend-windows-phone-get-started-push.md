@@ -140,15 +140,15 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 
 Este tutorial demonstrou as noções básicas sobre a ativação do aplicativo da Windows Store para usar os Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir um dos seguintes tutoriais:
 
-+ [Enviar notificações de transmissão para assinantes](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md)  
++ [Enviar notificações de transmissão para assinantes](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)  
 <br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
-+ [Enviar notificações independentes de plataformas para assinantes](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Saiba usar modelos para enviar notificações por push do seu serviço móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
++ [Enviar notificações independentes de plataformas para assinantes](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>Saiba usar modelos para enviar notificações por push do seu serviço móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
 
-* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](../notification-hubs/notification-hubs-diagnosing.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
+* [Hubs de Notificação do Azure - Diretrizes de diagnóstico](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>Aprenda a solucionar seus problemas com notificações por push.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
@@ -177,4 +177,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [O que são Hubs de Notificação?]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

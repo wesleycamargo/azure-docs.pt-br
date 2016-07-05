@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;sunliangms;sachouks" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure
@@ -23,8 +23,8 @@
 Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
-O melhor método para você depende de seu cenário. O artigo [Cenários para ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md) o ajudará a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
+ 
+O melhor método para você depende de seu cenário. O artigo [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md) ajudará você a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
 
 > [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -37,4 +37,4 @@ Este documento pressupõe que você tenha uma assinatura, uma conta de armazenam
 - Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

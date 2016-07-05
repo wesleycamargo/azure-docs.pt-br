@@ -6,7 +6,7 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-Substitua o namespace e os nomes do Hub de Eventos pelos valores usados durante a criação do Hub de Eventos. `sasKeyName` e `sasKey` correspondem ao nome e à chave da regra de Envio criada anteriormente. Com essas informações, crie uma cadeia de conexão.
+Substitua o namespace e os nomes do Hub de Eventos pelos valores usados durante a criação do Hub de Eventos.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -56,3 +56,5 @@ Em seguida, crie um evento singular transformando uma cadeia de caracteres em su
 }
 
 ``` 
+
+<!---HONumber=AcomDC_0622_2016-->

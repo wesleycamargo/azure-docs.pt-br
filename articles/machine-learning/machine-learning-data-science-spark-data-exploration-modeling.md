@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Modelagem e exploração de dados com Spark
@@ -963,7 +963,7 @@ Tempo necessário para executar a célula acima: 49,21 segundos
 
 O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.
 
-****Treinar e avaliar**
+**Treinar e avaliar**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1105,4 +1105,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 **Validação cruzada e limpeza de hiperparâmetro**: consulte [Advanced data exploration and modeling with Spark (Modelagem e exploração de dados avançadas com Spark)](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

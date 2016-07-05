@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Workday | Microsoft Azure" 
     description="Saiba como usar o Workday com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/20/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Workday
   
@@ -36,7 +36,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Workday, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-workday-tutorial/IC700993.png "Active Directory")
 
@@ -77,10 +77,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-workday-tutorial/IC782957.png "Configurar a URL do Aplicativo
 ")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no Workday (por exemplo: *https://impl.workday.com/\<locatário>/logon- saml2.htmld*)
-    2.  Na caixa de texto **URL de Resposta do Workday**, digite a URL de resposta do Workday (por exemplo: *https://impl.workday.com/\<locatário>/logon- saml.htmld*).
+	a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no Workday com o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-        >[AZURE.NOTE]Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “**http://www.myworkday.com*” funciona, mas “**http://myworkday.com*” não.
+	b. Na **URL de resposta do Workday** caixa de texto, digite a URL de resposta do Workday usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml.htmld`
+
+	>[AZURE.NOTE] Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “**http://www.myworkday.com*” funciona, mas “**http://myworkday.com*” não.
  
 4.  Na página **Configurar logon único no Workday**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -104,79 +105,99 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![URLs de Redirecionamento](./media/active-directory-saas-workday-tutorial/IC7829581.png "URLs de Redirecionamento")
 
-     9\.1. Clique em **Adicionar Linha**.
+	a. Clique em **Adicionar Linha**.
 
-     9\.2. Nas caixas de texto **URL de Redirecionamento de Logon** e **URL de Redirecionamento Móvel**, digite a **URL de Locatário do Workday** que você inseriu na página **Configurar URL do Aplicativo** do portal do Azure.
+	b. Nas caixas de texto **URL de Redirecionamento de Logon** e **URL de Redirecionamento Móvel**, digite a **URL de Locatário do Workday** que você inseriu na página **Configurar URL do Aplicativo** do portal clássico do Azure.
     
-     9\.3. No portal do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Redirecionamento de Logoff**.
+	c. No portal clássico do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Redirecionamento de Logoff**.
 
-     9\.4. Na caixa de texto **Ambiente**, digite o nome do ambiente.
+	d. Na caixa de texto **Ambiente**, digite o nome do ambiente.
 
 
-       >[AZURE.NOTE]O valor do atributo Environment é vinculado ao valor da URL de locatário: >>- Se o nome de domínio da URL de locatário do Workday começar com impl (por exemplo: *https://impl.workday.com/\<locatário>/logon-saml2.htmld*), o atributo **Environment** deverá ser definido como Implementação. >- Se o nome de domínio começar de modo diferente, você precisará entrar em contato com o Workday para obter o valor de **Environment** correspondente.
+	>[AZURE.NOTE] O valor do atributo Ambiente é vinculado ao valor da URL do locatário:
+	>
+    >-   Se o nome da URL de domínio do locatário do Workday começa com impl (p. ex.:*https://impl.workday.com/\<locatário>/login- saml2.htmld*), o atributo **Ambiente** deve ser definido como Implementação.
+    >-   Se o nome de domínio começar de outra forma, será preciso entrar em contato com o Workday para obter um valor de **Ambiente** correspondente.
 
-10. Na seção **Configuração do SAML**, realize as seguintes etapas:
+10. Na seção **Configuração do SAML**, execute as seguintes etapas:
 
     ![Configuração do SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Configuração do SAML")
 
-     10\.1. Selecione **Habilitar Autenticação SAML**.
+	a. Selecione **Habilitar Autenticação SAML**.
 
-     10\.2. Clique em **Adicionar Linha**.
+	b. Clique em **Adicionar Linha**.
 
 11. Na seção Provedores de Identidade do SAML, execute as seguintes etapas:
 
     ![Provedores de Identidade do SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "Provedores de Identidade do SAML")
 
-     11\.1. Na caixa de texto Nome do Provedor de Identidade, digite um nome de provedor (por exemplo: *SPInitiatedSSO*).
+	a. Na caixa de texto Nome do Provedor de Identidade, digite um nome de provedor (por exemplo: *SPInitiatedSSO*).
 
-     11\.2. No portal do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **Emissor**.
+    b. No portal clássico do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **Emissor**.
 
-     11\.3. Selecione **Habilitar Logoff Iniciado pelo Workday**.
+    c. Selecione **Habilitar Logoff Iniciado pelo Workday**.
 
-     11\.4. No portal do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Solicitação de Logoff**.
+    d. No portal clássico do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Solicitação de Logoff**.
 
 
-     11\.3. Clique em **Certificado de Chave Pública do Provedor de Identidade** e em **Criar**. <br><br> ![Criar](./media/active-directory-saas-workday-tutorial/IC782928.png "Criar")
+    e. Clique em **Certificado de Chave Pública do Provedor de Identidade** e em **Criar**.
 
-     11\.4. Clique em **Criar Chave Pública x509**. <br><br> ![Criar](./media/active-directory-saas-workday-tutorial/IC782929.png "Criar")
+	![Criar](./media/active-directory-saas-workday-tutorial/IC782928.png "Criar")
 
-     11\.5. Na seção **Exibir Chave Pública x509**, realize as seguintes etapas: <br><br> ![Visualizar Chave Pública x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Visualizar Chave Pública x509") <br>
+    f. Clique em **Criar Chave Pública x509**.
+        
+	![Criar](./media/active-directory-saas-workday-tutorial/IC782929.png "Criar")
 
-      1.  Na caixa de texto **Nome**, digite um nome para o seu certificado (por exemplo: *PPE\_SP*).
-      2.  Na caixa de texto **Válido de**, digite o valor do atributo “válido de” do seu certificado.
-      3.  Na caixa de texto **Válido até**, digite o valor do atributo “válido até” do seu certificado.
+
+1. Na seção **Exibir Chave Pública x509**, realize as seguintes etapas:
+
+	![Visualizar Chave Pública x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Visualizar Chave Pública x509")
+
+	a. Na caixa de texto **Nome**, digite um nome para o seu certificado (por exemplo: *PPE\_SP*).
+    	
+	b. Na caixa de texto **Válido de**, digite o valor do atributo “válido de” do seu certificado.
+    
+	c. Na caixa de texto **Válido até**, digite o valor do atributo “válido até” do seu certificado.
 		
-           >[AZURE.NOTE]Você pode obter as datas de “válido a partir de” e “válido até” do certificado baixado clicando duas vezes nele. As datas são listadas na guia **Detalhes**.
+    >[AZURE.NOTE] Você pode obter as datas de “válido a partir de” e “válido até” do certificado baixado clicando duas vezes nele. As datas são listadas na guia **Detalhes**.
 
-      4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
+	d. Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+	>[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-      5.  Abra seu certificado codificado em base 64 no bloco de notas e copie o conteúdo dele.
-      6.  Na caixa de texto **Certificado**, cole o conteúdo da área de transferência.
-      7.  Clique em **OK**.
+	e. Abra seu certificado codificado em base-64 no bloco de notas e copie o conteúdo dele.
+    
+	f. Na caixa de texto **Certificado**, cole o conteúdo da área de transferência.
+    
+	g. Clique em **OK**.
 
-12.  Realize as seguintes etapas: <br><br> ![Configuração do SSO](./media/active-directory-saas-workday-tutorial/IC7829351111.png "Configuração do SSO")
+12.  Execute as seguintes etapas:
 
-     12\.1. Habilite o **Par de Chaves Privadas x509**.
+	![Configuração do SSO](./media/active-directory-saas-workday-tutorial/IC7829351111.png "Configuração do SSO")
 
-     12\.2. Na caixa de texto **ID do Provedor de Serviço**, digite ****http://www.workday.com**.
+	a. Habilite o **Par de Chaves Privadas x509**.
 
-     12\.3. Selecione **Habilitar a Autenticação do SAML Iniciada por SP**.
+	b. Na caixa de texto **ID do Provedor de Serviço**, digite **http://www.workday.com**.
 
-     12\.4. No portal do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do Serviço de SSO do IdP**.
+	c. Selecione **Habilitar a Autenticação do SAML Iniciada por SP**.
+
+	d. No portal clássico do Azure, na página do diálogo **Configurar logon único no Workday**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do Serviço de SSO do IdP**.
      
-     12\.5 Selecione **Não Desinflar a Solicitação de Autenticação iniciada pelo SP**.
+	e. Selecione **Não Esvazie a Solicitação de Autenticação iniciada por SP**.
 
-     12\.6. Para **Método de Assinatura da Solicitação de Autenticação**, selecione **SHA256**. <br><br> ![Método de Assinatura de Solicitação de Autenticação](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de Assinatura de Solicitação de Autenticação") <br><br>
+    f. Para **Solicitação de Método de Autenticação de Assinatura **, selecione **SHA256**.
+        
+	![Método de Assinatura de Solicitação de Autenticação](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de Assinatura de Solicitação de Autenticação")
  
-     12\.7 Clique em **OK**. <br><br> ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+	g. Clique em **OK**.
+        
+	![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
-12. No portal do Azure AD, na página **Configurar logon único no Workday**, clique em **Avançar**. <br><br>
+12. No portal clássico do Azure, na página **Configurar logon único no Workday**, clique em **Avançar**.
 
     ![Configurar logon único](./media/active-directory-saas-workday-tutorial/IC782934.png "Configurar logon único")
 
-13. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>
+13. Na página **Confirmação de logon único**, clique em **Concluir**.
 
     ![Configurar logon único](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configurar logon único")
 
@@ -192,7 +213,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Workday, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Workday **, clique em **Atribuir usuários**.
 
@@ -204,4 +225,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

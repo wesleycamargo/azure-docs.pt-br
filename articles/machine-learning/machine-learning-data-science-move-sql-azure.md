@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev" />
 
 # Mover dados para um banco de dados do SQL Azure para aprendizado de máquina do Azure
 
-Neste tópico, são descritas as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um banco de dados SQL do Azure. Essas tarefas para mover dados para a nuvem fazem parte do Processo de Análise do Cortana fornecido pelo Azure.
+Neste tópico, são descritas as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um banco de dados SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
 
 Para um tópico que descreve as opções para mover dados para um SQL Server local para o aprendizado de máquina, consulte [Mover dados para o SQL Server em uma máquina virtual do Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
-O **menu** abaixo leva a tópicos que descrevem como ingerir dados em outros ambientes de destino nos quais os dados podem ser armazenados e processados durante o CAPS (Processo do Cortana Analytics).
+O **menu** abaixo vincula-se a tópicos que descrevem a inclusão de dados em outros ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
 
 [AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,4 +85,4 @@ O procedimento para mover dados para um banco de dados SQL do Azure com o Azure 
 
 Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

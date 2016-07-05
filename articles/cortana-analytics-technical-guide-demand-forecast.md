@@ -294,4 +294,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 ## **Confirmações**
 Este artigo foi escrito pelo cientista de dados Yijing Chen e pelo engenheiro de software Qiu Min da Microsoft.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -25,7 +25,7 @@
 
 Haverá momentos em que você vai querer pegar o resultado intermediário de um experimento e usá-lo como parte de outro experimento. Para fazer isso, salve o módulo como um conjunto de dados:
 
-1. Clique com o botão direito na saída do módulo que você deseja salvar como um conjunto de dados.
+1. Clique na saída do módulo que você deseja salvar como um conjunto de dados.
 
 2. Clique em **Salvar como Conjunto de Dados**.
 
@@ -35,4 +35,4 @@ Haverá momentos em que você vai querer pegar o resultado intermediário de um 
 
 Quando o salvamento for concluído, o conjunto de dados ficará disponível para uso em qualquer experimento do seu espaço de trabalho. Você pode encontrá-lo na lista **Conjuntos de Dados Salvos** na paleta de módulos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

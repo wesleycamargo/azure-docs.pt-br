@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016" 
+	ms.date="06/17/2016" 
 	ms.author="jeannt"/>
 
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
@@ -22,7 +22,11 @@
 Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Estúdio de Aprendizado de Máquina do Azure. Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.
 
 ### Confirmações
-Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft e Roger Barga, ex-gerente de produto para o Aprendizado de Máquina do Microsoft Azure. A equipe de documentação do Azure agradece a eles por compartilhar seus aprendizados neste white paper.
+
+Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Aprendizado de Máquina do Microsoft Azure. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
+
+>[AZURE.NOTE] Os dados usados neste experimento não estão publicamente disponíveis. Para obter um exemplo de como criar um modelo de aprendizado de máquina para a análise de variação, confira o [modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) em [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -98,7 +102,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
 
 
 *Figura 7: Recursos extraídos da fonte de dados*
-> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Variação do cliente de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Variação do cliente de telecomunicações).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
 > 
@@ -219,7 +223,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Marketing de Big Data: Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value] (Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Modelo de variação de telecomunicações] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 ##Apêndice
@@ -240,4 +244,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,12 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/18/2016"
+   ms.date="06/21/2016"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## SO convidado de junho 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-035 | [3141780] | Atualização de segurança para o .NET Framework para tratar do bypass do recurso de segurança | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| Supervisão | [3155527] | Atualização de Pacotes de Codificação para FalseStart | 4\.33, 3.40 | 14 de junho de 2016 |
+| MS16-063 | [3163649] | Atualização de segurança cumulativa do Internet Explorer | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-069 | [3163640] | Atualização de Segurança Cumulativa do JScript e VBScript | 2\.52 | 14 de junho de 2016 |
+| MS16-071 | [3164065] | Atualização de Segurança para Servidor DNS do Microsoft Windows | 4\.33, 3.40 | 14 de junho de 2016 |
+| MS16-072 | [3163622] | Atualização de Segurança para Política de Grupo | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-073 | [3164028] | Atualização de segurança para drivers do modo Kernel | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-074 | [3164036] | Atualização de Segurança do Componente Gráfico da Microsoft | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-075 | [3164038] | Atualização de Segurança para Windows SMB Server | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-076 | [3167691] | Atualização de Segurança para Netlogon | 4\.33 | 14 de junho de 2016 |
+| MS16-077 | [3165191] | Atualização de Segurança para WPAD | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| MS16-080 | [3164302] | Atualização de Segurança para Microsoft Windows PDF | 4\.33, 3.40 | 14 de junho de 2016 |
+| MS16-081 | [3160352] | Atualização de Segurança para o Active Directory | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+| | [2922223] | Você não pode alterar a hora do sistema se a entrada do Registro RealTimeIsUniversal estiver habilitada no Windows | 2\.52 | 14 de junho de 2016 |
+| | [3121255] | Erro de parada "0x00000024" em FsRtlNotifyFilterReportChange e cópia de arquivo pode falhar no Windows | 2\.52 | 14 de junho de 2016 |
+| | [3125424] | Bloqueios LSASS fazem com o Windows Server 2012 R2 ou o Windows Server 2012 pare de responder | 4\.33, 3.40 | 14 de junho de 2016 |
+| | [3125574] | Atualização cumulativa de conveniência para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 | 2\.52 | 14 de junho de 2016 |
+| | [3140245] | Atualização para habilitar o TLS 1.1 e o TLS 1.2 como um protocolos de segurança padrão no WinHTTP no Windows | 3\.40, 2.52 | 14 de junho de 2016 |
+| | [3146604] | O serviço WMI falha aleatoriamente no Windows Server 2012 R2 ou no Windows Server 2012 | 4\.33, 3.40 | 14 de junho de 2016 |
+| | [3149157] | Aprimoramentos de escalabilidade e confiabilidade em TCP/IP para Windows 8.1 e Windows Server 2012 R2 | 4\.33 | 14 de junho de 2016 |
+| | [3156416] | Atualização cumulativa de maio de 2016 para o Windows Server 2012 | 3\.40 | 14 de junho de 2016 |
+| | [3156418] | Atualização cumulativa de maio de 2016 para Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.33 | 14 de junho de 2016 |
+| | [3153731] | Atualização DST de maio de 2016 para Azerbaijão, Chile, Haiti e Marrocos no Windows | 4\.33, 3.40, 2.52 | 14 de junho de 2016 |
+
 
 ## SO convidado de maio 
 
@@ -288,6 +317,32 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+
+[3141780]: http://support.microsoft.com/kb/3141780
+[3155527]: http://support.microsoft.com/kb/3155527
+[3163649]: http://support.microsoft.com/kb/3163649
+[3163640]: http://support.microsoft.com/kb/3163640
+[3164065]: http://support.microsoft.com/kb/3164065
+[3163622]: http://support.microsoft.com/kb/3163622
+[3164028]: http://support.microsoft.com/kb/3164028
+[3164036]: http://support.microsoft.com/kb/3164036
+[3164038]: http://support.microsoft.com/kb/3164038
+[3167691]: http://support.microsoft.com/kb/3167691
+[3165191]: http://support.microsoft.com/kb/3165191
+[3164302]: http://support.microsoft.com/kb/3164302
+[3160352]: http://support.microsoft.com/kb/3160352
+[2922223]: http://support.microsoft.com/kb/2922223
+[3121255]: http://support.microsoft.com/kb/3121255
+[3125424]: http://support.microsoft.com/kb/3125424
+[3125574]: http://support.microsoft.com/kb/3125574
+[3140245]: http://support.microsoft.com/kb/3140245
+[3146604]: http://support.microsoft.com/kb/3146604
+[3149157]: http://support.microsoft.com/kb/3149157
+[3156416]: http://support.microsoft.com/kb/3156416
+[3156418]: http://support.microsoft.com/kb/3156418
+[3153731]: http://support.microsoft.com/kb/3153731
+
+
 [3155533]: http://support.microsoft.com/kb/3155533
 [3156764]: http://support.microsoft.com/kb/3156764
 [3156754]: http://support.microsoft.com/kb/3156754
@@ -489,4 +544,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

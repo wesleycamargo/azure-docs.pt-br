@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="06/17/2016"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
@@ -46,24 +46,23 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 3. Para o novo projeto, digite ou selecione os valores a seguir.
 
 	<table>
-<tr>
-<th>Propriedade</th>
-<th>Valor</th>
-</tr>
-<tr>
-<th>Categoria</th>
-<th>Modelos/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Modelo</th>
-<th>Aplicativo de console</th>
-</tr>
-<tr>
-<th>Nome</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
-
+	<tr>
+	<th>Propriedade</th>
+	<th>Valor</th>
+	</tr>
+	<tr>
+	<th>Categoria</th>
+	<th>Modelos/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Modelo</th>
+	<th>Aplicativo de console</th>
+	</tr>
+	<tr>
+	<th>Nome</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. Clique em **OK** para criar o projeto.
 5. No menu **Ferramentas**, selecione **Gerenciador de Pacotes da Biblioteca** ou **Gerenciador de Pacotes NuGet** e depois selecione **Console do Gerenciador de Pacotes**.
 6. Execute o seguinte comando no console para instalar os pacotes do SDK do .NET.
@@ -129,7 +128,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
 ## Resumo
 
-Como você pode ver, o SDK do .NET para Hadoop permite criar aplicativos .NET que enviam trabalhos do Pig para um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
+Como você pode ver, o SDK para .NET do Hadoop permite criar aplicativos .NET que enviam trabalhos do Pig para um cluster HDInsight e monitorar o status do trabalho.
 
 ## Próximas etapas
 
@@ -142,6 +141,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[portal de visualização]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

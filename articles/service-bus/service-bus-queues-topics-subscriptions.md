@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Filas, tópicos e assinaturas do Barramento de Serviço | Microsoft Azure"
-   description="Visão geral de entidades do sistema de mensagens do Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Filas, tópicos e assinaturas do Barramento de Serviço | Microsoft Azure"
+    description="Visão geral de entidades do sistema de mensagens do Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/20/2016"
+    ms.author="sethm" />
 
 # Filas, tópicos e assinaturas do Barramento de Serviço
 
@@ -25,7 +25,7 @@ As entidades do sistema de mensagens que formam o núcleo dos recursos do sistem
 
 Filas oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Ou seja, normalmente espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem. Um dos principais benefícios da utilização de filas é obter o “desacoplamento temporal” de componentes do aplicativo. Em outras palavras, os produtores (remetentes) e os consumidores (receptores) não precisam enviar e receber mensagens ao mesmo tempo porque as mensagens são armazenadas de forma duradoura na fila. Além disso, o produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mensagens.
 
-Um benefício relacionado é o “nivelamento de carga”, que permite que produtores e consumidores enviem e recebam mensagens em taxas diferentes. Em muitos aplicativos, a carga do sistema varia ao longo do tempo; no entanto, o tempo de processamento necessário para cada unidade de trabalho normalmente é constante. A intermediação de produtores e de consumidores de mensagem com uma fila significa que o aplicativo que está consumindo só precisa ser provisionado para poder lidar com a carga média em vez da carga de pico. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade de infraestrutura necessária para atender à carga do aplicativo. À medida que a carga aumenta, mais processos de trabalho poderão ser adicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga baseado em pull permite o uso ideal dos computadores de trabalho, mesmo se os computadores de trabalho forem diferentes em relação à capacidade de processamento, já que eles receberá as mensagens por pull em sua própria taxa máxima. Esse padrão geralmente é chamado de padrão de “consumidor concorrente”.
+Um benefício relacionado é o “nivelamento de carga”, que permite que produtores e consumidores enviem e recebam mensagens em taxas diferentes. Em muitos aplicativos, a carga do sistema varia ao longo do tempo; no entanto, o tempo de processamento necessário para cada unidade de trabalho normalmente é constante. A intermediação de produtores e de consumidores de mensagem com uma fila significa que o aplicativo que está consumindo só precisa ser provisionado para poder lidar com a carga média em vez da carga de pico. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade de infraestrutura necessária para atender à carga do aplicativo. À medida que a carga aumenta, mais processos de trabalho poderão ser adicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga baseado em pull permite o uso ideal dos computadores de trabalho, mesmo se os computadores de trabalho forem diferentes em relação à capacidade de processamento, já que eles receberá as mensagens por pull em sua própria taxa máxima. Esse padrão geralmente é chamado de padrão de "consumidor concorrente".
 
 A utilização de filas para intermediar entre produtores e consumidores oferece um acoplamento flexível inerente entre os componentes. Como produtores e consumidores não têm conhecimento uns dos outros, um consumidor poderá ser atualizado sem afetar o produtor.
 
@@ -75,15 +75,15 @@ No modo [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.se
 
 No modo [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), a operação de recebimento se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e, em seguida, retorna-a para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca a mensagem como sendo consumida.
 
-Se o aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) na mensagem recebida (em vez do método [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Isso permitirá ,que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se houver falha no processamento da mensagem pelo aplicativo da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente.
+Se o aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) na mensagem recebida (em vez do método [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Isso permitirá ,que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se houver falha no processamento da mensagem pelo aplicativo da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente (basicamente executando uma operação [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) por padrão).
 
 Observe que, se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Com frequência, isso é chamado de processamento *pelo menos uma vez*; ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar processamento duplicado, será necessária uma lógica adicional no aplicativo para detectar duplicadas que poderão ser obtidas com base na propriedade **MessageId** da mensagem, que permanece constante nas tentativas da entrega. Isso é conhecido como processamento *Exatamente Uma Vez*.
 
-Para saber mais e obter um exemplo de como criar e enviar mensagens para e de filas, consulte o [Tutorial do sistema de mensagens agenciado do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367512.aspx).
+Para saber mais e obter um exemplo de como criar e enviar mensagens bidirecionalmente nas filas, confira o [Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md).
 
 ## Tópicos e assinaturas
 
-Em contraste com as filas, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos em um padrão de *publicação/assinatura*. Útil para o dimensionamento para grandes números de destinatários, cada mensagem publicada é disponibilizada para cada assinatura registrada com o tópico. As mensagens são enviadas a um tópico e entregues a uma ou mais assinaturas associadas, dependendo das regras de filtro que puderem ser definidas por assinatura. As assinaturas podem usar filtros adicionais para restringir as mensagens que desejam receber. As mensagens são enviadas a um tópico da mesma forma como são enviadas para uma fila, mas as mensagens não são recebidas diretamente do tópico. Em vez disso, elas são recebidas de assinaturas. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. As mensagens são recebidas de uma assinatura de forma idêntica à maneira como são recebidas de uma fila.
+Em contraste com as filas, em que cada mensagem é processada por um único consumidor, *tópicos* e *assinaturas* fornecem uma forma de comunicação de um para muitos em um padrão de *publicação/assinatura*. Útil para o dimensionamento para grandes números de destinatários, cada mensagem publicada é disponibilizada para cada assinatura registrada com o tópico. As mensagens são enviadas a um tópico e entregues a uma ou mais assinaturas associadas, dependendo das regras de filtro que puderem ser definidas por assinatura. As assinaturas podem usar filtros adicionais para restringir as mensagens que desejam receber. As mensagens são enviadas a um tópico da mesma forma como são enviadas para uma fila, mas as mensagens não são recebidas diretamente do tópico. Em vez disso, elas são recebidas de assinaturas. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. As mensagens são recebidas de uma assinatura de forma idêntica à maneira como são recebidas de uma fila.
 
 Por comparação, a funcionalidade de envio de mensagens de uma fila é diretamente mapeada para um tópico e sua funcionalidade de recebimento de mensagens é mapeada para uma assinatura. Entre outras coisas, isso significa que as assinaturas dão suporte aos mesmos padrões descritos anteriormente nesta seção em relação a filas: consumidor concorrente, desacoplamento temporal, nivelamento de carga e balanceamento de carga.
 
@@ -154,11 +154,11 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Com esse filtro de assinatura ativado, somente as mensagens com a propriedade `StoreName` definida como `Store1` são copiadas para a fila virtual para a assinatura de `Dashboard`.
 
-Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Além disso, veja o exemplo [Sistema de mensagens agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749).
+Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Além disso, veja os exemplos [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Sistema de mensagens agenciado: filtros avançados) e [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Filtros do tópico).
 
-## Hubs de Evento
+## Hubs de Eventos
 
-[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. Esse serviço, quando usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT).
+[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. Esse serviço, quando usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e [IoT (Internet das Coisas)](https://azure.microsoft.com/services/iot-hub/).
 
 Os Hubs de Eventos são uma construção de streaming de mensagens e, embora pareçam semelhantes a filas e tópicos, têm características bem diferentes. Por exemplo, os Hubs de Eventos não oferecem mensagens TTL, mensagens mortas, transações ou confirmações, já que esses são recursos do sistema de mensagens agenciado tradicional e não recursos de streaming. Os Hubs de Eventos fornecem outros recursos relacionados ao fluxo, como particionamento, preservação da ordem e reprodução de fluxo.
 
@@ -171,6 +171,7 @@ Consulte os seguintes tópicos avançados para saber mais e obter exemplos do us
 - [Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-rest.md)
 - [Documentação dos Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Guia do desenvolvedor de Hubs de Evento](../event-hubs/event-hubs-programming-guide.md)
-- [Sistema de Mensagens Agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+- [Exemplo de filtros do tópico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+- [Sistema de mensagens agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

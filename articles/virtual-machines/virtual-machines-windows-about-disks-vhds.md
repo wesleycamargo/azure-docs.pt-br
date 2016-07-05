@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Sobre discos e VHDs para máquinas virtuais do Azure
@@ -30,4 +30,4 @@ Assim como qualquer outro computador, as máquinas virtuais do Azure usam os dis
 -  [Carregue uma imagem de VM do Windows no Azure](virtual-machines-windows-upload-image.md) que será usada durante a criação de uma nova VM.
 -  [Altere a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md) para que seu aplicativo possa usar a unidade D: para dados.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

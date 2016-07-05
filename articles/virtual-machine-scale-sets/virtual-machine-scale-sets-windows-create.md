@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar um Conjunto de Escala de Máquina Virtual | Microsoft Azure"
-	description="Criar um Conjunto de Escala de Máquina Virtual usando o Powershell"
+	description="Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
 
 1. Substitua o valor de **$storageProfile** pelo nome que você deseja usar para o perfil de armazenamento e crie a variável:  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Crie as variáveis que definem a imagem a ser usada:
       
@@ -264,7 +264,7 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
         
 4. Crie o perfil de armazenamento:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Conjunto de escala de máquina virtual
 
@@ -298,7 +298,7 @@ Use estes recursos para explorar o conjunto de escala de máquina virtual que vo
 
 - Portal do Azure - uma quantidade limitada de informações está disponível por meio do portal.
 - [Azure Resource Manager](https://resources.azure.com/) - esta é a melhor ferramenta para explorar o estado atual do conjunto de dimensionamento.
-- Azure Powershell - use este comando para obter informações:
+- Azure PowerShell - use este comando para obter informações:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -313,4 +313,4 @@ Use estes recursos para explorar o conjunto de escala de máquina virtual que vo
 - Considere configurar o dimensionamento automático de seu conjunto de dimensionamento usando as informações em [Dimensionamento automático e conjuntos de dimensionamento da máquina virtual](virtual-machine-scale-sets-autoscale-overview.md)
 - Saiba mais sobre o dimensionamento vertical revisando [Dimensionamento vertical automático com conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

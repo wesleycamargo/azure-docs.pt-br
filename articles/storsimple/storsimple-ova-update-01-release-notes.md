@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de versão da Atualização 0.1 StorSimple Virtual Array | Microsoft Azure"
-   description="Descreve os problemas em aberto críticos e resoluções para a StorSimple Virtual Array que executa a Atualização 0.1."
+   pageTitle="Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Azure"
+   description="Descreve os problemas em aberto críticos e resoluções para o StorSimple Virtual Array que executa as Atualizações 0.1 e 0.2."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/27/2016"
+   ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# Notas de versão da Atualização 0.1 da StorSimple Virtual Array
+# Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 
 ## Visão geral
 
-As notas de versão a seguir identificam as questões críticas em aberto e problemas resolvidos para a versão Atualização 0.1 da Microsoft Azure StorSimple Virtual Array. (A Microsoft Azure StorSimple Virtual Array também é conhecida como dispositivo virtual local StorSimple ou dispositivo virtual StorSimple.) Esta versão corresponde à versão do software **10.0.10279.0**.
+As notas de versão a seguir identificam as questões críticas em aberto e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array. (A Microsoft Azure StorSimple Virtual Array também é conhecida como dispositivo virtual local StorSimple ou dispositivo virtual StorSimple.)
 
 As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Examine cuidadosamente as informações contidas nas notas de versão antes de implantar seu dispositivo virtual StorSimple.
 
-> [AZURE.NOTE] A Atualização 0.1 é uma atualização com interrupção e reiniciará seu dispositivo. Se E/S estiver em andamento, o dispositivo causará tempo de inatividade.
+A Atualização 0.2 corresponde à versão de software **10.0.10280.0** e a Atualização 0.1 corresponde à versão **10.0.10279.0**. As seções a seguir listam as alterações em cada atualização.
+
+> [AZURE.NOTE] As atualizações causam interrupção e reiniciarão seu dispositivo. Se processos de E/S estiverem em andamento, o dispositivo sofrerá tempo de inatividade.
+
+## Problemas resolvidos na Atualização 0.2
+A Atualização 0.2 inclui todas as alterações da Atualização 0.1, além da correção descrita na tabela a seguir:
+
+Recurso | Problema |
+--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Atualizações | Na última versão, as atualizações não eram detectadas automaticamente no portal clássico do Azure, de modo que era necessário usar a IU da Web local para instalar atualizações. Esse problema foi corrigido nesta versão. Depois de instalar a Atualização 0.2, você pode instalar atualizações futuras usando o portal clássico do Azure.                       
 
 ## Novidades na Atualização 0.1
 
@@ -33,9 +42,9 @@ A Atualização 0.1 contém as seguintes correções de bug e aprimoramentos.
 
 - **Melhor desempenho de restauração**: esta versão tem correções de bug que reduziram significativamente o tempo de conclusão dos trabalhos de restauração.
 
-- **Otimização de reclamação de espaço automatizada**: Quando os dados são excluídos em volumes escassamente provisionados, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
+- **Otimização de reclamação de espaço automatizada**: quando os dados são excluídos em volumes com provisionamento dinâmico, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
 
-- **Novas imagens de disco virtual**: os novos VHD e VHDX e VMDK agora estão disponíveis por meio do Portal Clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
+- **Novas imagens de disco virtual**: os novos VHD e VHDX e VMDK agora estão disponíveis por meio do portal clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
 
 - **Melhoria da precisão de status de trabalhos no portal**: na versão anterior do software, os relatórios de status de trabalhos no portal não eram granulares. Esse problema foi corrigido nesta versão.
 
@@ -81,6 +90,6 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 
 ## Próxima etapa
 
-[Instale a Atualização 0.1](storsimple-ova-install-update-01.md) em sua StorSimple Virtual Array.
+[Instale as Atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

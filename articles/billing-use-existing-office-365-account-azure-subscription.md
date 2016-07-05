@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
 # Use sua conta existente do Office 365 com sua assinatura do Azure ou vice-versa
@@ -144,4 +144,7 @@ Consulte [Como assinaturas do Azure são associadas ao Azure Active Directory](.
 - As assinaturas do Azure pertencem a usuários individuais no diretório.
 - As assinaturas do Office 365 pertencem o próprio diretório. Os usuários dentro do diretório poderão operar nessas assinaturas se eles tiverem as permissões necessárias.
 
-<!---HONumber=AcomDC_0518_2016-->
+##Próximas etapas
+Este é um cenário relacionado no qual você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado, e deseja ser capaz de acessar o locatário do Office 365 a partir da assinatura do Azure. Para saber como realizar essa tarefa, confira [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+
+<!---HONumber=AcomDC_0622_2016-->

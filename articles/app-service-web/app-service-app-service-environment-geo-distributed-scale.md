@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
@@ -107,6 +107,8 @@ A imagem do console abaixo mostra uma pesquisa de DNS de domínio personalizado 
 ![Pesquisa de DNS][DNSLookup]
 
 ## Informações e links adicionais ##
+Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+
 Documentação sobre a visualização do [suporte de Gerenciador de Recursos do Azure (ARM) do Gerenciador de Tráfego][ARMTrafficManager] do PowerShell.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -125,4 +127,4 @@ Documentação sobre a visualização do [suporte de Gerenciador de Recursos do 
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

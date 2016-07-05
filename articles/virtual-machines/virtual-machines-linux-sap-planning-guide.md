@@ -293,7 +293,7 @@
 
 [sap-pam]: https://support.sap.com/pam "Matriz de Disponibilidade de Produto da SAP"
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
 
 O Microsoft Azure permite que empresas adquiram recursos de computação e armazenamento gastando o mínimo de tempo, sem ciclos de compras longos. Máquinas Virtuais do Azure permitem que as empresas implantem no Azure aplicativos clássicos, como aplicativos baseados na SAP NetWeaver, além de aumentar a confiabilidade e disponibilidade desses aplicativos sem necessidade de mais recursos disponíveis localmente. Os Serviços da Máquina Virtual do Azure também dão suporte à conectividade entre locais, o que permite que as empresas integrem ativamente as Máquinas Virtuais do Azure em seus domínios locais, suas nuvens privadas e sua estrutura do sistema da SAP. Este white paper descreve os conceitos básicos de máquina virtual do Microsoft Azure e fornece uma explicação das considerações de planejamento e implementação para instalações da SAP NetWeaver no Azure e, por esse motivo, é o documento que deve ser lido antes de iniciar implantações reais da SAP NetWeaver no Azure. O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
 
@@ -1300,7 +1300,7 @@ New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -Type Standard_LRS -Location "North Europe"
+$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * Crie uma nova rede virtual para cada estrutura de treinamento/demonstração para habilitar o uso do mesmo nome do host e endereços IP. A rede virtual é protegida por um Grupo de Segurança de Rede que permite apenas o tráfego para a porta 3389 para habilitar o acesso de Área de Trabalho Remota e porta 22 para SSH. 
@@ -1930,4 +1930,4 @@ Os pontos principais de alta disponibilidade para sistemas SAP no Azure são:
 * Fazer backup de instâncias de caixas de diálogo SAP não faz muito sentido, já que é normalmente mais rápido reimplantar instâncias de caixa de diálogo simples.
 * Fazer backup da VM que contém o diretório global do sistema SAP e com ela todos os perfis das diferentes instâncias faz sentido e deve ser executado com o Backup do Windows ou, por exemplo, tar no Linux. Como há diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2) que facilitam o backup usando versões mais recentes do Windows Server, é recomendável executar o Windows Server 2012 (R2) como sistema operacional convidado Windows. 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

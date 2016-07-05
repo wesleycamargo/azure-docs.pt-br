@@ -20,7 +20,7 @@
 
 ## Por que gerenciar máquinas com o DSC de Automação do Azure?
 
-Como a [Configuração de Estado Desejado do PowerShell](https://technet.microsoft.com/library/dn249912.aspx), a Configuração de Estado Desejado da Automação do Azure é um serviço de gerenciamento de configuração simples, mas poderoso, para nós DSC (máquinas físicas e virtuais) em qualquer datacenter de nuvem ou no local. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode facilmente integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios mostrando a conformidade de cada máquina para o estado desejado especificado. A camada de gerenciamento do DSC de Automação do Azure é para o DSC o que a camada de gerenciamento de Automação do Azure é para o script do PowerShell. Em outras palavras, da mesma forma que a Automação do Azure ajuda você a gerenciar os scripts do PowerShell, ela também ajuda a gerenciar configurações do DSC. Para saber mais sobre os benefícios do uso do DSC de Automação do Azure, consulte [Visão geral do DSC de Automação do Azure](automation-dsc-overview/).
+Como a [Configuração de Estado Desejado do PowerShell](https://technet.microsoft.com/library/dn249912.aspx), a Configuração de Estado Desejado da Automação do Azure é um serviço de gerenciamento de configuração simples, mas poderoso, para nós DSC (máquinas físicas e virtuais) em qualquer datacenter de nuvem ou no local. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode facilmente integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios mostrando a conformidade de cada máquina para o estado desejado especificado. A camada de gerenciamento do DSC de Automação do Azure é para o DSC o que a camada de gerenciamento de Automação do Azure é para o script do PowerShell. Em outras palavras, da mesma forma que a Automação do Azure ajuda você a gerenciar os scripts do PowerShell, ela também ajuda a gerenciar configurações do DSC. Para saber mais sobre os benefícios do uso do DSC de Automação do Azure, consulte [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md).
 
 O DSC de Automação do Azure pode ser usado para gerenciar uma variedade de máquinas:
 
@@ -104,7 +104,7 @@ Para encontrar a URL de registro e a chave da conta da Automação a ser integra
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.15 `
+     -Version 2.19 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -379,4 +379,4 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

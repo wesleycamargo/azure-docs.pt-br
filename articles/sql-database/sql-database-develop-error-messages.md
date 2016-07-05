@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -170,8 +170,8 @@ Tópicos relacionados:
 | 40868 | EX\_USER | A DTU máxima por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU máximo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU máximo por banco de dados acima do limite com suporte. | Considere o uso da camada de serviço do pool elástico que ofereça suporte à configuração desejada. | 
 | 40870 | EX\_USER | O DTU mínimo por banco de dados não pode exceder (%d) para a camada de serviço ' %.*ls'. | DTU mínimo por banco de dados; camada de serviço do pool elástico. | Tentativa de definir o DTU mínimo por banco de dados além do limite com suporte. | Considere usar a camada de serviço do pool elástico que ofereça suporte à configuração desejada. | 
 | 40873 | EX\_USER | O número de bancos de dados (%d) e DTU mínimo por banco de dados (%d) não pode exceder os DTUs do pool elástico (%d). | Número de bancos de dados no pool elástico; DTU mínimo por banco de dados; DTUs do pool elástico. | Tentativa de especificar um DTU mínimo para bancos de dados no pool elástico que excede os DTUs do pool elástico. | Considere o aumento dos DTUs do pool elástico, ou a diminuição do DTU mínimo por banco de dados, ou diminuir o número de bancos de dados no pool elástico. | 
-| 40877 | EX\_USER | Não é possível excluir um pool elástico, a menos que ele não contenha banco de dados. | Nenhum | O pool elástico contém um ou mais bancos de dados e, portanto, não pode ser excluído. | Remova os bancos de dados do pool elástico para excluí-lo. |
-| 40881 | EX\_USER | O pool elástico '%.*ls' atingiu seu limite de contagem de banco de dados. O limite de contagem do banco de dados para o pool elástico não pode exceder (%d) para um pool elástico com (%d) DTUs. | Nome do pool elástico; limite de contagem de banco de dados do pool elástico; eDTUs para o pool de recursos. | Tentativa de criar ou adicionar um banco de dados ao pool elástico quando o limite de contagem de banco de dados do pool elástico foi atingido. | Considere aumentar as DTUs do pool elástico, se possível, para aumentar o limite de bancos de dados ou remover bancos de dados do pool elástico. |
+| 40877 | EX\_USER | Não é possível excluir um pool elástico, a menos que ele não contenha banco de dados. | Nenhum | O pool elástico contém um ou mais bancos de dados e, portanto, não pode ser excluído. | Remova os bancos de dados do pool elástico para excluí-lo. | 
+| 40881 | EX\_USER | O pool elástico '%.*ls' atingiu seu limite de contagem de banco de dados. O limite de contagem do banco de dados para o pool elástico não pode exceder (%d) para um pool elástico com (%d) DTUs. | Nome do pool elástico; limite de contagem de banco de dados do pool elástico; eDTUs para o pool de recursos. | Tentativa de criar ou adicionar um banco de dados ao pool elástico quando o limite de contagem de banco de dados do pool elástico foi atingido. | Considere aumentar as DTUs do pool elástico, se possível, para aumentar o limite de bancos de dados ou remover bancos de dados do pool elástico. | 
 | 40889 | EX\_USER | O limite de DTUs ou de armazenamento para o pool elástico '%.*ls' não pode ser reduzido, pois não haveria espaço de armazenamento suficiente para seus bancos de dados. | Nome do pool elástico. | Tentativa de diminuir o limite de armazenamento do pool elástico abaixo de seu uso de armazenamento. | Considere reduzir o uso do armazenamento de bancos de dados individuais no pool elástico ou remover bancos de dados do pool para reduzir seu limite de DTUs ou de armazenamento. | 
 | 40891 | EX\_USER | O DTU mínimo por banco de dados (%d) não pode exceder o DTU máximo por banco de dados (%d). | DTU mínimo por banco de dados; DTU máximo por banco de dados. | Tentativa de definir o DTU mínimo por banco de dados superior ao DTU máximo por banco de dados. | Certifique-se de que o DTU mínimo por banco de dados não exceda o DTU máximo por banco de dados. | 
 | TBD | EX\_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
@@ -246,8 +246,8 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 |40651|16|Falha ao criar o servidor porque a assinatura <subscription-id> está desabilitada.|
 |40652|16|Não é possível mover ou criar o servidor. A assinatura <subscription-id> ultrapassará a cota do servidor.|
 |40671|17|Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde.|
-|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.|
-|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.|
+|40852|16|Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no FQDN do servidor. 'server name'.database.windows.net deve ser modificado para 'server name'.database.`secure`.windows.net.| 
+|45168|16| O sistema do SQL Azure está sob carga e está estabelecendo um limite superior em operações CRUD simultâneas de BD para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde.| 
 |45169|16|O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde.|
 
 
@@ -256,4 +256,4 @@ A tabela a seguir lista todos os erros gerais que não se enquadram em nenhuma c
 - [Diretrizes e limitações gerais do Banco de Dados SQL do Azure](sql-database-general-limitations.md)
 - [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

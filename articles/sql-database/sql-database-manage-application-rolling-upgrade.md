@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Gerenciando a rolagem de atualizações de aplicativos na nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL
@@ -120,8 +120,9 @@ A principal **vantagem** dessa opção é que você pode atualizar o aplicativo 
 
 Os dois métodos de atualização descritos no artigo diferem em complexidade e custo, mas ambos focam na redução do tempo quando o usuário final está limitado às operações de somente leitura. Esse tempo é definido diretamente pela duração do script de atualização. Ele não depende do tamanho do banco de dados, da camada de serviço escolhida, da configuração de site da Web e de outros fatores que você não pode controlar facilmente. Isso ocorre porque todas as etapas de preparação são desacopladas das etapas de atualização e podem ser feitas sem afetar o aplicativo de produção. A eficiência do script de atualização é o principal fator que determina a experiência do usuário final durante as atualizações. Portanto, a melhor maneira aprimorá-la é concentrando seus esforços em tornar o script de atualização o mais eficiente possível.
 
-## Recursos adicionais
- As páginas abaixo ajudarão você a saber mais sobre as operações específicas necessárias para implementar o fluxo de trabalho de atualização:
+
+## Próximas etapas
+As páginas abaixo ajudarão você a saber mais sobre as operações específicas necessárias para implementar o fluxo de trabalho de atualização:
 
 - [Adicionar banco de dados secundário](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Fazer failover do banco de dados para o secundário](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -131,4 +132,15 @@ Os dois métodos de atualização descritos no artigo diferem em complexidade e 
 - [Copiar banco de dados](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Definir o banco de dados para o modo somente leitura ou leitura/gravação](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+## Recursos adicionais
+
+- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
+- [Restauração pontual](sql-database-point-in-time-restore.md)
+- [Restauração geográfica](sql-database-geo-restore.md)
+- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
+- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

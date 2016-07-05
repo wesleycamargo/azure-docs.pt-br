@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Análises de recuperação de desastres do Banco de Dados SQL" 
+   pageTitle="Análises de recuperação de desastre do Banco de Dados SQL | Microsoft Azure" 
    description="Obtenha orientação e as práticas recomendadas para usar o Banco de Dados SQL do Azure para executar os análises de recuperação de desastres que ajudarão a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Executar análise de recuperação de desastres
@@ -63,4 +63,21 @@ Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máqu
 
 - Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Próximas etapas
+
+- Para saber mais sobre como usar e configurar a Replicação Geográfica Ativa para recuperação de desastre, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastre, confira [Restauração Geográfica](sql-database-geo-restore.md)
+
+## Recursos adicionais
+
+- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
+- [Restauração pontual](sql-database-point-in-time-restore.md)
+- [Restauração geográfica](sql-database-geo-restore.md)
+- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
+- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

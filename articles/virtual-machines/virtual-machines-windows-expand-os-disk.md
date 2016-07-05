@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="06/21/2016"
    ms.author="kirpas"/>
 
 # Como expandir a unidade do sistema operacional de uma Máquina Virtual em um Grupo de Recursos do Azure
 
 [AZURE.INCLUDE [virtual-machine-common-expand-os-disk](../../includes/virtual-machines-common-expand-os-disk.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

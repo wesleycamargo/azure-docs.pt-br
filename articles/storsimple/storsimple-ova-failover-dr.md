@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array
@@ -80,11 +80,11 @@ Após a recuperação de desastre ser concluída com êxito, a propriedade dos d
 
 > [AZURE.IMPORTANT]
 > 
-> Embora o dispositivo não esteja mais disponível, a máquina virtual que você provisionou no sistema host ainda está consumindo recursos. Depois que a recuperação de desastre é concluída com êxito, você pode excluir esta máquina virtual do seu sistema host.
+> Embora o dispositivo não esteja mais disponível, a máquina virtual que você provisionou no sistema host ainda está consumindo recursos. Depois que a recuperação de desastre for concluída com êxito, você poderá excluir esta máquina virtual do seu sistema host.
 
-## Failover para um dispositivo virtual
+## Fazer failover para uma matriz virtual
 
-Recomendamos que você tenha um dispositivo virtual StorSimple provisionado, configurado por meio da interface do usuário da Web local e registrado com o serviço StorSimple Manager antes de executar este procedimento.
+Recomendamos que você tenha outra matriz virtual StorSimple provisionada, configurada por meio da interface do usuário da Web local e registrada com o serviço StorSimple Manager antes de executar este procedimento.
 
 
 > [AZURE.IMPORTANT]
@@ -175,4 +175,4 @@ Se uma das pré-verificações não for atendida, você verá falhas nas pré-ve
 
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -16,7 +16,18 @@
 
 # Notas de versão - ferramentas de análise do desenvolvedor
 ##### Análise do Application Insights e do HockeyApp no Visual Studio
-## Versão 7.0.1
+## Versão 7.0
+###Tendências do Application Insights
+Tendências do Application Insights é uma nova ferramenta no Visual Studio para analisar o comportamento do seu aplicativo ao longo do tempo. Para começar, escolha "Explorar Tendências de Telemetria" no botão de barra de ferramentas do Application Insights ou na janela de pesquisa do Application Insights. Ou escolha "Tendências do Application Insights" em Modo de Exibição > Outras Janelas. Escolha uma das cinco consultas comuns para começar. Você pode analisar conjuntos de dados diferentes com base em tipos de telemetria, intervalos de tempo e outras propriedades. Para encontrar anomalias em seus dados, escolha uma das opções de anomalias na lista suspensa "Tipo de Exibição". As opções de filtragem na parte inferior da janela facilitam o aprimoramento de subconjuntos específicos de sua telemetria.
+
+![Tendências do Application Insights](./media/app-insights-release-notes-vsix/Trends.PNG)
+
+###Exceções em CodeLens
+A telemetria de exceção agora é exibida no CodeLens. Se você conectou seu projeto ao serviço Application Insights, verá o número de exceções que ocorreram em cada método na produção nas últimas 24 horas. No CodeLens, você pode ir para Pesquisar ou Tendências a fim de investigar as exceções mais detalhadamente.
+
+![Exceções em CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+
+###Suporte do ASP.NET Core
 O Application Insights agora dá suporte a projetos do ASP.NET Core RC2 no Visual Studio. Você pode adicionar o Application Insights a novos projetos do ASP.NET Core RC2 na caixa de diálogo Novo Projeto, ou a um projeto existente clicando no projeto no Gerenciador de Soluções e escolhendo "Adicionar Application Insights Telemetry…"
 
 ![Suporte do .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
@@ -25,11 +36,15 @@ Também há novo suporte a projetos ASP.NET 5 RC1 e ASP.NET Core RC2 na janela F
 
 ![Suporte a Ferramentas de Diagnóstico](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###HockeyApp para aplicativos universais do Windows
+Além dos comentários de usuário e da distribuição beta, o HockeyApp fornece relatórios de falha simbolizados para seus aplicativos Universais do Windows. Facilitamos ainda mais a adição do SDK do HockeyApp: clique com o botão direito do mouse no projeto Universal do Windows e escolha Hockey App – Habilitar Análise de Falhas... Isso instala o SDK, configura a coleta de falhas e provisiona um recurso HockeyApp na nuvem sem carregar seu aplicativo no serviço HockeyApp.
+
 Outros novos recursos:
 
 * Tornamos a experiência de Pesquisa de do Application Insights mais rápida e intuitiva, aplicando automaticamente intervalos de tempo e filtros de detalhes conforme você os seleciona
 * Na Pesquisa do Application Insights, há agora uma opção para ir para o código da telemetria de solicitação
 * Fizemos aprimoramentos à experiência de entrada do HockeyApp.
+* Nas Ferramentas de Diagnóstico, agora há informações de telemetria de produção exibidas para exceções.
 
 ## Versão 5.2
 Estamos felizes em anunciar a introdução de cenários do HockeyApp no Visual Studio. A primeira integração que habilitamos é uma distribuição beta dos aplicativos Universais do Windows e do Windows Forms no VS.
@@ -60,7 +75,7 @@ O portal do HockeyApp permite gerenciar o aplicativo de várias maneiras (convid
 
 ![Portal do HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Mais detalhes sobre o gerenciamento de aplicativos estão disponíveis na [base de dados de conhecimento do HockeyApp](http://support.hockeyapp.net/kb/app-management-2).
+Mais detalhes sobre o gerenciamento de aplicativos estão disponíveis na [Base de Dados de Conhecimento do HockeyApp](http://support.hockeyapp.net/kb/app-management-2).
 
 ### Aplicativos do Windows Forms
 O menu de contexto do nó de um projeto do Windows Forms inclui uma opção para carregar sua compilação no HockeyApp.
@@ -164,4 +179,4 @@ Em *Connect();* 2015, [anunciamos](https://azure.microsoft.com/blog/deep-diagnos
 
 Em versões futuras da extensão Application Insights, vamos introduzir novas funcionalidades para permitir uma experiência mais integrada entre o HockeyApp e o Visual Studio. A partir de agora, é possível começar a usar o HockeyApp apenas adicionando a referência do NuGet: veja a [documentação](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para obter mais informações.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

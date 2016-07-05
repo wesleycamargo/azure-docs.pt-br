@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="lbosq"/>
 
 
@@ -46,10 +46,13 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+* Visite o [Centro de Desenvolvimento do Java](/develop/java/).
+* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
+* Mais informações sobre o [Microsoft JDBC Driver para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
-## Recursos adicionais
+## Recursos adicionais 
 
-Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

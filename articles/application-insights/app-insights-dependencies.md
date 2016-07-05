@@ -68,6 +68,10 @@ A partir das caixas, você pode navegar para a dependência relevante e outros g
 
 Clique no pequeno [x] para recolher uma subárvore.
 
+Fixe o mapa no [painel](app-insights-dashboards.md), onde ele ficará totalmente funcional.
+
+[Saiba mais](app-insights-app-map.md).
+
 ## <a name="diagnosis"></a> Diagnosticando problemas de desempenho de dependência no servidor Web
 
 Para avaliar o desempenho de solicitações no seu servidor:
@@ -150,4 +154,4 @@ Consulte [Páginas da Web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

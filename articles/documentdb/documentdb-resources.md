@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="06/20/2016" 
 	ms.author="anhoh"/>
 
 # Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos
@@ -56,7 +56,7 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ## Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
-> [AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+>[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 <table>
     <tbody>
@@ -97,7 +97,7 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
 ### Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{_rid}:
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
 |Valor de \_self |Descrição
 |-------------------|-----------
@@ -412,7 +412,7 @@ Considere um aplicativo de leitura social que utiliza o Banco de Dados de Docume
 -	Um aplicativo poderá armazenar os metadados de cada usuário como um documento distinto, por exemplo, os metadados de Joe para o book1 são armazenados em um documento cuja referência é /colls/joe/docs/book1. 
 -	Anexos indicando para as páginas de conteúdo de um determinado livro de um usuário são armazenados no documento correspondente, p. ex., /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2, etc. 
 
-Observe que os exemplos utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivos.
+Observe que os exemplos listados acima utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivos.
 
 Para a mídia gerenciada pelo Banco de Dados de Documentos, a propriedade \_media do anexo fará referência à mídia por meio de seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo ao fazer o upload da nova mídia e preencher \_media para indicar a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its \_media.
 
@@ -431,8 +431,7 @@ Como seus aplicativos precisam ser escalados conforme o crescimento do usuário,
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3]  
-**Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
@@ -451,4 +450,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

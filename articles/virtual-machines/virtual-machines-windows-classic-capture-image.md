@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 #Capture uma imagem de uma máquina virtual do Windows do Azure criada com o modelo de implantação clássico.
@@ -90,4 +90,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. Para fazer i
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

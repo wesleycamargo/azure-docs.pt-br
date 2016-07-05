@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Fazer backup de sua Matriz Virtual StorSimple
 
 ## Visão geral 
 
-Este tutorial se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016.
+Este tutorial se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple), que executa a versão GA (disponibilidade geral) de março de 2016 ou as versões posteriores.
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. Ele pode criar backups, restaurar de backups e executar failover de dispositivo, se houver necessidade de recuperação de desastre. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como usar o portal clássico do Azure ou a interface do usuário da Web do StorSimple para criar backups agendados e manuais do seu StorSimple Virtual Array.
 
@@ -64,7 +64,7 @@ Além de backups agendados, você pode fazer um backup manual (sob demanda) a qu
 
     ![trabalho de backup criado](./media/storsimple-ova-backup/image7.png)
 
-3. Para acompanhar o progresso do trabalho, clique no ícone **Exibir Trabalho**.
+3. Para acompanhar o progresso do trabalho, clique em **Exibir Trabalho**.
 
 4. Depois que o trabalho de backup for concluído, vá para a guia **Catálogo de backup**. Você deve ver o backup completo.
 
@@ -104,4 +104,4 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 Saiba mais sobre como [administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

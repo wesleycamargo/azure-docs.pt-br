@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurando o Cofre de Chaves para as máquinas virtuais no Azure Resource Manager | Microsoft Azure"
-	description="Como configurar um cofre de chaves para uso com uma máquina virtual do Azure Resource Manager"
+	pageTitle="Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager | Microsoft Azure"
+	description="Como configurar um Cofre de Chaves para uso com uma máquina virtual do Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkay"
@@ -17,24 +17,23 @@
 	ms.date="05/31/2016"
 	ms.author="singhkay"/>
 
-# Configurando o Cofre de Chaves para as máquinas virtuais no Azure Resource Manager
+# Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico
 
-Na pilha do Azure Resource Manager, certificados/segredos são modelados como recursos que são fornecidos pelo provedor de recursos do cofre de chaves. Para saber mais sobre o cofre de chaves, consulte [O que é o Cofre de Chaves do Azure?](../key-vault/key-vault-whatis.md)
+Na pilha do Azure Resource Manager, os certificados/segredos são modelados como recursos que são fornecidos pelo provedor de recursos do Cofre de Chaves. Para saber mais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../key-vault/key-vault-whatis.md)
 
-## Configuração
-Para que um cofre de chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade *EnabledForDeployment* no cofre de chaves deve ser definida como true. Você pode fazer isso em vários clientes, conforme mostrado abaixo.”
+Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade *EnabledForDeployment* no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes.”
 
-## CLI
-Para criar o Cofre de Chaves usando a CLI, consulte [Gerenciar cofre de chaves usando a CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault)
+## Usar a CLI para configurar o Cofre de Chaves
+Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre de Chaves usando a CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
-Para a CLI, você precisa primeiro criar o cofre de chaves, depois habilitar a política de implantação. Você pode fazer isso usando o comando a seguir
+Para a CLI, você precisa criar o cofre de chaves antes de atribuir a política de implantação. Faça isso usando este comando:
 
 	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## Modelos
-Ao usar os modelos, você precisa definir a propriedade `enabledForDeployment` como `true` para o recurso de cofre de chaves.
+## Usar modelos para configurar o Cofre de Chaves
+Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` como `true` para o recurso de Cofre de Chaves.
 
 	{
       "type": "Microsoft.KeyVault/vaults",
@@ -48,6 +47,6 @@ Ao usar os modelos, você precisa definir a propriedade `enabledForDeployment` c
       }
     }
 
-Para outras opções que você pode configurar durante a criação de um cofre de chaves por meio de modelos, consulte [aqui](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
+Para encontrar outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chaves](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

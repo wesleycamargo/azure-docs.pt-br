@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/04/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab" />
 
 # Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
@@ -130,4 +130,4 @@ O Parâmetro de Comparação do Banco de Dados SQL do Azure mede o desempenho re
 
 [Diretrizes de desempenho para bancos de dados únicos](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->
