@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure | Microsoft Azure"
+	pageTitle=" Introdução ao fornecimento de conteúdo sob demanda usando o Portal do Azure | Microsoft Azure"
 	description="Este tutorial orienta você nas etapas de implementação de um serviço básico de fornecimento de conteúdo de Vídeo sob Demanda (VoD) com o aplicativo AMS (Serviços de Mídia do Azure) usando o Portal do Azure."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Este tutorial inclui as seguintes tarefas:
 2.  Configurar um ponto de extremidade de streaming.
 1.  Carregar um arquivo de vídeo.
 1.  Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
-1.  Publicar o ativo e obter URLs de download progressivo e streaming.  
+1.  Publicar o ativo e obter URLs de download progressivo e streaming.
 1.  Reproduzir o conteúdo.
 
 
@@ -40,7 +40,7 @@ Este tutorial inclui as seguintes tarefas:
 As etapas nesta seção mostram como criar uma nova conta do AMS.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **+Novo** > **Serviço de Mídia + CDN** > **Serviços de Mídia**.
+2. Clique em **+Novo** > ** Serviço de Mídia + CDN** > **Serviços de Mídia**.
 
 	![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -52,7 +52,7 @@ As etapas nesta seção mostram como criar uma nova conta do AMS.
 	2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
 	
 	2. Em **Grupo de Recursos**, selecione o recurso novo ou existente. Um grupo de recursos é uma coleção de recursos que compartilham o mesmo ciclo de vida, permissões e políticas. Saiba mais [aqui](resource-group-overview.md#resource-groups).
-	3. Em **Localização**, selecione a região geográfica que será usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa. 
+	3. Em **Localização**, selecione a região geográfica que será usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa.
 	
 	3. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer o armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma nova conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
 
@@ -72,13 +72,13 @@ As etapas nesta seção mostram como criar uma nova conta do AMS.
 
 Será necessário o nome da conta e as informações da chave primária para acessar a conta de Serviços de Mídia de modo programático.
 
-1. No Portal do Azure, selecione sua conta. 
+1. No Portal do Azure, selecione sua conta.
 
 	A janela **Configurações** aparece à direita.
 
 2. Na janela **Configurações**, selecione **Chaves**.
 
-	A janela **Gerenciar chaves** mostra o nome da conta e as chaves primária e secundária são exibidas. 
+	A janela **Gerenciar chaves** mostra o nome da conta e as chaves primária e secundária são exibidas.
 3. Pressione o botão Copiar para copiar os valores.
 	
 	![Chaves dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-keys.png)
@@ -91,7 +91,7 @@ Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você e
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- Codifique seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 da taxa de bits adaptável (as etapas de codificação serão demonstradas mais tarde neste tutorial).  
+- Codifique seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 da taxa de bits adaptável (as etapas de codificação serão demonstradas mais tarde neste tutorial).
 - Crie pelo menos uma unidade de transmissão para a *extremidade de transmissão* a partir da qual você planeja fornecer seu conteúdo. As etapas a seguir mostram como alterar o número de unidades da transmissão.
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
@@ -99,7 +99,7 @@ Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivo
 Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
 
 
-1. Na janela **Configurações**, clique em **Pontos de extremidade da transmissão**. 
+1. Na janela **Configurações**, clique em **Pontos de extremidade da transmissão**.
 
 2. Clique no ponto de extremidade da transmissão padrão.
 
@@ -143,13 +143,13 @@ Os Serviços de Mídia também fornecem um empacotamento dinâmico que permite e
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - Codifique seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (as etapas da codificação são demonstradas mais tarde nesta seção).
-- Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade da transmissão](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+- Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade da transmissão](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
 
 ### Para usar o portal para codificar
 
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Media Encoder Standard.
 
-1.  Na janela **Configurações**, selecione **Ativos**.  
+1.  Na janela **Configurações**, selecione **Ativos**.
 2.  Na janela **Ativos**, selecione o ativo que você gostaria de codificar.
 3.  Pressione o botão **Codificar**.
 4.  Na janela **Codificar um ativo**, selecione o processador "Media Encoder Standard" e uma predefinição. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Para obter mais informações sobre as predefinições, consulte [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artigo – é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição padrão "H264 Múltiplas Taxas de Bits 1080p".
@@ -169,7 +169,7 @@ Para monitorar o andamento do trabalho de codificação, clique em **Configuraç
 
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores:
 
-- Localizadores de transmissão (OnDemandOrigin), usados para a transmissão adaptável (por exemplo, para transmitir MPEG DASH, HLS ou Smooth Streaming). Para criar um localizador de transmissão, seu ativo deve conter um arquivo .ism. 
+- Localizadores de transmissão (OnDemandOrigin), usados para a transmissão adaptável (por exemplo, para transmitir MPEG DASH, HLS ou Smooth Streaming). Para criar um localizador de transmissão, seu ativo deve conter um arquivo .ism.
 - Localizadores progressivos (SAS), usados para a entrega de vídeo por meio do download progressivo.
 
 
@@ -229,4 +229,4 @@ Algumas considerações se aplicam:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

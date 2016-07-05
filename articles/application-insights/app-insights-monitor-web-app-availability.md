@@ -221,12 +221,12 @@ Em todos os casos, você deverá criar uma conta somente para fins de teste. Se 
 
 * Nome de usuário e senha mais simples: basta registrar um teste na Web da maneira usual. Exclua os cookies primeiro.
 * Autenticação SAML. Para isso, você pode usar o plug-in SAML que está disponível para testes na Web.
-* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-o. O Active Directory do Azure o fornece. 
+* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-o. O Active Directory do Azure o fornece.
 * Autenticação Aberta - por exemplo, entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth oferecem a alternativa do segredo do cliente e, portanto, a primeira tática é investigar isso. Se o teste tiver de entrar usando OAuth, a abordagem geral será:
- * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo. 
+ * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo.
  * Executar duas ou mais entradas usando computadores ou navegadores diferentes ou em longos intervalos (para permitir que os tokens expirem).
- * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada. 
- * Registre um teste na Web usando o Visual Studio. 
+ * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada.
+ * Registre um teste na Web usando o Visual Studio.
  * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tentará parametrizar o teste, mas não parametrizará corretamente os tokens).
 
 
@@ -249,7 +249,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 ## Automação
 
-* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
+* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
 * Configure um [webhook](../azure-portal/insights-webhooks-alerts.md), que é chamado quando um alerta é gerado.
 
 ## Perguntas? Problemas?
@@ -268,7 +268,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 * *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
-    Configure o firewall para permitir solicitações de endereços IP na lista no fim deste artigo.
+    Configure o firewall para permitir solicitações dos [endereços IP de agentes de teste Web](app-insights-ip-addresses.md#availability).
 
 * *Falha de carregamento de um teste na Web de várias etapas*
 
@@ -302,125 +302,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 [Solucionar problemas][qna]
 
-
-## Endereços IP de testes na Web
-
-Se você precisar abrir um firewall para permitir testes na Web, veja a lista atual de endereços IP. Ela pode mudar de tempos em tempos.
-
-Abra as portas 80 (http) e 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[Endereços IP de agentes de teste Web](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
@@ -430,4 +312,4 @@ Abra as portas 80 (http) e 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

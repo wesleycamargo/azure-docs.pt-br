@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Visão geral
 
@@ -89,7 +89,7 @@ O tópico mostra como fazer o seguinte:
 
 Os itens a seguir são necessários para concluir o tutorial.
 
-- Para concluir este tutorial, você precisa de uma conta do Azure. 
+- Para concluir este tutorial, você precisa de uma conta do Azure.
 	
 	Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
@@ -120,7 +120,7 @@ Como prática recomendada, você deve usar um arquivo app.config para armazenar 
 Adicione a seção appSettings ao arquivo app.config e defina os valores do nome e da chave de sua conta dos Serviços de Mídia.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
@@ -530,4 +530,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

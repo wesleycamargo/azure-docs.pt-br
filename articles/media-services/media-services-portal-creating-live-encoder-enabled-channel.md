@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/05/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -43,18 +43,18 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 1. Recupere a URL de ingestão do canal.
 
 	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal.
 
 	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
 3. Crie um programa (que também criará um ativo).
-1. Publica o programa (que vai criar um localizador OnDemand para o ativo associado).  
+1. Publica o programa (que vai criar um localizador OnDemand para o ativo associado).
 
 	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa (e, opcionalmente, exclua o ativo).   
+1. Exclua o programa (e, opcionalmente, exclua o ativo).
 
 ##Neste tutorial
 
@@ -64,8 +64,8 @@ Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes 
 3.  Crie um canal que esteja habilitado para realizar a codificação ao vivo.
 1.  Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal.
 1.  Criar um programa (e um ativo)
-1.  Publicar o ativo e obter URLs de streaming  
-1.  Reproduzir o conteúdo 
+1.  Publicar o ativo e obter URLs de streaming
+1.  Reproduzir o conteúdo
 2.  Limpando
 
 ##Pré-requisitos
@@ -276,4 +276,4 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

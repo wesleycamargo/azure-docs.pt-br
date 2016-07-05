@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: atualizar do DirSync
@@ -79,7 +79,7 @@ Etapas adicionais são necessárias quando:
 1. Iniciar o instalador do Azure AD Connect (MSI).
 2. Leia e concorde com os termos de licença e o aviso de privacidade. ![Bem-vindo ao AD do Azure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
 3. Clique em Avançar para começar a análise de sua instalação do DirSync existente. ![Analisando instalação de sincronização de diretório existente](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. Quando a análise for concluída, você verá as recomendações sobre como proceder.  
+4. Quando a análise for concluída, você verá as recomendações sobre como proceder.
     - Se você usar o SQL Server Express e tiver menos de 50.000 objetos, a seguinte tela será mostrada: ![Análise concluída pronta para atualizar a partir do DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - Se usar um SQL Server completo para o DirSync, você verá esta página: ![Análise concluída pronta para atualizar a partir do DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png) São exibidas as informações sobre o servidor de banco de dados existente do SQL Server que está sendo usado pelo DirSync. Faça os ajustes apropriados se necessário. Clique em **Avançar** para continuar a instalação.
     - Se tiver mais de 50.000 objetos, você verá esta tela: ![Análise concluída pronta para atualizar a partir do DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png) Para continuar com a atualização in-loco, clique na caixa de seleção junto à mensagem: **Continuar atualizando o DirSync neste computador.** Para fazer uma [implantação paralela](#parallel-deployment), você exportará as definições de configuração do DirSync e as moverá para o novo servidor.
@@ -202,4 +202,4 @@ Instalar usando as Configurações expressas | [Instalação expressa do Azure A
 Instalar usando configurações personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 Contas usadas para instalação | [Mais informações sobre permissões e contas do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

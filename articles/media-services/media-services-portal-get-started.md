@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o Portal Clássico do Azure | Microsoft Azure"
+	pageTitle=" Introdução ao fornecimento de conteúdo sob demanda usando o Portal Clássico do Azure | Microsoft Azure"
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de Vídeo sob Demanda (VoD) com os Serviços de Mídia do Azure usando o Portal Clássico do Azure."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ Este tutorial inclui as seguintes tarefas:
 2.  Configurar um ponto de extremidade de streaming.
 1.  Carregar um arquivo de vídeo.
 1.  Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
-1.  Publicar o ativo e obter URLs de download progressivo e streaming.  
+1.  Publicar o ativo e obter URLs de download progressivo e streaming.
 1.  Reproduzir o conteúdo.
 
 
@@ -73,7 +73,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).  
+- Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
 - Obter pelo menos uma unidade de streaming para o *ponto de extremidade de streaming* do qual você planeja fornecer seu conteúdo.
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
@@ -107,7 +107,7 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 	![UploadContentDialog][uploadcontent]
 
 5. Na caixa de diálogo **Carregar Conteúdo**, clique no botão de seleção para aceitar o **Arquivo** e o **Nome do Conteúdo**.
-6. O carregamento será iniciado e você poderá acompanhar o andamento na parte inferior do portal.  
+6. O carregamento será iniciado e você poderá acompanhar o andamento na parte inferior do portal.
 
 	![JobStatus][status]
 
@@ -253,4 +253,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

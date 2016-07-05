@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.date="06/27/2016" 
 	ms.author="elizapo"/>
 
 # Perguntas frequentes sobre o RemoteApp do Azure
@@ -31,16 +31,16 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 ## Detalhes da assinatura do RemoteApp do Azure ##
 
 - **Quais são os limites de serviço?** Você pode saber mais sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
-- **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. 
+- **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20.
 - **Qual é o custo do RemoteApp?** Verifique os [Detalhes de preços do Azure RemoteApp](https://azure.microsoft.com/pricing/details/remoteapp/).
-- **Um tipo de coleção custa mais do que o outro?** Sim, pode custar, dependendo dos requisitos de coleção. Uma coleção híbrida requer uma conexão do RemoteApp do Azure à sua rede local. Se você usar uma VNET/Rota Expressa existente, não há nenhum custo adicional. Mas se você usar uma nova Rede Virtual do Azure e um gateway ou Rota Expressa, você será cobrado pelo [gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ou [Rota Expressa](../../../pricing/details/expressroute/). Esse custo (detalhado nos links) é acrescido ao seu custo mensal do RemoteApp do Azure.
+- **Um tipo de coleção custa mais do que o outro?** Sim, pode custar, dependendo dos requisitos de coleção. Uma coleção híbrida requer uma conexão do RemoteApp do Azure à sua rede local. Se você usar uma VNET/Rota Expressa existente, não há nenhum custo adicional. Mas se você usar uma nova Rede Virtual do Azure e um gateway ou Rota Expressa, você será cobrado pelo [gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ou [Rota Expressa](https://azure.microsoft.com/pricing/details/expressroute/). Esse custo (detalhado nos links) é acrescido ao seu custo mensal do RemoteApp do Azure.
 
 ## Coleções - para o que há suporte, o que você deve usar e outros
 - **Há suporte para aplicativos personalizados da linha de negócios (LOB)?** Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md) e, em seguida, carregue-a para a coleção do RemoteApp.
 - **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Confira o [Centro de Compatibilidade de Área de Trabalho Remota](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Qual método de implantação (nuvem ou híbrido) é o melhor para a minha organização?** As coleções híbridas fornecem a experiência mais completa se você deseja integração total com o logon único (SSO) e conectividade segura de rede local. As coleções de nuvem fornecem uma maneira fácil e ágil de isolar a sua implantação usando vários métodos de autenticação. Leia mais sobre as [Opções de implantação](remoteapp-whatis.md).
 - **Temos SQL ou outro banco de dados local ou no Azure. Qual o tipo de implantação que nós usamos?** Isso depende de onde está o seu banco de dados SQL ou back-end. Se o banco de dados estiver em uma rede privada, use a coleção híbrida. Se o banco de dados estiver exposto à Internet e permite ao cliente conexões para se conectar a ele, você pode usar a coleção na nuvem.
-- **E o mapeamento de unidade, USB e porta serial, o compartilhamento de área de transferência e o redirecionamento de impressora?** Todos esses recursos têm suporte no RemoteApp do Azure. O redirecionamento de impressora e o compartilhamento de área de transferência estão habilitados por padrão. Você pode aprender mais sobre redirecionamento [aqui](remoteapp-redirection.md). 
+- **E o mapeamento de unidade, USB e porta serial, o compartilhamento de área de transferência e o redirecionamento de impressora?** Todos esses recursos têm suporte no RemoteApp do Azure. O redirecionamento de impressora e o compartilhamento de área de transferência estão habilitados por padrão. Você pode aprender mais sobre redirecionamento [aqui](remoteapp-redirection.md).
 
 
 ## Imagens de modelo
@@ -64,7 +64,7 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 ## Clientes - qual dispositivo posso usar para acessar o RemoteApp do Azure?
 Você pode encontrar informações de cliente válidas, incluindo etapas para instalar os diferentes clientes, em [Acessar seus aplicativos no Azure RemoteApp](remoteapp-clients.md).
 
-- **Para quais dispositivos e sistemas operacionais os aplicativos cliente dão suporte?** Primeiro, os computadores e tablets: 
+- **Para quais dispositivos e sistemas operacionais os aplicativos cliente dão suporte?** Primeiro, os computadores e tablets:
 	- Windows 10 (visualização de cliente)
 	- Windows 8.1 e Windows 8
 	- Windows 7 Service Pack 1
@@ -88,7 +88,7 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 ##Suporte e comentários
 
 
-- **O que é o plano de suporte para o RemoteApp?** O suporte para gerenciamento de assinaturas e cobrança é fornecido sem custo adicional. O suporte técnico está disponível por meio de [planos de serviço do Azure](https://azure.microsoft.com/support/plans/). Você também pode obter suporte gratuito para a comunidade por meio do nosso [Fórum de discussão do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
+- **O que é o plano de suporte para o RemoteApp?** O suporte para gerenciamento de assinaturas e cobrança é fornecido sem custo adicional. O suporte técnico está disponível por meio de [planos de serviço do Azure](https://azure.microsoft.com/support/plans/). Você também pode obter suporte gratuito para a comunidade por meio do nosso [Fórum de discussão do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp).
 - **Como posso enviar comentários?** Visite o [Fórum de comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 - **Com quem eu posso falar para saber mais sobre o Azure RemoteApp?** Além do nosso [Fórum de discussão](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), que é um ótimo lugar para publicar perguntas, você pode se associar ao webinar semanal [Pergunte aos especialistas](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), onde podemos falar sobre tudo acerca do RemoteApp.
 - **E a documentação do RemoteApp?** Estamos felizes com a pergunta. Além do conteúdo da Ajuda na gaveta de Ajuda do portal (basta clicar no **?** em qualquer página do portal), os artigos a seguir estão disponíveis para ensinar a você tudo sobre o RemoteApp:
@@ -106,7 +106,7 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 		- [Publicar um aplicativo no RemoteApp](remoteapp-publish.md)
 	- **Gerenciar:**
 		- [Adicionar usuários](remoteapp-user.md)
-		- [Práticas recomendadas para configurar e usar o RemoteApp](remoteapp-bestpractices.md)	
+		- [Práticas recomendadas para configurar e usar o RemoteApp](remoteapp-bestpractices.md)
 
 	Vídeos! Também temos inúmeros vídeos sobre o RemoteApp. Alguns fornecem a Introdução ([Introdução ao RemoteApp do Azure](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) enquanto outros o orientam por meio da implantação ([implantação de nuvem](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [implantação híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Experimente-os!
 
@@ -114,4 +114,4 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

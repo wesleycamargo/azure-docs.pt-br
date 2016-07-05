@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -22,7 +22,7 @@ O Azure AD Connect integrará seus diretórios locais com o Azure Active Directo
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [O Azure AD Connect é a melhor maneira de conectar seu diretório local ao Azure AD e ao Office 365. Esse é um ótimo momento para atualizar para o Azure AD Connect do Microsoft Azure Active Directory Sync (DirSync) ou do Azure AD Sync, pois essas ferramentas foram preteridas e chegarão ao fim do suporte em 13 de abril de 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -161,4 +161,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

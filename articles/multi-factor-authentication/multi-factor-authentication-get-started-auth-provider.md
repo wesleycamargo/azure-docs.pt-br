@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/16/2016" 
+	ms.date="06/29/2016" 
 	ms.author="billmath"/>
 
 
@@ -46,7 +46,7 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 	2. **Diretório** – o locatário do Azure Active Directory ao qual o Provedor de Multi-Factor Authentication está associado. Esteja ciente do seguinte:
 		- Não é necessário um diretório do AD do Azure para criar um Provedor do Multi-Factor Auth. Caso planeje usar somente o SDK ou o Servidor Azure Multi-Factor Authentication, basta deixar a caixa desmarcada.
 		- O Provedor do Multi-Factor Auth precisa estar associado a um diretório do Azure AD para aproveitar os recursos avançados.
-		- O Azure AD Connect, o AAD Sync ou o DirSync são apenas um requisito se você estiver sincronizando o ambiente do Active Directory local com um diretório do AD do Azure. Se você usa apenas um diretório do AD do Azure que não está sincronizado, então ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)	
-5. Depois que você clicar em criar, o Provedor de Multi-Factor Authentication será criado e você deverá ver uma mensagem informando: **Provedor de Multi-Factor Authentication criado com êxito**. Clique em **Ok**. ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)	
+		- O Azure AD Connect, o AAD Sync ou o DirSync são apenas um requisito se você estiver sincronizando o ambiente do Active Directory local com um diretório do AD do Azure. Se você usar apenas um diretório do Azure AD que não esteja sincronizado, isso não será necessário. ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+5. Depois que você clicar em criar, o Provedor de Multi-Factor Authentication será criado e você deverá ver uma mensagem informando: **Provedor de Multi-Factor Authentication criado com êxito**. Clique em **Ok**. ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

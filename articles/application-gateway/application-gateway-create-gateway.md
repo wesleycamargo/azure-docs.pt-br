@@ -33,19 +33,20 @@ Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir
 ## Antes de começar
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
-2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
+2. Se você tiver uma rede virtual existente, selecione uma sub-rede vazia existente ou crie uma nova sub-rede na rede virtual existente unicamente para uso pelo gateway de aplicativo. Não é possível implantar o gateway de aplicativo para uma rede virtual diferente dos recursos que você pretende implantar por trás do gateway de aplicativo.
+3. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
 3. Os servidores que você configurará para usar o gateway de aplicativo deverão existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 ## O que é necessário para criar um gateway de aplicativo?
 
 
-Quando você usa o comando **New-AzureApplicationGateway** para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto e o recurso recém-criado precisará ser configurado usando um objeto de configuração ou XML.
+Quando você usa o comando **New-AzureApplicationGateway** para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto, e o recurso recém-criado precisará ser configurado usando um objeto de configuração ou XML.
 
 
 Os valores são:
 
 - **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-- **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseadas em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+- **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
 - **Regra:** a regra associa o ouvinte ao pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico.
@@ -81,7 +82,7 @@ O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede
  *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais.
 
 
-Para validar a criação desse gateway, você poderá usar o cmdlet **Get-AzureApplicationGateway**.
+Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway**.
 
 
 
@@ -404,13 +405,13 @@ Para verificar se o serviço foi removido, você poderá usar o cmdlet **Get-Azu
 
 ## Próximas etapas
 
-Se desejar configurar o descarregamento SSL, confira [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
+Para configurar o descarregamento SSL, confira [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, veja [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Para configurar um Application Gateway para usar com um balanceador de carga interno, veja [Criar um Application Gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->
