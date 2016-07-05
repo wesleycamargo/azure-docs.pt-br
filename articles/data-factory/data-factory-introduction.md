@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Introdução à Fábrica de Dados do Azure" 
-	description="Saiba como você pode usar o serviço de Fábrica de Dados do Azure para compor o processamento de dados, armazenamento de dados e serviços de movimentação de dados para criar pipelines que produzem informações confiáveis." 
+	pageTitle="O que é o Data Factory? Serviço de integração de dados | Microsoft Azure" 
+	description="Saiba o que é o Azure Data Factory: um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados." 
+	keywords="integração de dados, integração de dados de nuvem, o que é o azure data factory"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +17,14 @@
 	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
-# Introdução ao serviço de Fábrica de Dados do Azure
+# Introdução ao serviço Azure Data Factory, um serviço de integração de dados na nuvem
 
-## Visão geral
+## O que é o Data Factory do Azure? 
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Assim como uma fábrica que usa equipamentos para pegar matérias-primas e transformá-las em produtos, o Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato.
 
 O Data Factory funciona com fontes de dados e SaaS locais e na nuvem para ingerir, preparar, transformar, analisar e publicar seus dados. Use o Data Factory para transformar serviços em pipelines de fluxo de dados gerenciados e para transformar seus dados, usando serviços como [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Lote do Azure](https://azure.microsoft.com/documentation/services/batch/) para suas necessidades de computação de big data, e com o [Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/) para operacionalizar suas soluções de análise. Vá além de uma simples exibição de monitoramento tabular e use as visualizações de dados avançadas do Data Factory para exibir rapidamente a linhagem e as dependências entre os pipelines de dados. Monitore todos os seus pipelines de fluxo de dados, de uma única exibição unificada para identificar facilmente os problemas e configurar alertas de monitoramento.
 
-![Visão geral](./media/data-factory-introduction/data-factory-overview.png)
+![Diagrama: visão geral do Data Factory, um serviço de integração de dados](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Figura1.** Você pode coletar dados de várias fontes de dados de diferentes locais, ingerir e prepará-los, organizar e analisá-los com uma variedade de transformações e publicar dados prontos para uso para consumo.
 
@@ -35,7 +36,7 @@ Você pode usar o Data Factory sempre que precisar coletar dados de diferentes f
 
 O Azure Data Factory tem algumas entidades principais que trabalham juntas para definir os dados de entrada e saída, eventos de processamento e o cronograma e os recursos necessários para executar o fluxo de dados desejado.
 
-![Principais Conceitos](./media/data-factory-introduction/key-concepts.png)
+![Diagrama: Data Factory, um serviço de integração de dados de nuvem - conceitos principais](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Figura 2.** Relações entre o Conjunto de dados, Atividade, Pipeline e Serviço vinculado
 
@@ -69,4 +70,4 @@ Por exemplo, digamos que seu(s) ambiente(s) de computação, como o cluster Azur
 No futuro, pretendemos ter o Azure Data Factory em todas as regiões com suporte do Azure.
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -30,11 +30,11 @@ Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar seu p
 ## Pré-requisitos
 
 1. Você **deve** ler o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de pré-requisito antes de continuar.
-2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades de Data Factory no Azure Data Factory. Essa é uma limitação no momento. Informaremos assim que esse requisito for alterado. 
-3. Você deve ter os seguintes itens instalados no seu computador: 
+2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades de Data Factory no Azure Data Factory. Essa é uma limitação no momento. Informaremos assim que esse requisito for alterado.
+3. Você deve ter os seguintes itens instalados no seu computador:
 	- Visual Studio 2013 ou Visual Studio 2015
 	- Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-	- Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando o Visual Studio 2013, você também pode atualizar o plug-in, fazendo o seguinte: no menu, clique em **Ferramentas** -> **Extensões e atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**. 
+	- Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando o Visual Studio 2013, você também pode atualizar o plug-in, fazendo o seguinte: no menu, clique em **Ferramentas** -> **Extensões e atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
  
 As instruções a seguir mostram como criar e implantar as entidades de Data Factory.
 
@@ -95,13 +95,13 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 
 	Observe o seguinte:
 	
-	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 	- Você pode usar **seu próprio cluster HDInsight** em vez de usar um cluster HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo (**timeToLive**) existente e que ele seja excluído quando o processamento for concluído.
 	
-		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
-	Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+	Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 4. Salve o arquivo **HDInsightOnDemandLinkedService1.json**.
 
 ## Criar conjuntos de dados
@@ -250,7 +250,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 
 	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Confira [Anatomia de um Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima. 
+	> [AZURE.NOTE] Confira [Anatomia de um Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima.
 3. Salve o arquivo **HiveActivity1.json**.
 
 ### Adicionar partitionweblogs.hql e input.log como uma dependência 
@@ -273,19 +273,19 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 	2. Insira **FirstDataFactoryUsingVS** em **Nome**. 
 	
 		> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro **O nome da fábrica de dados "FirstDataFactoryUsingVS" não está disponível** durante a publicação, altere o nome (por exemplo, seunomeFirstDataFactoryUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
-	3. Selecione a assinatura certa para o campo **Assinatura**. 
+	3. Selecione a assinatura certa para o campo **Assinatura**.
 	4. Selecione o **grupo de recursos** para o data factory a ser criado. 
 	5. Selecione a **região** do data factory. 
 	6. Clique em **Avançar** para alternar para a página **Publicar Itens**. (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado). 
 23. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.     
 24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
-25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
+25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado.
 
 Observe o seguinte:
 
-- Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente: 
+- Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
 
-	- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
+	- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory.
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
@@ -448,15 +448,15 @@ Ao publicar entidades do Azure Data Factory no VS, você pode especificar a conf
 
 Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo de configuração:
 
-1. Clique com o botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**. 
-2. Selecione uma fábrica de dados existente ou especifique valores para criar uma nova na página **Configurar fábrica de dados** e clique em **Avançar**.   
+1. Clique com o botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**.
+2. Selecione uma fábrica de dados existente ou especifique valores para criar uma nova na página **Configurar fábrica de dados** e clique em **Avançar**.
 3. Na página **Publicar Itens**: você verá uma lista suspensa com as configurações disponíveis para o campo **Selecionar Configuração de Implantação**.
 
 	![Selecionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
 4. Selecione o **arquivo de configuração** que deseja usar e clique em **Avançar**.
-5. Confirme se você vê o nome do arquivo JSON na página **Resumo** e clique em **Avançar**. 
-6. Clique em **Concluir** depois que a operação de implantação for concluída. 
+5. Confirme que você vê o nome do arquivo JSON na página **Resumo** e clique em **Avançar**.
+6. Clique em **Concluir** depois que a operação de implantação for concluída.
 
 Quando você implantar, os valores do arquivo de configuração serão usados para definir valores de propriedades nos arquivos JSON para entidades de Data Factory (serviços vinculados, tabelas ou pipelines) antes que as entidades sejam implantadas no serviço Azure Data Factory.
 
@@ -466,15 +466,15 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 1.	Foi criada uma **data factory** do Azure.
 2.	Foram criados dois **serviços vinculados**:
 	1.	O serviço vinculado **Armazenamento do Azure** para vincular seu armazenamento de blobs do Azure que contém os arquivos de entrada/saída para a data factory.
-	2.	O serviço vinculado **Azure HDInsight** sob demanda para vincular um cluster Hadoop do HDInsight sob demanda à data factory. O Azure Data Factory cria um cluster Hadoop do HDInsight just-in-time para processar dados de entrada e gerar dados de saída. 
-3.	Foram criados dois **conjuntos de dados** que descrevem dados de entrada e de saída para a atividade Hive do HDInsight no pipeline. 
-4.	Foi criado um **pipeline** com uma atividade **Hive do HDInsight**.  
+	2.	O serviço vinculado **Azure HDInsight** sob demanda para vincular um cluster Hadoop do HDInsight sob demanda à data factory. O Azure Data Factory cria um cluster Hadoop do HDInsight just-in-time para processar dados de entrada e gerar dados de saída.
+3.	Foram criados dois **conjuntos de dados** que descrevem dados de entrada e de saída para a atividade Hive do HDInsight no pipeline.
+4.	Foi criado um **pipeline** com uma atividade **Hive do HDInsight**.
 
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
   
-## Consulte também
+## Veja também
 | Tópico | Descrição |
 | :---- | :---- |
 | [Atividades de transformação de dados](data-factory-data-transformation-activities.md) | Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. | 
@@ -483,4 +483,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

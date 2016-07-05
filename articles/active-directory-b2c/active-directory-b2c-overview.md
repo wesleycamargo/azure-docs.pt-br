@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: inscrever e conectar consumidores em seus aplicativos
@@ -54,7 +54,7 @@ Aprenda a usar os recursos específicos da visualização do Active Directory B2
 
 Estes links serão úteis na exploração em profundidade do serviço:
 
-- Veja as [informações sobre preços do Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+- Veja as [informações sobre preços do Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Obtenha ajuda sobre o Estouro de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 - Envie para nós sua opinião sobre a versão de visualização usando a [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/); nós queremos ouvi-la! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
 - O Active Directory B2C do Azure dá suporte a protocolos padrão da indústria, o OpenID Connect e o OAuth 2.0, usando um modelo de registro de aplicativo que chamamos de "Modelo de Aplicativo v 2.0".
@@ -67,4 +67,4 @@ Estes links serão úteis na exploração em profundidade do serviço:
 
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

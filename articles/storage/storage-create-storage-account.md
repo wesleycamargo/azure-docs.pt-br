@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="06/23/2016"
 	ms.author="robinsh"/>
 
 
@@ -51,7 +51,7 @@ Por exemplo, se a sua conta de armazenamento se chamar *mystorageaccount*, os po
 
 A URL para acessar um objeto em uma conta de armazenamento é compilada acrescentando o local do objeto na conta de armazenamento ao ponto de extremidade. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Para as contas de armazenamento Clássico, confira [Configurar um Nome de domínio personalizado para o Ponto de Extremidade do Armazenamento de Blobs](storage-custom-domain-name.md) para obter detalhes. Para as contas de armazenamento do ARM, esse recurso ainda não foi adicionado ao [Portal do Azure](https://portal.azure.com), mas você pode configurá-lo com o PowerShell. Para saber mais, confira o cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
+Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Para as contas de armazenamento clássicas, consulte [Configurar um Nome de domínio personalizado para o Ponto de Extremidade do Armazenamento de Blobs](storage-custom-domain-name.md) para obter detalhes. Para as contas de armazenamento do Gerenciador de Recursos, esse recurso não foi adicionado ao [portal do Azure](https://portal.azure.com) ainda, mas você pode configurá-lo com o PowerShell. Para saber mais, confira o cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
 ## Criar uma conta de armazenamento
 
@@ -63,7 +63,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 	> [AZURE.NOTE] Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 	>  
-	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O Portal do Azure indicará se o nome de conta de armazenamento que você selecionar já está em uso.
+	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionada já está em uso.
 
 4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
 
@@ -79,7 +79,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Uso do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, consulte [Uso do portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
 9. Selecione a região geográfica para sua conta de armazenamento. Consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em qual região.
 
@@ -89,7 +89,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 ### Alterar a configuração da conta
 
-Após criar a conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta ou a alterando a camada de acesso para uma conta de armazenamento de Blobs. No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Configuração** para exibir e/ou alterar a configuração da conta.
+Após criar a conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta ou a alterando a camada de acesso para uma conta de armazenamento de Blobs. No [portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Configuração** para exibir e/ou alterar a configuração da conta.
 
 > [AZURE.NOTE] Dependendo do nível de desempenho que você escolheu durante a criação da conta de armazenamento, talvez algumas opções de replicação não estejam disponíveis.
 
@@ -105,7 +105,7 @@ Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso
 
 #### Exibir e copiar as chaves de acesso de armazenamento
 
-No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Chaves de acesso** para exibir, copiar e gerar novamente as chaves de acesso de sua conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
+No [portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Chaves de acesso** para exibir, copiar e gerar novamente as chaves de acesso de sua conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
 
 #### Regenerar chaves de acesso de armazenamento
 
@@ -131,7 +131,7 @@ Veja o processo para trocar suas chaves de acesso de armazenamento:
 
 ## Excluir uma conta de armazenamento
 
-Para remover uma conta de armazenamento que você não estiver mais usando, navegue até a conta de armazenamento do [Portal do Azure](https://portal.azure.com) e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
+Para remover uma conta de armazenamento que você não está mais usando, navegue até a conta de armazenamento do [portal do Azure](https://portal.azure.com) e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
 
 > [AZURE.WARNING] Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
 
@@ -139,9 +139,9 @@ Para excluir uma conta de armazenamento que está associada a uma máquina virtu
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Se a conta de armazenamento usar o modelo de implantação Clássico, você poderá remover o disco da máquina virtual seguindo estas etapas no [Portal do Azure](https://manage.windowsazure.com):
+Se a conta de armazenamento usar o modelo de implantação Clássico, você poderá remover o disco da máquina virtual seguindo estas etapas no [portal do Azure](https://manage.windowsazure.com):
 
-1. Navegue até o [Portal Clássico](https://manage.windowsazure.com).
+1. Navegue até o [portal do Azure clássico](https://manage.windowsazure.com).
 2. Navegue até a guia Máquinas Virtuais.
 3. Clique na guia Discos.
 4. Selecione o disco de dados e clique em Excluir o Disco.
@@ -157,4 +157,4 @@ Para obter mais informações, consulte a [Documentação da Máquina Virtual do
 - [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

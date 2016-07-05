@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -24,8 +24,8 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
->[AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Visão geral
 
@@ -530,4 +530,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

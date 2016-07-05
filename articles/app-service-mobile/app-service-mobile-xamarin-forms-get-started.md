@@ -160,8 +160,12 @@ Você encontrará o código que acessa o back-end do aplicativo móvel no arquiv
 ##Próximas etapas
 
 * [Adicionar autenticação ao seu aplicativo](app-service-mobile-xamarin-forms-get-started-users.md) Saiba como autenticar os usuários de seu aplicativo com um provedor de identidade.
-* [Adicionar notificações por push ao seu aplicativo Xamarin.Android](app-service-mobile-xamarin-forms-get-started-push.md) Saiba como adicionar notificações por push ao seu aplicativo.
-* [Como usar o cliente gerenciado para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Saiba como trabalhar com o SDK do cliente gerenciado em seu aplicativo Xamarin. 
+
+* [Adicionar notificações por push ao aplicativo](app-service-mobile-xamarin-forms-get-started-push.md) Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+
+* [Habilitar sincronização offline para seu aplicativo](app-service-mobile-xamarin-forms-get-started-offline-data.md) Saiba como adicionar suporte offline em seu aplicativo usando um back-end do aplicativo móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
+
+* [Como usar o cliente gerenciado para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Saiba como trabalhar com o SDK do cliente gerenciado em seu aplicativo Xamarin.
 
 
 <!-- Anchors. -->
@@ -184,4 +188,4 @@ Você encontrará o código que acessa o back-end do aplicativo móvel no arquiv
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal do Azure]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

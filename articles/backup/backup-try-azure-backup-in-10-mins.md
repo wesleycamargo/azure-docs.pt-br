@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# Introdução: fazer backup de arquivos e pastas do cliente ou servidor do Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
+# Introdução: fazer backup de arquivos e pastas com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
 
 Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou cliente Windows) para o Azure com o Backup do Azure usando o Gerenciador de Recursos. É um tutorial que pretende explicar os conceitos básicos. Se deseja obter uma introdução ao uso do Backup do Azure, você está no lugar certo.
 
@@ -203,4 +203,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 - Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->
