@@ -65,7 +65,7 @@ Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Da
 1. Inicie o Azure PowerShell e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
 	- Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
 	- Execute **Get-AzureSubscription** para exibir todas as assinaturas dessa conta.
-	- Execute **Select-AzureSubscription <Nome da assinatura> ** para selecionar a assinatura com a qual você deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
+	- Execute **Select-AzureSubscription <Nome da assinatura>** para selecionar a assinatura com a qual você deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
 3. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir.
    
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"

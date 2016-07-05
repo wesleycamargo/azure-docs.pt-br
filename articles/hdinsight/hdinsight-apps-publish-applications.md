@@ -55,7 +55,7 @@ Há duas etapas envolvidas na publicação de aplicativos no Azure Marketplace. 
 |-------|---------------|----------------|
 |tipos |Os tipos de cluster com os quais o aplicativo é compatível. |Hadoop, HBase, Storm, Spark (ou qualquer combinação destes)|
 |camadas |As camadas de cluster com as quais o aplicativo é compatível. |Standard, Premium (ou ambos)|
-|versões|	Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3\.4|
+|versões|	Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3.4|
 
 ## Aplicativo de pacote
 
@@ -90,7 +90,7 @@ Siga as etapas a seguir para publicar um aplicativo do HDInsight:
 4. Clique em **Definir algumas topologias para começar**. Um modelo de solução é um "pai" para todas as suas topologias. Você pode definir várias topologias em uma oferta/modelo de solução. Quando uma oferta passa para teste, todas as suas topologias a acompanham.
 5. Adicionar uma nova versão.
 6. Carregue o arquivo zip preparado no [Aplicativo Empacotar](#package-application).
-7. Clique em **Solicitar Certificação.** A equipe de certificação da Microsoft revisará os arquivos e certificará a topologia.
+7. Clique em **Solicitar Certificação** A equipe de certificação da Microsoft revisará os arquivos e certificará a topologia.
 
 ## Próximas etapas
 

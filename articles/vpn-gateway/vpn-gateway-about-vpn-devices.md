@@ -26,8 +26,8 @@ Se o dispositivo não aparecer na tabela de dispositivos VPN validados, confira 
 
 - Houve uma mudança de terminologia do roteamento estático e dinâmico. Provavelmente, você executará em ambos os termos. Não há alterações de funcionalidade, somente os nomes estão sendo alterados.
 	- Roteamento estático = baseado em política
-	- Roteamento dinâmico = baseado em rota
-- As especificações de gateway de VPN de Alto Desempenho e de gateway de VPN baseado em rota são as mesmas, salvo indicação em contrário. Por exemplo, os dispositivos VPN validados que são compatíveis com os gateways de VPN baseado em roteamento também serão compatíveis com o novo gateway de VPN de Alto Desempenho do Azure.
+	- Roteamento dinâmico = baseado em rota 
+- As especificações de gateway de VPN de Alto Desempenho e de gateway de VPN baseado em rota são as mesmas, salvo indicação em contrário. Por exemplo, os dispositivos VPN validados que são compatíveis com os gateways de VPN baseado em roteamento também serão compatíveis com o novo gateway de VPN de Alto Desempenho do Azure. 
 
 
 ## Dispositivos VPN validados 
@@ -76,7 +76,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 
 **Para editar um exemplo:**
 
-1. Abra o exemplo usando o Bloco de Notas.
+1. Abra o exemplo usando o Bloco de Notas. 
 1. Pesquise e substitua todas as cadeias de caracteres de <*texto*> por valores condizentes com seu ambiente. Inclua < e >. Quando um nome é especificado, o nome que você selecionar deve ser exclusivo. Se um comando não funcionar, consulte a documentação do fabricante do dispositivo.
 
 | **Texto de exemplo** | **Alterar para** |
@@ -108,7 +108,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Método de autenticação | Chave Pré-Compartilhada | Chave Pré-Compartilhada |
 | Algoritmos de criptografia | AES256 AES128 3DES | AES256 3DES |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
-| Tempo de vida (tempo) da SA (associação de segurança) da fase 1 | 28\.800 segundos | 10\.800 segundos |
+| Tempo de vida (tempo) da SA (associação de segurança) da fase 1 | 28.800 segundos | 10.800 segundos |
 
 
 ### Fase 2 da configuração IKE
@@ -117,8 +117,11 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versão IKE | IKEv1 | IKEv2 |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
-| Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
-| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | | Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) | | PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
+| Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3.600 segundos | 3.600 segundos |
+| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
+| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) |
+| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) |
+| Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -142,7 +145,8 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida | | 18 | - | AH MD5, sem tempos de vida |
+| 17 | - | AH SHA, sem tempos de vida |
+| 18 | - | AH MD5, sem tempos de vida |
 
 
 - Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso em cenários de comunicação vnet a vnet, ou quando a criptografia está sendo aplicada em outro lugar na solução.

@@ -41,7 +41,7 @@ Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 
 
      > [AZURE.NOTE] Você não tem uma conta da API do Bing Maps para Empresa? Crie uma no [Portal do Azure][lnk-azure-portal] clicando em + Novo, pesquisando por API do Bing Maps para Empresa e seguindo os prompts.
 
-2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github] (monitoramento remoto do Azure IoT).
+2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github] \(monitoramento remoto do Azure IoT).
 
 3. Execute uma implantação local ou em nuvem seguindo as diretrizes de implantação de linha de comando na pasta /docs/ no repositório.
 

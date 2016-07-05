@@ -40,7 +40,7 @@ Este tutorial inclui as seguintes tarefas:
 As etapas nesta seção mostram como criar uma nova conta do AMS.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **+Novo** > ** Serviço de Mídia + CDN** > **Serviços de Mídia**.
+2. Clique em **+Novo** > **Serviço de Mídia + CDN** > **Serviços de Mídia**.
 
 	![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
