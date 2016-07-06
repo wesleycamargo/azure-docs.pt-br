@@ -19,7 +19,7 @@
 
 Estas são algumas das implementações das quais ouvimos falar, incluindo algumas de terceiros.
 
-## Idiomas
+## Linguagens
 
 + [C#|VB (.NET)](app-insights-asp-net.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
