@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako;anilmur"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -29,13 +29,13 @@ Você pode optar por transmitir seu conteúdo ao vivo ou fornecer conteúdo sob 
 Para compilar soluções de serviços de mídia, você pode usar:
 
 - [API REST dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Um dos SDKs de cliente disponíveis: 
-	- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java), 
-	- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php), 
-	- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS). 
-- Ferramentas existentes: 
-	- [Portal Clássico do Azure](http://manage.windowsazure.com/) 
+- Um dos SDKs de cliente disponíveis:
+	- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services),
+	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java),
+	- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
+	- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS).
+- Ferramentas existentes:
+	- [Portal Clássico do Azure](http://manage.windowsazure.com/)
 	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -49,9 +49,9 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
  
-3. Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](azure.microsoft.com).
+3. Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 2. Uma conta de Serviços de Mídia do Azure. Use o Portal Clássico do Azure, o .NET ou a API REST para criar a conta dos Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-create-account.md).
-3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar ambiente](media-services-dotnet-how-to-use.md). 
+3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar ambiente](media-services-dotnet-how-to-use.md).
 
 	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect-programmatically.md).
 4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-manage-origins.md).
@@ -99,7 +99,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 2. Configure a política de autorização de chave de conteúdo.
 1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
 1. Publicar o ativo criando um localizador OnDemand.
-1. Fluxo de conteúdo publicado. 
+1. Fluxo de conteúdo publicado.
 
 ###Use a Análise de Mídia para obter informações acionáveis de seus vídeos 
 
@@ -113,7 +113,7 @@ A Análise de Mídia é uma coleção de componentes de fala e de visão que fac
 	- **Detecção de movimento** – [detecção de movimento para a Análise de Mídia do Azure](media-services-motion-detection.md).
 	- **Detecção de face e emoções** – [detecção de emoção e face para a Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
 	- **Resumo de vídeo** – [usar as miniaturas de vídeo de Mídia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
-3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
+3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure.
 
 
 ###Entregar o download progressivo 
@@ -153,7 +153,7 @@ Nos Serviços de Mídia do Azure, **Canais**, **Programas** e **StreamingEndpoin
 
 Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
-- Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar um streaming de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+- Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 	>[AZURE.NOTE] Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Confira os detalhes de [preço](/pricing/details/media-services/).
 	
@@ -220,4 +220,4 @@ Para obter mais informações, veja [SLA do Microsoft Azure](https://azure.micro
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

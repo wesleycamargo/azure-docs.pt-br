@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Comece ao executar o assistente Habilitar o Banco de Dados de Ampliação
@@ -51,25 +51,25 @@ Tabelas com muitas linhas aparecem na parte superior da lista classificada. Ante
 |**Nome**|Especifica o nome da coluna na tabela.|
 |(sem título)|Um símbolo nessa coluna pode representar um aviso que não impede a ativação da tabela selecionada para o Stretch. Também pode representar um problema de bloqueio que impede a ativação da tabela selecionada para o Stretch; por exemplo, porque a tabela usa um tipo de dados sem suporte. Passe o cursor do mouse sobre o símbolo para exibir mais informações em uma dica de ferramenta. Para saber mais, confira [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Ampliado**|Indica se a tabela já está habilitada para o Stretch.|
-|**Migrar**|Você pode migrar uma tabela inteira (**Tabela Inteira**) ou pode especificar um filtro em uma coluna existente na tabela. Se você quiser usar um predicado de filtro diferente para selecionar linhas para migrar, execute a instrução ALTER TABLE para especificar o predicado de filtro depois que você sair do assistente. Para saber mais sobre o predicado de filtro, confira [Selecionar linhas para migrar usando um predicado de filtro](sql-server-stretch-database-predicate-function.md). Para saber mais sobre como aplicar o predicado, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrar**|Você pode migrar uma tabela inteira (**Tabela Inteira**) ou pode especificar um filtro em uma coluna existente na tabela. Se você quiser usar uma função de filtro diferente para selecionar as linhas para migrar, execute a instrução ALTER TABLE para especificar a função de filtro depois de sair do assistente. Para obter mais informações sobre a função de filtro, consulte [Selecionar linhas para migrar usando uma função de filtro](sql-server-stretch-database-predicate-function.md). Para saber mais sobre como aplicar a função, consulte [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Linhas**|Especifica o número de linhas na tabela.|
 |**Tamanho (KB)**|Especifica o tamanho da tabela em KB.|
 
 ## <a name="Filter"></a>Opcionalmente, forneça um filtro de linha
 
-Se você quiser fornecer um predicado de filtro para selecionar linhas para migrar, faça o seguinte na página **Selecionar tabelas**.
+Se você quiser fornecer uma função de filtro para selecionar as linhas para migrar, faça o seguinte na página **Selecionar tabelas**.
 
 1.  Na lista **Selecionar as tabelas que você deseja alongar**, clique em **Tabela Inteira** na linha da tabela. A caixa de diálogo **Selecionar linhas para alongar** é aberta.
 
-    ![Definir um predicado de filtro][StretchWizardImage2a]
+    ![Definir uma função de filtro][StretchWizardImage2a]
 
 2.  Na caixa de diálogo **Selecionar linhas para alongar**, selecione **Escolher linhas**.
 
-3.  No campo **Nome**, forneça um nome para o predicado do filtro.
+3.  No **campo Nome**, forneça um nome para a função do filtro.
 
 4.  Na cláusula **Where**, escolha uma coluna na tabela, escolha um operador e forneça um valor.
 
-5. Clique em **Verificar** para testar o predicado. Se o predicado retornar resultados da tabela, ou seja, se houver linhas para migrar que satisfaçam à condição, o teste mostrará**Sucesso**.
+5. Clique em **Verificar** para testar a função. Se a função retornar os resultados da tabela, ou seja, se houver linhas para migrar que atendam à condição, o teste mostrará**Sucesso**.
 
     >   [AZURE.NOTE] A caixa de texto que exibe a consulta de filtro é somente leitura. Você não pode editar a consulta na caixa de texto.
 
@@ -77,13 +77,13 @@ Se você quiser fornecer um predicado de filtro para selecionar linhas para migr
 
 A função de filtro é criada no SQL Server somente após a conclusão do assistente. Até lá, você pode retornar para a página **Selecionar tabelas** para alterar ou renomear a função de filtro.
 
-![Selecione a página Tabelas depois de definir um predicado de filtro][StretchWizardImage2b]
+![Selecionar a página Tabelas depois de definir uma função de filtro][StretchWizardImage2b]
 
-Se você quiser usar um tipo diferente de predicado de filtro para selecionar as linhas a serem migradas, siga um destes procedimentos.
+Se você quiser usar um tipo diferente de função de filtro para selecionar as linhas a serem migradas, faça um destes procedimentos.
 
--   Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para tabela e especificar um predicado. Para saber mais, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md).  
+-   Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para tabela e especificar uma função de filtro. Para saber mais, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md).
 
--   Execute a instrução ALTER TABLE para especificar um predicado depois que você sair do assistente. Para saber as etapas necessárias, confira [Adicionar um predicado de filtro após executar o assistente](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Execute a instrução ALTER TABLE para especificar uma função de filtro depois de sair do assistente. Para conhecer as etapas necessárias, consulte [Adicionar uma função de filtro após executar o Assistente](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 ## <a name="Configure"></a>Configurar a implantação do Azure
 
@@ -94,7 +94,7 @@ Se você quiser usar um tipo diferente de predicado de filtro para selecionar as
 2.  Escolha a assinatura do Azure existente para usar o Stretch Database.
 
 3.  Selecione uma região do Azure.
-    -   Se você criar um novo servidor, ele será criado nessa região.  
+    -   Se você criar um novo servidor, ele será criado nessa região.
     -   Se você tiver servidores na região selecionada, o assistente os listará quando você escolher **Servidor existente**.
 
     Para minimizar a latência, selecione a região do Azure na qual o SQL Server está localizado. Para saber mais sobre regiões, confira [Regiões do Azure](https://azure.microsoft.com/regions/).
@@ -190,4 +190,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

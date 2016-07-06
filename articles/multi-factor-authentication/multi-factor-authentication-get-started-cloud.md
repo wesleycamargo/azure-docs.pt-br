@@ -30,7 +30,7 @@ Os seguintes pré-requisitos são necessários antes de habilitar a Autenticaç�
 
 
 - [Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tiver uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, use uma assinatura de avaliação.
-2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md) 
+2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [AZURE.NOTE]  As licenças estão disponíveis para os usuários que têm o Azure MFA, Azure AD Premium ou EMS (Enterprise Mobility Suite). O MFA está incluído no Azure AD Premium e no EMS. Se você possui licenças suficientes, não precisa criar um provedor de autenticação.
 		
@@ -57,12 +57,12 @@ Use o procedimento a seguir para habilitar o MFA para os usuários.
 
 ## Ativação automática da autenticação multifator usando o PowerShell
 
-Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [PowerShell do Azure AD](powershell-install-configuremd), você pode usar o seguinte. É possível alterar `$st.State` para ser igual a um dos estados a seguir:
+Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [PowerShell do Azure AD](../powershell-install-configure.md), você poderá usar o seguinte. É possível alterar `$st.State` para ser igual a um dos estados a seguir:
 
 
 - Habilitado
 - Imposto
-- Desabilitado  
+- Desabilitado
 
 > [AZURE.IMPORTANT]  Saiba que se você for diretamente do estado Desabilitar para o estado Imposto, os clientes de autenticação não modernos irão parar de funcionar porque o usuário não passou pelo registro MFA e obteve uma [senha do aplicativo](multi-factor-authentication-whats-next.md#app-passwords). Se você tiver clientes de autenticação não modernos e exigir senhas do aplicativo, então, será recomendável que vá de um estado Desabilitado para Habilitado. Isso permitirá que os usuários se registrem e obtenham suas senhas do aplicativo.
 		
@@ -90,4 +90,4 @@ Para obter mais informações sobre os estados do usuário, confira [Estados do 
 ## Próximas etapas
 Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Consulte [Configurando a Autenticação Multifator do Azure.]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
