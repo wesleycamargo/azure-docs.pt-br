@@ -43,9 +43,16 @@ Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de r
 
 |Propriedade|Descrição|Restrições|Considerações|
 |---|---|---|---|
-| Prefixo de Endereço | O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.|Deve ser um intervalo CIDR válido que represente endereços na Internet pública, na rede virtual do Azure ou no datacenter local.|Verifique se o **Prefixo de endereço** não contém o endereço do **Valor de próximo salto**, caso contrário, seus pacotes entrarão em um loop, indo da origem para o próximo salto sem jamais atingir o destino. |
-| Tipo do próximo salto | O tipo de salto do Azure ao qual o pacote deve ser enviado. | Deve ser um dos seguintes valores: <br/> **Local**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de *Local*. <br/> **Gateway de VPN**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **NULL**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.| Considere o uso de um tipo **NULL** para que os pacotes deixem de fluir para determinado destino. | 
-| Valor de Próximo Salto | O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*.| Deve ser um endereço IP acessível. | Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. |
+| Prefixo de Endereço | O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.|Deve ser um intervalo CIDR válido que represente endereços na Internet pública, na rede virtual do Azure ou no datacenter local.|Verifique se o **Prefixo do endereço** não contém o **Endereço do próximo salto**, caso contrário, seus pacotes entrarão em um loop, indo da origem para o próximo salto sem jamais chegar ao destino. |
+| Tipo do próximo salto | O tipo de salto do Azure ao qual o pacote deve ser enviado. | Deve ser um dos seguintes valores: <br/> **Rede Virtual**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16 na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor do próximo salto da *Rede Virtual*. <br/> **Gateway de Rede Virtual**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **None**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.| Considere usar um tipo **None** para impedir que os pacotes sigam para um determinado destino. | 
+| Endereço do próximo salto | O endereço do próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*.| Deve ser um endereço IP acessível. | Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. |
+
+No Azure PowerShell, alguns dos valores "NextHopType" têm nomes diferentes:
+- A Rede Virtual é VnetLocal
+- O Gateway de Rede Virtual é VirtualNetworkGateway
+- O Dispositivo Virtual é VirtualAppliance
+- A Internet é Internet
+- Nenhum é None
 
 ### Rotas do sistema
 Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota do sistema:
@@ -68,7 +75,7 @@ As sub-redes contam com rotas de sistema até que uma tabela de rotas seja assoc
 1. Rota BGP (quando o ExpressRoute é usado)
 1. Rota de sistema
 
-Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network-create-udr-arm-template.md).
 
 >[AZURE.IMPORTANT] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
 
@@ -84,7 +91,7 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 
 ## Próximas etapas
 
-- Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes. 
+- Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes.
 - Saiba como [criar rotas no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md) e associá-las a sub-redes.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

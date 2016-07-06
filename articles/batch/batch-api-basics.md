@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/29/2016"
 	ms.author="marsma"/>
 
 # Visão geral do recurso de Lote para desenvolvedores
@@ -153,13 +153,13 @@ Um trabalho é uma coleção de tarefas e gerencia como a computação é realiz
 
 	Você pode definir um **tempo de hora do relógio máximo**, de modo que, se um trabalho for executado por mais tempo que o tempo de hora do relógio máximo especificado, o trabalho e todas as suas tarefas sejam encerrados.
 
-	O Lote pode detectar e repetir as tarefas com falha. O **número máximo de novas tentativas de tarefa** pode ser especificado como uma restrição, incluindo a especificação de que uma tarefa é *sempre* ou *nunca* repetida. Repetir uma tarefa significa que a tarefa é colocada na fila para ser executada novamente.
+	O Lote pode detectar e repetir as tarefas com falha. O **número máximo de novas tentativas de tarefa** pode ser especificado como uma restrição, incluindo a especificação de que uma tarefa é *sempre* ou não é *nunca* repetida. Repetir uma tarefa significa que a tarefa é colocada na fila para ser executada novamente.
 
 - As tarefas podem ser adicionadas a um trabalho pelo aplicativo cliente ou uma [tarefa do Gerenciador de Trabalhos](#job-manager-task) pode ser especificada. Uma tarefa do Gerenciador de Trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do Gerenciador de Trabalhos sendo executada em um de nós de computação do pool. A tarefa do Gerenciador de Trabalhos é tratada especificamente pelo Lote – é colocadas na fila assim que o trabalho é criado e reiniciado, caso ele falhe. Uma tarefa do Gerenciador de Trabalhos é *necessária* para trabalhos criados por um [plano de trabalho](#scheduled-jobs), pois é a única maneira de definir as tarefas antes que o trabalho seja instanciado.
 
 ### Prioridade do trabalho
 
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] (REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] (.NET do Lote).
+Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] \(REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] \(.NET do Lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência, no agendamento, sobre outro trabalho com valor de prioridade inferior em uma conta diferente.
 
@@ -205,7 +205,7 @@ Associando uma **tarefa inicial** a um pool, você pode preparar o ambiente oper
 
 O principal benefício da tarefa inicial é que ela pode conter todas as informações necessárias para configurar um nó de computação e instalar os aplicativos necessários para a execução da tarefa. Assim, para aumentar o número de nós em um pool, basta especificar a nova contagem de nós de destino. O Lote já tem todas as informações necessárias para configurar os novos nós e prepará-los para a aceitação de tarefas.
 
-Como com qualquer tarefa do Lote do Azure, uma lista de **arquivos de recursos** no [Armazenamento do Azure][azure_storage] pode ser especificada além de uma **linha de comando** a ser executada. Primeiro o Lote copia os arquivos de recursos para o nó do Armazenamento do Azure e, depois, executa a linha de comando. Para uma tarefa de inicialização do pool, a lista de arquivos normalmente contém o aplicativo de tarefa e suas dependências, mas também pode incluir dados de referência a serem usados por todas as tarefas em execução no nó de computação. Por exemplo, a linha de comando da tarefa de inicialização pode executar uma operação `robocopy` para copiar arquivos de aplicativo (que foram especificados como arquivos de recurso e baixados para o nó) do [diretório de trabalho](#files-and-directories) da tarefa de inicialização para a [pasta compartilhada](#files-and-directories) e, posteriormente, executar um MSI ou `setup.exe`.
+Como com qualquer tarefa do Lote do Azure, uma lista de **arquivos de recursos** no [Armazenamento do Azure][azure_storage] pode ser especificada, além de uma **linha de comando** a ser executada. Primeiro o Lote copia os arquivos de recursos para o nó do Armazenamento do Azure e, depois, executa a linha de comando. Para uma tarefa de inicialização do pool, a lista de arquivos normalmente contém o aplicativo de tarefa e suas dependências, mas também pode incluir dados de referência a serem usados por todas as tarefas em execução no nó de computação. Por exemplo, a linha de comando da tarefa de inicialização pode executar uma operação `robocopy` para copiar arquivos de aplicativo (que foram especificados como arquivos de recurso e baixados para o nó) do [diretório de trabalho](#files-and-directories) da tarefa de inicialização para a [pasta compartilhada](#files-and-directories) e, posteriormente, executar um MSI ou `setup.exe`.
 
 > [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). As tarefas do Lote (incluindo tarefas padrão, tarefas iniciais, preparação de trabalho e tarefas de versão de trabalho) devem especificar os arquivos de recursos que residem *somente* nas contas de armazenamento de **Finalidade geral**.
 
@@ -250,23 +250,23 @@ Para obter uma discussão detalhada sobre como executar trabalhos da MPI no Lote
 
 #### Dependências da tarefa
 
-As dependências de tarefas, como o nome indica, permitem especificar que uma tarefa depende da conclusão de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa "downstream" consome a saída de uma tarefa "upstream", ou quando uma tarefa upstream executa alguma inicialização necessária para uma tarefa downstream. Para usar esse recurso, primeiro você deve habilitar as dependências em seu trabalho do Lote. Em seguida, para cada tarefa que dependa de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
+As [dependências de tarefas](batch-task-dependencies.md), como o nome indica, permitem especificar que uma tarefa depende da conclusão de outras tarefas antes de sua execução. Este recurso fornece suporte para situações em que uma tarefa "downstream" consome a saída de uma tarefa "upstream", ou quando uma tarefa upstream executa alguma inicialização necessária para uma tarefa downstream. Para usar esse recurso, primeiro você deve habilitar as dependências em seu trabalho do Lote. Em seguida, para cada tarefa que dependa de outra (ou de muitas outras), especifique as tarefas das quais essa tarefa depende.
 
 Com as dependências de tarefas, você pode configurar cenários como o seguinte:
 
-* A *tarefaB* depende de *tarefaA* (a execução da *tarefaB* não iniciará até a conclusão da *tarefaA*)
+* A *tarefaB* depende de *tarefaA* (a execução da *tarefaB* não se iniciará até a conclusão da *tarefaA*)
 * A *tarefaC* depende da *tarefaA* e da *tarefaB*
 * A *tarefaD* depende de uma variedade de tarefas, como as tarefas *1* a *10*, antes de ser executada
 
-Confira o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [azure-batch-samples][github_samples]. Nele, você verá como configurar as tarefas que dependem de outras tarefas usando a biblioteca [.NET do Lote][batch_net_api].
+Confira [Dependências de tarefas no Lote do Azure](batch-task-dependencies.md) e o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório do GitHub [azure-batch-samples][github_samples] para obter detalhes mais aprofundados sobre esse recurso.
 
 ## Configurações de ambiente para tarefas
 
 Cada tarefa que é executada em um trabalho do Lote tem acesso a variáveis de ambiente definidas pelo serviço de Lote (definidas pelo serviço; confira a tabela abaixo) e variáveis de ambiente personalizadas que podem ser definidas para as tarefas. Os aplicativos e scripts executados em nós pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] \(API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
 
-O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] \(REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 As seguintes variáveis de ambiente são definidas pelo serviço de Lote e estão disponíveis para acesso por suas tarefas:
 
@@ -285,11 +285,11 @@ As seguintes variáveis de ambiente são definidas pelo serviço de Lote e estã
 | `AZ_BATCH_TASK_ID` | A ID da tarefa atual. |
 | `AZ_BATCH_TASK_WORKING_DIR` | O caminho completo do diretório de trabalho da tarefa no nó. |
 
->[AZURE.IMPORTANT] Essas variáveis de ambiente estão disponíveis somente no contexto do **usuário da tarefa**, ou seja, a conta de usuário no nó em que uma tarefa é executada. Você **não** as verá se [conectar-se remotamente](#connecting-to-compute-nodes) a um nó de computação via RDP ou SSH e listar as variáveis de ambiente.
+>[AZURE.IMPORTANT] Essas variáveis de ambiente estão disponíveis somente no contexto do **usuário da tarefa**, ou seja, a conta de usuário no nó em que uma tarefa é executada. Você **não** as verá se [conectar-se remotamente](#connecting-to-compute-nodes) a um nó de computação via RDP ou SSH e listar as variáveis de ambiente, pois a conta de usuário usada para conexão remota não é igual à conta usada pela tarefa.
 
 ## Arquivos e diretórios
 
-Cada tarefa tem um diretório de trabalho sob o qual ela cria zero ou mais arquivos e diretórios para armazenar o programa que é executado pela tarefa, os dados processados por uma tarefa e a saída do processamento realizado por uma tarefa. Esses arquivos e diretórios ficam disponíveis para uso por outras tarefas durante a execução de um trabalho. Todas as tarefas, arquivos e diretórios em um nó pertencem a uma conta de usuário único.
+Cada tarefa tem um *diretório de trabalho* em que ela cria zero ou mais arquivos e diretórios. Esse diretório de trabalho pode ser usado para armazenar o programa executado pela tarefa, os dados que ele processa e a saída do processamento executado. Todos os arquivos e diretórios de uma tarefa são pertencentes ao usuário de tarefa.
 
 O serviço em lote expõe uma parte do sistema de arquivos em um nó, como o “diretório raiz”. O diretório raiz está disponível para uma tarefa acessando a variável do ambiente `AZ_BATCH_NODE_ROOT_DIR`. Para saber mais sobre como usar as variáveis de ambiente, consulte [Configurações de ambiente para tarefas](#environment-settings-for-tasks).
 
@@ -297,7 +297,7 @@ O diretório raiz contém a seguinte estrutura de diretório:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-- **compartilhado** – esse diretório fornece acesso de leitura/gravação a *todas as* tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar este diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR`.
+- **compartilhado** – esse diretório fornece acesso de leitura/gravação a *todas as* tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR`.
 
 - **inicialização** – esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR`.
 
@@ -325,7 +325,7 @@ Em um extremo do espectro, um pool seria criado para cada trabalho quando o trab
 
 Na outra extremidade do espectro, se fazer com que os trabalhos sejam iniciados imediatamente for a prioridade mais alta, um pool poderá ser criado de forma antecipada e seus nós serão disponibilizados antes do envio dos trabalhos. Nesse cenário, as tarefas de trabalho podem começar imediatamente, mas os nós poderão ficar ociosos enquanto aguardam a atribuição de tarefas.
 
-Uma abordagem combinada, normalmente usada para tratar a carga variável mas contínua, é ter um pool para o qual vários trabalhos são enviados, mas dimensione o número de nós para cima ou para baixo de acordo com a carga de trabalho (confira [Dimensionando recursos de computação](#scaling-compute-resources) abaixo). Isso pode ser feito de maneira reativa, com base na carga atual ou proativamente, se a carga puder ser prevista.
+Uma abordagem combinada, normalmente usada para tratar a carga variável mas contínua, é ter um pool para o qual vários trabalhos são enviados, mas dimensionar o número de nós para cima ou para baixo de acordo com a carga de trabalho (confira [Dimensionando recursos de computação](#scaling-compute-resources) abaixo). Isso pode ser feito de maneira reativa, com base na carga atual ou proativamente, se a carga puder ser prevista.
 
 ## Dimensionando recursos de computação
 
@@ -353,7 +353,7 @@ Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [
 
 Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para tarefas, como a chave para uma [conta do Armazenamento do Azure][azure_storage]. Para dar suporte a isso, os certificados podem ser instalados em nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
 
-Você usa a operação [Adicionar certificado][rest_add_cert] (REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] (.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
+Você usa a operação [Adicionar certificado][rest_add_cert] \(REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
 
 ## Tratamento de erros
 
@@ -483,4 +483,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

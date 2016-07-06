@@ -143,24 +143,7 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 
 ### Erros de conexão
 
-Você precisa abrir algumas portas de saída no firewall do servidor para permitir que o Monitor de Status funcione:
-
-+ Telemetria — elas são necessárias o tempo todo:
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ Configuração — necessária apenas ao fazer alterações:
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Instalação:
- +	`packages.nuget.org:443`
-
-Esta lista pode mudar de tempos em tempos.
+Você precisa abrir [algumas portas de saída](app-insights-ip-addresses.md#outgoing-ports) no firewall do servidor para permitir que o Monitor de Status funcione.
 
 ### Sem telemetria?
 
@@ -206,13 +189,13 @@ Você pode iniciar e interromper o monitoramento usando o PowerShell.
  * `SdkState==EnabledAfterDeployment`: o aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Monitor de Status ou pelo `Start-ApplicationInsightsMonitoring`.
  * `SdkState==Disabled`: o aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
  * `SdkState==EnabledByCodeInstrumentation`: o aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
- * `SdkVersion` mostra a versão em uso para o monitoramento deste aplicativo.
+ * `SdkVersion` mostra a versão em uso para o monitoramento do aplicativo.
  * `LatestAvailableSdkVersion`mostra a versão atualmente disponível na galeria do NuGet. Para atualizar o aplicativo para esta versão, use `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
 * `-Name` O nome do aplicativo no IIS
-* `-InstrumentationKey` O ikey do recurso Application Insights onde você deseja que os resultados sejam exibidos.
+* `-InstrumentationKey` O ikey do recurso Application Insights em que você deseja que os resultados sejam exibidos.
 
 * Este cmdlet afeta apenas os aplicativos que ainda não estão instrumentados - ou seja, SdkState==NotInstrumented.
 
@@ -244,7 +227,7 @@ Você pode iniciar e interromper o monitoramento usando o PowerShell.
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: o nome de um aplicativo Web no IIS.
-* `-InstrumentationKey` (Opcional). Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
+* `-InstrumentationKey` (Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
  * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
  * Se você fornecer uma chave de instrumentação, o aplicativo nomeado será reconfigurado para enviar telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)
@@ -301,4 +284,4 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

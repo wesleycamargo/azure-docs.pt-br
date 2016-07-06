@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/26/2016"
+	ms.date="06/27/2016"
 	ms.author="billmath;andkjell"/>
 
 # Introdução ao Azure AD Connect usando configurações expressas
@@ -28,7 +28,7 @@ Você pode ver essas etapas em ação na seção de [vídeos](#videos).
 
 1. Entre como um administrador local no servidor no qual você deseja instalar o Azure AD Connect. Você deve fazer isso no servidor que deseja ser o servidor de sincronização.
 2. Navegue até **AzureADConnect.msi** e clique duas vezes nessa opção.
-3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.  
+3. Na tela de boas-vindas, marque a caixa de concordar com os termos da licença e clique em **Continuar**.
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Próximo**. ![Conecte-se ao AD do Azure](./media/active-directory-aadconnect-get-started-express/connectaad.png) Se você encontrar um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, isto é, FABRIKAM\\administrador ou fabrikam.com\\administrador. Clique em **Próximo**. ![Conectar-se ao AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
@@ -63,4 +63,4 @@ Instalar usando configurações personalizadas | [Instalação personalizada do 
 Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Contas usadas para instalação | [Mais informações sobre permissões e contas do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!----HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

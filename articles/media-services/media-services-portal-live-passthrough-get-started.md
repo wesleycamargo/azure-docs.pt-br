@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="06/05/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Os Serviços de Mídia do Azure no portal do Azure estão atualmente na visualiz
 
 Os itens a seguir são necessários para concluir o tutorial:
 
-- Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
 - Uma Webcam. Por exemplo, [Codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -48,10 +48,10 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 	Essa etapa também pode ser realizada após a criação do canal.
 
 1. Crie e inicie um Canal de passagem.
-1. Recupere a URL de ingestão do canal. 
+1. Recupere a URL de ingestão do canal.
 
 	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal.
 
 	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
@@ -63,7 +63,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 1. Inicie o evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o evento/programa sempre que você quiser parar a transmissão e o arquivamento do evento.
-1. Exclua o evento/programa (e, opcionalmente, exclua o ativo).     
+1. Exclua o evento/programa (e, opcionalmente, exclua o ativo).
 
 >[AZURE.IMPORTANT] Examine a [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md) para saber mais sobre os conceitos e considerações relacionados à transmissão ao vivo com codificadores locais e canais de passagem.
 
@@ -81,7 +81,7 @@ Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma un
 
 Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
 
-1. Na janela **Configurações**, clique em **Pontos de extremidade da transmissão**. 
+1. Na janela **Configurações**, clique em **Pontos de extremidade da transmissão**.
 
 2. Clique no ponto de extremidade da transmissão padrão.
 
@@ -121,7 +121,7 @@ Esta seção mostra como usar a opção **Criação Rápida** para criar um cana
 
 Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
-1. Na janela **Configurações**, clique em **Transmissão ao vivo**. 
+1. Na janela **Configurações**, clique em **Transmissão ao vivo**.
 
 	![Introdução](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
@@ -130,7 +130,7 @@ Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao 
 3. Clique em **Criação Rápida** para criar um canal de passagem com o protocolo de ingestão RTMP.
 
 	A janela **CRIAR UM NOVO CANAL** é exibida.
-4. Nomeie o novo canal e clique em **Criar**. 
+4. Nomeie o novo canal e clique em **Criar**.
 
 	Isso criará um canal de passagem com o protocolo de ingestão RTMP.
 
@@ -175,4 +175,4 @@ Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

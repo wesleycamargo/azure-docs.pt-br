@@ -5,7 +5,7 @@
 	keywords="registro de dispositivos, habilitar registro de dispositivos, registro de dispositivos e MDM"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Introdução ao registro de dispositivos do Azure Active Directory
@@ -87,4 +87,4 @@ Você pode registrar seus dispositivos de domínio associado com Windows 7 e Win
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/18/2016" 
 	ms.author="elizapo"/>
 
 # O que é o RemoteApp do Azure?
@@ -80,4 +80,4 @@ Vá! Experimente! Estes artigos ajudam a começar com o Azure RemoteApp:
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** ou em **Editar** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

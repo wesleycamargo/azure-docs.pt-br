@@ -3,7 +3,7 @@
    description="Microsoft Power BI Embedded Preview - código essencial para integrar um relatório em seu aplicativo, como autenticar com o token do aplicativo Power BI Embedded, como obter relatórios"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Inserir um relatório do Power BI com um IFrame
 Este artigo mostra o código essencial para usar a API REST do **Power BI Embedded**, tokens do aplicativo, um IFrame e JavaScript para integrar, ou inserir um relatório em seu aplicativo.
@@ -228,4 +228,4 @@ Neste artigo, você foi apresentado ao código para integrar um relatório **Pow
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Obter Relatórios](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

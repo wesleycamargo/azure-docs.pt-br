@@ -46,7 +46,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data fact
 	![Folha Nova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
 	> [AZURE.IMPORTANT] O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “GetStartedDF” não está disponível**, altere o nome do data factory (por exemplo, seunomeGetStartedDF) e tente criá-lo novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
-	> 
+	>  
 	> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 	> 
 	> Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
@@ -55,7 +55,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data fact
 3.	Escolha a **assinatura do Azure** onde você deseja que o data factory seja criado.
 4.	Selecione um **grupo de recursos** ou crie um novo grupo de recursos. Para o tutorial, crie um grupo de recursos chamado: **ADFGetStartedRG**.    
 5.	Clique em **Criar** na folha **Novo data factory**.
-6.	Você verá a data factory que está sendo criada no **Quadro inicial** do Portal do Azure da seguinte maneira:   
+6.	Você verá a data factory que está sendo criada no **Quadro inicial** do Portal do Azure da seguinte maneira:
 
 	![Status da criação da data factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Parabéns! Você criou com êxito sua primeira data factory. Após a data factory ter sido criada com êxito, você verá a página da data factory, que exibe seu conteúdo. 	
@@ -118,13 +118,13 @@ Nesta etapa, você vinculará um cluster do HDInsight sob demanda ao seu data fa
 
 	Observe o seguinte:
 	
-	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Veja [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes. 
+	- O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Consulte [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 	- Você poderia usar **seu próprio cluster HDInsight** em vez de usar um cluster HDInsight sob demanda. Veja [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 	- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**) e que ele seja excluído quando o processamento é realizado.
 	
-		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**nomedoseudatafactory**-**nomedoserviçovinculado**-datetimestamp". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+		À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
-	Veja [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
+	Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 3. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado. 
 4. Confirme que você vê **AzureStorageLinkedService** e **HDInsightOnDemandLinkedService** no modo de exibição de árvore à esquerda.
 
@@ -135,7 +135,7 @@ Nesta etapa, você criará conjuntos de dados para representar dados de entrada 
 
 ### Criar conjunto de dados de entrada
 
-1. No **Data Factory Editor**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blob do Azure**.
+1. No **Data Factory Editor**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blob do Azure**.  
 
 	![Novo conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Copie e cole o trecho abaixo na janela de Rascunho-1. No trecho JSON, você está criando um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**
@@ -272,13 +272,13 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 
 	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Confira [Anatomia de um pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima.
+	> [AZURE.NOTE] Confira [Anatomia de um Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima.
 
 3. Confirme o seguinte:
 	1. O arquivo **input.log** existe na pasta **inputdata** do contêiner **adfgetstarted** no armazenamento de blobs do Azure
-	2. O arquivo **partitionweblogs.hql** existe na pasta **script** do contêiner **adfgetstarted** no armazenamento de blobs do Azure Conclua as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) se você não vir esses arquivos. 
-	3. Confirme se você substituiu **nomedacontadearmazenamento** pelo nome da sua conta de armazenamento no JSON. 
-2. Clique em **Implantar** na barra de comandos para implantar o pipeline. Como as horas de **início** e de **fim** são definidas no passado e **isPaused** está definido como false, o pipeline (a atividade no pipeline) é imediatamente executado após a implantação. 
+	2. O arquivo **partitionweblogs.hql** existe na pasta **script** do contêiner **adfgetstarted** no armazenamento de blobs do Azure. Conclua as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) se você não vir esses arquivos.
+	3. Confirme se você substituiu **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
+2. Clique em **Implantar** na barra de comandos para implantar o pipeline. Como as horas de **início** e de **fim** são definidas no passado e **isPaused** está definido como false, o pipeline (a atividade no pipeline) é imediatamente executado após a implantação.
 4. Confirme que você vê o pipeline no modo de exibição de árvore.
 
 	![Modo de exibição de árvore com pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
@@ -307,7 +307,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 12. Na **Exibição de Diagrama**, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.  
 
 	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
@@ -317,7 +317,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
  
 	![dados de saída](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-[Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) para obter mais detalhes.
+Confira o artigo [Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) para obter mais detalhes.
 
 > [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
 
@@ -327,12 +327,12 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 1.	Foi criada uma **data factory** do Azure.
 2.	Foram criados dois **serviços vinculados**:
 	1.	O serviço vinculado **Armazenamento do Azure** para vincular seu armazenamento de blobs do Azure que contém os arquivos de entrada/saída para a data factory.
-	2.	O serviço vinculado **Azure HDInsight** sob demanda para vincular um cluster Hadoop do HDInsight sob demanda à data factory. O Azure Data Factory cria um cluster Hadoop do HDInsight just-in-time para processar dados de entrada e gerar dados de saída. 
-3.	Foram criados dois **conjuntos de dados** que descrevem dados de entrada e de saída para a atividade Hive do HDInsight no pipeline. 
-4.	Foi criado um **pipeline** com uma atividade **Hive do HDInsight**. 
+	2.	O serviço vinculado **Azure HDInsight** sob demanda para vincular um cluster Hadoop do HDInsight sob demanda à data factory. O Azure Data Factory cria um cluster Hadoop do HDInsight just-in-time para processar dados de entrada e gerar dados de saída.
+3.	Foram criados dois **conjuntos de dados** que descrevem dados de entrada e de saída para a atividade Hive do HDInsight no pipeline.
+4.	Foi criado um **pipeline** com uma atividade **Hive do HDInsight**.
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](./data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Veja também
 | Tópico | Descrição |
@@ -343,6 +343,7 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
+
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->
