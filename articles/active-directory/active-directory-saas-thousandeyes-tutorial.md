@@ -78,7 +78,7 @@ Esta descreve como permitir que os usuários se autentiquem no ThousandEyes com 
 
     ![Configurar o logon único](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de entrada do ThousandEyes**, digite a URL usada pelos usuários para entrar em seu aplicativo ThousandEyes (por exemplo: "**https://app.thousandeyes.com/login/sso*")) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de entrada do ThousandEyes**, digite a URL usada pelos usuários para entrar em seu aplicativo ThousandEyes (por exemplo: "*https://app.thousandeyes.com/login/sso*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurar a URL do Aplicativo")
 

@@ -81,7 +81,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 	b. Na **URL de resposta do Workday** caixa de texto, digite a URL de resposta do Workday usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “**http://www.myworkday.com*” funciona, mas “**http://myworkday.com*” não.
+	>[AZURE.NOTE] Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “*http://www.myworkday.com*” funciona, mas “*http://myworkday.com*” não.
  
 4.  Na página **Configurar logon único no Workday**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
 
