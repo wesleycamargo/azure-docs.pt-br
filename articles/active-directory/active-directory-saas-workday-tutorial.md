@@ -81,7 +81,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 	b. Na **URL de resposta do Workday** caixa de texto, digite a URL de resposta do Workday usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “**http://www.myworkday.com*” funciona, mas “**http://myworkday.com*” não.
+	>[AZURE.NOTE] Sua URL de resposta deve ter um subdomínio (por exemplo: www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usar algo como “ *http://www.myworkday.com* ” funciona, mas “ *http://myworkday.com* ” não.
  
 4.  Na página **Configurar logon único no Workday**, para baixar seu certificado, clique em **Baixar certificado** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -185,7 +185,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
      
 	e. Selecione **Não Esvazie a Solicitação de Autenticação iniciada por SP**.
 
-    f. Para **Solicitação de Método de Autenticação de Assinatura **, selecione **SHA256**.
+    f. Para **Solicitação de Método de Autenticação de Assinatura**, selecione **SHA256**.
         
 	![Método de Assinatura de Solicitação de Autenticação](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de Assinatura de Solicitação de Autenticação")
  
@@ -215,7 +215,7 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Workday **, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Workday**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-workday-tutorial/IC782935.png "Atribuir Usuários")
 
