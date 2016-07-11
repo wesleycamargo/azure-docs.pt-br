@@ -134,7 +134,7 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
     2.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Para carregar o certificado baixado, clique em **Procurar**.
     4.  Na caixa de texto **ID de Entidade**, digite **https://salesforce-work.com**.
-5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
+    5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
     7.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
     8.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.

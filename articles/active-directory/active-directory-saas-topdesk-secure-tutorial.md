@@ -152,7 +152,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
     2.  Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
     3.  Para carregar o arquivo de logotipo que você recebeu da equipe de suporte do TOPdesk, em **Ícone do logotipo**, clique em **Procurar**.
     4.  Na caixa de texto **Atributo do nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
+    5.  Na caixa de texto **Nome de exibição**, digite um nome para a sua configuração.
     6.  Clique em **Salvar**.
 
 17. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
