@@ -497,7 +497,8 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte:
+	HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 
@@ -549,7 +550,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming** por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
-- codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),
+- codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
@@ -667,7 +668,7 @@ Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Az
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,
+- codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
 - obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
 A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído você será capaz de criar localizadores são necessários para acessar seus ativos.

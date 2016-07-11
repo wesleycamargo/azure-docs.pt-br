@@ -255,7 +255,7 @@ O exemplo a seguir mostra:
 
 1.	Um serviço vinculado do tipo AzureSqlDatabase.
 2.	Um serviço vinculado do tipo OnPremisesFileServer.
-3.	Um conjunto de dados de entrada do tipo AzureSqlTable.
+3.	Um conjunto de dados de entrada do tipo AzureSqlTable. 
 3.	Um conjunto de dados de saída do tipo FileShare.
 4.	Um pipeline com a atividade de cópia que usa SqlSource e FileSystemSink.
 

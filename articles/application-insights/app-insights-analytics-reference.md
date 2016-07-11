@@ -201,7 +201,7 @@ Uma cópia da tabela de entrada com colunas adicionais especificadas.
 **Dicas**
 
 * Use [`project`](#project-operator) em vez disso, se também quiser remover ou renomear algumas colunas.
-* Não use `extend` simplesmente para obter um nome mais curto a ser usado em uma expressão longa. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
+* Não use `extend` simplesmente para obter um nome mais curto a ser usado em uma expressão longa. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     As colunas nativas da tabela foram indexadas. Seu novo nome define uma coluna adicional que não é indexada, assim, a consulta provavelmente terá execução mais lenta.
 
@@ -237,7 +237,7 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 Uma tabela com:
 
 * Uma coluna para cada coluna em cada uma das duas tabelas, incluindo as chaves correspondentes. As colunas do lado direito serão automaticamente renomeadas se houver conflitos de nome.
-* Uma linha para cada correspondência entre as tabelas de entrada. Uma correspondência é uma linha selecionada de uma tabela que tem o mesmo valor para todos os campos `on` que uma linha da outra tabela.
+* Uma linha para cada correspondência entre as tabelas de entrada. Uma correspondência é uma linha selecionada de uma tabela que tem o mesmo valor para todos os campos `on` que uma linha da outra tabela. 
 
 * `Kind` não especificado
 
@@ -261,7 +261,7 @@ Se houver várias linhas com os mesmos valores para esses campos, você obterá 
 
 Para obter o melhor desempenho:
 
-* Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada, antes de `join`.
+* Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada, antes de `join`. 
 * Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo (com barras verticais) da junção.
 * As colunas para a correspondência de junção devem ter o mesmo nome. Use o operador de projeto se for necessário renomear uma coluna em uma das tabelas.
 
@@ -342,7 +342,7 @@ O resultado é:
 
 **Argumentos**
 
-* *ColumnName:* no resultado, as matrizes na coluna nomeada são expandidas para várias linhas.
+* *ColumnName:* no resultado, as matrizes na coluna nomeada são expandidas para várias linhas. 
 * *ArrayExpression:* uma expressão que resulta em uma matriz. Se esse formato for usado, uma nova coluna será adicionada e a existente será preservada.
 * *Name:* um nome para a nova coluna.
 * *Typename:* converte a expressão expandida em um tipo específico
@@ -392,14 +392,14 @@ Extrai valores de uma cadeia de caracteres. Pode usar a correspondência de expr
 **Argumentos**
 
 * `T`: a tabela de entrada.
-* `kind`:
+* `kind`: 
  * `simple` (padrão): as cadeias de caracteres `Match` são cadeias de caracteres simples.
- * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como nula e a análise continua
+ * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como nula e a análise continua 
  * `regex`: as cadeias de caracteres `Match` são expressões regulares.
 * `Text`: uma coluna ou outra expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
 * *Match:* fazer a correspondência com a próxima parte da cadeia de caracteres e descartá-la.
 * *Column:* atribuir a próxima parte da cadeia de caracteres a esta coluna. A coluna será criada se ainda não existir.
-* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date ou double.
+* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date ou double. 
 
 
 **Retorna**
@@ -510,7 +510,7 @@ Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas 
 
 * *T:* a tabela de entrada.
 * *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
-* *Expression:* expressão escalar opcional que faz referência às colunas de entrada.
+* *Expression:* expressão escalar opcional que faz referência às colunas de entrada. 
 
     É válido retornar uma nova coluna calculada com o mesmo nome que uma coluna existente na entrada.
 
@@ -562,7 +562,7 @@ Gera uma tabela de coluna única de valores. Observe que ele não tem uma entrad
 * *ColumnName:* o nome da única coluna na tabela de saída.
 * *Start:* o menor valor na saída.
 * *Stop:* o valor mais elevado que está sendo gerado na saída (ou um limite para o valor mais elevado, se *step* passar por esse valor).
-* *Step:* a diferença entre dois valores consecutivos.
+* *Step:* a diferença entre dois valores consecutivos. 
 
 Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator)).
 
@@ -615,7 +615,7 @@ Tenta agrupar registros semelhantes. Para cada grupo, o operador envia o `Patter
 **Argumentos**
 
 * *ColumnName:* a coluna a ser examinada. Deve ser do tipo cadeia de caracteres.
-* *Threshold:* um valor no intervalo {0..1}. O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno.
+* *Threshold:* um valor no intervalo {0..1}. O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno. 
 
 **Retorna**
 
@@ -702,7 +702,7 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 
 * *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Veja [agregações](#aggregations).
-* *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento.
+* *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
 Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, o Analytics a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
 
@@ -766,7 +766,7 @@ Produz resultados hierárquicos, onde cada nível é uma busca detalhada do nív
 **Argumentos**
 
 * N:int - número de linhas a serem retornadas ou passadas para o próximo nível. Em uma consulta com três níveis onde N é 5, 3 e 3, o número total de linhas será 45.
-* COLUMN - uma coluna a ser agrupada para agregação.
+* COLUMN - uma coluna a ser agrupada para agregação. 
 * AGGREGATION: uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
 
 
@@ -788,7 +788,7 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
  *  O nome de uma tabela, como `requests`, ou de uma tabela definida em uma [cláusula let](#let-clause) ou
  *  Uma expressão de consulta, como `(requests | where success=="True")`
  *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` pode formar a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com “e”, juntamente com a tabela “exceções”.
-* `kind`:
+* `kind`: 
  * `inner`: o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
  * `outer`: o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
 * `withsource=`*ColumnName:* se especificado, a saída inclui uma coluna chamada *ColumnName* cujo valor indica qual tabela de origem contribuiu com cada linha.
@@ -1218,7 +1218,7 @@ A agregação de percentis fornece um valor aproximado usando [T-Digest](https:/
 
 Alguns pontos importantes:
 
-* Os limites no erro de estimativa variam de acordo percentil solicitado. A maior precisão está nas extremidades da escala de [0 a 100], os percentuais 0 e 100 são os valores mínimo e máximo exatos da distribuição. A precisão diminui gradativamente rumo à parte central da escala. Ela atinge seu pior valor na mediana e está limitada a 1%.
+* Os limites no erro de estimativa variam de acordo percentil solicitado. A maior precisão está nas extremidades da escala de [0 a 100], os percentuais 0 e 100 são os valores mínimo e máximo exatos da distribuição. A precisão diminui gradativamente rumo à parte central da escala. Ela atinge seu pior valor na mediana e está limitada a 1%. 
 * Os limites de erro são observados na classificação, não no valor. Suponha que percentil (X, 50) retornou o valor de Xm. A estimativa garante que pelo menos 49% e, no máximo, 51% dos valores de X sejam inferiores Xm. Não há qualquer limite teórico sobre a diferença entre Xm e o valor real da mediana de X.
 
 ### stdev
@@ -1461,7 +1461,17 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
+| - | Subtrair |
+| * | Multiplicar |
+| / | Dividir |
+| % | Módulo |
+||
+|`<` |Menor
+|`<=`|Menor ou Igual a
+|`>` |Maior
+|`>=`|Maior ou Igual a
+|`<>`|Diferente de
+|`!=`|Diferente de
 
 
 ### abs
@@ -1492,8 +1502,8 @@ Alias `floor`.
 
 **Argumentos**
 
-* *value:* um número, uma data ou um período de tempo.
-* *roundTo:* o "tamanho de compartimentalização". Um número, uma data ou um período de tempo que divide *value*.
+* *value:* um número, uma data ou um período de tempo. 
+* *roundTo:* o "tamanho de compartimentalização". Um número, uma data ou um período de tempo que divide *value*. 
 
 **Retorna**
 
@@ -1564,7 +1574,7 @@ A função da raiz quadrada.
 **Retorna**
 
 * Um número positivo, como `sqrt(x) * sqrt(x) == x`
-* `null` se o argumento for negativo ou não puder ser convertido em um valor `real`.
+* `null` se o argumento for negativo ou não puder ser convertido em um valor `real`. 
 
 
 
@@ -1631,7 +1641,7 @@ Expressão |Resultado
 `datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
 `datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
 `2h * 24` | `2d`
-`2d`/`2h` | `24`
+`2d` / `2h` | `24`
 `datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
 `bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
 ||

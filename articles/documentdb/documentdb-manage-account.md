@@ -86,9 +86,10 @@ Ele também inclui chaves somente leitura para fornecer aos usuários o acesso s
 
 ### Exibir e copiar uma chave de acesso no Portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
+1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
 2. Na barra **Fundamentos** da folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
-3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar. ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
+3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
+  ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar chaves de acesso
 

@@ -74,7 +74,8 @@ storedProcedureParameters | Especificar valores para parâmetros de procedimento
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada.
+	![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. Crie o seguinte **procedimento armazenado** que insere dados no **sampletable**.
 
@@ -134,8 +135,8 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
 ### Criar um pipeline com atividade de SqlServerStoredProcedure
 AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
  
-9. Clique em **... (reticências)** na barra de comandos e clique em **Novo pipeline**.
-9. Copiar/colar o seguinte trecho JSON. O **storedProcedureName** definido como **sp\_sample**. O nome e o uso de maiúsculas e minúsculas do parâmetro **DateTime** deve corresponder ao nome e o uso de maiúsculas e minúsculas do parâmetro na definição do procedimento armazenado.
+9. Clique em **... (reticências)** na barra de comandos e clique em **Novo pipeline**. 
+9. Copiar/colar o seguinte trecho JSON. O **storedProcedureName** definido como **sp\_sample**. O nome e o uso de maiúsculas e minúsculas do parâmetro **DateTime** deve corresponder ao nome e o uso de maiúsculas e minúsculas do parâmetro na definição do procedimento armazenado.  
 
 		{
 		    "name": "SprocActivitySamplePipeline",
@@ -166,7 +167,7 @@ AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
 		        "isPaused": false
 		    }
 		}
-9. Clique em **Implantar** na barra de ferramentas para implantar o pipeline.
+9. Clique em **Implantar** na barra de ferramentas para implantar o pipeline.  
 
 ### Monitorar o Pipeline
 

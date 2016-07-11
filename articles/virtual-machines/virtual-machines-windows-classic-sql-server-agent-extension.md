@@ -25,7 +25,8 @@
 
 A Extensão de Agente IaaS do SQL Server (SQLIaaSAgent) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este tópico fornece uma visão geral dos serviços que recebem suporte da extensão, bem como instruções de instalação, status e remoção.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Para exibir a versão do Gerenciador de Recursos deste artigo, veja [Extensão do SQL Server Agent para o Gerenciador de Recursos de VMs do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Para exibir a versão do Gerenciador de Recursos deste artigo, veja [Extensão do SQL Server Agent para o Gerenciador de Recursos de VMs do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## Serviços com suporte
 

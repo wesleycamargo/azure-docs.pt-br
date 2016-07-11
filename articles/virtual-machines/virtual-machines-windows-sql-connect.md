@@ -25,7 +25,8 @@
 
 Este tópico descreve como se conectar à instância do SQL Server em execução em uma máquina virtual do Azure. Ele aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico. Para ver a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](virtual-machines-windows-classic-sql-connect.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico. 
+Para ver a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](virtual-machines-windows-classic-sql-connect.md).
 
 Para ver uma apresentação completa sobre provisionamento e conectividade, veja [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

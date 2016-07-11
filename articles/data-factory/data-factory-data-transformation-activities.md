@@ -24,14 +24,17 @@ O Azure Data Factory dá suporte às seguintes atividades de transformação, qu
 
 Atividades de transformação de dados | Ambiente de computação 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Atividades de aprendizado de máquina: recurso de execução em lote e de atualização](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
+[Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
+[Atividades de aprendizado de máquina: recurso de execução em lote e de atualização](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
 [Procedimento armazenado](data-factory-stored-proc-activity.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 [U-SQL da Análise Data Lake](data-factory-usql-activity.md) | Análise Azure Data Lake 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Lote do Azure
    
-> [AZURE.NOTE] 
-Você pode usar a atividade MapReduce para executar programas Spark no cluster HDInsight Spark. Veja [Invocar programas Spark pelo Azure Data Factory](data-factory-spark.md) para obter detalhes. Você pode criar uma atividade personalizada para executar scripts R em seu cluster HDInsight com R instalado. Veja [Executar scripts R usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
- 
+
+ > [AZURE.NOTE] Você pode usar a atividade MapReduce para executar programas Spark no cluster HDInsight Spark. Veja [Invocar programas Spark pelo Azure Data Factory](data-factory-spark.md) para obter detalhes. Você pode criar uma atividade personalizada para executar scripts R em seu cluster HDInsight com R instalado. Veja [Executar scripts R usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
 
 É necessário criar um serviço vinculado para o ambiente de computação e, em seguida, usar o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte do Data Factory.
 

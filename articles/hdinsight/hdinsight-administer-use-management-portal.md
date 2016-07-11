@@ -120,7 +120,7 @@ Não há suporte para a instalação de software personalizado no cluster usando
 	- **Região**: local do Azure. Para ter acesso à lista de locais do Azure com suporte, consulte a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Dados criados**.
 	- **Sistema operacional**: **Windows** ou **Linux**.
-	- **Tipo**: Hadoop, HBase, Storm, Spark.
+	- **Tipo**: Hadoop, HBase, Storm, Spark. 
 	- **Versão**. Consulte [versões do HDInsight](hdinsight-component-versioning.md)
 	- **Assinatura**: nome da assinatura.
 	- **ID da Assinatura**.
@@ -195,7 +195,8 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
 ##Pausar/desligar clusters
 
-A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
+A maioria dos trabalhos do Hadoop é composta por trabalhos em lotes que só são executados ocasionalmente. Para a maioria dos clusters do Hadoop, há grandes períodos de tempo em que o cluster não está sendo usado para processamento. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso.
+Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
 Há várias maneiras de programar o processo:
 
@@ -258,7 +259,7 @@ Cada cluster HDInsight tem uma conta de armazenamento padrão. A conta de armaze
 No modo ARM, cada cluster HDInsight é criado com um grupo de recursos do Azure. O grupo de recursos do Azure ao qual um cluster pertence aparece em:
 
 - A lista de clusters tem uma coluna **Grupo de Recursos**.
-- Bloco **Fundamentos** do cluster.
+- Bloco **Fundamentos** do cluster.  
 
 Consulte [Listar e mostrar clusters](#list-and-show-clusters).
    
@@ -275,7 +276,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
 	![histórico de trabalhos do portal do hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
+	Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho**. Você também pode baixar a consulta e a saída para sua estação de trabalho.
 
 - **Navegador de Arquivos**: procure a conta de armazenamento padrão e as contas de armazenamento vinculadas.
 
@@ -287,7 +288,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
 	![IU do Hadoop do portal do hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	Na **IU do Hadoop*, você pode procurar arquivos e verificar logs.
+	Na *IU do Hadoop*, você pode procurar arquivos e verificar logs.
 
 - **IU do Yarn**.
 

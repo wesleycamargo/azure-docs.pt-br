@@ -298,7 +298,7 @@ O Azure Data Factory fornece vários mecanismos para criar e implantar pipelines
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Navegue até sua instância do Azure Data Factory na qual você deseja criar um pipeline
-3. Clique no bloco **Criar e Implantar** na lente **Resumo**.
+3. Clique no bloco **Criar e Implantar** na lente **Resumo**. 
  
 	![Bloco Criar e implantar](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -343,9 +343,9 @@ Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline,
 
 ## Próximas etapas
 
-- Conheça o [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md).
+- Conheça o [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md).  
 - Leia sobre o [movimento de dados](data-factory-data-movement-activities.md) e [recursos de transformação de dados](data-factory-data-transformation-activities.md) no Azure Data Factory
 - Conheça o [gerenciamento e monitoramento no Azure Data Factory](data-factory-monitor-manage-pipelines.md).
-- [Criar e implantar seu primeiro pipeline](data-factory-build-your-first-pipeline.md).
+- [Criar e implantar seu primeiro pipeline](data-factory-build-your-first-pipeline.md). 
 
 <!---HONumber=AcomDC_0629_2016-->

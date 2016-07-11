@@ -29,8 +29,8 @@ O exemplo a seguir mostra:
 
 1.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para a tabela e o blob).
 2.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#azure-table-dataset-type-properties).
-3.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-3.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+3.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -190,8 +190,8 @@ O exemplo a seguir mostra:
 
 1.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para ambos tabela e blob)
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureTable](#azure-table-dataset-type-properties).
-4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureTable](#azure-table-dataset-type-properties). 
+4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties). 
 
 
 O exemplo copia os dados pertencentes a uma série temporal de um blob do Azure para uma tabela no banco de dados da Tabela do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.

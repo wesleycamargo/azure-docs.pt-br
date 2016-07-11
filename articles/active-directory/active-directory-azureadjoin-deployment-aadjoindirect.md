@@ -42,7 +42,7 @@ As empresas podem fornecer contas somente de nuvem para organizações e empresa
 ### Pré-requisitos
 **No nível corporativo (administrador)**
 
-*	Assinatura do Azure com o Active Directory do Azure
+*	Assinatura do Azure com o Active Directory do Azure  
 
 **No nível do usuário**
 

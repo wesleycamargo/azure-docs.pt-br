@@ -35,6 +35,7 @@ Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de s
 1. Compile o projeto para testar no emulador: no Gerenciador de Projetos do Eclipse, clique com o botão direito em **MyAzureProject**, clique em **Propriedades**, em **Azure** e defina **Compilar para** como **Implantação em nuvem**.
 1. Recompile seu projeto: no menu do Eclipse, clique em **Projeto** e em **Compilar Tudo**.
 1. Implante seu aplicativo em *preparo* no Azure
+    
     >[AZURE.IMPORTANT] Como mencionado acima, é altamente recomendável que você depure no emulador de computação na maioria dos casos e depure no ambiente de preparo somente se houver a necessidade de mais depuração. Não recomendamos a depuração no ambiente de produção.
 1. Quando sua implantação estiver pronta no Azure, obtenha o nome DNS da implantação no [Portal de Gerenciamento do Azure][]. Uma implantação de preparo tem um nome DNS no formato http://*&lt;guid&gt;*.cloudapp.net, em que *&lt;guid&gt;* é um valor de GUID atribuído pelo Azure.
 1. No Gerenciador de Projetos do Eclipse, clique com o botão direito em **WorkerRole1**, clique em **Azure** e em **Depuração**.
@@ -42,18 +43,20 @@ Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de s
     1. Marque **Habilitar a depuração remota para esta função.**
     1. Para **Ponto de extremidade de entrada a ser usado**, use **Depuração (pública:8090, privada:8090)**.
     1. Certifique-se de que **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** esteja desmarcada.
+    
         >[AZURE.IMPORTANT] A opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** serve para cenários de depuração avançada apenas no emulador de computação (não para implantações de nuvem). Se a opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** for usada, ela suspenderá o processo de inicialização do servidor até que o depurador do Eclipse esteja conectado à JVM. Embora seja possível usar essa opção para uma sessão de depuração com o emulador de computação, não a utilize para uma sessão de depuração em uma implantação de nuvem. A inicialização do servidor ocorre em uma tarefa de inicialização do Azure, e a nuvem do Azure não disponibiliza pontos de extremidade públicos até que a tarefa de inicialização seja concluída. Assim, um processo de inicialização não será concluído com êxito se essa opção estiver habilitada em uma implantação de nuvem, pois ele não será capaz de receber uma conexão de um cliente externo do Eclipse.
     1. Clique em **Criar Configurações de Depuração**.
 1. Na caixa de diálogo **Configuração de Depuração do Azure**:
     1. Para **Projeto Java para depuração**, selecione o projeto **MyHelloWorld**.
     1. Em **Configuração depuração para**, marque **Nuvem do Azure (preparo)**.
     1. Certifique-se de que a opção **Emulador de computação do Azure** esteja desmarcada.
-    1. Em **Host**, digite o nome DNS de sua implantação em estágios, mas sem o **http://** anterior. Por exemplo (use seu GUID no lugar do GUID exibido aqui): ** 4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Em **Host**, digite o nome DNS de sua implantação em estágios, mas sem o **http://** anterior. Por exemplo (use seu GUID no lugar do GUID exibido aqui): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Clique em **OK** para fechar a caixa de diálogo **Configuração de Depuração do Azure**.
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Se você não tiver um ponto de interrupção definido em index.jsp, configure-o:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir: ![][ic551537]
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:  
+        ![][ic551537]
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.
 1. Na caixa de diálogo **Configurações de Depuração**, expanda **Aplicativo Java Remoto** no painel esquerdo, selecione **Nuvem do Azure (WorkerRole1)** e clique em **Depurar**.
 1. Em seu navegador, execute o aplicativo preparado, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, substituindo o GUID de seu nome DNS por *&lt;guid&gt;*. Caso receba uma solicitação de uma caixa de diálogo **Confirmar Alternância de Perspectiva**, clique em **Sim**. Agora, a sua sessão de depuração deve ser executada a partir da linha de código na qual o ponto de interrupção foi definido.
@@ -85,6 +88,7 @@ Quando você souber o número de porta pública atribuído a essa instância, fa
     1. Marque **Habilitar a depuração remota para esta função.**
     1. Em **Ponto de extremidade de entrada a ser usado**, use o ponto de extremidade padrão gerado automaticamente pelo kit de ferramentas, listado como **Depuração (pública: 8090, privada: 8090)**.
     1. Certifique-se de que a opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** esteja desmarcada.
+	
         >[AZURE.IMPORTANT] A opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** serve para cenários de depuração avançada apenas no emulador de computação (não para implantações de nuvem). Se a opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** for usada, ela suspenderá o processo de inicialização do servidor até que o depurador do Eclipse esteja conectado à JVM. Embora seja possível usar essa opção para uma sessão de depuração com o emulador de computação, não a utilize para uma sessão de depuração em uma implantação de nuvem. A inicialização do servidor ocorre em uma tarefa de inicialização do Azure, e a nuvem do Azure não disponibiliza pontos de extremidade públicos até que a tarefa de inicialização seja concluída. Assim, um processo de inicialização não será concluído com êxito se essa opção estiver habilitada em uma implantação de nuvem, pois ele não será capaz de receber uma conexão de um cliente externo do Eclipse.
     1. Clique em **Criar Configurações de Depuração**.
 1. Na caixa de diálogo **Configuração de Depuração do Azure**:
@@ -94,8 +98,9 @@ Quando você souber o número de porta pública atribuído a essa instância, fa
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Defina um ponto de interrupção em index.jsp:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir: ![][ic551537]
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:
 
+        ![][ic551537]
        Um ponto de interrupção será definido se você vir um ícone de ponto de interrupção na barra azul à esquerda do código Java.
 1. Inicie o aplicativo no emulador de computação clicando no botão **Executar no Emulador do Azure** na barra de ferramentas do Azure.
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.

@@ -552,7 +552,7 @@ A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Ban
 Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:
 
 -	Comparação entre resultados de tipos em Indefinido.
--	Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.
+-	Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.   
 
 Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
 
@@ -1051,7 +1051,7 @@ Isto pode ser usado mais amplamente para filtrar cada entrada individual da matr
 ### Junções
 Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, o Banco de Dados de Documentos lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
 
-A sintaxe à qual a linguagem oferece suporte é <from\_source1> JOIN <from\_source2> JOIN ... JUNÇÃO < from\_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
+A sintaxe à qual a linguagem oferece suporte é <from_source1> JOIN <from_source2> JOIN ... JUNÇÃO <from_sourceN>. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
 
 Os exemplos a seguir mostram como a cláusula junção funciona. No exemplo a seguir, o resultado é vazio porque o produto cruzado de cada documento da fonte e de um conjunto vazio é vazio.
 
@@ -1375,7 +1375,7 @@ O Banco de Dados de Documentos também dá suporte a várias funções internas 
 <td>Funções espaciais</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID e ST_ISVALIDDETAILED</td>
 </tr>
-</table>  
+</table>
 
 Se estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, você deverá usar a função interna correspondente, pois ela será executada de forma mais rápida e mais eficiente.
 
@@ -1481,7 +1481,7 @@ As funções matemáticas executam um cálculo, normalmente com base em valores 
 <td>Retorna a tangente da expressão de entrada, na expressão especificada.</td>
 </tr>
 
-</table> 
+</table>
 
 Por exemplo, agora você pode executar consultas como as seguintes:
 

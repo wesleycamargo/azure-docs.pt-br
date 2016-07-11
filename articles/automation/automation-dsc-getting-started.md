@@ -19,7 +19,7 @@
 
 # Introdução ao DSC de Automação do Azure
 
-Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação do DSC, consulte [Windows PowerShell Desired State Configuration Overview] (Visão geral da configuração de estado desejado do Windows PowerShell).
+Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação do DSC, consulte [Visão geral da configuração de estado desejado do Windows PowerShell](Visão geral da configuração de estado desejado do Windows PowerShell).
 
 Este tópico fornece um guia passo a passo para usar o DSC de Automação do Azure. Se você quiser um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste tópico, poderá usar o modelo de ARM em https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. Esse modelo define um ambiente completo do DSC de Automação do Azure, incluindo uma VM do Azure que é gerenciada pelo DSC de Automação do Azure.
  
@@ -215,7 +215,7 @@ Na folha de um relatório individual, você pode ver as seguintes informações 
 - A hora de início para a verificação de consistência.
 - O tempo de execução total para a verificação de consistência.
 - O tipo de verificação de consistência.
-- Quaisquer erros, incluindo o código de erro e a mensagem de erro.
+- Quaisquer erros, incluindo o código de erro e a mensagem de erro. 
 - Todos os recursos de DSC usados na configuração e o estado de cada recurso (se o nó está no estado desejado para esse recurso), você pode clicar em cada recurso para obter informações mais detalhadas para esse recurso.
 - O nome, o endereço IP e o modo de configuração do nó.
 

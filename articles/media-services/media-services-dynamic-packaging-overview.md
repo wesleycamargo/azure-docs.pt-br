@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Empacotamento dinâmico
+#Empacotamento dinâmico 
 
 ##Visão geral
 

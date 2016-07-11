@@ -242,7 +242,7 @@ A implementação incluirá as seguintes etapas:
 **Widevine**|Chrome no Windows 10|Êxito|Reprovado
 **FairPlay** |TBD||
 
-George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 George também escreveu um blog sobre [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). E aqui está seu [exemplo de integração do AD do Azure à distribuição de chaves dos Serviços de Mídia do Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
@@ -255,7 +255,7 @@ Para obter informações sobre o Active Directory do Azure:
 
 Há algumas "pegadinhas" na implementação. Esperamos que a lista de “pegadinhas” a seguir possa ajudar você a solucionar problemas caso eles apareçam.
 
-1. A URL do **emissor** deve terminar com **"/"**.
+1. A URL do **emissor** deve terminar com **"/"**.  
 
 	**Audience** deve ser a ID de cliente do aplicativo de player; você também deve adicionar **"/"** no fim da URL do emissor.
 
@@ -361,15 +361,15 @@ Precisamos registrar e configurar o aplicativo "ponteiro" no AD do Azure seguind
 
 1.	No locatário do AD do Azure
 
-	- adicione um aplicativo (recurso) com a URL de logon:
+	- adicione um aplicativo (recurso) com a URL de logon: 
 
 	https://[resource_name].azurewebsites.net/ e
 
-	- URL da ID do aplicativo:
+	- URL da ID do aplicativo: 
 	
-	https://[aad_tenant_name].onmicrosoft.com/[resource_name];
+	https://[aad_tenant_name].onmicrosoft.com/[resource_name]; 
 2.	Adicionar uma nova chave para o aplicativo de recurso;
-3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",
+3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",  
 4.	No aplicativo Azure AD que aponta para o aplicativo Web player, na seção "permissões para outros aplicativos", adicione o aplicativo de recurso que foi adicionado na etapa 1 acima. Em "permissões delegadas", verifique a marca de seleção de "Acessar [nome\_recurso]". Isso dá ao aplicativo Web permissão para criar tokens de acesso a fim de acessar o aplicativo de recurso. Você deverá fazer isso para a versão local e a implantada do aplicativo Web se estiver desenvolvendo com Visual Studio e aplicativo Web do Azure.
 	
 Portanto, o token JWT emitido pelo AD do Azure é, de fato, o token de acesso para acessar esse recurso de "ponteiro".

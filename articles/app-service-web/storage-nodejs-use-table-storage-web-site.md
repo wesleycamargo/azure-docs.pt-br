@@ -72,7 +72,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
 
 ### Instalar o express e gerar scaffolding
 
-1. Na linha de comando, crie um novo diretório chamado **tasklist** e alterne para esse diretório.
+1. Na linha de comando, crie um novo diretório chamado **tasklist** e alterne para esse diretório.  
 
 2. Digite o comando a seguir para instalar o módulo Express.
 

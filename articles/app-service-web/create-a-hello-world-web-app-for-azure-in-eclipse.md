@@ -40,7 +40,7 @@ Primeiro, vamos começar com a criação de um projeto Java.
 
 1. Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. Sua tela será semelhante à seguinte:
 
-    ![][02]
+   ![][02]
 
 1. Clique em **Concluir**.
 

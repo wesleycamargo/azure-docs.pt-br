@@ -108,7 +108,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
     2.  Selecione **Habilitado**.
     3.  Selecione **Usar novo Certificado de SSO**.
-    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
+    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
         >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -156,7 +156,7 @@ Para que os usuários do AAD possam fazer logon, eles deverão ser provisionados
     4.  Selecione um **Tipo de Usuário**.
     5.  Clique em **Atualizar**.
 
-    >[AZURE.IMPORTANT] A opção **Senha Desabilitada** deve ser marcada para permitir que um usuário faça logon por meio de um Provedor de identidade.
+    >[AZURE.IMPORTANT]A opção **Senha Desabilitada** deve ser marcada para permitir que um usuário faça logon por meio de um Provedor de identidade.
 
 6.  Vá para **Função** e realize as seguintes etapas:
 

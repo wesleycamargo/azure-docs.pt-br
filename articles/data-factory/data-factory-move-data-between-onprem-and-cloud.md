@@ -212,7 +212,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 6.	Em Editor do Data Factory, clique em **...(reticências)** na barra de ferramentas, e em seguida, clique em **Novo gateway de dados**.
 
 	![Novo gateway de dados na barra de ferramentas](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-2. Na folha **Criar**, insira **adftutorialgateway** como **nome** e clique em **OK**.
+2. Na folha **Criar**, insira **adftutorialgateway** como **nome** e clique em **OK**. 	
 
 	![Folha Criar Gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -272,7 +272,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 			1. Defina **Integrated Security** como **true**.
 			2. Especifique o banco de dados **nome do servidor** e **nome do banco de dados**.
 			2. Remova a **ID de usuário** e **Senha**.
-		3. Especifique o nome de usuário e senha para as propriedades **userName** e **password**.
+		3. Especifique o nome de usuário e senha para as propriedades **userName** e **password**.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -282,9 +282,9 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
         		}
 
 	4. Se você estiver usando a autenticação SQL:
-		1. Especifique o **nome do servidor**, o **nome do banco de dados**, a **ID de usuário** e a **Senha** do banco de dados na **connectionString**.
+		1. Especifique o **nome do servidor**, o **nome do banco de dados**, a **ID de usuário** e a **Senha** do banco de dados na **connectionString**.       
 		2. Remova as duas últimas propriedades JSON - **userName** e **password** - do JSON.
-		3. Remova a **, (vírgula)** à direita no final da linha que especifica o valor da propriedade **gatewayName**.
+		3. Remova a **, (vírgula)** à direita no final da linha que especifica o valor da propriedade **gatewayName**. 
 
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
@@ -335,7 +335,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 ### Criar tabela de entrada
 
 1. No **Editor de Data Factory**, clique em **Novo conjunto de dados** na barra de comandos e clique na tabela **SQL Server**.
-2.	Substitua o JSON no painel direito pelo texto a seguir:
+2.	Substitua o JSON no painel direito pelo texto a seguir:    
 
 		{
 		  "name": "EmpOnPremSQLTable",
@@ -375,7 +375,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 ### Criar tabela de saída
 
 1.	No **Editor Data Factory**, clique em **Novo conjunto de dados** na barra de comandos e clique em **Armazenamento de Blob do Azure**.
-2.	Substitua o JSON no painel direito pelo texto a seguir:
+2.	Substitua o JSON no painel direito pelo texto a seguir: 
 
 		{
 		  "name": "OutputBlobTable",
@@ -433,7 +433,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 	![Bloco Criar e implantar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	Clique em **Novo pipeline** na barra de comandos. Se você não puder ver o botão, clique em **... (reticências)** para expandir a barra de comandos.
-2.	Substitua o JSON no painel direito pelo texto a seguir:
+2.	Substitua o JSON no painel direito pelo texto a seguir:   
 
 
 		{
@@ -483,7 +483,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
  
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink ** é especificado como o **sink type**.
+	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
 	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.

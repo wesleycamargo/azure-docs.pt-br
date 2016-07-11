@@ -103,7 +103,7 @@ Antes de configurar o computador de compilação, você precisará criar uma [en
 | KeyVaultResourceGroupName | Qualquer valor No entanto, não use o nome do grupo de recursos que você planeja usar para seu cluster. |
 | PfxFileOutputPath| Qualquer valor Este arquivo é usado para importar o certificado para o computador de compilação. |
 
-Quando o script for concluído, ele produzirá os três valores a seguir. Anote esses valores, pois eles serão usados como variáveis de build.
+    Quando o script for concluído, ele produzirá os três valores a seguir. Anote esses valores, pois eles serão usados como variáveis de build.
 
  - `ServiceFabricCertificateThumbprint`
  - `ServiceFabricKeyVaultId`
@@ -286,7 +286,7 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
     |Variável|Valor|Segredo|Permitir no tempo da fila|
     |---|---|---|---|
     |BuildConfiguration|Liberar||X|
-    |BuildPlatform|x64||||
+    |BuildPlatform|x64|||
 
 3.  Salve a definição de build e dê um nome a ela. Você pode alterar esse nome mais tarde se quiser.
 

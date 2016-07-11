@@ -28,8 +28,8 @@ O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Banco de Dados 
 O exemplo a seguir mostra:
 
 1. Um serviço vinculado do tipo [AzureSqlDatabase](#azure-sql-linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlTable](#azure-sql-dataset-type-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [SqlSource](#azure-sql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 

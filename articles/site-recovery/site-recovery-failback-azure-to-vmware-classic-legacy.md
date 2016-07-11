@@ -55,7 +55,7 @@ Veja como configurar o failback:
 
 Será necessário instalar um servidor vContinuum no local e apontá-lo para o servidor de configuração.
 
-1.  [Baixar o vContinuum](http://go.microsoft.com/fwlink/?linkid=526305).
+1.  [Baixar o vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
 2.  Baixe a versão de [atualização do vContinuum atualização](http://go.microsoft.com/fwlink/?LinkID=533813).
 3. Instale a versão mais recente do vContinuum. Na página **Boas-vindas**, clique em **Avançar**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  Na primeira página do assistente, especifique o endereço IP do servidor CX e a porta do servidor CX. Escolha **Usar HTTPS**.
@@ -152,7 +152,7 @@ Para obter as IDs de SCSI de cada disco SCSI em uma máquina virtual Linux, habi
 
 OBSERVAÇÃO: verifique se o sistema tem conectividade com a internet antes de baixar e instalar os pacotes adicionais.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Esse comando baixa estes 15 pacotes do repositório CentOS 6.6 e os instala:
 
@@ -188,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 OBSERVAÇÃO: se a máquina de origem usar o sistema de arquivos Reiser ou XFS para o dispositivo raiz ou de inicialização, os pacotes a seguir deverão ser baixados e instalados no destino mestre com Linux antes da proteção.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações de configuração personalizadas
 
@@ -266,7 +266,7 @@ Você precisa proteger as VMs no site local antes de realizar o failback.
 Quando uma VM está em estado de failover para o Azure, ocorre a adição de uma unidade temp para o arquivo de paginação. Essa unidade extra normalmente não é exigida por sua VM em estado de failover, pois ele já pode ter uma unidade dedicada ao arquivo de paginação. Antes de iniciar a proteção inversa das máquinas virtuais, você precisa garantir que essa unidade seja colocada offline para que não seja protegida. Faça isso da seguinte forma:
 
 1.  Abra o Gerenciamento do Computador e selecione Gerenciamento de Armazenamento para listar os discos online e conectados à máquina.
-2.  Selecione o disco temporário conectado à máquina e escolha colocá-lo offline.
+2.  Selecione o disco temporário conectado à máquina e escolha colocá-lo offline. 
 
 ### Proteger as VMs
 
