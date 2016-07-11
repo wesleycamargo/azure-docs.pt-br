@@ -1,4 +1,12 @@
-< propriedades pageTitle = "copiar dados do armazenamento de Blob para o banco de dados SQL | Descrição do Microsoft Azure"="Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados do armazenamento de Blob para o banco de dados SQL." Palavras-chave: "sql de blob, armazenamento de blobs, cópia de dados" services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Copiar dados do armazenamento de Blob para o banco de dados SQL | Descrição do Microsoft Azure"
+	description="Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados do armazenamento de Blob para o banco de dados SQL." 
+	Keywords: "sql de blob, armazenamento de blobs, cópia de dados" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -109,4 +117,4 @@ Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
