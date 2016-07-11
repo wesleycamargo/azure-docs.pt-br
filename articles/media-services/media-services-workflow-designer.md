@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Os fluxos de trabalho podem incluir a lógica de decisão do cliente e a ramific
 Os fluxos de trabalho de exemplo que você pode criar incluem:
 
 - Os fluxos de trabalho baseados em decisão que inspecionam o conteúdo de origem para resolução e que codificam somente as faixas de saída desejadas. Isso será útil para eliminar as faixas descartadas que seriam geradas pela expansão inadvertida do conteúdo de origem.
-- Vários arquivos de entrada podem ser usados para oferecer suporte a legendas, sobreposições e montagens de conteúdo. 
+- Vários arquivos de entrada podem ser usados para oferecer suporte a legendas, sobreposições e montagens de conteúdo.
 
 Essa ferramenta também pode ser usada para modificar qualquer um dos [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_workflows).
 
@@ -90,4 +90,4 @@ Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trab
 
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

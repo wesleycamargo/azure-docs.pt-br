@@ -20,7 +20,7 @@ Para usar o EventProcessorHost, você deve ter uma [Conta de armazenamento do Az
 
 ###Crie um projeto Java usando o Host de EventProcessor
 
-A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:
+A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package] e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:
 
 ``` XML
 <dependency>
@@ -30,9 +30,9 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
 </dependency>
 ```
  
-Para diferentes tipos de ambientes de build, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) ou no [ponto de distribuição de versão no GitHub](https://github.com/Azure/azure-event-hubs/releases).
+Para diferentes tipos de ambientes de compilação, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven][Maven Package] ou no [ponto de distribuição de versão no GitHub](https://github.com/Azure/azure-event-hubs/releases).
 
-1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.     
+1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.
 
 	``` Java
 	import java.util.function.Consumer;
@@ -187,9 +187,10 @@ Para diferentes tipos de ambientes de build, é possível obter explicitamente o
 [Event Hubs Overview]: event-hubs-overview.md
 [Conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md
 [portal clássico do Azure]: http://manage.windowsazure.com
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

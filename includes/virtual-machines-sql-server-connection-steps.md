@@ -1,8 +1,11 @@
 ### Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
 
-1. Conecte-se à máquina virtual por meio da Área de Trabalho Remota do Windows. Uma vez conectado na tela inicial, digite **WF. msc** e pressione ENTER. 
+1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à máquina virtual, veja [Abrir uma VM do SQL com a Área de Trabalho Remota](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+
+1. Uma vez conectado na tela inicial, digite **WF. msc** e pressione ENTER.
 
 	![Iniciar o Programa de Firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+
 2. No **Firewall do Windows com Segurança Avançada**, no painel esquerdo, clique com o botão direito do mouse em **Regras de Entrada**e, em seguida, clique em **Nova Regra** no painel de ações.
 
 	![Nova Regra](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
@@ -37,12 +40,12 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 ### Configurar o SQL Server para escutar no protocolo TCP
 
 1. Enquanto conectado à máquina virtual, na página inicial, digite **SQL Server Configuration Manager** e pressione ENTER.
-	
+
 	![Abrir SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 
 2. No SQL Server Configuration Manager, no painel do console, expanda **Configuração de Rede do SQL Server**.
 
-3. No painel de console, clique em **Protocolos para MSSQLSERVER** (ele padroniza o nome da instância). No painel de detalhes, clique com o botão direito do mouse em TCP, por padrão, ele deve estar habilitado para as imagens da Galeria. Para suas imagens personalizadas, clique em **Habilitar** (se o status for Desabilitado.)
+3. No painel de console, clique em **Protocolos para MSSQLSERVER** (ele padroniza o nome da instância). No painel de detalhes, clique com botão direito em **TCP** e clique em **Habilitar** se essa opção não estiver habilitada.
 
 	![Habilitar TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
@@ -60,13 +63,11 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
 >[AZURE.NOTE] A configuração da autenticação de modo misto pode não ser necessária se você tiver configurado uma Rede Virtual do Azure com um ambiente de domínio configurado.
 
-1. Enquanto conectado à máquina virtual, na página inicial, digite **SQL Server 2014 Management Studio** e clique no ícone selecionado.
-
-	![Iniciar o SSMS](./media/virtual-machines-sql-server-connection-steps/18Start-SSMS.png)
+1. Enquanto estiver conectado à máquina virtual, na página inicial, digite **SQL Server Management Studio** e clique no ícone selecionado.
 
 	Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
 
-2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe **_your\_VM\_name_\\your\_local\_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
+2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para que deseja conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos (em vez do nome de máquina virtual, você também pode usar **(local)** ou um único ponto como o **Nome do servidor**). Selecione **Autenticação do Windows** e deixe **_your\_VM\_name_\\your\_local\_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
 
 	![Conectar-se ao servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 
@@ -102,21 +103,15 @@ Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve 
 
 5. Na caixa **Senha**, digite uma senha para o novo usuário. Insira novamente essa senha na caixa **Confirmar Senha**.
 
-6. Para impor as opções de complexidade e imposição da política de senha, selecione **Impor Política de Senha** (recomendado). Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
-
-7. Para impor as opções de expiração da política de senha, selecione **Impor Expiração de Senha** (recomendado). A opção Impor a Política de Senha deve estar selecionada para ativar essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
-
-8. Para forçar o usuário a criar uma nova senha após a primeira vez que o logon é usado, selecione **O usuário deve alterar a senha no próximo logon** (recomendado se esse logon for para mais alguém usar. Se o logon for para seu próprio uso, não selecione essa opção.) A opção Impor a Expiração de Senha deve estar selecionada para ativar essa caixa de seleção. Essa é uma opção padrão quando a autenticação do SQL Server está selecionada.
+6. Selecione as opções de aplicação de senha necessárias (**Aplicar política de senha**, **Aplicar expiração de senha**, e **O usuário deve alterar a senha no próximo logon**). Se você estiver usando esse logon por conta própria, não será preciso exigir uma alteração de senha no próximo logon.
 
 9. Na lista **Banco de Dados Padrão**, selecione um banco de dados padrão para o logon. **mestre** é o padrão para essa opção. Se você ainda não tiver criado um usuário de banco de dados, mantenha essa definição como **mestre**.
 
-10. Na lista **Idioma padrão**, mantenha **padrão** como o valor.
-    
 	![Propriedades de Logon](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 
 11. Se esse for o primeiro logon que você está criando, talvez você queira designá-lo como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**.
 
-	**Observação sobre segurança:** os membros da função de servidor fixa sysadmin tem controle total sobre o Mecanismo de Banco de Dados. Você deve restringir cuidadosamente a associação nessa função.
+	>[AZURE.NOTE] Os membros da função de servidor fixa sysadmin tem controle total sobre o Mecanismo de Banco de Dados. Você deve restringir cuidadosamente a associação nessa função.
 
 	![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 
@@ -124,4 +119,4 @@ Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve 
 
 Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

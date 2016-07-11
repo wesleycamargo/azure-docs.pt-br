@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Implementando o cenário de streaming de failover
@@ -22,10 +22,10 @@ Este passo a passo demonstra como copiar conteúdo (blobs) de um ativo para outr
 
 1. Configure uma conta dos Serviços de Mídia no "Datacenter A".
 1. Carregue um arquivo de mezanino em um ativo de origem.
-1. Codifique o ativo em arquivos MP4 de taxa de vários bits. 
+1. Codifique o ativo em arquivos MP4 de taxa de vários bits.
 1. Crie um localizador SAS somente leitura para o ativo de origem ter acesso de leitura ao contêiner na conta de armazenamento associada ao ativo de origem.
 1. Obtenha o nome do contêiner do ativo de origem do localizador SAS somente leitura criado na etapa anterior. Precisamos dessas informações para copiar blobs entre contas de armazenamento (explicado posteriormente no tópico).
-1. Crie um localizador de origem para o ativo criado pela tarefa de codificação. 
+1. Crie um localizador de origem para o ativo criado pela tarefa de codificação.
 
 Em seguida, para manipular o failover:
 
@@ -33,17 +33,17 @@ Em seguida, para manipular o failover:
 1. Crie um ativo de destino vazio na conta dos Serviços de Mídia de destino.
 1. Crie um localizador SAS de gravação para o ativo de destino vazio ter acesso de gravação ao contêiner na conta de armazenamento de destino associada ao ativo de destino.
 1. Use o SDK de Armazenamento do Azure para copiar blobs (arquivos de ativo) entre a conta de armazenamento de origem no "Datacenter A" e a conta de armazenamento de destino no "Datacenter B" (estas contas de armazenamento são associadas aos ativos de interesse)
-1. Associe blobs (arquivos de ativo) que foram copiados no contêiner de blob de destino ao ativo de destino. 
-1. Crie um localizador de origem para o ativo no "Datacenter B" e especifique a Id do localizador gerada para o ativo no "Datacenter A". 
-1. Isso proporciona a você as URLs de streaming nas quais os caminhos relativos das URLs são iguais (somente as URLs base são diferentes). 
+1. Associe blobs (arquivos de ativo) que foram copiados no contêiner de blob de destino ao ativo de destino.
+1. Crie um localizador de origem para o ativo no "Datacenter B" e especifique a Id do localizador gerada para o ativo no "Datacenter A".
+1. Isso proporciona a você as URLs de streaming nas quais os caminhos relativos das URLs são iguais (somente as URLs base são diferentes).
  
 Em seguida, para manipular qualquer interrupção, você poderá criar um CDN sobre esses localizadores de origem.
 
 As seguintes considerações se aplicam:
 
 - A versão atual do SDK dos Serviços de Mídia não dá suporte à criação de um localizador com uma ID de localizador especificado. Para realizar essa tarefa, usaremos a API REST dos Serviços de Mídia.
-- A versão atual do SDK dos Serviços de Mídia não dá suporte à geração programática de informações do IAssetFile que associaria um ativo aos arquivos de ativo. Para realizar essa tarefa, usaremos a API REST dos Serviços de Mídia CreateFileInfos. 
-- Ativos de armazenamento criptografado (AssetCreationOptions.StorageEncrypted) não têm suporte para replicação (já que a chave de criptografia será diferente nas duas contas dos Serviços de Mídia). 
+- A versão atual do SDK dos Serviços de Mídia não dá suporte à geração programática de informações do IAssetFile que associaria um ativo aos arquivos de ativo. Para realizar essa tarefa, usaremos a API REST dos Serviços de Mídia CreateFileInfos.
+- Ativos de armazenamento criptografado (AssetCreationOptions.StorageEncrypted) não têm suporte para replicação (já que a chave de criptografia será diferente nas duas contas dos Serviços de Mídia).
 - Se você quiser aproveitar o empacotamento dinâmico, primeiro obtenha no mínimo uma unidade reservada para streaming sob demanda. Para saber mais, consulte [Empacotando ativos dinamicamente](media-services-dynamic-packaging-overview.md).
  
 
@@ -61,7 +61,7 @@ As seguintes considerações se aplicam:
 Nesta seção você irá criar e configurar um projeto de aplicativo de console em C#.
 
 1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Insira HandleRedundancyForOnDemandStreaming como o Nome e clique em OK.
-1. Crie a pasta SupportFiles no mesmo nível que o arquivo de projeto HandleRedundancyForOnDemandStreaming.csproj. Na pasta SupportFiles, crie as pastas OutputFiles e MP4Files. Copie um arquivo .mp4 na pasta MP4Files (neste exemplo, o arquivo BigBuckBunny.mp4 é usado). 
+1. Crie a pasta SupportFiles no mesmo nível que o arquivo de projeto HandleRedundancyForOnDemandStreaming.csproj. Na pasta SupportFiles, crie as pastas OutputFiles e MP4Files. Copie um arquivo .mp4 na pasta MP4Files (neste exemplo, o arquivo BigBuckBunny.mp4 é usado).
 1. Use o **Nuget** para adicionar referências às DLLs relacionadas aos Serviços de Mídia. No Menu Principal do Visual Studio, selecione FERRAMENTAS -> Gerenciador de Pacotes da Biblioteca -> Console do Gerenciador de Pacotes. Na janela do console, digite Install-Package windowsazure.mediaservices e pressione Enter.
 1. Adicione outras referências necessárias a este projeto: System.Configuration, System.Runtime.Serialization e System.Web.
 1. Substitua o uso de instruções que foram adicionadas ao arquivo Programs.cs por padrão pelas seguintes:
@@ -972,4 +972,4 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

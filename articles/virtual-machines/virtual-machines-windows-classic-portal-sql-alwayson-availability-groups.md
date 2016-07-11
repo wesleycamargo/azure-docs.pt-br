@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo do Gerenciador de Recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Este tutorial completo mostra como implementar os grupos de disponibilidade usando o SQL Server AlwaysOn em execução em máquinas virtuais do Azure.
@@ -75,7 +75,7 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 
 	|Página|Configurações|
 |---|---|
-|Detalhes de rede virtual|**NAME = ContosoNET**<br/>**REGION = West US**|
+|Detalhes de rede virtual|**NAME = ContosoNET**<br/>**REGION = Oeste dos EUA**|
 |Conectividade de VPN e servidores DNS|Nenhum|
 |Espaços de Endereço da Rede Virtual|As configurações são mostradas na captura de tela abaixo: ![Criar Rede Virtual](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
@@ -89,7 +89,7 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 |---|---|
 |Selecionar o sistema operacional da máquina virtual|Windows Server 2012 R2 Datacenter|
 |Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoDC<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
-|Configuração de máquina virtual|**CLOUD SERVICE** = Criar um novo serviço de nuvem<br/>**CLOUD SERVICE DNS NAME** = Um nome de serviço de nuvem exclusivo<br/>**DNS NAME** = Um nome exclusivo (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = (Nenhum)|
+|Configuração de máquina virtual|**CLOUD SERVICE** = Criar um novo serviço de nuvem<br/>**CLOUD SERVICE DNS NAME** = Um nome de serviço de nuvem exclusivo<br/>**DNS NAME** = Um nome exclusivo (por ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira (10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = (Nenhum)|
 |Opções de máquina virtual|Usar padrões|
 
 Ao terminar de configurar a nova VM, aguarde até ela ser provisionada. Esse processo leva algum tempo para ser concluído e se você clicar na guia **Máquina Virtual** no portal clássico do Azure, poderá ver os estados de ciclo de ContosoDC desde **Iniciando (Provisionando)** até **Parado**, **Iniciando**, **Em execução (Provisionando)** e, finalmente, **Em execução**.
@@ -198,7 +198,7 @@ Em seguida, crie três VMs, incluindo um nó de cluster WSFC e duas VMs do SQL S
 |---|---|---|---|
 |Selecionar o sistema operacional da máquina virtual|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
 |Configuração de máquina virtual|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoWSFCNode<br/>**TIER** = STANDARD<br/>**SIZE** = A2 (dois núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL1<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|**VERSION RELEASE DATE** = (mais recente)<br/>**VIRTUAL MACHINE NAME** = ContosoSQL2<br/>**TIER** = STANDARD<br/>**SIZE** = A3 (quatro núcleos)<br/>**NEW USER NAME** = AzureAdmin<br/>**NEW PASSWORD** = Contoso!000<br/>**CONFIRM** = Contoso!000|
-|Configuração de máquina virtual|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = Crie um conjunto de disponibilidade<br/>**AVAILABILITY SET NAME** = SQLHADR|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade depois da criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade depois da criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|
+|Configuração de máquina virtual|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (por ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira (10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = Crie um conjunto de disponibilidade<br/>**AVAILABILITY SET NAME** = SQLHADR|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (por ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira (10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade após a criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|**CLOUD SERVICE** = Nome DNS do serviço de nuvem exclusivo criado previamente (por ex.: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Traseira (10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = SQLHADR (Você também pode configurar o conjunto de disponibilidade após a criação da máquina. Todas as três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.)|
 |Opções de máquina virtual|Usar padrões|Usar padrões|Usar padrões|
 
 <br/>
@@ -231,7 +231,7 @@ Depois que as três VMs forem totalmente provisionadas, você precisará ingress
 
 	![Use NSLOOKUP para localizar o endereço IP para DC](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
-1. Clique em O**K** e em **Fechar** para confirmar as alterações. Agora é possível ingressar a VM em **corp.contoso.com**.
+1. Clique em **OK** e em **Fechar** para confirmar as alterações. Agora é possível ingressar a VM em **corp.contoso.com**.
 
 1. Volte para a janela **Servidor Local** e clique no link **GRUPO DE TRABALHO**.
 
@@ -413,7 +413,7 @@ Essas ações podem ser executadas em qualquer ordem. No entanto, as etapas a se
 
 1. Na página **Nome**, especifique um nome de regra, como **SQL Server (Regra de Programa)**, na caixa de texto **Nome** e clique em **Concluir**.
 
-1. Em seguida, habilite a funcionalidade de **Grupos de Disponibilidade AlwaysOn**. Na tela **Iniciar**, inicie o **SQL Server Configuration Manager**.
+1. Em seguida, habilite o recurso **Grupos de Disponibilidade AlwaysOn**. Na tela **Iniciar**, inicie o **SQL Server Configuration Manager**.
 
 1. Na árvore do navegador, clique em **Serviços do SQL Server**, clique com o botão direito do mouse no serviço **SQL Server (MSSQLSERVER)** e clique em **Propriedades**.
 
@@ -491,7 +491,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 ### Crie o Grupo de Disponibilidade:
 
-1. Volte para a sessão de área de trabalho remota para **ContosoSQL1**. No **Pesquisador de Objetos** no SSMS, clique com o botão direito do mouse em **Alta Disponibilidade AlwaysOn** e clique em **Assistente de Novo Grupo de Disponibilidade**, conforme mostrado abaixo.
+1. Volte para a sessão de área de trabalho remota para **ContosoSQL1**. No **Pesquisador de Objetos** do SSMS, clique com o botão direito do mouse em **Alta Disponibilidade AlwaysOn** e clique em **Assistente de Novo Grupo de Disponibilidade**, conforme mostrado abaixo.
 
 	![Inicie o Assistente de Novo Grupo de Disponibilidade](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
@@ -519,7 +519,7 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 	![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
 
-1. Na página **Validação**, clique em **Avançar**. Esta página deve ser semelhante ao que é mostrado abaixo. Há um aviso para a configuração de ouvinte porque você não configurou um ouvinte de grupo de disponibilidade. Você pode ignorar esse aviso, pois este tutorial não configura um ouvinte. Para configurar o ouvinte após a conclusão deste tutorial, consulte [Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+1. Na página **Validação**, clique em **Avançar**. Esta página deve ser semelhante ao que é mostrado abaixo. Há um aviso para a configuração de ouvinte porque você não configurou um ouvinte de grupo de disponibilidade. Você pode ignorar esse aviso, pois este tutorial não configura um ouvinte. Para configurar o ouvinte após a conclusão deste tutorial, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 	![Novo assistente AG, Validação](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 
@@ -527,11 +527,11 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 	![Novo assistente de AG, Resultados](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
-1. No **Pesquisador de Objetos**, expanda **Alta Disponibilidade AlwaysOn** e expanda **Grupos de Disponibilidade**. Agora você poderá ver o novo grupo de disponibilidade neste contêiner. Clique com o botão direito do mouse em **AG1 (Primário)** e clique em **Mostrar Painel**.
+1. No **Pesquisador de Objetos**, expanda **Alta Disponibilidade AlwaysOn** e **Grupos de Disponibilidade**. Agora você poderá ver o novo grupo de disponibilidade neste contêiner. Clique com o botão direito do mouse em **AG1 (Primário)** e clique em **Mostrar Painel**.
 
 	![Mostrar Painel de AG](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. O **Painel AlwaysOn** deve ser semelhante ao mostrado abaixo. Você pode ver as réplicas, o modo de failover de cada réplica e o estado de sincronização.
+1. O **Painel do AlwaysOn** deve ser semelhante ao mostrado abaixo. Você pode ver as réplicas, o modo de failover de cada réplica e o estado de sincronização.
 
 	![Painel de AG](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -541,11 +541,11 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 
 	![AG no Gerenciador de Cluster de Failover](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
->[AZURE.WARNING] Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel Always On** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover WSFC com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
+>[AZURE.WARNING] Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel do AlwaysOn** no SSMS. Para obter mais informações, consulte [Restrições do uso do Gerenciador de Cluster de Failover WSFC com Grupos de Disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Próximas etapas
-Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para grupos de disponibilidade do Always On no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

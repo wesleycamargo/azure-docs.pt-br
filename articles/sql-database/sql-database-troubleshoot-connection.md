@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 # Solucionar problemas do erro "Banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde”
@@ -39,4 +39,4 @@ Esse erro ocorre quando o banco de dados do Azure está sendo movido (ou reconfi
 - Se você receber um erro diferente, avalie a [mensagem de erro](sql-database-develop-error-messages.md) para dicas sobre a causa.
 - Se o problema persistir, visite a orientação em [Solucionar problemas comuns de conexão para o Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

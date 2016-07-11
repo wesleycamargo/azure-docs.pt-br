@@ -23,6 +23,8 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 | Contagem máxima de entrega de mensagens de comentários <br/> em resposta a uma mensagem da nuvem para o dispositivo | 100 |
 | TTL máximo de mensagens de comentários <br/> em resposta a uma mensagem da nuvem para o dispositivo | 2 dias |
 
+> [AZURE.NOTE] Se precisar de mais de 10 hubs IoT em uma assinatura do Azure, entre em contato com o suporte da Microsoft.
+
 O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são excedidas:
 
 | Restrição | Valor por hub |
@@ -33,4 +35,4 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 | Envios da nuvem para o dispositivo | 100/min/unidade |
 | Recebimentos da nuvem para o dispositivo | 1000/min/unidade |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0629_2016-->

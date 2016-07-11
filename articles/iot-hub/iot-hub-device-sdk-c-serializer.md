@@ -26,6 +26,8 @@ Por fim, o artigo revê alguns tópicos abordados em artigos anteriores, como a 
 
 Todo o conteúdo do artigo baseia-se nas amostras do SDK do **serializador**. Se você quiser acompanhar, confira os aplicativos **simplesample\_amqp** e **simplesample\_http** incluídos no SDK do dispositivo IoT do Azure para C.
 
+Você pode encontrar o **SDK do dispositivo IoT do Azure para C** no repositório GitHub dos [SDKs de IoT do Microsoft Azure](https://github.com/Azure/azure-iot-sdks) e exibir os detalhes da API na [referência da API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+
 ## A linguagem de modelagem
 
 O [artigo de introdução](iot-hub-device-sdk-c-intro.md) desta série apresentou a linguagem de modelagem do **SDK do dispositivo IoT do Azure para o C** por meio do exemplo fornecido no aplicativo **simplesample\_amqp**:
@@ -52,7 +54,7 @@ Os modelos contêm uma definição dos eventos que podem ser inseridos no Hub Io
 
 O que não foi demonstrado neste exemplo são os tipos de dados adicionais que recebem suporte do SDK. Abordaremos isso na sequência.
 
-> [AZURE.NOTE] O Hub IoT chama os dados enviados por um dispositivo de *eventos*, enquanto a linguagem de modelagem os chama de *dados* (definidos por meio de **WITH\_DATA**). Da mesma forma, o Hub IoT chama os dados enviados por você aos dispositivos de *mensagens*, enquanto a linguagem de modelagem os chama de *ações* (definidas por meio de **WITH\_ACTION**). Saiba que esses termos podem ser usados de forma intercambiável neste artigo.
+> [AZURE.NOTE] O Hub IoT refere-se aos dados enviados por um dispositivo como *eventos*, enquanto a linguagem de modelagem refere-se a eles como *dados* (definidos usando **WITH\_DATA**). Da mesma forma, o Hub IoT refere-se aos dados enviados por você aos dispositivos como *mensagens*, enquanto a linguagem de modelagem refere-se a eles como *ações* (definidas usando **WITH\_ACTION**). Saiba que esses termos podem ser usados de forma intercambiável neste artigo.
 
 ### Tipos de dados com suporte
 
@@ -133,7 +135,7 @@ testModel->Test.aBinary = binaryData;
 SendAsync(iotHubClientHandle, (const void*)&(testModel->Test));
 ```
 
-Basicamente, estamos atribuindo um valor a cada membro da estrutura **Test** e chamando **SendAsync** a fim de enviar os eventos **Test** para a nuvem. **SendAsync** é uma função auxiliar que envia um único evento de dados ao Hub IoT:
+Basicamente, estamos atribuindo um valor a cada membro da estrutura **Test** e chamando **SendAsync** a fim de enviar o evento de dados **Test** para a nuvem. **SendAsync** é uma função auxiliar que envia um único evento de dados ao Hub IoT:
 
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
@@ -227,7 +229,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observe que o modelo inclui dois eventos de dados: **Temperatura** e **Umidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data e hora; **HumidityEvent** contém uma medição de umidade e um carimbo de data e hora. Esse modelo nos proporciona uma forma natural de modelar os dados para o cenário descrito acima. Quando enviamos um evento à nuvem, enviamos um par de temperatura/carimbo de data e hora ou um par de umidade/carimbo de data e hora.
+Observe que o modelo inclui dois eventos de dados: **Temperature** e **Humidity**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data e hora; **HumidityEvent** contém uma medição de umidade e um carimbo de data e hora. Esse modelo nos proporciona uma forma natural de modelar os dados para o cenário descrito acima. Quando enviamos um evento à nuvem, enviamos um par de temperatura/carimbo de data e hora ou um par de umidade/carimbo de data e hora.
 
 Podemos enviar um evento de temperatura à nuvem usando um código como o seguinte:
 
@@ -272,7 +274,7 @@ Quando executamos o código anterior a fim de enviar o evento Temperatura, essa 
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Estamos enviando uma temperatura que pertence ao tipo **TemperatureEvent** e essa estrutura contém um membro **Temperatura** e outro **Time**. Isso reflete diretamente nos dados serializados.
+Estamos enviando uma temperatura que pertence ao tipo **TemperatureEvent** e esse struct contém um membro **Temperature** e outro **Time**. Isso reflete diretamente nos dados serializados.
 
 Da mesma forma, podemos enviar um evento de umidade com este código:
 
@@ -350,7 +352,7 @@ Este código envia o seguinte para o Hub IoT:
 
 Até o momento, ainda não há surpresas. Agora, vamos alterar o modo como usamos a macro SERIALIZE.
 
-A macro **SERIALIZE** pode receber vários eventos de dados como argumentos. Isso nos permite serializar os eventos **Temperatura** e **Umidade** juntos e enviá-los ao Hub IoT em uma chamada:
+A macro **SERIALIZE** pode receber vários eventos de dados como argumentos. Isso nos permite serializar os eventos **Temperature** e **Humidity** juntos e enviá-los ao Hub IoT em uma chamada:
 
 ```
 if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermostat->Humidity) == IOT_AGENT_OK)
@@ -396,7 +398,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 );
 ```
 
-Se tivéssemos usado esse modelo, seria mais fácil entender como a **Temperatura** e a **Umidade** seriam enviadas na mesma mensagem serializada. Entretanto, talvez não esteja tão claro o motivo disso funcionar dessa maneira quando você passa os dois eventos de dados para **SERIALIZE** usando o modelo 2.
+Se tivéssemos usado esse modelo, seria mais fácil entender como a **Temperatura** e a **Umidade** seriam enviadas na mesma mensagem serializada. Entretanto, talvez não esteja tão claro o motivo de isso funcionar dessa maneira quando você passa os dois eventos de dados para **SERIALIZE** usando o modelo 2.
 
 É mais fácil entender esse comportamento se você souber quais são as suposições feitas pela biblioteca do **serializador**. Para entendermos tudo isso, vamos voltar ao nosso modelo:
 
@@ -408,7 +410,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Pense nesse modelo em termos orientados ao objeto. Neste caso, estamos modelando um dispositivo físico (um termostato), e esse dispositivo inclui atributos como **Temperatura** e **Umidade**.
+Pense nesse modelo em termos orientados ao objeto. Neste caso, estamos modelando um dispositivo físico (um termostato), e esse dispositivo inclui atributos como **Temperature** e **Humidity**.
 
 Podemos enviar todo o estado de nosso modelo com um código como este:
 
@@ -431,11 +433,11 @@ Supondo que os valores de Temperatura, Umidade e Hora estivessem definidos, ver�
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Isso gera exatamente o mesmo evento serializado que a definição de um **TemperatureEvent** com os membros **Temperatura** e **Hora**, como fizemos com o modelo 1. Nesse caso, pudemos gerar exatamente o mesmo evento serializado com um modelo diferente (modelo 2), pois chamamos **SERIALIZE** de uma maneira diferente.
+Isso gera exatamente o mesmo evento serializado que a definição de um **TemperatureEvent** com os membros **Temperature** e **Time**, como fizemos com o modelo 1. Nesse caso, pudemos gerar exatamente o mesmo evento serializado com um modelo diferente (modelo 2), pois chamamos **SERIALIZE** de uma maneira diferente.
 
 O mais importante é que, se você passar vários eventos de dados para **SERIALIZE**, ele assumirá que cada evento é uma propriedade em um único objeto JSON.
 
-A melhor abordagem dependerá da sua escolha e de como você pensa a respeito de seu modelo. Se você estiver enviando "eventos" para a nuvem e cada evento contiver um conjunto definido de propriedades, a primeira abordagem é apropriada. Nesse caso, você usaria **DECLARE\_STRUCT** para definir a estrutura de cada evento e os incluiria em seu modelo com a macro **WITH\_DATA**. Em seguida, enviaria cada evento, como fizemos no primeiro exemplo acima. Nessa abordagem, você só passaria um único evento de dados ao **SERIALIZER**.
+A melhor abordagem dependerá da sua escolha e de como você pensa a respeito de seu modelo. Se você estiver enviando "eventos" para a nuvem e cada evento contiver um conjunto definido de propriedades, a primeira abordagem é apropriada. Nesse caso, você usaria **DECLARE\_STRUCT** para definir a estrutura de cada evento e os incluiria em seu modelo com a macro **WITH\_DATA**. Em seguida, enviaria cada evento, como fizemos no primeiro exemplo acima. Nessa abordagem, você passaria apenas um único evento de dados ao **SERIALIZER**.
 
 Se você pensar em seu modelo de forma orientada ao objeto, a segunda abordagem pode ser mais adequada. Nesse caso, os elementos definidos usando **WITH\_DATA** são as "propriedades" do objeto. Você passa qualquer subconjunto de eventos que queira para **SERIALIZE**, dependendo de quanto do estado de seu "objeto" você deseja enviar para a nuvem.
 
@@ -524,17 +526,17 @@ Por exemplo, para invocar **SetAirResistance**, você pode enviar essa mensagem 
 
 O nome da ação deve corresponder exatamente a uma ação definida em seu modelo. Os nomes de parâmetro também devem corresponder. Observe também a diferenciação de maiúsculas e minúsculas. **Name** e **Parameters** devem estar sempre com a primeira letra maiúscula. Não deixe de manter o mesmo uso de maiúsculas e minúsculas do nome e dos parâmetros da ação em seu modelo. Neste exemplo, o nome da ação é "SetAirResistance" e não "setairresistance".
 
-Esta seção descreve tudo o que você precisa saber ao enviar eventos e receber mensagens com a biblioteca do **serializador**. Antes de continuarmos, vamos abordar alguns parâmetros que você pode configurar e que controlam o tamanho de seu modelo.
+Esta seção descreveu tudo o que você precisa saber ao enviar eventos e receber mensagens com a biblioteca do **serializador**. Antes de continuarmos, vamos abordar alguns parâmetros que você pode configurar e que controlam o tamanho de seu modelo.
 
 ## Configuração de macro
 
-Se estiver usando a biblioteca do **Serializador**, há uma parte importante do SDK ao qual você deve se atentar na biblioteca azure-c-shared-utility. Se você clonou o repositório Azure-iot-sdks do GitHub usando a opção --recursive, você encontrará esta biblioteca de utilitário compartilhado aqui:
+Caso esteja usando a biblioteca do **serializador**, há uma parte importante do SDK à qual você deve se atentar na biblioteca azure-c-shared-utility. Se você clonou o repositório Azure-iot-sdks do GitHub usando a opção --recursive, você encontrará esta biblioteca de utilitário compartilhado aqui:
 
 ```
 .\\c\\azure-c-shared-utility
 ```
 
-Se não tiver clonado a biblioteca, é possível encontrá-la [aqui](https://github.com/Azure/azure-c-shared-utility).
+Se não tiver clonado a biblioteca, será possível encontrá-la [aqui](https://github.com/Azure/azure-c-shared-utility).
 
 Na biblioteca de utilitário compartilhado, você encontrará a seguinte pasta:
 
@@ -570,7 +572,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Conforme mencionamos anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. O nome do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
+Como mencionado anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. O nome do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
@@ -580,7 +582,7 @@ O parâmetro **nArithmetic** está mais relacionado ao funcionamento interno da 
 
 Se quiser alterar esses parâmetros, modifique os valores no arquivo macro\_utils.tt, recompile a solução macro\_utils\_h\_generator.sln e execute o programa compilado. Quando você faz isso, um novo arquivo macro\_utils.h é gerado e colocado no diretório .\\common\\inc.
 
-Para usar a nova versão de macro\_utils.h, remova o pacote NuGet **serializador** de sua solução e, em seu lugar, inclua o projeto **serializador** do Visual Studio. Isso permite que seu código seja compilado contra o código-fonte da biblioteca do serializador. Isso inclui a macro\_utils.h atualizada. Para fazer isso para **simplesample\_amqp**, comece movendo o pacote NuGet referente à biblioteca do serializador da solução:
+Para usar a nova versão de macro\_utils.h, remova o pacote NuGet do **serializador** de sua solução e, em seu lugar, inclua o projeto do **serializador** do Visual Studio. Isso permite que seu código seja compilado contra o código-fonte da biblioteca do serializador. Isso inclui a macro\_utils.h atualizada. Se deseja fazer isso para **simplesample\_amqp**, comece removendo o pacote NuGet referente à biblioteca do serializador da solução:
 
    ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
 
@@ -594,7 +596,7 @@ Quando terminar, sua solução deve ter esta aparência:
 
 Agora, quando você compila a solução, a macro\_utils.h atualizada é incluída no seu binário.
 
-Observe que aumentar demais esses valores pode exceder os limites do compilador. Nesse ponto, **nMacroParameters** é o principal parâmetro com o qual você deve se preocupar. A especificação C99 estipula a permissão de no mínimo 127 parâmetros em uma definição de macro. O compilador da Microsoft segue exatamente a especificação (e tem um limite de 127); portanto, não será possível aumentar **nMacroParameters** além do padrão. Outros compiladores podem permitir que você faça isso (por exemplo, o compilador GNU dá suporte a um limite superior).
+Observe que aumentar demais esses valores pode exceder os limites do compilador. Nesse ponto, **nMacroParameters** é o principal parâmetro com o qual você deve se preocupar. A especificação C99 estipula a permissão de no mínimo 127 parâmetros em uma definição de macro. O compilador da Microsoft segue exatamente a especificação (e tem um limite de 127), portanto, não será possível aumentar **nMacroParameters** além do padrão. Outros compiladores podem permitir que você faça isso (por exemplo, o compilador GNU dá suporte a um limite superior).
 
 Até o momento, abordamos quase tudo o que você precisa saber sobre como escrever um código com a biblioteca do **serializador**. Antes da conclusão, vamos rever alguns tópicos dos artigos anteriores sobre os quais você pode estar se perguntando.
 
@@ -602,7 +604,7 @@ Até o momento, abordamos quase tudo o que você precisa saber sobre como escrev
 
 O aplicativo de exemplo no qual este artigo se concentra é **simplesample\_amqp**. Esse exemplo usa as APIs de nível superior (não "LL") para enviar eventos e receber mensagens. Se você usar essas APIs, haverá um thread em execução em segundo plano que cuida dos eventos de envio e do recebimento de mensagens. No entanto, você pode usar as APIs de nível inferior (LL) para eliminar esse thread em segundo plano e assumir o controle explícito ao enviar eventos ou receber mensagens da nuvem.
 
-Como descrevemos em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), há um conjunto de funções compostas por APIs de nível superior:
+Conforme descrito em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), há um conjunto de funções composto por APIs de nível superior:
 
 -   IoTHubClient\_CreateFromConnectionString
 
@@ -642,7 +644,7 @@ Não importa se o evento foi gerado usando a biblioteca do **serializador** ou s
 
 Com relação às credenciais alternativas do dispositivo, o uso de **IoTHubClient\_LL\_Create** funciona tão bem quanto **IoTHubClient\_CreateFromConnectionString** para alocar um **IOTHUB\_CLIENT\_HANDLE**.
 
-Por fim, caso esteja usando a biblioteca do **serializador**, é possível definir opções de configuração com **IoTHubClient\_LL\_SetOption** da mesma forma que você fez ao usar a biblioteca **IoTHubClient**.
+Por fim, se estiver usando a biblioteca do **serializador**, será possível definir opções de configuração com **IoTHubClient\_LL\_SetOption** da mesma forma que você fez ao usar a biblioteca **IoTHubClient**.
 
 Um recurso exclusivo da biblioteca do **serializador** são as APIs de inicialização. Antes de começar a trabalhar com a biblioteca, é necessário chamar **serializer\_init**:
 
@@ -666,4 +668,4 @@ Este artigo descreve em detalhes os aspectos exclusivos da biblioteca do **seria
 
 Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Para saber mais, há alguns exemplos no SDK não abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um excelente recurso para obter mais informações.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

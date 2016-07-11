@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Decisões de design e técnicas de codificação para o SQL Data Warehouse
@@ -42,8 +42,6 @@ Esses artigos realçam as técnicas de codificação específicas, dicas e recom
 - [tabelas temporárias][]
 - [SQL dinâmico][]
 - [looping][]
-- [renomear objetos][]
-- [dinamização de dados][]
 - [agrupar por opções][]
 - [atribuição de variável][]
 
@@ -61,7 +59,6 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 [chaves de distribuição de hash]: sql-data-warehouse-develop-hash-distribution-key.md
 [rótulos]: sql-data-warehouse-develop-label.md
 [looping]: sql-data-warehouse-develop-loops.md
-[dinamização de dados]: sql-data-warehouse-develop-pivot-unpivot.md
 [estatísticas]: sql-data-warehouse-develop-statistics.md
 [procedimentos armazenados]: sql-data-warehouse-develop-stored-procedures.md
 [design de tabela]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 [Referência a Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renomear objetos]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

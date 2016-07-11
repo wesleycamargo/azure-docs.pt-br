@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos
 
 Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do portal do Azure que o habilita a exibir, editar, criar, carregar documentos e filtrar JSON com o Banco de Dados de Documentos.
 
+Observe que o Gerenciador de documentos não está habilitado em contas do Banco de Dados de Documentos com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
+
 ## Iniciar o Gerenciador de Documentos
 
-1. No portal do Azure, na barra de navegação, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e então clique em **Contas do Banco de Dados de Documentos**.
+1. No portal do Azure, no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e então clique em **Contas do Banco de Dados de Documentos**.
 
 2. Na parte superior da folha **Conta do Banco de Dados de Documentos**, clique em **Gerenciador de Documentos**.
  
@@ -41,7 +43,7 @@ Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de D
 
 2. Na folha **Gerenciador de Documentos**, clique em **Criar Documento**.
 
-    Um trecho mínimo de JSON é fornecido na folha **Documento**.
+    Um trecho mínimo de JSON é fornecido na folha **Document**.
 
 	![Captura de tela da experiência de criação de documentos do Gerenciador de Documentos, onde você pode exibir JSON e editar JSON](./media/documentdb-view-json-document-explorer/createdocument.png)
 
@@ -148,7 +150,7 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 
 ## Trabalhar com documentos JSON fora do portal
 
-O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Por obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
+O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados para o Banco de Dados de Documentos.
 
@@ -156,6 +158,6 @@ Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, Mon
 
 Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo a usar o Banco de Dados de Documentos.
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o Banco de Dados de Documentos.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

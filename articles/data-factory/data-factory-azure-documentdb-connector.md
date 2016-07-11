@@ -22,14 +22,15 @@ Este artigo descreve como você pode usar a Atividade de Cópia em uma Azure Dat
 
 O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Banco de Dados de Documentos do Azure e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
 
+[AZURE.NOTE] Não há suporte para a cópia de dados de/para o Banco de Dados de Documentos do Azure de/para armazenamentos de dados locais/IaaS do Azure no momento. A matriz completa do Banco de Dados de Documentos do Azure estará habilitada em breve.
 
 ## Exemplo: Copiar dados do Banco de Dados de Documentos para o Blob do Azure
 
 O exemplo a seguir mostra:
 
 1. Um serviço vinculado do tipo [Banco de Dados de Documentos](#azure-documentdb-linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. Um [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -170,7 +171,7 @@ O exemplo a seguir mostra:
 1. Um serviço vinculado do tipo [Banco de Dados de Documentos](#azure-documentdb-linked-service-properties).
 2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 
@@ -399,16 +400,16 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Especifique a consulta para ler dados. | Cadeia de caracteres de consulta com suporte pelo Banco de Dados de Documentos. <br/>Exemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"<br/> | Não. <br/><br/>Se não for especificada, a instrução SQL que é executada é: select <columns defined in structure> from mycollection 
-| nestingSeparator | Caractere especial para indicar que o documento está aninhado | Qualquer caractere. <br/><br/>O Banco de Dados de Documentos é um repositório NoSQL para documentos JSON, em que estruturas aninhadas são permitidas. O Azure Data Factory permite que o usuário indique a hierarquia via nestingSeparator, que é "." neste exemplo. Com o separador, a atividade de cópia vai gerar o objeto "Name" com três elementos filhos First, Middle e Last, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. | Não
+| query | Especifique a consulta para ler dados. | Cadeia de caracteres de consulta com suporte pelo Banco de Dados de Documentos. <br/><br/>Exemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | Não <br/><br/>Se não for especificada, a instrução SQL que será executada: select <colunas definidas na estrutura> from mycollection 
+| nestingSeparator | Caractere especial para indicar que o documento está aninhado | Qualquer caractere. <br/><br/>O Banco de Dados de Documentos corresponde a um armazenamento NoSQL para documentos JSON, onde estruturas aninhadas são permitidas. O Azure Data Factory permite que o usuário indique a hierarquia via nestingSeparator, que é "." neste exemplo. Com o separador, a atividade de cópia vai gerar o objeto "Name" com três elementos filhos First, Middle e Last, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. | Não
 
 **DocumentDbCollectionSink** dá suporte às seguintes propriedades:
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/>Exemplo acima: Name.First na tabela de saída produz a seguinte estrutura JSON no documento do Banco de Dados de Documentos:<br/><br/>"Name": {<br/> "First": "John"<br/>},<br/> | Caractere que é usado para separar os níveis de aninhamento. <br/>O valor padrão é . (ponto).<br/> | Caractere que é usado para separar os níveis de aninhamento. <br/>O valor padrão é . (ponto).<br/> | Não | 
-| writeBatchSize | Número de solicitações paralelas para o serviço Banco de Dados de Documentos criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados para/do Banco de Dados de Documentos usando essa propriedade. Você pode esperar um melhor desempenho quando você aumenta writeBatchSize, pois mais solicitações paralelas para Banco de Dados de Documentos são enviadas. No entanto, será necessário evitar a limitação que pode gerar a mensagem de erro: "Taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, indexação política da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo). | Valor inteiro | Não |
-| writeBatchTimeout | Tempo de espera para a operação ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não |
+| nestingSeparator | Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>Exemplo acima: Name.First na tabela de saída produz a seguinte estrutura JSON no documento do Banco de Dados de Documentos:<br/><br/>"Name": {<br/>"First": "John"<br/>}, | Caractere que é usado para separar os níveis de aninhamento. <br/><br/>O valor padrão é . (ponto). | Caractere que é usado para separar os níveis de aninhamento. <br/><br/>O valor padrão é . (ponto). | Não | 
+| writeBatchSize | Número de solicitações paralelas para o serviço do Banco de Dados de Documentos criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados para/do Banco de Dados de Documentos usando essa propriedade. Você pode esperar um melhor desempenho quando você aumenta writeBatchSize, pois mais solicitações paralelas para Banco de Dados de Documentos são enviadas. No entanto, será necessário evitar a limitação que pode gerar a mensagem de erro: "Taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, indexação política da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter mais taxa de transferência disponível (solicitação de 2.500 unidades/segundo). | Número inteiro | Não (padrão: 10000) |
+| writeBatchTimeout | Tempo de espera para a operação ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). | Não |
  
 ## Apêndice
 1. **Pergunta:** a atividade de cópia dá suporte à atualização de registros existentes?
@@ -421,12 +422,12 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
  
 3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
-	**Resposta:** Não. 
+	**Resposta:** Não.
 4. **Pergunta:** posso especificar mais de uma coleção de Banco de Dados de Documentos para uma tabela?
 	
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
 ## Desempenho e Ajuste  
-Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

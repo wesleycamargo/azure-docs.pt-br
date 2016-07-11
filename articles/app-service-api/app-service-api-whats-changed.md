@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="06/29/2016"
 	ms.author="mohisri"/>
 
 # Aplicativos de API do Serviço de Aplicativo: o que mudou
@@ -32,7 +32,7 @@ Os recursos existentes de autenticação de Aplicativos de API, Aplicativos/Serv
 
 Para cenários de API, há diversos recursos novos relevantes:
 
-- **Suporte ao uso direto do Active Directory do Azure**, sem precisar trocar o token AAD no código do cliente por um token de sessão: seu cliente pode incluir apenas os tokens AAD no cabeçalho de Autorização, de acordo com a especificação de token de portador. Isso também significa que um SDK específico ao Serviço de Aplicativo é exigido no lado do cliente ou do servidor. 
+- **Suporte ao uso direto do Active Directory do Azure**, sem precisar trocar o token AAD no código do cliente por um token de sessão: seu cliente pode incluir apenas os tokens AAD no cabeçalho de Autorização, de acordo com a especificação de token de portador. Isso também significa que um SDK específico ao Serviço de Aplicativo é exigido no lado do cliente ou do servidor.
 - **Acesso entre serviços ou "Interno"**: se você tiver um processo de daemon ou algum outro cliente que precise de acesso às APIs sem uma interface, você poderá solicitar um token usando uma entidade de serviço do AAD e passá-lo ao Serviço de Aplicativo para autenticação com seu aplicativo.
 - **Autorização adiada**: muitos aplicativos têm restrições de acesso diferentes para partes diferentes do aplicativo. Talvez você queira que algumas APIs estejam disponíveis publicamente, enquanto outras exijam o logon. O recurso de Autenticação/Autorização original era tudo ou nada, e todo o site exigia o logon. Essa opção ainda existe, mas você também pode permitir, como alternativa, que o código do aplicativo processe as decisões de acesso depois que o Serviço de Aplicativo tiver autenticado o usuário.
  
@@ -85,13 +85,13 @@ Se a sua API personalizada for implantada para a versão de visualização anter
 As etapas para reimplantação são iguais à implantação de qualquer API Web existente no Serviço de Aplicativo. Etapas:
 
 1. Criar um aplicativo de API vazio. Isso pode ser feito no portal, em Novo > Aplicativo de API, no Visual Studio desde a publicação, ou nas ferramentas do Gerenciador de Recursos. Ao usar as ferramentas ou modelos do Gerenciador de Recursos, defina o valor de **tipo** como **api** no tipo de recurso **Microsoft.Web/sites** para que os guias de início rápido e as configurações no Portal de Gerenciamento sejam orientados para cenários de API.
-2. Conecte e implante seu projeto no aplicativo de API vazio usando qualquer um dos mecanismos de implantação com suporte do Serviço de Aplicativo. Leia a [documentação de implantação do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md) para saber mais. 
+2. Conecte e implante seu projeto no aplicativo de API vazio usando qualquer um dos mecanismos de implantação com suporte do Serviço de Aplicativo. Leia a [documentação de implantação do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md) para saber mais.
   
 ### Autenticação
 Os serviços de autenticação do Serviço de Aplicativo oferecem suportam aos mesmos recursos disponíveis no modelo anterior dos Aplicativos de API. Se você estiver usando tokens de sessão e precisar de SDKs, use os seguintes SDKs de cliente e servidor:
 
 - Cliente: [SDK de cliente móvel do Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Servidor: [Extensão de autenticação .NET de aplicativo móvel do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
+- Servidor: [Extensão de autenticação .NET de aplicativo móvel do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Se em vez disso você estiver usando os SDKs alfa do Serviço de Aplicativo, eles já estarão obsoletos:
 
@@ -122,4 +122,4 @@ Para saber mais, leia os artigos na seção [Documentação de Aplicativos de AP
 - [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -160,7 +160,7 @@ Plug-in do Azure para Eclipse, versão de Visualização de fevereiro de 2014, f
 * **Atualização de pacote 45 do Azul Zulu OpenJDK.** A partir desta versão, a atualização 45 do Zulu (pacote Open JDK v7) do Azul System está disponível. Esse é um acréscimo às atualizações 40 e 25 disponíveis anteriormente.
 * **Suporte para “automática” para portas de ponto de extremidade privadas.** Você pode definir uma porta privada como automática para pontos de extremidade de entrada e pontos de extremidade internos a fim de permitir que o Azure atribua automaticamente uma porta a esse ponto de extremidade. Anteriormente, era possível atribuir apenas um número de porta específico.
 * **Suporte para personalização do nome do certificado (CN) na interface de usuário de criação de certificado autoassinado.** Anteriormente, o mesmo nome codificado era usado para todos os novos certificados; agora, você pode especificar seu próprio nome de certificado para ajudar a distinguir vários certificados no Portal do Azure usados para finalidades diferentes.
-* **Barra de ferramentas do azure:** a barra de ferramentas do Azure foi atualizada com as seguintes alterações: 
+* **Barra de ferramentas do azure:** a barra de ferramentas do Azure foi atualizada com as seguintes alterações:
     * ![][ic710876] Este ícone foi adicionado ao **Novo projeto de implantação do Azure**.
     * ![][ic710877] Este ícone foi adicionado como um atalho para a caixa de diálogo de criação de certificado autoassinado.
 * **Suporte para tamanho A5 de máquina virtual do Azure.** Agora você pode implantar um serviço de nuvem no tamanho da máquina virtual A5 de memória alta. Para saber mais sobre esse tamanho de VM, confira [Tamanhos de máquina virtual e serviço de nuvem para o Azure].
@@ -278,7 +278,7 @@ O Plug-in do Azure para Eclipse, CTP de junho de 2012, foi lançado. Os novos re
 * **Microsoft JDBC Driver 4.0 para SQL Server disponível durante a instalação do plug-in:** durante a instalação do novo plug-in, a versão mais recente do Microsoft JDBC Driver para SQL Server pode ser instalada.
 * **Filtro do Serviço de Controle de Acesso do Azure disponível durante a instalação do plug-in:** esse novo componente, incluído como uma biblioteca do Eclipse no kit de ferramentas, permite que seu aplicativo Web Java aproveite perfeitamente a autenticação ACS (Serviço de Controle de Acesso) do Azure usando vários provedores de identidade, como Google, Live.com e Yahoo!. Você não precisa escrever uma lógica de autenticação por conta própria, apenas configurar algumas opções e deixar o filtro fazer o trabalho pesado de permitir que os usuários façam logon usando ACS. Você pode se concentrar apenas em escrever o código que fornece aos usuários acesso aos recursos com base na identidade deles, conforme retorna ao seu aplicativo pelo filtro dentro do objeto de solicitação. Para obter um tutorial sobre como usar o filtro, confira [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse].
 * **Detecção automática do pré-requisito do SDK 1.7 do Azure:** quando você cria um novo projeto de implantação do Azure, o SDK 1.7 do Azure é baixado automaticamente, caso ainda não esteja instalado.
-* **Pontos de extremidade de instância:** permite acesso direto ao ponto de extremidade de porta para comunicação com instâncias de função com carga balanceada. Os pontos de extremidade de instância podem ser adicionados pela interface de usuário dos pontos de extremidade, disponível na página [Propriedades de pontos de extremidade]. Isso ajuda a habilitar a depuração remota e o diagnóstico de JMX para determinadas instâncias de computação em execução na nuvem em cenários de implantações com várias instâncias. 
+* **Pontos de extremidade de instância:** permite acesso direto ao ponto de extremidade de porta para comunicação com instâncias de função com carga balanceada. Os pontos de extremidade de instância podem ser adicionados pela interface de usuário dos pontos de extremidade, disponível na página [Propriedades de pontos de extremidade]. Isso ajuda a habilitar a depuração remota e o diagnóstico de JMX para determinadas instâncias de computação em execução na nuvem em cenários de implantações com várias instâncias.
 * **Interface de usuário dos componentes:** facilita, para os usuários avançados, a configuração de dependências de projeto entre funções individuais do Azure no projeto e outros recursos externos, como projetos de aplicativo Java; também facilita a descrição de suas lógicas de implantação. Para saber mais, consulte as [Propriedades dos componentes].
 * **Atualização automática de versões anteriores de projetos:** quando você abre um espaço de trabalho que possui um projeto do Azure criado com uma versão anterior do plug-in, os projetos antigos aparecerão no Eclipse como fechados, pois as versões anteriores dos projetos não são compatíveis com a nova versão. Se você tentar abrir um desses projetos antigos, um assistente de atualização será iniciado. Se você concordar com a atualização, um novo projeto com **\_Upgraded** anexado ao nome, será criado e atualizado automaticamente a fim de funcionar com a nova versão. Você pode renomear o novo projeto conforme o necessário. Como parte da atualização, seu projeto original não será modificado (e permanecerá fechado).
 
@@ -293,7 +293,7 @@ O plug-in do Azure para Eclipse, CTP de dezembro de 2011 foi lançado. Os novos 
 * **Interface de usuário de configuração remota de depuração do aplicativo Java:** com ela você pode permitir facilmente o acesso do depurador remoto do Eclipse ao seu aplicativo Java em execução no Emulador ou na nuvem do Azure, para que você consiga percorrer e depurar seu código Java em tempo real. Para saber mais, confira [Debugging Azure Applications in Eclipse].
 * **Interface de usuário de configuração do recurso de armazenamento local:** para que você não precise mais configurar recursos locais manipulando diretamente o XML. Este recurso também permite que você acesse o caminho do arquivo efetivo de seu recurso local após a implantação por meio de uma variável de ambiente, à qual você pode fazer referência diretamente de seu script de inicialização. Para saber mais, confira [Propriedades de armazenamento local].
 * **Interface do usuário de configuração da variável do ambiente:** para que você não precise mais definir variáveis do ambiente por meio da edição manual do XML de configuração. Para saber mais, confira [Propriedades de variáveis do ambiente].
-* **Driver JDBC para o SQL Azure:** é instalado por meio do plug-in como uma biblioteca do Eclipse totalmente integrada, permitindo uma programação mais fácil no SQL Azure. 
+* **Driver JDBC para o SQL Azure:** é instalado por meio do plug-in como uma biblioteca do Eclipse totalmente integrada, permitindo uma programação mais fácil no SQL Azure.
 * **Acesso rápido de menu de contexto à interface de usuário de configuração de função**: apenas clique com o botão direito na pasta da função e clique em **Propriedades**.
 * **Ícones personalizados de pasta de função e de projeto do Azure:** para obter melhor visibilidade e facilitar a navegação em seu espaço de trabalho e projeto.
 
@@ -355,4 +355,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

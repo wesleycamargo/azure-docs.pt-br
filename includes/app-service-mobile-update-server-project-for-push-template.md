@@ -1,4 +1,6 @@
-Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-end .NET](#dotnet) ou [back-end Node.js](#nodejs).
+Nesta seção, você aprenderá a atualizar o código em seu projeto de back-end de Aplicativos Móveis para enviar uma notificação por push sempre que um novo item for adicionado. Como os clientes são registrados para notificações por push usando um registro de modelo, uma mensagem de notificação pode ser enviada por push para todas as plataformas de cliente. Cada registro de modelo de cliente contém um parâmetro *messageParam*. Quando a notificação é enviada, o *messageParam* contém uma cadeia de caracteres que é o texto do item que está sendo inserido. Para saber mais sobre como usar modelos com os Hubs de Notificação, confira [Modelos](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Escolha abaixo o procedimento que corresponde ao seu tipo de projeto de back-end: [back-end .NET](#dotnet) ou [back-end Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end .NET
 1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de Hubs de Notificação para enviar notificações do seu back-end.
@@ -46,17 +48,15 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Este código manda o hub de notificação enviar uma notificação de um modelo para todos os registros de modelo que contêm "messageParam". A cadeia de caracteres será inserida no lugar de messageParam em cada PNS que tiver um registro usando "messageParam". Isso permite enviar a notificação para APNS, GCM, WNS ou qualquer outro PNS.
-
-	Para saber mais sobre modelos com os Hubs de Notificação, confira [Modelos](notification-hubs-templates.md).
+	Isso envia uma notificação de modelo que contém o item.Text quando um novo item todo é inserido.
 
 4. Republicar o projeto de servidor.
 
 ### <a name="nodejs"></a>Projeto de back-end Node.js
 
-1. Se você ainda não fez isso, [baixe o projeto de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Se você ainda não fez isso, [baixe o projeto de back-end de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
-2. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
+2. Substitua o código existente em todoitem.js pelo código a seguir:
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -70,7 +70,7 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam":' + context.item.text + '}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,3 +100,5 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
 	Isso envia uma notificação de modelo que contém o item.text quando um novo item todo é inserido.
 
 2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+
+<!---HONumber=AcomDC_0629_2016-->

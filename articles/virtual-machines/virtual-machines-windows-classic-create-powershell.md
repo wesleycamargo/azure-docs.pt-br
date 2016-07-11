@@ -26,7 +26,7 @@
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-ps-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-windows-ps-create.md).
 
 
 Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShell que criam e pré-configuram uma máquina virtual do Azure baseada em Windows usando uma abordagem de bloco de construção. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Windows e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
@@ -37,14 +37,14 @@ Se você ainda não fez isso, use as instruções em [Como instalar e configurar
 
 ## Etapa 1: adicionar sua conta
 
-1. No prompt do PowerShell, digite **Add-AzureAccount** e clique em **Enter**. 
-2. Digite o endereço de email associado à sua assinatura do Azure e clique em **Continuar**. 
-3. Digite a senha da sua conta. 
+1. No prompt do PowerShell, digite **Add-AzureAccount** e pressione **Enter**.
+2. Digite o endereço de email associado à sua assinatura do Azure e clique em **Continuar**.
+3. Digite a senha da sua conta.
 4. Clique em **Entrar**.
 
 ## Etapa 2: definir a assinatura e a conta de armazenamento
 
-Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Windows PowerShell. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Windows PowerShell. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -82,7 +82,7 @@ Se você encontrar a imagem correta com esse comando, abra uma nova instância d
 
 ## Etapa 4: criar o conjunto de comandos
 
-Crie o restante do seu conjunto de comandos, copiando o conjunto apropriado de blocos abaixo para o novo arquivo de texto ou o ISE e, em seguida, preenchendo os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
+Crie o restante do seu conjunto de comandos, copiando o conjunto apropriado de blocos abaixo para o novo arquivo de texto ou o ISE e, em seguida, preenchendo os valores das variáveis e remova os caracteres < e >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
 
 Comece seu conjunto de comandos escolhendo um destes dois blocos de comandos (obrigatório).
 
@@ -168,14 +168,14 @@ Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtua
 
 ## Etapa 5: executar o conjunto de comandos
 
-Examine o conjunto de comandos do PowerShell do Azure criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
+Examine o conjunto de comandos do PowerShell do Azure criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < e >.
 
 Se você estiver usando um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito do mouse no prompt de comando aberto do Windows PowerShell. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o comando definido com o ISE do PowerShell.
 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
 - Salvar este conjunto de comandos como um arquivo de script do PowerShell (*.ps1).
-- Salve este conjunto de comandos como um runbook de Automação do Azure na seção **Automação** do Portal Clássico do Azure.
+- Salve esse conjunto de comandos como um runbook da Automação do Azure na seção **Automação** do portal clássico do Azure.
 
 ## <a id="examples"></a>Exemplos
 
@@ -258,6 +258,6 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 ## Próximas etapas
 
-Se precisar de um disco do sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
+Se precisar de um disco de sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

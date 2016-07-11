@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Referência do Analytics no Application Insights | Microsoft Azure" 
-	description="Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights." 
+	description="Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -22,7 +22,11 @@
 
 ## Índice
 
-**Consultas e operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Let e set** [let](#let-clause) | [set](#set-clause)
+
+
+**Consultas e operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Agregações** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -38,7 +42,85 @@
 
 
 
+## Let e set
 
+### cláusula Let
+
+**Let de tabela - nomeando uma tabela**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Let escalar - nomeando um valor**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Let lambda - nomeando uma função**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
+Uma cláusula let associa um [nome](#names) a um resultado de tabela, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
+
+**Sintaxe**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
+
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain\_query:* uma consulta não prefixada por uma cláusula let.
+
+**Exemplos**
+
+    let rows(n:long) = range steps from 1 to n step 1;
+    rows(10) | ...
+
+
+Self-join:
+
+    let Recent = events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+### Cláusula Set
+
+A cláusula set define uma opção para a duração da consulta. As opções de consulta controlam como uma consulta será executada e como retornará resultados. Elas podem ser sinalizadores boolianos (desativado por padrão) ou ter algum valor inteiro. Uma consulta pode conter zero, uma ou mais instruções set. As instruções Set afetam somente as instruções de expressão de tabela que as rastreiam na ordem do programa.
+
+    set OptionName [= OptionValue] ; query
+
+
+|Nome | Implicação se definido como verdadeiro
+|---|---
+|querytrace| Aumenta o nível de rastreamentos de depuração gerados por uma consulta. 
+|noexecute| Desabilita a execução real da consulta (apenas a fase de planejamento da consulta é executada). 
+|perftrace| Habilita o rastreamento de desempenho. 
+|notruncation| Desabilita o truncamento do conjunto de resultados. 
+|truncationmaxsize| Limita o tamanho de dados de resultado de consulta (em Bytes). 
+|truncationmaxrecords| Limita o número de registros de resultado de consulta. 
+|nostreaming |Desabilita o streaming do conjunto de resultados. 
+
+**Exemplo**
+
+```
+
+    set querytrace;
+    requests | take 100
+```
 
 ## Consultas e operadores
 
@@ -148,7 +230,7 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 * *Tabela1*: o “lado esquerdo” da junção.
 * *Tabela2*: o “lado direito” da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
 * *CommonColumn*: uma coluna que tem o mesmo nome nas duas tabelas.
-* *Kind*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
+* *Variante*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
 
 **Retorna**
 
@@ -200,59 +282,12 @@ Obtenha atividades estendidas a partir de um log em que algumas entradas marcam 
 
 ```
 
-### cláusula Let
-
-**Let de tabela - nomeando uma tabela**
-
-    let recentReqs = requests | where timestamp > ago(3d); 
-    recentReqs | count
-
-**Let escalar - nomeando um valor**
-
-    let interval = 3d; 
-    requests | where timestamp > ago(interval)
-
-**Let lambda - nomeando uma função**
-
-    let Recent = 
-       (interval:timespan) { requests | where timestamp > ago(interval) };
-    Recent(3h) | count
-
-Uma cláusula let associa um [nome](#names) a um resultado de tabela, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
-
-**Sintaxe**
-
-    let name = scalar_constant_expression ; query
-
-    let name = query ; query
-
-    let name = (parameterName : type [, ...]) { plain_query }; query
-
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid` e [`dynamic`](#dynamic-type)
-* *plain\_query:* uma consulta não prefixada por uma cláusula let.
-
-**Exemplos**
-
-    let rows(n:long) = range steps from 1 to n step 1;
-    rows(10) | ...
-
-
-Self-join:
-
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
 
 ### operador limit
 
      T | limit 5
 
-Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator).)
+Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator)).
 
 **Alias** `take`
 
@@ -275,7 +310,7 @@ Há um limite implícito quanto ao número de linhas retornadas ao cliente, mesm
 
 Expande uma lista de uma célula dinamicamente tipada (JSON) para que cada entrada tenha uma linha separada. Todas as outras células em uma linha expandida são duplicadas.
 
-(Veja também [`summarize makelist`](#summarize-operator), que executa a função oposta.)
+(Veja também [`summarize makelist`](#summarize-operator), que executa a função oposta).
 
 **Exemplo**
 
@@ -322,7 +357,7 @@ A coluna expandida sempre tem um tipo dinâmico. Use uma conversão, como `todat
 Há suporte para dois modos de expansões de recipiente de propriedades:
 
 * `bagexpansion=bag`: os recipientes de propriedades são expandidos como recipientes de propriedades de entrada única. Essa é a expansão padrão.
-* `bagexpansion=array`: os recipientes de propriedades são expandidos como estruturas de `[`*valor*`,`chave*`]` de matriz de dois elementos, permitindo o acesso uniforme a chaves e valores (bem como, por exemplo, a execução de uma agregação de contagem distinta sobre nomes de propriedades). 
+* `bagexpansion=array`: os recipientes de propriedades são expandidos como estruturas de matriz de `[`*chave*`,`*valor*`]` de dois elementos, permitindo o acesso uniforme a chaves e valores (bem como, por exemplo, a execução de uma agregação de contagem distinta sobre nomes de propriedades).
 
 **Exemplos**
 
@@ -377,7 +412,7 @@ Os elementos na cláusula `with` são comparados ao texto de origem sucessivamen
 * Em uma análise de regex, uma expressão regular pode usar o operador de minimização '?' para passar assim que possível para a correspondência seguinte.
 * Um nome de coluna com um tipo analisa o texto como o tipo especificado. A menos que kind=relaxed, uma análise malsucedida invalida a correspondência do padrão inteiro.
 * Um nome de coluna sem um tipo ou com o tipo 'string' copia o número mínimo de caracteres para obter a correspondência seguinte.
-* ' * ' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar ' *' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
+* ' * ' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar '*' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
 
 Todos os elementos em um padrão de análise devem corresponder corretamente. Caso contrário, nenhum resultado será produzido. A exceção a essa regra é que, quando kind=relaxed, se uma análise de uma variável com tipo falhar, o restante da análise continuará.
 
@@ -464,7 +499,7 @@ Agendador | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
     T | project cost=price*quantity, price
 
-Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Veja também `extend`.)
+Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Veja também `extend`).
 
 
 **Sintaxe**
@@ -529,7 +564,7 @@ Gera uma tabela de coluna única de valores. Observe que ele não tem uma entrad
 * *Stop:* o valor mais elevado que está sendo gerado na saída (ou um limite para o valor mais elevado, se *step* passar por esse valor).
 * *Step:* a diferença entre dois valores consecutivos. 
 
-Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator).)
+Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator)).
 
 **Retorna**
 
@@ -818,7 +853,7 @@ As linhas em *T* para as quais o *Predicate* é `true`.
 
 Para obter o desempenho mais rápido:
 
-* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constant” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause).)
+* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constant” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
 
     Por exemplo, prefira `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -1014,7 +1049,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset).)
+Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset)).
 
 *Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1035,7 +1070,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset).)
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
 
 *Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1062,7 +1097,7 @@ Retorna uma matriz `dynamic` (JSON) de todos os valores de *Expr* no grupo.
 
     makeset(Expression [ , MaxSetSize ] )
 
-Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* usa no grupo. (Dica: para contar apenas os valores distintos, use [`dcount`](#dcount).)
+Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* usa no grupo. (Dica: para contar apenas os valores distintos, use [`dcount`](#dcount)).
   
 *  *MaxSetSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é de *128*).
 
@@ -1262,7 +1297,7 @@ Verifique se uma cadeia de caracteres pode ser convertida em um tipo específico
 
 **Retorna**
 
-Uma cadeia de caracteres que representa o tipo de armazenamento subjacente de seu argumento único. Isso é particularmente útil quando há valores do tipo `dynamic`: nesse caso, `gettype()` revelará como um valor é codificado.
+Uma cadeia de caracteres que representa o tipo de armazenamento subjacente de seu argumento único. Isso é particularmente útil quando há valores da variante `dynamic`: nesse caso, `gettype()` revelará como um valor é codificado.
 
 **Exemplos**
 
@@ -1898,7 +1933,7 @@ Conta as ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres
 
 * *text:* uma cadeia de caracteres.
 * *search:* a cadeia de caracteres simples ou a expressão regular a ser correspondida em *text*.
-* *kind:* `"normal"|"regex"` padrão `normal`. 
+* *variante:* `"normal"|"regex"` padrão `normal`.
 
 **Retorna**
 
@@ -1933,7 +1968,7 @@ Obtém uma correspondência para uma [expressão regular](#regular-expressions) 
 * *regex:* uma [expressão regular](#regular-expressions).
 * *captureGroup:* uma constante `int` positiva que indica o grupo de captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
 * *text:* um `string` para pesquisar.
-* *typeLiteral:* um literal de tipo opcional (por exemplo, `typeof(long)`). Se for fornecido, a subcadeia de caracteres extraída será convertida para esse tipo. 
+* *typeLiteral:* um literal de tipo opcional (por exemplo, `typeof(long)`). Se for fornecido, a subcadeia de caracteres extraída será convertida para esse tipo.
 
 **Retorna**
 
@@ -2006,7 +2041,7 @@ Substitua todas as correspondências de regex por outra cadeia de caracteres.
 
 **Argumentos**
 
-* *regex:* a [expressão regular](https://github.com/google/re2/wiki/Syntax) para pesquisar em *text*. Pode conter grupos de captura entre '('parênteses')'. 
+* *regex:* a [expressão regular](https://github.com/google/re2/wiki/Syntax) para pesquisar em *text*. Pode conter grupos de captura entre '('parênteses')'.
 * *rewrite:* o regex de substituição para qualquer correspondência feita por *matchingRegex*. Use `\0` para referir-se à correspondência inteira, `\1` para o primeiro grupo de captura `\2` etc. para grupos de captura subsequentes.
 * *text:* uma cadeia de caracteres.
 
@@ -2051,7 +2086,7 @@ Divide uma determinada cadeia de caracteres de acordo com um determinado delimit
 
 * *source*: a cadeia de caracteres de origem que será dividida de acordo com o delimitador especificado.
 * *delimiter*: o delimitador que será usado para dividir a cadeia de caracteres de origem.
-* *requestedIndex*: um índice opcional baseado em zero `int`. Se for fornecido, a matriz de cadeias de caracteres retornada conterá a subcadeia de caracteres solicitada, se ela existir. 
+* *requestedIndex*: um índice opcional baseado em zero `int`. Se for fornecido, a matriz de cadeias de caracteres retornada conterá a subcadeia de caracteres solicitada, se ela existir.
 
 **Retorna**
 
@@ -2096,7 +2131,7 @@ Extrai uma subcadeia de caracteres de uma cadeia de caracteres de origem forneci
 
 * *source:* a cadeia de caracteres de origem por meio da qual a subcadeia de caracteres será extraída.
 * *startingIndex:* a posição do caractere inicial com base em zero da subcadeia de caracteres solicitada.
-* *length:* um parâmetro opcional que pode ser usado para especificar o número solicitado de caracteres na subcadeia de caracteres. 
+* *length:* um parâmetro opcional que pode ser usado para especificar o número solicitado de caracteres na subcadeia de caracteres.
 
 **Retorna**
 
@@ -2216,9 +2251,9 @@ Observe que o `indexer` é usado para marcar onde você deve usar um índice num
 Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argumento de cadeia de caracteres JSON:
 
 * `parsejson('[43, 21, 65]')`: uma matriz de números
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
-* `parsejson('21')`: um único valor de tipo dinâmico contendo um número
-* `parsejson('"21"')`: um único valor de tipo dinâmico contendo uma cadeia de caracteres
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
+* `parsejson('21')`: um único valor de tipo dinâmico que contém um número
+* `parsejson('"21"')`: um único valor de tipo dinâmico que contém uma cadeia de caracteres
 
 Observe que, diferentemente do JavaScript, o JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
 
@@ -2387,7 +2422,7 @@ A função `range()` (não deve ser confundida com o operador `range`) gera uma 
 
 **Argumentos**
 
-* *start:* o valor do primeiro elemento na matriz resultante. 
+* *start:* o valor do primeiro elemento na matriz resultante.
 * *stop:* o valor do último elemento na matriz resultante ou o valor mínimo maior do que o último elemento na matriz resultante e dentro de um número inteiro múltiplo de *step* de *start*.
 * *step:* a diferença entre dois elementos consecutivos da matriz.
 
@@ -2458,5 +2493,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
-
+<!---HONumber=AcomDC_0629_2016-->

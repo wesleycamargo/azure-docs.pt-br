@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -57,20 +57,20 @@ O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-Para obter esses valores de uma Conta de Armazenamento Clássica ou ARM no Portal do Azure:
+Para obter esses valores de uma conta de armazenamento clássico ou do Resource Manager no Portal do Azure:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Na folha Configurações no lado direito, clique em **Chaves de Acesso**.
-4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas. 
-5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
+4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas.
+5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
-Para obter esses valores de uma Conta de Armazenamento Clássica no Portal Clássico:
+Para obter esses valores de uma conta de armazenamento clássico no Portal Clássico do Azure:
 
-1. Faça logon no [Portal Clássico](https://manage.windowsazure.com).
+1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior do painel de navegação.
-4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária. 
+4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
 5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
 ## Como criar uma fila
@@ -162,4 +162,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 Para fazer uma comparação entre o Serviço Fila do Azure discutido neste artigo e as ilas do Barramento de Serviço do Azure discutidas no artigo [Como usar o Barramento de Serviço](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

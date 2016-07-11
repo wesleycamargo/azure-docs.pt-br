@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 # Estimar o uso de largura de banda de rede do Azure RemoteApp 
@@ -39,4 +39,4 @@ Embora, discutamos o redirecionamento de dispositivo, podemos não levar em cons
 
 Também não discutimos como um usuário pode afetar outros usuários na mesma rede. Por exemplo, um usuário consumindo 4K vídeo em uma rede de 100 MB/s pode afetar significativamente outros usuários na mesma rede tentando fazer a mesma tarefa. Infelizmente, torna-se progressivamente mais difícil determinar o impacto de uso simultâneo para fornecer uma recomendação comum ou totalmente abrangente sobre o desempenho do sistema durante a agregação. Tudo o que podemos dizer é que a tecnologia de protocolo subjacente fará o melhor uso da largura de banda de rede disponível, mas ela tem suas limitações.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

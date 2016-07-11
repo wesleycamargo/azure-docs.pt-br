@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Metadados de federação
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
-O Azure AD (Azure Active Directory) publica um documento de metadados de federação para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados de federação é descrito no [Web Services Federation Language (WS-Federation) Versão 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [Metadados para o SAML (Security Assertion Markup Language) OASIS v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+O Azure AD (Azure Active Directory) publica um documento de metadados de federação para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados federados é descrito no [Web Services Federation Language (WS-Federation) Versão 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [Metadados para o OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
 ## Pontos de extremidade de metadados específicos de locatário e independentes de locatário
 
@@ -73,7 +71,7 @@ entityID="https://sts.windows.net/{tenant}/">
 
 ### Certificados de autenticação de tokens
 
-Quando um serviço recebe um token emitido por um locatário do AD do Azure, a assinatura do token deve ser validada com uma chave de assinatura publicada no documento de metadados de federação. Os metadados de federação incluem a parte pública dos certificados que os locatários usam para autenticação de tokens. Os bytes brutos do certificado aparecem no elemento `KeyDescriptor`. O certificado de assinatura de token é válido para a assinatura somente quando o valor do atributo `use` é `signing`.
+Quando um serviço recebe um token emitido por um locatário do AD do Azure, a assinatura do token deve ser validada com uma chave de assinatura publicada no documento de metadados de federação. Os metadados de federação incluem a parte pública dos certificados que os locatários usam para autenticação de tokens. Os bytes brutos do certificado aparecem no elemento `KeyDescriptor`. O certificado de assinatura de token é válido para a assinatura somente quando o valor do `use`atributo é `signing`.
 
 Um documento de metadados de federação publicado pelo Azure AD pode ter várias chaves de assinatura, como quando o Azure AD está se preparando para atualizar o certificado de autenticação. Quando um documento de metadados de federação inclui mais de um certificado, um serviço que valida os tokens deve dar suporte a todos os certificados no documento.
 
@@ -91,19 +89,19 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-O elemento `KeyDescriptor` aparece em dois lugares no documento de metadados de federação: na seção específica do WS-Federation e na seção específica de SAML. Os certificados publicados em ambas as seções serão os mesmos.
+O elemento `KeyDescriptor` aparece em dois lugares no documento de metadados federados na seção específica do WS-Federation e na seção específica de SAML. Os certificados publicados em ambas as seções serão os mesmos.
 
-Na seção específica do WS-Federation, um leitor de metadados de WS-Federation leria os certificados de um elemento `RoleDescriptor` com o tipo `SecurityTokenServiceType`.
+Na seção específica do WS-Federation um leitor de metadados de WS-Federation leria os certificados de um `RoleDescriptor` elemento com o `SecurityTokenServiceType` tipo.
 
-Os metadados a seguir mostram um elemento de exemplo `RoleDescriptor`.
+Os metadados a seguir mostram um elemento `RoleDescriptor` de exemplo.
 
 ```
 <RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Na seção específica de SAML, um leitor de metadados de WS-Federation leria os certificados de um elemento `IDPSSODescriptor`.
+Na seção específica de SAML, um leitor de metadados de WS-Federation leria os certificados de um `IDPSSODescriptor` elemento.
 
-Os metadados a seguir mostram um elemento de exemplo `IDPSSODescriptor`.
+Os metadados a seguir mostram um elemento `IDPSSODescriptor` de exemplo.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -112,7 +110,7 @@ Não há diferenças no formato de certificados específicos de locatário e ind
 
 ### URL de ponto de extremidade de WS-Federation
 
-Os metadados de federação incluem a URL que usa o AD do Azure para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade é mostrado no elemento `PassiveRequestorEndpoint`.
+Os metadados de federação incluem a URL que usa o AD do Azure para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade é mostrado no `PassiveRequestorEndpoint` elemento.
 
 Os metadados a seguir mostram um elemento `PassiveRequestorEndpoint` de exemplo para um ponto de extremidade específico de locatário.
 
@@ -139,7 +137,7 @@ https://login.microsoftonline.com/common/wsfed
 
 ### URL de ponto de extremidade do protocolo SAML
 
-Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2.0. Esses pontos de extremidade aparecem no elemento `IDPSSODescriptor`.
+Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2.0. Esses pontos de extremidade aparecem no `IDPSSODescriptor` elemento.
 
 As URLs de entrada e saída aparecem nos elementos `SingleSignOnService` e `SingleLogoutService`.
 
@@ -163,4 +161,4 @@ Da mesma forma, os pontos de extremidade para os pontos de extremidade de protoc
   </IDPSSODescriptor>
 ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

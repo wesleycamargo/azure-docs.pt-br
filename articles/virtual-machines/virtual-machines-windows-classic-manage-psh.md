@@ -19,7 +19,7 @@
 
 # Gerenciar suas máquinas virtuais usando o Azure PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
@@ -27,12 +27,12 @@ Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automati
 >[AZURE.NOTE] Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 ## Como usar os comandos de exemplo
-Você precisará substituir parte do texto nos comandos por texto apropriado para seu ambiente. Os símbolos < and > indicam o texto que você precisa substituir. Ao substituir o texto, remova os símbolos, mas mantenha as aspas.
+Você precisará substituir parte do texto nos comandos por texto apropriado para seu ambiente. O < e > símbolos indicam o texto que você deve substituir. Ao substituir o texto, remova os símbolos, mas mantenha as aspas.
 
 ## Obter uma VM
 Essa é uma tarefa básica que você usará com frequência. Use-a para obter informações sobre uma VM, executar tarefas em uma VM ou obter a saída para armazenar em uma variável.
 
-Para obter informações sobre a VM, execute este comando, substituindo tudo entre aspas, inclusive os caracteres < and >:
+Para obter informações sobre a VM, execute este comando, substituindo tudo entre aspas, incluindo os caracteres < e >:
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -46,10 +46,10 @@ Execute estes comandos:
 
 >[AZURE.NOTE] Você pode obter o nome do serviço de nuvem e de máquina virtual na exibição do comando **Get-AzureVM**.
 >
-	$svcName="<cloud service name>"
-	$vmName="<virtual machine name>"
-	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "" + $vmname + ".rdp"
+	$svcName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile = $localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## Parar uma VM
@@ -73,20 +73,18 @@ Você também precisará decidir se deseja anexar um novo disco ou um que conten
 
 Para anexar um novo disco, execute este comando:
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
-              | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
 Para anexar um disco de dados existente, execute este comando:
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
-              | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
 Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blob, execute este comando:
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
-              -DiskLabel "<main>" -LUN <0> `
-              | Update-AzureVM
+              -DiskLabel "<main>" -LUN <0> |
+              Update-AzureVM
 
 ## Criar uma VM baseada no Windows
 
@@ -97,4 +95,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente.
 - Com um endereço IP estático.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

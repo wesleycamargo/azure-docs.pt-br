@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
@@ -55,6 +55,8 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 5. Embora as especificidades de cada registrador variem, em geral, você mapeia *de* seu nome de domínio personalizado (como **contoso.com**,) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) que é usado para seu aplicativo web.
 
+> [AZURE.NOTE] Como alternativa, se um registro já está em uso e será necessário vincular seus aplicativos a ele, mapeie preventivamente **awverify.contoso.com** em **contoso.trafficmanager.net**.
+
 6. Depois de terminar a adição ou a modificação de registros DNS no registrador, salve as alterações.
 
 <a name="enabledomain"></a>
@@ -66,4 +68,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

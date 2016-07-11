@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Gerenciador de Recursos)
@@ -39,9 +39,8 @@ Se você estiver provisionando uma nova máquina de virtual do SQL Server com o 
 
 Para obter uma explicação detalhada sobre o provisionamento, confira [Provisionar uma máquina virtual do SQL Server no Portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Se precisar habilitar a integração de AKV em uma VM existente, você poderá usar um modelo. Para obter mais informações, confira [Modelo de início rápido do Azure para integração com o Cofre de Chaves do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup).
-
+Se precisar habilitar a integração de AKV em uma VM existente, você poderá usar um modelo. Para saber mais, confira [Azure quickstart template for Azure Key Vault integration (Modelo de início rápido do Azure para integração com o Cofre de Chaves do Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 
 [AZURE.INCLUDE [Próximas Etapas da Integração de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

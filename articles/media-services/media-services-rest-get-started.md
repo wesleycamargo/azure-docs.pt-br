@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de conteúdo sob demanda usando API REST
@@ -33,7 +33,7 @@ O tutorial apresenta o fluxo de trabalho básico dos Serviços de Mídia e os ob
 Os seguintes pré-requisitos são necessários para começar a desenvolver com os serviços de mídia com APIs REST.
 
 - Noções básicas sobre como desenvolver com API REST dos serviços de mídia. Para saber mais, consulte [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
-- Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler). 
+- Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler).
 
 As tarefas a seguir são mostradas neste guia de início rápido.
 
@@ -42,8 +42,8 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 1.  Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
 1.  Configurar unidades de streaming com API REST.
 2.  Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
-1.  Publicar o ativo e obter URLs de download progressivo e streaming com API REST. 
-1.  Reproduzir o conteúdo. 
+1.  Publicar o ativo e obter URLs de download progressivo e streaming com API REST.
+1.  Reproduzir o conteúdo.
 
 
 ## <a id="create_ams"></a>Criar uma conta de Serviços de Mídia usando o Portal
@@ -80,16 +80,16 @@ Duas coisas são necessárias ao acessar os serviços de mídia do Azure: um tok
 
 As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
 
-1. Obtendo um token de acesso. 
-2. Conectando o URI dos serviços de mídia.  
+1. Obtendo um token de acesso.
+2. Conectando o URI dos serviços de mídia.
 
 	Lembre-se de que, depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
-3. Postando suas chamadas de API subsequentes para a nova URL. 
+3. Postando suas chamadas de API subsequentes para a nova URL.
 	
 	Por exemplo, se depois de tentar se conectar, você tem o seguinte:
 		
-			HTTP/1.1 301 Moved Permanently
-			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
 	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
@@ -221,7 +221,7 @@ Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo.
 Um dos valores que você precisa fornecer ao criar um ativo é opções de criação do ativo. A propriedade **Options** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores desta lista:
 
  
-- **None** = **0** — nenhuma criptografia é usada. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
+- **None** = **0** — nenhuma criptografia é usada. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
 - **StorageEncrypted** = **1** — criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, o carrega no Armazenamento do Azure, onde ele é armazenado criptografado e inativo. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 - **CommonEncryptionProtected** = **2** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 - **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
@@ -405,7 +405,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 - Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-- Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").	
+- Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
 - Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
 
 O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
@@ -669,7 +669,7 @@ Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Az
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
-- obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. 
+- obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
 A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído você será capaz de criar localizadores são necessários para acessar seus ativos.
 
@@ -724,7 +724,7 @@ O código a seguir solicita a ID do codificador.
 
 Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) com suporte no processador do Codificador de Mídia Padrão.
+O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) compatíveis com o processador do Codificador de Mídia Padrão.
 
 **Solicitação HTTP**
 	
@@ -823,16 +823,16 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 
 - As propriedades TaskBody DEVEM usar XML literal para definir o número de entrada ou os ativos de saída que serão usados pela tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
-- Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
+- Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(valor) ou JobOutputAsset(valor).
 - Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 - Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 - As tarefas não devem formar um ciclo.
-- O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa. 
+- O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa.
 
 >[AZURE.NOTE] Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "\_\_metadata : uri".
 
 - Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
+- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor de Job Name ou o valor de Job Id (no caso em que a propriedade Name não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
 
 	O exemplo a seguir mostra como definir o atributo assetName:
 	
@@ -985,9 +985,9 @@ Uma URL SAS usada para baixar arquivos tem o seguinte formato:
 
 Esta seção mostra como executar as seguintes tarefas necessárias para “publicar" seus ativos.
 
-- Criando o AccessPolicy com permissão de leitura 
-- Criando uma URL SAS para download de conteúdo 
-- Criando uma URL de origem para conteúdo de streaming 
+- Criando o AccessPolicy com permissão de leitura
+- Criando uma URL SAS para download de conteúdo
+- Criando uma URL de origem para conteúdo de streaming
 
 ###Criando o AccessPolicy com permissão de leitura
 
@@ -1204,4 +1204,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

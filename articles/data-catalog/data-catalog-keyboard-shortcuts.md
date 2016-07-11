@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="03/31/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Atalhos de teclado do Catálogo de Dados do Azure
@@ -92,4 +92,4 @@
 |Ativar/desativar o menu **Abrir em** | ALT+O
 |Explorar o contêiner, se o ativo for um contêiner | ALT + L
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

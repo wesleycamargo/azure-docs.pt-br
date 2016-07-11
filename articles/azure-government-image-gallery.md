@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Galeria de Imagens do Governo do Azure" 
-   description="Este artigo fornece uma visão geral da Galeria de Imagens do Governo do Azure e as imagens incluídas" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Galeria de Imagens do Governo do Azure | Microsoft Azure"
+   description="Este artigo fornece uma visão geral da Galeria de Imagens do Governo do Azure e as imagens incluídas"
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="06/01/2016"
    ms.author="brendalee"/>
 
@@ -118,7 +118,7 @@ Visual Studio|Visual Studio Enterprise 2015 Atualização 2 com SDK do Azure 2.9
 
 O recursos abaixo devem fornecer mais informações sobre como implantar da galeria de imagens ou criar seu próprio VHD. Consulte o <a href="../azure-government-developer-guide">Guia para desenvolvedor do Azure Government</a> para descobrir diferenças programáticas com pontos de extremidade ao trabalhar com o Azure Government.
 
-###Outros recursos: 
+###Outros recursos:
 
 - [Implantação de uma Máquina Virtual do Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
@@ -141,4 +141,4 @@ O recursos abaixo devem fornecer mais informações sobre como implantar da gale
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

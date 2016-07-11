@@ -37,7 +37,7 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 -	[Que método de roteamento o Gerenciamento de API usa quando implantado em vários locais geográficos?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Posso criar uma instância do serviço de Gerenciamento de API usando um modelo do ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
-
+-	[Por que estou recebendo falha de autenticação ao tentar clonar o repositório GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 
 
 ### Como fazer uma pergunta à equipe de Gerenciamento de API?
@@ -48,14 +48,14 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 
 ### Se um recurso está em Visualização, o que isso significa?
 
-Um recurso em visualização está funcionalmente completo, mas está em visualização porque estamos buscando ativamente comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver comentários sobre os recursos em visualização, informe-nos usando um dos mecanismos descritos em [Como fazer uma pergunta à equipe do Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team).
+Um recurso em visualização está funcionalmente completo, mas está em visualização porque estamos buscando ativamente comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver comentários sobre os recursos em preview, informe-nos usando um dos mecanismos descritos em [Como fazer uma pergunta à equipe do Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team).
 
 ### Quais são as opções com suporte para proteger a conexão entre o gateway de Gerenciamento de API e meus serviços de back-end?
 
 Há várias opções diferentes com suporte.
 
 1. Use a autenticação básica HTTP. Para saber mais, confira [Definir configurações de API](api-management-howto-create-apis.md#configure-api-settings).
-2. Use a autenticação mútua de SSL conforme descrito em [Saiba como garantir serviços de back-end usando a autenticação de certificado do cliente no Gerenciamento de API do Azure.](api-management-howto-mutual-certificates.md).
+2. Use a autenticação mútua de SSL conforme descrito em [Saiba como garantir serviços de back-end usando a autenticação de certificado do cliente no Gerenciamento de API do Azure](api-management-howto-mutual-certificates.md).
 3. Use a lista branca de IPs em seu serviço de back-end. Se você tiver uma instância de Gerenciamento de API de camada Standard ou Premium, o endereço IP do gateway permanecerá constante e você poderá configurar sua lista branca para permitir esse endereço IP. Você pode recuperar o endereço IP da sua instância de Gerenciamento de API no **Painel** do Portal Clássico do Azure.
 4. Você pode conectar sua instância de Gerenciamento de API a uma Rede Virtual do Azure (clássico). Para saber mais, confira [Como configurar conexões VPN no Gerenciamento de API do Azure](api-management-howto-setup-vpn.md).
 
@@ -63,9 +63,9 @@ Há várias opções diferentes com suporte.
 
 Há várias opções diferentes que você pode usar para copiar uma instância de serviço de Gerenciamento de API para uma nova instância.
 
--	Use o recurso de backup e restauração do Gerenciamento de API. Para saber mais, confira [Como implementar a recuperação de desastres usando o backup de serviço e restaurar no Gerenciamento de API no Azure](api-management-howto-disaster-recovery-backup-restore.md).
+-	Use o recurso de backup e restauração do Gerenciamento de API. Para saber mais, confira [Como implementar a recuperação de desastre usando restauração e backup de serviço no Gerenciamento de API no Azure](api-management-howto-disaster-recovery-backup-restore.md).
 -	Crie o seu próprio recurso de backup e restauração usando a [API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) para salvar e restaurar as entidades desejadas de sua instância de serviço.
--	Baixe a configuração de serviço usando o Git e carregue-a novamente em uma nova instância. Para saber mais, confira [Saiba como salvar e definir a configuração do seu serviço de Gerenciamento de API usando o Git](api-management-configuration-repository-git.md).
+-	Baixe a configuração de serviço usando o Git e carregue-a novamente em uma nova instância. Para obter mais informações, consulte [Saiba como salvar e definir a configuração do seu serviço de Gerenciamento de API usando o Git](api-management-configuration-repository-git.md).
 
 ### Posso gerenciar minha instância de Gerenciamento de API por meio de programação?
 
@@ -75,11 +75,11 @@ Sim, você pode gerenciá-la usando a [API REST do Gerenciamento de API](https:/
 
 Isso pode ser feito por meio das seguintes etapas:
 
-1. Fazer logon no novo [Portal do Azure](https://portal.azure.com) 
+1. Fazer logon no novo [Portal do Azure](https://portal.azure.com)
 2. Navegar até o grupo de recursos que contém a instância desejada do Gerenciamento de API
 3. Adicionar o usuário desejado à função de "Colaborador de Gerenciamento de Api"
 
-Depois disso, o colaborador recém-adicionada pode usar os [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) do Azure PowerShell para fazer logon como um administrador:
+Depois disso, o colaborador recém-adicionado pode usar os [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) do Azure PowerShell para fazer logon como um administrador:
 
 1. Usar o cmdlet `Login-AzureRmAccount` para fazer logon
 2. Definir o contexto para a assinatura que contém o serviço usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
@@ -89,13 +89,13 @@ Depois disso, o colaborador recém-adicionada pode usar os [cmdlets](https://msd
 
 ### Por que a política que desejo adicionar não está habilitada no editor de política?
 
-Se a política que você quer adicionar não estiver habilitada, verifique se você está no escopo correto para essa política. Cada declaração de política é projetada para uso em determinados escopos e seções de política. Para examinar as seções da política e os escopos de uma política, verifique a seção **Uso** dessa política na [Referência à política](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Se a política que você quer adicionar não estiver habilitada, verifique se você está no escopo correto para essa política. Cada declaração de política é projetada para uso em determinados escopos e seções de política. Para examinar as seções da política e os escopos de uma política, verifique a seção **Uso** dessa política na [Referência à Política](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
 
 ### Como posso obter o controle de versão de API com o Gerenciamento de API?
 
 -	Você pode configurar APIs distintas no Gerenciamento de API que representam diferentes versões. Por exemplo, você pode ter `MyAPI v1` e `MyAPI v2` como duas APIs diferentes e os desenvolvedores podem escolher qual versão desejam usar.
--	Você também pode configurar sua API com uma URL de serviço que inclui um segmento de versão, por exemplo, `https://my.api`. Você pode configurar um segmento de versão no modelo [URL de Regravação](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operação, por exemplo, pode ter uma operação com um [modelo de URL](api-management-howto-add-operations.md#url-template) de `/resource` e o modelo [URL de Regravação](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. Dessa forma, você poderá alterar o valor de segmento de versão de cada operação separadamente.
+-	Você também pode configurar sua API com uma URL de serviço que não inclui um segmento de versão, por exemplo, `https://my.api`. Você pode configurar um segmento de versão no modelo [URL de Regravação](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operação, por exemplo, pode ter uma operação com um [modelo de URL](api-management-howto-add-operations.md#url-template) de `/resource` e o modelo [URL de Regravação](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. Dessa forma, você poderá alterar o valor de segmento de versão de cada operação separadamente.
 -	Se você quiser manter um segmento de versão "padrão" na URL de serviço da API, em operações selecionadas, poderá definir uma política que usa a política [Definir serviço de back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) para alterar o caminho de solicitação de back-end.
 
 ### Como posso configurar vários ambientes de produção e APIs, por exemplo, Sandbox e Produção?
@@ -132,7 +132,7 @@ Para saber mais sobre como configurar esse cenário, confira [Usando ADFS no Ger
 
 ### Que método de roteamento o Gerenciamento de API usa quando implantado em vários locais geográficos? 
 
-O Gerenciamento de API usa o [Método de roteamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). O tráfego será roteado para o gateway de API mais próximo. Se uma região ficar offline, o tráfego de entrada será automaticamente roteado para o gateway mais próximo. Para saber mais sobre métodos de roteamento, confira [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
+O Gerenciamento de API usa o [Método de roteamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). O tráfego será roteado para o gateway de API mais próximo. Se uma região ficar offline, o tráfego de entrada será automaticamente roteado para o gateway mais próximo. Para obter mais informações sobre métodos de roteamento, confira [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Posso criar uma instância do serviço de Gerenciamento de API usando um modelo do ARM?
 
@@ -142,8 +142,12 @@ Sim, confira os modelos de início rápido do [Serviço de Gerenciamento de API 
 
 Sim. Siga as etapas abaixo:
 
-1. Criar uma entidade de [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando a API de Gerenciamento
+1. Criar uma entidade de [Back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando a API de Gerenciamento
 2. Definir a propriedade skipCertificateChainValidation como true
 3. Quando você não quiser mais permitir certificados autoassinados, poderá excluir a entidade de back-end ou definir a propriedade skipCertificateChainValidation como false
 
-<!---HONumber=AcomDC_0601_2016-->
+### Por que estou recebendo falha de autenticação ao tentar clonar o repositório GIT? 
+
+Se você estiver usando o Gerenciador de Credenciais do GIT ou tentando clonar o repositório por meio do Visual Studio, talvez você se depare com um problema com o diálogo de credencial do Windows, que limita o tamanho da senha para somente 127 caracteres e, portanto, trunca a senha que geramos. Estamos trabalhando para encurtar a senha. Por enquanto, use o GIT Bash para clonar.
+
+<!---HONumber=AcomDC_0629_2016-->

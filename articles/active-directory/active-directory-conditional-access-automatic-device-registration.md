@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows
@@ -48,7 +48,7 @@ No servidor de federação, abra uma janela de comando do Windows PowerShell e d
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-Em que <RPObjectName> é o nome do objeto de terceira parte confiável para seu objeto de confiança de terceira parte confiável do Active Directory do Azure. Esse objeto é tipicamente nomeado Plataforma de Identidade do Microsoft Office 365.
+Em que <NomeDoObjetoRPO> é o nome do objeto de terceira parte confiável para seu objeto de confiança de terceira parte confiável do Azure Active Directory. Esse objeto é tipicamente nomeado Plataforma de Identidade do Microsoft Office 365.
 
 Política de Autenticação Global do AD FS
 -----------------------------------------------------------------------------
@@ -105,4 +105,4 @@ Você pode saber mais sobre como implantar o registro de dispositivos com o AD F
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

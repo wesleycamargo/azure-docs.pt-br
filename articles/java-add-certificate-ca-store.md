@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Adicionar um certificado ao repositório de certificados Java CA
@@ -56,4 +56,4 @@ Para obter mais informações sobre os certificados raiz usados pelo Azure, cons
 
 Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

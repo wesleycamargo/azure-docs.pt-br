@@ -21,8 +21,8 @@
 
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. Visão do Desempenho de Consulta permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
 
-- Mais informações sobre o consumo de recursos de bancos de dados (DTU). 
-- As consultas que mais consomem CPU, que potencialmente podem ser ajustadas para melhorar o desempenho. 
+- Mais informações sobre o consumo de recursos de bancos de dados (DTU).
+- As consultas que mais consomem CPU, que potencialmente podem ser ajustadas para melhorar o desempenho.
 - A capacidade de analisar os detalhes de uma consulta.
 
 ## Pré-requisitos
@@ -35,7 +35,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 
 As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta:
 
-- As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do banco de dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
+- As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do banco de dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos.
 - As permissões **Proprietário**, **Colaborador**, **Colaborador do banco de dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
 
 
@@ -44,9 +44,9 @@ As seguintes permissões de [controle de acesso baseado em função](../active-d
 
 A Visão do Desempenho de Consulta é fácil de usar:
 
-- Examine a lista das consultas que consomem mais recursos. 
+- Examine a lista das consultas que consomem mais recursos.
 - Escolha uma consulta individual para exibir seus detalhes.
-- Abra o [Advisor do Banco de Dados SQL](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
+- Abra o [Advisor do Banco de Dados SQL](sql-database-advisor.md) e verifique se há alguma recomendação disponível.
 - Aplique zoom para obter informações detalhadas.
 
     ![painel de desempenho](./media/sql-database-query-performance/performance.png)
@@ -59,7 +59,7 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 No [portal](http://portal.azure.com), faça o descrito a seguir:
 
-1. Navegue até um Banco de Dados SQL e clique em **Todas as Configurações** > **Desempenho** > **Consultas**. 
+1. Navegue até um Banco de Dados SQL e clique em **Todas as Configurações** > **Desempenho** > **Consultas**.
 
     ![Visão de Desempenho de Consulta][1]
 
@@ -71,7 +71,7 @@ No [portal](http://portal.azure.com), faça o descrito a seguir:
 
     A grade inferior representa informações agregadas das consultas visíveis.
 
-    -	ID da consulta: identificador exclusivo da consulta no banco de dados. 
+    -	ID da consulta: identificador exclusivo da consulta no banco de dados.
     -	CPU por consulta durante o intervalo observável (depende da função de agregação).
     -	Duração por consulta (depende da função de agregação).
     -	Número total de execuções para uma consulta específica.
@@ -113,7 +113,7 @@ Durante o uso da Análise de Desempenho de Consultas, você poderá encontrar as
 Normalmente, essas mensagens aparecem quando o Repositório de Consultas não está apto a coletar novos dados. Para corrigir esse problema, você tem algumas opções:
 
 -	Mudar a política de Retenção e Captura do Repositório de Consultas
--	Aumentar o tamanho do Repositório de Consultas 
+-	Aumentar o tamanho do Repositório de Consultas
 -	Limpar o Repositório de Consultas
 
 ### Política recomendada de retenção e captura
@@ -121,7 +121,7 @@ Normalmente, essas mensagens aparecem quando o Repositório de Consultas não es
 Há dois tipos de política de retenção:
 
 - Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de se atingido.
-- Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias. 
+- Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
 
 A política de captura pode ser definida para:
 
@@ -159,7 +159,7 @@ A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de tr
 
 ## Próximas etapas
 
-Para obter recomendações adicionais para melhorar o desempenho do seu Banco de Dados SQL, clique em [Advisor do Banco de Dados](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
+Para obter recomendações adicionais para melhorar o desempenho do seu Banco de Dados SQL, clique em [Advisor do Banco de Dados](sql-database-advisor.md) na folha **Análise de Desempenho de Consultas**.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ Para obter recomendações adicionais para melhorar o desempenho do seu Banco de
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

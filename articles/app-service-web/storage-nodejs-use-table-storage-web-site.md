@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Aplicativo Web Node.js com o Serviço Tabela do Azure
@@ -423,7 +423,7 @@ Na pasta **views**, abra o **layout.jade** e substitua todo o seu conteúdo pelo
 
 ### Criar um arquivo de configuração
 
-Para executar o aplicativo localmente, colocaremos as credenciais de Armazenamento do Azure em um arquivo de configuração. Crie um arquivo chamado **config.json* * com o seguinte JSON:
+Para executar o aplicativo localmente, colocaremos as credenciais de Armazenamento do Azure em um arquivo de configuração. Crie um arquivo chamado **config.json* * com o JSON a seguir:
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -497,6 +497,7 @@ Nesta etapa, você baixará um arquivo que contém informações sobre sua assin
 	Esse comando inicia um navegador e acessa a página de download. Se solicitado, faça o logon usando a conta associada à sua assinatura do Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	O download do arquivo começa automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
 
 2. Digite o seguinte comando para importar as configurações:
@@ -544,7 +545,7 @@ Nesta etapa, você irá adicionar variáveis de ambiente à configuração do ap
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Substitua **<storage account name>** pelo nome da conta de armazenamento criada anteriormente e substitua **<storage access key>** pela chave de acesso primário da sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
+Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua ** <chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
 
 Como alternativa, você pode definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com/):
 
@@ -638,4 +639,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

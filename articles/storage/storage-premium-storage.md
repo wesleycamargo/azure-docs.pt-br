@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/23/2016"
 	ms.author="prkhad"/>
 
 
@@ -39,7 +39,7 @@ Para começar com o Armazenamento Premium do Azure, visite a página [Introduç�
 
 **Blob de Páginas Premium**: o Armazenamento Premium dá suporte a Blobs de Páginas do Azure, que são usados para manter discos persistentes para VMs (Máquinas Virtuais) do Azure. Atualmente, o Armazenamento Premium não dá suporte a Blobs de Blocos do Azure, Blobs de Acréscimo do Azure, Arquivos do Azure, Tabelas do Azure nem Filas do Azure. Qualquer outro objeto colocado em uma conta de armazenamento Premium será um Blob de páginas, que será ajustado para um dos tamanhos de provisionados com suporte. A conta de armazenamento Premium não se destina a armazenar blobs pequenos.
 
-**Conta de Armazenamento Premium**: para começar a usar o Armazenamento Premium, você deve criar uma conta de Armazenamento Premium. Se você preferir usar o [Portal do Azure](https://portal.azure.com), você poderá criar uma conta de Armazenamento Premium, especificando o nível de desempenho "Premium" e "LRS (Armazenamento com Redundância Local)" como a opção de replicação. Também é possível cria uma conta de Armazenamento Premium ao especificar o do tipo "Premium\_LRS" usando a [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; a [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações clássicas); a [Referência de API REST do Provedor de Recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações ARM); e [Azure PowerShell](../powershell-install-configure.md) versão 0.8.10 ou posterior. Saiba mais sobre limites de conta de armazenamento premium na seção a seguir sobre [Metas de Desempenho e Escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets).
+**Conta de Armazenamento Premium**: para começar a usar o Armazenamento Premium, você deve criar uma conta de Armazenamento Premium. Se você preferir usar o [Portal do Azure](https://portal.azure.com), você poderá criar uma conta de armazenamento Premium, especificando o nível de desempenho "Premium" e "LRS (Armazenamento com redundância Local)" como a opção de replicação. Também é possível cria uma conta de armazenamento Premium ao especificar o do tipo "Premium\_LRS" usando a [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; a [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações clássicas); a [Referência de API REST do Provedor de Recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações do Resource Manager); e [Azure PowerShell](../powershell-install-configure.md) versão 0.8.10 ou posterior. Saiba mais sobre limites de conta de armazenamento premium na seção a seguir sobre [Metas de Desempenho e Escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets).
 
 **Armazenamento com Redundância Local Premium**: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação e mantém três cópias de dados em uma única região. Para obter considerações sobre replicação geográfica ao usar o Armazenamento Premium, confira a seção [Instantâneos e cópia de Blob](#snapshots-and-copy-blob) neste artigo.
 
@@ -47,7 +47,7 @@ O Azure usa a conta de armazenamento como um contêiner para seu sistema operaci
 
 Você pode usar o Armazenamento Premium para discos de uma das seguintes maneiras:
 - Primeiro, crie uma nova conta de armazenamento premium. Em seguida, ao criar uma nova VM DS, DSv2 ou GS, escolha a conta de armazenamento premium nas definições de configuração de Armazenamento. OU
-- Ao criar uma nova VM DS, DSv2 ou GS, crie uma nova conta de armazenamento premium nas definições de configuração de Armazenamento ou permita que o Portal do Azure crie uma conta de armazenamento premium padrão.
+- Ao criar uma nova VM DS, DSv2 ou GS, crie uma nova conta de armazenamento premium nas definições de Configuração de armazenamento, ou permita que o portal do Azure crie uma conta de armazenamento premium padrão.
 
 Para obter instruções passo a passo, confira a seção [Início rápido](#quick-start), mais adiante neste artigo.
 
@@ -71,7 +71,7 @@ A seguir estão algumas das funcionalidades das VMs das séries Ds, DSv2 e GS:
 
 **Cache**: as VMs das séries DS, DSv2 e GS têm uma funcionalidade de cache exclusiva com a qual você pode obter altos níveis de produtividade e latência, o que excede o desempenho do disco de Armazenamento Premium subjacente. Você pode configurar a política de cache de disco nos discos de Armazenamento Premium como ReadOnly, ReadWrite ou None. A política de cache de disco de padrão é ReadOnly para todos os discos de dados premium e ReadWrite para discos do sistema operacional. Use a configuração correta a fim de atingir o desempenho ideal para o aplicativo. Por exemplo, para discos de dados com necessidade de prontidão intensa ou somente leitura, como arquivos de dados do SQL Server, defina a política de cache de disco como "ReadOnly". Para discos de dados com gravação intensa ou somente gravação, como arquivos de log do SQL Server, defina a política de cache de disco como "None". Saiba mais sobre como otimizar seu design com o Armazenamento Premium em [Design para desempenho com o Armazenamento Premium](storage-premium-storage-performance.md).
 
-**Análise**: para analisar o desempenho de VMs usando discos em contas de Armazenamento Premium, você pode habilitar o Diagnóstico de VM do Azure no Portal do Azure. Confira [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes. Para ver o desempenho de disco, use ferramentas baseadas no sistema operacional, como o [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs Windows e o [IOSTAT](http://linux.die.net/man/1/iostat) para VMs Linux.
+**Análise**: para analisar o desempenho de VMs usando discos em contas de armazenamento Premium, você pode habilitar o Diagnóstico de VM do Azure no portal do Azure. Confira [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes. Para ver o desempenho de disco, use ferramentas baseadas no sistema operacional, como o [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs Windows e o [IOSTAT](http://linux.die.net/man/1/iostat) para VMs Linux.
 
 **Desempenho e limites de escala de VM**: cada tamanho de VM das séries DS, DSv2 e GS tem limites de escala e uma especificação de desempenho para IOPS, largura de banda e número de discos que podem ser anexados por VM. Ao usar discos de armazenamento premium com VMs das séries DS, DSv2 ou GS, verifique se há IOPS e largura de banda suficientes disponíveis na VM para direcionar o tráfego de disco. Por exemplo, uma VM STANDARD\_DS1 tem uma banda larga dedicada de 32 MB por segundo disponível para o tráfego de discos do Armazenamento Premium. Um disco de armazenamento premium P10 pode fornecer largura de banda de 100 MB por segundo. Se um disco P10 do Armazenamento Premium fosse anexado a essa VM poderia chegar apenas até 32 MB por segundo, mas não até os 100 MB por segundo que o disco P10 pode fornecer.
 
@@ -85,9 +85,9 @@ Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs 
 
 Nesta seção, descreveremos todas as metas de escalabilidade e desempenho que você deve considerar ao usar o Armazenamento Premium.
 
-### Limites de conta de Armazenamento Premium
+### Limites de conta de armazenamento Premium
 
-As contas de Armazenamento Premium têm as seguintes metas de escalabilidade:
+As contas de armazenamento Premium têm as seguintes metas de escalabilidade:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
@@ -163,24 +163,24 @@ Aqui estão alguns pontos importantes que você deve conhecer sobre metas de des
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Taxa de transferência máxima por disco P10</strong></td>
-	<td><strong>Leituras não armazenadas em cache do disco</strong></td>
-	<td><strong>Gravações não armazenadas em cache do disco</strong></td>
+<td><strong>Taxa de transferência máxima por disco P10</strong></td>
+<td><strong>Leituras não armazenadas em cache do disco</strong></td>
+<td><strong>Gravações não armazenadas em cache do disco</strong></td>
 </tr>
 <tr>
-	<td>100 MB por segundo</td>
-	<td>100 MB por segundo</td>
-	<td>0</td>
+<td>100 MB por segundo</td>
+<td>100 MB por segundo</td>
+<td>0</td>
 </tr>
 <tr>
-	<td>100 MB por segundo</td>
-	<td>0</td>
-	<td>100 MB por segundo</td>
+<td>100 MB por segundo</td>
+<td>0</td>
+<td>100 MB por segundo</td>
 </tr>
 <tr>
-	<td>100 MB por segundo </td>
-	<td>60 MB por segundo </td>
-	<td>40 MB por segundo </td>
+<td>100 MB por segundo </td>
+<td>60 MB por segundo </td>
+<td>40 MB por segundo </td>
 </tr>
 </tbody>
 </table>
@@ -234,7 +234,7 @@ Os seguintes limites a se aplicam a instantâneos de blob de Armazenamento Premi
 </tbody>
 </table>
 
-Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Cópia de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento Premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Cópia de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, consulte [Usando operações de Serviço de Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969) na biblioteca MSDN.
 
@@ -351,7 +351,7 @@ Ao usar o Armazenamento Premium, as seguintes considerações de cobrança se ap
 - Instantâneos de Armazenamento Premium
 - Transferências de dados de saída
 
-**Tamanho de disco / blob de Armazenamento Premium**: a cobrança para um disco/blob de Armazenamento Premium depende do tamanho provisionado do disco/blob. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima de Disco de Armazenamento Premium, conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage). Todos os objetos armazenados em uma conta de armazenamento Premium será mapeado para um dos tamanhos provisionados com suporte e cobrado de acordo. Desta forma, evite usar a conta de armazenamento premium para armazenar blobs pequenos. A cobrança por qualquer disco/blob provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
+**Tamanho de disco / blob de Armazenamento Premium**: a cobrança para um disco/blob de Armazenamento Premium depende do tamanho provisionado do disco/blob. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima de Disco de Armazenamento Premium, conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage). Todos os objetos armazenados em uma conta de armazenamento Premium será mapeado para um dos tamanhos provisionados com suporte e cobrado de acordo. Desta forma, evite usar a conta de armazenamento Premium para armazenar blobs pequenos. A cobrança por qualquer disco/blob provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
 
 **Instantâneos de Armazenamento Premium**: os instantâneos no Armazenamento Premium são cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
@@ -366,7 +366,7 @@ Para obter informações detalhadas sobre os preços para Armazenamento Premium 
 
 ## Criar e usar uma conta de Armazenamento Premium para um disco de dados da máquina virtual
 
-Nesta seção, demonstraremos os cenários a seguir usando o Portal do Azure, o Azure PowerShell e a CLI do Azure:
+Nesta seção, demonstraremos os cenários a seguir usando o portal do Azure, o Azure PowerShell e a CLI do Azure:
 
 - Como criar uma conta de Armazenamento Premium
 - Como criar uma máquina virtual e anexar um disco de dados a ela ao usar o Armazenamento Premium.
@@ -374,9 +374,9 @@ Nesta seção, demonstraremos os cenários a seguir usando o Portal do Azure, o 
 
 ### Criar uma máquina virtual do Azure usando o Armazenamento Premium pelo Portal do Azure
 
-#### I. Criar uma conta de Armazenamento Premium no Portal do Azure
+#### I. Criar uma conta de armazenamento Premium no Portal do Azure
 
-Esta seção mostra como criar uma conta de Armazenamento Premium usando o Portal do Azure.
+Esta seção mostra como criar uma conta de armazenamento Premium usando o Portal do Azure.
 
 1.	Entre no [Portal do Azure](https://portal.azure.com). Confira a oferta [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
 
@@ -386,7 +386,7 @@ Esta seção mostra como criar uma conta de Armazenamento Premium usando o Porta
 
 	> [AZURE.NOTE] Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 	>  
-	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O Portal do Azure indicará se o nome de conta de armazenamento que você selecionar já está em uso.
+	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionada já está em uso.
 
 4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
 
@@ -396,9 +396,9 @@ Esta seção mostra como criar uma conta de Armazenamento Premium usando o Porta
 
 7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para obter mais informações sobre os grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Usando do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
-9. Selecione a região geográfica para sua conta de armazenamento. É possível confirmar se o Armazenamento Premium está disponível no Local selecionado consultando os [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services).
+9. Selecione a região geográfica para sua conta de armazenamento. É possível confirmar se o Armazenamento Premium está disponível na Localização selecionada consultando os [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services).
 
 10. Clique em **Criar** para criar a conta de armazenamento.
 
@@ -424,12 +424,12 @@ Veja etapas mais detalhadas em [Como anexar um disco de dados no Portal do Azure
 
 ### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio do PowerShell do Azure
 
-#### I. Criar uma conta de Armazenamento Premium no Portal do Azure PowerShell
+#### I. Criar uma conta de armazenamento Premium no Portal do Azure PowerShell
 
 Este exemplo de PowerShell mostra como criar uma nova conta de Armazenamento Premium e conectar um disco de dados que usa essa conta a uma nova máquina virtual do Azure.
 
 1. Configure o ambiente do PowerShell seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta de armazenamento premium.
+2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta de armazenamento Premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -469,9 +469,9 @@ Para atualizar a política de cache de disco, anote o número de LUN do disco de
 
 ### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio da Interface de Linha de Comando do Azure
 
-A [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) fornece um conjunto de comandos de software livre entre plataformas para o trabalho com a plataforma Azure. Os exemplos a seguir mostram como usar o Azure CLI (versão 0.8.14 e posterior) para criar uma conta de armazenamento premium, uma nova máquina virtual e conectar um novo disco de dados de uma conta de Armazenamento Premium.
+A [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) fornece um conjunto de comandos de software livre entre plataformas para o trabalho com a Plataforma Azure. Os exemplos a seguir mostram como usar o Azure CLI (versão 0.8.14 e posterior) para criar uma conta de armazenamento Premium, uma nova máquina virtual e conectar um novo disco de dados de uma conta de armazenamento Premium.
 
-#### I. Criar uma conta de armazenamento premium por meio da CLI do Azure
+#### I. Criar uma conta de armazenamento Premium por meio da CLI do Azure
 
 ````
 azure storage account create "premiumtestaccount" -l "west us" --type PLRS
@@ -534,9 +534,9 @@ Observe que as opções da política de cache podem ser ReadOnly, None ou ReadWr
 
 	O SSD local é um armazenamento temporário fornecido com uma VM das séries DS, DSv2 ou GS. Não há custo adicional para esse armazenamento temporário. É recomendável que você não use esse armazenamento temporário ou SSD local para armazenar os dados do aplicativo, pois eles não são persistidos no Armazenamento de Blobs do Azure.
 
-8. **Posso converter minha conta de armazenamento padrão em uma conta de armazenamento premium?**
+8. **Posso converter minha conta de armazenamento padrão em uma conta de armazenamento Premium?**
 
-	Não. Não é possível converter uma conta de armazenamento padrão em uma conta de armazenamento premium ou vice-versa. Você deve criar uma nova conta de armazenamento com o tipo desejado e copiar dados para a nova conta de armazenamento, caso aplicável.
+	Não. Não é possível converter uma conta de armazenamento padrão em uma conta de armazenamento Premium ou vice-versa. Você deve criar uma nova conta de armazenamento com o tipo desejado e copiar dados para a nova conta de armazenamento, caso aplicável.
 
 9. **Como converter minha VM da série D em uma VM da série DS**
 
@@ -562,4 +562,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

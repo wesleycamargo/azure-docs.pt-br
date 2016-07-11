@@ -21,6 +21,8 @@ Este artigo descreve como você pode usar a atividade de cópia em um data facto
 
 Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma tabela da Web para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para uma tabela da Web.
 
+> [AZURE.NOTE] No momento, esse conector da Web dá suporte apenas à extração do conteúdo da tabela de uma página HTML.
+
 ## Exemplo: copiar dados de uma tabela da Web para o Blob do Azure
 
 O exemplo a seguir mostra:
@@ -217,7 +219,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 Propriedade | Descrição | Obrigatório
 :-------- | :----------- | :--------
-type | tipo do conjunto de dados. deve ser definido como **WebTable** | Sim
+type | tipo do conjunto de dados. Deve ser definido como **WebTable** | Sim
 path | Uma URL relativa para o recurso que contém a tabela. | Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. 
 índice | O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. | Sim
 
@@ -243,7 +245,7 @@ path | Uma URL relativa para o recurso que contém a tabela. | Não. Quando o ca
 
 ## WebSource – propriedades de tipo de atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
@@ -251,19 +253,19 @@ No caso da atividade de cópia, quando a fonte é do tipo **WebSource**, não h�
 
 ## Obter o índice de uma tabela em uma página HTML
 
-1. Inicie o **Excel 2016** e alterne para a guia **Dados**.  
+1. Inicie o **Excel 2016** e alterne para a guia **Dados**.
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 	
-	![Menu do Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png) 
-3. Na caixa de diálogo **Da Web**, digite a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s\_100\_Years de %... 100\_Movies) e clique em **OK**. 
+	![Menu do Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s\_100\_Years de %... 100\_Movies) e clique em **OK**.
 
 	![Do diálogo da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-	URL usada neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4.  Se você vir a caixa de diálogo **Acessar conteúdo da Web**, selecione a **autenticação** de **URL** correta e clique em **Conectar**. 
+	URL usada neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+4.  Se você vir a caixa de diálogo **Acessar conteúdo da Web**, selecione a **autenticação** de **URL** correta e clique em **Conectar**.
 
 	![Acessar caixa de diálogo de conteúdo da Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5.  Clique em um item de **tabela** na exibição de árvore para ver o conteúdo da tabela e clique em **Editar** na parte inferior.  
+5.  Clique em um item de **tabela** na exibição de árvore para ver o conteúdo da tabela e clique em **Editar** na parte inferior.
 
 	![Diálogo de navegador](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 
@@ -276,7 +278,7 @@ No caso da atividade de cópia, quando a fonte é do tipo **WebSource**, não h�
 	![Editor Avançado – índice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
 
-Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) a fim de obter o índice. Confira o artigo [Conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando o [Microsoft Power BI para Desktop](https://powerbi.microsoft.com/desktop/).
+Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) a fim de obter o índice. Confira o artigo [Conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando o [Microsoft Power BI para Desktop](https://powerbi.microsoft.com/desktop/).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
@@ -285,4 +287,4 @@ Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](htt
 ## Desempenho e Ajuste  
 Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

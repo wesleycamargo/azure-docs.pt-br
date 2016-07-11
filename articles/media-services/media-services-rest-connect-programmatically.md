@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -29,8 +29,8 @@ Duas coisas são necessárias ao acessar os Serviços de Mídia do Microsoft Azu
 
 As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
 
-1. Obtendo um token de acesso 
-2. Conectando o URI dos serviços de mídia 
+1. Obtendo um token de acesso
+2. Conectando o URI dos serviços de mídia
 
 	>[AZURE.NOTE] Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 
@@ -177,4 +177,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

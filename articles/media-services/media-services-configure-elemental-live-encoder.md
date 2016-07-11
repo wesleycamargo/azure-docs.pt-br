@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="cenkdin;anilmur;juliako"/>
 
 #Usar o codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única
@@ -72,22 +72,22 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 **Vídeo**:
  
-- Codec: H.264 
-- Perfil: Alto (nível 4.0) 
-- Taxa de bits: 5.000 kbps 
-- Quadro-chave: 2 segundos (60 segundos) 
+- Codec: H.264
+- Perfil: Alto (nível 4.0)
+- Taxa de bits: 5.000 kbps
+- Quadro-chave: 2 segundos (60 segundos)
 - Taxa de quadros: 30
  
 **Áudio**:
 
-- Codec: AAC (LC) 
-- Taxa de bits: 192 kbps 
+- Codec: AAC (LC)
+- Taxa de bits: 192 kbps
 - Taxa de amostragem: 44,1 kHz
 
 
 ####Etapas da configuração
 
-1. Navegue até a interface Web **Elemental Live** e configure o codificador para transmissão **UDP/TS**. 
+1. Navegue até a interface Web **Elemental Live** e configure o codificador para transmissão **UDP/TS**.
 
 2. Depois de criar um novo evento, role para baixo até os grupos de saída e adicione o grupo de saída **UDP/TS**.
 
@@ -98,17 +98,17 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 	>[AZURE.NOTE] É recomendável que o evento Elementar tenha o código de tempo definido como "Relógio do Sistema" para ajudar o codificador a reconectar em caso de falha na transmissão.
 
 4. Agora que a Saída foi criada, clique em **Adicionar Transmissão**. As configurações de saída agora podem ser configuradas.
-5. Role para baixo até a “Transmissão 1” que você acabou de criar, clique na guia **Vídeo** à esquerda e expanda a seção de configurações **Avançadas**. 
+5. Role para baixo até a “Transmissão 1” que você acabou de criar, clique na guia **Vídeo** à esquerda e expanda a seção de configurações **Avançadas**.
 
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
 	Embora o Elemental Live tenha uma ampla variedade possibilidades de personalização disponíveis, as configurações a seguir são recomendadas para a introdução ao streaming para AMS.
 	
-	- Resolução: 1280 x 720 
-	- Taxa de quadros: 30 
-	- Tamanho de GOP: 60 quadros 
-	- Modo de entrelaçamento: Progressivo 
-	- Taxa de bits: 5000000 bits/s (Isso pode ser ajustado baseado nas limitações de rede) 
+	- Resolução: 1280 x 720
+	- Taxa de quadros: 30
+	- Tamanho de GOP: 60 quadros
+	- Modo de entrelaçamento: Progressivo
+	- Taxa de bits: 5000000 bits/s (Isso pode ser ajustado baseado nas limitações de rede)
 	
 
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
@@ -135,7 +135,7 @@ Após a transmissão estar em execução por 30 segundos, navegue de volta até 
 
 ###Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.
 
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -145,18 +145,18 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 
 ###Criar um programa
 
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.
 
 	![Elementares](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
 2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.
 3. Marque a caixa **Iniciar o Programa agora**.
-4. Clique em **Criar Programa**.  
+4. Clique em **Criar Programa**.
   
 	Observação: a criação do programa leva menos tempo do que a criação do canal.
  
 5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse no programa navegando até **Reproduzir o(s) programa(s)** e selecionando **com o Azure Media Player**.
-6. Depois de confirmar, clique com o botão direito do mouse no programa novamente e selecione **Copiar a URL de Saída na Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu). 
+6. Depois de confirmar, clique com o botão direito do mouse no programa novamente e selecione **Copiar a URL de Saída na Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.
 
@@ -173,4 +173,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

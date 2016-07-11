@@ -24,30 +24,30 @@ Esse artigo fornece dicas de solução de problemas ao usar o Azure Data Factory
 ### Erro: a assinatura não está registada para usar o namespace 'Microsoft.DataFactory'
 Caso você receba esse erro, o provedor de recursos do Azure Data Factory não foi registrado no seu computador. Faça o seguinte:
 
-1. Inicie o PowerShell do Azure. 
-2. Faça logon na conta do Azure usando o seguinte comando. Login-AzureRmAccount 
+1. Inicie o PowerShell do Azure.
+2. Faça logon na conta do Azure usando o seguinte comando. Login-AzureRmAccount
 3. Execute o seguinte comando para registrar o provedor do Azure Data Factory. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
 ### Problema: Erro não autorizado ao executar um cmdlet da Data Factory
 Você provavelmente não está usando a assinatura ou conta do Azure correta com o PowerShell do Azure. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas a usar com o PowerShell do Azure.
 
 1. Login-AzureRmAccount - Use a ID de usuário e a senha corretas
-2. Get-AzureRmSubscription - Exiba todas as assinaturas para a conta. 
-3. Select-AzureRmSubscription <subscription name> - Selecione a assinatura correta. Use a mesma que você usa para criar uma fábrica de dados no Portal do Azure.
+2. Get-AzureRmSubscription - Exiba todas as assinaturas para a conta.
+3. Select-AzureRmSubscription <nome da assinatura> - Selecione a assinatura correta. Use a mesma que você usa para criar uma fábrica de dados no Portal do Azure.
 
 ### Problema: falha ao inicializar a Instalação Expressa de Gateway de Gerenciamento de Dados no Portal do Azure
 A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se a Instalação Expressa não for iniciada, siga um destes procedimentos:
 
 - Use o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce.
 
-	Se você estiver usando o Chrome, vá para a [Chrome web store](https://chrome.google.com/webstore/), pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
+	Se você estiver usando o Chrome, vá para a [loja na Web do Chrome](https://chrome.google.com/webstore/), pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
 	
 	Você precisa fazer o mesmo para o Firefox (instalar suplemento). Clique no botão Abrir menu na barra de ferramentas (três linhas horizontais no canto superior direito), clique em Complementos, pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
 
 - Use o link de **Instalação Manual** mostrado na mesma folha no portal para baixar o arquivo de instalação e executá-lo manualmente. Depois que a instalação for bem-sucedida, você verá a caixa de diálogo de Configuração de Gateway de Gerenciamento de Dados. Copie a **chave** na tela do portal e use-a no gerenciador de configuração para registrar manualmente o gateway com o serviço.
 
 ### Problema: falha ao se conectar ao SQL Server local 
-Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** guia para testar a conexão ao SQL Server do computador do gateway. Consulte [Solução de problemas do gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obter detalhes.
+Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solução de problemas do gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obter detalhes.
  
 
 ### Problema: as fatias de entrada ficam sempre no estado Aguardando
@@ -113,9 +113,8 @@ Consulte [Monitorar e gerenciar os pipelines do Data Factory usando o Aplicativo
 Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) para obter detalhes.
 
 
-[adfgetstarted]: data-factory-get-started.md
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -144,4 +143,4 @@ Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-fa
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

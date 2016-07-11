@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/02/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -52,7 +52,7 @@ R: Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compila
 
 P: como se conectar usando o REST?
 
-R: Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
+R: Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
 
 
 P: Como é possível girar um vídeo durante o processo de codificação.
@@ -83,4 +83,4 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

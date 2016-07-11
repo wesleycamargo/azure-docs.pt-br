@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guia do desenvolvedor do Cofre da Chave | Microsoft Azure"
-   description="Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure."
+   description="Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure. "
    services="key-vault"
    documentationCenter=""
    authors="BrucePerlerMS"
@@ -87,6 +87,13 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefas para
 
 Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, confira os [Exemplos de modelo ARM de Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
+## Introdução ao Cofre de Chaves
+
+Estes artigos abordam outros cenários e serviços que usam ou se integram ao Cofre de Chaves.
+
+- A [Azure Disk Encryption](../azure-security-disk-encryption.md) aproveita o recurso padrão do setor [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
+
+
 ## Bibliotecas de Suporte
 
 - A [Biblioteca Principal do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fornece as interfaces `IKey` e `IKeyResolver` para localizar chaves com base em identificadores e realizar operações com chaves.
@@ -97,4 +104,4 @@ Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os 
 - [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 - [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

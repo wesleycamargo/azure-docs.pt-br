@@ -34,7 +34,7 @@ Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Antes de ini
 
 Antes de poder enviar notificações por push para aplicativos do Windows a partir do Azure, você deve enviar seu aplicativo para a Windows Store. Você pode configurar seu projeto de servidor para integrar com o WNS.
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da UWP, clique em **Loja** > **Associar Aplicativo à Loja...**. 
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da UWP, clique em **Loja** > **Associar Aplicativo à Loja...**.
 
     ![Associar aplicativo com a Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
     
@@ -200,10 +200,21 @@ Em seguida, seu aplicativo deve se registrar para notificações por push na ini
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>Mais
+##<a id="more"></a>Próximas etapas
 
-* Os modelos fornecem a flexibilidade para enviar pushes de plataforma cruzada e pushes localizados. [Como usar o cliente gerenciado para Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) mostra como registrar os modelos.
-* As marcas permitem que você tenha como alvo clientes segmentados com pushes. [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) mostra como adicionar marcas à instalação de um dispositivo.
+Saiba mais sobre as notificações por push:
+
+* [Como usar o cliente gerenciado para aplicativos móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) modelos oferecem flexibilidade para enviar envios de plataforma cruzada e pushes localizados. Saiba como registrar modelos.
+
+* [Trabalhar com o SDK do servidor de back-end do .NET para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) marcas permitem que você vise clientes segmentados com envios. Saiba como adicionar marcas a uma instalação de dispositivo.
+
+* [Diagnosticar problemas com notificações por push](../notification-hubs/notification-hubs-push-notification-fixer.md) há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
+
+Considere a possibilidade de prosseguir com um dos seguintes tutoriais:
+
++ [Adicionar autenticação ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md) Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+
++ [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
 
 <!-- Anchors. -->
 
@@ -211,6 +222,5 @@ Em seguida, seu aplicativo deve se registrar para notificações por push na ini
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-))) )
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

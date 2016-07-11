@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando o modelo de implantação clássica](load-balancer-get-started-internet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando o modelo de implantação clássica](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -35,7 +35,7 @@ Isto abordará a sequência de tarefas individuais que precisam ser realizadas p
 
 Você precisa criar e configurar os seguintes objetos para implantar um balanceador de carga:
 
-- Configuração de IP de front-end – contém endereços IP públicos para o tráfego de rede de entrada. 
+- Configuração de IP de front-end – contém endereços IP públicos para o tráfego de rede de entrada.
 
 - Pool de endereços de back-end – contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
 
@@ -54,7 +54,7 @@ Verifique se você tem a versão de produção mais recente do módulo ARM (Gere
 
 ### Etapa 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 Você deverá se autenticar com suas credenciais.<BR>
 
@@ -62,20 +62,20 @@ Você deverá se autenticar com suas credenciais.<BR>
 
 Verificar as assinaturas da conta
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Etapa 3 
 
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Etapa 4
 
 Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Criar uma rede virtual e um endereço IP público para o pool de IPs de front-end
@@ -181,7 +181,7 @@ Crie uma NIC chamada *lb-nic2-be* e a associe à segunda regra NAT e ao primeiro
 Conferir as NICs.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Saída esperada:
 
@@ -248,7 +248,7 @@ Carregue o recurso de balanceador de carga em uma variável (se ainda não tiver
 
 Carregue a configuração de back-end em uma variável.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Etapa 3 
 
@@ -260,13 +260,13 @@ Carregue a interface de rede já criada em uma variável. O nome da variável us
 
 Altere a configuração de back-end na interface de rede.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Etapa 5 
 
 Salve o objeto de interface de rede.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Depois que uma interface de rede é adicionada ao pool de back-end do balanceador de carga, ela começa a receber tráfego de rede com base nas regras de balanceamento de carga para esse recurso de balanceador de carga.
 
@@ -308,4 +308,4 @@ Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga cr
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

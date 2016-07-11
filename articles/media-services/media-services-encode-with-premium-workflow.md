@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
@@ -49,10 +49,10 @@ O exemplo a seguir demonstra como codificar com o **Fluxo de trabalho do Media E
 
 As seguintes etapas são executadas:
  
-1. Criar um ativo e carregar um arquivo de fluxo de trabalho. 
+1. Criar um ativo e carregar um arquivo de fluxo de trabalho.
 2. Criar um ativo e carregar um arquivo de mídia de origem.
 3. Obter o processador de mídia "Fluxo de trabalho do Media Encoder Premium".
-4. Criar um trabalho e uma tarefa. 
+4. Criar um trabalho e uma tarefa.
 
 	Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
 5. Adicionar dois ativos de entrada à tarefa.
@@ -278,4 +278,4 @@ Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

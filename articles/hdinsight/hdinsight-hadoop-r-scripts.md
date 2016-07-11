@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+    ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
@@ -40,7 +40,7 @@ O R é compatível com o armazenamento de Blob do Azure (WASB) para que os dados
 
 Um [exemplo de script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) para instalar o R em um cluster HDInsight está disponível em um blob somente leitura no armazenamento do Azure. Esta seção oferece instruções sobre como usar o script de exemplo ao criar o cluster usando o Portal do Azure.
 
-> [AZURE.NOTE] O script de exemplo foi introduzido com o cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [Versões do cluster HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] O script de exemplo foi introduzido com o cluster HDInsight versão 3.1. Para obter mais informações sobre versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
 
 1. Ao criar um cluster HDInsight no Portal, clique em **Configuração Opcional** e em **Ações de Script**.
 2. Na página **Ações de Script**, insira os seguintes valores:
@@ -112,6 +112,6 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [powershell-install-configure]: powershell-install-configure.md
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
+[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

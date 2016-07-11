@@ -4,19 +4,17 @@ Se você quiser ser capaz de se conectar ao SQL Server pela Internet, você prec
 
 1. No portal, selecione **Máquinas Virtuais** e selecione sua VM do SQL Server.
 
-2. Clique no link **Todas as Configurações**.
-
-3. Expanda **Interfaces de Rede**.
+3. Selecione **Interfaces de rede**.
 
 	![interface de rede](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
 4. Em seguida, selecione a Interface de rede para sua VM.
 
-4. Clique no link **Grupo de Segurança de Rede**.
+4. Clique no link **Grupo de segurança de rede**.
 
 	![interface de rede](./media/virtual-machines-sql-server-connection-steps/rm-network-security-group.png)
 
-6. Nas propriedades do Grupo de Segurança de Rede, expanda **Regras de Segurança de Entrada**.
+6. Nas propriedades do Grupo de Segurança de Rede, expanda **Regras de segurança de entrada**.
 
 5. Clique no botão **Adicionar**.
 
@@ -24,7 +22,7 @@ Se você quiser ser capaz de se conectar ao SQL Server pela Internet, você prec
 
 7. Altere **Protocolo** para **TCP**.
 
-8. Especifique um **Intervalo de Porta de Destino** de 1433 (ou a porta que sua instância do SQL Server está escutando).
+8. Especifique um **Intervalo de Porta de Destino** de 1433 (ou a porta que sua instância do SQL Server estiver escutando).
 
 9. Verifique se **Ação** está definido como **Permitir**. A caixa de diálogo da regra de segurança deve ter aparência semelhante à captura de tela a seguir.
 
@@ -32,4 +30,4 @@ Se você quiser ser capaz de se conectar ao SQL Server pela Internet, você prec
 
 9. Clique em **OK** para salvar a regra para a sua VM.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0629_2016-->

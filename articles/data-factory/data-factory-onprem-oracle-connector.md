@@ -23,7 +23,7 @@ Este artigo descreve como você pode usar a atividade de cópia de data factory 
 ## Instalação 
 Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dados Oracle no local, você deve instalar o seguinte:
 
-- Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
+- Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados.
 - Provedor de dados Oracle para .NET. Está incluído nos [Componentes de Acesso a Dados do Oracle para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão adequada (32/64 bits) no computador host em que o gateway está instalado. [O Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode acessar o Oracle Database 10g Release 2 ou posterior.
 
 > [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
@@ -35,7 +35,7 @@ O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como fonte e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como coletor.
 
@@ -224,7 +224,7 @@ O exemplo tem as seguintes entidades de data factory:
 1.	Um serviço vinculado do tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 5.	Um [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como fonte e [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como coletor.
 
 O exemplo copia dados de um blob para uma tabela em um banco de dados Oracle local de hora em hora. Para obter mais informações sobre várias propriedades usadas no exemplo abaixo, consulte a documentação sobre as diferentes propriedades nas seções após os exemplos.
@@ -425,15 +425,15 @@ No caso da atividade de Cópia, quando a fonte é do tipo **OracleSource**, as s
 
 Propriedade | Descrição |Valores permitidos | Obrigatório
 -------- | ----------- | ------------- | --------
-oracleReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable <br/><br/>Se não for especificada, a instrução SQL que é executada será: select * from MyTable | Não (se **tableName** de **dataset** for especificado)
+oracleReaderQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * a partir de MyTable<br/><br/>Se não for especificada, a instrução SQL que é executada será: select * from MyTable | Não (se **tableName** de **dataset** for especificado)
 
 ### OracleSink
 O **OracleSink** é compatível com as seguintes propriedades:
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não
-writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. Inteiro. | (unidade = Contagem de Linhas) | Não (Padrão = 10.000)  
+writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo 00:30:00 (30 minutos). | Não
+writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. | Número inteiro | Não (padrão: 10000)  
 sqlWriterCleanupScript | A consulta especificada pelo usuário para a Atividade de cópia ser executada para assegurar que os dados de uma fatia específica serão limpos. | Uma instrução de consulta. | Não
 sliceIdentifierColumnName | Nome de coluna especificado pelo usuário para a Atividade de cópia preencher com o identificador de fatia gerado automaticamente, que será usado para limpar os dados de uma fatia específica quando executado novamente. | Nome de uma coluna com tipo de dados de binário (32). | Não
 
@@ -482,16 +482,16 @@ XML | Cadeia de caracteres
 **Possíveis causas**
 
 1. O provedor de dados .NET Framework para Oracle não foi instalado.
-2. O provedor de dados .NET Framework para Oracle foi instalado no .NET Framework 2.0 e não foi encontrado nas pastas .NET Framework 4.0. 
+2. O provedor de dados .NET Framework para Oracle foi instalado no .NET Framework 2.0 e não foi encontrado nas pastas .NET Framework 4.0.
 
 **Solução/solução alternativa**
 
-1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e repita o cenário. 
-2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte: 
-	1. Abra a configuração do computador do .NET 2.0 na pasta: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Procure **Provedor de Dados Oracle para o .NET**; você deve ser capaz de encontrar uma entrada como a mostrada abaixo em **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-2.	Copie esta entrada no arquivo machine.config na seguinte pasta v4.0: <system disk>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e altere a versão para 4.xxx.x.x.
-3.	Instale “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” no GAC (cache de assembly global), executando “gacutil /i [provider path]”.
+1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e repita o cenário.
+2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte:
+	1. Abra a configuração do computador do .NET 2.0 na pasta: <disco do sistema>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Procure por **Provedor de dados Oracle para.NET** que você deverá conseguir encontrar uma entrada como abaixo em **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+2.	Copie esta entrada no arquivo machine.config na seguinte pasta v4.0: <disco do sistema>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e altere a versão para 4.xxx.x.x.
+3.	Instale “<Caminho Instalado do ODP.NET> \\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” no GAC (cache de assembly global), executando “gacutil /i [provider path]”.
 
 
 
@@ -501,4 +501,4 @@ XML | Cadeia de caracteres
 ## Desempenho e Ajuste  
 Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

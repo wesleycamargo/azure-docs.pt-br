@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -47,8 +47,8 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 - [Versão de agosto de 2014](#august_changes_14)
 - [Versão de julho de 2014](#july_changes_14)
 - [Versão de maio de 2014](#may_changes_14)
-- [Versão de abril de 2014](#april_changes_14) 
-- [Versões de janeiro\\fevereiro de 2014](#jan_feb_changes_14) 
+- [Versão de abril de 2014](#april_changes_14)
+- [Versões de janeiro\\fevereiro de 2014](#jan_feb_changes_14)
 - [Versão de dezembro de 2013](#december_changes_13)
 - [Versão de novembro de 2013](#november_changes_13)
 - [Versão de agosto de 2013](#august_changes_13)
@@ -189,7 +189,7 @@ O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.4.0.0. A
 O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.3.0.0. A seguinte funcionalidade foi adicionada nessa versão:
 
 - suporte para especificação de Descoberta do OpenId Connect,
-- suporte para tratamento de substituição de chaves no lado do provedor de identidade. 
+- suporte para tratamento de substituição de chaves no lado do provedor de identidade.
 
 Se você estiver usando um provedor de identidade que expõe o documento de descoberta OpenID Connect (assim como os seguintes provedores: Active Directory do Azure, Google, Salesforce), você pode instruir os Serviços de Mídia do Azure para obter chaves de assinatura para a validação de token JWT de especificação de descoberta OpenId Connect.
 
@@ -343,7 +343,7 @@ No momento, há as duas opções a seguir para solucionar o problema.
 	
 	* É preciso ter propriedade do nome de domínio personalizado.
 	
-	* A propriedade do nome de domínio deve ser validada pelos Serviços de Mídia do Azure. Para validar o domínio, criar um CName que mapeia <MediaServicesAccountId>. <parent domain> verifydns. <mediaservices-dns-zone>.
+	* A propriedade do nome de domínio deve ser validada pelos Serviços de Mídia do Azure. Para validar o domínio, crie um CName que mapeie <MediaServicesAccountId>.<parent domain> para verifydns.<mediaservices-dns-zone>.
 	
 	* Você deve criar outro CName que mapeia o nome de host personalizado (por exemplo, sports.contoso.com) em nome de host do seu StreamingEndpont dos serviços de mídia (por exemplo, amstest.streaming.mediaservices.windows.net).
 
@@ -395,7 +395,7 @@ As seguintes melhorias são incluídas na versão 3.0.0.5 do SDK do .NET dos Ser
 
 * Melhorias na lógica de repetição e manipulação de exceção temporária:
 
-	* Detecção de erro temporário e lógica de repetição foram aprimorados para as exceções causadas por consultar, salvar alterações, carregar ou baixar arquivos. 
+	* Detecção de erro temporário e lógica de repetição foram aprimorados para as exceções causadas por consultar, salvar alterações, carregar ou baixar arquivos.
 	
 	* Ao obter Exceções da Web (por exemplo, durante uma solicitação de token ACS), você observará que erros fatais estão falhando mais rapidamente agora.
 
@@ -430,7 +430,7 @@ Para saber mais sobre as alterações, confira: [Versões do SDK do .NET dos Ser
 
 As seguintes alterações foram feitas na versão 3.0.0.3:
 
-* Atualizadas as dependências de armazenamento do Azure para usar a versão 3.0.3.0. 
+* Atualizadas as dependências de armazenamento do Azure para usar a versão 3.0.3.0.
 
 * Corrigido o problema de compatibilidade reversa para versões 3.0*.*.
 
@@ -461,7 +461,7 @@ A partir desta versão, o SDK para .NET dos Serviços de Mídia manipula erros d
 
 Os seguintes cmdlets do PowerShell dos Serviços de Mídia agora estão incluídos em [azure-sdk-tools].
 
-* Get-AzureMediaServices 
+* Get-AzureMediaServices
 
 	Por exemplo: `Get-AzureMediaServicesAccount`.
 
@@ -483,7 +483,7 @@ Os seguintes cmdlets do PowerShell dos Serviços de Mídia agora estão incluíd
 
 As alterações mencionadas nesta seção são atualizações incluídas nas versões de Serviços de Mídia de junho de 2013.
 
-* Habilidade de vincular várias contas de armazenamento a uma conta de Serviço de Mídia. 
+* Habilidade de vincular várias contas de armazenamento a uma conta de Serviço de Mídia.
 
 	StorageAccount
 	
@@ -667,4 +667,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

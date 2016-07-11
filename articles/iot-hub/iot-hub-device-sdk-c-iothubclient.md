@@ -26,6 +26,8 @@ O artigo é concluído com a abordagem de diversos tópicos, incluindo mais sobr
 
 Vamos usar os exemplos do SDK da **IoTHubClient** para explicar esses tópicos. Se você deseja acompanhar, veja os aplicativos **iothub\_client\_sample\_http** e **iothub\_client\_sample\_amqp** que estão incluídos no SDK do dispositivo IoT do Azure para o C. Tudo o que é descrito nas seções a seguir é demonstrado nestes exemplos.
 
+Você pode encontrar o **SDK do dispositivo IoT do Azure para C** no repositório GitHub dos [SDKs do Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdks) e exibir os detalhes da API na [referência da API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+
 ## As APIs de nível inferior
 
 O artigo anterior descreveu a operação básica do **IotHubClient** no contexto do aplicativo **iothub\_client\_sample\_amqp**. Por exemplo, ele explicou como inicializar a biblioteca usando este código.
@@ -268,7 +270,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Há duas opções que normalmente são usadas:
 
--   **SetBatching** (booliano) – Se for **true**, os dados enviados ao Hub IoT serão enviados em lotes. Se for **false**, as mensagens serão enviadas individualmente. O padrão é **false**. Observe que a opção **SetBatching** se aplica somente ao protocolo HTTP, e não aos protocolos AMQP ou MQTT.
+-   **SetBatching** (booliano) – Se for **true**, os dados enviados ao Hub IoT serão enviados em lotes. Se for **false**, as mensagens serão enviadas individualmente. O padrão é **false**. Observe que a opção **SetBatching** se aplica somente ao protocolo HTTP e não aos protocolos AMQP ou MQTT.
 
 -   **Tempo limite** (inteiro não atribuído) – Esse valor é representado em milissegundos. Se o envio de uma solicitação HTTP ou o recebimento de uma resposta demorar mais que esse tempo, o tempo limite da conexão se esgotará.
 
@@ -278,4 +280,4 @@ A opção de envio em lote é importante. Por padrão, a biblioteca insere event
 
 Este artigo descreve em detalhes o comportamento da biblioteca **IoTHubClient** encontrada no **SDK do dispositivo IoT do Azure para C**. Com essas informações, você deverá ter um bom entendimento dos recursos da biblioteca **IoTHubClient**. O [próximo artigo](iot-hub-device-sdk-c-serializer.md) fornece detalhes semelhantes sobre a biblioteca do **serializador**.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

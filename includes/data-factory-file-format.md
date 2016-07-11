@@ -7,8 +7,8 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 | columnDelimiter | O caractere usado como um separador de coluna em um arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é vírgula (,). | Não |
 | rowDelimiter | O caractere usado como um separador bruto no arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é qualquer um dos seguintes: ["\\r\\n", "\\r"," \\n"]. | Não |
 | escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. É necessário especificar, no máximo, um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver uma vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: “Hello, world”), poderá definir “$” como o caractere de escape e usar a cadeia de caracteres “Hello$, world” na origem.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não | 
-| quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e de saída.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não |
-| nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é “\\N”.<br/><br/>Por exemplo, com base na amostra acima, “NaN” no blob será convertido em valor nulo quando copiado para o SQL Server, por exemplo. | Não |
+| quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar apenas um caractere para essa propriedade.<br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: <Hello, world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e de saída.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não |
+| nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é “\\N” e “NULL”.<br/><br/>Por exemplo, com base na amostra abaixo, “NaN” no blob será convertido em valor nulo quando copiado para o SQL Server, por exemplo. | Não |
 | encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, confira: [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
 
 #### Exemplo de TextFormat
@@ -214,11 +214,11 @@ Se a estrutura não for definida, a atividade de cópia mescla a estrutura por p
 #### Estrutura JSON com suporte
 Observe o seguinte:
 
-- Cada objeto com uma coleção de pares nome/valor será mapeado para uma linha de dados em um formato tabular. Objetos podem ser aninhados e você pode definir como mesclar a estrutura em um conjunto de dados com o separador de aninhamento (.) por padrão. Veja a seção [exemplo de JsonFormat exemplo](#jsonformat-example) acima para obter um exemplo.  
-- Se a estrutura não for definida no conjunto de dados do Data Factory, a atividade de cópia detectará o esquema do primeiro objeto e mesclará todo o objeto. 
+- Cada objeto com uma coleção de pares nome/valor será mapeado para uma linha de dados em um formato tabular. Objetos podem ser aninhados e você pode definir como mesclar a estrutura em um conjunto de dados com o separador de aninhamento (.) por padrão. Consulte a seção [exemplo de JsonFormat](#jsonformat-example) acima para obter um exemplo.
+- Se a estrutura não for definida no conjunto de dados do Data Factory, a atividade de cópia detectará o esquema do primeiro objeto e mesclará todo o objeto.
 - Se a entrada JSON tiver uma matriz, a atividade de cópia converterá o valor da matriz inteira em uma cadeia de caracteres. É possível optar por ignorá-la usando [o mapeamento ou a filtragem de coluna](#column-mapping-with-translator-rules).
 - Se houver um nome duplicado no mesmo nível, a atividade de cópia selecionará o último elemento.
-- Os nomes de propriedade diferenciam maiúsculas de minúsculas. Duas propriedades com o mesmo nome, mas com maiúsculas e minúsculas diferentes serão tratadas como duas propriedades separadas. 
+- Os nomes de propriedade diferenciam maiúsculas de minúsculas. Duas propriedades com o mesmo nome, mas com maiúsculas e minúsculas diferentes serão tratadas como duas propriedades separadas.
 
 ### Especificando OrcFormat
 Se o formato for definido como OrcFormat, não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
@@ -228,10 +228,11 @@ Se o formato for definido como OrcFormat, não será necessário especificar nen
 	    "type": "OrcFormat",
 	}
 
-Observe o seguinte:
- 
--	Se você estiver copiando dados entre repositórios de dados locais e na nuvem com o formato ORC e não copiar arquivos ORC no estado em que se encontram da origem para o coletor, será necessário instalar o JRE (Java Runtime Environment) no computador do gateway. 
--	Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION)
--	O arquivo ORC tem três [opções de compactação](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB e SNAPPY. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo ORC, o Data Factory escolhe o ZLIB padrão para ORC. Não há nenhuma opção para substituir esse comportamento neste momento. 
+> [AZURE.IMPORTANT] Se você estiver copiando dados entre repositórios de dados locais e na nuvem com o formato ORC e não copiar arquivos ORC no estado em que se encontram da origem para o coletor, será necessário instalar o JRE 8 (Java Runtime Environment) no computador do gateway, que será usado para converter seus dados no formato correto. Observe que o gateway de 64 bits exige JRE de 64 bits, e o gateway de 32 bits exige JRE de 32 bits. Você pode encontrar as duas versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha corretamente.
 
-<!---HONumber=AcomDC_0525_2016-->
+Observe o seguinte:
+
+-	Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION)
+-	O arquivo ORC tem 3 [opções de compactação](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB e SNAPPY. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo ORC, o Data Factory escolhe o ZLIB padrão para ORC. Não há nenhuma opção para substituir esse comportamento neste momento.
+
+<!---HONumber=AcomDC_0629_2016-->

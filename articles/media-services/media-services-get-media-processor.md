@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@ Criptografador de Mídia do Azure|Substituído|
 
 ##Obter processador de mídia
 
-O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **\_context** para fazer referência ao contexto do servidor, conforme descrito na seção [Como: conectar-se aos Serviços de Mídia de forma programática](media-services-dotnet-connect_programmatically.md).
+O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **\_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como: conectar-se aos Serviços de Mídia de forma programática](media-services-dotnet-connect-programmatically.md).
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -69,4 +69,4 @@ O método a seguir mostra como obter uma instância do processador de mídia. O 
 
 Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como codificar um ativo](media-services-dotnet-encode-with-media-encoder-standard.md), que mostrará como usar o Codificador de Mídia Padrão para codificar um ativo.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

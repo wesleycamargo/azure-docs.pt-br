@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
 
 Saiba como usar o Apache Storm no HDInsight para processar dados de sensor a partir de Hubs de Eventos do Azure e visualizá-los usando D3.js. Este documento também descreve como usar uma rede virtual do Azure para conectar o Storm no HDInsight com o HBase no HDInsight e armazenar dados da topologia no HBase.
 
-> [AZURE.NOTE] As informações neste documento são baseadas na utilização do Storm baseado em Windows no cluster HDInsight. Para obter informações sobre como trabalhar com o Hub de Eventos do Azure por meio do Storm baseado em Linux, consulte [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+> [AZURE.NOTE] As informações neste documento são baseadas na utilização do Storm baseado em Windows no cluster HDInsight versão 3.2. Para obter informações sobre como trabalhar com o Hub de Eventos do Azure por meio do Storm baseado em Linux, consulte [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## Pré-requisitos
 
@@ -93,7 +93,7 @@ Antes de usar esse exemplo, você deve criar um Hub de Eventos do Azure que é l
 
 O Hub de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas para criar um novo Hub de Eventos.
 
-1. No [Portal Clássico do Azure](https://manage.windowsazure.com), selecione **NOVO | Barramento de Serviço | Hub de Eventos | Criação Personalizada**.
+1. [No Portal Clássico do Azure](https://manage.windowsazure.com), selecione **NEW| Service Bus | Event Hub | Custom Create**.
 
 2. Na caixa de diálogo **Adicionar um novo Hub de Eventos**, insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente. Clique na seta para continuar.
 
@@ -196,7 +196,7 @@ Antes de testar, você deve iniciar o painel de controle para exibir a saída da
 
 		Server listening at port 3000
 
-2. Abra um navegador da Web e digite ****http://localhost:3000/** como o endereço. Você verá uma página semelhante à seguinte:
+2. Abra um navegador da Web e digite **http://localhost:3000/** como o endereço. Você verá uma página semelhante à seguinte:
 
 	![Painel da Web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -372,7 +372,7 @@ A parte do nome do domínio que começa com o nome do cluster é o sufixo DNS, c
 
 	Isso será usado pelo bolt HBase para se comunicar com o cluster HBase.
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts * * em um editor de texto e remova os comentários das linhas a seguir removendo o `//` desde o início. Salve o arquivo depois de fazer essa alteração.
+1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts ** em um editor de texto e remova os comentários das linhas a seguir removendo o `//` desde o início. Salve o arquivo depois de fazer essa alteração.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -427,4 +427,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

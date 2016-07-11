@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="sashan"/>
 
@@ -36,9 +36,9 @@ Para satisfazer o requisito de simplicidade, você deveria implantar todos os ba
 
 No caso de uma interrupção na região primária, as etapas de recuperação para colocar seu aplicativo online estão ilustradas no diagrama a seguir.
 
-- Faça o failover imediatamente dos bancos de dados de gerenciamento para a região da recuperação de desastres (2). 
+- Faça o failover imediatamente dos bancos de dados de gerenciamento para a região da recuperação de desastres (2).
 - Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Todas as novas contas e bancos de dados de locatário serão criados na região da recuperação de desastres. Os clientes existentes verão seus dados como temporariamente indisponíveis.
-- Crie o pool elástico com a mesma configuração do pool original (3). 
+- Crie o pool elástico com a mesma configuração do pool original (3).
 - Use a restauração geográfica para criar cópias dos bancos de dados de locatário (4). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
 
 Neste momento, seu aplicativo está novamente online na região da recuperação de desastres, mas alguns clientes acessarão seus dados com algum atraso.
@@ -47,12 +47,12 @@ Neste momento, seu aplicativo está novamente online na região da recuperação
 
 Se a interrupção foi temporária, é possível que a região primária seja recuperada pelo Azure antes de todas as restaurações serem concluídas na região da recuperação de desastres. Nesse caso, você deve organizar a mudança do aplicativo novamente para a região primária. O processo usará as etapas ilustradas no diagrama a seguir.
  
-- Cancele todas as solicitações de restauração geográfica pendentes.   
-- Faça o failover dos bancos de dados de gerenciamento para a região primária (5). Observação: após a recuperação da região, os antigos primários se tornarão secundários automaticamente. Agora, eles alternarão funções novamente. 
-- Mude a cadeia de conexão do aplicativo para apontar novamente para a região primária. Agora, todas as novas contas e bancos de dados de locatário serão criados na região primária. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.   
-- Defina todos os bancos de dados no pool da recuperação de desastres como somente leitura a fim de garantir que eles não poderão ser modificados na região da recuperação de desastres (6). 
-- Para cada banco de dados no pool da recuperação de desastres que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário (7). 
-- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (8). 
+- Cancele todas as solicitações de restauração geográfica pendentes.
+- Faça o failover dos bancos de dados de gerenciamento para a região primária (5). Observação: após a recuperação da região, os antigos primários se tornarão secundários automaticamente. Agora, eles alternarão funções novamente.
+- Mude a cadeia de conexão do aplicativo para apontar novamente para a região primária. Agora, todas as novas contas e bancos de dados de locatário serão criados na região primária. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.
+- Defina todos os bancos de dados no pool da recuperação de desastres como somente leitura a fim de garantir que eles não poderão ser modificados na região da recuperação de desastres (6).
+- Para cada banco de dados no pool da recuperação de desastres que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário (7).
+- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (8).
 - Exclua o pool da recuperação de desastres (9)
 
 Neste momento, seu aplicativo estará online na região primária com todos os bancos de dados de locatário disponíveis no pool primário.
@@ -79,9 +79,9 @@ Se uma interrupção na região primária ocorre, as etapas de recuperação par
 
 - Faça o failover imediato dos bancos de dados de gerenciamento para a região da recuperação de desastres (3).
 - Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Agora, todas as novas contas e bancos de dados de locatário serão criados na região da recuperação de desastres. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
-- Faça o failover do bancos de dados de locatário pago para o pool na região da recuperação de desastres para restaurar sua disponibilidade imediatamente (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-- Se o tamanho do pool secundário eDTU era menor do que o primário porque os bancos de dados secundários precisavam apenas da capacidade de processar os logs de alteração enquanto eram secundários, você deve aumentar imediatamente a capacidade do pool agora para acomodar a carga de trabalho completa de todos os locatários (5). 
-- Crie um novo pool elástico com o mesmo nome e a mesma configuração na região da recuperação de desastres para os bancos de dados dos clientes de avaliação (6). 
+- Faça o failover do bancos de dados de locatário pago para o pool na região da recuperação de desastres para restaurar sua disponibilidade imediatamente (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final.
+- Se o tamanho do pool secundário eDTU era menor do que o primário porque os bancos de dados secundários precisavam apenas da capacidade de processar os logs de alteração enquanto eram secundários, você deve aumentar imediatamente a capacidade do pool agora para acomodar a carga de trabalho completa de todos os locatários (5).
+- Crie um novo pool elástico com o mesmo nome e a mesma configuração na região da recuperação de desastres para os bancos de dados dos clientes de avaliação (6).
 - Depois de criar o pool dos clientes de avaliação, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no novo pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
 
 Neste momento, seu aplicativo está online novamente na região da recuperação de desastres. Todos os clientes pagantes têm acesso aos dados, ao passo que o clientes de avaliação acessarão seus dados com atraso.
@@ -90,13 +90,13 @@ Quando a região primária é recuperada pelo Azure *depois* de você ter restau
  
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-- Cancele todas as solicitações de restauração geográfica pendentes.   
-- Faça o filover dos bancos de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se tornou secundário automaticamente. Agora, ele se tornará primário novamente.  
-- Faça o failover dos bancos de dados de locatário pago (9). Da mesma forma, após a recuperação da região, os antigos primários se tornaram secundários automaticamente. Agora, eles se tornarão primários novamente. 
+- Cancele todas as solicitações de restauração geográfica pendentes.
+- Faça o filover dos bancos de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se tornou secundário automaticamente. Agora, ele se tornará primário novamente.
+- Faça o failover dos bancos de dados de locatário pago (9). Da mesma forma, após a recuperação da região, os antigos primários se tornaram secundários automaticamente. Agora, eles se tornarão primários novamente.
 - Defina os bancos de dados de avaliação restaurados que foram alterados na região da recuperação de desastres como somente leitura (10).
-- Para cada banco de dados no pool da recuperação de desastres dos clientes de avaliação alterados desde a recuperação, renomeie ou exclua o banco de dados correspondente no pool primário dos clientes de avaliação (11). 
-- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (12). 
-- Exclua o pool da recuperação de desastres (13). 
+- Para cada banco de dados no pool da recuperação de desastres dos clientes de avaliação alterados desde a recuperação, renomeie ou exclua o banco de dados correspondente no pool primário dos clientes de avaliação (11).
+- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (12).
+- Exclua o pool da recuperação de desastres (13).
 
 > [AZURE.NOTE] A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que você execute o comando de failover dos bancos de dados de locatário em lotes de pelo menos 20 bancos de dados.
 
@@ -122,9 +122,9 @@ O diagrama a seguir ilustra as etapas de recuperação em caso de falha na regi�
 
 - Faça imediatamente o failover dos bancos de dados de gerenciamento para a região B (3).
 - Altere a cadeia de conexão do aplicativo para apontar para os bancos de dados de gerenciamento na região B. Modifique os bancos de dados de gerenciamento para garantir que as novas contas e bancos de dados de locatário sejam criados na região B e que os bancos de dados existentes do inquilino estejam lá também. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
-- Faça o failover dos bancos de dados de locatário pago para o pool 2 na região B para restaurar sua disponibilidade (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-- A partir de agora, o pool 2 conterá apenas bancos de dados primários. A carga de trabalho total no pool aumentará e, portanto, você deverá aumentar seu tamanho eDTU (5). 
-- Crie um novo pool elástico com o mesmo nome e a mesma configuração na região B para bancos de dados dos clientes de avaliação (6). 
+- Faça o failover dos bancos de dados de locatário pago para o pool 2 na região B para restaurar sua disponibilidade (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final.
+- A partir de agora, o pool 2 conterá apenas bancos de dados primários. A carga de trabalho total no pool aumentará e, portanto, você deverá aumentar seu tamanho eDTU (5).
+- Crie um novo pool elástico com o mesmo nome e a mesma configuração na região B para bancos de dados dos clientes de avaliação (6).
 - Depois de criar o pool, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
 
 
@@ -136,26 +136,26 @@ Quando a região A for recuperada, você precisará decidir se deseja usar a reg
  
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-- Cancele todas as solicitações de restauração geográfica pendentes para o pool da recuperação de desastres de avaliação.   
-- Faça o failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se tornou secundário automaticamente. Agora, ele se tornará primário novamente.  
-- Escolha quais bancos de dados de locatário pago farão failback para o pool 1 e iniciarão o failover para seus secundários (9). Após a recuperação da região, todos os bancos de dados no pool 1 se tornaram secundários automaticamente. Agora, 50% deles se tornarão primários novamente. 
+- Cancele todas as solicitações de restauração geográfica pendentes para o pool da recuperação de desastres de avaliação.
+- Faça o failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se tornou secundário automaticamente. Agora, ele se tornará primário novamente.
+- Escolha quais bancos de dados de locatário pago farão failback para o pool 1 e iniciarão o failover para seus secundários (9). Após a recuperação da região, todos os bancos de dados no pool 1 se tornaram secundários automaticamente. Agora, 50% deles se tornarão primários novamente.
 - Reduza o tamanho do pool 2 para o eDTU original (10).
 - Defina todos os bancos de dados de avaliação na região B como somente leitura (11).
-- Para cada banco de dados no pool da recuperação de desastres de avaliação que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário de avaliação (12). 
-- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (13). 
-- Excluir o pool da recuperação de desastres (14) 
+- Para cada banco de dados no pool da recuperação de desastres de avaliação que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário de avaliação (12).
+- Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (13).
+- Excluir o pool da recuperação de desastres (14)
 
 As principais **vantagens** dessa estratégia são:
 
-- Ela dá suporte ao SLA mais agressivo para os clientes pagantes porque faz com que uma interrupção não possa afetar mais de 50% dos bancos de dados de locatário. 
-- Ela faz com que as novas avaliações sejam desbloqueadas assim que a trilha do pool da recuperação de desastres for criada durante a recuperação. 
+- Ela dá suporte ao SLA mais agressivo para os clientes pagantes porque faz com que uma interrupção não possa afetar mais de 50% dos bancos de dados de locatário.
+- Ela faz com que as novas avaliações sejam desbloqueadas assim que a trilha do pool da recuperação de desastres for criada durante a recuperação.
 - Ela permite um uso mais eficiente da capacidade do pool, já que 50% dos bancos de dados secundários nos pools 1 e 2 são garantidamente menos ativos que os bancos de dados primários.
 
 Os principais **poréns** são:
 
 - As operações CRUD em relação aos bancos de dados de gerenciamento terão menor latência para os usuários finais conectados à região A que para os usuários finais conectados à região B, já que elas serão executadas em relação ao primário dos bancos de dados.
-- Ele requer um design mais complexo do banco de dados de gerenciamento. Por exemplo, cada registro de locatário precisa ter uma marca de local que tem que ser alterada durante o failover e o failback.  
-- Os clientes pagantes podem sentir um desempenho menor que o normal até que a atualização do pool na região B seja concluída. 
+- Ele requer um design mais complexo do banco de dados de gerenciamento. Por exemplo, cada registro de locatário precisa ter uma marca de local que tem que ser alterada durante o failover e o failback.
+- Os clientes pagantes podem sentir um desempenho menor que o normal até que a atualização do pool na região B seja concluída.
 
 ## Resumo
 
@@ -164,23 +164,10 @@ Este artigo aborda as estratégias de recuperação de desastres para a camada d
 
 ## Próximas etapas
 
-As etapas individuais necessárias para cada cenário envolvem operações em um grande número de bancos de dados. Considere o uso de Trabalhos Elásticos de Banco de Dados SQL para gerenciar essas operações em grande escala. Para saber mais, confira [Gerenciando bancos de dados de nuvem com escalonamento horizontal](./sql-database-elastic-jobs-overview.md). As páginas abaixo ajudarão você a saber mais sobre as operações específicas necessárias para implementar cada um dos cenários neste artigo:
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-- [Adicionar banco de dados secundário](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-- [Fazer failover do banco de dados para o secundário](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Banco de dados de restauração geográfica](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-- [Remover banco de dados](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Copiar banco de dados](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-
-## Recursos adicionais
-
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

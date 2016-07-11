@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar um aplicativo do AD com a CLI do Azure | Microsoft Azure"
-   description="Descreve como usar a CLI do Azure para criar um aplicativo do Active Directory e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
+   pageTitle="Criar entidade de serviço com a CLI do Azure | Microsoft Azure"
+   description="Descreve como usar a CLI do Azure para criar um aplicativo do Active Directory e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Usar a CLI do Azure para criar um aplicativo do Active Directory para acessar recursos
+# Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -149,7 +149,7 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 No script, você passará três valores que são necessários para fazer logon como a entidade de serviço. Você precisará do seguinte:
 
 - id do aplicativo
-- ID do locatário 
+- ID do locatário
 - Impressão digital do certificado
 
 Você já viu a id do aplicativo e a impressão digital do certificado nas etapas anteriores. No entanto, se você precisar recuperar esses valores posteriormente, os comandos serão mostrados abaixo, junto com o comando para obter a id do locatário.
@@ -183,10 +183,10 @@ Agora, você já deve ser autenticado como a entidade de serviço do aplicativo 
 ## Próximas etapas
   
 - Para obter exemplos de autenticação .NET, confira [SDK do Azure Resource Manager para .NET](resource-manager-net-sdk.md).
-- Para obter exemplos de autenticação Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md). 
+- Para obter exemplos de autenticação Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md).
 - Para obter exemplos de autenticação Python, confira [Autenticação de Gerenciamento de Recursos para Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
 - Para obter exemplos de autenticação REST, confira [APIs REST do Resource Manager](resource-manager-rest-api.md).
 - Para obter etapas detalhadas sobre como integrar um aplicativo do Azure para gerenciar recursos, consulte [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
-- Para saber mais sobre como usar os certificados e a CLI do Azure, confira [Autenticação baseada em certificados com as Entidades de Serviço do Azure a partir da linha de comando do Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) 
+- Para saber mais sobre como usar os certificados e a CLI do Azure, confira [Autenticação baseada em certificados com as Entidades de Serviço do Azure a partir da linha de comando do Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

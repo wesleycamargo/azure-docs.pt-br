@@ -1,5 +1,5 @@
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Associar Aplicativo à Store...**. 
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da Windows Store, clique em **Armazenar** > **Associar Aplicativo à Store...**.
 
     ![Associar aplicativo com a Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
     
@@ -11,12 +11,10 @@
 
 7. Navegue até o [Centro de Desenvolvimento do Windows](https://dev.windows.com/pt-BR/overview), entre com sua conta da Microsoft, clique no registro do novo aplicativo em **Meus aplicativos** e expanda **Serviços** > **Notificações por push**.
 
-8. Na página **Notificações por push**, clique em **Site dos Live Services** em **Serviços Móveis do Microsoft Azure**.
-
-9. Na guia **Configurações de Aplicativo**, anote os valores de **Segredo do cliente** e **SID de Pacote**.
+8. Na página **Notificações por Push**, clique em **site do Live Services** em **Serviços de Notificação por Push do Windows (WNS) e Aplicativos Móveis do Microsoft Azure** e anote os valores de **SID do Pacote** e o valor *atual* de **Segredo do Aplicativo**.
 
     ![Configuração do aplicativo no centro do desenvolvedor](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
-    > [AZURE.IMPORTANT]O segredo do cliente e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses valores com ninguém nem os distribua com seu aplicativo.
+    > [AZURE.IMPORTANT] O segredo do aplicativo e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses valores com ninguém nem os distribua com seu aplicativo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0629_2016-->

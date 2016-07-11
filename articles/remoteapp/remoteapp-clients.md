@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,7 @@ Neste tópico, vamos analisar os clientes com suporte atualmente e como baixá-l
 
 Você pode acessar o RemoteApp usando as etapas a seguir se seu dispositivo estiver executando um dos seguintes sistemas operacionais:
 
- - Windows 10 
+ - Windows 10
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
@@ -58,7 +58,7 @@ Depois de ter instalado o cliente no dispositivo e o ter iniciado, vá para a se
 
 Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a partir do armazenamento do Google Play, você o encontrará em sua lista de aplicativos na **Área de Trabalho Remota**.
 
-1. Iniciar o aplicativo leva você a um Centro de Conexões vazio, a menos que você já tenha usado o aplicativo. Para começar com o Azure RemoteApp, toque no botão Adicionar **"" +""** e em **Azure RemoteApp**.	
+1. Iniciar o aplicativo leva você a um Centro de Conexões vazio, a menos que você já tenha usado o aplicativo. Para começar com o Azure RemoteApp, toque no botão Adicionar **"" +""** e em **Azure RemoteApp**.
 
 	 ![Centro de Conexões Vazio](./media/remoteapp-clients/Android1.png)
 
@@ -207,4 +207,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 	![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -40,10 +40,10 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
 
    1. Se o conteúdo for criptografado, defina uma política de acesso.
    2. Criar um localizador de streaming sob demanda.
-   3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo. 
+   3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo.
    		
-	Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo.  
-   4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
+	Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo.
+   4. Crie URLs para o arquivo de manifesto ou arquivos MP4.
    
 
 ###Usar o SDK do .NET dos Serviços de Mídia 
@@ -171,4 +171,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 
 [Baixar ativos](media-services-deliver-asset-download.md) [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

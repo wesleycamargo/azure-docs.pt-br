@@ -5,11 +5,11 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="03/18/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="06/23/2016"
 
 	ms.author="femila"/>
 
@@ -30,4 +30,4 @@ Os tópicos a seguir fornecem informações sobre recursos diferentes de disposi
 | Implantação | [Cenários de uso e considerações de implantação sobre o ingresso no AD do Azure](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Conectar dispositivos ingressados em domínio ao AD do Azure para experiências do Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Habilitar o Microsoft Passport para o trabalho na organização](active-directory-azureadjoin-passport-deployment.md)<br><br> [Habilitar o Enterprise State Roaming para o Windows10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tarefas do usuário | [Configurar um novo dispositivo Windows 10 com o AD do Azure durante a instalação](active-directory-azureadjoin-user-frx.md) <br><br> [Configurar um dispositivo Windows 10 com o AD do Azure no menu de configurações](active-directory-azureadjoin-user-upgrade.md) <br><br> [Ingressar um dispositivo Windows 10 pessoal na sua organização](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

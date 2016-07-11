@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 Começando com o Microsoft Azure Media Services 2.2, você pode anexar várias contas de armazenamento para uma única conta de Serviços de Mídia. A capacidade de anexar diversas contas de armazenamento a uma conta dos Serviços de Mídia oferece os seguintes benefícios:
 
 - Balanceamento de carga seus ativos entre diversas contas de armazenamento.
-- Dimensionamento dos Serviços de Mídia para grandes quantidades de processamento de conteúdo (já que, no momento, uma única conta de armazenamento tem um limite máximo de 500 TB). 
+- Dimensionamento dos Serviços de Mídia para grandes quantidades de processamento de conteúdo (já que, no momento, uma única conta de armazenamento tem um limite máximo de 500 TB).
 
 Este tópico demonstra como anexar várias contas de armazenamento a uma conta de Serviços de Mídia usando API REST do Gerenciamento de Serviços do Azure. Ele também mostra como especificar diferentes contas de armazenamento ao criar ativos usando o SDK dos Serviços de Mídia.
 
@@ -32,7 +32,7 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 - Todas as contas de armazenamento anexadas a uma conta dos Serviços de Mídia devem estar no mesmo data center que a conta de serviços de mídia.
 - No momento, depois que uma conta de armazenamento é anexada à conta de Serviços de Mídia especificada, ele não pode ser desanexado.
-- A conta de armazenamento principal é a indicado durante o tempo de criação de conta do Serviços de Mídia. No momento, não é possível alterar a conta de armazenamento padrão. 
+- A conta de armazenamento principal é a indicado durante o tempo de criação de conta do Serviços de Mídia. No momento, não é possível alterar a conta de armazenamento padrão.
 
 Outras considerações:
 
@@ -259,4 +259,4 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

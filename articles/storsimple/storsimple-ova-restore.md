@@ -68,9 +68,7 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 1.  Navegue até o **Catálogo de Backup**. Filtrar por dispositivo apropriado e intervalo de tempo para pesquisar seus backups. Clique no ícone de seleção ![](./media/storsimple-ova-restore/image1.png) para executar a consulta.
 
-2.  Na lista de conjuntos de backup exibido, clique e selecione um backup específico. Expanda o backup para ver os diversos volumes sob ele. Você deve deixar esses volumes offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na página **Volumes** e deixe-os offline.
-
-3.  Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup.
+2.  Na lista de conjuntos de backup exibido, clique e selecione um backup específico. Expanda o backup para ver os diversos volumes sob ele. Selecione o volume que você deseja restaurar.
 
 5.  Na parte inferior da página, clique em **Restaurar como novo**. O assistente **Restaurar como novo volume** será iniciado.
 
@@ -79,7 +77,7 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 	1.  Verifique o nome do dispositivo de origem. Esse deve ser o dispositivo que contém o volume que você deseja restaurar. A seleção do dispositivo está indisponível. Para selecionar um dispositivo de origem diferente, você precisará sair do assistente e selecionar novamente o conjunto de backup mais uma vez.
 
-	2.  Forneça um nome de volume. O nome do volume deve conter entre 3 e 127 caracteres.
+	2.  Forneça um nome de volume para o volume que está sendo restaurado como novo. O nome do volume deve conter entre 3 e 127 caracteres.
 
 	3.  Clique no ícone de seta.
 
@@ -93,9 +91,15 @@ Para restaurar de um backup, execute as etapas a seguir no portal clássico do A
 
 2.  Depois que o trabalho de restauração for concluído, a restauração será iniciada e você verá outra notificação. Para monitorar o progresso da restauração, clique em **Exibir trabalho**. Isso o levará até a página **Trabalhos**.
 
-3.  Você pode acompanhar o andamento do trabalho de restauração. Quando a restauração estiver 100% concluída, navegue de volta à página **Volumes** em seu dispositivo.
+3.  Você pode acompanhar o andamento do trabalho de restauração. Navegue de volta à página **Volumes** em seu dispositivo.
 
 4.  Agora você pode exibir o novo volume restaurado na lista de volume em seu dispositivo. Observe que a restauração é feita para o mesmo tipo de volume. Um volume em camadas é restaurado como em camadas, e um volume fixado localmente é restaurado como um volume fixado localmente.
+
+5.  Quando o volume for exibido online na lista de volumes, o volume estará disponível para uso. No host do iniciador iSCSI, atualize a lista de destinos na janela de propriedades do iniciador iSCSI. Um novo destino que contém o nome do volume restaurado deve aparecer como 'inativo' na coluna status.
+
+6.  Selecione o destino e clique em **Conectar**. Após o iniciador ser conectado ao destino, o status deverá mudar para **Conectado**.
+
+7.  Na janela **Gerenciamento de Disco**, os volumes montados serão exibidos conforme exibido na ilustração a seguir. Clique com o botão direito no volume descoberto (clique no nome do disco) e depois clique em **Online**.
 
 > [AZURE.IMPORTANT] Ao tentar restaurar um volume ou um compartilhamento de um conjunto de backup, se o trabalho de restauração falhar, um volume de destino ou compartilhamento ainda poderá ser criado no portal. É importante excluir este volume de destino ou compartilhá-lo no portal para minimizar quaisquer problemas futuros causado por esse elemento.
 
@@ -130,6 +134,6 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 ## Próximas etapas
 
-Saiba mais sobre como [administrar seu StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

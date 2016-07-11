@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure
@@ -30,7 +30,7 @@ Este Guia de Início Rápido da Solução fornece uma solução para coletar e m
 
 Este Guia de Início Rápido da Solução fornece uma solução para um cenário de SaaS (Software como solução) que utiliza Pools Elásticos para fornecer um back-end de banco de dados econômico e escalonável para um aplicativo SaaS. Nesta solução, você verá um passo a passo da implementação de um aplicativo Web que permite visualizar a carga criada em um Pool Elástico com um gerador de carga usando um painel personalizado que complementa o Portal do Azure.
 
-[Cenário de SaaS com pools elásticos](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) no repositório de exemplos do SQL Server no GitHub fornece um aplicativo Web de monitoramento e gerador de carga em conjunto com a documentação sobre o que ele faz e como usá-lo.
+[Painel personalizado do pool elástico para Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) no repositório de exemplos do SQL Server no GitHub fornece um aplicativo Web de monitoramento e gerador de carga em conjunto com a documentação sobre o que ele faz e como usá-lo.
 
 ## Criando um Banco de Dados SQL usando o Entity Framework e desenvolvimento Code First
 
@@ -52,4 +52,4 @@ Este exemplo é um aplicativo Web multilocatário, chamado Surveys, que permite 
 
 [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

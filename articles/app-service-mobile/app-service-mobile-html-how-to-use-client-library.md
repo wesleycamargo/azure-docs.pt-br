@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/29/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Como usar a biblioteca de cliente JavaScript para os Aplicativos Móveis do Azure
@@ -57,60 +57,37 @@ Dois fluxos de autenticação são suportados: um server flow e um client flow. 
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>Como se registrar para receber notificações por push
+###<a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de Redirecionamento Externo.
 
-Instale o [phonegap-plugin-push] para manipular notificações por push. Isso pode ser facilmente adicionado usando o comando `cordova plugin add` na linha de comando ou por meio do instalador de plug-ins do Git no Visual Studio. O código a seguir em seu aplicativo Apache Cordova registrará seu dispositivo para notificações por push:
+Vários tipos de aplicativos JavaScript usam uma funcionalidade de loopback para manipular fluxos de interface do usuário OAuth, como ao executar seu serviço localmente, usando a recarga dinâmica no Framework Ionic ou ao redirecionar para o Serviço de Aplicativo para autenticação. Isso pode causar problemas porque, por padrão, a autenticação de Serviço de Aplicativo só está configurada para permitir o acesso de back-end do Aplicativo Móvel.
 
-```
-var pushOptions = {
-    android: {
-        senderId: '<from-gcm-console>'
-    },
-    ios: {
-        alert: true,
-        badge: true,
-        sound: true
-    },
-    windows: {
-    }
-};
-pushHandler = PushNotification.init(pushOptions);
+Use as etapas a seguir para alterar as configurações de Serviço de Aplicativo para habilitar a autenticação de seu localhost:
 
-pushHandler.on('registration', function (data) {
-    registrationId = data.registrationId;
-    // For cross-platform, you can use the device plugin to determine the device
-    // Best is to use device.platform
-    var name = 'gcm'; // For android - default
-    if (device.platform.toLowerCase() === 'ios')
-        name = 'apns';
-    if (device.platform.toLowerCase().substring(0, 3) === 'win')
-        name = 'wns';
-    client.push.register(name, registrationId);
-});
+1. Faça logon no [Portal do Azure], navegue até seu back-end do Aplicativo Móvel, clique em **Ferramentas** > **Gerenciador de Recursos** > **Ir** para abrir uma nova janela do gerenciador de recursos para seu back-end de Aplicativo Móvel (site).
 
-pushHandler.on('notification', function (data) {
-    // data is an object and is whatever is sent by the PNS - check the format
-    // for your particular PNS
-});
+2. Expanda o nó **config** para seu aplicativo, em seguida, clique em **authsettings** > **Editar**, encontre o elemento **allowedExternalRedirectUrls**, que deve ser nulo e altere-o para o seguinte:
 
-pushHandler.on('error', function (error) {
-    // Handle errors
-});
-```
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
 
-Use o SDK dos Hubs de Notificação para enviar notificações por push do servidor. Você nunca deve enviar notificações por push diretamente dos clientes, pois isso pode ser usado para disparar um ataque de negação de serviço contra os Hubs de Notificação ou PNS.
+    Substitua as URLs na matriz de pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
+    
+3. Na parte superior da página, clique em **Leitura/Gravação** e, em seguida, clique em **PUT** para salvar as atualizações.
+
+    Você ainda precisa adicionar as mesmas URLs de loopback para as configurações de lista branca do CORS:
+
+4. No [Portal do Azure] no back-end do aplicativo móvel, clique em **Todas as Configurações** > **CORS**, adicione as URLs de loopback à lista branca e clique em **Salvar**.
+
+Após a atualização do back-end, você poderá usar as novas URLs de loopback em seu aplicativo.
 
 <!-- URLs. -->
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
-[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
+[SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[Query object documentation]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

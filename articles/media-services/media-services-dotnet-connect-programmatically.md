@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ No final do processo de instalação da conta dos serviços de mídia, você obt
 
 - A chave da conta de serviços de mídia.
 
-Para localizar esses valores, vá para o Portal de Gerenciamento do Azure, selecione sua conta de serviço de mídia e clique no ícone "**GERENCIAR CHAVES**" na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
+Para localizar esses valores, vá para o Portal de Gerenciamento do Azure, selecione sua conta de serviço de mídia e clique no ícone “**GERENCIAR CHAVES**” na parte inferior da janela do portal. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
 
 
 ## Criando uma instância CloudMediaContext
@@ -171,7 +171,7 @@ Por exemplo:
 
 É uma prática altamente recomendável armazenar valores de conexão, especialmente valores confidenciais como seu nome de conta e senha, na configuração. Além disso, é uma prática recomendada criptografar dados de configuração confidenciais. Você pode criptografar o arquivo de configuração inteiro usando o sistema de arquivos com criptografia (EFS) do Windows. Para habilitar o EFS em um arquivo, clique com o botão direito do mouse no arquivo, selecione **Propriedades** e habilite a criptografia na guia de configurações **Avançadas**. Ou você pode criar uma solução personalizada para criptografar as partes selecionadas de um arquivo de configuração usando a configuração protegida. Consulte [Criptografando informações de configuração usando configuração protegida](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
-O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores necessários que você obteve do processo de configuração de conta dos serviços de mídia.
+O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores obrigatórios que você obteve do processo de configuração de conta dos serviços de mídia.
 
 	<configuration>
 	  <appSettings>
@@ -196,4 +196,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

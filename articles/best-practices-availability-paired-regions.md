@@ -44,6 +44,7 @@ Figura 1 – Diagrama do par da região do Azure
 | Austrália | Leste da Austrália | Sudeste da Austrália|
 | Governo dos EUA | Gov do Iowa nos EUA | Gov da Virgínia nos EUA |
 | Índia | Índia Central | Sul da Índia |
+| Canadá | Canadá Central | Leste do Canadá |
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 
@@ -62,12 +63,12 @@ Figura 2 – par da região do Azure hipotético
 ## Atividades entre regiões
 Como mencionado na Figura 2.
 
-![1Verde](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (PaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que recursos estejam disponíveis em outra região durante um desastre. Para obter mais informações, confira [Orientações Técnicas de Continuidade de Negócios do Azure](https://msdn.microsoft.com/library/azure/hh873027.aspx).
+![1Verde](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (PaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](./resiliency/resiliency-technical-guidance.md).
 
 ![2Verde](./media/best-practices-availability-paired-regions/2Green.png) **Armazenamento do Azure** - O GRS (armazenamento com redundância geográfica) é configurado por padrão quando uma conta de armazenamento do Azure é criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/storage-redundancy.md).
 
 
-![3Verde](./media/best-practices-availability-paired-regions/3Green.png) **Bancos de dados SQL do Azure** – Com a replicação geográfica padrão do SQL do Azure, você pode configurar a replicação assíncrona de transações para uma região emparelhada. Com replicação geográfica premium, você pode configurar a replicação para qualquer região do mundo; no entanto, é recomendável que esses recursos sejam implantados em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para obter mais informações, consulte [Replicação geográfica no Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+![3Verde](./media/best-practices-availability-paired-regions/3Green.png) **Bancos de dados SQL do Azure** – Com a replicação geográfica padrão do SQL do Azure, você pode configurar a replicação assíncrona de transações para uma região emparelhada. Com replicação geográfica premium, você pode configurar a replicação para qualquer região do mundo; no entanto, é recomendável que esses recursos sejam implantados em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](./sql-database/sql-database-geo-replication-overview.md).
 
 ![4Verde](./media/best-practices-availability-paired-regions/4Green.png) **ARM (Gerenciador de Recursos do Azure)** - o ARM fornece inerentemente isolamento lógico dos componentes do gerenciamento de serviço entre regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
 
@@ -85,4 +86,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

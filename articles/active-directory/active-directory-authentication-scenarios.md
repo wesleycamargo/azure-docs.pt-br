@@ -63,7 +63,7 @@ Com o diagrama acima em mente, aqui está o que você precisa saber sobre seus v
 • Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, veja a documentação [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
-> [AZURE.IMPORTANT] O Azure AD usa criptografia de chave pública para assinar tokens e verificar se eles são válidos. Consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obter mais informações sobre a lógica necessária que você deve ter em seu aplicativo para garantir que ele esteja sempre atualizado com as últimas chaves.
+> [AZURE.IMPORTANT] O Azure AD usa criptografia de chave pública para assinar tokens e verificar se eles são válidos. Consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](active-directory-signing-key-rollover.md) para obter mais informações sobre a lógica necessária que você deve ter em seu aplicativo para garantir que ele esteja sempre atualizado com as últimas chaves.
 
 
 • O fluxo de solicitações e respostas para o processo de autenticação é determinado pelo protocolo de autenticação que foi usado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Esses protocolos são discutidos em mais detalhes no tópico [Protocolos de autenticação do Azure Active Directory](active-directory-authentication-protocols.md) e nas seções a seguir.
@@ -464,8 +464,8 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 [Exemplos de código do Azure Active Directory](active-directory-code-samples.md)
 
-[Informações importantes sobre a substituição da chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Informações importantes sobre a substituição da chave de assinatura no Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

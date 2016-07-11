@@ -21,7 +21,7 @@
 
 Apache Tomcat (ou simplesmente Tomcat, anteriormente também Tomcat Jacarta) é um servidor Web de software livre e o contêiner de servlet desenvolvidos pelo Apache Software Foundation (ASF). Tomcat implementa o Servlet Java e especificações de JavaServer Pages (JSP) da Sun Microsystems e fornece um ambiente de servidor Web HTTP Java puro na qual executará o código Java. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Neste guia, você instalará o tomcat7 em uma imagem do Linux e vai implantá-lo no Microsoft Azure.
@@ -75,8 +75,8 @@ A Porta 8080 TCP é o número da porta padrão na qual o tomcat escuta. Abrindo 
 
 1.	No portal do Azure, clique em **Procurar** -> **Máquina Virtual** e clique na máquina virtual que você criou. ![][5]
 2.	Para adicionar um ponto de extremidade à máquina virtual, clique na caixa **Pontos de extremidade**. ![][6]
-3.	Clique em **Adicionar**.  
-	1.	Para o **ponto de extremidade**, digite um nome para o ponto de extremidade no Ponto de extremidade e, em seguida, digite 80 na **Porta pública**.  
+3.	Clique em **Adicionar**.
+	1.	Para o **ponto de extremidade**, digite um nome para o ponto de extremidade no Ponto de extremidade e, em seguida, digite 80 na **Porta pública**.
 
 		Se você defini-la para 80, não é necessário incluir o número da porta na URL que permite que você acesse o tomcat. Por exemplo: http://tomcatdemo.cloudapp.net.
 
@@ -128,7 +128,7 @@ open-jdk
 
 oracle-jdk
 
--	Para baixar o JDK do site do Oracle:  
+-	Para baixar o JDK do site do Oracle:
 
 		wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 
@@ -206,7 +206,7 @@ Depois de editar esse arquivo, você deverá reiniciar serviços do tomcat7 com 
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Abra o navegador e digite a URL **http://<your tomcat server DNS name>/manager/html**. Para o exemplo deste artigo, a URL é http://tomcatexample.cloudapp.net/manager/html.
+Abra o navegador e insira a URL **http://<nome DNS do seu servidor tomcat>/manager/html**. Para o exemplo deste artigo, a URL é http://tomcatexample.cloudapp.net/manager/html.
 
 Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 
@@ -215,8 +215,8 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 ###Não é possível acessar a máquina virtual com o Tomcat e o Moodle por meio da Internet
 
 -	**Sintoma** O Tomcat está sendo executado, mas você não consegue ver a página padrão do Tomcat com seu navegador.
--	**Possível causa raiz**   
-	1.	A porta de escuta do tomcat não é a mesma que a Porta Privada do ponto de extremidade da máquina virtual para o tráfego do tomcat.  
+-	**Possível causa raiz**
+	1.	A porta de escuta do tomcat não é a mesma que a Porta Privada do ponto de extremidade da máquina virtual para o tráfego do tomcat.
 
 		Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do tomcat. Consulte a Fase 1: Crie uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.
 
@@ -240,7 +240,7 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 			w3m http://localhost:8080  
 
 -	**Solução**
-	1. Se a porta de escuta do tomcat não é o mesma que a Porta Privada do ponto de extremidade para o tráfego para a máquina virtual, você precisa alterar a Porta Privada para ser que o mesma que a porta de escuta do tomcat.   
+	1. Se a porta de escuta do tomcat não é o mesma que a Porta Privada do ponto de extremidade para o tráfego para a máquina virtual, você precisa alterar a Porta Privada para ser que o mesma que a porta de escuta do tomcat.
 
 	2.	Se o problema for causado pelo firewall/iptables, adicione as seguintes linhas para /etc/sysconfig/iptables:
 
@@ -261,7 +261,7 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 
 ###Permissão negada ao carregar os arquivos do projeto para /var/lib/tomcat7/webapps/  
 
--	**Sintoma** Quando você usa qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/lib/tomcat7/webapps/ para publicar seu site, você recebe uma mensagem de erro semelhante à seguinte:  
+-	**Sintoma** Quando você usa qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/lib/tomcat7/webapps/ para publicar seu site, você recebe uma mensagem de erro semelhante à seguinte:
 
 		status:	Listing directory /var/lib/tomcat7/webapps
 		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
@@ -269,7 +269,7 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 		Error:	File transfer failed
 
 -	**Possível causa raiz** Você não tem permissões para acessar a pasta /var/lib/tomcat7/webapps.
--	**Solução** Você precisa obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar o computador. Aqui está um exemplo com o nome de conta azureuser:  
+-	**Solução** Você precisa obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar o computador. Aqui está um exemplo com o nome de conta azureuser:
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
@@ -306,4 +306,4 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 [17]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

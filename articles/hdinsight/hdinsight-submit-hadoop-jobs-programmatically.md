@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Enviar trabalhos Hadoop no HDInsight
@@ -26,4 +26,4 @@ Consulte:
 - [Usar o Sqoop no HDInsight](hdinsight-use-sqoop.md)
 - [Usar o Oozie no HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

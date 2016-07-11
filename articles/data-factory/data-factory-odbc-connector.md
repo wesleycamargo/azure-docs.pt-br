@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados de armazenamentos de dados ODBC usando o Azure Data Factory
@@ -225,7 +225,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | -------- | ----------- | -------- | 
 | type | A propriedade type deve ser definida como: **OnPremisesOdbc** | Sim |
 | connectionString | A parte da credencial que não está relacionada ao acesso da cadeia de conexão, bem como uma credencial criptografada opcional. Veja os exemplos abaixo. | Sim
-| credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver, por exemplo. “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | Não
+| credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver, por exemplo. “Uid=<ID do usuário>;Pwd=<senha>;RefreshToken=<token de atualização de senha>;”. | Não
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. | Sim | 
 | Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não | 
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não | 
@@ -355,17 +355,17 @@ Leia o artigo desde o início para uma visão geral detalhada do uso de dados OD
 ## Solucionar problemas de conectividade
 Use a guia **Diagnósticos** do **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** para solucionar problemas de conexão.
 
-1. Iniciar o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados**. Você pode executar "C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" diretamente (ou) pesquisar por **Gateway** para encontrar um link para o aplicativo **Gateway de Gerenciamento de Dados da Microsoft**, conforme mostrado na imagem a seguir. 
+1. Iniciar o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados**. Você pode executar "C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" diretamente (ou) pesquisar por **Gateway** para encontrar um link para o aplicativo **Gateway de Gerenciamento de Dados da Microsoft**, conforme mostrado na imagem a seguir.
 
 	![Gateway de pesquisa](./media/data-factory-odbc-connector/search-gateway.png)
 2. Alterne para a guia **Diagnóstico**.
 
-	![Diagnóstico de gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
-3. Selecione o **tipo** de armazenamento de dados (serviço vinculado). 
-4. Especifique a **autenticação** e digite as **credenciais** (ou) digite a **cadeia de conexão** para se conectar ao armazenamento de dados. 
-5. Clique em **Testar Conexão** para testar a conexão com o armazenamento de dados. 
+	![Diagnóstico de gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Selecione o **tipo** de armazenamento de dados (serviço vinculado).
+4. Especifique a **autenticação** e digite as **credenciais** (ou) digite a **cadeia de conexão** para se conectar ao armazenamento de dados.
+5. Clique em **Testar Conexão** para testar a conexão com o armazenamento de dados.
 
 ## Desempenho e Ajuste  
 Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -17,7 +17,8 @@ Essas etapas pressupõem que você esteja conectado ao Banco de Dados SQL no Pes
 3. Na janela da consulta, edite e use a seguinte instrução Transact-SQL para criar um usuário independente no banco de dados do usuário.
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
      ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

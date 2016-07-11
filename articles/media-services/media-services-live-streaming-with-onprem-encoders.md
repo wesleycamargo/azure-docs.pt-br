@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/22/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits
@@ -55,10 +55,10 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 	Essa etapa também pode ser realizada após a criação do canal.
 
 1. Crie e inicie um Canal.
-1. Recupere a URL de ingestão do canal. 
+1. Recupere a URL de ingestão do canal.
 
 	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal.
 
 	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
@@ -66,14 +66,14 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 	Ao usar o Portal Clássico do Azure, a criação de um programa também cria um ativo.
 
-	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
-1. Publique o ativo associado ao programa.   
+	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
+1. Publique o ativo associado ao programa.
 
 	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa (e, opcionalmente, exclua o ativo).     
+1. Exclua o programa (e, opcionalmente, exclua o ativo).
 
 ##<a id="channel"></a>Descrição de um Canal e seus componentes relacionados
 
@@ -112,12 +112,12 @@ Para obter informações sobre codificadores ao vivo de RTMP, consulte [Suporte 
 
 As seguintes considerações se aplicam:
 
-- Verifique se que você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão. 
-- O uso de uma URL de ingestão secundária requer largura de banda adicional. 
+- Verifique se que você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão.
+- O uso de uma URL de ingestão secundária requer largura de banda adicional.
 - O fluxo com múltiplas taxas de bits de entrada pode ter no máximo 10 níveis de qualidade de vídeo (também conhecidos como camadas) e no máximo cinco faixas de áudio.
 - A taxa de bits média mais alta para qualquer um dos níveis ou camadas de qualidade de vídeo deve estar abaixo de 10 Mbps.
 - A agregação das taxas de bits médias para todos os fluxos de vídeo e áudio deve estar abaixo de 25 Mbps.
-- Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada. 
+- Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 - Você pode incluir uma única taxa de bits em seu canal, mas como o fluxo não é processado pelo canal, os aplicativos de cliente também receberão um fluxo de taxa de bits única (essa opção não é recomendada).
 
 ####URLs de ingestão (pontos de extremidade) 
@@ -277,4 +277,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

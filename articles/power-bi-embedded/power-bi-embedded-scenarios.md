@@ -3,8 +3,8 @@
    description="Cenários comuns do Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="minewiskan"
+   manager="mblythe"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="jocaplan"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Cenários comuns do Microsoft Power BI Embedded
 
@@ -22,8 +22,8 @@ O **Microsoft Power BI Embedded** Preview concentra-se principalmente na exposi�
 
 Aqui estão alguns cenários para uso do **Power BI Embedded** em seus aplicativos.
 
-- Relatórios totalmente interativos criados no Power BI Desktop podem ser inseridos em seu próprio aplicativo usando um novo modelo de autenticação de tokens do aplicativo.
-- Clientes e fornecedores de Software independentes compilando aplicativos voltados ao cliente podem usar o serviço **Power BI Embedded** e o SDK do Power BI para inserir relatórios interativos. Para saber como, consulte [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+- Relatórios totalmente interativos criados no Power BI Desktop podem ser incorporados em seu próprio aplicativo usando um novo modelo de autenticação de tokens do aplicativo.
+- Clientes e fornecedores de software independentes que compilem aplicativos voltados ao cliente podem usar o serviço **Power BI Embedded** e o SDK do Power BI para incorporar relatórios interativos. Para saber como, consulte [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 - Como desenvolvedor, você pode usar a estrutura de visualização do Power BI para compilar visualizações personalizadas que podem ser usadas em seu próprio aplicativo. Consulte [Estender o Power BI com elementos visuais personalizados](https://powerbi.microsoft.com/custom-visuals/).
 
 ## Veja também
@@ -32,4 +32,4 @@ Aqui estão alguns cenários para uso do **Power BI Embedded** em seus aplicativ
 - [Amostra de introdução](power-bi-embedded-get-started.md)
 - [Estender o Power BI com elementos visuais personalizados](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

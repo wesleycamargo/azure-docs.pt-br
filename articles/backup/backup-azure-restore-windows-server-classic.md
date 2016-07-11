@@ -29,7 +29,7 @@ Este artigo aborda as etapas necessárias para executar dois tipos de operaçõe
 
 Em ambos os casos, os dados são recuperados do cofre de backup do Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Recuperar dados para o mesmo computador
 Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo computador (do qual o backup foi feito), as etapas a seguir o ajudarão a recuperar os dados.
@@ -123,4 +123,4 @@ A terminologia usada nessas etapas inclui:
 - [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 - [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

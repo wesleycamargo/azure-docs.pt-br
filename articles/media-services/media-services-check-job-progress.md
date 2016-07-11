@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 #Como verificar o andamento do trabalho
@@ -119,7 +119,7 @@ Um cenário comum para escutar as notificações dos Serviços de Mídia é se v
 Considere o seguinte ao desenvolver aplicativos dos Serviços de Mídia que usam a fila de armazenamento do Azure.
 
 - O serviço de Filas não fornece uma garantia de entrega ordenada FIFO (primeiro a entrar, primeiro a sair). Para obter mais informações, consulte [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-- As Filas de Armazenamento do Azure não são um serviço de envio por push. Você deve fazer a sondagem da fila. 
+- As Filas de Armazenamento do Azure não são um serviço de envio por push. Você deve fazer a sondagem da fila.
 - Você pode ter qualquer número de filas. Para obter mais informações, consulte [API REST do Serviço de Fila](https://msdn.microsoft.com/library/azure/dd179363.aspx).
 - As Filas de Armazenamento do Azure têm algumas limitações e características específicas que são descritas no seguinte artigo: [Filas do Azure e filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 
@@ -132,10 +132,10 @@ O exemplo de código nesta seção faz o seguinte:
 1. Cria a fila que receberá as mensagens de notificação sobre o trabalho de codificação.
 1. Cria o ponto de extremidade de notificação que é mapeado para a fila.
 1. Anexa o ponto de extremidade de notificação ao trabalho e envia o trabalho de codificação. Você pode ter vários pontos de extremidade de notificação anexados a um trabalho.
-1. Neste exemplo, só estamos interessados nos estados finais do processamento do trabalho. Portanto, passamos **NotificationJobState.FinalStatesOnly** para o método **AddNew**. 
+1. Neste exemplo, só estamos interessados nos estados finais do processamento do trabalho. Portanto, passamos **NotificationJobState.FinalStatesOnly** para o método **AddNew**.
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. Se passar NotificationJobState.All, você deverá esperar obter todas as notificações de alteração de estado: Enfileirado -> Agendado -> Em processamento -> Concluído. No entanto, conforme observado anteriormente, o serviço de Filas de Armazenamento do Azure não garante a entrega ordenada. Você pode usar a propriedade de Carimbo de data/hora (definida no tipo EncodingJobMessage no exemplo a seguir) para ordenar mensagens. É possível que você receba mensagens de notificação duplicadas. Use a propriedade ETag (definida no tipo EncodingJobMessage) para verificar se há duplicatas. Observe que também é possível que algumas notificações de alteração de estado sejam ignoradas. 
+1. Se passar NotificationJobState.All, você deverá esperar obter todas as notificações de alteração de estado: Enfileirado -> Agendado -> Em processamento -> Concluído. No entanto, conforme observado anteriormente, o serviço de Filas de Armazenamento do Azure não garante a entrega ordenada. Você pode usar a propriedade de Carimbo de data/hora (definida no tipo EncodingJobMessage no exemplo a seguir) para ordenar mensagens. É possível que você receba mensagens de notificação duplicadas. Use a propriedade ETag (definida no tipo EncodingJobMessage) para verificar se há duplicatas. Observe que também é possível que algumas notificações de alteração de estado sejam ignoradas.
 1. Aguarda até o trabalho chegar ao estado Concluído, verificando a cada 10 segundos. Exclui as mensagens depois que elas são processadas.
 1. Exclui a fila e o ponto de extremidade de notificação.
 
@@ -436,4 +436,4 @@ O exemplo acima produziu a saída a seguir. Os valores variarão.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
@@ -41,7 +41,7 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 
 ##Implicações de cobrança
 
-Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API. Você também pode exibir o estado no Portal Clássico do Azure ou na ferramenta Gerenciador dos Serviços de Mídia do Azure (http://aka.ms/amse)).
+Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API. Você também pode exibir o estado no Portal clássico do Azure ou na ferramenta Gerenciador dos Serviços de Mídia do Azure (http://aka.ms/amse).
 
 A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal Clássico do Azure. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado “Em execução” por meio da API, ou no estado “Pronto” ou “Transmissão” no Portal Clássico do Azure, a cobrança estará ativa. Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal Clássico do Azure. Você é responsável por parar seus canais quando terminar com o canal de codificação ativo. A falha ao interromper um canal de codificação resultará em cobrança contínua.
 
@@ -51,7 +51,7 @@ O estado atual de um canal. Os valores possíveis incluem:
 
 - **Parado**. Esse é o estado inicial do Canal após sua criação (a menos que o início automático tenha sido selecionado no portal). Não há cobrança nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
 - **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
-- **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
+- **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional.
 - **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 - **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 
@@ -89,7 +89,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 >[AZURE.NOTE] Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived no em Microsoft.com se precisar executar um Canal por longos períodos. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar que deixar um canal de codificação ativa no estado "Em execução" incorrerá em cobranças por hora. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). 
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS).
 	
 	Essa etapa também pode ser realizada após a criação do canal.
 
@@ -98,7 +98,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 1. Recupere a URL de ingestão do canal.
 
 	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal. 
+1. Recupere a URL de visualização do canal.
 
 	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
@@ -106,14 +106,14 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 	Ao usar o Portal Clássico do Azure, a criação de um programa também cria um ativo.
 
-	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
-1. Publique o ativo associado ao programa.   
+	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
+1. Publique o ativo associado ao programa.
 
 	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa (e, opcionalmente, exclua o ativo).   
+1. Exclua o programa (e, opcionalmente, exclua o ativo).
 
 >[AZURE.NOTE]É muito importante não esquecer de interromper um canal de codificação ativa. Lembre-se de que há um impacto de cobrança por hora para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
@@ -124,7 +124,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 Se o **Tipo de codificador** está definido como **Padrão**, as opções válidas são:
 
-- **RTP** (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.  
+- **RTP** (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.
 - **RTMP** de taxa de bits única
 - **MP4 fragmentado** de taxa de bits única (Smooth Streaming)
 
@@ -136,12 +136,12 @@ Difusores profissionais geralmente trabalham com codificadores ao vivo locais de
 
 Considerações:
 
-- O uso de um fluxo de transporte de programa único (SPTS) de entrada é altamente recomendável. 
-- Você pode inserir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. 
+- O uso de um fluxo de transporte de programa único (SPTS) de entrada é altamente recomendável.
+- Você pode inserir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP.
 - O fluxo de vídeo deve ter uma taxa de bits média abaixo de 15 Mbps
 - A taxa de bits média agregada dos fluxos de áudio deve estar abaixo de 1 Mbps
 - A seguir, a lista dos codecs com suporte:
-	- Vídeo MPEG-2 / H.262 
+	- Vídeo MPEG-2 / H.262
 		
 		- Perfil Principal (4:2:0)
 		- Perfil Alto (4:2:0, 4:2:2)
@@ -310,13 +310,13 @@ Observe que, se você precisar de predefinições personalizadas, você deverá 
 
 Taxa de bits|Largura|Altura|MáxFPS|Perfil|Nome do fluxo de saída
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
-2200|960|540|30|Principal|Video\_960x540\_2200kbps
-1350|704|396|30|Principal|Video\_704x396\_1350kbps
-850|512|288|30|Principal|Video\_512x288\_850kbps
-550|384|216|30|Principal|Video\_384x216\_550kbps
-350|340|192|30|Linha de base|Video\_340x192\_350kbps
-200|340|192|30|Linha de base|Video\_340x192\_200kbps
+3500|1280|720|30|Alto|Vídeo_1280x720_3.500 kbps
+2200|960|540|30|Principal|Vídeo_960x540_2.200 kbps
+1350|704|396|30|Principal|Vídeo_704x396_1.350 kbps
+850|512|288|30|Principal|Vídeo_512x288_850 kbps
+550|384|216|30|Principal|Vídeo_384x216_550 kbps
+350|340|192|30|Linha de base|Vídeo_340x192_350 kbps
+200|340|192|30|Linha de base|Vídeo_340x192_200 kbps
 
 
 ####Fluxo de áudio de saída
@@ -436,7 +436,7 @@ Parada|Parada|Não
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 - Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
 - Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
-- Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativos locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo, porque tudo o que é enviado para o AMS passa por um canal sem processamento adicional.
+- Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativas locais](media-services-live-streaming-with-onprem-encoders.md), não há limitações desse tipo, pois tudo o que é enviado para o AMS passa por um canal sem processamento adicional.
 - A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,97i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.
 - Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará.
 
@@ -476,4 +476,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

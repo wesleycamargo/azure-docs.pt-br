@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/21/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução de Integração Contínua Jenkins
@@ -82,8 +82,8 @@ Para usar o serviço Blob com a Jenkins, você precisará instalar o plug-in do 
 3. Na seção **Configuração da Conta de Armazenamento do Microsoft Azure**:
     1. Insira o nome da conta de armazenamento, que pode ser obtido no [portal do Azure](https://portal.azure.com).
     2. Insira a chave de conta de armazenamento, que também pode ser obtida no [portal do Azure](https://portal.azure.com).
-    3. Use o valor padrão para **URL de Ponto de Extremidade de Serviço Blob**, se você estiver usando a nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade como especificado no [portal do Azure](https://portal.azure.com) para a sua conta de armazenamento. 
-    4. Clique em **Validar credenciais de armazenamento** para validar sua conta de armazenamento. 
+    3. Use o valor padrão para **URL de Ponto de Extremidade de Serviço Blob**, se você estiver usando a nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade como especificado no [portal do Azure](https://portal.azure.com) para a sua conta de armazenamento.
+    4. Clique em **Validar credenciais de armazenamento** para validar sua conta de armazenamento.
     5. [Opcional] Se você tiver contas de armazenamento adicionais que deseja disponibilizar para a CI Jenkins, clique em **Adicionar mais Contas de Armazenamento**.
     6. Para salvar suas configurações, clique em **Salvar**.
 
@@ -112,7 +112,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 
 8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode aprender mais sobre as Assinatura de Acesso Compartilhado em [Assinaturas de Acesso Compartilhado: entendendo o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 9. [Opcional] Clique em **Limpar contêiner antes de carregar** se quiser que o contêiner seja limpo de conteúdo antes que os artefatos de compilação sejam carregados (deixe a opção desmarcada se não quiser limpar o conteúdo do contêiner).
-10. Em **Lista de artefatos a serem carregados**, insira **text/*.txt**.
+10. Em **Lista de artefatos a serem carregados**, insira *text/*.txt**.
 11. Em **Caminho virtual comum para artefatos carregados**, para as finalidades deste tutorial, insira **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Para salvar suas configurações, clique em **Salvar**.
 13. No painel do Jenkins, clique em **Compilar Agora** para executar **MyJob**. Examine a saída do console para o status. As mensagens de status para o armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação iniciar o carregamento dos artefatos de compilação.
@@ -166,4 +166,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0629_2016-->

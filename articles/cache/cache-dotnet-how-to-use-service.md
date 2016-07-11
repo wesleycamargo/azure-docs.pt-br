@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/24/2016" 
 	ms.author="sdanie"/>
 
 # Com usar o Serviço de Cache Gerenciado do Azure
@@ -486,4 +486,4 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

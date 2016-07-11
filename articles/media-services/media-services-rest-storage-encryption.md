@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/02/2016"   
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,8 @@ Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e m
 - Crie uma chave de conteúdo.
 - Crie um ativo. Defina o AssetCreationOption como StorageEncryption ao criar o ativo.
 
-	Os ativos criptografados precisam ser associados às chaves de conteúdo.
-- Vincular a chave de conteúdo ao ativo.  
+	 Os ativos criptografados precisam ser associados às chaves de conteúdo.
+- Vincular a chave de conteúdo ao ativo.
 - Defina os parâmetros relacionados à criptografia nas entidades AssetFile.
  
 >[AZURE.NOTE]Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md) (Configurando as Políticas de Entrega de Ativos).
@@ -53,11 +53,11 @@ Os ativos criptografados precisam ser associados à chave de criptografia de arm
 
 A seguir estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que você deseja que sejam criptografados.
 
-1. Na criptografia de armazenamento, gere uma chave AES de 32 bytes aleatoriamente. 
+1. Na criptografia de armazenamento, gere uma chave AES de 32 bytes aleatoriamente.
 
-	Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
+	Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia.
 2.	Chame os métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
-3.	Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
+3.	Criptografe a chave de conteúdo com a chave pública do certificado X.509.
 
 	O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia. Você pode ver um exemplo do .NET na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Crie um valor de soma de verificação calculado usando o identificador de chave e a chave de conteúdo. O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
@@ -97,7 +97,7 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 	 
 	Propriedade do corpo da solicitação | Descrição
 	---|---
-	ID | A ID do ContentKey que nós mesmos geramos usando o seguinte formato, “nb:kid:UUID:<NEW GUID>”.
+	ID | A ID de ContentKey que nós mesmos geramos usando o seguinte formato: “nb:kid:UUID:<NEW GUID>”.
 	ContentKeyType | Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento.
 	EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. Como um exemplo, confira o seguinte código do .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 	ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.
@@ -313,7 +313,7 @@ A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) re
 
 Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
-Depois de carregar seu arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP DE **MESCLAR** para atualizar o AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico).
+Depois de carregar seu arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MESCLAR** para atualizar o AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico).
 
 **Solicitação HTTP**
 
@@ -375,4 +375,4 @@ Depois de carregar seu arquivo de mídia digital em um contêiner de blob, você
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

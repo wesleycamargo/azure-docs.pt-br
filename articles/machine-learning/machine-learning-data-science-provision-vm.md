@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="06/24/2016" 
 	ms.author="bradsev" />
 
 
@@ -51,9 +51,9 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 
 1.	Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Clique no botão **Criar** na parte inferior para ser levado para um assistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-3.	 As seções a seguir fornecem as **entradas** para cada uma das **5 etapas** (enumeradas à direita da figura acima) do assistente usado para criar a Máquina Virtual de ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
+3.	 O assistente usado para criar a Máquina Virtual de Ciência de Dados da Microsoft exige **entradas** para cada uma do **5 etapas** enumeradas à direita da figura. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
-  **a. Noções básicas**:
+     **a. Noções básicas**:
 
    - **Nome**: o nome do servidor de ciência de dados que você está criando.
    - **Nome de Usuário**: ID de logon da conta de administrador
@@ -62,23 +62,23 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    - **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente
    - **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede
 
-  **b. Tamanho**:
+     **b. Tamanho**:
 
    - Selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Você pode obter mais opções de tamanhos de VM selecionando “Exibir Tudo”
 
-  **c. Configurações**
+     **c. Configurações**
 
    - **Tipo de disco**: escolha Premium se você preferir uma SSD (unidade de estado sólido); caso contrário, escolha "Padrão".
    - **Conta de Armazenamento**: é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente no mesmo *Local* que foi escolhido na etapa Noções básicas do assistente.
    - **Outros parâmetros**: na maioria dos casos, você simplesmente usará os valores padrão. É possível focalizar o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
 
-  **d. Resumo**:
+     **d. Resumo**:
 
    - Verifique se todas as informações inseridas estão corretas.
 
-  **e. Comprar**:
+     **e. Comprar**:
 
-   - Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**. 
+   - Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**.
 
 
 O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal do Azure.
@@ -109,7 +109,7 @@ Por fim, você precisa parar e reiniciar o servidor do Ipython que está em exec
 Se você quiser usar o R para sua análise, a VM tem a edição Microsoft R Server Developer instalada. O Microsoft R Server é uma plataforma de análise empresarial amplamente implementável com base em R e com suporte, escalonável e segura. Com suporte a diversas estatísticas de Big Data, modelos de previsão e recursos de aprendizado de máquina, o R Server oferece suporte a uma gama completa de análises: exploração, análise, visualização e modelagem. Usando e estendendo o software livre R, o Microsoft R Server é totalmente compatível com scripts e funções R e pacotes CRAN, a fim de analisar os dados em escala empresarial. Ele também soluciona as limitações de memória do software livre R adicionando o processamento paralelo e em blocos no Microsoft R Server, permitindo que os usuários executem análises em uma quantidade de dados muito maior do que cabe na memória principal. Um IDE para R também acompanha a VM e pode ser acessado clicando no ícone "Revolution R Enterprise 8.0" no menu Iniciar ou na área de trabalho. Sinta-se à vontade para baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com).
 
 ### Python
-Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**). **Observação**: para apontar para as Ferramentas Python para Visual Studio no Anaconda Python 2.7 e 3.5, você precisa criar ambientes personalizados para cada versão navegando até Ferramentas -> Ferramentas Python -> Ambientes Python, clicando em “+Personalizado” no Visual Studio 2015 Community Edition e definindo os caminhos de ambiente. O Anaconda Python 2.7 é instalado em C:\\Anaconda e o Anaconda Python 3.5 é instalado em c:\\Anaconda\\envs\\py35. Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver as etapas detalhadas.
+Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**). **Observação**: para apontar para as Ferramentas Python para Visual Studio no Anaconda Python 2.7 e 3.5, você precisa criar ambientes personalizados para cada versão navegando até Ferramentas -> Ferramentas Python -> Ambientes Python, clicando em "+Personalizado" no Visual Studio 2015 Community Edition e definindo os caminhos de ambiente. O Anaconda Python 2.7 é instalado em C:\\Anaconda e o Anaconda Python 3.5 é instalado em c:\\Anaconda\\envs\\py35. Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver as etapas detalhadas.
 
 ### Bloco de anotações do Jupyter
 A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de bloco de anotações do Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se você estiver usando a VM por meio da área de trabalho remota, também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do notebook do Jupyter (observação: clique em Continuar se receber avisos de certificado). Empacotamos exemplos de blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na home page do bloco de anotações após a autenticação no bloco de anotações do Jupyter usando a senha criada na etapa anterior.
@@ -124,10 +124,10 @@ Uma versão limitada do SQL Server também é fornecida com o Community Edition 
 
 ### As tabelas 
 Várias ferramentas do Azure são instaladas na VM:
-- Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. 
-- **AzCopy**, usado para mover dados para dentro e fora de sua Conta de Armazenamento do Microsoft Azure. 
-- **Gerenciador de Armazenamento do Azure**, usado para percorrer os objetos armazenados em sua Conta de Armazenamento do Azure. 
-- **Microsoft Azure PowerShell** - uma ferramenta usada para administrar os recursos do Azure na linguagem de script do PowerShell também é instalada em sua VM. 
+- Há um atalho da área de trabalho para acessar a documentação do SDK do Azure.
+- **AzCopy** usado para mover dados para dentro e fora de sua Conta de Armazenamento do Microsoft Azure.
+- **Gerenciador de Armazenamento do Azure** usado para percorrer os objetos armazenados em sua Conta de Armazenamento do Azure.
+- **Microsoft Azure Powershell** - uma ferramenta usada para administrar os recursos do Azure na linguagem de script do Powershell também é instalada em sua VM.
 
 ###Power BI
 
@@ -142,9 +142,9 @@ O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados clicando no menu Iniciar e conferindo as ferramentas listadas no menu
-* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter amostras de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.  
+* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter amostras de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.
 * Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
-* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter amostras de aprendizado de máquina e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
+* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)
+* Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter amostras de aprendizado de máquina e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

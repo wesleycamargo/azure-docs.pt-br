@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Gerenciar e solucionar problemas do Stretch Database
@@ -35,8 +35,8 @@ GO
  ```
 ## Gerenciar a migração de dados
 
-### Verificar o predicado de filtro aplicado a uma tabela
-Abra o modo de exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate** para identificar a função usada pelo Stretch Database para selecionar linhas para migração. Se o valor for nulo, a tabela inteira poderá ser migrada. Para saber mais, confira [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+### Clique na função de filtro aplicada a uma tabela
+Abra o modo de exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate** para identificar a função usada pelo Stretch Database para selecionar linhas para migração. Se o valor for nulo, a tabela inteira poderá ser migrada. Para saber mais, confira [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) e [Selecionar linhas para migração usando uma função de filtro](sql-server-stretch-database-predicate-function.md).
 
 ### <a name="Migration"></a>Verificar o status da migração de dados
 Escolha **Tarefas | Stretch | Monitorar** para que um banco de dados no SQL Server Management Studio monitore a migração de dados no Monitor do Stretch Database. Para saber mais, confira [Monitorar e solucionar problemas de migração de dados (Stretch Database)](sql-server-stretch-database-monitor.md).
@@ -85,7 +85,7 @@ Consultas que incluem tabelas habilitadas para o Stretch devem executar mais len
 -   As condições de sua rede podem estar degradadas. Entre em contato com o administrador de rede para obter informações sobre problemas recentes ou interrupções.
 
 ### Aumentar o nível de desempenho do Azure para operações com uso intenso de recursos, como a indexação
-Quando você compila, recompila ou reorganiza um índice em uma tabela grande configurada para o Stretch Database, e antecipa uma quantidade grande de consultas nos dados migrados no Azure durante esse período, considere o aumento do nível de desempenho do banco de dados remoto do Azure correspondente durante a operação. Para obter mais informações sobre os níveis de desempenho e os preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+Quando você compila, recompila ou reorganiza um índice em uma tabela grande configurada para o Stretch Database, e antecipa uma quantidade grande de consultas nos dados migrados no Azure durante esse período, considere o aumento do nível de desempenho do banco de dados remoto do Azure correspondente durante a operação. Para saber mais sobre níveis de desempenho e preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 ### Não é possível pausar o serviço do SQL Server Stretch Database no Azure  
  Selecione os níveis de desempenho e de preços adequados. Se você aumentar temporariamente o nível de desempenho para uma operação com uso pesado de recursos, restaure-o ao nível anterior após a conclusão da operação. Para obter mais informações sobre os níveis de desempenho e os preços, confira [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
@@ -98,7 +98,7 @@ Quando você compila, recompila ou reorganiza um índice em uma tabela grande co
 
 ### <a name="queryHints"></a>Alterar o escopo das consultas para uma única consulta de um administrador  
  Para alterar o escopo de uma única consulta de um membro da função db\_owner, adicione a dica de consulta **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *value* )** à instrução SELECT. A dica de consulta REMOTE\_DATA\_ARCHIVE\_OVERRIDE pode ter os seguintes valores.
- -   **LOCAL\_ONLY**. Consultar somente dados locais.  
+ -   **LOCAL\_ONLY**. Consultar somente dados locais.
 
  -   **REMOTE\_ONLY**. Consultar somente dados remotos.
 
@@ -115,7 +115,7 @@ Por exemplo, a consulta a seguir retorna apenas resultados locais.
 
 ## <a name="adminHints"></a>Fazer exclusões e atualizações administrativas  
  Por padrão, não é possível ATUALIZAR ou EXCLUIR linhas qualificadas para migração, ou linhas que já foram migradas, em uma tabela habilitada para Stretch. Quando for necessário corrigir um problema, um membro da função db\_owner poderá executar uma operação UPDATE ou DELETE adicionando a dica de consulta **WITH ( REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *value* )** à instrução. A dica de consulta REMOTE\_DATA\_ARCHIVE\_OVERRIDE pode ter os seguintes valores.
- -   **LOCAL\_ONLY**. Atualize ou exclua somente dados locais.  
+ -   **LOCAL\_ONLY**. Atualize ou exclua somente dados locais.
 
  -   **REMOTE\_ONLY**. Atualize ou exclua somente dados remotos.
 
@@ -129,4 +129,4 @@ Por exemplo, a consulta a seguir retorna apenas resultados locais.
 
 [Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Perguntas frequentes
@@ -35,8 +35,8 @@ Confira a [página de Detalhes de Preços do Data Factory][adf-pricing-details] 
 ### Como faço para começar a utilizar o Azure Data Factory?
 
 - Para obter uma visão geral do Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
-- Para obter um tutorial sobre como **copiar/mover dados** usando a atividade de cópia, consulte [Copiar dados do Armazenamento de Blob do Azure para o Banco de Dados SQL](data-factory-get-started.md).
-- Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md) 
+- Para obter um tutorial sobre como **copiar/mover dados** usando a Atividade de Cópia, consulte [Copiar dados do Armazenamento de Blob do Azure para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md)
   
 ### Qual é a disponibilidade regional do Data Factory?
 O Data Factory está disponível no **Oeste dos EUA** e no **Europa Setentrional**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [Regiões com suporte](data-factory-introduction.md#supported-regions).
@@ -73,7 +73,7 @@ Sim. Use o botão **Mover** na folha da fábrica de dados, conforme mostrado aba
 ### Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory? 
 
 - [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para mover dados.
-- [Atividades de Transformação de Dados](data-factory-data-transformation-activities.md) para processar/transformar dados. 
+- [Atividades de Transformação de Dados](data-factory-data-transformation-activities.md) para processar/transformar dados.
 
 ### Quando uma atividade é executada?
 A configuração **disponibilidade** na tabela de dados de saída determina quando a atividade é executada. A atividade verifica se todas as dependências de dados de entrada foram atendidas (ou seja, estado **Pronto**) antes de começar a ser executada, caso os conjuntos de dados de entrada sejam especificados.
@@ -81,6 +81,11 @@ A configuração **disponibilidade** na tabela de dados de saída determina quan
 ## Atividade de Cópia - Perguntas frequentes
 ### É melhor ter um pipeline com várias atividades ou um pipeline separado para cada atividade? 
 Pipelines devem agrupar atividades relacionadas. Logicamente, você pode manter as atividades em um pipeline se as tabelas que as conectam não são consumidas por nenhuma outra atividade fora do pipeline. Desse modo, você não precisaria encadear períodos ativos do pipeline para que eles se alinhem uns com os outros. Além disso, a integridade dos dados nas tabelas internas ao pipeline será melhor preservada ao atualizar o pipeline. A atualização de pipeline interrompe essencialmente todas as atividades no pipeline, remove-as e cria essas atividades novamente. Da perspectiva de criação, também pode ser mais fácil ver o fluxo de dados nas atividades relacionadas em um arquivo JSON para o pipeline.
+
+### Onde a operação de cópia é executada? 
+
+Consulte [Movimento de dados globalmente disponível](data-factory-data-movement-activities.md#global) seção para obter detalhes. Em resumo, quando um armazenamento de dados local estiver envolvido, a operação de cópia é executada pelo Gateway de gerenciamento de dados em seu ambiente local. E, quando a movimentação de dados está entre dois armazenamentos de nuvem, a operação de cópia será executada na região mais próxima para o local de coletor na mesma região geográfica.
+
 
 ## Atividade de HDInsight - Perguntas frequentes
 
@@ -119,7 +124,7 @@ No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam 
 
 ## Fatias - Perguntas frequentes
 
-### Por que minhas fatias de entrada não estão no estado Pronto? 
+### Por que minhas fatias de entrada não estão no estado Pronto?  
 Um erro comum é não configurar a propriedade **external** como **true** no conjunto de dados de entrada quando os dados de entrada são externos ao data factory (não produzidos pelo data factory).
 
 No exemplo a seguir, você só precisa definir **external** como true no **dataset1**.
@@ -147,9 +152,9 @@ Fatias diárias que se iniciam às **6h**, em vez da meia-noite do padrão.
 ### Como executo novamente uma fatia?
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
-- Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Confira [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obter instruções.   
+- Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Confira [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obter instruções.
 - Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal.
-- Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.   
+- Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
@@ -163,9 +168,9 @@ Você também pode fazer o seguinte no portal do Azure:
 1. Clique no bloco **Conjuntos de dados** da folha **DATA FACTORY** da sua fábrica de dados.
 2. Clique no conjunto de dados específico na folha **Conjuntos de dados**.
 3. Selecione a fatia em que você está interessado na lista **Fatias recentes** na folha **TABELA**.
-4. Clique na execução da lista **Execuções de Atividade** na folha **FATIA DE DADOS**. 
-5. Clique no bloco **Propriedades** da folha **DETALHES DE EXECUÇÃO DA ATIVIDADE**. 
-6. Você deve ver o campo **DURAÇÃO** com um valor. Isso é o tempo necessário para processar a fatia.   
+4. Clique na execução da lista **Execuções de Atividade** na folha **FATIA DE DADOS**.
+5. Clique no bloco **Propriedades** da folha **DETALHES DE EXECUÇÃO DA ATIVIDADE**.
+6. Você deve ver o campo **DURAÇÃO** com um valor. Isso é o tempo necessário para processar a fatia.
 
 ### Como parar uma fatia em execução?
 Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
@@ -187,4 +192,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

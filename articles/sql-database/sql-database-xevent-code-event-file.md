@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ O script PowerShell imprimiu alguns valores nomeados quando terminou. Você prec
 &nbsp;
 
 
-> [AZURE.WARNING] O valor da chave de SAS gerada pelo script do PowerShell anterior pode começar com um '?' (ponto de interrogação). Quando você usa a chave de SAS no script T-SQL a seguir, deve remover os principais '?'.
+> [AZURE.WARNING] O valor da chave de SAS gerada pelo script do PowerShell anterior pode começar com um '?' (ponto de interrogação). Quando você usa a chave de SAS no script T-SQL a seguir, deve *remover os '?' iniciais*. Caso contrário, seus esforços poderão ser bloqueados pela segurança.
 
 
 &nbsp;
@@ -512,9 +512,9 @@ GO
 ## Saída
 
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event\_data\_XML**. Um elemento **<event>** é exibido mostrando uma instrução UPDATE.
+Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event\_data\_XML**. Um elemento **<evento>** é exibido mostrando uma instrução UPDATE.
 
-Veja um elemento **<event>** que foi gerado durante o teste:
+Veja um elemento **<evento>** gerado durante o teste:
 
 
 &nbsp;
@@ -559,9 +559,17 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+&nbsp;
 
 
+O script Transact-SQL anterior usou a função de sistema a seguir para ler event\_file:
 
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+
+
+Há uma explicação das opções avançadas para a visualização de dados de eventos estendidos disponível em:
+
+- [Exibição avançada de dados de destino de eventos estendidos](http://msdn.microsoft.com/library/mt752502.aspx)
 
 &nbsp;
 
@@ -585,20 +593,15 @@ Vamos supor que você queira executar o exemplo anterior de Transact-SQL no Micr
 ## Mais informações
 
 
-O tópico principal para eventos estendidos no Banco de Dados SQL do Azure é:
-
-- [Eventos estendidos no Banco de Dados SQL](sql-database-xevent-db-diff-from-svr.md): é o tópico principal para eventos estendidos no Banco de Dados SQL do Azure é.
- - Ele compara aspectos dos eventos estendidos que diferem entre o Banco de Dados SQL do Azure e o Microsoft SQL Server.
-
-
-- [Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL](sql-database-xevent-code-ring-buffer.md): fornece um exemplo de código irmão rápido e fácil, mais adequado testes rápidos e menos robusto para atividades de grande porte.
-
-
 Para saber mais sobre contas e contêineres no serviço de Armazenamento do Azure, consulte:
 
 - [Como usar o Armazenamento de blob do .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Nomeando e referenciando contêineres, blobs e metadados](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Trabalhando com o contêiner raiz](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

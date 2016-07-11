@@ -23,7 +23,7 @@ Endereços IP públicos são usados para comunicação com a Internet, incluindo
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure, um serviço de nuvem e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo de implantação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 ## Endereços IP públicos
 Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/storage-introduction.md).
@@ -47,7 +47,7 @@ Quando você cria um serviço de nuvem ou em uma VM de IaaS, precisa fornecer um
 ### Serviços de Nuvem
 Um serviço de nuvem sempre tem um endereço IP público, conhecido como VIP (endereço IP virtual). Você pode criar pontos de extremidade em um serviço de nuvem para associar portas diferentes no VIP para portas internas em VMs e instâncias de função no serviço de nuvem.
 
-Um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, todos expostos por meio do mesmo VIP de serviço de nuvem. Você também pode atribuir [vários VIPs a um serviço de nuvem](../load-balancer/load-balancer-multivip.md), o que permite cenários multiVIP como ambiente multilocatário com sites baseados em SSL.
+Um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, todos expostos por meio do mesmo VIP de serviço de nuvem. Você também pode atribuir [vários VIPs a um serviço de nuvem](../load-balancer/load-balancer-multivip.md), o que permite cenários multiVIP como um ambiente multilocatário com sites baseados em SSL.
 
 Você pode garantir que o endereço IP público de um serviço de nuvem permaneça igual, mesmo quando todas as instâncias de função são interrompidas, usando um endereço IP público *estático*, conhecido como [IP Reservado](virtual-networks-reserved-public-ip.md). Você pode criar um recurso IP (reservado) estático em um local específico e atribuí-lo a qualquer serviço de nuvem naquele local. Não é possível especificar o endereço IP real para o IP reservado, ele é alocado do pool de endereços IP disponíveis no local em que é criado. Esse endereço IP não é liberado até você explicitamente excluí-lo.
 
@@ -143,11 +143,11 @@ A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por ass
 |VIP público por implantação (serviço de nuvem)|5|entre em contato com o suporte|
 |VIP privado (ILB) por implantação (serviço de nuvem)|1|1|
 
-Certifique-se de ler o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
+Leia o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
 
 ## Preços
 
-Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nominal para usar endereços IP públicos adicionais e/ou estáticos. Verifique se você entende a [estrutura de preços para IPs públicos](https://azure.microsoft.com/pricing/details/ip-addresses/).
+Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nominal para usar endereços IP públicos adicionais e/ou estáticos. Certifique-se de compreender a [estrutura de preços para IPs públicos](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
@@ -164,6 +164,6 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 ||Balanceador de Carga Interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmico ou estático)|
 
 ## Próximas etapas
-- [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
+- [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

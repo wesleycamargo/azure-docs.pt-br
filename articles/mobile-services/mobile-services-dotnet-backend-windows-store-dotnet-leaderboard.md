@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="glenga"/>
 
 # Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure
@@ -142,7 +142,7 @@ Esta etapa adiciona um arquivo chamado PlayerController.cs ao projeto.
 
 ![][8]
 
-O controlador deriva do **TableController<T>**. Essa classe é herdeira do **ApiController**, mas é especializada para os Serviços Móveis do Azure.
+O controlador deriva de **TableController<T>**. Essa classe é herdeira do **ApiController**, mas é especializada para os Serviços Móveis do Azure.
 
 - Roteamento: a rota padrão para um **TableController** é `/tables/{table_name}/{id}`, em que o *table\_name* corresponde ao nome da entidade. Assim, a rota para o controlador do Jogador é */tables/player/{id}*. Essa convenção de roteamento deixa o **TableController** consistente com os Serviços Móveis do [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx).
 - Acesso a dados: para operações de banco de dados, a classe **TableController** usa a interface **IDomainManager**, que define uma abstração para acesso a dados. O scaffolding usa **EntityDomainManager**, que é uma implementação concreta de **IDomainManager** que encapsula um contexto EF.
@@ -765,4 +765,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 [Adicionar notificações por push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 #  Visualização do Azure Active Directory B2C: usar atributos personalizados para coletar informações sobre seus consumidores
@@ -53,4 +53,4 @@ Você pode usar o recurso "Executar agora" da política para verificar a experi�
 - Juntamente com as políticas de inscrição, os atributos personalizados também podem ser usados nas políticas de inscrição ou de entrada e também nas políticas de edição de perfil.
 - Há uma limitação conhecida de atributos personalizados. Esse tipo de atributo só é criado na primeira vez que é usado em qualquer política, e não quando você o adiciona à lista de **Atributos de usuário**. Planejamos corrigir isso em breve.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

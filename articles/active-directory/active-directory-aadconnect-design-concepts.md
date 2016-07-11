@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: conceitos de design
@@ -37,7 +37,7 @@ O valor do atributo deve seguir as regras a seguir:
 
 - Ter menos de 60 caracteres
     - Caracteres diferentes de a-z, A-Z ou 0-9 serão codificados e contados como 3 caracteres
-- Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
+- Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { }| ~ < > ( ) ' ; : , [ ] " @ _
 - Ser globalmente exclusivo
 - Ser uma cadeia de caracteres, um inteiro ou um binário
 - Não ser baseado no nome do usuário, já que eles mudam
@@ -76,12 +76,12 @@ Ao selecionar o atributo para fornecer o valor de UPN a ser usado no Azure, gara
 * Os valores de atributo estão de acordo com a sintaxe UPN (RFC 822), ou seja, eles devem estar no formato username@domain.
 * O sufixo nos valores corresponde a um dos domínios personalizados verificados no Azure AD
 
-Em configurações expressas, a opção suposta para o atributo é userPrincipalName. No entanto, se você acredita que o atributo userprincipalname não contém o valor que você deseja que os usuários usem para fazer logon no Azure, escolha **Instalação Personalizada** e forneça o atributo apropriado.
+Em configurações expressas, a opção suposta para o atributo é userPrincipalName. No entanto, se você acredita que o atributo userprincipalname não contém o valor que deseja que os usuários usem para fazer logon no Azure, escolha **Instalação Personalizada** e forneça o atributo apropriado.
 
 ### Estado de domínio personalizado e UPN
 É importante garantir que haja um domínio verificado para o sufixo UPN.
 
-John é um usuário em contoso.com. Você deseja que João use o UPN local john@contoso.com para fazer logon no Azure depois de ter sincronizado os usuários para o diretório azurecontoso.onmicrosoft.com do Azure AD. Para fazer isso, você precisará adicionar e verificar contoso.com como um domínio personalizado no Azure AD antes de iniciar a sincronização dos usuários. Se o sufixo UPN de João, por exemplo, contoso.com, não corresponder a um domínio verificado no Azure AD, este substituirá o sufixo UPN com azurecontoso.onmicrosoft.com e João terá que usar john@azurecontoso.onmicrosoft.com para entrar no Azure.
+John é um usuário em contoso.com. Você deseja que Júlio use o UPN local john@contoso.com para fazer logon no Azure depois de ter sincronizado os usuários para o diretório azurecontoso.onmicrosoft.com do Azure AD. Para fazer isso, você precisará adicionar e verificar contoso.com como um domínio personalizado no Azure AD antes de iniciar a sincronização dos usuários. Se o sufixo UPN de Júlio, por exemplo, contoso.com, não corresponder a um domínio verificado no Azure AD, este substituirá o sufixo UPN com azurecontoso.onmicrosoft.com e Júlio terá que usar john@azurecontoso.onmicrosoft.com para entrar no Azure.
 
 ### Domínios locais não roteáveis e UPN para Azure AD
 Algumas organizações têm domínios não roteáveis, como contoso.local ou domínios de rótulo único simples, como contoso. Não é possível verificar um domínio no Azure AD que não pode ser roteado. O Azure AD Connect pode sincronizar apenas um domínio verificado no Azure AD. Quando você cria um diretório do Azure AD, ele cria um domínio roteável que torna-se o domínio padrão do Azure AD, por exemplo, contoso.onmicrosoft.com. Portanto, é necessário verificar se outros domínios roteáveis nesse cenário, caso você não deseje sincronizar com o domínio padrão .onmicrosoft.com.
@@ -93,4 +93,4 @@ O Azure AD Connect detecta se você está executando em um ambiente de domínio 
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

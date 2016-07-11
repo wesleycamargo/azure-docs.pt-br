@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -28,15 +28,19 @@ Para se conectar a uma conta do Banco de Dados de Documentos com suporte de prot
 
 Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB ao gerenciador de conexões do MongoChef, execute as etapas a seguir.
 
-1. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**
+1. Recuperar as informações do Banco de Dados de Documentos com o suporte de protocolo para as informações de conexão do MongoDB usando as instruções que constam [aqui](documentdb-connect-mongodb-account.md).
+
+	![Captura de tela da folha de cadeia de conexão](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**
 
 	![Captura de tela do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. Na janela **Nova Conexão**, na guia **Servidor**, insira o FQDN da conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB e a porta.
+2. Na janela **Nova Conexão**, na guia **Servidor**, insira o HOST (FQDN) da conta do Banco de Dados de Documentos com suporte de protocolo para o MongoDB e o PORT.
 	
 	![Captura de tela da guia servidor do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha Modo de Autenticação **Padrão (MONGODB-CR ou SCARM-SHA-1)** e insira o nome do usuário e a senha. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
+3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação ** (MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
 
 	![Captura de tela da guia autenticação do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -128,4 +132,4 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

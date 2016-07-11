@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visualização de Acesso Condicional do Azure para Aplicativos SaaS| Microsoft Azure"
-	description="O acesso condicional no AD do Azure permite que você configure as regras de acesso de autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável."
+	description="O acesso condicional no AD do Azure permite que você configure as regras de acesso de autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Visualização de acesso condicional do Azure para aplicativos SaaS
+# Introdução ao acesso condicional ao Azure AD  
 
-O Acesso Condicional do Azure para aplicativos SaaS está disponível para visualização pública. A visualização permite que você configure as regras de acesso de MFA (autenticação multifator) por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável.
+O Acesso Condicional ao Azure Active Directory para aplicativos SaaS e os aplicativos conectados do Azure AD estão disponíveis para visualização pública. A visualização permite que você configure o acesso condicional com base no grupo, no local e na sensibilidade do aplicativo.
 
-Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização. Esses recursos estarão disponíveis para os clientes que compraram uma licença Azure Active Directory Premium.
+Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Com acesso condicional com base na confidencialidade do aplicativo, você pode definir regras de acesso de autenticação multifator (MFA) por aplicativo, que fornece a capacidade de bloquear o acesso para usuários que não estejam em uma rede confiável. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
+
+Esses recursos estarão disponíveis para os clientes que compraram uma licença Azure Active Directory Premium.
 
 ## Pré-requisitos do cenário
 * Licença do Azure Active Directory Premium
 
-* Um locatário do Active Directory do Azure federado ou gerenciado
+* Um locatário do Azure Active Directory federado ou gerenciado
 
 * Locatários federados exigem que a autenticação multifator esteja habilitada.
 
@@ -92,4 +94,4 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 - [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

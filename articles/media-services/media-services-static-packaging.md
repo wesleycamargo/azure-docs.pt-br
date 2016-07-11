@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"    
+ 	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -691,7 +691,7 @@ O exemplo define o método UpdatePlayReadyConfigurationXMLFile que você pode us
 
 Se você deseja criptografar seu HLS com o AES-128, terá a opção de usar a criptografia dinâmica (a opção recomendada) ou a criptografia estática (como mostrado nesta seção). Se você decidir usar a criptografia dinâmica, consulte [Usando o serviço de entrega de chave e a criptografia dinâmica do AES-128](media-services-protect-with-aes128.md).
 
->[AZURE.NOTE]Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming. Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager\_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização. O Serviços de Mídia criará um arquivo de chave e o posicionará no contêiner do ativo. Você deve copiar o arquivo /asset-containerguid/*.key para seu servidor (ou crie seu próprio arquivo de chave) e então exclua o arquivo *.key do contêiner do ativo.
+>[AZURE.NOTE]Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming. Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager\_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização. O Serviços de Mídia criará um arquivo de chave e o posicionará no contêiner do ativo. Você deve copiar o arquivo /asset-containerguid/*.key para seu servidor (ou crie seu próprio arquivo de chave) e excluir o arquivo *.key do contêiner do ativo.
 
 O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arquivos MP4 de várias taxas de bits e então empacota MP4s no Smooth Streaming. Ele então empacota o Smooth Streaming em HTTP Live Streaming (HLS) criptografado com a criptografia de fluxo de 128 bits do Padrão de Criptografia Avançada (AES). Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados. E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml e MediaPackager\_SmoothToHLS.xml estão localizados. Você pode encontrar a definição desses arquivos no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 	
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

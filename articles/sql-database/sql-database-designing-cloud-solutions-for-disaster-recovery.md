@@ -32,7 +32,7 @@ Essa opção é mais adequada para aplicativos com as seguintes características
 
 + Instância ativa em uma única região do Azure
 + Alta dependência do acesso de RW (leitura/gravação) aos dados
-+ A conectividade entre regiões entre a lógica do aplicativo e o banco de dados não é aceitável devido ao custo de tráfego e à latência    
++ A conectividade entre regiões entre a lógica do aplicativo e o banco de dados não é aceitável devido ao custo de tráfego e à latência
 
 Nesse caso, a topologia de implantação do aplicativo é otimizada para lidar com desastres regionais quando todos os componentes do aplicativo são afetados e precisam fazer failover como uma unidade. Para redundância geográfica, a lógica do aplicativo e o banco de dados são replicados para outra região, mas não são usados para a carga de trabalho de aplicativo sob as condições normais. O aplicativo na região secundária deve ser configurado para usar uma cadeia de conexão SQL para o banco de dados secundário. O gerenciador de tráfego é configurado para usar o [método de roteamento de failover](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
@@ -76,9 +76,9 @@ A principal **desvantagem** é que a instância do aplicativo redundante na regi
 Essa opção de recuperação de desastre em nuvem é mais adequada para aplicativos com as seguintes características:
 
 + Alta taxa de leituras de banco de dados em relação às gravações
-+ A latência de gravação do banco de dados não afeta a experiência do usuário final  
++ A latência de gravação do banco de dados não afeta a experiência do usuário final
 + A lógica somente leitura pode ser separada da lógica de leitura/gravação usando uma cadeia de conexão diferente
-+ A lógica somente leitura não requer que os dados sejam totalmente sincronizados com as últimas atualizações  
++ A lógica somente leitura não requer que os dados sejam totalmente sincronizados com as últimas atualizações
 
 Se seus aplicativos tiverem essas características, o balanceamento de carga de conexões de usuário final em várias instâncias do aplicativo em regiões diferentes poderá melhorar o desempenho e a experiência do usuário final. Para conseguir isso, cada região deve ter uma instância ativa do aplicativo com a lógica de RW (leitura/gravação) conectada ao banco de dados primário na região primária. A lógica RO (somente leitura) deve ser conectada a um banco de dados secundário na mesma região que a instância do aplicativo. O gerenciador de tráfego deve ser configurado para usar o [roteamento round robin](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) ou o [roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md) com o [monitoramento de ponto de extremidade](../traffic-manager/traffic-manager-monitoring.md) habilitado para cada instância do aplicativo.
 
@@ -103,7 +103,7 @@ A principal **vantagem** desse padrão de design é que você pode dimensionar a
 
 + As conexões de leitura e gravação entre as instâncias do aplicativo e o banco de dados têm latência e custos variáveis
 + O desempenho do aplicativo é afetado durante a interrupção
-+ As instâncias do aplicativo precisam alterar dinamicamente a cadeia de conexão SQL após o failover de banco de dados.  
++ As instâncias do aplicativo precisam alterar dinamicamente a cadeia de conexão SQL após o failover de banco de dados.
 
 > [AZURE.NOTE] Uma abordagem semelhante pode ser usada para descarregar cargas de trabalho especializadas, como trabalhos de geração de relatórios, ferramentas de business intelligence ou backups. Normalmente, essas cargas de trabalho consomem recursos significativos do banco de dados. Portanto, é recomendável que você designe um dos bancos de dados secundários para elas com o nível de desempenho correspondente à carga de trabalho antecipada.
 
@@ -156,17 +156,14 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 ## Próximas etapas
 
 - Para saber mais sobre como usar e configurar a Replicação Geográfica Ativa para recuperação de desastre, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastre, confira [Restauração Geográfica](sql-database-geo-restore.md)
+- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastres, veja [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore)
 
-## Recursos adicionais
+## Próximas etapas
 
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

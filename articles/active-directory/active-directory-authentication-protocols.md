@@ -22,7 +22,7 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 
 ## Artigos e referência dos protocolos de autenticação
 
-- [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
+- [Informações importantes sobre substituição de chave de assinatura no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
 
 
 - [Token e tipos de declaração suportados](active-directory-token-and-claims.md) - Saiba mais sobre as declarações nos tokens que o Azure AD emite.
@@ -55,4 +55,4 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

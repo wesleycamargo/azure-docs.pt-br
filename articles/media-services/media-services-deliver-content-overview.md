@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@ Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo so
 
 Para atingir esse objetivo:
 
-- codifique seu fluxo para múltiplas taxas de bits (taxa de bits adaptável) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
+- codifique seu fluxo para múltiplas taxas de bits (taxa de bits adaptável) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e
 - use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
 
 Este tópico apresenta uma visão geral dos conceitos importantes de fornecimento de conteúdo.
@@ -39,7 +39,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - Codifique seu arquivo mezzanine (de origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,
-- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints). 
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
@@ -58,7 +58,7 @@ Para obter mais informações, consulte [Filtros e manifestos dinâmicos](media-
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores:
 
 - Os localizadores **OnDemandOrigin**, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar arquivos progressivamente.
--  Os localizadores de URL **SAS** (assinatura de acesso), usados para baixar arquivos de mídia para seu computador local. 
+-  Os localizadores de URL **SAS** (assinatura de acesso), usados para baixar arquivos de mídia para seu computador local.
 
 Uma **política de acesso** é usada para definir as permissões (como leitura, gravação e lista) e a duração pela qual um cliente tem acesso a determinado ativo. Observe que a permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OrDemandOrigin.
 
@@ -187,4 +187,4 @@ Um **Ponto de Extremidade de Transmissão** representa um serviço de transmiss�
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0629_2016-->
