@@ -60,7 +60,7 @@ Se você encontrar os avisos a seguir ao executar o script, poderá ignorá-los:
 Quando o script for concluído, ele produzirá o número estimado de eDTUs necessário para um pool para conter todos os bancos de dados candidatos no servidor de destino. O eDTU estimado pode ser usado para criar e configurar o pool. Depois que o pool for criado e os bancos de dados forem movido para o pool, monitore-o atentamente alguns dias e faça os ajustes necessários na configuração de eDTU do pool. Consulte [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -266,4 +266,4 @@ Quando o script for concluído, ele produzirá o número estimado de eDTUs neces
 
         
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

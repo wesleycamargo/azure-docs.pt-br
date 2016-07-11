@@ -34,11 +34,11 @@ Você criará um aplicativo Web que:
 3. Permite que o usuário "conecte" assinaturas ao aplicativo, concedendo, dessa forma, acesso direto ao aplicativo na assinatura
 4. Acessa o Gerenciador de Recursos do aplicativo para executar operações offline (acesso somente de aplicativo)
 
-Aqui está o fluxo de ponta a ponta do aplicativo Web que você irá escrever.
+Este é o fluxo completo do aplicativo Web que você irá escrever.
 
 ![Autorização do ARM - registro do aplicativo 1](./media/resource-manager-api-authentication/ARM-Auth-Swim-Lane.png)
 
-Todo o código para este tópico está sendo executado como um aplicativo Web que você pode experimentar em [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
+Todo o código para este tópico está sendo executado como um aplicativo Web que você pode testar em [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
 
 Como usuário, você deve selecionar o tipo de conta a ser usada para fazer logon:
 
@@ -52,7 +52,7 @@ Conceda ao aplicativo acesso às assinaturas do Azure:
  
  ![Conceder acesso](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-3.png)
  
-Conecte-se suas assinaturas ao aplicativo de monitoramento:
+Conecte suas assinaturas ao aplicativo de monitoramento:
 
 ![Conectar assinatura](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4.png)
 
@@ -62,7 +62,7 @@ Desconecte ou repare a conexão com o aplicativo:
 
 ## Registrar seu aplicativo com o Active Directory do Azure
 
-Comece registrando seu aplicativo Web no Active Directory (AD). O registro do aplicativo cria uma identidade central para seu aplicativo no Azure AD. Ele contém informações básicas sobre seu aplicativo, como ID do cliente OAuth, URLs de resposta e credenciais que o aplicativo usará para autenticar e acessar as APIs do Azure Resource Manager. O registro do aplicativo também registra as várias permissões delegadas de que seu aplicativo precisa para acessar APIs da Microsoft em nome do usuário.
+Comece registrando seu aplicativo Web no Azure Active Directory (AD). O registro do aplicativo cria uma identidade central para seu aplicativo no Azure AD. Ele contém informações básicas sobre seu aplicativo, como ID do cliente OAuth, URLs de resposta e credenciais que o aplicativo usará para autenticar e acessar as APIs do Azure Resource Manager. O registro do aplicativo também registra as várias permissões delegadas de que seu aplicativo precisa para acessar APIs da Microsoft em nome do usuário.
 
 O tópico [Criar aplicativo do Active Directory e entidade de serviço usando o portal](resource-group-create-service-principal-portal.md) mostra todas as etapas necessárias para configurar o seu aplicativo. Consulte o tópico enquanto cria um aplicativo com as seguintes propriedades:
 
@@ -84,9 +84,9 @@ Agora você tem tudo de que precisa para começar a codificação do aplicativo.
 
 Você começa no momento em que o usuário decide conectar a assinatura do Azure dele ao seu aplicativo.
 
-Você deve perguntar duas coisas ao usuário:
+Faça duas perguntas ao usuário:
 
-1. **Nome de domínio do diretório**: o nome de domínio do Azure Active Directory associado à assinatura do Azure do usuário. A solicitação de autorização do OAuth 2.0 deve ser enviada para esse Azure AD. O usuário pode encontrar o nome de domínio do seu Azure AD navegando até o Portal do Azure e selecionando a conta no canto superior direito. Você pode fornecer instruções visuais ao usuário, como: 
+1. **Nome de domínio do diretório**: o nome de domínio do Azure Active Directory associado à assinatura do Azure do usuário. A solicitação de autorização do OAuth 2.0 deve ser enviada para esse Azure AD. O usuário pode encontrar o nome de domínio do seu Azure AD navegando até o Portal do Azure e selecionando a conta no canto superior direito. Você pode fornecer instruções visuais ao usuário, como:
 
      ![](./media/resource-manager-api-authentication/show-directory.png)
    
@@ -98,7 +98,7 @@ Em seguida, seu aplicativo redireciona o usuário para o Azure AD com uma solici
 
 Emita uma solicitação de autorização Open ID Connect/OAuth 2.0 para o ponto de extremidade de autorização do Azure AD:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
 
 Os parâmetros de cadeia de caracteres de consulta que estão disponíveis para essa solicitação estão descritos no tópico [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -112,7 +112,7 @@ O Azure AD autentica o usuário e, se necessário, pede a ele para conceder perm
 
 ### Solicitação de autorização (Open ID Connect)
 
-Se você não deseja apenas acessar o Azure Resource Manager em nome do usuário, mas também permitir que o usuário entre em seu aplicativo usando a conta do Azure AD, emita uma solicitação de autorização Open ID Connect. Com o Open ID Connect, seu aplicativo também receberá um id\_token do Azure AD e poderá usá-lo para conectar o usuário.
+Se você deseja não só acessar o Azure Resource Manager em nome do usuário, mas também permitir que o usuário entre em seu aplicativo usando a conta do Azure AD, emita uma solicitação de autorização Open ID Connect. Com o Open ID Connect, seu aplicativo também receberá um id\_token do Azure AD e poderá usá-lo para conectar o usuário.
 
 Os parâmetros de cadeia de caracteres de consulta da solicitação de autorização OAuth 2.0 são:
 
@@ -125,8 +125,8 @@ Os parâmetros de cadeia de caracteres de consulta da solicitação de autoriza�
 | recurso | Identificador codificado na URL de APIs de Gerenciamento de Serviços do Azure: https://management.core.windows.net/ |
 | scope | OpenID +profile
 | nonce | Parte dos dados para ligar a solicitação de autorização ao id\_token retornado a fim de garantir que a resposta de autorização seja solicitada e não seja repetida.
-| domain\_hint | live.com <br />**Observação**: somente use o parâmetro domain\_hint se o usuário gerencia suas assinaturas do Azure usando uma conta da Microsoft.
-| state | Opcionalmente, especifique dados de estado que você deseja que o Azure AD retorne com a resposta.
+| domain\_hint | live.com <br />**Observação**: somente use o parâmetro domain\_hint se o usuário gerenciar suas Assinaturas do Azure usando uma Conta da Microsoft.
+| state | Opcionalmente, especifique todos os dados de estado que você deseja que o Azure AD retorne com a resposta.
 
 Eis um exemplo de solicitação Open ID Connect:
 
@@ -146,7 +146,7 @@ Seu aplicativo precisará validar o id\_token antes de conectar o usuário. Vali
 - **Emissor**: verifique se o emissor do token é o Azure Active Directory na declaração iss: https://sts.windows.net/{tenant_id_of_the_directory}
 - **Público**: verifique se o token foi criado para seu aplicativo na declaração aud. O valor deve ser o ID do cliente do seu aplicativo.
 - **Nonce**: verifique se a resposta foi solicitada pelo seu aplicativo e se o token não está sendo repetido comparando a declaração nonce com os dados nonce enviados na solicitação de autorização.
-- **Assinatura**: seu aplicativo deve verificar se o token foi assinado pelo Azure Active Directory. As chaves de assinatura do Azure AD são substituídas com frequência e, portanto, seu aplicativo deverá sondar chaves atualizadas diariamente ou indicar falha das chaves atualizadas se houver falha na validação da assinatura. Para saber mais, confira [Informações importantes sobre a substituição da chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+- **Assinatura**: seu aplicativo deve verificar se o token foi assinado pelo Azure Active Directory. As chaves de assinatura do Azure AD são substituídas com frequência e, portanto, seu aplicativo deverá sondar chaves atualizadas diariamente ou indicar falha das chaves atualizadas se houver falha na validação da assinatura. Para saber mais, confira [Informações importantes sobre substituição de chaves de assinatura no Azure AD](active-directory/active-directory-signing-key-rollover.md).
 
 Quando o **id\_token** tiver sido validado, use o valor da declaração oid como identificador imutável e não reutilizável do usuário. Use uma declaração **unique\_name** ou a declaração upn/email como o nome de exibição legível humano do usuário. Você também pode usar as declarações iven\_name/family\_name opcionais para fins de exibição.
 
@@ -154,9 +154,9 @@ Quando o **id\_token** tiver sido validado, use o valor da declaração oid como
 
 Agora que seu aplicativo recebeu o código de autorização do Azure AD, é hora de obter o token de acesso para o Azure Resource Manager. Poste uma solicitação de token de concessão de código OAuth 2.0 no ponto de extremidade de token do Azure AD:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
-Os parâmetros de cadeia de caracteres de consulta que estão disponíveis para essa solicitação estão descritos no tópico [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Os parâmetros de cadeia de caracteres de consulta que estão disponíveis para essa solicitação estão descritos no tópico [Fluxo de Concessão de Código de Autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
 O exemplo abaixo mostra uma solicitação de token de concessão de código com credenciais de senha:
 
@@ -167,7 +167,7 @@ O exemplo abaixo mostra uma solicitação de token de concessão de código com 
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Ao trabalhar com as credenciais de certificado, crie um JWT (Token Web JSON) e assine (RSA SHA256) usando a chave particular de credenciais de certificado do seu aplicativo. Os tipos de declaração para o token são mostrados no [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx). Para referência, confira o [Código da biblioteca de autenticação do Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs) para assinar tokens JWT de asserção de cliente.
+Ao trabalhar com as credenciais de certificado, crie um JWT (Token Web JSON) e assine (RSA SHA256) usando a chave particular de credenciais de certificado do seu aplicativo. Os tipos de declaração para o token são mostrados no [Fluxo de Concessão de Código de Autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx). Para referência, confira o [Código da biblioteca de autenticação do Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs) para assinar tokens JWT de asserção de cliente.
 
 Confira as [especificações do Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) para obter detalhes sobre a autenticação de cliente. Aqui está um [token JWT de asserção de cliente de exemplo](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA).
 
@@ -188,9 +188,9 @@ Um exemplo de resposta de token de concessão de código:
 
 #### Manipular resposta de token de concessão de código
 
-Uma resposta bem-sucedida de token conterá o token de acesso (usuário e aplicativo) para o Azure Resource Manager. Seu aplicativo usará esse token de acesso para acessar o Gerenciador de Recursos em nome do usuário. A vida útil dos tokens de acesso emitidos pelo Azure AD é de uma hora. É improvável que seu aplicativo Web precise renovar o token de acesso(usuário e aplicativo). No entanto, se isso acontecer, você poderá usar o token de atualização que seu aplicativo recebe na resposta do token. Poste uma solicitação de token OAuth 2.0 no ponto de extremidade de token do Azure AD:
+Uma resposta bem-sucedida de token conterá o token de acesso (usuário e aplicativo) para o Azure Resource Manager. Seu aplicativo usará esse token de acesso para acessar o Gerenciador de Recursos em nome do usuário. A vida útil dos tokens de acesso emitidos pelo Azure AD é de uma hora. É improvável que seu aplicativo Web precise renovar o token de acesso (usuário e aplicativo). No entanto, se isso acontecer, você poderá usar o token de atualização que seu aplicativo recebe na resposta do token. Poste uma solicitação de token OAuth 2.0 no ponto de extremidade de token do Azure AD:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 Os parâmetros para usar na solicitação de atualização estão descritos no [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -213,9 +213,9 @@ A próxima etapa da experiência é permitir que o usuário conecte sua assinatu
 
 ![Autorização do ARM - aplicativo de exemplo Ux 4](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4-full.png)
 
-### Listar assinaturas à qual o usuário tem acesso
+### Listar assinaturas às quais o usuário tem acesso
 
-Devemos chamar primeiro a API [de listagem de assinaturas do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/dn790531.aspx) para listar todas as assinaturas em que o usuário tem qualquer tipo de acesso. Em seguida, podemos identificar as assinaturas em que o usuário pode gerenciar o acesso.
+Devemos chamar primeiro a API [de listagem de assinaturas do Resource Manager](https://msdn.microsoft.com/library/azure/dn790531.aspx) para listar todas as assinaturas em que o usuário tem qualquer tipo de acesso. Em seguida, podemos identificar as assinaturas em que o usuário pode gerenciar o acesso.
 
 O método [GetUserSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L79) do aplicativo de exemplo do ASP.NET MVC implementa essa chamada.
 
@@ -233,7 +233,7 @@ Eis uma resposta de exemplo para listar assinaturas:
 
 ### Obter permissões do usuário na assinatura
 
-A ação de conectar/desconectar só deverá ser exibida para assinaturas nas quais o usuário pode gerenciar o acesso. Para cada assinatura, você chamará a API [de listagem de permissões do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/dn906889.aspx) para determinar se o usuário tem direitos de gerenciamento de acesso na assinatura.
+A ação de conectar/desconectar só deverá ser exibida para assinaturas nas quais o usuário pode gerenciar o acesso. Para cada assinatura, você chamará a API [de listagem de permissões do Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx) para determinar se o usuário tem direitos de gerenciamento de acesso na assinatura ou não.
 
 O método [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L132) do aplicativo de exemplo do ASP.NET MVC implementa essa chamada.
 
@@ -255,7 +255,7 @@ A API de permissões retorna várias permissões. Cada permissão consiste em a�
 
 Uma conta de usuário pode estar presente em vários Azure Active Directories. É possível que o usuário não especifique o nome do diretório correto inicialmente. Nesse caso, a assinatura desejada não será exibida na lista.
 
-A API[de listagem de locatários do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/dn790536.aspx) lista os identificadores de todas as pastas em que a conta do usuário está presente. Você pode chamar a API para determinar se a conta do usuário está em mais de um diretório e, opcionalmente, mostrar ao usuário uma mensagem como "não encontrou a assinatura que estava procurando? Ela pode estar em outros Azure Active Directory dos quais você é membro. Clique aqui para alternar o diretório".
+A API[de listagem de locatários do Resource Manager](https://msdn.microsoft.com/library/azure/dn790536.aspx) lista os identificadores de todas as pastas em que a conta do usuário está presente. Você pode chamar a API para determinar se a conta do usuário está em mais de um diretório e, opcionalmente, mostrar ao usuário uma mensagem como "não encontrou a assinatura que estava procurando? Ela pode estar em outros Azure Active Directory dos quais você é membro. Clique aqui para alternar o diretório".
 
 O método [GetUserOrganizations](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) do aplicativo de exemplo do ASP.NET MVC implementa essa chamada.
 
@@ -291,9 +291,9 @@ Você tem apenas um token de acesso para o Azure Resource Manager. É necessári
 <a id="app-azure-ad-graph">
 ### Obter o token de acesso somente de aplicativo para a API do Azure AD Graph
 
-Para autenticar seu aplicativo e obter um token para a API do Azure AD Graph, emita uma solicitação de token de fluxo OAuth 2.0 de concessão de credencial de cliente para o ponto de extremidade de token do Azure AD (**http://login.microsoftonline.com/{directory\_domain\_name}/OAuth2/Token**).
+Para autenticar seu aplicativo e obter um token para a API do Azure AD Graph, emita uma solicitação de token de fluxo OAuth 2.0 de Concessão de Credencial de Cliente para o ponto de extremidade de token do Azure AD (**https://login.microsoftonline.com/{directory\_domain\_name}/OAuth2/Token**).
 
-As linhas 73-77 do método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) do exemplo de aplicativo ASP.net MVC obtém um token de acesso somente de aplicativo para a API do Graph usando a biblioteca de autenticação do Active Directory para .NET.
+As linhas 73-77 do método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) do aplicativo de exemplo ASP.net MVC obtém um token de acesso somente de aplicativo para a API do Graph usando a biblioteca de autenticação do Active Directory para .NET.
 
 Os dados de solicitação do token de concessão de credencial do cliente:
 
@@ -301,8 +301,8 @@ Os dados de solicitação do token de concessão de credencial do cliente:
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | ID do cliente do seu aplicativo
-| recurso | Identificador codificado na URL do recurso para o qual o token de acesso está sendo solicitado. Nesse caso, o identificador da API do Azure AD Graph: **https://graph.windows.net/** 
-| client\_secret or client\_assertion\_type + client\_assertion | Se seu aplicativo usa credenciais de senha, use client\_secret. Se seu aplicativo usa credenciais de certificado, use client\_assertion.
+| recurso | Identificador codificado na URL do recurso para o qual o token de acesso está sendo solicitado. Nesse caso, o identificador da API do Azure AD Graph: **https://graph.windows.net/**
+| client\_secret ou client\_assertion\_type + client\_assertion | Se seu aplicativo usa credenciais de senha, use client\_secret. Se seu aplicativo usa credenciais de certificado, use client\_assertion.
 
 Um exemplo de solicitação de token de concessão de credencial de cliente:
 
@@ -342,7 +342,7 @@ Você deve atribuir a função RBAC apropriada à entidade de serviço do aplica
 A função RBAC certa para seu aplicativo:
 
 - Se seu aplicativo monitora apenas a assinatura, sem fazer alterações, ele exige apenas permissões de leitura na assinatura. Atribuir a função **Leitor**.
-- Se seu aplicativo gerencia a assinatura do Azure criando/modificando/excluindo entidades, é necessária uma das permissões de colaborador.
+- Se seu aplicativo gerencia a assinatura do Azure criando/modificando/excluindo entidades, será necessária a permissão de um dos colaboradores.
   - Para gerenciar um determinado tipo de recurso, atribua as funções de colaborador específicas do recurso (colaborador de máquina virtual, colaborador de rede virtual, colaborador da conta de armazenamento, etc.)
   - Para gerenciar um tipo de recurso, atribua a função **Colaborador**.
 
@@ -384,7 +384,7 @@ Aqui estão os GUIDS conhecidos de funções internas comumente usadas:
 
 ### Atribuir função RBAC ao aplicativo
 
-Você tem tudo o que é necessário para atribuir a função RBAC apropriada à entidade de serviço do aplicativo na assinatura selecionada usando a API [de criação e atribuição de função do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/dn906887.aspx).
+Você tem tudo o que é necessário para atribuir a função RBAC apropriada à entidade de serviço do aplicativo na assinatura selecionada usando a API [de criação e atribuição de função do Resource Manager](https://msdn.microsoft.com/library/azure/dn906887.aspx).
 
 O método [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L269) do aplicativo de exemplo ASP.net MVC implementa essa chamada.
 
@@ -417,15 +417,15 @@ A resposta está no seguinte formato:
 
 A próxima etapa é validar que o aplicativo tem o acesso desejado na assinatura. Para isso, você deve executar uma tarefa de teste na assinatura usando um token somente de aplicativo para o Azure Resource Manager. A tarefa de teste deve validar que o seu aplicativo, de fato, tem o acesso desejado na assinatura para executar monitoramento/gerenciamento offline.
 
-Para obter um token de acesso somente de aplicativo para o Azure Resource Manager, siga as instruções da seção [,Obter o token de acesso somente de aplicativo para a API do Azure AD Graph](#app-azure-ad-graph) com um valor diferente para o parâmetro de recurso:
+Para obter um token de acesso somente de aplicativo para o Azure Resource Manager, siga as instruções da seção [Obter o token de acesso somente de aplicativo para a API do Azure AD Graph](#app-azure-ad-graph) com um valor diferente para o parâmetro de recurso:
 
     https://management.core.windows.net/
 
-As linhas 210 a 214 do método [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) do exemplo de aplicativo ASP.net MVC obtém um token de acesso somente de aplicativo para o Azure Resource Manager usando a biblioteca de autenticação do Active Directory para .NET.
+As linhas 210 a 214 do método [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) do aplicativo de exemplo ASP.net MVC obtém um token de acesso somente de aplicativo para o Azure Resource Manager usando a biblioteca de autenticação do Active Directory para .NET.
 
 #### Obter permissões do aplicativo na assinatura
 
-Para verificar se seu aplicativo tem o acesso desejado em uma assinatura do Azure, você também pode chamar a API de [permissões do Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx) de maneira semelhante a como você determinou se o usuário tem acesso de gerenciamento de direitos para a assinatura ou não. No entanto, desta vez, chame a API de permissões com o token de acesso somente de aplicativo que foi recebido na etapa anterior.
+Para verificar se seu aplicativo tem o acesso desejado em uma assinatura do Azure, você também pode chamar a API de [Permissões do Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx) da mesma forma como determinou se o usuário tem ou não direitos de gerenciamento do acesso para a assinatura. No entanto, desta vez, chame a API de permissões com o token de acesso somente de aplicativo que foi recebido na etapa anterior.
 
 O método [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) do aplicativo de exemplo ASP.net MVC implementa essa chamada.
 
@@ -438,10 +438,10 @@ Se um proprietário de assinatura remove a atribuição de função do aplicativ
 
 ## Desconectar assinaturas
 
-Assim como você habilitou o usuário para conectar suas assinaturas ao seu aplicativo, deve permitir que o usuário também desconecte as assinaturas. Do ponto de vista do gerenciamento de acess, desconectar significa remover a atribuição da entidade de serviço do aplicativo na assinatura. Opcionalmente, o estado da assinatura no aplicativo também pode ser removido. Somente os usuários com permissão de gerenciamento de acesso na assinatura poderão desconectar a assinatura.
+Assim como você habilitou o usuário para conectar as assinaturas ao seu aplicativo, permita também que o usuário desconecte as assinaturas. Do ponto de vista do gerenciamento de acesso, desconectar significa remover a atribuição da função que a entidade do serviço do aplicativo tiver na assinatura. Opcionalmente, o estado da assinatura no aplicativo também pode ser removido. Somente os usuários com permissão de gerenciamento de acesso na assinatura poderão desconectar a assinatura.
 
 O método [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L303) do aplicativo de exemplo ASP.net MVC implementa essa chamada.
 
 Pronto, os usuários podem agora se conectar e gerenciar suas assinaturas do Azure com seu aplicativo facilmente.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

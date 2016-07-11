@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="06/23/2016"
    ms.author="navale;tomfitz;"/>
    
 # APIs REST do Gerenciador de Recursos
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 A resposta JSON bastante longa para essa solicitação foi omitida para melhorar a legibilidade deste documento. A resposta conterá informações sobre a implantação do modelo que você acabou de criar.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

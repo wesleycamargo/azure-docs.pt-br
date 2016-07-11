@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10
@@ -57,7 +57,7 @@ Para habilitar o acesso condicional, você pode criar configurações de Políti
 
 ### Etapa 1: implantar o Azure Active Directory Connect
 
-O Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira "Instalar o Azure AD Connect" no artigo [Integração de suas identidades locais ao Active Directory do Azure](active-directory-aadconnect/#install-azure-ad-connect).
+O Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira "Instalar o Azure AD Connect" no artigo [Integração de suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
  - Se você tiver usado uma [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (não a instalação Expressa), siga o procedimento **Criar um ponto de conexão de serviço no Active Directory local**, posteriormente nesta etapa.
  - Se você tiver uma configuração federada com o AD do Azure antes de instalar o Azure AD Connect (por exemplo, se tiver implantado o AD FS, Serviços de Federação do Active Directory, antes), siga o procedimento **Configurar regras de declaração do AD FS** posteriormente nesta etapa.
@@ -77,7 +77,7 @@ No servidor do Azure AD Connect, execute os seguintes comandos do PowerShell:
 
 Ao executar o cmdlet $aadAdminCred = Get-Credential, use o formato *user@example.com* para o nome de usuário da credencial que é inserida quando o pop-up de Get-Credential é exibido.
 
-Ao executar o cmdlet Initialize-ADSyncDomainJoinedComputerSync..., substitua [*nome de conta do conector*] pela conta de domínio que é usada como conta de conector do Active Directory.
+Ao executar o cmdlet Initialize-ADSyncDomainJoinedComputerSync..., substitua [*nome de conta do conector*] pela conta de domínio usada como conta de conector do Active Directory.
 
 #### Configurar regras de declaração do AD FS
 A configuração das regras de declaração do AD FS possibilitou o registro instantâneo de um computador com o serviço de registro de dispositivo do Azure permitindo que os computadores se autentiquem usando Kerberos/NTLM por meio do AD FS. Sem essa etapa, os computadores chegarão ao AD do Azure com atraso (sujeito aos tempos de sincronização do Azure AD Connect).
@@ -128,7 +128,7 @@ Você pode usar uma Política de Grupo no Active Directory para configurar os di
 1. 	Abra o Gerenciador do Servidor e navegue até **Ferramentas** > **Gerenciamento de Política de Grupo**.
 2.	No Gerenciamento de Política de Grupo, navegue até o nó de domínio que corresponde ao domínio no qual você deseja habilitar o Ingresso no AD do Azure.
 3.	Clique com o botão direito do mouse em **Objetos de Política de Grupo** e selecione **Novo**. Nomeie seu objeto de Política de Grupo como, por exemplo, Ingresso no AD do Azure. Clique em **OK**.
-4.	Clique com o botão direito do mouse em seu novo objeto de Política de Grupo e selecione **Editar**.
+4.	Clique com o botão direito do mouse em seu novo Objeto de Política de Grupo e selecione **Editar**.
 5.	Navegue até **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Ingresso no Local de Trabalho**.
 6.	Clique com o botão direito do mouse em **Ingressar computadores cliente automaticamente no local de trabalho** e selecione **Editar**.
 7.	Selecione o botão de opção **Habilitado** e clique em **Aplicar**. Clique em **OK**.
@@ -137,7 +137,7 @@ Você pode usar uma Política de Grupo no Active Directory para configurar os di
  - Um grupo de segurança específico com computadores ingressados no domínio do Windows 10 que serão registrados automaticamente no AD do Azure.
 
 >[AZURE.NOTE]
-Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo em um computador com Windows 10, a política será exibida como: <br> **Registrar computadores ingressados no domínio como dispositivos**<br> A política está no seguinte local:<br>***Configuração do Computadpor/Políticas/Modelos Administrativos/Componentes do Windows/Registro do Dispositivo***
+Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo de um computador com o Windows 10, a política será exibida como: <br> **Registrar computadores ingressados no domínio como dispositivos**<br> A política está no seguinte local:<br>***Configuração do Computador/Políticas/Modelos Administrativos/Componentes do Windows/Registro do Dispositivo***
 
 
 ## Informações adicionais
@@ -147,4 +147,4 @@ Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

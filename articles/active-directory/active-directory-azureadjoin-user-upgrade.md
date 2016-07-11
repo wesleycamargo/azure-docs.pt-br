@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configurar um dispositivo Windows 10 com o Azure AD nas Configurações
@@ -42,4 +42,4 @@ Se já estiver usando o Windows 7 ou Windows 8 e o computador ou dispositivo tiv
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

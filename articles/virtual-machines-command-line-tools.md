@@ -19,7 +19,7 @@
 
 # Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] Você também pode [ler sobre todos os comandos de modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md).
 
 Este artigo fornece a sintaxe e as opções de comandos da CLI do Azure que, normalmente, seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação clássica. É possível acessar esses comandos executando a CLI no modo ASM (Gerenciamento de Serviços). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes.
 
@@ -351,7 +351,7 @@ Esse comando cria um ponto de extremidade da máquina virtual. Você também pod
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [options] <vm-name> <lb-port>[:<vm-port>[:<protocol>[:<enable-direct-server-return>[:<lb-set-name>[:<probe-protocol>[:<probe-port>[:<probe-path>[:<internal-lb-name>]]]]]]]] {1-*}**
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
 Cria vários pontos de extremidade de vm (máquina virtual).
 
@@ -791,7 +791,7 @@ Este comando troca dois slots do aplicativo Web.
 
 Esse comando oferece suporte à seguinte opção adicional:
 
-****-q ou **--quiet**: não solicita confirmação. Use esta opção em scripts automatizados.
+**-q or **--quiet**: não solicita confirmação. Use esta opção em scripts automatizados.
 
 
 **site start [options] [name]**
@@ -814,7 +814,7 @@ Esse comando para um aplicativo Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-****vm restart [opções] [nome]
+**vm restart [opções] [nome]
 
 Este comando para e, em seguida, inicia um aplicativo Web específico.
 
@@ -996,7 +996,7 @@ Esse comando mostra os detalhes de um trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--job-type** &lt;job-type>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
@@ -1011,13 +1011,13 @@ Esse comando oferece suporte às seguintes opções adicionais:
 + **-q** ou **--quiet**: não solicita confirmação. Use esta opção em scripts automatizados.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
-**site job upload [options] <jobName> <jobType> <jobFile> [name]**
+**site job upload [options] &lt;jobName> &lt;jobType> <jobFile> [name]**
 
 Esse comando exclui o trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--job-type** &lt;job-type>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
 + **--job-file** &lt;job-file>: necessário. O arquivo do trabalho.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
@@ -1028,7 +1028,7 @@ Esse comando inicia o trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--job-type** &lt;job-type>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
@@ -1038,7 +1038,7 @@ Esse comando para o trabalho web especificado. Apenas trabalhos contínuos podem
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
 ###Comandos para gerenciar o Histórico dos Trabalhos Web
@@ -1049,7 +1049,7 @@ Esse comando exibe um histórico das execuções do trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
 **site job history show [options] [jobName] [runId] [name]**
@@ -1058,7 +1058,7 @@ Esse comando mostra os detalhes de uma execução do trabalho para o trabalho we
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;job-name>: necessário. O nome do trabalho web.
++ **--job-name** &lt;job-name>: obrigatório. O nome do trabalho web.
 + **--run-id** &lt;run-id>: opcional. O ID do histórico de execução. Se não especificado, mostrar a última execução.
 + **--slot** &lt;slot>: o nome do slot para reiniciar.
 
@@ -1879,7 +1879,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 + **-e** ou **--label** &lt;label>: o rótulo para a conta de armazenamento.
 + **-d** ou **--description** &lt;description>: a descrição da conta de armazenamento.
 + **-l** ou **--location** &lt;name>: a região geográfica em que a conta de armazenamento é criada.
-+ **-a** ou **--affinity-group** &lt;name>: o grupo de afinidade com o qual associar a conta de armazenamento 
++ **-a** ou **--affinity-group** &lt;name>: o grupo de afinidade com o qual associar a conta de armazenamento
 + **--type**: indica o tipo de conta a criar: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
 
 **storage account set [options] <name>**
@@ -2350,4 +2350,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

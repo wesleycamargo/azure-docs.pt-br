@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"     
+	ms.date="06/22/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
@@ -159,7 +159,7 @@ Elas têm impacto direto no custo de entrega de licença se você usa a nuvem p�
 
 
 
-1. Assinatura mensal: usar licença persistente e mapeamento chave-para-ativo de conteúdo 1-para-vários. Por exemplo, para todos os filmes de crianças, usamos uma única chave de conteúdo para criptografia. Nesse caso: 
+1. Assinatura mensal: usar licença persistente e mapeamento chave-para-ativo de conteúdo 1-para-vários. Por exemplo, para todos os filmes de crianças, usamos uma única chave de conteúdo para criptografia. Nesse caso:
 
 	Número total de licenças solicitadas para todos os filmes de criança/dispositivo = 1
 
@@ -209,7 +209,7 @@ Durante a execução, o fluxo é o seguinte:
 1. Após a autenticação de usuário, um token JWT é gerado;
 1. Uma das declarações contidas no token JWT é a declaração "grupos" que contém a ID de objeto do grupo de "EntitledUserGroup". Essa declaração será usada para a passagem de "verificação de autorização".
 1. O player baixa o manifesto do cliente de um conteúdo protegido por CENC e "vê" o seguinte:
-	1. ID da chave; 
+	1. ID da chave;
 	1. o conteúdo é protegido por CENC;
 	1. URLs de aquisição de licença.
 
@@ -223,7 +223,7 @@ A implementação incluirá as seguintes etapas:
 
 1. Preparar os ativos de teste: criptografar/empacotar um vídeo de teste para MP4 fragmentado com várias taxas de bits nos Serviços de Mídia do Azure. Esse ativo NÃO é protegido por DRM. A proteção DRM será feita pela proteção dinâmica posteriormente.
 1. Criar chave de ID e chave de conteúdo (opcionalmente da semente de chave). Para nosso objetivo, o sistema de gerenciamento de chaves não é necessário, pois estamos lidando com apenas um único conjunto de ID de chave ID e de chave de conteúdo para alguns recursos de teste;
-1. Usar a API do AMS para configurar os serviços de entrega de licença de vários DRM para o ativo de teste. Se você estiver usando servidores de licenças personalizados por sua empresa ou por fornecedores em vez de serviços de licença dos Serviços de Mídia do Azure, poderá ignorar esta etapa e especificar URLs de aquisição de licença na etapa de configuração de entrega de licença. A API do AMS é necessária para especificar algumas configurações detalhadas, como restrição de política de autorização, modelos de resposta de licença para diferentes serviços de licença de DRM, etc. Neste momento, o portal do Azure não fornece ainda a interface do usuário necessária para esta configuração. Você pode encontrar informações e códigos de exemplo no nível de API no documento de Julia Kornich: [Usando a criptografia dinâmica comum do PlayReady e/ou do Widevine](media-services-protect-with-drm.md). 
+1. Usar a API do AMS para configurar os serviços de entrega de licença de vários DRM para o ativo de teste. Se você estiver usando servidores de licenças personalizados por sua empresa ou por fornecedores em vez de serviços de licença dos Serviços de Mídia do Azure, poderá ignorar esta etapa e especificar URLs de aquisição de licença na etapa de configuração de entrega de licença. A API do AMS é necessária para especificar algumas configurações detalhadas, como restrição de política de autorização, modelos de resposta de licença para diferentes serviços de licença de DRM, etc. Neste momento, o portal do Azure não fornece ainda a interface do usuário necessária para esta configuração. Você pode encontrar informações e códigos de exemplo no nível de API no documento de Julia Kornich: [Usando a criptografia dinâmica comum do PlayReady e/ou do Widevine](media-services-protect-with-drm.md).
 1. Usar a API de AMS para configurar a política de fornecimento de ativos para o ativo de teste. Você pode encontrar informações e códigos de exemplo no nível de API no documento de Julia Kornich: [Usando a criptografia dinâmica comum do PlayReady e/ou do Widevine](media-services-protect-with-drm.md).
 1. Criar e configurar um locatário do Active Directory do Azure no Azure;
 1. Criar algumas contas de usuário e grupos em seu locatário do Active Directory do Azure: você deve criar pelo menos o grupo "EntitledUser" e adicionar um usuário a esse grupo. Os usuários nesse grupo passarão na verificação de autorização da aquisição de licenças, e os usuários fora desse grupo falharão na verificação de autenticação e não poderão adquirir licença. Ser membro do grupo "EntitledUser" é uma declaração "grupos" necessária no token JWT emitido pelo AD do Azure. Esse requisito de declaração deve ser especificado na etapa de configuração dos serviços de entrega de licença para vários DRM.
@@ -242,7 +242,7 @@ A implementação incluirá as seguintes etapas:
 **Widevine**|Chrome no Windows 10|Êxito|Reprovado
 **FairPlay** |TBD||
 
-George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 George também escreveu um blog sobre [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). E aqui está seu [exemplo de integração do AD do Azure à distribuição de chaves dos Serviços de Mídia do Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
@@ -255,7 +255,7 @@ Para obter informações sobre o Active Directory do Azure:
 
 Há algumas "pegadinhas" na implementação. Esperamos que a lista de “pegadinhas” a seguir possa ajudar você a solucionar problemas caso eles apareçam.
 
-1. A URL do **emissor** deve terminar com **"/"**.  
+1. A URL do **emissor** deve terminar com **"/"**.
 
 	**Audience** deve ser a ID de cliente do aplicativo de player; você também deve adicionar **"/"** no fim da URL do emissor.
 
@@ -317,7 +317,7 @@ Isso é um ponto importante a se levar em consideração na sua implementação.
 
 O AD do Azure usa o padrão da indústria para estabelecer a confiança entre ele e os aplicativos que usam o AD do Azure. Especificamente, o AD do Azure usa uma chave de assinatura que consiste em um par de chaves público e privado. Quando o AD do Azure cria um token de segurança com informações sobre o usuário, esse token é assinado pelo AD do Azure usando sua chave privada antes de ser enviado para o aplicativo. Para verificar se o token é válido e realmente se origina do AD do Azure, o aplicativo deve validar a assinatura do token usando a chave pública exposta pelo AD do Azure que está contida no documento de metadados da federação do locatário. Essa chave pública, e a chave de assinatura da qual deriva, é a mesma usada para todos os locatários no AD do Azure.
 
-As informações detalhadas sobre a substituição de chave do AD do Azure podem ser encontradas no documento: [Informações importantes sobre substituição de chaves de assinatura no AD do Azure](http://msdn.microsoft.com/library/azure/dn641920.aspx/).
+Informações detalhadas sobre a substituição de chave do AD do Azure podem ser encontradas no documento: [Informações importantes sobre substituição de chaves de assinatura no AD do Azure](../active-directory/active-directory-signing-key-rollover.md).
 
 Entre o [par de chaves pública/privada](https://login.windows.net/common/discovery/keys/),
 
@@ -361,15 +361,15 @@ Precisamos registrar e configurar o aplicativo "ponteiro" no AD do Azure seguind
 
 1.	No locatário do AD do Azure
 
-	- adicione um aplicativo (recurso) com a URL de logon: 
+	- adicione um aplicativo (recurso) com a URL de logon:
 
 	https://[resource_name].azurewebsites.net/ e
 
-	- URL da ID do aplicativo: 
+	- URL da ID do aplicativo:
 	
-	https://[aad_tenant_name].onmicrosoft.com/[resource_name]; 
+	https://[aad_tenant_name].onmicrosoft.com/[resource_name];
 2.	Adicionar uma nova chave para o aplicativo de recurso;
-3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",  
+3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",
 4.	No aplicativo Azure AD que aponta para o aplicativo Web player, na seção "permissões para outros aplicativos", adicione o aplicativo de recurso que foi adicionado na etapa 1 acima. Em "permissões delegadas", verifique a marca de seleção de "Acessar [nome\_recurso]". Isso dá ao aplicativo Web permissão para criar tokens de acesso a fim de acessar o aplicativo de recurso. Você deverá fazer isso para a versão local e a implantada do aplicativo Web se estiver desenvolvendo com Visual Studio e aplicativo Web do Azure.
 	
 Portanto, o token JWT emitido pelo AD do Azure é, de fato, o token de acesso para acessar esse recurso de "ponteiro".
@@ -386,7 +386,7 @@ Mais especificamente, é bem sabido que, para fazer transmissão ao vivo nos Ser
 
 Muitas vezes os clientes investiram em um farm de servidores de licença em seu próprio data center ou hospedado por provedores de serviço DRM. Felizmente, a Proteção de Conteúdo dos Serviços de Mídia do Azure permite que você opere no modo híbrido: conteúdo hospedado e dinamicamente protegido nos Serviços de Mídia do Azure enquanto as licenças DRM são fornecidas por servidores fora dos Serviços de Mídia do Azure. Nesse caso, as seguintes considerações sobre alterações devem ser feitas:
 
-1. O Serviço de Token seguro precisa emitir tokens que podem ser aceitos e verificados pelo farm de servidores de licença. Por exemplo, os servidores de licença do Widevine fornecidos pela Axinom exigem um token JWT específico que contém "mensagem de autorização". Portanto, você precisa ter um STS para emitir tal token JWT. Os autores concluíram uma implementação do tipo, e você pode encontrar os detalhes no seguinte documento do [Centro de Documentação do Azure](https://azure.microsoft.com/documentation/): [Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-axinom-integration.md). 
+1. O Serviço de Token seguro precisa emitir tokens que podem ser aceitos e verificados pelo farm de servidores de licença. Por exemplo, os servidores de licença do Widevine fornecidos pela Axinom exigem um token JWT específico que contém "mensagem de autorização". Portanto, você precisa ter um STS para emitir tal token JWT. Os autores concluíram uma implementação do tipo, e você pode encontrar os detalhes no seguinte documento do [Centro de Documentação do Azure](https://azure.microsoft.com/documentation/): [Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-axinom-integration.md).
 1. Você não precisa configurar o serviço de entrega de licença (ContentKeyAuthorizationPolicy) nos Serviços de Mídia do Azure. O que você precisa fazer é fornecer URLs de aquisição de licença (por PlayReady, Widevine e FairPlay) quando configurar AssetDeliveryPolicy durante a instalação da CENC com vários DRM.
  
 ### E se eu quiser usar um STS personalizado?
@@ -522,4 +522,4 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

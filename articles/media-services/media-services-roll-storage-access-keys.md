@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/26/2016" 
+	ms.date="06/22/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
 #Como: Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
@@ -159,4 +159,4 @@ Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-sto
 
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

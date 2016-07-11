@@ -23,7 +23,7 @@
 
 ## Visão geral dos requisitos de autenticação para a recuperação de desastre
 
-Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a restauração geográfica. Para obter mais informações sobre as opções de recuperação, consulte [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md).
+Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). Para saber mais sobre as opções de recuperação, veja [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md).
 
 ## Recuperação de desastre com usuários independentes
 
@@ -82,26 +82,17 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 
 >[AZURE.NOTE] Se desejar conceder ao usuário o acesso ao secundário, mas não ao primário, você poderá fazer isso alterando o logon do usuário no servidor primário usando a sintaxe a seguir.
 >
->ALTER LOGIN <login name> DISABLE
+>ALTER LOGIN <nome de login> DISABLE
 >
 >DISABLE não altera a senha, portanto você sempre poderá habilitá-la se necessário.
 
 ## Próximas etapas
 
-- Para obter mais informações sobre como gerenciar o acesso ao banco de dados e os logons, confira [SQL Database security: Manage database access and login security](sql-database-manage-logins.md) (Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados).
-- Para obter mais informações sobre os usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
-- Para obter informações sobre como usar e configurar a replicação geográfica ativa, confira [Active Geo-Replication](sql-database-geo-replication-overview.md) (Replicação Geográfica Ativa)
-- Para obter informações sobre como usar a restauração geográfica, confira [Geo-Restore](sql-database-geo-restore.md) (Restauração Geográfica)
+- Para saber mais sobre como gerenciar o acesso ao banco de dados e os logons, veja [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
+- Para saber mais sobre usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+- Para saber como usar e configurar a replicação geográfica ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para obter informações sobre como usar a restauração geográfica, confira [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Recursos adicionais
 
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

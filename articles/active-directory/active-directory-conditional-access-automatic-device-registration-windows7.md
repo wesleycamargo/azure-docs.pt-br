@@ -1,11 +1,4 @@
-<properties
-	pageTitle="#Configurar o Registro Automático de Dispositivo para dispositivos ingressados no domínio do Windows 7| Microsoft Azure"
-	description="As etapas para configurar seus dispositivos ingressados no domínio do Windows 7 para registro automático com o AD do Azure e as etapas para implantar o pacote de software de registro de dispositivo nos seus dispositivos ingressados no domínio do Windows 7 usando um sistema de distribuição de software, como o System Center Configuration Manager."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+<properties pageTitle="# Configurar o registro do dispositivo automático para dispositivos ingressados do domínio do Windows 7|Microsoft Azure"="Etapas para configurar seus dispositivos ingressados do domínio do Windows 7 para registrar-se automaticamente no Azure AD. e etapas para implantar o pacote de software de registro de dispositivo nos dispositivos ingressados do domínio do Windows 7 usando um sistema de distribuição de software como o System Center Configuration Manager." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7
@@ -60,4 +53,4 @@ O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relaci
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

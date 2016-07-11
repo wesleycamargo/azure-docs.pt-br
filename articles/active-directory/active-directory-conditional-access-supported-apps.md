@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
 # Suporte de acesso condicional para aplicativos
-O acesso condicional funciona com aplicativos móveis e da área de trabalho que usam autenticação moderna. Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
+
+As regras de Acesso Condicional têm suporte em aplicativos conectados do Azure AD, aplicativos SaaS federados pré-integrados, aplicativos que usam senha de logon único e a linha de aplicativos de negócios e o Proxy de aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos em que você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). O acesso condicional funciona com aplicativos móveis e da área de trabalho que usam autenticação moderna. Este tópico explica o que tem suporte em relação à versão móvel e para desktop desses aplicativos.
+
+ Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
 
 ## Aplicativos que usam autenticação moderna
 Os aplicativos a seguir foram testados com MFA (autenticação multifator) e a política de localização definida no serviço de destino.
@@ -43,7 +46,7 @@ Atualmente, os aplicativos que não usam autenticação moderna devem ter acesso
 ## SharePoint
 Protocolos herdados podem ser desabilitados no SharePoint, usando o cmdlet Set-SPOTenant. Esse cmdlet impedirá que os clientes do Office usando os protocolos de autenticação não modernas acessem recursos do SharePoint Online.
 
-**Exemplo de saída de comando**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**Comando de exemplo**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
  
 ## Exchange
 
@@ -102,4 +105,4 @@ Regra 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

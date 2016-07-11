@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -21,59 +21,8 @@ O SQL Data Warehouse introduziu recentemente o [Armazenamento Premium para uma m
 
 Se você tiver mais de um Data Warehouse, use o [cronograma de migração automática][] abaixo para determinar quando ele será migrado também.
 
-## Detalhes da migração automática
-Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local da sua região em algum dia do [cronograma de migração automática][] abaixo. Durante a migração, o Data Warehouse existente ficará inutilizável. Estimamos que a migração levará cerca de uma hora por TB de armazenamento por Data Warehouse. Também vamos garantir que não haja cobrança durante a migração.
-
-> [AZURE.NOTE] Você não poderá usar o Data Warehouse existente durante a migração. Quando a migração for concluída, o Data Warehouse ficará online novamente.
-
-Os detalhes abaixo são as etapas que a Microsoft está seguindo por você para concluir a migração e não requer nenhuma atitude da sua parte. Para este exemplo, imagine que o DW existente no armazenamento padrão atualmente é denominado "MyDW".
-
-1.	A Microsoft renomeará "MyDW" para "MyDW\_ DO\_NOT\_USE\_ [carimbo de data/hora]"
-2.	A Microsoft pausará "MyDW\_ DO\_NOT\_USE\_ [carimbo de data/hora]". Durante esse tempo, a Microsoft fará um backup. Você poderá ver várias pausas/retomadas se encontrarmos problemas durante o processo.
-3.	A Microsoft criará um novo DW chamado "MyDW" no Armazenamento Premium do backup feito na etapa 2 acima. "MyDW" não será exibido até a restauração ser concluída.
-4.	Quando a restauração for concluída, "MyDW" será retornado para o mesmo nível de DWUs e estado pausado ou ativo em que estava antes da migração.
-5.	Quando a migração for concluída, a Microsoft excluirá "MyDW\_DO\_NOT\_USE\_ [carimbo de data/hora]"
-	
-> [AZURE.NOTE] Estas configurações não serão transferidas como parte da migração:
-> 
->	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
-
-### Planejamento de migração automática
-A migração automática ocorrerá entre 18h e 6h (hora local da região) em algum dia do cronograma de interrupção listada abaixo.
-
-| **Região** | **Data de início estimada** | **Data de término estimada** |
-| :------------------ | :--------------------------- | :--------------------------- |
-| Leste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
-| Sudeste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
-| Sul do Brasil | Ainda não foi determinado | Ainda não foi determinado |
-| Canadá Central | 23 de junho de 2016 | 1 de julho de 2016 |
-| Leste do Canadá | 23 de junho de 2016 | 1 de julho de 2016 |
-| Centro dos EUA | 23 de junho de 2016 | 1 de julho de 2016 |
-| Leste da China | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da China | Ainda não foi determinado | Ainda não foi determinado |
-| Ásia Oriental | 23 de junho de 2016 | 1 de julho de 2016 |
-| Leste dos EUA | 23 de junho de 2016 | 1 de julho de 2016 |
-| Leste dos EUA 2 | 23 de junho de 2016 | 1 de julho de 2016 |
-| Centro da Índia | 23 de junho de 2016 | 1 de julho de 2016 |
-| Sul da Índia | 23 de junho de 2016 | 1 de julho de 2016 |
-| Oeste da Índia | Ainda não foi determinado | Ainda não foi determinado |
-| Leste do Japão | Ainda não foi determinado | Ainda não foi determinado |
-| Oeste do Japão | Ainda não foi determinado | Ainda não foi determinado |
-| Centro-Norte dos EUA | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da Europa | Ainda não foi determinado | Ainda não foi determinado |
-| Centro-Sul dos Estados Unidos | 23 de junho de 2016 | 1 de julho de 2016 |
-| Sudeste Asiático | 23 de junho de 2016 | 1 de julho de 2016 |
-| Europa Ocidental | 23 de junho de 2016 | 1 de julho de 2016 |
-| Oeste dos EUA | 23 de junho de 2016 | 1 de julho de 2016 |
-
-## Automigração para o Armazenamento Premium
-Se desejar controlar quando o tempo de inatividade deve ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
-
-> [AZURE.NOTE] O SQL Data Warehouse com Armazenamento Premium não tem redundância geográfica atualmente. Isso significa que quando o Data Warehouse é migrado para o Armazenamento Premium, os dados residem apenas em sua região atual. Quando estiverem disponíveis, os Backups Geográficos copiarão o Data Warehouse a cada 24 horas para a [região emparelhada do Azure][], permitindo que você restaure usando o Backup Geográfico para qualquer região no Azure. Depois que a funcionalidade de Backup Geográfico estiver disponível para automigrações, ela será anunciada em nosso [site de documentação principal][]. Por outro lado, as migrações automáticas não têm essa limitação.
-
-### Determinar o tipo de armazenamento
-Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenamento Standard.
+## Determinar o tipo de armazenamento
+Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenamento Standard. Além disso, cada Data Warehouse no Armazenamento Padrão que será migrado terá um aviso de [Portal do Azure][] na parte superior da folha Data Warehouse dizendo "*Uma atualização futura para armazenamento premium exigirá uma interrupção. Saiba mais ->*".
 
 | **Região** | **DW criado antes desta data** |
 | :------------------ | :-------------------------------- |
@@ -100,11 +49,61 @@ Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenam
 | Europa Ocidental | 25 de maio de 2016 |
 | Oeste dos EUA | 26 de maio de 2016 |
 
+## Detalhes da migração automática
+Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local da sua região em algum dia do [cronograma de migração automática][] abaixo. Durante a migração, o Data Warehouse existente ficará inutilizável. Estimamos que a migração levará cerca de uma hora por TB de armazenamento por Data Warehouse. Também vamos garantir que não haja cobrança durante a migração.
+
+> [AZURE.NOTE] Você não poderá usar o Data Warehouse existente durante a migração. Quando a migração for concluída, o Data Warehouse ficará online novamente.
+
+Os detalhes abaixo são as etapas que a Microsoft está seguindo por você para concluir a migração e não requer nenhuma atitude da sua parte. Para este exemplo, imagine que o DW existente no armazenamento padrão atualmente é denominado "MyDW".
+
+1.	A Microsoft renomeará “MyDW” para “MyDW\_DO\_NOT\_USE\_[carimbo de data/hora]”
+2.	A Microsoft pausará "MyDW\_ DO\_NOT\_USE\_ [carimbo de data/hora]". Durante esse tempo, a Microsoft fará um backup. Você poderá ver várias pausas/retomadas se encontrarmos problemas durante o processo.
+3.	A Microsoft criará um novo DW chamado "MyDW" no Armazenamento Premium do backup feito na etapa 2 acima. "MyDW" não será exibido até a restauração ser concluída.
+4.	Quando a restauração for concluída, "MyDW" será retornado para o mesmo nível de DWUs e estado pausado ou ativo em que estava antes da migração.
+5.	Quando a migração for concluída, a Microsoft excluirá "MyDW\_DO\_NOT\_USE\_ [carimbo de data/hora]"
+	
+> [AZURE.NOTE] Estas configurações não serão transferidas como parte da migração:
+> 
+>	-  Auditing at the Database level will need to be re-enabled
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
+
+### Planejamento de migração automática
+A migração automática ocorrerá entre 18h e 6h (hora local da região) em algum dia do cronograma de interrupção listada abaixo.
+
+| **Região** | **Data de início estimada** | **Data de término estimada** |
+| :------------------ | :--------------------------- | :--------------------------- |
+| Leste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
+| Sudeste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
+| Sul do Brasil | Ainda não foi determinado | Ainda não foi determinado |
+| Canadá Central | 23 de junho de 2016 | 1º de julho de 2016 |
+| Leste do Canadá | 23 de junho de 2016 | 1º de julho de 2016 |
+| Centro dos EUA | 23 de junho de 2016 | 4 de julho de 2016 |
+| Leste da China | Ainda não foi determinado | Ainda não foi determinado |
+| Norte da China | Ainda não foi determinado | Ainda não foi determinado |
+| Ásia Oriental | 23 de junho de 2016 | 1º de julho de 2016 |
+| Leste dos EUA | 23 de junho de 2016 | 11 de julho de 2016 |
+| Leste dos EUA 2 | 23 de junho de 2016 | 8 de julho de 2016 |
+| Centro da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
+| Sul da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
+| Oeste da Índia | Ainda não foi determinado | Ainda não foi determinado |
+| Leste do Japão | Ainda não foi determinado | Ainda não foi determinado |
+| Oeste do Japão | Ainda não foi determinado | Ainda não foi determinado |
+| Centro-Norte dos EUA | Ainda não foi determinado | Ainda não foi determinado |
+| Norte da Europa | Ainda não foi determinado | Ainda não foi determinado |
+| Centro-Sul dos Estados Unidos | 23 de junho de 2016 | 2 de julho de 2016 |
+| Sudeste Asiático | 23 de junho de 2016 | 1º de julho de 2016 |
+| Europa Ocidental | 23 de junho de 2016 | 8 de julho de 2016 |
+| Oeste dos EUA | 23 de junho de 2016 | 7 de julho de 2016 |
+
+## Automigração para o Armazenamento Premium
+Se desejar controlar quando o tempo de inatividade deve ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
+
+> [AZURE.NOTE] O SQL Data Warehouse com Armazenamento Premium não tem redundância geográfica atualmente. Isso significa que quando o Data Warehouse é migrado para o Armazenamento Premium, os dados residem apenas em sua região atual. Quando estiverem disponíveis, os Backups Geográficos copiarão o Data Warehouse a cada 24 horas para a [região emparelhada do Azure][], permitindo que você restaure usando o Backup Geográfico para qualquer região no Azure. Depois que a funcionalidade de Backup Geográfico estiver disponível para automigrações, ela será anunciada em nosso [site de documentação principal][]. Por outro lado, as migrações automáticas não têm essa limitação.
 
 ### Instruções de automigração
 Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Warehouse por conta própria usando backup e restauração. A parte de restauração da migração deve levar cerca de uma hora por TB de armazenamento por DW. Se quiser manter o mesmo nome após a conclusão da migração, siga as etapas abaixo para ver [uma solução alternativa de renomeação][].
 
-1.	[Pause][] o DW que usará um backup automático
+1.	[Pause][] o DW que fará um backup automático
 2.	[Restaure][] usando o instantâneo mais recente
 3.	Exclua seu DW existente do Armazenamento Standard. **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
 
@@ -151,6 +150,7 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 
 
 <!--Other Web references-->
-[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/pt-BR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

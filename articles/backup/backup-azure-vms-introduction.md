@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/23/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planejar sua infraestrutura de backup da VM no Azure
-Este artigo aborda as coisas mais importantes para se lembrar ao planejar o backup de máquinas virtuais no Azure. Se você [preparou seu ambiente](backup-azure-vms-prepare.md), esta é a próxima etapa antes de começar [a fazer backup de VMs](backup-azure-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/)
+Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser essenciais para determinar sua arquitetura, planejamento de capacidade e agendamento. Se você [preparou seu ambiente](backup-azure-vms-prepare.md), esta é a próxima etapa antes de começar [a fazer backup de VMs](backup-azure-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 ## Como o Azure faz backup de máquinas virtuais?
 Quando o serviço de Backup do Azure inicia um trabalho de backup no horário agendado, ele dispara a extensão de backup para obter um instantâneo pontual. Esse instantâneo é feito em conjunto com o VSS (Serviço de Cópia de Sombreamento de Volume) para obter um instantâneo consistente dos discos na máquina virtual sem ter que fechá-la.
@@ -52,21 +52,21 @@ Esta tabela explica os tipos de consistência e as condições sob as quais elas
 
 
 ## Desempenho e utilização de recursos
-Como o software de backup que é implantado localmente, o backup de VMs no Azure também precisa ser planejado quanto à capacidade e à utilização de recursos. Os [Limites de armazenamento do Azure](azure-subscription-service-limits.md#storage-limits) definem como estruturar as implantações de VM para obter o máximo de desempenho com o mínimo de impacto na execução de cargas de trabalho.
+Assim como o software de backup que é implantado localmente, você deve se planejar em termos das necessidades de utilização de recursos e capacidade ao fazer o backup de VMs no Azure. Os [Limites de armazenamento do Azure](azure-subscription-service-limits.md#storage-limits) definem como estruturar as implantações de VM para obter o máximo de desempenho com o mínimo de impacto na execução de cargas de trabalho.
 
-Existem dois limites principais de Armazenamento do Azure que têm impacto sobre o desempenho do backup:
+Preste atenção aos seguintes limites de Armazenamento do Azure durante o planejamento de desempenho de backup:
 
 - Egresso máximo por conta de armazenamento
 - Taxa de solicitação total por conta de armazenamento
 
 ### Limites da conta de armazenamento
-Quando os dados de backup são copiados da conta de armazenamento do cliente, eles contam na direção das métricas de IOPS (operações de entrada/saída por segundo) e egresso (taxa de transferência de armazenamento) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também estão em execução e consumindo (IOPS) e taxa de transferência. O objetivo é garantir que o tráfego total, de backup e de máquina virtual, não exceda os limites da conta de armazenamento.
+Sempre que os dados de backup são copiados de uma conta de armazenamento, eles contam na direção das métricas de IOPS (operações de entrada/saída por segundo) e egresso (ou taxa de transferência) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também estão em execução e consumindo IOPS e taxa de transferência. O objetivo é garantir que o tráfego total, de backup e de máquina virtual, não exceda os limites da conta de armazenamento.
 
 ### Número de discos
-O processo de backup é ávido e tenta consumir tantos recursos quanto possível, com o objetivo de concluir o backup o mais rápido que puder. No entanto, todas as operações de E/S são limitadas pela *Taxa de transferência de destino para blob único*, que tem um limite de 60 MB por segundo. Para acelerar o processo de backup, são feitas tentativas de backup de cada disco da VM *paralelamente*. Portanto, se uma VM tem quatro discos, o Backup do Azure tentará fazer o backup de todos os quatro discos em paralelo. Devido a isso, o fator mais importante que determina o tráfego de backup de saída de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
+O processo de backup tenta concluir um trabalho de backup o mais rápido possível. Dessa forma, ele consome o mínimo de recursos possível. No entanto, todas as operações de E/S são limitadas pela *Taxa de transferência de destino para blob único*, que tem um limite de 60 MB por segundo. Na tentativa de maximizar sua velocidade, o processo de backup tenta fazer backup de cada um dos discos da VM *em paralelo*. Portanto, se uma VM tiver quatro discos, o Backup do Azure tentará fazer o backup de todos os quatro discos em paralelo. Devido a isso, o fator mais importante para determinar o tráfego de backup que sai de uma conta de armazenamento do cliente é o **número de discos** cujo backup está sendo feito da conta de armazenamento.
 
 ### Agendamento de backup
-Um fator adicional que afeta o desempenho é o **agendamento de backup**. Se você configurar todas as VMs para backup simultâneo, o número de discos cujo backup está sendo feito *em paralelo* aumentará, já que o Backup do Azure tenta realizar o backup do máximo possível de discos. Portanto, uma maneira de reduzir o tráfego de backup de uma conta de armazenamento é garantir que o backup das VMs diferentes seja feito em diferentes momentos do dia, sem sobreposição.
+Um fator adicional que afeta o desempenho é o **agendamento de backup**. Se configurar as políticas para que seja feito backup de todas as VMs ao mesmo tempo, você terá agendado um congestionamento no tráfego. O processo de backup tentará fazer backup de todos os discos em paralelo. Uma maneira de reduzir o tráfego de backup de uma conta de armazenamento é garantir que o backup das VMs diferentes seja feito em diferentes momentos do dia, sem sobreposição.
 
 ## Planejamento da capacidade
 Reunir todos esses fatores significa que o uso da conta de armazenamento precisa ser planejado corretamente. Baixe a [planilha do Excel de planejamento de capacidade de backup da VM](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver o impacto do disco rígido e as opções de agendamento de backup.
@@ -84,17 +84,17 @@ Embora a maioria do tempo seja gasto com a leitura e a cópia de dados, existem 
 
 - Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-vms.md#offline-vms).
 - Hora do instantâneo, que é o tempo levado para disparar um instantâneo. Os instantâneos são disparados próximo ao horário de backup agendado.
-- Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o Azure não será iniciada imediatamente. Em períodos de pico de carga, os tempos de espera podem se estender a até 8 horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
+- Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o cofre do backup ou dos Serviços de Recuperação poderá não ser iniciada imediatamente. Em períodos de pico de carga, a espera pode se estender a até 8 horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
 
 ## Práticas Recomendadas
-É recomendável seguir as Práticas Recomendadas ao configurar backups de máquinas virtuais
+É recomendável seguir essas práticas ao configurar backups de máquinas virtuais:
 
-- Não agende mais de 4 VMs clássicas do mesmo serviço de nuvem para backup ao mesmo tempo. Sugerimos escalonar agendamentos de backup por uma hora se você quiser configurar mais VMs do mesmo serviço de nuvem para backup. 
-- Não agende mais de 40 VMs do Gerenciador de Recursos para backup ao mesmo tempo.
-- Agende backups durante horários fora de pico para as VMs, para que o serviço de backup obtenha IOPS para transferir dados da conta de armazenamento do cliente para o cofre de backup. 
-- Certifique-se de que, em uma política, as VMs sejam distribuídas de diferentes contas de armazenamento. Sugerimos que, se o número total de discos armazenados em uma única conta de armazenamento de VMs for mais de 20, espalhe as VMs em diferentes agendamentos de backup para obter a IOPS necessária durante a fase de transferência do backup.
-- Não é recomendável restaurar a VM em execução no armazenamento Premium para a mesma conta de armazenamento, pois essa operação pode entrar em operação de backup e reduzirá o número de IOPS disponíveis para backup. 
-- É recomendável manter cada VM Premium em contas de armazenamento premium diferentes para obter um bom desempenho em tempo de backup. 
+- Não agende mais de quatro VMs clássicas do mesmo serviço de nuvem para backup ao mesmo tempo. Sugerimos escalonar os horários de início de backup em uma hora caso você queira fazer backup de várias VMs do mesmo serviço de nuvem.
+- Não agende mais de 40 VMs implantadas no Gerenciador de Recursos para backup ao mesmo tempo.
+- Agende os backups das VMs para horários fora de pico, para que o serviço de backup obtenha IOPS para transferir dados da conta de armazenamento do cliente para o cofre de backup ou dos Serviços de Recuperação.
+- Certifique-se de que uma política trate de VMs distribuídas em diferentes contas de armazenamento. Sugerimos que não mais do que 20 discos de uma única conta de armazenamento sejam protegidos por uma política. Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
+- Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
+- Recomendamos a execução de cada VM Premium em uma conta de armazenamento premium distinta para garantir um melhor desempenho de backup.
 
 ## Criptografia de dados
 
@@ -131,4 +131,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

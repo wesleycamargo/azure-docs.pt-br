@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -84,14 +84,14 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 
 **Provisione sua instância do Azure SQL DW.** Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para provisionar uma instância do SQL Data Warehouse. Lembre-se de fazer anotações sobre as seguintes credenciais do SQL Data Warehouse que serão usadas em etapas posteriores.
 
-  - **Nome do Servidor**: <server Name>.database.windows.net
+  - **Nome do Servidor**: <nome do servidor>.database.windows.net
   - **Nome do SQLDW (Banco de Dados)**
   - **Nome de Usuário**
   - **Senha**
 
 **Instale o Visual Studio 2015 e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Connect to Azure SQL Data Warehouse with Visual Studio (Conectar-se ao Azure SQL Data Warehouse com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Conectar-se ao Azure SQL Data Warehouse com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 >[AZURE.NOTE] Execute a seguinte consulta SQL no banco de dados que você criou no SQL Data Warehouse (em vez da consulta fornecida na etapa 3 do tópico de conexão) para **criar uma chave mestra**.
 
@@ -125,7 +125,7 @@ Em seu *-DestDir*, execute o seguinte script do PowerShell no modo de administra
 
 	./SQLDW_Data_Import.ps1
 
-Quando o script do PowerShell for executado pela primeira vez, você receberá uma solicitação para inserir as informações de seu Azure SQL DW e de sua conta de armazenamento de blobs do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisa alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo SQLDW.conf em seu diretório *-DestDir*.
+Quando o script do PowerShell for executado pela primeira vez, você receberá uma solicitação para inserir as informações de seu Azure SQL DW e de sua conta de armazenamento de blobs do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisar alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo SQLDW.conf em seu diretório *-DestDir*.
 
 >[AZURE.NOTE] Para evitar conflitos de nome de esquema com aqueles já existentes em seu Azure SQL DW, ao ler os parâmetros diretamente do arquivo SQLDW.conf, um número aleatório de três dígitos é adicionado ao nome do esquema a partir do arquivo SQLDW.conf como o nome do esquema padrão para cada execução. O script do PowerShell pode solicitar um nome de esquema. Esse nome pode ser especificado a critério do usuário.
 
@@ -314,13 +314,18 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 			)
 			;
 
+A localização geográfica de suas contas de armazenamento afeta os tempos de carregamento.
+
 >[AZURE.NOTE] Dependendo da localização geográfica de sua conta de armazenamento de blobs particular, o processo de cópia dos dados de um blob público para sua conta de armazenamento particular pode demorar cerca de 15 minutos, ou até mais, e o processo de carregamento de dados de sua conta de armazenamento para seu Azure SQL DW pode demorar 20 minutos ou mais.
 
->[AZURE.NOTE] Se os arquivos .csv a serem copiados do armazenamento de blobs públicos para sua conta de armazenamento de blobs particular já existirem em sua conta de armazenamento de blob particular, o AzCopy perguntará se você deseja substituí-los. Se você não quer substituí-los, digite **n** quando for solicitado. Se você quer substituir **todos** eles, digite **a** quando for solicitado. Você também pode inserir **y** para substituí os arquivos .csv individualmente.
+Você precisará decidir o que fazer se tiver arquivos de origem e destino duplicados.
+
+>[AZURE.NOTE] Se os arquivos .csv a serem copiados do armazenamento de blobs públicos para sua conta de armazenamento de blobs particular já existirem em sua conta de armazenamento de blob particular, o AzCopy perguntará se você deseja substituí-los. Se não quiser substituí-los, digite **n** quando for solicitado. Se quiser substituir **todos** os arquivos, digite **a** quando for solicitado. Você também pode inserir **y** para substituí os arquivos .csv individualmente.
 
 ![Plotar nº 21][21]
 
->[AZURE.TIP] **Usar seus próprios dados:** se os dados estiverem em seu computador local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**,`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
+Você pode usar seus próprios dados. Se os dados estiverem em sua máquina local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**,`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
+
 
 >[AZURE.TIP] Se seus dados já estiverem no armazenamento de blobs particular do Azure em seu aplicativo real, ignore a etapa do AzCopy no script do PowerShell e carregue os dados diretamente no Azure SQL DW. Isso exigirá mais edições do script para ajustá-lo para o formato de seus dados.
 
@@ -626,7 +631,7 @@ Veja a cadeia de conexão que cria a conexão com o banco de dados.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### Relatar o número de linhas e colunas na tabela <nyctaxi_trip>
+### Relatar o número de linhas e colunas na tabela <nyctaxi\_trip>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -642,10 +647,10 @@ Veja a cadeia de conexão que cria a conexão com o banco de dados.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de linhas = 173179759  
+- Número total de linhas = 173179759
 - Número total de colunas = 14
 
-### Relatar o número de linhas e colunas na tabela <nyctaxi_fare>
+### Relatar o número de linhas e colunas na tabela <nyctaxi\_fare>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -661,7 +666,7 @@ Veja a cadeia de conexão que cria a conexão com o banco de dados.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de linhas = 173179759  
+- Número total de linhas = 173179759
 - Número total de colunas = 11
 
 ### Leitura de uma pequena amostra de dados do Banco de Dados do SQL Data Warehouse
@@ -838,11 +843,11 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Aprendizado de Máquina do Azure](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
 
-1. **Classificação binária**: prever se uma gorjeta foi ou não paga em uma corrida.
+1. **Classificação binária**: para prever se uma gorjeta foi ou não paga em uma corrida.
 
-2. **Classificação multiclasse**: prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
+2. **Classificação multiclasse**: para prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
 
-3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.
+3. **Tarefa de regressão**: para prever o valor da gorjeta paga por uma corrida.
 
 
 
@@ -869,7 +874,7 @@ Um teste de treinamento típico é formado pelas seguintes etapas:
 
 Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e escolhemos o tamanho da amostra para ingestão no AM do Azure. Este é o procedimento para compilar um ou mais dos modelos de previsão:
 
-1. Obtenha os dados no AM do Azure usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do módulo [Importar Dados][import-data].
+1. Obtenha os dados no AM do Azure usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
 
 	![Dados de Importação de AM do Azure][17]
 
@@ -879,7 +884,7 @@ Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e e
 
 4. Insira o **Nome do banco de dados** no campo correspondente.
 
-5. Insira o *Nome de usuário do SQL* no **Nome de conta do usuário do servidor** e a *senha* na **Senha da conta de usuário do servidor**.
+5. Insira o *Nome de usuário do SQL* em **Nome de conta do usuário do servidor** e a *senha* em **Senha da conta de usuário do servidor**.
 
 6. Marque a opção **Aceitar qualquer certificado do servidor**.
 
@@ -891,7 +896,7 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 
 > [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
-> Para excluir as colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para obter mais informações, consulte as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
+> Para excluir as colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para saber mais, veja as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
 
 ## <a name="mldeploy"></a>Implantar modelos no Aprendizado de Máquina do Azure
 
@@ -964,4 +969,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

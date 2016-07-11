@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Navegar e selecionar as imagens da VM Linux | Microsoft Azure"
+   pageTitle="Selecionar imagens da VM do Linux com a CLI do Azure | Microsoft Azure"
    description="Saiba como determinar o editor, a oferta e SKU para imagens ao criar uma máquina virtual Linux com o modelo de implantação do Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rasquill"/>
 
-# Navegue e selecione imagens da máquina virtual Linux no Azure com o PowerShell ou a CLI
+# Selecionar imagens da VM Linux com a CLI do Azure
 
 Este tópico descreve como localizar editores, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM Linux são:
 
@@ -38,4 +38,4 @@ Este tópico descreve como localizar editores, ofertas, SKUs e versões de cada 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

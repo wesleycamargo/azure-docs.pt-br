@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Gerenciamento de entidades de serviços de mídia com API REST
@@ -25,11 +25,11 @@
 
 O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado ao OData v3. Por isso, você pode adicionar, consultar, atualizar e excluir entidades exatamente como faria com qualquer outro serviço OData. As exceções serão indicadas, quando necessário. Para obter mais informações sobre OData, consulte [Documentação do protocolo Open Data](http://www.odata.org/documentation/).
 
-- Adicionando entidades 
-- Consultando entidades 
+- Adicionando entidades
+- Consultando entidades
 - Enumerar através de grandes coleções de entidades
-- Atualizando entidades 
-- Excluindo entidades 
+- Atualizando entidades
+- Excluindo entidades
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
@@ -175,4 +175,4 @@ O exemplo a seguir mostra como excluir um localizador que foi usado para carrega
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

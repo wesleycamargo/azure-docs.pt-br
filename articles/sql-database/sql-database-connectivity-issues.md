@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Corrigir um erro de conexão do SQL, erro transitório | Microsoft Azure"
-	description="Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL."
+	description="Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL. "
 	keywords="conexão do sql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão"
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 
@@ -553,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## Próximas etapas
 
-- Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas comuns de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 
 - [Pool de conexões do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

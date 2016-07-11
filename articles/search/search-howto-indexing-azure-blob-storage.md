@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/17/2016"
+ms.date="06/27/2016"
 ms.author="eugenesh" />
 
 # Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
@@ -32,9 +32,9 @@ Um indexador é um recurso que conecta fontes de dados a índices de pesquisa de
 Para configurar a indexação de blob, faça o seguinte:
 
 1. Crie uma fonte de dados do tipo `azureblob` que faz referência a um contêiner (e, opcionalmente, a uma pasta nesse contêiner) em uma conta de armazenamento do Azure.
-	- Transmita a cadeia de conexão de sua conta de armazenamento como o parâmetro `credentials.connectionString`.
+	- Passe uma cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Você pode obter a cadeia de conexão pelo Portal do Azure: navegue até a folha/as chaves da conta de armazenamento desejada e use o valor de "Cadeia de Conexão Primária" ou "Cadeia de Conexão Secundária".
 	- Especifique um nome de contêiner. Você também pode incluir, como opção, uma pasta usando o parâmetro `query`.
-2. Crie um índice de pesquisa com um campo `content` pesquisável. 
+2. Crie um índice de pesquisa com um campo `content` pesquisável.
 3. Crie o indexador conectando a fonte de dados ao índice de destino.
 
 ### Criar a fonte de dados
@@ -83,7 +83,9 @@ Por fim, crie um indexador que faça referencia à fonte de dados e a um índice
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-Para obter mais detalhes sobre Criar API de Índice, consulte [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto permitido é de 5 minutos. O agendamento é opcional - se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.
+
+Para saber mais sobre a API Criar Indexador, veja [Criar indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
 ## Formatos de documento com suporte
@@ -91,12 +93,12 @@ Para obter mais detalhes sobre Criar API de Índice, consulte [Criar Indexador](
 O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 
 - PDF
-- Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPT/PPTX, MSG (emails do Outlook)  
+- Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPT/PPTX, MSG (emails do Outlook)
 - HTML
 - XML
 - ZIP
 - EML
-- Arquivos de texto sem formatação  
+- Arquivos de texto sem formatação
 - JSON (consulte [Indexando blobs JSON](search-howto-index-json-blobs.md) para obter detalhes)
 
 ## Processo de extração de documento
@@ -104,7 +106,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 A Pesquisa do Azure indexa cada documento (blob) da seguinte maneira:
 
 - Todo o conteúdo de texto do documento é extraído para um campo de cadeia de caracteres chamado `content`. Observe que no momento não fornecemos suporte para extração de vários documentos de um único blob:
-	- Por exemplo, um arquivo CSV é indexado como um único documento. Se você precisar tratar cada linha em um CSV como um documento separado, vote [nessa sugestão no UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
+	- Por exemplo, um arquivo CSV é indexado como um único documento. Se você precisar tratar cada linha em um CSV como um documento separado, vote [nesta sugestão no UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado com um anexo em PDF) também é indexado como um único documento.
 
 - As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente. Elas também podem ser usadas para controlar determinados aspectos do processo de extração de documentos, confira [Uso de metadados personalizados para controlar a extração de documento](#CustomMetadataControl) para obter mais detalhes.
@@ -277,7 +279,7 @@ Você pode indexar apenas os metadados de armazenamento e ignorar por completo o
 
 ### Indexe metadados de tipo de conteúdo e armazenamento, mas ignore a extração de conteúdo
 
-Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo para todos os blobs, você poderá solicitar esse comportamento usando a configuração do indexador, em vez de ter de adicionar os metadados `AzureSearch_SkipContent` a cada blob individualmente. Para fazer isso, defina a propriedade de configuração do indexador `skipContent` como `true`:
+Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo para todos os blobs, você poderá solicitar esse comportamento usando a configuração do indexador em vez de ter de adicionar os metadados `AzureSearch_SkipContent` a cada blob individualmente. Para fazer isso, defina a propriedade de configuração do indexador `skipContent` como `true`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -292,4 +294,4 @@ Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo pa
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

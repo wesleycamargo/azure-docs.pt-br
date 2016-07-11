@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+   ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Executar consultas Hive usando o SDK .NET do HDInsight
@@ -146,4 +146,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -24,7 +24,7 @@
 
 O [Armazenamento Premium do Azure](../storage/storage-premium-storage.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) do SQL Server no IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa de como mover VMs maiores para aproveitar o armazenamento SSD local aprimorado com o PowerShell.
@@ -96,7 +96,7 @@ O seguinte comando **New-AzureStorageAccountPowerShell** com o **Tipo** "Premium
 
 ### Configurações de Cache de VHDs
 
-A principal diferença entre a criação de discos que fazem parte de uma conta de Armazenamento Premium é a configuração de cache de disco. Para discos do volume SQL Server Data, recomendamos que você use ‘**Read Caching**’. Para volumes de log de transações, a configuração de cache de disco deve ser definida como ‘**None**’. Isso é diferente das recomendações para contas de Armazenamento Padrão.
+A principal diferença entre a criação de discos que fazem parte de uma conta de Armazenamento Premium é a configuração de cache de disco. Para discos do volume SQL Server Data, recomendamos que você use ‘**Caching de Leitura**’. Para volumes de log de transações, a configuração de cache de disco deve ser definida como ‘**Nenhum**’. Isso é diferente das recomendações para contas de Armazenamento Padrão.
 
 Depois que os VHDs forem anexados, a configuração de cache não poderá ser alterada. Você precisaria desanexar e anexar novamente o VHD com uma configuração de cache atualizada.
 
@@ -120,13 +120,13 @@ Para cada disco, siga estas etapas:
 
 1. Obtenha a lista de discos anexados à VM com o comando **Get-AzureVM**:
 
-    Get-AzureVM -ServiceName <servicename> -Nome <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <nomedoserviço> -Name <nomedavm> | Get-AzureDataDisk
 
 1. Anote o Diskname e o LUN.
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 
@@ -279,7 +279,7 @@ Este cenário demonstra onde você tem imagens personalizadas existentes que res
 
 
 #### Etapa 3: Usar a imagem existente
-Você pode usar uma imagem existente. Ou também pode [capturar uma imagem de uma máquina existente](virtual-machines-windows-classic-capture-image.md). Observe que a máquina cuja imagem você capturar não tem que ser uma máquina DS*. Quando você tiver a imagem, as etapas a seguir mostram como copiá-la para a conta de Armazenamento Premium com o commandlet Powershell **Start-AzureStorageBlobCopy**.
+Você pode usar uma imagem existente. Ou também pode [capturar uma imagem de uma máquina existente](virtual-machines-windows-classic-capture-image.md). Observe que a máquina cuja imagem você capturar não precisa ser uma máquina DS*. Quando você tiver a imagem, as etapas a seguir mostrarão como copiá-la para a conta de Armazenamento Premium com o commandlet **Start-AzureStorageBlobCopy** do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -409,8 +409,8 @@ Você deve provisionar o tempo em que é possível executar o failover manual e 
 1. Adicione novos nós ao cluster e execute a validação completa.
 1. Depois que a validação for bem-sucedida, inicie todos os Serviços do SQL Server.
 1. Faça backup dos logs de transações e restaure os bancos de dados do usuário.
-1. Adicione novos nós ao grupo de disponibilidade AlwaysOn e coloque a replicação em **Sincronia**.
-1. Adicione o recurso de endereço IP do novo ILB/ELB do serviço de nuvem por meio do PowerShell para AlwaysOn com base no exemplo de vários sites no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). No cluster do Windows, defina os **Possíveis proprietários** do recurso **Endereço IP** para os novos nós antigos. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+1. Adicione novos nós ao Grupo de Disponibilidade AlwaysOn e coloque a replicação em **Síncrono**.
+1. Adicione o recurso de endereço IP do novo ILB/ELB do serviço de nuvem por meio do PowerShell para AlwaysOn com base no exemplo de vários sites apresentado no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). No cluster do Windows, defina os **Possíveis proprietários** do recurso **Endereço IP** para os novos nós antigos. Consulte a seção "Adicionando o recurso de endereço IP na mesma sub-rede" do [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Execute o failover para um dos novos nós.
 1. Transforme os novos nós em Parceiros de Failover Automático e teste os failovers.
 1. Remova os nós originais do grupo de disponibilidade.
@@ -484,7 +484,7 @@ Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundár
 - Este cenário usa o commandlet Azure **Start-AzureStorageBlobCopy**, que é assíncrono. Não há nenhum SLA na conclusão da cópia. O tempo das cópias varia, embora isso dependa da espera na fila, também dependerá da quantidade de dados a ser transferida. O tempo de cópia aumentará se a transferência for para outro data center do Azure que com suporte ao Armazenamento Premium em outra região. Se você tiver apenas dois nós, considere uma possível redução, caso a cópia demore mais do que no teste. Isso pode incluir as ideias a seguir.
 	- Adicione um terceiro nó temporário do SQL Server para alta disponibilidade antes da migração com tempo de inatividade estabelecido.
 	- Execute a migração fora da manutenção programada do Azure.
-	- Verifique se você configurou corretamente o quorum do cluster.  
+	- Verifique se você configurou corretamente o quorum do cluster.
 
 ##### Etapas de alto nível
 
@@ -608,7 +608,7 @@ Neste exemplo, vamos demonstrar a movimentação de um ELB para ILB. O ELB estav
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### Etapa 2: Aumentar as falhas permitidas nos recursos <Optional>
+#### Etapa 2: Aumentar as falhas permitidas nos recursos <Opcional>
 Em determinados recursos que pertencem ao seu grupo de disponibilidade AlwaysOn há limites no número de falhas que podem ocorrer em um período, em que o serviço de cluster tentará reiniciar o grupo de recursos. É recomendável aumentar isso, durante a execução deste procedimento, pois se não você não executar manualmente o failover e disparar failovers desligando máquinas, poderá chegar perto desse limite.
 
 Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de Cluster de Failover, acesse as Propriedades do grupo de recursos AlwaysOn:
@@ -617,7 +617,7 @@ Aconselhamos a dobrar a concessão de falha. Para fazer isso no Gerenciador de C
 
 Altere o Máximo de Falhas para 6.
 
-#### Etapa 3: Adição do recurso de endereço IP ao grupo de clusters <Optional>
+#### Etapa 3: Adição do recurso de endereço IP ao grupo de clusters <Opcional>
 
 Se você tiver apenas um endereço IP para o grupo de clusters e ele estiver alinhado à sub-rede de nuvem, tome cuidado: se você acidentalmente colocar offline todos os nós de cluster na nuvem nessa rede, o recurso de IP de cluster e o nome de rede do cluster não poderão ficar online. Caso isso ocorra, as atualizações serão impedidas para outros recursos de cluster.
 
@@ -1148,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

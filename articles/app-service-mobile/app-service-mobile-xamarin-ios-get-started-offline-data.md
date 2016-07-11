@@ -57,10 +57,10 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, confira a seção *Sincronização incremental* em [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
+	-->
 
 
-			// QSTodoService.cs
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -123,7 +123,7 @@ Nesta seção, você modificará o projeto do cliente para simular um cenário o
 
 Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula o aplicativo voltando ao estado online. Quando você executa o gesto de atualização, os dados serão sincronizados com o serviço móvel.
 
-1. Abra `QSTodoService.cs`. Corrija o `applicationURL` e `gatewayURL` para apontar para as URLs corretas.
+1. Abra `QSTodoService.cs`. Corrija o `applicationURL` de modo que ele aponte para a URL correta.
 
 2. Recompile e execute o aplicativo cliente. O aplicativo tenta sincronizar com o back-end do aplicativo móvel do Azure após iniciar. Verifique se nenhuma exceção está registrada no console de depuração.
 
@@ -158,4 +158,4 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

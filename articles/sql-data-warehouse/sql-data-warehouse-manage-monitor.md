@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -31,7 +31,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## Investigar a execução da consulta
 Para monitorar a execução da consulta, comece com [sys.dm\_pdw\_exec\_requests][]. Essa exibição contém consultas em andamento, bem como um histórico das consultas concluídas recentemente. A request\_id identifica cada consulta exclusivamente e é a chave primária para essa exibição. A request\_id é atribuída em sequência para cada nova consulta. Consultar esta tabela para uma determinada session\_id mostrará todas as consultas para um logon específico.
 
-No cenário em que você deseja investigar a execução da consulta para uma consulta específica, aqui estão algumas etapas comuns a seguir.
+Estas são as etapas para investigar os planos de execução de consulta e as horas para uma consulta específica.
 
 ### ETAPA 1: Localizar a consulta a ser investigada
 
@@ -162,4 +162,4 @@ Para obter mais informações sobre DMVs (exibições de gerenciamento dinâmico
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

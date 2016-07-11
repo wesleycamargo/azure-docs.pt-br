@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Codecs e formatos de fluxo de trabalho do Media Encoder Premium
@@ -82,7 +82,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 - Windows Media/ASF
 - AVI (8 bits/10 bits descompactado)
 - Formato de arquivo do Smooth Streaming (PIFF 1.3)
-- MPEG-TS 
+- MPEG-TS
 
 
 ###Codecs de vídeo de saída
@@ -138,4 +138,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

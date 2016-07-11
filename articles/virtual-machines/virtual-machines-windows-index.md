@@ -22,7 +22,7 @@
 
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Windows no modelo de implantação clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Visão geral
@@ -162,7 +162,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [MySQL](virtual-machines-windows-classic-mysql-2008r2.md)
 
-[Oracle](virtual-machines-windows-classic-oracle.md)
+[Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
@@ -192,4 +192,4 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

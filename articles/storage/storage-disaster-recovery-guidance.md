@@ -25,9 +25,9 @@ Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempr
 
 É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. O esforço para se recuperar de uma interrupção de armazenamento geralmente envolve a equipe de operações e procedimentos automatizados para reativar os aplicativos em um estado funcional. Consulte a documentação do Azure abaixo para compilar seu próprio plano de recuperação de desastre:
 
--   [Recuperação de Desastre e Alta Disponibilidade para Aplicativos do Azure](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Orientação técnica sobre a continuação de negócios do Azure](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Orientações técnicas de resiliência do Azure](../resiliency/resiliency-technical-guidance.md)
 
 -   [Serviço do Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -81,4 +81,4 @@ Há algumas abordagens recomendadas para fazer backup de seus dados de armazenam
 
 -   Arquivos – Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em outra região.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

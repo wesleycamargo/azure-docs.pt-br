@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -40,14 +40,14 @@ Este tópico mostra como executar as seguintes operações de conteúdo diretame
 
 
 1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
-2. Selecione a página CONTEÚDO. 
-3. Clique no botão **Carregar** na página ou na parte inferior do portal. 
+2. Selecione a página CONTEÚDO.
+3. Clique no botão **Carregar** na página ou na parte inferior do portal.
 4. Na caixa de diálogo **Carregar conteúdo**, navegue até o arquivo do ativo desejado. Clique no arquivo e, em seguida, clique em **Abrir** ou pressione **Enter**.
 
 	![UploadContentDialog][uploadcontent]
 
 5. Na caixa de diálogo Carregar Conteúdo, clique no botão de seleção para aceitar o Arquivo e o Nome do Conteúdo.
-6. O carregamento será iniciado e você poderá acompanhar o andamento na parte inferior do portal.  
+6. O carregamento será iniciado e você poderá acompanhar o andamento na parte inferior do portal.
 
 	![JobStatus][status]
 
@@ -125,7 +125,7 @@ Se você desejar para os serviços de mídia criptografar dinamicamente seus ati
 
 - Codificar seu arquivo mezanino (origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde na seção [Codificar](#encode)
 - Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints/).
-- Configure a "política de serviço de chave limpa aes padrão" ou "política de serviço sde licença playready padrão". Para saber mais, consulte [Configurar política de autorização de chave de conteúdo](media-services-portal-configure-content-key-auth-policy.md).  
+- Configure a "política de serviço de chave limpa aes padrão" ou "política de serviço sde licença playready padrão". Para saber mais, consulte [Configurar política de autorização de chave de conteúdo](media-services-portal-configure-content-key-auth-policy.md).
 
 
 	Quando você estiver pronto para habilitar a criptografia, pressione o botão **CRIPTOGRAFIA** na parte inferior da página **CONTEÚDO**.
@@ -179,8 +179,8 @@ Para atualizar a data de validade em um localizador, use as APIs [REST](http://m
 
 Para usar o Portal para publicar um ativo, faça o seguinte:
 
-1. Selecione o ativo. 
-2. Em seguida, clique no botão Publicar. 
+1. Selecione o ativo.
+2. Em seguida, clique no botão Publicar.
 	
  ![PublishedContent][publishedcontent]
 
@@ -222,4 +222,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

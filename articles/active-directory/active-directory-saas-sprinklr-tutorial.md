@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao Sprinklr | Microsoft Azure" 
     description="Saiba como usar o Sprinklr com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Sprinklr
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Sprinklr, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-sprinklr-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Sprinklr**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal clássico do Azure, na página de integração do aplicativo **Sprinklr**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-sprinklr-tutorial/IC782903.png "Configurar logon único")
 
@@ -108,21 +108,21 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
     2.  Selecione **Habilitado**.
     3.  Selecione **Usar novo Certificado de SSO**.
-    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
         >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade**.
-    6.  No portal do Azure, na página do diálogo **Configurar logon único no Sprinklr**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **ID de Entidade**.
-    7.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Sprinklr**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
-    8.  No portal do Azure, na página do diálogo **Configurar logon único no Sprinklr**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
+    6.  No Portal clássico do Azure, na página de diálogo **Configurar logon único no Sprinklr**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **ID de Entidade**.
+    7.  No Portal clássico do Azure, na página da caixa de diálogo **Configurar logon único no Sprinklr**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
+    8.  No Portal clássico do Azure, na página de diálogo **Configurar logon único no Sprinklr**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
     9.  Para **Tipo de ID de Usuário do SAML**, selecione **A declaração contém o nome de usuário de sprinklr.com do Usuário**.
     10. Para **Local da ID de Usuário do SAML**, selecione **A ID de Usuário está contida no elemento Identificador de Nome da instrução Subject**.
     11. Feche **Salvar**.
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configurar logon único")
 
@@ -156,7 +156,7 @@ Para que os usuários do AAD possam fazer logon, eles deverão ser provisionados
     4.  Selecione um **Tipo de Usuário**.
     5.  Clique em **Atualizar**.
 
-    >[AZURE.IMPORTANT]A opção **Senha Desabilitada** deve ser marcada para permitir que um usuário faça logon por meio de um Provedor de identidade.
+    >[AZURE.IMPORTANT] A opção **Senha Desabilitada** deve ser marcada para permitir que um usuário faça logon por meio de um Provedor de identidade.
 
 6.  Vá para **Função** e realize as seguintes etapas:
 
@@ -173,9 +173,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Sprinklr, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Sprinklr**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Sprinklr**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Atribuir usuários")
 
@@ -185,4 +185,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

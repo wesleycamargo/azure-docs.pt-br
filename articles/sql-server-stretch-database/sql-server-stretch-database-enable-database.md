@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Habilitar o Banco de Dados de Stretch para um banco de dados
 
 Para configurar um banco de dados existente no Stretch Database, escolha **Tarefas | Stretch | Habilitar** para que um banco de dados no SQL Server Management Studio abra o assistente **Habilitar Banco de Dados para Stretch**. Você também pode usar o Transact-SQL para habilitar o Banco de Dados de Stretch para um banco de dados.
 
-Se você selecionar **Tarefas | Stretch | Habilitar** para uma tabela e ainda não tiver habilitado o banco de dados para o Banco de Dados de Stretch, o assistente irá configurar o banco de dados para o Banco de Dados de Stretch e permitirá que você configure as tabelas como parte do processo. Siga as etapas neste tópico em vez das etapas em [Habilitar Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-database.md).
+Se você selecionar **Tarefas | Stretch | Habilitar** para uma tabela individual e ainda não tiver habilitado o banco de dados para o Banco de Dados de Stretch, o assistente irá configurar o banco de dados para o Banco de Dados de Stretch e permitirá que você selecione as tabelas como parte do processo. Siga as etapas neste tópico em vez das etapas em [Habilitar Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-database.md).
 
 A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exige permissões db\_owner. Habilitar o Banco de Dados de Stretch em um banco de dados também exige as permissões CONTROLAR BANCO DE DADOS.
 
@@ -32,9 +32,9 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 
 -   O Banco de Dados de Stretch migra os dados para o Azure. Portanto, você precisa ter uma conta do Azure e uma assinatura para a cobrança. Para obter uma conta do Azure, [clique aqui](http://azure.microsoft.com/pricing/free-trial/).
 
--   Tenha as informações necessárias para criar um novo banco de dados remoto ou selecionar um banco de dados remoto existente e criar uma regra de firewall que permita ao servidor local comunicar-se com o servidor remoto.
+-   Tenha as informações de conexão e de logon necessárias para criar um novo servidor do Azure ou para selecionar um servidor existente do Azure.
 
-## <a name="EnableTSQLServer"></a>Pré-requisito: permissão para habilitar o Banco de Dados de Stretch no servidor
+## <a name="EnableTSQLServer"></a>Pré-requisito: habilitar o Stretch Database no servidor
 Antes de habilitar o Banco de Dados de Stretch em um banco de dados ou uma tabela, você precisará habilitá-lo no servidor local. Esta operação requer as permissões sysadmin ou serveradmin.
 
 -   Se você tiver as permissões administrativas necessárias, o assistente **Habilitar Banco de Dados para Stretch** configurará o servidor para Stretch.
@@ -59,18 +59,21 @@ Antes de habilitar o Banco de Dados de Stretch em tabelas individuais, você pre
 
 A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exige permissões db\_owner. Habilitar o Banco de Dados de Stretch em um banco de dados também exige as permissões CONTROLAR BANCO DE DADOS.
 
-1.  Antes de começar, escolha um servidor existente do Azure para os dados que o Banco de Dados de Stretch migra ou crie um novo servidor.
+1.  Antes de começar, escolha um servidor existente do Azure para os dados que o Banco de Dados de Stretch migra ou crie um novo servidor do Azure.
 
-2.  No servidor do Azure, crie uma regra de firewall com o endereço IP (ou o intervalo de endereços IP) do SQL Server que permita ao SQL Server comunicar-se com o servidor remoto.
+2.  No servidor do Azure, crie uma regra de firewall com o endereço IP do SQL Server que permita ao SQL Server comunicar-se com o servidor remoto.
 
-3.  Para configurar um banco de dados do SQL Server para o Banco de Dados de Stretch, o banco de dados deve ter uma chave mestra do banco de dados. A chave mestra do banco de dados protege as credenciais que o banco de Dados de Stretch usa para se conectar ao banco de dados remoto. Para criar manualmente a chave mestra do banco de dados, consulte [CRIAR CHAVE MESTRA (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e [Criar uma Chave Mestra do Banco de Dados](https://msdn.microsoft.com/library/aa337551.aspx).
+3.  Para configurar um banco de dados do SQL Server para o Banco de Dados de Stretch, o banco de dados deve ter uma chave mestra do banco de dados. A chave mestra do banco de dados protege as credenciais que o banco de Dados de Stretch usa para se conectar ao banco de dados remoto. Veja um exemplo que cria uma nova chave mestra de banco de dados.
 
     ```tsql
-    USE <database>
+    USE <database>;
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>';
+	GO
     ```
+
+    Para saber mais sobre a chave mestra de banco de dados, confira [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e [Criar uma chave mestra de banco de dados](https://msdn.microsoft.com/library/aa337551.aspx).
 
 4.  Quando você configura um banco de dados para o Banco de Dados de Stretch, precisa fornecer uma credencial para o Banco de Dados de Stretch usar para a comunicação entre o SQL Server local e o servidor remoto do Azure. Você tem duas opções.
 
@@ -78,15 +81,17 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 
         -   Se você habilitar o Banco de Dados de Stretch executando o assistente, poderá criar a credencial nesse momento.
 
-        -   Se habilitar o Banco de Dados de Stretch executando **ALTERAR BANCO DE DADOS**, precisará criar a credencial manualmente antes de ativar o Banco de Dados de Stretch.
+        -   Se você planeja habilitar o Stretch Database executando **ALTER DATABASE**, será necessário criar a credencial manualmente antes de executar **ALTER DATABASE** para habilitar o Stretch Database.
 
-        Para criar a credencial manualmente, consulte [CRIAR CREDENCIAL COM ESCOPO DO BANCO DE DADOS (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). Criar a credencial requer as permissões ALTERAR QUALQUER CREDENCIAL.
+		Veja um exemplo que cria uma nova credencial.
 
         ```tsql
         CREATE DATABASE SCOPED CREDENTIAL <db_scoped_credential_name>
-            WITH IDENTITY = '<identity>' , SECRET = '<secret>'
+            WITH IDENTITY = '<identity>' , SECRET = '<secret>';
         GO
         ```
+
+		Para saber mais sobre as credenciais, confira [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). Criar a credencial requer as permissões ALTERAR QUALQUER CREDENCIAL.
 
     -   Você poderá usar uma conta de serviço federado para o SQL Server para se comunicar com o servidor do Azure remoto quando as seguintes condições forem verdadeiras.
 
@@ -111,12 +116,10 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
                 SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
-    GO;
+    GO
     ```
 
 ## Próximas etapas
-Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migração de dados e gerenciar as tabelas e bancos de dados habilitados para o Stretch.
-
 -   [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
 
 -   [Monitorar o Banco de Dados de Stretch](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
@@ -133,4 +136,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

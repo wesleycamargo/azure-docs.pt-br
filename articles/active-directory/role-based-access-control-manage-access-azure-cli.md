@@ -62,7 +62,7 @@ O exemplo a seguir mostra as atribuições de função no grupo *pharma-sales-pr
 
 ###	Relacionar atribuições de função a um usuário, incluindo os que são atribuídos a um grupo de usuários
 
-O exemplo a seguir mostra as atribuições de função concedidas ao usuário **sameert@aaddemo.com*. Isso inclui funções atribuídas diretamente ao usuário, mas também funções herdadas de grupos.
+O exemplo a seguir mostra as atribuições de função concedidas ao usuário *sameert@aaddemo.com*. Isso inclui funções atribuídas diretamente ao usuário, mas também funções herdadas de grupos.
 
 ![Linha de comando do Azure RBAC - lista de atribuição de funções do azure por usuário - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -74,7 +74,7 @@ Depois de ter identificado a função que você deseja atribuir para conceder ac
 ###	Atribuir função ao grupo no escopo da assinatura
 Para atribuir função ao grupo no escopo da assinatura, use:
 
-	azure role assignment create --objId  <group's object id> --role <name of role> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 O exemplo a seguir atribui a função *Leitor* para a *equipe de Christine Koch* no escopo da *assinatura*.
 
@@ -83,7 +83,7 @@ O exemplo a seguir atribui a função *Leitor* para a *equipe de Christine Koch*
 ###	Atribuir função ao aplicativo no escopo da assinatura
 Para atribuir uma função ao aplicativo no escopo da assinatura, use:
 
-    azure role assignment create --objId  <applications's object id> --role <name of role> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 O exemplo a seguir concede a função *Colaborador* para um aplicativo *AD do Azure* na assinatura selecionada.
 
@@ -92,16 +92,16 @@ O exemplo a seguir concede a função *Colaborador* para um aplicativo *AD do Az
 ###	Atribuir função ao usuário no escopo do grupo de recursos
 Para atribuir uma função ao usuário no escopo do grupo de recursos, use:
 
-	azure role assignment create --signInName  <user's email address> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
-O exemplo a seguir concede a função *Colaborador de Máquina Virtual* ao usuário **samert@aaddemo.com* no escopo do grupo de recursos *Pharma-Sales-ProjectForcast*.
+O exemplo a seguir concede a função *Colaborador de Máquina Virtual* ao usuário *samert@aaddemo.com* no escopo do grupo de recursos *Pharma-Sales-ProjectForcast*.
 
 ![Linha de comando do Azure RBAC - criação de atribuição de funções do azure por usuário - captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Atribuir função ao grupo no escopo de recursos
 Para atribuir uma função ao grupo no escopo de recursos, use:
 
-    azure role assignment create --objId  <group id> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 O exemplo a seguir concede a função *Colaborador de Máquina Virtual* para um grupo *AD do Azure* em uma *sub-rede*.
 
@@ -110,9 +110,9 @@ O exemplo a seguir concede a função *Colaborador de Máquina Virtual* para um 
 ##	Remover acesso
 Para remover uma atribuição de função, use:
 
-    azure role assignment delete --objId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
 
-O exemplo a seguir remove a atribuição da função *Colaborador de Máquina Virtual* do **sammert@aaddemo.com* no grupo de recursos *Pharma-Sales-ProjectForcast*. Em seguida, ele remove a atribuição de função de um grupo na assinatura.
+O exemplo a seguir remove a atribuição da função *Colaborador de Máquina Virtual* de *sammert@aaddemo.com* no grupo de recursos *Pharma-Sales-ProjectForcast*. Em seguida, ele remove a atribuição de função de um grupo na assinatura.
 
 ![Linha de comando do Azure RBAC - exclusão de atribuição de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
@@ -129,7 +129,7 @@ O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina
 
 Para modificar uma função personalizada, use o comando `azure role show` para recuperar a definição da função. Em seguida, faça as alterações desejadas à definição de função. Por fim, use `azure role set` para salvar a definição de função modificada.
 
-O exemplo a seguir adiciona a operação Microsoft.Insights/diagnosticSettings/* às **Ações**, e uma assinatura do Azure a **AssignableScopes** da função personalizada do Operador de Máquina Virtual.
+O exemplo a seguir adiciona a operação Microsoft.Insights/diagnosticSettings/* às **Ações** e uma assinatura do Azure a **AssignableScopes** da função personalizada do Operador de Máquina Virtual.
 
 ![JSON - modificar definição de função personalizada - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -162,4 +162,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

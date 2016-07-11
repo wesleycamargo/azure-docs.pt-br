@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/28/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -39,13 +39,10 @@ O aplicativo será semelhante ao seguinte:
 Primeiro, vamos começar com a criação de um projeto Java.
 
 *  Inicie o Eclipse, no menu clique em **Arquivo**, clique em **Novo** e depois em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo**, **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto...**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.)
-*  Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. (Não deixe de usar esse nome, pois as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyHelloWorld). Sua tela será semelhante à seguinte:
-    ![][ic589576]
+*  Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. (Não deixe de usar esse nome, pois as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyHelloWorld). Sua tela será semelhante à seguinte:![][ic589576]
 * Clique em **Concluir**.
 * No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
-* Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**, conforme mostrado a seguir:
-
-    ![][ic659262]
+* Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**, conforme mostrado a seguir:![][ic659262]
 * Para o objetivo deste tutorial, na caixa de diálogo **Selecionar Modelo JSP**, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
 * Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento `<body>` existente. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
 ```
@@ -60,8 +57,7 @@ Primeiro, vamos começar com a criação de um projeto Java.
 Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o atalho a seguir para experimentá-lo diretamente na nuvem do Azure.
 
 1. No Gerenciador de Projeto do Eclipse, clique em **MyHelloWorld**.
-1. Na barra de ferramentas do Eclipse, clique no botão suspenso **Publicar** e, em seguida, clique em **Publicar como serviço de nuvem do Azure** 
-    ![][publishDropdownButton]
+1. Na barra de ferramentas do Eclipse, clique no botão suspenso **Publicar** e, em seguida, clique em **Publicar como serviço de nuvem do Azure** ![][publishDropdownButton]
 1. Se você estiver publicando esse aplicativo no Azure pela primeira vez e nunca tiver criado um projeto de implantação do Azure para este aplicativo, um projeto de implantação do Azure será criado automaticamente para você. Você deverá ver o seguinte prompt, que também lista o pacote JDK e o servidor de aplicativos que será automaticamente implantado para executar o aplicativo. ![][ic789598]
 
     Essa abordagem de atalho permite uma maneira rápida e fácil de testar seu aplicativo no Azure sem precisar configurar um servidor ou JDK específico diferente dos padrões. Se você estiver satisfeito com os padrões, clique em **OK** para continuar com as etapas a seguir. No entanto, se você quiser alterar o JDK ou o servidor de aplicativos a ser usado para seu aplicativo, faça isso mais tarde editando o projeto de implantação do Azure criado automaticamente para você, ou clique em **Cancelar** agora e leia a seção **Sobre projetos de implantação do Azure** deste tutorial.
@@ -69,26 +65,16 @@ Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o 
     1. Se ainda não houver assinaturas para selecionar na lista **Assinatura**, execute estas etapas para importar as informações de sua assinatura:
         1. Clique em **Importar do arquivo PUBLISH-SETTINGS**.
         1. Na caixa de diálogo **Importar Informações de Assinatura**, clique em **Baixar arquivo PUBLISH-SETTINGS**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. Salve-o em seu computador local.
-        1. Ainda na caixa de diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e, em seguida, clique em **Abrir**. Sua tela deve ser semelhante à seguinte: 
-
-            ![][ic644267]
+        1. Ainda na caixa de diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e, em seguida, clique em **Abrir**. Sua tela deve ser semelhante à seguinte: ![][ic644267]
         1. Clique em **OK**.
     1. Para **Assinatura**, selecione a assinatura que você deseja usar para sua implantação.
     1. Para **Conta de armazenamento**, selecione a conta de armazenamento que você deseja usar ou clique em **Novo** para criar uma nova conta de armazenamento.
     1. Para **Nome do serviço**, selecione o serviço de nuvem que você deseja usar ou clique em **Novo** para criar um novo serviço de nuvem.
     1. Para **SO de Destino**, selecione a versão do sistema operacional que você deseja usar para sua implantação.
     1. Em **Ambiente de destino**, para o objetivo deste tutorial, selecione **Preparo**. (Quando você estiver pronto para implantar em seu site de produção, convém alterar isso para **Produção**.)
-    1. Opcional: verifique se **Substituir implantação anterior** está marcado se você quiser que a nova implantação substitua automaticamente a implantação anterior. Quando você habilitar essa opção, não enfrentará os problemas "409 - Conflito" ao publicar no mesmo local. 
-        Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitação do Acesso Remoto para Implantações do Azure no Eclipse][]. 
-        A caixa de diálogo **Publicar no Azure** será semelhante à seguinte: 
-        ![][ic719488]
-1. Clique em **Publicar** para publicar no Ambiente de preparo. 
-    Quando receber uma solicitação para executar uma compilação completa, clique em **Sim**. 
-    Isso pode levar alguns minutos na primeira compilação. Um **Log de Atividades do Azure** será exibido na seção de modos de exibição com guias do Eclipse. 
-    ![][ic719489] 
-    Você pode usar esse log, bem como o modo de exibição de **Console**, para ver o progresso da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][] e usar a seção **Serviços de Nuvem** para monitorar o status.
-1. Quando sua implantação tiver êxito, o **Log de Atividades do Azure** mostrará um status de **Publicada**. Clique em **Publicada**, conforme mostra a imagem a seguir, e o navegador abrirá uma instância de sua implantação. 
-    ![][ic719490]
+    1. Opcional: verifique se **Substituir implantação anterior** está marcado se você quiser que a nova implantação substitua automaticamente a implantação anterior. Quando você habilitar essa opção, não enfrentará os problemas "409 - Conflito" ao publicar no mesmo local. Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitação do Acesso Remoto para Implantações do Azure no Eclipse][]. A caixa de diálogo **Publicar no Azure** será semelhante à seguinte: ![][ic719488]
+1. Clique em **Publicar** para publicar no Ambiente de preparo. Quando receber uma solicitação para executar uma compilação completa, clique em **Sim**. Isso pode levar alguns minutos na primeira compilação. Um **Log de Atividades do Azure** será exibido na seção de modos de exibição com guias do Eclipse. ![][ic719489] Você pode usar esse log, bem como o modo de exibição de **Console**, para ver o progresso da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][] e usar a seção **Serviços de Nuvem** para monitorar o status.
+1. Quando sua implantação tiver êxito, o **Log de Atividades do Azure** mostrará um status de **Publicada**. Clique em **Publicada**, conforme mostra a imagem a seguir, e o navegador abrirá uma instância de sua implantação. ![][ic719490]
 
 Como essa era uma implantação em um ambiente de preparo, o nome DNS estará no formato http://&lt;*guid*&gt;.cloudapp.net, e a URL conterá o nome DNS mais um sufixo para seu aplicativo. Por exemplo: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (A parte **MyHelloWorld** diferencia maiúsculas de minúsculas.) Você também pode ver o nome DNS se clicar no nome de implantação no Portal de Gerenciamento de Plataforma do Azure (dentro da parte Serviços de Nuvem do portal de gerenciamento).
 
@@ -140,8 +126,7 @@ Se você tiver criado um novo projeto de implantação do Azure executando as et
 >[AZURE.IMPORTANT] Se você não vir o prompt do UAC, procure na barra de tarefas do Windows o ícone do UAC e clique nele primeiro. Às vezes, o prompt do UAC não aparece como uma janela de nível superior, mas fica visível somente como um ícone na barra de tarefas.
 
 1. Examine a saída do emulador de computação da interface do usuário para determinar se há problemas com o seu projeto. Dependendo do conteúdo de sua implantação, pode demorar alguns minutos para seu aplicativo ser totalmente iniciado no emulador de computação.
-1. Inicie o navegador e use a URL `http://localhost:8080/MyHelloWorld` como o endereço (a parte `MyHelloWorld` da URL diferencia maiúsculas de minúsculas). Você deve ver o aplicativo MyHelloWorld (a saída de index.jsp), semelhante à imagem a seguir: 
-    ![][ic589579]
+1. Inicie o navegador e use a URL `http://localhost:8080/MyHelloWorld` como o endereço (a parte `MyHelloWorld` da URL diferencia maiúsculas de minúsculas). Você deve ver o aplicativo MyHelloWorld (a saída de index.jsp), semelhante à imagem a seguir: ![][ic589579]
 
 Quando você estiver pronto para interromper a execução do aplicativo no emulador de computação, na barra de ferramentas do Eclipse, clique no botão **Redefinir Emulador do Azure**, ![][ic710880].
 
@@ -195,4 +180,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

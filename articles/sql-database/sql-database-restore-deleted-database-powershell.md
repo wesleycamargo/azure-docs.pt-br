@@ -20,9 +20,8 @@
 # Restaurar um Banco de Dados SQL do Azure usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-database-restore-deleted-database.md)
-- [Portal do Azure](sql-database-restore-deleted-database-portal.md)
-- [PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Visão geral](sql-database-recovery-using-backups.md)
+- [Restauração de banco de dados excluída: Portal do Azure](sql-database-restore-deleted-database-portal.md)
 
 [AZURE.INCLUDE [Iniciar sua sessão do PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -49,17 +48,11 @@
 
 ## Próximas etapas
 
-- Para obter as etapas detalhadas de como restaurar um banco de dados excluído usando o Portal do Azure, confira [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md) (Restaurar um banco de dados excluído usando o Portal do Azure).
-- Para obter informações sobre como restaurar um banco de dados excluído, confira [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Restaurar um banco de dados excluído usando a API REST).
-- Para obter informações detalhadas sobre como restaurar um banco de dados excluído, confira [Restore a deleted database](sql-database-restore-deleted-database.md) (Restaurar um banco de dados excluído)
-- Para obter informações detalhadas sobre os backups automatizados do Banco de Dados SQL do Azure, confira [SQL Database automated backups](sql-database-automated-backups.md) (Backups automáticos do Banco de Dados SQL).
+- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-## Recursos adicionais
-
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Detectar movimentos com o Azure Media Analytics
@@ -165,7 +165,7 @@ Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá esp
 O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
-1. Criar um trabalho com uma tarefa de detecção de movimento em vídeo baseada em um arquivo de configuração que contém a predefinição de JSON a seguir. 
+1. Criar um trabalho com uma tarefa de detecção de movimento em vídeo baseada em um arquivo de configuração que contém a predefinição de JSON a seguir.
 					
 		{
 		    "version": "1.0"
@@ -351,4 +351,4 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

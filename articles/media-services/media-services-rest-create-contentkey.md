@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -35,11 +35,11 @@ Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo 
 
 A seguir estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que você deseja que sejam criptografados.
 
-1. Gere aleatoriamente uma chave AES de 16 bytes (para criptografia comum e de envelope) ou uma chave AES de 32 bytes (para criptografia de armazenamento). 
+1. Gere aleatoriamente uma chave AES de 16 bytes (para criptografia comum e de envelope) ou uma chave AES de 32 bytes (para criptografia de armazenamento).
 
-	Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
+	Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia.
 2.	Chame os métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
-3.	Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
+3.	Criptografe a chave de conteúdo com a chave pública do certificado X.509.
 
 	O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia. Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](http://www.microsoft.com/playready/documents/).
@@ -262,4 +262,4 @@ Resposta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

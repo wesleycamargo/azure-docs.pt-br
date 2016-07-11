@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -27,9 +27,9 @@ Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitaçõ
 
 As seguintes considerações se aplicam ao usar REST.
 
-- Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+- Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
-- Ao usar o JSON e especificar para usar a palavra-chave **\_\_metadata** na solicitação (por exemplo, para fazer referência a um objeto vinculado), é NECESSÁRIO definir o cabeçalho **Aceitar** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (veja o exemplo a seguir). O Odata não entende a propriedade **\_\_metadata** na solicitação, a menos que você a defina como detalhado.
+- Ao usar o JSON e especificar para usar a palavra-chave **__metadata** na solicitação (por exemplo, para fazer referência a um objeto vinculado), é NECESSÁRIO definir o cabeçalho **Accept** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (veja o exemplo a seguir). O Odata não entende a propriedade **__metadata** na solicitação, a menos que você a defina como detalhado.
 
 		POST https://media.windows.net/API/Jobs HTTP/1.1
 		Content-Type: application/json;odata=verbose
@@ -74,7 +74,7 @@ Idioma aceito|"en", "es", e assim por diante.|Especifica o idioma preferencial p
 Conjunto de caracteres aceito|Tipo de conjunto de caracteres como "UTF-8"|Padrão é UTF-8.
 Método X-HTTP|Método HTTP|Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET.
 Tipo de conteúdo|Tipo de conteúdo|Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST.
-ID da solicitação de cliente|Cadeia de caracteres|Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p> Os valores devem ser limitados em 2096b (2k).
+ID da solicitação de cliente|Cadeia de caracteres|Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K).
 
 ## Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 
@@ -106,7 +106,7 @@ HEAD|Retorna metadados de um objeto para uma resposta GET.
 
 ##Limitações
 
-Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Ignorar** e **Levar** (.NET) / **superior** (REST), conforme descrito em [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Skip** e **Take** (.NET)/ **top** (REST), conforme é descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
 
 ## Descobrindo o modelo de serviços de mídia
@@ -132,4 +132,4 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -21,7 +21,7 @@
 
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Usando o RAID em uma máquina virtual do Azure
@@ -105,7 +105,7 @@ O Linux implementa quatro tipos de algoritmos de agendamento de e/s:
 -	Algoritmo NOOP (nenhuma operação)
 -	Algoritmo de prazo (prazo)
 -	Algoritmo de fila completamente justa (CFQ)
--	Algoritmo de período de orçamento (antecipado)  
+-	Algoritmo de período de orçamento (antecipado)
 
 Você pode selecionar diferentes agendadores de e/s em cenários diferentes para otimizar o desempenho. Em um ambiente de acesso completamente aleatório, não há uma grande diferença entre os algoritmos CFQ e de prazo para o desempenho. Geralmente, é recomendável definir o ambiente de banco de dados do MySQL como prazo para estabilidade. Se houver muita e/s sequencial, o CFQ pode reduzir o desempenho de e/s de disco.
 
@@ -208,7 +208,7 @@ Você pode usar a mesma estratégia de ajuste de desempenho para configurar o My
 As principais regras de otimização de e/s são:
 
 -	Aumente o tamanho do cache.
--	Reduza o tempo de resposta de E/S.  
+-	Reduza o tempo de resposta de E/S.
 
 Para otimizar as configurações do servidor MySQL, você pode atualizar o arquivo my.cnf, que é o arquivo de configuração padrão para computadores cliente e servidor.
 
@@ -220,7 +220,7 @@ Os seguintes itens de configuração são os principais fatores que afetam o des
 -	**Innodb\_file\_per\_table**: esta configuração habilita ou desabilita a capacidade de InnoDB para armazenar as tabelas em arquivos separados. Ativar a opção garantirá que várias operações de administração avançada possam ser aplicadas com eficiência. Do ponto de vista de desempenho, ela pode acelerar a transmissão de espaço de tabela e otimizar o desempenho do gerenciamento de resíduos. Portanto, a configuração recomendada para esta opção é Ativada.</br> No MySQL 5.6, a configuração padrão é Ativada. Portanto, nenhuma ação é necessária. Para outras versões, que sejam anteriores a 5.6, as configurações padrão estão Desativadas. É necessário ativá-las. E deve aplicá-la antes do carregamento de dados, porque apenas as tabelas criadas recentemente são afetadas.
 -	**innodb\_flush\_log\_at\_trx\_commit**: o valor padrão é 1, com o escopo definido como 0~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 habilita mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o subordinado no cluster do MySQL.
 -	**Innodb\_log\_buffer\_size**: o buffer de log permite que as transações sejam executados sem ter que liberar o log no disco antes que as transações sejam confirmadas. No entanto, se houver objetos binários grandes ou campo de texto, o cache será consumido rapidamente e a e/s de disco frequente será disparada. É melhor aumentar o tamanho do buffer se a variável de estado Innodb\_log\_waits não é 0.
--	**query\_cache\_size**: a melhor opção é desabilitá-lo desde o início. Defina query\_cache\_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.  
+-	**query\_cache\_size**: a melhor opção é desabilitá-lo desde o início. Defina query\_cache\_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.
 
 Confira o [Apêndice D](#AppendixD) para comparar o desempenho após a otimização.
 
@@ -348,4 +348,4 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [13]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

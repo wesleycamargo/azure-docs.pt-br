@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -125,6 +125,7 @@ Depois que ela for habilitada, as seguintes configurações serão desabilitadas
 
 ![CDN habilitado para ponto de extremidade de streaming][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] Integração dos Serviços de Mídia do Azure com a CDN do Azure é implementada na **CDN do Azure da Verizon**. Para usar a **CDN do Azure da Akamai** para Serviços de Mídia do Azure, é preciso [configurar o ponto de extremidade manualmente](../cdn/cdn-create-new-endpoint.md). Para saber mais sobre os recursos da CDN do Azure, veja [Visão geral da CDN](../cdn/cdn-overview.md).
 
 ###Considerações adicionais
 
@@ -150,4 +151,4 @@ Para obter mais informações, consulte [Anunciando a integração dos Serviços
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

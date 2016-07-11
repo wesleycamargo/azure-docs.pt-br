@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -22,6 +22,8 @@
 Os modos de exibição são particularmente úteis no SQL Data Warehouse. Eles podem ser usados em diversas maneiras diferentes de melhorar a qualidade de sua solução.
 
 Este artigo destaca alguns exemplos de como aprimorar sua solução implementando com modos de exibição. Existem algumas limitações que também precisam ser consideradas.
+
+> [AZURE.NOTE] A sintaxe para `CREATE VIEW` não é abordada neste artigo. Consulte o artigo [CREATE VIEW][] no MSDN para obter essas informações de referência.
 
 ## Abstração de arquitetura
 Um padrão de aplicativo muito comum é recriar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido por um objeto de renomeação do padrão durante o carregamento dos dados.
@@ -63,7 +65,7 @@ Consequentemente, as opções a seguir não estão disponíveis:
 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][].
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][]. Para obter a sintaxe `CREATE VIEW`, confira [CREATE VIEW][].
 
 <!--Image references-->
 
@@ -71,7 +73,8 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
+[CREATE VIEW]: https://msdn.microsoft.com/pt-BR/library/ms187956.aspx
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

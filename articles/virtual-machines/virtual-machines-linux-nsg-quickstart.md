@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Permitir acesso externo a uma VM do Linux | Microsoft Azure"
+   pageTitle="Abrir portas ou pontos de extremidade para uma VM Linux | Microsoft Azure"
    description="Saiba como abrir uma porta/criar um ponto de extremidade que permita acesso externo à sua VM do Linux usando o modelo de implantação do gerenciador de recursos e a CLI do Azure"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,11 +16,11 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Permitir acesso externo à sua VM
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+# Abertura de pontos de extremidade e de portas
+No Azure, você abre uma porta ou cria um ponto de extremidade criando um filtro de rede que permite o tráfego na porta escolhida por você em uma sub-rede ou interface de rede de máquina virtual (VM). Esses filtros, que controlam o tráfego de entrada e saída, são colocados em um Grupo de Segurança de Rede e anexados ao recurso que receberá o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80.
 
 ## Comandos rápidos
-Para criar regras e um Grupo de Segurança de Rede, você precisará da [CLI do Azure](../xplat-cli-install.md) no modo do gerenciador de recursos (`azure config mode arm`).
+Para criar regras e um Grupo de Segurança de Rede, você precisará da [CLI do Azure](../xplat-cli-install.md) no modo do resource manager (`azure config mode arm`).
 
 Crie o Grupo de Segurança de Rede da seguinte forma, inserindo seus próprios nomes e localização adequadamente:
 
@@ -52,7 +52,7 @@ Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o
 
 Os Grupos de Segurança de Rede e as regras ACL também podem ser definidos como parte dos modelos do Azure Resource Manager. Leia mais sobre a [criação de Grupos de Segurança de Rede com modelos](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Se você precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, será necessário usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga para a Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+Se você precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, será necessário usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
@@ -61,4 +61,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 - [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
 - [Visão geral do Azure Resource Manager para balanceadores de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

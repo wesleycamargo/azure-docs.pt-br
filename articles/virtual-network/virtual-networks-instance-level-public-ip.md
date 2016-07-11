@@ -18,7 +18,7 @@
 # Visão geral de IP público em nível de instância
 Um ILPIP (IP público em nível de instância) é um endereço IP público que você pode atribuir diretamente à sua VM ou instância da função, e não ao serviço de nuvem no qual a sua VM ou instância de função reside. Isso não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
@@ -31,7 +31,7 @@ Conforme mostrado na Figura 1, o serviço de nuvem é acessado por meio de um VI
 Quando você cria um serviço de nuvem no Azure, registros de DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um nome de domínio totalmente qualificado (FQDN) em vez de usar o VIP real. O mesmo processo ocorre para ILPIP, permitindo o acesso à VM ou instância de função pelo FQDN em vez de pelo ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice*, e configurar uma função web chamada *contosoweb* com duas instâncias, o Azure registrará os seguintes registros para as instâncias:
 
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net
-- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net
 
 >[AZURE.NOTE] Você pode atribuir apenas um ILPIP para cada VM ou instância de função. Você pode usar até 5 ILPIPs por assinatura. Neste momento, não há suporte de ILPIP para VMs de várias NICs.
 
@@ -126,7 +126,7 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 
 - Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 
-- Saiba mais sobre [IPs reservados](../virtual-networks-reserved-public-ip).
+- Saiba mais sobre [IPs reservados](virtual-networks-reserved-public-ip.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

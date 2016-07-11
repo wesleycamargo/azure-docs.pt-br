@@ -164,7 +164,7 @@ Em seguida, você precisa verificar se a placa Edison pode se conectar ao dispos
     Discovery stopped
     ```
 
-6. Conecte-se ao dispositivo SensorTag usando seu endereço MAC inserindo **connect <MAC address>**. Observe que a saída de exemplo abaixo está abreviada:
+6. Conecte-se ao dispositivo SensorTag usando seu endereço MAC inserindo **connect <endereço MAC>**. Observe que a saída de exemplo abaixo está abreviada:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -207,24 +207,24 @@ No momento da redação desse artigo, o SDK do Gateway dá suporte apenas para g
 
 ### Configurar dois dispositivos de exemplo em seu Hub IoT
 
-- [Crie um Hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisará do nome do hub para concluir este passo a passo. Se você ainda não tem uma assinatura do Azure, é possível obter uma [conta gratuita][lnk-free-trial].
-- Adicione um dispositivo chamado **SensorTag\_01** ao Hub IoT e anote sua ID e chave de dispositivo. Você pode usar as ferramentas do [iothub-explorer ou o Gerenciador de dispositivos][lnk-explorer-tools] para adicionar esse dispositivo ao Hub IoT que você criou na etapa anterior e para recuperar sua chave. Você mapeará este dispositivo para o dispositivo SensorTag quando configurar o gateway.
+- [Crie um Hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisará do nome do hub para concluir este passo a passo. Se você ainda não tiver uma assinatura do Azure, é possível obter uma [conta gratuita][lnk-free-trial].
+- Adicione um dispositivo chamado **SensorTag\_01** ao hub IoT e anote sua ID e chave de dispositivo. Você pode usar as ferramentas do [iothub-explorer ou o Gerenciador de Dispositivos][lnk-explorer-tools] para adicionar esse dispositivo ao Hub IoT que criou na etapa anterior e para recuperar sua chave. Você mapeará este dispositivo para o dispositivo SensorTag quando configurar o gateway.
 
 ### Compilar o SDK de gateway em seu dispositivo Edison
 
-A versão do **git** no Edison não dá suporte a submódulos. Para baixar o código-fonte completo para o SDK de gateway para a placa Edison, você tem duas opções:
+A versão do **git** no Edison não permite submódulos. Para baixar o código-fonte completo para o SDK de gateway para a placa Edison, você tem duas opções:
 
-- Opção nº 1: clonar o repositório do [SDK de gateway do Microsoft Azure IoT][lnk-sdk] em seu Edison e clonar manualmente o repositório para cada submódulo.
-- Opção nº 2: clonar o repositório do [SDK de gateway do Microsoft Azure IoT][lnk-sdk] em um dispositivo de área de trabalho em que o **git** dê suporte a submódulos e copiar o repositório completo com submódulos para seu Edson.
+- Opção 1: clonar o repositório do [SDK de Gateway do Microsoft Azure IoT][lnk-sdk] em seu Edison e clonar manualmente o repositório para cada submódulo.
+- Opção 2: clonar o repositório do [SDK de Gateway do Microsoft Azure IoT][lnk-sdk] em um dispositivo de área de trabalho em que o **git** permita submódulos e copiar o repositório completo com submódulos para seu Edson.
 
-Se você escolher a opção nº 2, use os seguintes comandos **git** para clonar o SDK de gateway e todos os seus submódulos:
+Se você escolher a opção 2, use os seguintes comandos **git** para clonar o SDK de Gateway e todos os seus submódulos:
 
 ```
 git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git 
 git submodule update --init --recursive
 ```
 
-Em seguida, você deve compactar todo o repositório local em um único arquivo antes de copiá-lo para o Edison. Você pode usar um utilitário como **pscp** que está incluído no **Putty** para copiar o arquivo para o Edison. Por exemplo:
+Em seguida, você deve compactar todo o repositório local em um único arquivo antes de copiá-lo para o Edison. Você pode usar um utilitário como o **pscp**, que está incluído no **Putty**, para copiar o arquivo para o Edison. Por exemplo:
 
 ```
 pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
@@ -238,14 +238,13 @@ Quando você tem uma cópia completa do repositório do SDK de gateway em seu Ed
 
 ### Configurar e execute o exemplo de BLE em seu dispositivo Edison
 
-Para inicializar e executar o exemplo, você precisa configurar cada módulo que participa no gateway. Essa configuração é fornecida em um arquivo JSON e você precisa configurar todos os cinco módulos participantes. Há um arquivo JSON de exemplo fornecido no repositório chamado **gateway\_sample.json** que você pode usar como ponto de partida para criar seu próprio arquivo de configuração. Este arquivo está na pasta **samples/ble\_gateway\_hl/src** na cópia local do repositório do SDK de gateway.
+Para inicializar e executar o exemplo, você precisa configurar cada módulo que participa no gateway. Essa configuração é fornecida em um arquivo JSON e você precisa configurar todos os cinco módulos participantes. Há um arquivo JSON de exemplo fornecido no repositório chamado **gateway\_sample.json**, que pode ser usado como ponto de partida para criar seu próprio arquivo de configuração. Esse arquivo está na pasta **samples/ble\_gateway\_hl/src** na cópia local do repositório do SDK de Gateway.
 
-As seções a seguir descrevem como editar esse arquivo de configuração para o exemplo de BLE e supõem que o repositório do SDK de gateway está na pasta **/home/root/azure-iot-gateway-sdk/** em seu dispositivo Edison. Se o repositório estiver em outro lugar, você deverá ajustar os caminhos adequadamente:
-
+As seções a seguir descrevem como editar esse arquivo de configuração para o exemplo de BLE e pressupõem que o repositório do SDK de gateway está na pasta **/home/root/azure-iot-gateway-sdk/** de seu dispositivo Edison. Se o repositório estiver em outro lugar, você deverá ajustar os caminhos adequadamente:
 
 #### Configuração do agente
 
-Supondo que o repositório de gateway está localizado na pasta **/home/root/azure-iot-gateway-sdk /**, configure o módulo de agente da seguinte maneira:
+Pressupondo que o repositório de gateway esteja localizado na pasta **/home/root/azure-iot-gateway-sdk/**, configure o módulo de agente da seguinte maneira:
 
 ```json
 {
@@ -316,7 +315,7 @@ A configuração de exemplo do dispositivo BLE pressupõe um dispositivo Texas I
 
 #### Módulo HTTP de Hub IoT
 
-Adicione o nome do Hub IoT. O valor de sufixo é geralmente **azure-devices.net**:
+Adicione o nome do Hub IoT. O valor do sufixo é geralmente **azure-devices.net**:
 
 ```json
 {
@@ -369,7 +368,7 @@ Ao executar o exemplo, você pode usar a ferramenta do [iothub-explorer ou o Ger
 
 ## Envie mensagens da nuvem para o dispositivo
 
-O módulo BLE também dá suporte ao envio de instruções do Hub IoT do Azure para o dispositivo. Você pode usar o [Gerenciador de Dispositivo do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou o [Gerenciador de Hub IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar as mensagens JSON que o módulo de gateway BLE passa para o dispositivo BLE. Por exemplo, se você estiver usando o dispositivo Texas Instruments SensorTag, poderá enviar as mensagens JSON a seguir para o dispositivo do Hub IoT.
+O módulo BLE também dá suporte ao envio de instruções do Hub IoT do Azure para o dispositivo. Você pode usar o [Gerenciador de Dispositivos do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou o [Gerenciador de Hub IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar as mensagens JSON que o módulo de gateway BLE passa para o dispositivo BLE. Por exemplo, se você estiver usando o dispositivo Texas Instruments SensorTag, poderá enviar as mensagens JSON a seguir para o dispositivo do Hub IoT.
 
 - Redefinir todos os LEDs e a campainha (desativá-los)
 
@@ -427,7 +426,7 @@ O comportamento padrão para um dispositivo usando o protocolo HTTP para se cone
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o [SDK de gateway do Azure IoT][lnk-sdk].
+Para saber mais, veja o [SDK de Gateway do Azure IoT][lnk-sdk].
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -442,4 +441,4 @@ Para obter mais informações, consulte o [SDK de gateway do Azure IoT][lnk-sdk]
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

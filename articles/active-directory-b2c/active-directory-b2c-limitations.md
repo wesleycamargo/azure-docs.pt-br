@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: limitações e restrições
@@ -24,7 +24,7 @@ Há vários recursos e funcionalidades do Active Directory B2C do Azure (AD do A
 
 ## Problemas durante a criação de locatários do AD B2C do Azure
 
-Se você tiver problemas durante a [criação de um locatário do AD B2C do Azure](active-directory-b2c-get-started), consulte [Criar um locatário do AD do Azure ou um locatário do AD B2C do Azure -- problemas e resoluções](active-directory-b2c-support-create-directory.md) para obter diretrizes.
+Se você tiver problemas durante a [criação de um locatário do AD B2C do Azure](active-directory-b2c-get-started.md), veja [Criar um locatário do Azure AD ou um locatário do AD B2C do Azure -- problemas e resoluções](active-directory-b2c-support-create-directory.md) para obter diretrizes.
 
 ## Problemas de identidade visual no email de verificação
 
@@ -70,6 +70,10 @@ A visualização AD B2C do Azure dá suporte a OAuth 2.0 e OpenID Connect. No en
 
 Muitos dos tokens emitidos pela visualização AD B2C do Azure são implementados como Tokens da Web JSON ou JWTs. No entanto, nem todas as informações contidas no JWTs (conhecidas como "declarações") são exatamente como deveriam ser ou não existem. Alguns exemplos incluem "sub" e as declarações de "preferred\_username". Você deve esperar que as coisas mudem um pouco durante a visualização. Para entender melhor os tokens emitidos atualmente pelo serviço do AD B2C do Azure, leia nossa [referência de token](active-directory-b2c-reference-tokens.md).
 
+## Restrição em grupos aninhados
+
+Associações de grupo aninhado não têm suporte nos locatários Azure AD B2C . Não há planos para adicionar esse recurso.
+
 ## Problemas de gerenciamento de usuário no Portal Clássico do Azure
 
 Recursos de B2C são acessíveis no Portal do Azure. No entanto, você pode usar o Portal Clássico do Azure para acessar outros recursos de locatário, incluindo o gerenciamento de usuários. Atualmente, há alguns problemas conhecidos com o gerenciamento de usuários (a guia **Usuários**) no portal clássico do Azure:
@@ -82,11 +86,11 @@ Recursos de B2C são acessíveis no Portal do Azure. No entanto, você pode usar
 
 ## Problemas com a redefinição de senha iniciada pelo administrador no Portal Clássico do Azure
 
-Se você redefinir a senha para um consumidor baseado em conta local no Portal Clássico do Azure (o comando **Redefinir Senha** na guia **Usuários**), o consumidor não poderá alterar a senha no próximo logon e será bloqueado dos seus aplicativos. Estamos trabalhando para corrigir esse problema. Como solução alternativa, use a [API do Graph do AD do Azure](active-directory-b2c-devquickstarts-graph-dotnet.md) para redefinir a senha do consumidor.
+Se você redefinir a senha para um consumidor baseado em conta local no Portal Clássico do Azure (o comando **Redefinir Senha** na guia **Usuários**), o consumidor não poderá alterar a senha no próximo logon, se for utilizada uma política de logon ou de inscrição, e terá seus aplicativos bloqueados. Estamos trabalhando para corrigir esse problema. Como alternativa, use o [API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para redefinir a senha do consumidor (sem data de vencimento de senha) ou usar uma política de Logon em vez de uma política de Inscrição ou de Logon.
 
-## Restrição de exclusão de locatários do AD B2C do Azure
+## Problemas com a criação de um atributo personalizado
 
-Você não poderá excluir um locatário do AD B2C do Azure no Portal Clássico do Azure.
+Um [atributo personalizado adicionado no portal do Azure](active-directory-b2c-reference-custom-attr.md) não é criado imediatamente no seu locatário B2C. Você terá que usar o atributo personalizado em pelo menos uma de suas diretivas antes que ele seja criado no seu locatário B2C e fique disponível por meio da API do Graph.
 
 ## Problemas de verificação de um domínio no Portal Clássico do Azure
 
@@ -97,6 +101,6 @@ Atualmente, você não pode verificar um domínio com êxito no [Portal Clássic
 Solicitações para políticas de entrada (com MFA ativado) falham intermitentemente em navegadores Safari com erros HTTP 400 (solicitação incorreta). Isso é devido aos baixos limites de tamanho de cookie do Safari. Há duas soluções alternativas para esse problema:
 
 - Use a "política de inscrição ou entrada" em vez da "política de entrada".
-- Reduza o número de **declarações de aplicativo** solicitadas na sua política. 
+- Reduza o número de **declarações de aplicativo** solicitadas na sua política.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

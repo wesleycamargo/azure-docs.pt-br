@@ -29,10 +29,10 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-	`VSX64RemoteDebuggerPath` é o caminho até a pasta contendo msvsmon.exe em Ferramentas Remotas para Visual Studio.
+	`VSX64RemoteDebuggerPath` corresponde ao caminho até a pasta contendo msvsmon.exe em Ferramentas Remotas para o Visual Studio. `RemoteDebuggerConnectorVersion` corresponde à versão do SDK do Azure no serviço de nuvem. Ele também deve corresponder à versão instalada com o Visual Studio.
 
 5. Publique no serviço de nuvem alvo usando o pacote e o arquivo .cscfg gerado na etapa anterior.
-6. Importe o certificado (arquivo .pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
+6. Importe o certificado (arquivo .pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado. Certifique-se de importar para o `CurrentUser\My` repositório de certificados; caso contrário, a anexação do depurador do Visual Studio falhará.
 
 ## Habilitando a depuração remota para máquinas virtuais
 
@@ -91,4 +91,4 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

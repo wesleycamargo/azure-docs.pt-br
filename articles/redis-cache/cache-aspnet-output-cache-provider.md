@@ -36,7 +36,7 @@ O pacote NuGet do Provedor de Cache de Saída Redis tem uma dependência do paco
 Os downloads de pacote NuGet acrescentam as referências de assembly necessárias e adicionam a seguinte seção dentro de seu arquivo web.config que contém a configuração solicitada para seu aplicativo ASP.NET a fim de usar o Provedor de Cache de Saída Redis.
 
     <caching>
-      <outputCachedefaultProvider="MyRedisOutputCache">
+      <outputCachedefault Provider="MyRedisOutputCache">
         <providers>
           <!--
           <add name="MyRedisOutputCache"
@@ -50,7 +50,7 @@ Os downloads de pacote NuGet acrescentam as referências de assembly necessária
             operationTimeoutInMilliseconds = "5000" [number]
           />
           -->
-          <add name="MyRedisOutputCache"type="Microsoft.Web.Redis.RedisOutputCacheProvider"host="127.0.0.1"accessKey="" ssl="false"/>
+          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
         </providers>
       </outputCache>
     </caching>
@@ -65,7 +65,7 @@ Configure os atributos com os valores de sua folha de cache no Portal do Microso
 -	**ssl** – true se você quiser proteger as comunicações de cache/cliente com ssl; caso contrário, false. Especifique a porta correta.
 	-	A porta não SSL é desabilitada por padrão para novos caches. Especifique true para essa configuração a fim de usar a porta SSL. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de acesso](cache-configure.md#access-ports) no tópico [Configurar um cache](cache-configure.md).
 -	**databaseId** – especifica qual banco de dados usar para os dados de saída do cache. Se esse campo não for especificado, o valor padrão de 0 será usado.
--	**applicationName** – as chaves são armazenadas no redis como <AppName>\_<SessionId>\_Data. Isso permite que vários aplicativos compartilhem a mesma chave. Esse parâmetro é opcional e, se você não fornecê-lo, um valor padrão será usado.
+-	**applicationName** – as chaves são armazenadas no redis como <NomedoAplicativo>\_<IDdaSessão>\_Data. Isso permite que vários aplicativos compartilhem a mesma chave. Esse parâmetro é opcional e, se você não fornecê-lo, um valor padrão será usado.
 -	**connectionTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de connectTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão do connectTimeout, 5000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 -	**operationTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de syncTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão de syncTimeout, 1000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
@@ -81,4 +81,4 @@ Após a execução dessas etapas, seu aplicativo será configurado para usar o P
 
 Confira [Provedor de estado de sessão ASP.NET para Cache Redis do Azure](cache-aspnet-session-state-provider.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

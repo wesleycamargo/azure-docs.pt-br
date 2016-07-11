@@ -20,7 +20,7 @@
 
 # Como criar uma máquina virtual personalizada que executa o Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 
@@ -34,4 +34,4 @@
 
 Você também pode [criar uma máquina virtual personalizada executando o Windows](virtual-machines-windows-classic-createportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

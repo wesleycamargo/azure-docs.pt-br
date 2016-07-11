@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services
@@ -184,7 +184,7 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
     e. Selecione **OK**.
 
-![Captura de tela de etapas para conceder permissão de conta de Serviço Local](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+    ![Captura de tela de etapas para conceder permissão de conta de Serviço Local](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 4.  Copie o certificado para a pasta `Trusted People`.
 
@@ -401,7 +401,7 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
     |Nome do arquivo do script|Clique no botão **...** e navegue até o diretório **Scripts** dentro de seu projeto de aplicativo. Selecione `Deploy-FabricApplication.ps1`.|
     |Argumentos|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Uma maneira fácil de criar um arquivo xml de perfil de publicação de trabalho é criá-lo no Visual Studio, como mostrado aqui: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Uma maneira fácil de criar um arquivo xml de perfil de publicação de trabalho é criá-lo no Visual Studio, como mostrado aqui: https://azure.microsoft.com/pt-BR/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Se você quiser dar suporte à implantação do aplicativo para um cluster ao substituir o aplicativo existente em vez de atualizá-lo, adicione este Argumento do Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Além disso, certifique-se de que o perfil de publicação selecionado não esteja configurado para permitir uma atualização. Isso removerá qualquer ApplicationType existente antes de instalar a compilação mais recente.
 
@@ -437,4 +437,4 @@ Para saber mais sobre a integração contínua com aplicativos do Service Fabric
  - [Implantar um agente de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Criar e configurar uma definição de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

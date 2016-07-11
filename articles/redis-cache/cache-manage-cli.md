@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/28/2016" 
 	ms.author="sdanie"/>
 
 # Como criar e gerenciar o Cache Redis do Azure usando a Interface de Linha de Comando do Azure (CLI do Azure)
@@ -51,8 +51,8 @@ As propriedades a seguir são usadas durante a criação e a atualização de in
 | Rede Virtual | -v, --virtual-network | Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o cache redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo de chave | -t, --key-type | Tipo de chave a ser renovada. Valores válidos: [Primary, Secondary] |
 | StaticIP | -p, --static-ip <static-ip> | Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. |
-| Sub-rede | t, --subnet <subnet> | Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
-| VirtualNetwork | -v, --virtual-network <virtual-network> | Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o cache redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Sub-rede | t, --subnet <sub-rede> | Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
+| VirtualNetwork | -v, --virtual-network <rede virtual> | Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o cache redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Assinatura | -s, --subscription | O identificador da assinatura. |
 
 ## Ver todos os comandos do Cache Redis
@@ -253,7 +253,7 @@ Para listar as chaves Primária e Secundária de um Cache Redis, use o seguinte 
 
 	azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Para obter mais informações sobre esse comando, execute o comando `azure rediscache list-keys -h`.
+Para saber mais sobre esse comando, execute o comando `azure rediscache list-keys -h`.
 
 	C:\>azure rediscache list-keys -h
 	help:    Lists Primary and Secondary key of an existing Redis Cache
@@ -271,4 +271,4 @@ Para obter mais informações sobre esse comando, execute o comando `azure redis
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

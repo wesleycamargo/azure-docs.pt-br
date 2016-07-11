@@ -29,7 +29,7 @@ O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Azure SQL Data 
 > [AZURE.NOTE] 
 Para obter uma visão geral do serviço Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
 > 
-> Este artigo fornece exemplos de JSON, mas não fornece instruções passo a passo para criar um data factory. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-get-started.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia no Azure Data Factory.
+> Este artigo fornece exemplos de JSON, mas não fornece instruções passo a passo para criar um data factory. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia na Azure Data Factory.
 
 
 ## Exemplo: Copiar dados do SQL Data Warehouse do Azure para o Blob do Azure
@@ -37,8 +37,8 @@ Para obter uma visão geral do serviço Azure Data Factory, confira [Introduçã
 O exemplo a seguir mostra:
 
 1. Um serviço vinculado do tipo [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties). 
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties).
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -464,8 +464,8 @@ O **SqlDWSink** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize | Inteiro. (unidade = Contagem de Linhas) | Não (Padrão = 10.000) |
-| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não | 
+| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize | Número inteiro | Não (Padrão = 10000) |
+| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo 00:30:00 (30 minutos). | Não | 
 | sqlWriterCleanupScript | A consulta especificada pelo usuário para a Atividade de cópia ser executada para assegurar que os dados de uma fatia específica serão limpos. Consulte a seção de repetição abaixo para obter mais detalhes. | Uma instrução de consulta. | Não |
 | allowPolyBase | Indica se deve usar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT para carregar dados no Azure SQL Data Warehouse. <br/><br/>Observe que apenas um conjunto de dados de **blobs do Azure** com o **formato** definido como **TextFormat** como uma fonte de conjunto de dados tem suporte no momento e o suporte para outros tipos de fontes será disponibilizado em breve. <br/><br/>Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições. | True <br/>False (padrão) | Não |  
 | polyBaseSettings | Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** estiver definida como **true**. | &nbsp; | Não |  
@@ -508,12 +508,12 @@ Se sua fonte de dados atender aos critérios abaixo, você poderá copiar direta
 
 Observe que o Azure Data Factory verifica as configurações e automaticamente retornará para o mecanismo BULKINSERT para a movimentação de dados se os requisitos não forem atendidos.
 
-1.	O **serviço vinculado de origem** é do tipo: **Armazenamento do Azure** e ele não está configurado para usar a autenticação SAS (Assinatura de Acesso Compartilhado). Confira [Serviço vinculado do Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes.  
+1.	O **serviço vinculado de origem** é do tipo: **Armazenamento do Azure** e ele não está configurado para usar a autenticação SAS (Assinatura de Acesso Compartilhado). Confira [Serviço vinculado do Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes.
 2. O **conjunto de dados de entrada** é do tipo: **Blob do Azure** e o tipo de formato em Propriedades de tipo é **OrcFormat** ou **TextFormat** com as configurações abaixo:
-	1. **rowDelimiter** deve ser **\\n**. 
-	2. **nullValue** é definido como **cadeia de caracteres vazia** (""). 
-	3. **encodingName** é definido como **utf-8**, que é o valor **padrão**, portanto, não o defina como um valor diferente. 
-	4. **escapeChar** e **quoteChar** não são especificados. 
+	1. **rowDelimiter** deve ser **\\n**.
+	2. **nullValue** é definido como **cadeia de caracteres vazia** ("").
+	3. **encodingName** é definido como **utf-8**, que é o valor **padrão**, portanto, não o defina como um valor diferente.
+	4. **escapeChar** e **quoteChar** não são especificados.
 	5. **Compactação** não é **BZIP2**.
 	 
 			"typeProperties": {
@@ -530,14 +530,14 @@ Observe que o Azure Data Factory verifica as configurações e automaticamente r
 	                "level": "Optimal"  
     	        }  
 			},
-3.	Não há uma configuração **skipHeaderLineCount** em **BlobSource** para a atividade de Cópia no pipeline. 
+3.	Não há uma configuração **skipHeaderLineCount** em **BlobSource** para a atividade de Cópia no pipeline.
 4.	Não há uma configuração **sliceIdentifierColumnName** em **SqlDWSink** para a atividade de Cópia no pipeline. (O PolyBase garante que todos os dados são atualizados ou que nada é atualizado em uma execução única. Para obter a **repetição**, você pode usar **sqlWriterCleanupScript**.
-5.	Não há nenhum **columnMapping** sendo usado na atividade de Cópia associada. 
+5.	Não há nenhum **columnMapping** sendo usado na atividade de Cópia associada.
 
 ### Cópia de preparo usando o PolyBase
 Quando os dados de origem não atenderem aos critérios apresentados na seção acima, você poderá habilitar a cópia de dados por meio de um Armazenamento de Blobs de preparo provisório do Azure e, nesse caso, o Azure Data Factory executa transformações nos dados para atender aos requisitos de formato de dados do PolyBase e, então, usa o PolyBase para carregar dados no SQL Data Warehouse. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
 
-> [AZURE.IMPORTANT] Se você estiver copiando dados do armazenamento de dados local para o SQL Data Warehouse do Azure usando o PolyBase e o preparo, você terá que instalar o JRE (Java Runtime Environment) em seu computador de gateway, que será usado para transformar os dados de origem no formato correto. Observe que o gateway de 64 bits exige JRE de 64 bits, e o gateway de 32 bits exige JRE de 32 bits. Você pode encontrar as duas versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605), escolha corretamente.
+> [AZURE.IMPORTANT] Se você estiver copiando dados do armazenamento de dados local para o SQL Data Warehouse do Azure usando o PolyBase e o preparo, você terá que instalar o JRE 8 (Java Runtime Environment) em seu computador de gateway, que será usado para transformar os dados de origem no formato correto. Observe que o gateway de 64 bits exige JRE de 64 bits, e o gateway de 32 bits exige JRE de 32 bits. Baixe a versão apropriada na [localização do Java Downloads](http://go.microsoft.com/fwlink/?LinkId=808605).
 
 Para usar esse recurso, crie um [serviço vinculado de armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refira à conta de armazenamento do Azure que tenha o Armazenamento de Blobs provisório e especifique as propriedades **enableStaging** e **stagingSettings** para a atividade de cópia, conforme mostrado abaixo:
 
@@ -652,6 +652,6 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) na Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

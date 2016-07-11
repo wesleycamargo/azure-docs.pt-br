@@ -3,7 +3,7 @@
    description="Tokens de aplicativo do Power BI Embedded para autenticação e autorização"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Sobre o fluxo de tokens de aplicativo no Power BI Embedded
 
@@ -56,4 +56,4 @@ Após o **Power BI Embedded** enviar um relatório para o usuário, o usuário p
 - [Cenários comuns do Microsoft Power BI Embedded Preview](power-bi-embedded-scenarios.md)
 - [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

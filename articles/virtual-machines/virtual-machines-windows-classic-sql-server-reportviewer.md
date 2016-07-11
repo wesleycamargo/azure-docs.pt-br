@@ -18,7 +18,7 @@
 
 # Usar o ReportViewer em um site da Web hospedado no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Você pode criar um site da Web do Microsoft Azure com o controle ReportViewer do Visual Studio que exibe um relatório armazenado em uma máquina virtual do Microsoft Azure. O controle ReportViewer é um aplicativo Web que você cria usando o modelo de aplicativo Web ASP.NET.
@@ -83,7 +83,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 
 1. Baixe e instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime seguindo as instruções especificadas acima.
 
-1. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para Diretório de Saída** como "**Copiar sempre**".
+1. Crie a pasta <language> no projeto e copie os arquivos de assembly do recurso associado para ela. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para Diretório de Saída** como "**Copiar sempre**".
 
 1. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Cultura e Cultura de interface de usuário para uma página da Web ASP.NET, consulte [Como definir Cultura e Cultura de interface de usuário para globalização da página da Web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
@@ -109,4 +109,4 @@ Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure,
 
 [Controle de visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

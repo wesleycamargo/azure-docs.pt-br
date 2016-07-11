@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
@@ -27,7 +27,7 @@ Este documento contém instruções passo a passo que mostram como personalizar 
 Os tópicos a seguir serão abordados:
 
 - [Codificando MXF em um MP4 de taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [Iniciando um novo fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [Iniciando um novo fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [Usando a Entrada do Arquivo de Mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [Inspecionando fluxos de mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [Adicionando um codificador de vídeo para geração de arquivo .MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@ O novo fluxo de trabalho mostrará três elementos:
 
 - Arquivo de Origem Principal
 - XML da Lista de Clipes
-- Arquivo/Ativo de Saída  
+- Arquivo/Ativo de Saída
 
 ![Novo fluxo de trabalho de codificação](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -867,7 +867,7 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 	}
 
 
-###<a id="code"></a>Código concluído
+###<a id="code"></a>Código completo
 
 	import javax.xml.parsers.*; 
 	import org.xml.sax.*; 
@@ -986,4 +986,4 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

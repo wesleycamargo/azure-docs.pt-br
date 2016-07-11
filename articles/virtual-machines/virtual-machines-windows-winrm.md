@@ -50,7 +50,7 @@ Você pode criar um certificado autoassinado usando esse script do PowerShell
 ```
 $certificateName = "somename"
 
-$thumbprint = (New-SelfSignedCertificate -DnsName "$certificateName" -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
+$thumbprint = (New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
 
 $cert = (Get-ChildItem -Path cert:\CurrentUser\My\$thumbprint)
 
@@ -65,7 +65,7 @@ Antes de carregar o certificado para o Cofre de Chaves criado na Etapa 1, ele pr
 
 ```
 $fileName = "<Path to the .pfx file>"
-$fileContentBytes = get-content $fileName -Encoding Byte
+$fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 $jsonObject = @"
@@ -80,7 +80,7 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
-Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
+Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
 ## Etapa 4: Obter a URL para seu certificado autoassinado no Cofre de Chaves
@@ -106,7 +106,7 @@ Você pode obter essa URL usando o comando do PowerShell abaixo
 
 #### Modelos do Azure Resource Manager
 
-Ao criar uma VM por meio de modelos, o certificado é referenciado na seção de segredos e na seção winRM como abaixo
+Ao criar uma VM por meio de modelos, o certificado é referenciado na seção de segredos e na seção winRM como é apresentado abaixo:
 
 	"osProfile": {
           ...
@@ -142,20 +142,20 @@ Ao criar uma VM por meio de modelos, o certificado é referenciado na seção de
 
 É possível encontrar um modelo de exemplo para o indicado acima em [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
-O código-fonte para este modelo pode ser encontrado no [Github](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+O código-fonte para este modelo pode ser encontrado no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### PowerShell
 
 	$vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
 	$credential = Get-Credential
 	$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm  -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
 	$sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
 	$CertificateStore = "My"
 	$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## Etapa 6: Conectando-se à VM
-Antes de poder se conectar à VM você precisará se certificar de que seu computador esteja configurado para o gerenciamento remoto do WinRM. Inicie o PowerShell como administrador e execute o comando abaixo para garantir que você está configurado.
+Antes de poder se conectar à VM você precisará se certificar de que seu computador esteja configurado para o gerenciamento remoto do WinRM. Inicie o PowerShell como administrador e execute o comando abaixo para garantir que você esteja configurado.
 
     Enable-PSRemoting -Force
 
@@ -165,4 +165,4 @@ Quando a instalação estiver concluída, você poderá se conectar à VM usando
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

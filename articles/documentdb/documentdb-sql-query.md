@@ -23,7 +23,7 @@ O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realizaçã
 Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
 
 -	Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
--	Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+-	Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos.
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
 
@@ -157,9 +157,9 @@ A próxima consulta retorna todos os nomes dos filhos na família cuja identific
 
 Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Banco de Dados de Documentos nos exemplos que vimos até agora:
  
--	Como o Banco de Dados de Documentos SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
--	A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
--	O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+-	Como o Banco de Dados de Documentos SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.
+-	A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.
+-	O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.
 -	Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
 ## Indexação do Banco de Dados de Documentos
@@ -170,7 +170,7 @@ O objetivo de índices de bancos de dados é atender a consultas em suas diversa
 
 Portanto, quando criamos o subsistema de indexação do Banco de Dados de Documentos, definimos os seguintes objetivos:
 
--	Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos. 
+-	Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos.
 
 -	Suporte para pesquisas hierárquicas e relacionais ricas e eficientes: o índice dá suporte à linguagem de pesquisa do Banco de Dados de Documentos com eficácia, incluindo suporte para projeções relacionais e hierárquicas.
 
@@ -552,7 +552,7 @@ A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Ban
 Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:
 
 -	Comparação entre resultados de tipos em Indefinido.
--	Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.   
+-	Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.
 
 Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
 
@@ -607,8 +607,6 @@ Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores 
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
-
-IN é equivalente ao encadeamento de várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos permite um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
 
 ### Operadores Ternário (?) e de União (??)
 Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript.
@@ -866,8 +864,7 @@ O exemplo a seguir expande esse procedimento para mostrar como retornar valores 
 	]
 
 
-###* Operador
-O operador especial (*) é suportado para projetar o documento da forma que ele é. Quando usado, ele deve ser o único campo projetado. Embora uma consulta como `SELECT * FROM Families f` seja válida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são.
+###*Operador O operador especial (*) é suportado para projetar o documento da forma que ele é. Quando usado, ele deve ser o único campo projetado. Embora uma consulta como `SELECT * FROM Families f` seja válida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são.
 
 **Consulta**
 
@@ -1054,7 +1051,7 @@ Isto pode ser usado mais amplamente para filtrar cada entrada individual da matr
 ### Junções
 Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, o Banco de Dados de Documentos lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
 
-A sintaxe que ofereça suporte a linguagem é JOIN <from_source1> JOIN <from_source2>... JUNÇÃO <from_sourceN>. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
+A sintaxe à qual a linguagem oferece suporte é <from\_source1> JOIN <from\_source2> JOIN ... JUNÇÃO < from\_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
 
 Os exemplos a seguir mostram como a cláusula junção funciona. No exemplo a seguir, o resultado é vazio porque o produto cruzado de cada documento da fonte e de um conjunto vazio é vazio.
 
@@ -1118,7 +1115,7 @@ A primeira coisa a observar é que o `from_source` da cláusula **JOIN** é um i
 
 -	Expanda cada elemento filho **c** na matriz.
 -	Aplique um produto cruzado com a raiz do documento **f** com cada elemento filho **c** que foi tornado bidimensional na primeira etapa.
--	Por fim, projete a propriedade do nome do objeto raiz **f** sozinha. 
+-	Por fim, projete a propriedade do nome do objeto raiz **f** sozinha.
 
 O primeiro documento (`AndersenFamily`) contém somente um elemento filho, de modo que o conjunto de resultados contém apenas um único objeto correspondente a esse documento. O segundo documento (`WakefieldFamily`) contém dois filhos. Sendo assim, o produto cruzado produz um objeto separado para cada filho, resultando em dois objetos, um para cada filho correspondente a este documento. Observe que os campos raiz em ambos os documentos será o mesmo, da mesma forma que você esperaria em um produto cruzado.
 
@@ -1203,7 +1200,7 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
 ## Integração do JavaScript
 O Banco de Dados de Documentos oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. Isso possibilita:
 
--	Capacidade de realizar operações CRUD transacional de alto desempenho e consultas documentos em uma coleção em virtude da profunda integração do tempo de execução do JavaScript diretamente com o mecanismo do banco de dados. 
+-	Capacidade de realizar operações CRUD transacional de alto desempenho e consultas documentos em uma coleção em virtude da profunda integração do tempo de execução do JavaScript diretamente com o mecanismo do banco de dados.
 -	Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter mais detalhes sobre o suporte do Banco de Dados de Documentos à integração com JavaScript, consulte a documentação de programabilidade do JavaScript.
 
 ###UDFs (Funções definidas pelo usuário)
@@ -2366,11 +2363,11 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 4.	[Níveis de consistência do Banco de Dados de Documentos][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
-7.	Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
+7.	Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
 9.	Técnicas de avaliação de consulta para bancos de dados de grande porte [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Processamento de Consulta em Sistemas de Banco de Dados Relacional Paralelo, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan,Processamento de Consulta em Sistemas de Banco de Dados Relacional Paralelo, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. Estrutura em cascata para otimização da consulta. IEEE Data Eng. Bull., 18(3): 1995.
 
@@ -2380,4 +2377,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

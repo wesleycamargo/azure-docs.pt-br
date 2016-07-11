@@ -21,13 +21,13 @@
 
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional FreeBSD para que você o use como sua própria imagem para criar uma VM (máquina virtual) no Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Pré-requisitos##
 Este artigo pressupõe que você tenha os seguintes itens:
 
-- **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
+- **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta em apenas alguns minutos. Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, consulte [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Ferramentas Azure PowerShell** - Você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura. Para baixar o módulo, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/) (a página pode estar em inglês). Um tutorial para instalar e configurar o módulo está disponível aqui. Você usará o cmdlet [Downloads do Azure](https://azure.microsoft.com/downloads/) para carregar o VHD.
 
@@ -227,4 +227,4 @@ Depois de carregar o VHD, você pode adicioná-lo como uma imagem à lista de im
 
 	![imagem freebsd no azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

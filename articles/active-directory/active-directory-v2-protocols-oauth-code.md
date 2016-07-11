@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="dastrock"/>
 
 # Protocolos v2.0 - Fluxo de código de autorização do OAuth 2.0
 
 A concessão de código de autorização OAuth 2.0 pode ser usada em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Com a implementação do modelo de aplicativo v2.0 do OAuth 2.0, você pode adicionar conexão e acesso à API aos seus aplicativos móveis e de área de trabalho. Este guia independe do idioma e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
 	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
@@ -96,6 +96,20 @@ error=access_denied
 | error | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error\_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
+#### Códigos de erro para erros de ponto de extremidade de autorização
+
+A tabela a seguir descreve os vários códigos de erro que podem ser retornados no parâmetro `error` da resposta de erro.
+
+| Código do Erro | Descrição | Ação do Cliente |
+|------------|-------------|---------------|
+| invalid\_request | Erro de protocolo, como um parâmetro obrigatório ausente. | Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento normalmente identificado durante os testes iniciais.|
+| unauthorized\_client | O aplicativo cliente não tem permissão para solicitar um código de autorização. | Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+| access\_denied | Consentimento negado pelo proprietário do recurso | O aplicativo cliente pode notificar o usuário de que não pode continuar, a menos que o usuário consinta. |
+| unsupported\_response\_type | O servidor de autorização não dá suporta ao tipo de resposta na solicitação. | Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento normalmente identificado durante os testes iniciais.|
+|server\_error | O servidor encontrou um erro inesperado. | Tente novamente a solicitação. Esses erros podem resultar de condições temporárias. O aplicativo cliente pode explicar ao usuário que sua resposta está atrasada devido a um erro temporário. |
+| temporarily\_unavailable | O servidor está temporariamente muito ocupado para tratar da solicitação. | Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
+| invalid\_resource |O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente.| Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+
 ## Solicitar um token de acesso
 Agora que você já adquiriu um authorization\_code e recebeu permissão do usuário, é possível resgatar o `code` de um `access_token` para o recurso desejado enviando uma solicitação `POST` ao ponto de extremidade `/token`:
 
@@ -118,7 +132,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | | Descrição |
 | ----------------------- | ------------------------------- | --------------------- |
-| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | obrigatório | A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) atribuiu ao aplicativo. |
 | grant\_type | obrigatório | Deve ser `authorization_code` para o fluxo do código de autorização. |
 | scope | obrigatório | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na primeira ramificação, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade v2.0 retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](active-directory-v2-scopes.md). |
@@ -146,7 +160,7 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | expires\_in | Por quanto tempo o token de acesso é válido (em segundos). |
 | scope | Os escopos para os quais o access\_token é válido. |
 | refresh\_token | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o token de acesso atual expira. Os Refresh\_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, confira a [referência ao token v2.0](active-directory-v2-tokens.md). |
-| id\_token | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar com base64Url os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id\_tokens, consulte a [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md). |
+| id\_token | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar com base64Url os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para saber mais sobre id\_tokens, veja a [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md). |
 
 #### Resposta de erro
 As respostas de erro serão parecidas com esta:
@@ -172,6 +186,19 @@ As respostas de erro serão parecidas com esta:
 | timestamp | A hora na qual o erro ocorreu. |
 | trace\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
+
+#### Códigos de erro para erros de ponto de extremidade de token
+
+| Código do Erro | Descrição | Ação do Cliente |
+|------------|-------------|---------------|
+| invalid\_request | Erro de protocolo, como um parâmetro obrigatório ausente. | Corrija e reenvie a solicitação |
+| invalid\_grant | O código de autorização é inválido ou expirou. | Tente uma nova solicitação para o `/authorize` ponto de extremidade |
+| unauthorized\_client | O cliente autenticado não está autorizado a usar esse tipo de concessão de autorização. | Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+| invalid\_client | Falha na autenticação de cliente. | As credenciais do cliente não são válidas. Para corrigi-las, o administrador do aplicativo atualiza as credenciais. |
+| unsupported\_grant\_type | O servidor de autorização não dá suporte ao tipo de concessão de autorização. | Altere o tipo de concessão na solicitação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e ser detectado durante os testes iniciais. |
+| invalid\_resource | O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente. | Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+| interaction\_required | A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Repita a solicitação com o mesmo recurso. |
+| temporarily\_unavailable | O servidor está temporariamente muito ocupado para tratar da solicitação. | Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária.|
 
 ## Usar o token de acesso
 Agora que você já adquiriu com êxito um `access_token`, você pode usar o token em solicitações para APIs Web incluindo-o no cabeçalho `Authorization`:
@@ -206,7 +233,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | | Descrição |
 | ----------------------- | ------------------------------- | -------- |
-| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | obrigatório | A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) atribuiu ao aplicativo. |
 | grant\_type | obrigatório | Deve ser `refresh_token` para essa ramificação do código de autorização. |
 | scope | obrigatório | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na ramificação de solicitação authorization\_code original, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade v2.0 retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](active-directory-v2-scopes.md). |
@@ -234,7 +261,7 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | expires\_in | Por quanto tempo o token de acesso é válido (em segundos). |
 | scope | Os escopos para os quais o access\_token é válido. |
 | refresh\_token | Um novo token de atualização OAuth 2.0. Você deve substituir o token de atualização antigo por esse token de atualização recém-adquirido para garantir que seus tokens de atualização permaneçam válidos pelo máximo tempo possível. |
-| id\_token | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar com base64Url os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id\_tokens, consulte a [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md). |
+| id\_token | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar com base64Url os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para saber mais sobre id\_tokens, veja a [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md). |
 
 #### Resposta de erro
 ```
@@ -259,4 +286,6 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | trace\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
-<!---HONumber=AcomDC_0608_2016-->
+Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).
+
+<!---HONumber=AcomDC_0629_2016-->

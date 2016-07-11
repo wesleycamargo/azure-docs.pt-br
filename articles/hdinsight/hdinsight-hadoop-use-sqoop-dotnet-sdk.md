@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+   ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 #Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight
@@ -116,4 +116,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 - [Analisar dados de atraso de voos usando o HDInsight](hdinsight-analyze-flight-delay-data.md): use o Hive para analisar dados de atraso de voos e o Sqoop para exportar dados para o banco de dados SQL do Azure.
 - [Carregar dados no HDInsight](hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

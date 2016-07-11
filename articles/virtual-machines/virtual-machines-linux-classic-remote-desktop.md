@@ -20,7 +20,7 @@
 
 #Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Visão geral
@@ -116,4 +116,4 @@ Faça logon com o `user` e a `password` de sua VM do Linux e aproveite agora mes
 ##Avançar
 Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

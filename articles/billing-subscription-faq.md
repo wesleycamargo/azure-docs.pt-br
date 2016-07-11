@@ -14,86 +14,80 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 #  Perguntas Frequentes sobre Assinatura e Cobrança do Azure
 
 Este artigo responde a algumas das perguntas mais comuns sobre Assinatura e Cobrança do Azure.
 
-**Cobrança**
-
-- [Quais opções de pagamento eu tenho ao comprar o Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
-
-- [Como faço para solicitar o método de pagamento de fatura?](#how-can-i-request-the-invoice-method-of-payment)
-
-- [Como faço para verificar o status de um pagamento feito com cartão de crédito?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
-
-- [Como faço para obter uma cópia da minha fatura?](#how-do-i-get-a-copy-of-my-invoice)
-
-- [Como faço para remover um cartão de crédito que já não utilizo como método de pagamento do Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
-
-- [Como faço para atualizar ou alterar minhas informações de cartão de crédito?](#how-can-i-update-or-change-my-credit-card-information)
-
-- [Como sabemos antecipadamente sobre o tempo de inatividade do serviço devido a uma manutenção planejada?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
-
-- [O que é o contrato de SLA do Azure para tempo de atividade e conectividade?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
-
-- [O que são os créditos do contrato de nível de serviço do Azure?](#what-are-the-azure-sla-credits)
-
-- [Como os Contratos de Nível de Serviço do Azure funcionam com contratos atuais de licenciamento da Microsoft locais?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
-
-- [Não encontro uma fatura para o último período de cobrança. Por quê?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
-
-**Assinaturas**
-
-- [Não consigo fazer logon no portal do Azure](#i-am-unable-to-log-in-to-the-azure-portal)
-
-- [Como faço para adquirir o Suporte do Azure?](#how-do-i-purchase-azure-support)
-
-- [A tarifa mensal cobre um único plano do Azure ou a conta inteira?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
-
-- [Como faço para atualizar para um plano de Suporte do Azure de camada mais alta?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
-
-- [Quando serei cobrado pelo Suporte do Azure?](#when-will-i-be-billed-for-azure-support)
-
-- [O que acontece ao final do período?](#what-happens-at-the-end-of-the-term)
-
-- [Como faço para cancelar meu plano de Suporte do Azure?](#how-do-i-cancel-my-azure-support-plan)
-
-- [Como faço para migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+**Administração de Conta**
 
 - [Como faço para gerenciar contas de administrador no novo portal do Azure?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
-
-- [Como faço para transferir a propriedade das minhas assinaturas?](#how-do-i-transfer-ownership-of-my-subscriptions)
-
-- [Posso transferir licenças de servidor para o Azure e executá-las em máquinas virtuais?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
-
-- [Onde posso encontrar informações sobre benefícios e preços para os Serviços do Azure?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
-
-- [Como faço para alterar meu plano de preços?](#how-do-i-change-my-pricing-plan)
-
 - [As notificações podem ser enviadas a um endereço de email diferente do endereço de email do Proprietário de Conta associado a minha conta?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
+- [Por que não consigo editar ou adicionar detalhes à minha assinatura?](#why-cannot-i-edit-or-add-details-to-my-subscription)
+- [Não consigo fazer logon no portal do Azure](#i-am-unable-to-log-in-to-the-azure-portal)
 
-- [Como editar minhas informações de pagamento de assinaturas do Azure?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+**Cobrança**
 
-- [Por que não consigo editar ou adicionar detalhes à minha assinatura?](#why-i-cannot-edit-or-add-details-to-my-subscription)
+- [Como faço para obter uma cópia da minha fatura?](#how-do-i-get-a-copy-of-my-invoice)
+- [Não encontro uma fatura para o último período de cobrança. Por quê?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
-- [Quem pode comprar serviços do Azure?](#who-can-purchase-azure-services)
+**Avaliação gratuita**
 
 - [Posso experimentar o Azure gratuitamente sem nenhum risco de ser cobrado?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
+- [O que é uma assinatura de avaliação e quanto tempo ela dura?](#what-is-a-trial-subscription-and-how-long-does-it-last)
+- [Quais recursos estão disponíveis ao usar uma conta de avaliação?](#what-resources-are-available-whpt-BRing-a-trial-account)
+- [O que acontecerá se eu remover o limite de gastos em minha versão de avaliação gratuita?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
+- [Onde posso obter mais detalhes sobre a avaliação gratuita?](#where-can-i-get-more-details-on-free-trial)
 
-- [Se eu habilitar o Limite de Gastos, posso habilitá-lo novamente?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
-
-- [Posso ajustar o valor do Limite de Gastos?](#can-i-adjust-the-amount-of-the-spending-limit)
+**Como comprar o Azure**
 
 - [Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
-
 - [Restringimos a revenda do serviço baseado no Azure nos países onde há proibição?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
-
 - [O Azure e o Banco de Dados SQL estão disponíveis pelo Contrato de Licença de Provedor de Serviços da Microsoft?](#are-azure-and-sql-database-available-through-microsoft-services-provider-license-agreement)
+- [Posso usar minhas licenças existentes do Windows que comprei fora do Azure?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
+- [Quem pode comprar serviços do Azure?](#who-can-purchase-azure-services)
 
-## Cobrança
+**Fazendo pagamentos**
+
+- [Quais opções de pagamento eu tenho ao comprar o Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
+- [Como faço para solicitar o método de pagamento de fatura?](#how-can-i-request-the-invoice-method-of-payment)
+- [Como faço para verificar o status de um pagamento feito com cartão de crédito?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
+- [Como faço para remover um cartão de crédito que já não utilizo como método de pagamento do Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
+- [Como faço para atualizar ou alterar minhas informações de cartão de crédito?](#how-can-i-update-or-change-my-credit-card-information)
+- [Como editar minhas informações de pagamento de assinaturas do Azure?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+
+**Preços do Azure**
+
+- [Onde posso encontrar informações sobre benefícios e preços para os Serviços do Azure?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
+- [Como faço para alterar meu plano de preços?](#how-do-i-change-my-pricing-plan)
+
+**Contratos de Nível de Serviço (SLAs)**
+
+- [Como sabemos antecipadamente sobre o tempo de inatividade do serviço devido a uma manutenção planejada?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
+- [O que é o contrato de SLA do Azure para tempo de atividade e conectividade?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
+- [O que são os créditos do contrato de nível de serviço do Azure?](#what-are-the-azure-sla-credits)
+- [Como os Contratos de Nível de Serviço do Azure funcionam com contratos atuais de licenciamento da Microsoft locais?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
+
+**Limites de gastos do Azure**
+
+- [Se eu habilitar o Limite de Gastos, posso habilitá-lo novamente?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
+- [Posso ajustar o valor do Limite de Gastos?](#can-i-adjust-the-amount-of-the-spending-limit)
+
+**Planos de suporte**
+
+- [Como faço para adquirir o Suporte do Azure?](#how-do-i-purchase-azure-support)
+- [A tarifa mensal cobre um único plano do Azure ou a conta inteira?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+- [Como faço para atualizar para um plano de Suporte do Azure de camada mais alta?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+- [Quando serei cobrado pelo Suporte do Azure?](#when-will-i-be-billed-for-azure-support)
+- [O que acontece ao final do período?](#what-happens-at-the-end-of-the-term)
+- [Como faço para cancelar meu plano de Suporte do Azure?](#how-do-i-cancel-my-azure-support-plan)
+
+**Migrando assinaturas, serviços e dados**
+
+- [Como faço para migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+- [Como faço para transferir a propriedade das minhas assinaturas?](#how-do-i-transfer-ownership-of-my-subscriptions)
 
 ### Quais opções de pagamento eu tenho ao comprar o Azure?
 
@@ -154,8 +148,6 @@ Pode haver diversos motivos para isso:
 - O tipo de assinatura é Avaliação Gratuita ou uma das ofertas de membro (MSDN/Open/BizSpark/DreamSpark) que não têm um cartão de crédito ou outro meio de pagamento associado a ele.
 - A data de geração da fatura ainda não chegou.
 
-## Assinaturas
-
 ### Não consigo fazer logon no portal do Azure
 
 O artigo a seguir ajudará a solucionar algumas causas comuns de problemas de logon:
@@ -209,9 +201,9 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 
 Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, para assinaturas pré-pagas, do MSDN, Action Pack ou BizSpark. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer assinatura pré-paga, do MSDN, Action Pack ou do BizSpark que você possuir. Observe que a conta de usuário do destinatário deve estar no mesmo país e que não é possível transferir as assinaturas que estão associadas a uma compra no marketplace. Para obter detalhes, confira o artigo [Como transferir uma assinatura do Azure](billing-subscription-transfer.md).
 
-### Posso transferir licenças de servidor para o Azure e executá-las em máquinas virtuais?
+### Posso usar minhas licenças existentes do Windows que comprei fora do Azure?
 
-Sim, por meio da mobilidade de licenças, se você tiver um SA poderá usar "traga sua própria licença" para todas as Máquinas Virtuais com suporte dos produtos de servidor, com exceção do Windows Server.
+Sim, por meio da mobilidade de licenças, se você tiver um SA poderá usar "traga sua própria licença" para todas as Máquinas Virtuais com suporte dos produtos de servidor, com exceção do Windows Server. Para saber mais, consulte [Mobilidade de licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 ### Onde posso encontrar informações sobre benefícios e preços para os Serviços do Azure?
 
@@ -219,7 +211,7 @@ Para saber mais sobre os benefícios dos serviços do Azure, confira [Detalhes d
 
 ### Como faço para alterar meu plano de preços?
 
-Você pode alternar sua assinatura Pré-paga para a [Oferta Pré-paga de 12 Meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Com essa oferta, você paga antecipadamente por serviços do Azure por um período de 12 meses e recebe um desconto de 5% para serviços do Azure. Na [Central de Contas do Azure](https://account.windowsazure.com/Subscriptions), acesse sua assinatura e clique em Trocar Oferta. Atualmente, essa é a única oferta que pode ser mudada no Centro de Contas. Como alternativa, você pode entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) para trocar para uma oferta diferente.
+Você pode mudar sua assinatura Pré-paga para a [Oferta Pré-paga de 12 Meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Com essa oferta, você paga antecipadamente por serviços do Azure por um período de 12 meses e recebe um desconto de 5% para serviços do Azure. Na [Central de Contas do Azure](https://account.windowsazure.com/Subscriptions), acesse sua assinatura e clique em Alterar Oferta. Atualmente, essa é a única oferta que pode ser mudada no Centro de Contas. Como alternativa, você pode entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) para mudar para uma oferta diferente.
 
 ### As notificações podem ser enviadas a um endereço de email diferente do endereço de email do Proprietário de Conta associado a minha conta?
 
@@ -263,7 +255,7 @@ Para aqueles em nossas ofertas de benefícios para membros ( por exemplo, MSDN),
 
 ### Posso ajustar o valor do Limite de Gastos?
 
-Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, MSDN, MPN ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados. Para obter mais informações, veja Limite de Gastos do Azure (https://azure.microsoft.com/pricing/spending-limits/)).
+Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, MSDN, MPN ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados. Para obter mais informações, veja Limite de gastos do Azure (https://azure.microsoft.com/pricing/spending-limits/).
 
 ### Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
 
@@ -277,4 +269,21 @@ Sim.
 
 Atualmente, não há planos para oferecer o Azure ou o Banco de Dados SQL pelo SPLA.
 
-<!---HONumber=AcomDC_0518_2016-->
+### O que é uma assinatura de avaliação e quanto tempo ela dura?
+
+Uma assinatura de avaliação do Azure atribui a você uma quantia de créditos em dólar para usar em serviços da Microsoft, com base em suas necessidades, por um período de 30 dias. Para ver quais serviços os créditos da avaliação gratuita abrangem e não abrangem, consulte a [Página da oferta de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+Você pode se inscrever para uma assinatura de avaliação [aqui](http://azure.microsoft.com/pricing/free-trial/).
+
+### Quais recursos estão disponíveis ao usar uma conta de avaliação?
+
+Você recebe US$ 200 de créditos Azure junto com a Avaliação Gratuita. Agora, a escolha de como usar seus créditos do Azure é sua. Consulte a [Página da oferta de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) para obter mais detalhes.
+
+### O que acontecerá se eu remover o limite de gastos em minha versão de avaliação gratuita?
+
+Quando remover o limite de gastos, você começará a ser cobrado pelo consumo de recursos que vão além do crédito da avaliação gratuita. Você não poderá redefinir o limite de gastos depois que ele tiver sido removido.
+
+### Onde posso obter mais detalhes sobre a avaliação gratuita?
+Visite a [Página da oferta de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) e leia as [Perguntas frequentes oficiais sobre a avaliação gratuita](https://azure.microsoft.com/pricing/free-trial-faq/).
+
+<!---HONumber=AcomDC_0629_2016-->

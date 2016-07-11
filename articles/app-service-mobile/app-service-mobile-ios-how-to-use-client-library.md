@@ -24,7 +24,7 @@ Este guia ensina a executar cenários comuns usando o mais recente [SDK de Aplic
 
 ## Documentação de referência
 
-A documentação de referência para o SDK do cliente do iOS está aqui: [Referência de cliente de aplicativos móveis do Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
+A documentação de referência para o SDK do cliente do iOS está aqui: [Referência de cliente de aplicativos móveis do Azure](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Configuração e Pré-requisitos
 
@@ -525,7 +525,7 @@ e o Pod:
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
-* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -792,4 +792,4 @@ Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativ
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Protegendo os dados armazenados no repositório Azure Data Lake | Azure" 
+   pageTitle="Protegendo os dados armazenados no repositório Azure Data Lake | Microsoft Azure" 
    description="Aprenda a proteger os dados no repositório Azure Data Lake usando grupos e listas de controle de acesso" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Protegendo os dados armazenados no repositório Azure Data Lake
@@ -26,7 +26,9 @@ A proteção de dados no repositório Azure Data Lake é uma abordagem de três 
 
 3. Atribua os grupos de segurança do AAD como listas de controle de acesso (ACLs) no sistema de arquivos do repositório Data Lake.
 
-Este artigo fornece instruções sobre como usar o Portal do Azure para realizar as tarefas acima.
+4. Além disso, você também pode definir um intervalo de endereços IP para clientes que podem acessar os dados no armazenamento do Data Lake.
+
+Este artigo fornece instruções sobre como usar o Portal do Azure para realizar as tarefas acima. Para obter informações detalhadas sobre como Data Lake Store implementa a segurança no nível de conta e dados, consulte [Segurança no Armazenamento do Azure Data Lake](data-lake-store-security-overview.md).
 
 ## Pré-requisitos
 
@@ -88,7 +90,9 @@ Ao atribuir usuários ou grupos de segurança às contas do repositório Azure D
 
 ## <a name="filepermissions"></a>Atribuir usuários ou grupo de segurança como ACLs ao sistema de arquivos do repositório Azure Data Lake
 
-Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data Lake, defina o controle de acesso nos dados armazenados no repositório Azure Data Lake. Na versão atual, você só pode definir ACLs no nó raiz de seu sistema de arquivos.
+Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data Lake, defina o controle de acesso nos dados armazenados no repositório Azure Data Lake.
+
+>[AZURE.NOTE] Na versão atual, você só pode definir ACLs no nó raiz da conta do Repositório Data Lake. Além disso, somente os usuários com a função de proprietário atribuído podem adicionar/modificar ACLs.
 
 1. Na folha de sua conta do Repositório Data Lake, clique em **Gerenciador de Dados**.
 
@@ -103,7 +107,7 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 	![Listar acesso padrão e personalizado](./media/data-lake-store-secure-data/adl.acl.2.png "Listar acesso padrão e personalizado")
 
 	* **Acesso padrão** é o acesso ao estilo UNIX, no qual você especifica leitura, gravação e execução (rwx) a três classes de usuário distintas: proprietário, grupo e outros.
-	* O **acesso personalizado** corresponde às ACLs POSIX e permite a definição de permissões para usuários ou grupos nomeados específicos, e não apenas ao proprietário do arquivo ou grupo. 
+	* O **acesso personalizado** corresponde às ACLs POSIX e permite a definição de permissões para usuários ou grupos nomeados específicos, e não apenas ao proprietário do arquivo ou grupo.
 	
 	Para saber mais, consulte [ACLs HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -117,9 +121,9 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 
 	As permissões podem ser compreendidas da seguinte maneira:
 
-	* **Leitura** - Se essa permissão for definida em um diretório, ela fornece a capacidade de ler os nomes dos arquivos no diretório.
-	* **Gravar** - Se essa permissão for definida em um diretório, ela fornece a capacidade de modificar as entradas no diretório, como criar um arquivo, excluir um arquivo ou renomear um arquivo.
-	* **Execução** - Se essa permissão for definida em um diretório, ela fornece a capacidade de acessar o conteúdo do arquivo no diretório. Isso também fornece acesso aos metadados do arquivo, se o nome do arquivo é conhecido. No entanto, essa permissão não permite listar os arquivos no diretório, a menos que a permissão **Leitura** também seja definida.
+	* **Leitura** – Se essa permissão for definida em um diretório, ela fornecerá a capacidade de ler os nomes dos arquivos no diretório.
+	* **Gravação** – Se essa permissão for definida em um diretório, ela fornecerá a capacidade de modificar as entradas no diretório, como criar um arquivo, excluir um arquivo ou renomear um arquivo.
+	* **Execução** - Se essa permissão for definida em um diretório, ela fornece a capacidade de acessar o conteúdo do arquivo no diretório. Além disso, também fornecerá acesso aos metadados do arquivo, se o nome do arquivo for conhecido. No entanto, essa permissão não permite listar os arquivos no diretório, a menos que a permissão **Leitura** também seja definida.
 
 	>[AZURE.NOTE] A permissão de **Leitura + Execução** é necessária para a enumeração de diretórios e costuma ser necessária ao fornecer a um usuário ou grupo o acesso somente leitura aos dados.
 
@@ -128,9 +132,15 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 
 	![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Atribuir permissões ao grupo")
 
-	> [AZURE.IMPORTANT] Na versão atual, você pode ter apenas nove entradas em **Acesso Personalizado**. Se você quiser adicionar mais de nove usuários, crie grupos de segurança, adicione os usuários aos grupos, forneça acesso a esses grupos de segurança para a conta do repositório Data Lake.
+	> [AZURE.IMPORTANT] Na versão atual, você pode ter apenas 9 entradas em **Acesso Personalizado**. Se você quiser adicionar mais de nove usuários, crie grupos de segurança, adicione os usuários aos grupos, forneça acesso a esses grupos de segurança para a conta do repositório Data Lake.
 
 7. Se for necessário, também é possível modificar as permissões de acesso depois de adicionar o grupo. Marque ou desmarque a caixa de seleção de cada tipo de permissão (Leitura, Gravação, Execução) com base em seu desejo de remover ou atribuir essa permissão ao grupo de segurança. Clique em **Salvar** para salvar as alterações ou em **Descartar** para desfazer as alterações.
+
+## Definir o intervalo de endereços IP para acesso a dados
+
+O Repositório Azure Data Lake permite bloquear ainda mais o acesso ao seu repositório de dados no nível da rede. Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Uma vez habilitado, somente os clientes com os endereços IP no intervalo definido poderão conectar o repositório.
+
+![Configurações do firewall e acesso IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Configurações do firewall e endereço IP")
 
 ## Remova grupos de segurança de uma conta do repositório Azure Data Lake.
 
@@ -174,4 +184,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

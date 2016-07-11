@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 # Protocolo SAML de Logon Único
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Neste artigo, conheceremos a solicitações e respostas de autenticação SAML 2.0 a que o Azure AD (Azure Active Directory) dá suporte para Logon Único.
 
@@ -50,7 +48,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ForceAuthn | opcional | Se fornecido, deve ser false. Qualquer outro valor causará erro.|
 | IsPassive | opcional | Se fornecido, deve ser false. Qualquer outro valor causará erro. |  
 
-Todos os outros atributos `AuthnRequest`, como Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorado**.
+Todos os outros atributos `AuthnRequest`, como Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorados**.
 
 O Azure AD também ignora o elemento `Conditions` na `AuthnRequest`.
 
@@ -90,7 +88,7 @@ O elemento `RequestedAuthnContext` especifica os métodos de autenticação dese
 
 O elemento `Scoping`, que inclui uma lista de provedores de identidade, é opcional em `AuthnRequest` enviadas ao Azure AD.
 
-Se fornecido, não inclua o atributo `ProxyCount` `IDPListOption` ou elemento `RequesterID`, pois eles não têm suporte.
+Se fornecido, não inclua o atributo `ProxyCount` ou elemento `IDPListOption` ou `RequesterID`, pois eles não têm suporte.
 
 ### Signature
 
@@ -154,9 +152,9 @@ O elemento `Response` inclui os resultados da solicitação de autorização. O 
 - `Destination`: quando o logon for concluído com êxito, ele será definido como o `RedirectUri` do provedor de serviços (serviço de nuvem).
 - `InResponseTo`: isso é definido como o atributo `ID` do elemento `AuthnRequest` que iniciou a resposta.
 
-### Issuer
+### Emissor
 
-O Azure AD define o elemento `Issuer` como `https://login.microsoftonline.com/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID de locatário do locatário do Azure AD.
+O Azure AD define o elemento `Issuer` como `https://login.microsoftonline.com/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID do locatário do Azure AD.
 
 Por exemplo, uma resposta de exemplo com o elemento Issuer poderia ser assim:
 
@@ -205,9 +203,9 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Além de `ID`, `IssueInstant` e `Version`, o Azure AD define os elementos a seguir no elemento `Assertion` da resposta.
 
-#### Issuer
+#### Emissor
 
-Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID de locatário do locatário do Azure AD.
+Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`, em que <TenantIDGUID> é a ID do locatário do Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -285,8 +283,8 @@ Ele contém declarações sobre o assunto ou o usuário. O trecho a seguir cont�
 </AttributeStatement>
 ```		
 
-- **Declaração de nome** : o valor do atributo `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome principal do usuário autenticado, como `testuser@managedtenant.com`.
-- **ObjectIdentifier declaração** : o valor do atributo `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório representando o usuário autenticado no Azure AD. `ObjectId` é um identificador seguro globalmente exclusivo, imutável e reutilizável do usuário autenticado.
+- **Declaração de Nome**: o valor do atributo `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome UPN do usuário autenticado, como `testuser@managedtenant.com`.
+- **Declaração ObjectIdentifier**: o valor do atributo `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório representando o usuário autenticado no Azure AD. `ObjectId` é um identificador seguro globalmente exclusivo, imutável e reutilizável do usuário autenticado.
 
 #### AuthnStatement
 
@@ -303,4 +301,4 @@ Esse elemento declara que o assunto de asserção foi autenticado por um meio es
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

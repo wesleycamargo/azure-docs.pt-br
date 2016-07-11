@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Backup Automatizado para SQL Server em máquinas virtuais do Azure (Gerenciador de Recursos) | Microsoft Azure"
-	description="Explica o recurso de Backup Automatizado para o SQL Server com Máquinas Virtuais do Azure usando o Resource Manager."
+	description="Explica o recurso de Backup Automatizado para o SQL Server com Máquinas Virtuais do Azure usando o Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,8 +24,7 @@
 
 O backup automatizado configura automaticamente o [Backup Gerenciado do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure executando o SQL Server 2014 Standard ou Enterprise. Isso permite que você configure backups regulares do banco de dados que utilizam o durável armazenamento de Blobs do Azure. O Backup Automatizado depende da [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-modelo de implantação clássico. Para ver a versão clássica deste artigo, consulte [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure Clássico](virtual-machines-windows-classic-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico. Para ver a versão clássica deste artigo, consulte [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure Clássico](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ## Pré-requisitos
 
@@ -81,7 +80,7 @@ Para máquinas virtuais do SQL Server existentes, você deve usar o PowerShell p
 
 ## Configuração com o PowerShell
 
-Depois de provisionar sua VM do SQL, use o PowerShell para configurar o Envio em Lote Automatizado.
+Depois de provisionar sua VM do SQL, use o PowerShell para configurar o Backup Automatizado.
 
 No exemplo do PowerShell a seguir, o Backup Automatizado é configurado para uma VM existente do SQL Server 2014. O comando **AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** define as configurações de Backup Automatizado para armazenar backups na conta de armazenamento do Azure associada à máquina virtual. Esses backups serão mantidos por 10 dias. O comando **Set-AzureRmVMSqlServerExtension** atualiza a VM do Azure especificada com essas configurações.
 
@@ -117,4 +116,4 @@ Para obter informações sobre outras tarefas de automação disponíveis, consu
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

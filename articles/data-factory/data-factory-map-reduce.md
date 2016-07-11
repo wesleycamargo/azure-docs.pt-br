@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -31,7 +31,7 @@ Na definição do JSON para a atividade de HDInsight:
 1. Defina o **tipo** da **atividade** como **HDInsightActivity**.
 3. Especifique o nome da classe para a propriedade **className**.
 4. Especifique o caminho para o arquivo JAR, incluindo o nome do arquivo para a propriedade **jarFilePath**.
-5. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService**.   
+5. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService**.
 6. Especifique todos os argumentos para o programa MapReduce na seção **arguments**. Em tempo de execução, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) do framework MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores).
 
 		{
@@ -215,8 +215,8 @@ Você pode usar a atividade MapReduce para executar programas Spark no cluster H
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[adfgetstartedmonitoring]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -228,4 +228,4 @@ Você pode usar a atividade MapReduce para executar programas Spark no cluster H
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

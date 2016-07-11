@@ -19,7 +19,7 @@
 
 # Conectar máquinas virtuais Linux criadas com o modelo clássico de implantação com um serviço de nuvem ou de rede virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 As máquinas virtuais Linux criadas com o modelo de implantação clássico sempre são colocadas em um serviço de nuvem. O serviço de nuvem funciona como um contêiner e fornece um nome DNS público exclusivo, um endereço IP público e um conjunto de pontos de extremidade para acessar a máquina virtual pela Internet. O serviço de nuvem pode estar em uma rede virtual, mas isso não é um requisito. Você também pode [Conectar máquinas virtuais do Windows a uma rede virtual ou serviço de nuvem](virtual-machines-windows-classic-connect-vms.md).
 
@@ -33,4 +33,4 @@ Ao colocar as máquinas virtuais no mesmo serviço de nuvem autônomo, você ain
 
 Após criar uma máquina virtual, é uma boa ideia [adicionar um disco de dados](virtual-machines-linux-classic-attach-disk.md) para que seus serviços e cargas de trabalho tenham um local para armazenar dados.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

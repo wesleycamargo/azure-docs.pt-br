@@ -20,7 +20,7 @@
 
 # Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Este artigo mostra como instalar e configurar o Trend Micro Deep Security as a Service em uma VM (máquina virtual) nova ou existente com o Windows Server em execução. O Deep Security as a Service inclui proteção anti-malware, firewall, sistema de prevenção de intrusões e monitoramento de integridade.
 
@@ -50,7 +50,7 @@ Para isso, você precisará do seguinte:
 
 - O agente de VM instalado na máquina virtual de destino.
 
-Primeiramente, verifique se que o agente de VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos em um prompt de comando do Azure PowerShell com nível de administrador. Substitua tudo entre aspas, incluindo os caracteres < and >.
+Primeiramente, verifique se que o agente de VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos em um prompt de comando do Azure PowerShell com nível de administrador. Substitua tudo entre aspas, incluindo os caracteres < e >.
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
@@ -86,4 +86,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 [Como fazer logon em uma máquina virtual executando o Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

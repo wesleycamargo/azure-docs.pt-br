@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -279,8 +279,8 @@ Observação: em sistemas operacionais diferentes do Windows, as configurações
 
 Independentemente do sistema operacional usado, você tem as duas opções de **Implantação de nuvem** a seguir para a origem e o tipo do pacote JDK:
 
-* **Implantar um pacote JDK de terceiros disponível no Azure** 
-* **Implantar de um download personalizado** 
+* **Implantar um pacote JDK de terceiros disponível no Azure**
+* **Implantar de um download personalizado**
 
 Se você estiver usando a opção **Implantar um pacote JDK de terceiros disponível no Azure**:
 
@@ -323,7 +323,7 @@ Se você estiver usando a opção **Implantar um servidor de terceiros disponív
 Se usar a opção **Implantar de um download personalizado**:
 
 1. Certifique-se de que você já selecionou um tipo de servidor, de acordo com as etapas anteriores. Isso informa ao plug-in como implantar o servidor a partir de seu download personalizado, pois ele deve ser da mesma família que o tipo de servidor selecionado.
-1. Marque a caixa de seleção **Implantar de um download personalizado**. Se você quiser baixar de sua conta de armazenamento do Azure, escolha a conta de armazenamento na lista suspensa **Conta de armazenamento** (clique no link **Contas** para modificar o conteúdo da lista) e isso preencherá parcialmente o campo **URL**. Em seguida, preencha o restante da URL até o ZIP baixado de seu servidor (ao usar o armazenamento do Azure, os nomes de blob na URL deverão estar em letra minúscula). Se você não quiser usar o armazenamento do Azure, selecione **(nenhum)** na lista suspensa **Conta de armazenamento** e digite a URL até o ZIP baixado de seu servidor no campo **URL**. O ZIP contém uma pasta filho que representa o diretório de instalação do servidor de aplicativo. Por exemplo, se você estiver usando um zip para o Apache Tomcat 7.0.35, o conteúdo do zip seria a pasta filho que representa o diretório de instalação, por exemplo, **apache-tomcat-7.0.35**. 
+1. Marque a caixa de seleção **Implantar de um download personalizado**. Se você quiser baixar de sua conta de armazenamento do Azure, escolha a conta de armazenamento na lista suspensa **Conta de armazenamento** (clique no link **Contas** para modificar o conteúdo da lista) e isso preencherá parcialmente o campo **URL**. Em seguida, preencha o restante da URL até o ZIP baixado de seu servidor (ao usar o armazenamento do Azure, os nomes de blob na URL deverão estar em letra minúscula). Se você não quiser usar o armazenamento do Azure, selecione **(nenhum)** na lista suspensa **Conta de armazenamento** e digite a URL até o ZIP baixado de seu servidor no campo **URL**. O ZIP contém uma pasta filho que representa o diretório de instalação do servidor de aplicativo. Por exemplo, se você estiver usando um zip para o Apache Tomcat 7.0.35, o conteúdo do zip seria a pasta filho que representa o diretório de instalação, por exemplo, **apache-tomcat-7.0.35**.
 1. Especifique o valor para a variável de ambiente do diretório base. Ele assumirá o padrão como o valor usado para o servidor de aplicativo local, se houver algum, mas você pode especificar um valor diferente se o servidor de aplicativos de nuvem for diferente do seu servidor de aplicativo local. No entanto, você precisa se certificar de que o servidor de aplicativos de nuvem seja da mesma família que o tipo de servidor selecionado anteriormente. Se você atualizar posteriormente o zip de seu servidor de aplicativos de nuvem, altere manualmente a configuração do diretório base ou, fazer com que ele corresponda novamente à configuração local (se você também alterou seu servidor de aplicativo local).
 1. Clique em **OK** para salvar as alterações.
 
@@ -439,4 +439,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

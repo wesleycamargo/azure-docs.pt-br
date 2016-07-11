@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Configurar um cluster de RDMA do Linux para executar aplicativos MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Saiba como configurar um cluster de RDMA do Linux no Azure com [máquinas virtuais de tamanho A8 e A9](virtual-machines-linux-a8-a9-a10-a11-specs.md) para executar aplicativos MPI (Message Passing Interface) paralelamente. Quando você configura um cluster de VMs do tamanho A8 e A9 para executar uma distribuição Linux HPC com suporte e uma implementação MPI com suporte, os aplicativos MPI se comunicam de forma eficiente em uma rede de alta taxa de transferência e de baixa latência no Azure que é baseada na tecnologia RDMA (Acesso Remoto Direto à Memória).
@@ -101,7 +101,7 @@ Depois que a VM concluir o provisionamento, faça SSH na VM usando o endereço I
 
 >[AZURE.IMPORTANT]O Microsoft Azure não oferece acesso à raiz para VMs do Linux. Para obter acesso administrativo quando estiver conectado como um usuário à VM, execute comandos usando `sudo`.
 
-* **Atualizações**: instale atualizações usando o **zypper**. Talvez você também queira instalar utilitários NFS.  
+* **Atualizações**: instale atualizações usando o **zypper**. Talvez você também queira instalar utilitários NFS.
 
     >[AZURE.IMPORTANT]Se você tiver implantado uma VM HPC SLES 12, neste momento, é recomendável que você não aplique as atualizações de kernel, que podem causar problemas com os drivers de RDMA do Linux.
     >
@@ -127,7 +127,7 @@ Depois que a VM concluir o provisionamento, faça SSH na VM usando o endereço I
 
         <User or group name> soft    memlock <memory required for your application in KB>
 
-    >[AZURE.NOTE]Para fins de teste, também é possível definir memlock como ilimitado. Por exemplo: 'memlock rígido ilimitado do <User or group name>.
+    >[AZURE.NOTE]Para fins de teste, também é possível definir memlock como ilimitado. Por exemplo: `Bloqueio de memória física de <Nome do usuário ou do grupo> ilimitado.
 
 * **Chaves SSH para VMs SLES 12** - gere chaves SSH para estabelecer confiança para sua conta de usuário entre todos os nós de computação no cluster HPC do SLES 12 ao executar trabalhos MPI. (Se você tiver implantado uma VM do HPC baseado em CentOS, não execute esta etapa. Veja as instruções posteriormente neste artigo para configurar a relação de confiança SSH sem senha entre os nós de cluster depois de capturar a imagem e implantar o cluster).
 
@@ -167,7 +167,7 @@ Para capturar a imagem, primeiramente execute o comando a seguir na VM do Linux.
 sudo waagent -deprovision
 ```
 
-Em seguida, no computador cliente, execute os seguintes comandos da CLI do Azure para capturar a imagem. Veja [Como capturar uma máquina virtual clássica do Linux como uma imagem](virtual-machines-linux-classic-capture-image.md) para obter detalhes.
+Em seguida, no computador cliente, execute os seguintes comandos da CLI do Azure para capturar a imagem. Consulte [Como capturar uma máquina virtual clássica do Linux como uma imagem](virtual-machines-linux-classic-capture-image.md) para obter detalhes.
 
 ```
 azure vm shutdown <vm-name>
@@ -219,7 +219,7 @@ done
 
 Se você tiver implantado um cluster usando uma imagem do HPC baseado em CentOS, há dois métodos para estabelecer a relação de confiança entre os nós de computação: autenticação baseada no usuário e autenticação baseada em host. A autenticação baseada em host está fora do escopo deste artigo e geralmente deve ser feita por meio de um script de extensão durante a implantação. A autenticação baseada em usuário é conveniente para estabelecer a relação de confiança após a implantação e requer a geração e o compartilhamento de chaves SSH entre os nós de computação no cluster. Isso é conhecido como logon SSH sem senha e é necessário na execução de trabalhos MPI.
 
-Um exemplo de script da comunidade está disponível no [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para habilitar a autenticação do usuário fácil em um cluster HPC baseado em CentOS. Você pode baixar e usar esse script usando as etapas a seguir. Você também pode modificar esse script ou usar qualquer outro método para estabelecer a autenticação SSH sem senha entre os nós de computação do cluster.
+Um exemplo de script da comunidade está disponível no [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para facilitar a autenticação do usuário em um cluster HPC baseado em CentOS. Você pode baixar e usar esse script usando as etapas a seguir. Você também pode modificar esse script ou usar qualquer outro método para estabelecer a autenticação SSH sem senha entre os nós de computação do cluster.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
     
@@ -234,9 +234,9 @@ Agora execute o script usando três parâmetros: o nome de usuário comum nos n�
 
 Esse script faz o seguinte:
 
-* Cria um diretório no nó do host chamado .ssh, que é necessário para o logon sem senha. 
-* Cria um arquivo de configuração no diretório .ssh, que instrui o logon sem senha a permitir o logon de qualquer nó no cluster. 
-* Cria arquivos com os nomes de nó e os endereços IP de nó para todos os nós no cluster. Esses arquivos são deixados após a execução do script para referência do usuário. 
+* Cria um diretório no nó do host chamado .ssh, que é necessário para o logon sem senha.
+* Cria um arquivo de configuração no diretório .ssh, que instrui o logon sem senha a permitir o logon de qualquer nó no cluster.
+* Cria arquivos com os nomes de nó e os endereços IP de nó para todos os nós no cluster. Esses arquivos são deixados após a execução do script para referência do usuário.
 * Cria um par de chaves pública e privada para cada nó de cluster, incluindo o nó de host e compartilha as informações sobre o par de chaves e cria uma entrada no arquivo authorized\_keys.
 
 >[AZURE.WARNING]A execução desse script pode criar um potencial risco de segurança. Certifique-se de que as informações da chave pública em ~/.ssh não sejam distribuídas.
@@ -396,6 +396,6 @@ Você verá uma saída semelhante à seguinte em um cluster ativo com dois nós.
 
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-BR/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-* Experimente um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para criar um cluster Intel Lustre usando uma imagem do HPC baseado em CentOS.
+* Experimente um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para criar um cluster Intel Lustre usando uma imagem HPC baseado em CentOS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

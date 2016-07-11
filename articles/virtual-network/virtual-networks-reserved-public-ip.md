@@ -20,24 +20,24 @@ Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os
 
 Para evitar que endereços IP sejam alterados, é possível reservar um endereço IP. Os IPs reservados podem ser usados apenas como um VIP, garantindo que o endereço IP do serviço de nuvem permaneça o mesmo, mesmo se os recursos forem desligados ou desalocados. Além disso, você pode converter IPs dinâmicos existentes usados como um VIP para um endereço IP reservado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
 ## Quando eu precisarei de um IP reservado?
-- **Você deseja garantir que o IP seja reservado em sua assinatura**. Se você quiser reservar um endereço IP que não será liberado da sua assinatura sob nenhuma circunstância, deverá usar um IP reservado público.  
+- **Você deseja garantir que o IP seja reservado em sua assinatura**. Se você quiser reservar um endereço IP que não será liberado da sua assinatura sob nenhuma circunstância, deverá usar um IP reservado público.
 - **Você deseja que o IP permaneça com seu serviço de nuvem, mesmo nos estados parados ou desalocados (VMs)**. Se você quiser que seu serviço seja acessado usando um endereço IP que não será alterado mesmo quando VMs do serviço de nuvem estejam paradas ou desalocadas.
 - **Você deseja garantir que o tráfego de saída do Azure use um endereço IP previsível**. Você pode ter seu firewall local configurado para permitir apenas o tráfego de endereços IP específicos. Ao reservar um IP, você conhecerá o endereço IP de origem e não terá de atualizar suas regras de firewall devido a uma alteração de IP.
 
 ## Perguntas frequentes
-1. Posso usar um IP reservado para todos os serviços do Azure?  
+1. Posso usar um IP reservado para todos os serviços do Azure?
   - Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
-1. Quantos IPs reservados eu posso ter?  
-  - Neste momento, todas as assinaturas do Azure estão autorizadas a usar 20 IPs reservados. No entanto, você pode solicitar IPs reservados adicionais. Veja a página [Limites de assinatura e de serviço](../azure-subscription-service-limits/) para obter mais informações.
+1. Quantos IPs reservados eu posso ter?
+  - Neste momento, todas as assinaturas do Azure estão autorizadas a usar 20 IPs reservados. No entanto, você pode solicitar IPs reservados adicionais. Veja a página [Limites de assinatura e de serviço](../azure-subscription-service-limits.md) para obter mais informações.
 1. Há uma cobrança para IPs reservados?
   - Veja [Detalhes sobre preços de endereços IP reservados](http://go.microsoft.com/fwlink/?LinkID=398482) para obter informações sobre preços.
 1. Como eu reservo um endereço IP?
-  - É possível usar o PowerShell ou a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) para reservar um endereço IP reservado em uma região específica. Esse endereço IP reservado é associado à sua assinatura. Não é possível reservar um endereço IP usando o Portal de Gerenciamento.
+  - É possível usar o PowerShell ou a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) para reservar um endereço IP em uma região específica. Esse endereço IP reservado é associado à sua assinatura. Não é possível reservar um endereço IP usando o Portal de Gerenciamento.
 1. Posso usar isso com redes virtuais baseadas em grupos de afinidade?
   - Os IPs reservados têm suporte apenas em redes virtuais regionais. Eles não têm suporte para redes virtuais associadas a grupos de afinidade. Para obter mais informações sobre a associação de uma rede virtual a uma região ou a um grupo de afinidade, veja [Sobre redes virtuais regionais e grupos de afinidade](virtual-networks-migrate-to-regional-vnet.md).
 
@@ -70,7 +70,7 @@ Depois que um IP for reservado, ele permanecerá associado à sua assinatura at�
 
 ## Como reservar o endereço IP de um serviço de nuvem existente
 
-É possível reservar o endereço IP de um serviço de nuvem existente, adicionando o parâmetro *-ServiceName*. Para reservar o endereço IP de um serviço de nuvem *TestService* no local *EUA Central*, execute o seguinte comando do PowerShell:
+É possível reservar o endereço IP de um serviço de nuvem existente adicionando o parâmetro *-ServiceName*. Para reservar o endereço IP de um serviço de nuvem *TestService* no local *EUA Central*, execute o seguinte comando do PowerShell:
 
 	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
 
@@ -84,7 +84,7 @@ O script a seguir cria um novo IP reservado e o associa a um novo serviço de nu
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 
->[AZURE.NOTE] Quando você cria um IP reservado a ser usado com um serviço de nuvem, você ainda precisará fazer referência à VM usando *VIP:&lt;número de porta>* para comunicação de entrada. Reservar um IP não significa que você pode conectar-se à VM diretamente. O IP reservado é atribuído ao serviço de nuvem no qual a VM foi implantada. Se você quiser se conectar diretamente a uma VM por IP, precisará configurar um IP público em nível de instância. Um IP público em nível de instância é um tipo de IP público (chamado de ILPIP) atribuído diretamente à sua VM. Ele não pode ser reservado. Veja [IP Público em Nível de Instância (ILPIP)](../virtual-networks-instance-level-public-ip) para obter mais informações.
+>[AZURE.NOTE] Quando você cria um IP reservado a ser usado com um serviço de nuvem, você ainda precisará fazer referência à VM usando *VIP:&lt;número de porta>* para comunicação de entrada. Reservar um IP não significa que você pode conectar-se à VM diretamente. O IP reservado é atribuído ao serviço de nuvem no qual a VM foi implantada. Se você quiser se conectar diretamente a uma VM por IP, precisará configurar um IP público em nível de instância. Um IP público em nível de instância é um tipo de IP público (chamado de ILPIP) atribuído diretamente à sua VM. Ele não pode ser reservado. Veja [IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip.md) para obter mais informações.
 
 ## Como remover um IP reservado de uma implantação em execução
 Para remover o IP reservado adicionado ao novo serviço criado no script acima, execute o seguinte comando do PowerShell:
@@ -126,8 +126,8 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 - Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 
-- Saiba mais sobre [endereços IP privados reservados](../virtual-networks-reserved-private-ip).
+- Saiba mais sobre [endereços IP privados reservados](virtual-networks-reserved-private-ip.md).
 
-- Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](../virtual-networks-instance-level-public-ip).
+- Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](virtual-networks-instance-level-public-ip.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

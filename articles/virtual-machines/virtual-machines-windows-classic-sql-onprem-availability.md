@@ -31,7 +31,7 @@ Este tutorial pressupõe que você tenha o seguinte:
 
 - Conectividade entre a rede local e sua rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [Configurar um VPN site a site no portal clássico do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Assistente de adição de réplica do Azure
 
@@ -103,4 +103,4 @@ Além de usar o **Assistente de Adição de Réplica do Azure** para estender se
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

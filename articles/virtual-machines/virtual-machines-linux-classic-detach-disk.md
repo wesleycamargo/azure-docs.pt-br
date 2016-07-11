@@ -19,7 +19,7 @@
 
 # Como desanexar um disco de uma máquina virtual Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -30,4 +30,4 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
 - [Usando a CLI do Azure com o modelo de implantação Clássico](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

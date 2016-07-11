@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
@@ -69,16 +69,16 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 **Vídeo**:
  
-- Codec: H.264 
-- Perfil: Alto (nível 4.0) 
-- Taxa de bits: 5.000 kbps 
-- Quadro-chave: 2 segundos (60 segundos) 
+- Codec: H.264
+- Perfil: Alto (nível 4.0)
+- Taxa de bits: 5.000 kbps
+- Quadro-chave: 2 segundos (60 segundos)
 - Taxa de quadros: 30
  
 **Áudio**:
 
-- Codec: AAC (LC) 
-- Taxa de bits: 192 kbps 
+- Codec: AAC (LC)
+- Taxa de bits: 192 kbps
 - Taxa de amostragem: 44,1 kHz
 
 
@@ -88,9 +88,9 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 	A interface é uma página principal de configurações. Por favor, anote as seguintes configurações recomendadas para introdução à transmissão usando FMLE.
 	
-	- Formato: Taxa de quadros H. 264: 30,00 
-	- Tamanho de entrada: 1280x720 
-	- Taxa de bits: 5000 kbits/s (pode ser ajustada com base nas limitações de rede)  
+	- Formato: Taxa de quadros H. 264: 30,00
+	- Tamanho de entrada: 1280x720
+	- Taxa de bits: 5000 kbits/s (pode ser ajustada com base nas limitações de rede)
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
@@ -100,13 +100,13 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 	- Perfil: Principal
 	- Nível: 4.0
-	- Frequência de quadro-chave: 2 segundos 
+	- Frequência de quadro-chave: 2 segundos
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 
 3. Defina a configuração de áudio importante a seguir:
 	
-	- Formato: AAC 
+	- Formato: AAC
 	- Taxa de exemplo: 44100 kHz
 	- Taxa de bits: 192 Kbps
 	
@@ -131,7 +131,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 ##Reprodução de teste
   
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
@@ -141,18 +141,18 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 
 ##Criar um programa
 
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
 2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.
 3. Marque a caixa **Iniciar o Programa agora**.
-4. Clique em **Criar Programa**.  
+4. Clique em **Criar Programa**.
   
 	Observação: a criação do programa leva menos tempo do que a criação do canal.
  
 5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse no programa navegando até **Reproduzir o(s) programa(s)** e selecionando **com o Azure Media Player**.
-6. Depois de confirmar, clique com o botão direito do mouse no programa novamente e selecione **Copiar a URL de Saída na Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu). 
+6. Depois de confirmar, clique com o botão direito do mouse no programa novamente e selecione **Copiar a URL de Saída na Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.
 
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

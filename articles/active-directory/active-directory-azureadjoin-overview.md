@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Junção do Active Directory do Azure
@@ -36,7 +36,7 @@ Embora o ingresso no domínio tradicional ainda ofereça a melhor local experiê
 * **Instituições educacionais**: um dos cenários sobre os quais ouvimos falar com frequência é que as instituições de ensino têm dois tipos de usuários: professores e alunos. Os membros do corpo docente são considerados integrantes de longo prazo da organização. Portanto, é desejável criar contas locais para eles. Porém, os alunos são membros temporários da organização e, assim, podem ser gerenciados no Azure AD. Isso significa que a escala do diretório pode ser enviada para a nuvem em vez de ser armazenada localmente. Isso também significa que os alunos podem entrar no Windows com suas contas do Azure AD e obter acesso aos recursos do Office 365, no navegador ou em aplicativos do Office.
 
 * **Empresas de varejo**: outro cenário que os clientes mencionam é seu desejo de gerenciar funcionários sazonais mais facilmente. Novamente, as contas para funcionários em tempo integral de longo prazo geralmente são criadas como contas locais em computadores que ingressaram no domínio. Porém, os trabalhadores sazonais são membros de curto prazo da organização. Portanto, é desejável gerenciá-los onde as licenças de usuário possam ser mais facilmente movidas. A criação dessas contas de usuários na nuvem com licenças do Office 365 permite que os usuários tenham os benefícios de entrar em aplicativos do Office e no Windows com uma conta do Azure AD. Enquanto isso, você mantém mais flexibilidade com suas licenças depois que eles partem.
-* **Outras empresas**: embora você mantenha os usuários no Active Directory local, ainda poderia se beneficiar se os usuários ingressassem no Azure AD. Isso ocorre porque o Azure AD oferece uma experiência simplificada de ingresso, gerenciamento de dispositivos eficiente, registro de gerenciamento automático de dispositivos móveis e capacidade de logon único para o Azure AD e recursos locais.  
+* **Outras empresas**: embora você mantenha os usuários no Active Directory local, ainda poderia se beneficiar se os usuários ingressassem no Azure AD. Isso ocorre porque o Azure AD oferece uma experiência simplificada de ingresso, gerenciamento de dispositivos eficiente, registro de gerenciamento automático de dispositivos móveis e capacidade de logon único para o Azure AD e recursos locais.
 
 ## Quais recursos o Ingresso no Azure AD oferece?
 Com a Junção do Azure AD, você obtém o seguinte:
@@ -79,4 +79,4 @@ Com a Junção do Azure AD, você obtém o seguinte:
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

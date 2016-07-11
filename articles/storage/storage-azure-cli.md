@@ -1,6 +1,6 @@
 <properties
     pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure"
-    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada"
+    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada "
     services="storage"
     documentationCenter="na"
     authors="tamram"
@@ -25,7 +25,7 @@ Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CL
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
-> [AZURE.NOTE] O guia fornece os exemplos de comando e script da CLI do Azure em execução no modo ASM (Gerenciamento de Serviços do Azure). Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos de CLI do Azure para armazenamento no modo ARM (Modo de Gerenciamento de Recursos) do Azure.
+> [AZURE.NOTE] O guia fornece exemplos de comando e scripts da CLI do Azure para contas de armazenamento clássico. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos da CLI do Azure para contas de armazenamento do Resource Manager.
 
 ## Introdução ao Armazenamento do Azure e à CLI do Azure em 5 minutos
 
@@ -74,15 +74,15 @@ Consulte [Atribuindo funções de administrador no Azure Active Directory (Azure
 
 6. Agora, você precisa atualizar as variáveis de script com base nas suas configurações.
 
-    - **<storage_account_name>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
+    - **<storage\_account\_name>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
 
-    - **<storage_account_key>** A chave de acesso da conta de armazenamento.
+    - **<storage\_account\_key>** A chave de acesso da conta de armazenamento.
 
-    - **<container_name>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
+    - **<container\_name>** use o nome fornecido no script ou insira um novo nome para seu contêiner.
 
-    - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "~/images/HelloWorld.png".
+    - **<image\_to\_upload>** insira um caminho para uma imagem em seu computador local, como: "~/images/HelloWorld.png".
 
-    - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “~/downloadImages”.
+    - **<destination\_folder>** insira um caminho para um diretório local para armazenar os arquivos baixados do armazenamento do Azure, como: “~/downloadImages”.
 
 7. Depois de atualizar as variáveis necessárias no vim, pressione as combinações de teclas “Esc, : , wq!” para salvar o script.
 
@@ -129,7 +129,7 @@ Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você p
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Veja [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md) para obter mais informações.
+> [AZURE.NOTE] Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
 
 ### Carregar um blob em um contêiner
 
@@ -221,4 +221,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Referência técnica: acesso condicional a aplicativos do AD do Azure
@@ -55,13 +55,14 @@ As regras de acesso condicional que usam uma rede "No trabalho" dependem de inte
 
 Opções para especificar redes "no trabalho"
 
-1. Configurar intervalos de endereços IP na [página de configurações da autenticação multifator](../multi-factor-authentication/multi-factor-authentication-whats-next.md). A política de acesso condicional usará os intervalos configurados em cada solicitação de autenticação e emissão de token para avaliar as regras. 
+1. Configurar intervalos de endereços IP na [página de configurações da autenticação multifator](../multi-factor-authentication/multi-factor-authentication-whats-next.md). A política de acesso condicional usará os intervalos configurados em cada solicitação de autenticação e emissão de token para avaliar as regras.
 2. Configure o uso da declaração inside corpnet; essa opção pode ser usada com diretórios federados, usando o AD FS. [Saiba mais sobre as declarações inside coronet](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. Configure intervalos de endereços IP públicos. Na guia Configurar, para seu diretório, você pode definir os endereços IP públicos. O Acesso Condicional vai usá-los como endereços IP 'at work', permitindo que intervalos adicional sejam configurados, acima do limite de 50 endereços IP imposto pela página de configuração da MFA.
 
 
 
-## Regras por aplicativo
+## Regras com base na confidencialidade do aplicativo
+
 As regras são configuradas por aplicativo, permitindo que os serviços de alto valor sejam protegidos sem afetar o acesso a outros serviços. As regras de acesso condicional podem ser configuradas na guia **Configurar** do aplicativo.
 
 Regras oferecidas atualmente:
@@ -81,4 +82,4 @@ Regras oferecidas atualmente:
 - [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

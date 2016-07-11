@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>Como monitorar uma conta dos Serviços de Mídia
@@ -26,7 +26,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 ##<a id="configuremonitoring"></a>Como monitorar uma conta dos Serviços de Mídia
 
-1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel. 
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel.
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -62,7 +62,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 ##Fornecer comentários
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]Fluxo de Trabalho da Transmissão sob Demanda](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)] Fluxo de Trabalho da Transmissão sob Demanda](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +71,4 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

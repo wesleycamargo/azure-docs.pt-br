@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/14/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -119,10 +119,11 @@ Eis aqui algumas coisas que se deve manter em mente:
 ## Próximas etapas
 
 - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+- [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
 - [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 - [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 - [Introdução aos serviços de API da Web da Malha de Serviços](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

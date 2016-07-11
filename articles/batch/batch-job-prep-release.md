@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma" />
 
 # Executar tarefas de preparação e conclusão do trabalho em nós de computação em lotes do Azure
@@ -28,19 +28,19 @@ Nas seções a seguir, você descobrirá como usar esses dois tipos especiais de
 
 ## Quando usar tarefas de preparação e liberação do trabalho
 
-Uma série de situações se beneficiam de tarefas de preparação e liberação do trabalho. Veja abaixo algumas delas:
+Qualquer momento em que você precisar preparar nós com configurações ou dados específicos aos trabalhos (e limpar ou persistir dados de resultado da tarefa) é um bom momento para usar as tarefas de preparação e liberação de trabalho. São exemplos de tais situações:
 
 **Transferência de dados de tarefas comuns**
 
-Os trabalhos do Lote geralmente exigem um conjunto comum de dados como entrada para as tarefas do trabalho. Por exemplo, em cálculos diários de análise de riscos, os dados de mercado são específico do trabalho, porém, comuns a todas as tarefas no trabalho. Esses dados de mercado, geralmente com vários gigabytes, devem ser baixados para cada nó de computação apenas uma vez, para que qualquer tarefa que seja executada em um nó possa usá-los. Use uma *tarefa de preparação de trabalho* para baixar os dados para cada nó antes da execução de outras tarefas do trabalho.
+Os trabalhos do Lote geralmente exigem um conjunto comum de dados como entrada para as tarefas do trabalho. Por exemplo, em cálculos diários de análise de riscos, os dados de mercado são específico do trabalho, porém, comuns a todas as tarefas no trabalho. Esses dados de mercado, geralmente com vários gigabytes, devem ser baixados para cada nó de computação apenas uma vez, para que qualquer tarefa que seja executada em um nó possa usá-los. Use uma **tarefa de preparação de trabalho** para baixar os dados para cada nó antes da execução de outras tarefas do trabalho.
 
 **Exclusão de dados do trabalho**
 
-Em um ambiente de pool compartilhado no qual os nós de computação de um pool não são encerrados entre os trabalhos, pode ser necessário excluir os dados do trabalho entre as execuções a fim de conservar espaço em disco nos nós ou atender às políticas de segurança de uma organização. Use uma *tarefa de liberação de trabalho* para excluir dados baixados por uma tarefa de preparação de trabalho ou gerados durante a execução da tarefa.
+Em um ambiente de pool compartilhado no qual os nós de computação de um pool não são encerrados entre os trabalhos, você pode precisar excluir os dados do trabalho entre as execuções a fim de conservar espaço em disco nos nós ou atender às políticas de segurança de sua organização. Use uma **tarefa de liberação de trabalho** para excluir dados baixados por uma tarefa de preparação de trabalho ou gerados durante a execução da tarefa.
 
 **Retenção de log**
 
-Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez arquivos de despejo de memória que podem ser gerados pelos aplicativos que falharam. Use uma *tarefa de liberação de trabalho* nesses casos para compactar e carregar esses dados para uma conta de [Armazenamento do Azure][azure_storage].
+Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez arquivos de despejo de memória que podem ser gerados pelos aplicativos que falharam. Use uma **tarefa de liberação de trabalho** nesses casos para compactar e carregar esses dados para uma conta de [Armazenamento do Azure][azure_storage].
 
 ## Tarefa de preparação de trabalho
 
@@ -56,7 +56,7 @@ Quando um trabalho é marcado como concluído, a tarefa de liberação do trabal
 
 > [AZURE.NOTE] A exclusão do trabalho também executa a tarefa de liberação do trabalho. No entanto, se um trabalho já tiver sido encerrado, a tarefa de liberação não será executada uma segunda vez quando o trabalho for excluído posteriormente.
 
-## Tarefas de preparação e liberação de trabalho na API .NET do Lote
+## Tarefas de preparação e liberação de trabalho com o Lote .NET
 
 Para usar uma tarefa de preparação de trabalho, crie e configure um objeto [JobPreparationTask][net_job_prep] e atribua-o à propriedade [CloudJob.JobPreparationTask][net_job_prep_cloudjob] do seu trabalho. Da mesma forma, inicialize uma [JobReleaseTask][net_job_release] e atribua-a à propriedade [CloudJob.JobReleaseTask][net_job_prep_cloudjob] do seu trabalho para definir a tarefa de liberação do trabalho.
 
@@ -85,9 +85,7 @@ Conforme mencionado acima, a tarefa de liberação é executada quando um trabal
 		// thus you need not call Terminate if you typically delete your jobs upon task completion.
 		await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
-## Próximas etapas
-
-### Projeto de exemplo no GitHub
+## Exemplo de código no GitHub
 
 Confira o projeto de exemplo de [JobPrepRelease][job_prep_release_sample] no GitHub para verificar as tarefas de preparação e liberação do trabalho em ação. Esse aplicativo de console faz o seguinte:
 
@@ -104,64 +102,74 @@ A saída do aplicativo de exemplo é semelhante ao seguinte:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-The pool already existed when we tried to create it
+Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
 All tasks completed.
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_1-20151015t150030z:
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_1-20160623t173951z:
 -------------------------------------------
-tvm-3105992504_1-20151015t150030z tasks:
+tvm-2434664350_1-20160623t173951z tasks:
   task001
-  task002
+  task004
+  task005
   task006
+
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_2-20160623t173951z:
+-------------------------------------------
+tvm-2434664350_2-20160623t173951z tasks:
+  task008
+  task002
+  task003
   task007
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_2-20151015t150030z:
--------------------------------------------
-tvm-3105992504_2-20151015t150030z tasks:
-  task003
-  task005
-  task004
-  task008
-
 Waiting for job JobPrepReleaseSampleJob to reach state Completed
-....
+...
 
-tvm-3105992504_1-20151015t150030z:
+tvm-2434664350_1-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
-tvm-3105992504_2-20151015t150030z:
+tvm-2434664350_2-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
 Delete job? [yes] no
 yes
 Delete pool? [yes] no
-no
+yes
 
 Sample complete, hit ENTER to exit...
 ```
 
-### Inspecionar as tarefas de preparação e liberação do trabalho com o Gerenciador do Lote
+>[AZURE.NOTE] Devido ao tempo variável de criação e início dos nós em um novo pool (alguns nós ficam prontos para tarefas antes de outros), você pode ver uma saída diferente. Especificamente, como as tarefas são concluídas rapidamente, um dos nós do pool pode executar todas as tarefas do trabalho. Se isso ocorrer, você observará que as tarefas de preparação e liberação do trabalho não existem para o nó que não executou nenhuma tarefa.
 
-O [Gerenciador do Lote do Azure][batch_explorer_article], que também é encontrado no [repositório de códigos de exemplo][batch_explorer_project] do Lote no GitHub, é uma excelente ferramenta a ser usada no desenvolvimento de soluções com o Lote do Azure. Por exemplo, quando estiver executando o aplicativo de exemplo acima, você pode usar o Gerenciador do Lote para exibir as propriedades do trabalho e suas tarefas, ou até mesmo baixar o arquivo de texto compartilhado que é modificado pelas tarefas do trabalho.
+### Inspecionar as tarefas de preparação e liberação do trabalho no Portal do Azure
 
-A captura de tela abaixo destaca as propriedades das tarefas de preparação e liberação de trabalho que aparecem no painel **Detalhes do Trabalho** quando você seleciona o trabalho *JobPrepReleaseSampleJob* na guia **Trabalhos**.
+Quando estiver executando o aplicativo de exemplo acima, você pode usar o [portal do Azure][portal] para exibir as propriedades do trabalho e suas tarefas, ou até mesmo baixar o arquivo de texto compartilhado que é modificado pelas tarefas do trabalho.
 
-![Gerenciador do Lote][1]
+A captura de tela abaixo mostra a **Folha de tarefas de preparação** no portal do Azure após uma execução do aplicativo de exemplo. Navegue até as propriedades *JobPrepReleaseSampleJob* após a conclusão das tarefas (mas antes de excluir seu trabalho e pool) e clique em **Tarefas de preparação** ou **Tarefas de liberação** para exibir suas propriedades.
 
-*Captura de tela do Gerenciador do Lote mostrando tarefas de preparação e liberação do trabalho*
+![Propriedades de preparação de trabalho no portal do Azure][1]
+
+## Próximas etapas
+
+### Pacotes de aplicativos
+
+Além da tarefa de preparação de trabalho, você também pode usar o recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote para preparar nós de computação para execução da tarefa. Esse recurso é especialmente útil para implantação de aplicativos que não exigem a execução de um instalados, aplicativos que contêm muitos arquivos (mais de 100) ou aplicativos que exigem um controle de versão estrito.
+
+### Instalação de aplicativos e o preparo de dados
+
+Confira a postagem [Installing applications and staging data on Batch compute nodes (Instalação de aplicativos e o preparo de dados em nós de computação do Batch)][forum_post] postagem no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparo de seus nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, esta postagem traz uma bos descrição geral das diferentes maneiras de levar os arquivos (incluindo dados de entrada de tarefas e aplicativos) aos seus nós de computação, bem como e algumas considerações especiais para levar em conta com relação a cada método.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_explorer_article]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
+[forum_post]: https://social.msdn.microsoft.com/Forums/pt-BR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
@@ -184,6 +192,6 @@ A captura de tela abaixo destaca as propriedades das tarefas de preparação e l
 [net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
-[1]: ./media/batch-job-prep-release/batchexplorer-01.png
+[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

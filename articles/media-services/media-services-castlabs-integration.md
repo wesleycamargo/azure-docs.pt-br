@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -37,10 +37,10 @@ O diagrama a seguir demonstra uma arquitetura de integração de alto nível dos
 
 - O conteúdo de mídia é armazenado em AMS.
 - As IDs de chave de chaves de conteúdo são armazenados em castLabs e AMS.
-- O castLabs e o AMS têm autenticação de token interna. As seções a seguir discutem os tokens de autenticação. 
+- O castLabs e o AMS têm autenticação de token interna. As seções a seguir discutem os tokens de autenticação.
 - Quando um cliente solicita o fluxo do vídeo, o conteúdo é criptografado dinamicamente com **Criptografia comum** (CENC) e dinamicamente fornecido pelo AMS para DASH e Smooth Streaming. Também fornecemos criptografia de fluxo elementar PlayReady M2TS para protocolo de streaming do HLS.
-- A licença do PlayReady é recuperada do servidor de licença do AMS e a licença Widevine é recuperada do servidor de licenças castLabs. 
-- O Media Player decide automaticamente quais licenças buscar com base na capacidade de plataforma do cliente. 
+- A licença do PlayReady é recuperada do servidor de licença do AMS e a licença Widevine é recuperada do servidor de licenças castLabs.
+- O Media Player decide automaticamente quais licenças buscar com base na capacidade de plataforma do cliente.
 
 ##Geração de token de autenticação para obter uma licença
 
@@ -107,7 +107,7 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou W
 3.	Cole na URL de streaming.
 4.	Clique na caixa de seleção **Opções avançadas**.
 5.	Selecione PlayReady e/ou Widevine na lista suspensa **Proteção**.
-6.	Cole o token que você obteve no seu STS na caixa de texto do token. 
+6.	Cole o token que você obteve no seu STS na caixa de texto do token.
 	
 	O servidor de licença do castLab não precisa do prefixo "Portador =" na frente do token. Nesse caso, remova-o antes de enviar o token.
 7.	Atualize o player.
@@ -122,4 +122,4 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou W
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

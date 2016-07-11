@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
+Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você aprenderá a adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
 
 Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
 
@@ -32,13 +32,13 @@ Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve p
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com o projetos de aplicativo da UWP configurado como projeto de inicialização, implante e execute o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com o projeto de aplicativo da UWP configurado como projeto de inicialização, implante e execute o aplicativo; verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-1. No arquivo de projeto de aplicativo da UWP MainPage.cs e adicione o seguinte trecho de código à classe MainPage:
+1. No arquivo de projeto de aplicativo da UWP MainPage.cs, adicione o seguinte trecho de código à classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -73,7 +73,7 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 
     Esse código autentica o usuário com um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
 
-3. Comente ou exclua a chamada para o método **ButtonRefresh\_Click** (ou o método **InitLocalStoreAsync**) na **substituição do método OnNavigatedTo** existente. Isso evita que os dados sejam carregados antes que o usuário seja autenticado. Em seguida, você adicionará um botão **Entrar** ao aplicativo que dispara a autenticação.
+3. Comente ou exclua a chamada para o método **ButtonRefresh\_Click** (ou o método **InitLocalStoreAsync**) na substituição do método **OnNavigatedTo** existente. Isso evita que os dados sejam carregados antes que o usuário seja autenticado. Em seguida, você adicionará um botão **Entrar** ao aplicativo que dispara a autenticação.
 
 4. Adicione o seguinte snippet de código para a classe MainPage:
 
@@ -107,7 +107,7 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
             </StackPanel>
         </Button>
 
-9. Pressione a tecla F5 para executar o aplicativo, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. Depois que o seu logon for bem-sucedido, o aplicativo será executado sem erros, e você será capaz de consultar o seu back-end e fazer atualizações nos dados.
+9. Pressione a tecla F5 para executar o aplicativo, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. Depois que o seu logon for bem-sucedido, o aplicativo será executado sem erros, e você poderá consultar o seu back-end e fazer atualizações nos dados.
 
 
 ##<a name="tokens"></a>Armazenar o token de autenticação no cliente
@@ -122,12 +122,12 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
-+ [Adicionar notificações por push ao seu aplicativo Windows](app-service-mobile-windows-store-dotnet-get-started-push.md) Saiba como adicionar suporte a notificações por push para seu aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
++ [Adicionar notificação por push para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md) Saiba como adicionar suporte a notificações por push para seu aplicativo e configurar seu back-end do aplicativo móvel para usar os Hubs de notificação do Azure para enviar notificações por push.
 
-+ [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
++ [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

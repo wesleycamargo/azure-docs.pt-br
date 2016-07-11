@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson
@@ -202,4 +202,4 @@ Em seguida, o Hudson criará um nó subordinado usando o modelo criado na seçã
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

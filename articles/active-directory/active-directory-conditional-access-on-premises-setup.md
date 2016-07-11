@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -156,7 +156,7 @@ Isso é uma operação única que você deve executar para preparar a floresta d
 
 1. No servidor de federação, abra o console de gerenciamento do AD FS e navegue até **AD FS** > **Políticas de Autenticação**.
 2. Selecione **Editar Autenticação Primária Global...** no painel **Ações**.
-3. Marque **Habilitar a autenticação de dispositivo** e selecione **OK**.
+3. Marque **Habilitar a autenticação de dispositivo** e selecione**OK**.
 4. Por padrão, o AD FS removerá periodicamente dispositivos não utilizados do Active Directory. Você deve desabilitar essa tarefa ao usar o registro de dispositivos do Active Directory do Azure para que os dispositivos possam ser gerenciados no Azure.
 
 
@@ -238,7 +238,7 @@ Você deve registrar seu dispositivo antes de poder acessar este aplicativo.
 Adicione o dispositivo iOS à área de trabalho.
 
 
-**Se você estiver usando um dispositivo Windows 8.1**, pode adicionar seu dispositivo acessando **Configurações do PC**> **Rede** > **Local de Trabalho**.
+**Se você estiver usando um dispositivo Windows 8.1**, pode adicionar seu dispositivo acessando **Configurações do PC**> **Rede ** >**Local de Trabalho**.
 
 
 Em que "**nome de confiança de terceira parte confiável**" é o nome do objeto de confiança de terceira parte confiável do seu aplicativo no AD FS. Em que **seudomínio.com** é o nome de domínio que você configurou com o Active Directory do Azure. Por exemplo, contoso.com. Não deixe de remover qualquer quebra de linha (se houver) do conteúdo html que você passa para o cmdlet **Set-AdfsRelyingPartyWebContent**.
@@ -252,4 +252,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

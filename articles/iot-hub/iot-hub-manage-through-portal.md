@@ -122,17 +122,17 @@ Clique nas políticas do **Sistema de Mensagens** para exibir uma lista de propr
 
 ## Upload de arquivos
 
-Para usar a funcionalidade de upload de arquivo do Hub IoT, primeiro você deve associar uma conta de Armazenamento do Azure ao hub. Selecione as configurações de **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.
+Para usar o recurso de upload de arquivo do Hub IoT, primeiro você deve associar uma conta de Armazenamento do Azure ao hub. Selecione as configurações de **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.
 
-**Conta de armazenamento**: use o portal para selecionar uma conta de armazenamento na sua assinatura atual para ser associada ao seu Hub IoT. O Hub IoT gerará URIs de SAS nessa conta de armazenamento para os dispositivos a serem usados ao carregar arquivos.
+**Contêiner de armazenamento**: use o portal para selecionar um contêiner de blob em uma conta de armazenamento na sua assinatura atual para ser associado ao seu Hub IoT. Se necessário, você pode criar uma nova conta de armazenamento na folha **Contas de armazenamento** e um novo contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
 ![][14]
 
-**Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de alternância.
+**Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de um botão de opção.
 
 **TTL de SAS**: essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Definido como uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
-**TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de expirar. Definido como um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+**TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de sua expiração. Definido como um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
 **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tentará entregar uma notificação de upload de arquivo. Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
 
@@ -173,4 +173,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

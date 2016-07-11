@@ -32,7 +32,7 @@ Recurso| Descrição| O que é coberto
 [Alerta de fraude](#fraud-alert)|O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos.|Como instalar, configurar e relatar fraude
 [Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator.|Como instalar e configurar um desvio único
 [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |Como instalar e configurar as mensagens e saudações personalizadas
-[Cache](#caching)|O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |Como instalar e configurar o cache de autenticação.
+[Cache](#caching-in-azure-multi-factor-authentication)|O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |Como instalar e configurar o cache de autenticação.
 [IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator	
 [Senhas de aplicativo](#app-passwords)|As senhas de aplicativo permitem que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando.|Informações sobre senhas de aplicativo.
 [Lembrar o Multi-Factor Authentication para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
@@ -50,7 +50,7 @@ O alerta de fraude pode ser instalado e configurado para que os usuários possam
 3.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Configurações na seção Configurar.
 4.	Na seção Alerta de Fraude da página Configurações, maque a caixa de seleção Permitir que os usuários enviem alertas de fraudes.
 5.	Se você quiser que os usuários sejam bloqueados quando a fraude for relatada, marque Bloquear usuário quando fraude for relatada.
-6.	Na caixa de texto **Código para relatar fraude durante a saudação inicial**, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código mais #, em vez de apenas o sinal #, um alerta de fraude será relatado. 
+6.	Na caixa de texto **Código para relatar fraude durante a saudação inicial**, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código mais #, em vez de apenas o sinal #, um alerta de fraude será relatado.
 7.	Na parte inferior, clique em Salvar.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ O alerta de fraude pode ser informado de duas maneiras. Seja por meio do aplicat
 
 
 1. Quando uma verificação é enviada ao seu telefone, clique nele e iniciará o aplicativo Azure Authenticator.
-2. Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando que a equipe de Suporte de TI de suas organizações será notificada. 
+2. Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando que a equipe de Suporte de TI de suas organizações será notificada.
 3. Clique em Relatar fraude.
 4. No aplicativo, clique em Fechar.
 
@@ -194,7 +194,7 @@ Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator �
 5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
 6. Na página Configurações do Serviço, em IPs Confiáveis, selecione:
 
-	- Para solicitações de usuários federados provenientes da minha intranet – todos os usuários federados que estiverem entrando pela rede corporativa ignorarão a autenticação multifator usando uma declaração emitida pelo AD FS. 
+	- Para solicitações de usuários federados provenientes da minha intranet – todos os usuários federados que estiverem entrando pela rede corporativa ignorarão a autenticação multifator usando uma declaração emitida pelo AD FS.
 	- Para solicitações de um intervalo específico de IPs públicos – insira os endereços IP nas caixas fornecidas usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP no intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até 50 intervalos de endereços IP.
 
 7. Clique em Salvar.
@@ -321,7 +321,7 @@ Além disso, eles também podem criar senhas de aplicativo posteriormente altera
 
 ### Para criar senhas de aplicativo se você não tiver uma assinatura do Office 365 ou do Azure
 --------------------------------------------------------------------------------
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Na parte superior, selecione Perfil.
 3. Clique no nome de usuário e selecione Verificação de Segurança Adicional.
 5. Na parte superior da página de prova, selecione as senhas de aplicativo
@@ -376,4 +376,4 @@ Método|Descrição
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

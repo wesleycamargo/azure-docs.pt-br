@@ -58,7 +58,7 @@ Nosso objetivo é que isso resulte em uma experiência de desenvolvimento e gere
 No serviço do Azure AD original, um aplicativo pode se comportar como um **recurso** ou um destinatário de tokens. Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos. Considere a Graph API do AD do Azure como um exemplo de um recurso:
 
 - Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
-- Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
+- Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
 
 Tudo isso se aplica para o ponto de extremidade v2.0. Um aplicativo ainda pode se comportar como recurso, definir escopos e ser identificado por um URI. Aplicativos cliente ainda podem solicitar acesso a esses escopos. No entanto, a maneira na qual um cliente solicita essas permissões foi alterada. No passado, uma solicitação de autorização de OAuth 2.0 ao AD do Azure teria esta aparência:
 
@@ -72,7 +72,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 onde o parâmetro **resource** indicava o recurso para o qual o aplicativo cliente estava solicitando a autorização. O AD do Azure computava as permissões exigidas pelo aplicativo com base na configuração estática no Portal do Azure e emitia os tokens de acordo. Agora, a mesma solicitação de autorização de OAuth 2.0 se parece com o seguinte:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -94,7 +94,7 @@ As permissões que um aplicativo precisava foram configuradas **estaticamente**.
 Com o ponto de extremidade v2.0, é possível especificar **dinamicamente** as permissões que o aplicativo precisa, no tempo de execução, durante o uso normal do aplicativo. Para fazer isso, é possível especificar os escopos que o aplicativo precisa em qualquer ponto no tempo incluindo-os no parâmetro `scope` de uma solicitação de autorização:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -132,4 +132,4 @@ Para saber mais sobre as declarações específicas emitidas em tokens da v2.0, 
 ## Limitações
 Há algumas restrições que merecem atenção ao usar o ponto v2.0. Consulte o [documento de limitações da v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -79,7 +79,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
   Se a consulta tiver um parâmetro, uma maneira de criar um nome de consulta exclusivo é incorporar o valor do parâmetro. Por exemplo, se você estiver filtrando userid, o nome da consulta pode ser da seguinte maneira (em C#):
 
 		await todoTable.PullAsync("todoItems" + userid, 
-			syncTable.Where(u => u.UserId = userid));
+			syncTable.Where(u => u.UserId == userid));
 
   Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `PullAsync`, que é potencialmente ineficiente.
 
@@ -104,4 +104,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Habilitar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

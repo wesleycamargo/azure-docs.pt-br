@@ -19,7 +19,7 @@
 
 # Cluster MariaDB (MySQL) - tutorial do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 > [AZURE.NOTE]  O cluster MariaDB Enterprise agora está disponível no Azure Marketplace. A nova oferta implantará automaticamente um cluster MariaDB Galera em ARM. Você deve usar a nova oferta de https://azure.microsoft.com/pt-BR/marketplace/partners/mariadb/cluster-maxscale/
 
@@ -374,4 +374,4 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 [problema #1268 na CLI do Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [outra maneira de clusterizar o MySQL no Linux]: virtual-machines-linux-mysql-cluster.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

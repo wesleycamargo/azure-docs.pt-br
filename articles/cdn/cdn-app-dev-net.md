@@ -24,61 +24,7 @@ Você precisará do Visual Studio 2015 para concluir este tutorial. O [Visual St
 
 Um exemplo completo deste tutorial pode ser encontrado [aqui](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-## Preparação
-
-Para que possamos gravar o código de gerenciamento de CDN, precisaremos fazer algumas preparações. A primeira tarefa que vamos fazer é criar um grupo de recursos para conter o perfil de CDN que criamos neste tutorial. Em seguida, configuraremos o Azure Active Directory para fornecer autenticação para o nosso aplicativo. Quando tivermos terminado, aplicaremos permissões ao grupo de recursos para que somente usuários autorizados do nosso locatário do Azure AD possam interagir com nosso perfil de CDN.
-
-### Criando o grupo de recursos
-
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
-
-2. Clique no botão **Novo** no canto superior esquerdo e, em seguida, clique em **Gerenciamento** e depois em **Grupo de recursos**.
-	
-	![Criando um novo grupo de recursos](./media/cdn-app-dev-net/cdn-new-rg-1.png)
-
-3. Chame seu grupo de recursos de *CdnConsoleTutorial*. Selecione sua assinatura e escolha uma localização perto de você. Se desejar, você poderá clicar na caixa de seleção **Fixar no painel** para fixar o grupo de recursos no painel que está no portal. Isso facilitará a localização posteriormente. Após fazer suas seleções, clique em **Criar**.
-
-	![Nomeando o grupo de recursos](./media/cdn-app-dev-net/cdn-new-rg-2.png)
-
-4. Depois que o grupo de recursos for criado, se você não fixá-lo ao seu painel, você poderá encontrá-lo clicando em **Procurar** e, em seguida, em **Grupos de Recursos**. Clique no grupo de recursos para abri-lo. Anote sua **ID da assinatura**. Precisaremos dela mais tarde.
-
-	 ![Nomeando o grupo de recursos](./media/cdn-app-dev-net/cdn-subscription-id.png)
-
-### Criando o aplicativo Azure AD
-
-Há duas abordagens para autenticação de aplicativo com o Azure Active Directory: usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows. Em vez de conceder permissões a um determinado usuário para interagir com os perfis de CDN, conceda as permissões à entidade de serviço. As entidades de serviço geralmente são usadas para processos automatizados não interativos. Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
-
-A criação de uma entidade de serviço abarca várias etapas, incluindo o desenvolvimento de um aplicativo do Azure Active Directory. Para fazer isso, seguiremos [este tutorial](../resource-group-create-service-principal-portal.md).
-
-> [AZURE.IMPORTANT] Certifique-se de seguir todas as etapas no [tutorial vinculado](../resource-group-create-service-principal-portal.md). É *extremamente importante* que você o complete exatamente como está descrito. Certifique-se de anotar a **ID do locatário**, o **nome de domínio do locatário** (normalmente um domínio *.onmicrosoft.com*, a menos que você tenha especificado um domínio personalizado), a **ID do cliente** e a **chave de autenticação do cliente**, pois estas informações serão necessárias mais tarde. Tenha muito cuidado para proteger sua **ID do cliente** e a **chave de autenticação do cliente**, uma vez que essas credenciais podem ser usadas por qualquer pessoa para executar operações como a entidade de serviço.
-> 	
-> Quando você chegar à etapa chamada [Configurar aplicativo multilocatário](../resource-group-create-service-principal-portal.md#configure-multi-tenant-application), selecione **Não**.
-> 
-> Quando você chegar à etapa [Atribuir aplicativo à função](../resource-group-create-service-principal-portal.md#assign-application-to-role), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Leitor**, atribua a função **Colaborador do Perfil CDN**. Depois de atribuir a função **Colaborador do Perfil CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial.
-
-Depois de ter criado a entidade de serviço e atribuído a função **Colaborador do Perfil CDN**, a folha **Usuários** do seu grupo de recursos deve ser semelhante a esta.
-
-![Folha de usuários](./media/cdn-app-dev-net/cdn-service-principal.png)
-
-
-### Autenticação de usuário interativo
-
-Se, em vez de uma entidade de serviço, você preferir a autenticação de usuário individual interativa, o processo será muito semelhante ao de uma entidade de serviço. Na verdade, você precisará seguir o mesmo procedimento, mas fazer algumas pequenas alterações.
-
->[AZURE.IMPORTANT] Siga as próximas etapas, se escolher usar a autenticação de usuário individual, em vez de uma entidade de serviço.
-
-1. Ao criar seu aplicativo, em vez de **aplicativo Web**, escolha **Aplicativo nativo**. 
-	
-	![Aplicativo nativo](./media/cdn-app-dev-net/cdn-native-application.png)
-	
-2. Na próxima página, será solicitada o **URI de redirecionamento**. O URI não será validado, mas lembre-se do que você digitou. Você precisará dela mais tarde.
-
-3. Não é necessário criar uma **chave de autenticação do cliente**.
-
-4. Em vez de atribuir uma entidade de serviço para a função **Colaborador do Perfil CDN**, vamos atribuir usuários individuais ou grupos. Neste exemplo, é possível ver que você atribuiu o *Usuário de demonstração CDN* para a função **Colaborador do Perfil CDN**.
-	
-	![Acesso de usuário individual](./media/cdn-app-dev-net/cdn-aad-user.png)
-
+[AZURE.INCLUDE [aplicativo de desenvolvimento de preparação para CDN](../../includes/cdn-app-dev-prep.md)]
 
 ## Crie seu projeto e adicione pacotes NuGet
 
@@ -90,7 +36,7 @@ Do Visual Studio 2015, clique em **Arquivo**, **Novo**, **Projeto...** para abri
 
 Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet. Vamos adicioná-las ao projeto.
 
-1. Clique no menu **Ferramentas**, em **Gerenciador de Pacotes NuGet** e, então, em **Console do Gerenciador de Pacotes**.
+1. Clique no menu **Ferramentas**, em **Gerenciador de Pacotes Nuget** e em **Console do Gerenciador de Pacotes**.
 
 	![Gerenciar pacotes NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 
@@ -337,7 +283,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade. Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do Portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como um perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`, assim, ele será bem-sucedido. No entanto, o perfil **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
+>[AZURE.NOTE] No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade. Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do Portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como um perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`; assim, ele será bem-sucedido. No entanto, o perfil **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
 
 ## Excluir perfis CDN e pontos de extremidade
 
@@ -387,4 +333,4 @@ Para ver o projeto concluído desse passo a passo, [baixe a amostra](https://cod
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

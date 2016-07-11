@@ -85,12 +85,8 @@ As cotas para as Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento cr
 
 Todos os scripts e a automação que você criou continuarão a funcionar para as Máquinas Virtuais e Redes Virtuais existentes criadas no modo de Gerenciamento de Serviços do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do novo modo do Gerenciador de Recursos do Azure.
 
-**As Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure podem ser conectadas a meu circuito do Express Route?**
-
-Não há suporte para isso no momento. Você não pode conectar as Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure a um circuito do Express Route. Haverá suporte para isso no futuro.
-
 **Onde posso encontrar exemplos de modelos do Gerenciador de Recursos do Azure?**
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

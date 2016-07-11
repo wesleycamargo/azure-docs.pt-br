@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/24/2016" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@
 
 # Como usar o Cache na Função para Cache do Azure
 
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
 
 >[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 
@@ -44,15 +44,15 @@ O cache em instâncias de função tem as seguintes vantagens:
 
 -	Não paga nenhum premium para o caching. Você paga apenas pelos recursos de computação que hospedam o cache.
 -	Elimina as cotas e a limitação do cache.
--	Oferece maior controle e isolamento. 
+-	Oferece maior controle e isolamento.
 -	Desempenho aprimorado.
 -	Dimensiona automaticamente os caches quando as funções são expandidas ou reduzidas. Aumenta ou diminui efetivamente a memória disponível para caching baixo quando as instâncias de função são adicionadas ou removidas.
--	Fornece a depuração em tempo de desenvolvimento com fidelidade total. 
+-	Fornece a depuração em tempo de desenvolvimento com fidelidade total.
 -	Oferece suporte ao protocolo memcache.
 
 Além disso, o caching em instâncias de função oferece estas opções configuráveis:
 
--	Configurar uma função dedicada para caching ou colocalizar o caching em funções existentes. 
+-	Configurar uma função dedicada para caching ou colocalizar o caching em funções existentes.
 -	Disponibilizar seu cache para vários clientes na mesma implantação de serviço de nuvem.
 -	Criar vários caches nomeados com propriedades diferentes.
 -	Opcionalmente, configurar alta disponibilidade em caches individuais.
@@ -411,4 +411,4 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

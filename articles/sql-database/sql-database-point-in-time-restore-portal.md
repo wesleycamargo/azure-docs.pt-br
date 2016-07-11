@@ -21,9 +21,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-database-point-in-time-restore.md)
-- [Portal do Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Visão geral](sql-database-recovery-using-backups.md)
+- [Restauração pontual: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
 Este artigo mostra como restaurar seu banco de dados para determinado momento anterior e dos [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md) usando o Portal do Azure.
 
@@ -43,15 +42,14 @@ Para restaurar um banco de dados no Portal do Azure, faça o seguinte:
     ![Restaurar um Banco de Dados SQL do Azure](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
+
 ## Próximas etapas
 
-- Para obter as etapas detalhadas de como recuperar para um determinado momento usando o PowerShell, confira [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md) (Recuperação Pontual usando o PowerShell).
-- Para obter informações sobre como recuperar para um determinado momento usando a API REST, confira [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Recuperação Pontual usando a API REST).
-- Para obter uma visão geral da Recuperação Pontual, confira [Point-In-Time Restore](sql-database-point-in-time-restore.md) (Restauração Pontual).
-- Para uma discussão completa sobre como se recuperar de um erro de usuário ou aplicativo, confira [User error recovery](sql-database-user-error-recovery.md) (Recuperação de erro do usuário).
+- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-## Recursos adicionais
-
-- [Cenários de continuidade dos negócios](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

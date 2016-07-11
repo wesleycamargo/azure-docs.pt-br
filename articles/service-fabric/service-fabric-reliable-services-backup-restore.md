@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Fazer backup e restaurar Reliable Services e Reliable Actors
@@ -54,7 +54,7 @@ O autor do serviço tem controle total sobre quando realizar backups e onde os b
 
 Para iniciar um backup, o serviço precisará invocar a função de membro herdado **BackupAsync**. Os backups somente podem ser realizados a partir de réplicas primárias e exigem a concessão do status de gravação.
 
-Conforme mostrado abaixo, o **BackupAsync** captura um objeto **BackupDescription**, em que é possível especificar um backup completo ou incremental, bem como uma função de retorno de chamada, **Func<< BackupInfo, CancellationToken, Task<bool>>>** que será invocada quando a pasta de backup tiver sido criada localmente e estiver pronta para ser movida para algum armazenamento externo.
+Conforme mostrado abaixo, o **BackupAsync** captura um objeto **BackupDescription**, em que é possível especificar um backup completo ou incremental, bem como uma função de retorno de chamada, **Func<< BackupInfo, CancellationToken, Task<bool>>** que será invocada quando a pasta de backup tiver sido criada localmente e estiver pronta para ser movida para algum armazenamento externo.
 
 ```C#
 
@@ -64,9 +64,9 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-A solicitação para fazer um backup incremental pode falhar com **FabricFullBackupMissingException** que indica que a réplica nunca teve um backup completo ou alguns dos registros de log desde que esse último backup foi truncado. Os usuários podem modificar a taxa de truncamento ao modificar o **CheckpointThresholdInMB**.
+A solicitação para fazer um backup incremental pode falhar com **FabricMissingFullBackupException** que indica que a réplica nunca teve um backup completo ou alguns dos registros de log desde que esse último backup foi truncado. Os usuários podem modificar a taxa de truncamento modificando **CheckpointThresholdInMB**.
 
-O **BackupInfo** fornece informações sobre o backup, incluindo o local da pasta na qual o tempo de execução salvou o backup (**BackupInfo.Directory**). A função de retorno de chamada pode mover o **BackupInfo.Directory** para um repositório externo ou outro local. Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
+O **BackupInfo** fornece informações sobre o backup, incluindo a localização da pasta na qual o tempo de execução salvou o backup (**BackupInfo.Directory**). A função de retorno de chamada pode mover o **BackupInfo.Directory** para um repositório externo ou outra localização. Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
 
 O código a seguir demonstra como o método **BackupCallbackAsync** pode ser usado para carregar o backup no Armazenamento do Azure:
 
@@ -87,7 +87,7 @@ Observe que:
 
 - Pode haver apenas uma operação de backup em execução por réplica em um determinado momento. Mais de uma chamada de **BackupAsync** por vez lançará **FabricBackupInProgressException** para limitar a execução de backups para apenas uma.
 
-- Se uma réplica passar por failover enquanto um backup estiver em andamento, talvez o backup não tenha sido concluído. Portanto, após a conclusão do failover, é responsabilidade do serviço reiniciar o backup invocando **BackupAsync**, conforme necessário.
+- Se uma réplica passar por failover enquanto um backup estiver em andamento, talvez o backup não tenha sido concluído. Portanto, após a conclusão do failover, é responsabilidade do serviço reiniciar o backup invocando **BackupAsync** conforme necessário.
 
 ## Restaurar Reliable Services
 
@@ -133,9 +133,9 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-**RestoreDescription** passados para a chamada **RestoreContext.RestoreAsync** contém um membro chamado **BackupFolderPath**. Ao restaurar um único backup completo, o **BackupFolderPath** deve ser definido como o caminho local da pasta que contém o backup completo. Ao restaurar um backup completo e um número de backups incrementais, **BackupFolderPath** deve ser definido como o caminho local da pasta que contém não apenas o backup completo, mas também todos os backups incrementais. A chamada **RestoreAsync** pode lançar **FabricFullBackupMissingException** se o **BackupFolderPath** fornecido não contém um backup completo. Ele também pode lançar **ArgumentException** se **BackupFolderPath** tem uma cadeia quebrada de backups incrementais. Por exemplo, se ele contiver o backup completo, o primeiro e o terceiro backup incremental, mas não o segundo backup incremental.
+**RestoreDescription** passados para a chamada **RestoreContext.RestoreAsync** contém um membro chamado **BackupFolderPath**. Ao restaurar um único backup completo, o **BackupFolderPath** deve ser definido como o caminho local da pasta que contém o backup completo. Ao restaurar um backup completo e um número de backups incrementais, **BackupFolderPath** deve ser definido como o caminho local da pasta que contém não apenas o backup completo, mas também todos os backups incrementais. A chamada **RestoreAsync** poderá gerar **FabricMissingFullBackupException** se o **BackupFolderPath** fornecido não contiver um backup completo. Ele também poderá gerar **ArgumentException** se **BackupFolderPath** tiver uma cadeia quebrada de backups incrementais. Por exemplo, se ele contiver o backup completo, o primeiro e o terceiro backup incremental, mas não o segundo backup incremental.
 
->[AZURE.NOTE] O RestorePolicy é definido como Seguro por padrão. Isso significa que a API **RestoreAsync** falhará com ArgumentException se detectar que a pasta de backups contém um estado mais antigo ou igual ao estado contido nesta réplica. **RestorePolicy.Force** pode ser usado para ignorar a verificação de segurança. Isso é especificado como parte de **RestoreDescription**.
+>[AZURE.NOTE] O RestorePolicy é definido como Seguro por padrão. Isso significa que a API **RestoreAsync** falhará com ArgumentException se detectar que a pasta de backups contém um estado mais antigo ou igual ao estado contido nesta réplica. **RestorePolicy.Force** pode ser usado para ignorar essa verificação de segurança. Isso é especificado como parte de **RestoreDescription**.
 
 ## Serviço perdido ou excluído
 
@@ -143,7 +143,7 @@ Se um serviço for removido, primeiro recrie o serviço antes de restaurar os da
 
 Neste ponto, a implementação é igual à do cenário anterior. Cada partição deve restaurar o backup mais recente relevante do armazenamento externo. Uma limitação é que a ID de partição pode ter sido alterada, uma vez que o tempo de execução cria IDs de partição dinamicamente. Portanto, o serviço precisa armazenar o nome do serviço e as informações de partição apropriadas para identificar o backup correto mais recente para restauração em cada partição.
 
->[AZURE.NOTE] Não é recomendável usar **FabricClient.ServiceManager.InvokeDataLossAsync** em cada partição para restaurar o serviço inteiro, desde que pode corromper o estado do cluster.
+>[AZURE.NOTE] Não é recomendável usar **FabricClient.ServiceManager.InvokeDataLossAsync** em cada partição para restaurar o serviço inteiro, visto que isso pode corromper o estado do cluster.
 
 ## Replicação de dados de aplicativo corrompidos
 
@@ -159,17 +159,17 @@ Observe que:
 
 - Sempre que você restaura, há uma chance do backup restaurado ser mais antigo do que o estado da partição antes de os dados serem perdidos. Por isso, essa restauração deve ser usada apenas como último recurso para recuperar o máximo possível de dados.
 
-- A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup podem ser maiores do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .NET, como **Directory.Move**, lancem a exceção **PathTooLongException**. Uma solução alternativa é chamar diretamente as APIs do kernel32 como **CopyFile**.
+- A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup podem ser maiores do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .NET, como **Directory.Move**, gerem a exceção **PathTooLongException**. Uma solução alternativa é chamar diretamente as APIs do kernel32 como **CopyFile**.
 
 ## Fazer backup e restaurar Reliable Actors
 
-Faça backup e restaure Reliable Actors criados na funcionalidade de backup e restauração fornecida pelos serviços confiáveis. O proprietário do serviço deve criar um serviço de Ator personalizado que derive de **ActorService** (que é um serviço confiável do Service Fabric que hospeda atores) e, em seguida, fazer backup/restauração semelhante para os Reliable Services, como descrito acima nas seções anteriores. Uma vez que os backups serão usados por partição, será feito backup dos estados de todos os atores nessa partição específica (e a restauração é semelhante e acontecerá de acordo com a partição).
+Faça backup e restaure Reliable Actors criados na funcionalidade de backup e restauração fornecida pelos serviços confiáveis. O proprietário do serviço deve criar um serviço de Ator personalizado derivado de **ActorService** (que é um serviço confiável do Service Fabric que hospeda atores) e depois fazer backup/restauração semelhante para os Reliable Services, como descrito acima nas seções anteriores. Uma vez que os backups serão usados por partição, será feito backup dos estados de todos os atores nessa partição específica (e a restauração é semelhante e acontecerá de acordo com a partição).
 
 
-- Quando você cria um serviço de ator personalizado, é preciso registrar o serviço de ator personalizado também enquanto registra o ator. Confira **ActorRuntime.RegistorActorAsync**.
-- Atualmente, **KvsActorStateProvider** dá suporte apenas para backups completos. A opção **RestorePolicy.Safe** também é ignorada por **KvsActorStateProvider**.
+- Quando você cria um serviço de ator personalizado, é preciso registrar o serviço de ator personalizado também enquanto registra o ator. Consulte **ActorRuntime.RegistorActorAsync**.
+- Atualmente, **KvsActorStateProvider** dá suporte apenas a backups completos. A opção **RestorePolicy.Safe** também é ignorada por **KvsActorStateProvider**.
 
->[AZURE.NOTE] O padrão ActorStateProvider (ou seja, **KvsActorStateProvider**) **não** limpa as pastas de backup por si só (sob a pasta de trabalho de aplicativo obtido por meio de ICodePackageActivationContext.WorkDirectory). Isso pode fazer com que a pasta de trabalho seja preenchida. Você deve limpar explicitamente a pasta de backup no retorno de chamada de backup depois que você mover o backup para um armazenamento externo de limpeza.
+>[AZURE.NOTE] O padrão ActorStateProvider (ou seja, **KvsActorStateProvider**) **não** limpa as pastas de backup por si só (na pasta de trabalho de aplicativo obtida por meio de ICodePackageActivationContext.WorkDirectory). Isso pode fazer com que a pasta de trabalho seja preenchida. Você deve limpar explicitamente a pasta de backup no retorno de chamada de backup depois que você mover o backup para um armazenamento externo de limpeza.
 
 
 ## Testando o backup e a restauração
@@ -193,4 +193,10 @@ O Gerenciador de Estado Confiável permite a restauração de um backup usando a
 
 Primeiro, **RestoreAsync** descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Próximas etapas
+
+- [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+- [Notificações de Reliable Services](service-fabric-reliable-services-notifications.md)
+- [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="06/24/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Executando Cassandra com Linux no Azure e acessando-a do Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Visão geral
 O Microsoft Azure é uma plataforma de nuvem aberta que executa tanto os softwares da Microsoft como os não pertencentes à Microsoft e que inclui sistemas operacionais, servidores de aplicativos, middlewares de mensagens, bem como bancos de dados SQL e NoSQL de ambos os modelos de software livre e comercial. A criação de serviços resilientes em nuvens públicas, incluindo o Azure, requer um planejamento cuidadoso e uma arquitetura deliberada para ambos os servidores de aplicativos, bem como camadas de armazenamento. A arquitetura de armazenamento distribuída de Cassandra naturalmente ajuda na criação de sistemas altamente disponíveis que são tolerantes a falhas para as falhas de cluster. Cassandra é um banco de dados NoSQL de escala na nuvem mantido pela Apache Software Foundation em cassandra.apache.org; Cassandra é escrito em Java e, portanto, pode ser executado em ambas as plataformas Windows e Linux.
@@ -33,7 +33,7 @@ A rede do Microsoft Azure permite a implantação de clusters particulares isola
 
 - Os sistemas externos não podem acessar o banco de dados de Cassandra desde dentro ou fora do Azure
 - O cluster de Cassandra precisa estar atrás de um balanceador de carga de tráfego de poupança
-- Implantar nós de Cassandra em dois grupos em cada data center para uma disponibilidade de cluster aprimorada 
+- Implantar nós de Cassandra em dois grupos em cada data center para uma disponibilidade de cluster aprimorada
 - Bloquear o cluster até que apenas o farm de servidores de aplicativos tenha acesso ao banco de dados diretamente
 - Nenhum ponto de extremidade de rede pública diferente de SSH
 - Cada nó de Cassandra precisa de um endereço IP interno fixo
@@ -82,7 +82,7 @@ A replicação de reconhecimento e o modelo de consistência de data center de C
 
 **Implantação com base em proximidade:** aplicativos multilocatário, com mapeamento claro de usuários locatários para região, podem ser beneficiados pelas baixas latências do cluster de várias regiões. Por exemplo, sistemas de gerenciamento de aprendizado para instituições de ensino podem implantar um cluster distribuído nas regiões leste e oeste dos EUA para atender aos respectivos campus para transacional, bem como análise. Os dados podem ser localmente consistentes no momento das leituras e gravações e podem ser eventualmente consistentes em ambas as regiões da. Existem outros exemplos, como distribuição de mídia, comércio eletrônico e qualquer coisa que sirva à base de usuários concentrada geograficamente é um bom caso de uso esse modelo de implantação.
 
-**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa. Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0,999) * (1-0,999)) * 100); confira o artigo anterior para obter detalhes.
+**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa. Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0,999) *(1-0,999))*100); confira o artigo anterior para obter detalhes.
 
 **Recuperação de desastres:** o cluster Cassandra de várias regiões, se projetado adequadamente, pode resistir a interrupções catastróficas do data center. Se uma região estiver inativa, o aplicativo implantado em outras regiões pode começar a servir os usuários finais. Como as outras implementações de continuidade de negócios, o aplicativo precisa ser tolerante a falhas para alguma perda de dados resultante dos dados no pipeline assíncrono. No entanto, o Cassandra torna a recuperação muito mais rápida que os processos de recuperação de banco de dados tradicionais. A Figura 2 mostra o modelo de implantação de várias regiões típico com oito nós em cada região. Ambas as regiões são imagens espelhadas uma da outra para a mesma simetria; designs reais dependem do tipo de carga de trabalho (por exemplo, transacional ou analítica), RPO, RTO, consistência de dados e requisitos de disponibilidade.
 
@@ -440,7 +440,7 @@ Use as etapas a seguir para testar o cluster:
 
 1.    Usando o comando do Powershell Get-AzureInternalLoadbalancer commandlet, obtenha o endereço IP do balanceador de carga interno (por exemplo, 10.1.2.101). A sintaxe do comando é mostrada abaixo: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [exibe os detalhes do balanceador de carga interno juntamente com seu endereço IP]
 2.	Faça logon na web farm VM (por exemplo, hk-w1-west-us) usando Putty ou ssh
-3.	Execute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	Execute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 4.	Use os seguintes comandos CQL para verificar se o cluster está funcionando:
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -559,12 +559,12 @@ Até agora, Cassandra foi implantado em 16 nós com 8 nós em cada região do Az
 
 ###Etapa 1: obter o IP do balanceador de carga interno para ambas as regiões usando o PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
 
     Observe os endereços IP (por exemplo, oeste - 10.1.2.101, leste - 10.2.2.101) exibidos.
 
 ###Etapa 2: executar o seguinte na região oeste depois de efetuar logon em hk-w1-west-us
-1.    Execute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    Execute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 2.	Execute os seguintes comandos CQL:
 
 		CREATE KEYSPACE customers_ks
@@ -584,7 +584,7 @@ Você deve ver uma tela como a mostrada abaixo:
 
 
 ###Etapa 3: executar o seguinte na região leste depois de efetuar logon em hk-w1-east-us
-1.    Execute $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    Execute $CASS\_HOME/bin/cqlsh 10.2.2.101 9160
 2.	Execute os seguintes comandos CQL:
 
 		USE customers_ks;
@@ -611,7 +611,7 @@ Usando uma das VMs do Linux encaixotadas anteriormente na camada "web", executar
 
 1. Instale o Node.js e npm
 2. Instale o pacote de nó "cassandra-client" usando npm
-3. Execute o seguinte script no prompt de shell que exibe a cadeia de caracteres json dos dados recuperados: 
+3. Execute o seguinte script no prompt de shell que exibe a cadeia de caracteres json dos dados recuperados:
 
 		var pooledCon = require('cassandra-client').PooledConnection;
 		var ksName = "custsupport_ks";
@@ -702,7 +702,7 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 
 ##Referências##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com) 
-- [http://www.nodejs.org](http://www.nodejs.org) 
+- [http://www.datastax.com](http://www.datastax.com)
+- [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

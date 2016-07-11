@@ -482,8 +482,8 @@ O **SqlSink** dá suporte às seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | (Unidade = timespan) Exemplo: "00:30:00" (30 minutos). | Não |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. | Inteiro. (unidade = Contagem de Linhas) | Não (Padrão = 10.000)
+| writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). | Não |
+| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. | Número inteiro | Não (padrão: 10000)
 | sqlWriterCleanupScript | A consulta especificada pelo usuário para a Atividade de cópia ser executada para assegurar que os dados de uma fatia específica serão limpos. Consulte a seção de repetição abaixo para obter mais detalhes. | Uma instrução de consulta. | Não |
 | sliceIdentifierColumnName | Nome de coluna especificado pelo usuário para a Atividade de cópia preencher com o identificador de fatia gerado automaticamente, que será usado para limpar os dados de uma fatia específica quando executado novamente. Consulte a seção de repetição abaixo para obter mais detalhes. | Nome de uma coluna com tipo de dados de binário (32). | Não |
 | sqlWriterStoredProcedureName | Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. | Nome do procedimento armazenado. | Não |
@@ -497,15 +497,15 @@ O **SqlSink** dá suporte às seguintes propriedades:
 	![Habilitar conexões remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
 	Consulte [Configurar a Opção de Configuração do Servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter as etapas detalhadas.
-2. Inicie o **SQL Server Configuration Manager**. Expanda a **Configuração de Rede do SQL Server** para a instância que você deseja e selecione os **Protocolos para MSSQLSERVER**. Você deve ver os protocolos no painel à direita. Habilite TCP/TP clicando em **TCP/IP** e em **Habilitar**.
+2. Inicie o **SQL Server Configuration Manager** (Gerenciador de Configuração do SQL Server). Expanda a **Configuração de Rede do SQL Server** para a instância que você deseja e selecione os **Protocolos para MSSQLSERVER**. Você deve ver os protocolos no painel à direita. Habilite TCP/TP clicando em **TCP/IP** e em **Habilitar**.
 
 	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
 	Consulte [Habilitar ou Desabilitar um Protocolo de Rede do Servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver detalhes e formas alternativas de habilitar um protocolo TCP/IP.
 3. Na mesma janela, clique duas vezes em **TCP/IP** para inicializar a janela **Propriedades de TCP/IP**.
-4. Alterne para a guia **Endereços IP**. Role para baixo para ver a seção **IPAll**. Anote a **Porta TCP **(o padrão é **1433**).
-5. Crie uma **regra para o Firewall do Windows** no computador para permitir a entrada de tráfego por essa porta.  
-6. **Verifique a conexão**: use o SQL Server Management Studio de um computador diferente para conectar-se ao SQL Server usando um nome totalmente qualificado. Por exemplo: <machine>.<domain>.corp.<company>.com,1433.
+4. Alterne para a guia **Endereços IP**. Role para baixo para ver a seção **IPAll**. Anote a **Porta TCP** (o padrão é **1433**).
+5. Crie uma **regra para o Firewall do Windows** no computador para permitir a entrada de tráfego por essa porta.
+6. **Verifique a conexão**: use o SQL Server Management Studio de um computador diferente para conectar-se ao SQL Server usando um nome totalmente qualificado. Por exemplo: <computador>.<domínio>.corp.<empresa>.com, 1433.
 
 	> [AZURE.IMPORTANT]
 	Consulte [Considerações de Portas e de Segurança](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para ver informações detalhadas.
@@ -646,4 +646,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->
