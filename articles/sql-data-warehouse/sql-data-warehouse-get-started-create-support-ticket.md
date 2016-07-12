@@ -50,7 +50,7 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
     - O suporte de **conserto** é fornecido pelo suporte Developer, Standard, Pro Direct ou Premier. Os problemas de **conserto** são os enfrentados pelos clientes durante o uso do Azure onde há uma expectativa razoável de que a Microsoft causou o problema.
     - O **aconselhamento de desenvolvedores** e **serviços de consultoria** estão disponíveis nos níveis de suporte Professional Direct e Premier.
     
-    Consulte os [planos de suporte do Azure][] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc. Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes de suporte do Azure][].
+    Consulte os [planos de suporte do Azure][] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc. Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes de suporte do Azure].
 
     ![Plano de suporte](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
