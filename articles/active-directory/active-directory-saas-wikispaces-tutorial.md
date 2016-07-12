@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Wikispaces**, digite a URL usando o padrão "**http://company.wikispaces.net*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Wikispaces**, digite a URL usando o padrão "*http://company.wikispaces.net*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurar a URL do Aplicativo")
 

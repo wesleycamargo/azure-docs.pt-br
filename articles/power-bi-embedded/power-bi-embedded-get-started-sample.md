@@ -3,7 +3,7 @@
    description="Power BI Embedded, use o SDK para adicionar relatórios interativos do Power BI a seu aplicativo de business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Introdução ao exemplo do Microsoft Power BI Embedded
 
-O **Microsoft Power BI Embedded Preview** habilita você a integrar relatórios do Power BI em seus aplicativos móveis ou Web para que você não precise compilar soluções personalizadas para visualizar dados para os seus usuários. Os recursos a seguir podem ajudá-lo a começar a integração de relatórios do Power BI em seu aplicativo.
+Com o **Microsoft Power BI Embedded Preview**, você pode integrar relatórios do Power BI em seus aplicativos móveis ou Web para que não precise compilar soluções personalizadas para visualizar dados para os seus usuários. Os recursos a seguir podem ajudá-lo a começar a integração de relatórios do Power BI em seu aplicativo.
 
  -	[Aplicativo Web do painel de exemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Referência da API do Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
@@ -217,14 +217,14 @@ Task<ActionResult> Report(string reportId)
 
 ### Integrar um relatório em seu aplicativo
 
-Depois de ter um **Relatório**, você usa um **IFrame** para inserir o **Relatório** do Power BI. Aqui está um trecho de código do powerbi.js na amostra do **Microsoft Power BI Embedded** Preview.
+Quando tiver um **Relatório**, use um **IFrame** para incorporar o **Relatório** do Power BI. Veja um trecho de código do powerbi.js na amostra de visualização do **Microsoft Power BI Embedded**.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
 ## Filtrar relatórios inseridos no seu aplicativo
 
-Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** à sua URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** ao seu URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -242,4 +242,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Sobre o fluxo de tokens de aplicativo no Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

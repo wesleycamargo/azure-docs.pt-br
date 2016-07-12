@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="06/23/2016"
 	ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
@@ -31,7 +31,7 @@ A tabela a seguir apresenta uma visão geral das diferenças entre LRS, ZRS, GRS
 
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
-|:-----------------------------------------------------------------------------------|:----|:----|:----|:-------|
+|:----------------------------------------------------------------------------------|:---|:---|:---|:------|
 | Os dados são replicados entre várias instalações. | Não | Sim | Sim | Sim |
 | Os dados podem ser lidos do local secundário, bem como do local primário. | Não | Não | Não | Sim |
 | Número de cópias de dados mantidas em nós separados. | 3 | 3 | 6 | 6 |
@@ -65,10 +65,42 @@ O GRS (armazenamento com redundância geográfica) replica seus dados para uma r
 
 Para uma conta de armazenamento com GRS habilitado, uma atualização primeiro é confirmada para a região primária, na qual é replicada três vezes. Em seguida, a atualização é replicada para a região secundária, na qual também é replicada três vezes em domínios de falha e domínios de atualização separados.
 
-
 > [AZURE.NOTE] Com GRS, solicitações de gravação de dados são replicadas de forma assíncrona para a região secundária. É importante observar que optar por GRS não afeta a latência de solicitações feitas na região primária. No entanto, como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária.
  
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre os emparelhamentos de regiões primárias e secundárias, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias.
+
+| Primário | Secundário |
+|---------------------|---------------------|
+| Centro-Norte dos EUA | Centro-Sul dos Estados Unidos |
+| Centro-Sul dos Estados Unidos | Centro-Norte dos EUA |
+| Leste dos EUA | Oeste dos EUA |
+| Oeste dos EUA | Leste dos EUA |
+| Leste dos EUA 2 | Centro dos EUA |
+| Centro dos EUA | Leste dos EUA 2 |
+| Norte da Europa | Europa Ocidental |
+| Europa Ocidental | Norte da Europa |
+| Sudeste da Ásia | Ásia Oriental |
+| Ásia Oriental | Sudeste da Ásia |
+| China Oriental | Norte da China |
+| Norte da China | China Oriental |
+| Leste do Japão | Oeste do Japão |
+| Oeste do Japão | Leste do Japão |
+| Sul do Brasil | Centro-Sul dos Estados Unidos |
+| Leste da Austrália | Sudeste da Austrália |
+| Sudeste da Austrália | Leste da Austrália |
+| Sul da Índia | Centro da Índia |
+| Centro da Índia | Sul da Índia |
+| Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia |
+| Gov. dos EUA – Virgínia | Gov. dos EUA – Iowa |
+| Canadá Central | Leste do Canadá |
+| Leste do Canadá | Canadá Central |
+| Norte do Reino Unido | Sul do Reino Unido 2 |
+| Sul do Reino Unido 2 | Norte do Reino Unido |
+| Alemanha Central | Nordeste da Alemanha |
+| Nordeste da Alemanha | Alemanha Central |
+
+
+Para obter informações atualizadas sobre regiões com suporte do Azure, confira [Regiões do Azure](https://azure.microsoft.com/regions/).
  
 ## Armazenamento com redundância geográfica com acesso de leitura
 
@@ -81,7 +113,7 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 - [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md)
 - [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
-- [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+- [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

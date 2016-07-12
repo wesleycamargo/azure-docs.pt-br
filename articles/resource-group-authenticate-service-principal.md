@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar um aplicativo do AD com o PowerShell | Microsoft Azure"
-   description="Descreve como usar o Azure PowerShell para criar um aplicativo do Active Directory e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
+   pageTitle="Criar entidade de serviço do Azure com o PowerShell | Microsoft Azure"
+   description="Descreve como usar o Azure PowerShell para criar um aplicativo do Active Directory e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Usar o Azure PowerShell para criar um aplicativo do Active Directory para acessar recursos
+# Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -115,7 +115,7 @@ Você criou um aplicativo do Active Directory e uma entidade de serviço para es
 
 Nesta seção, você executará as etapas para criar um aplicativo do AD com um certificado.
 
-1. Crie um certificado autoassinado. Se você tiver o Windows 10 ou o Windows Server 2016 Technical Preview, execute o seguinte comando: 
+1. Crie um certificado autoassinado. Se você tiver o Windows 10 ou o Windows Server 2016 Technical Preview, execute o seguinte comando:
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -176,7 +176,7 @@ Nesta seção, você executará as etapas para criar um aplicativo do AD com um 
 No script, você passará três valores que são necessários para fazer logon como a entidade de serviço. Você precisará do seguinte:
 
 - id do aplicativo
-- ID do locatário 
+- ID do locatário
 - Impressão digital do certificado
 
 Você já viu a id do aplicativo e a impressão digital do certificado nas etapas anteriores. No entanto, se você precisar recuperar esses valores posteriormente, os comandos serão mostrados abaixo, junto com o comando para obter a id do locatário.
@@ -210,9 +210,9 @@ Agora, você já deve ser autenticado como a entidade de serviço do aplicativo 
 ## Próximas etapas
   
 - Para obter exemplos de autenticação do .NET, confira [SDK do Azure Resource Manager para .NET](resource-manager-net-sdk.md).
-- Para obter exemplos de autenticação do Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md). 
+- Para obter exemplos de autenticação do Java, confira [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md).
 - Para obter exemplos de autenticação do Python, confira [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Autenticação de Gerenciamento de Recursos para o Python).
 - Para obter exemplos de autenticação de REST, confira [APIs REST do Gerenciador de Recursos](resource-manager-rest-api.md).
 - Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar recursos, confira [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

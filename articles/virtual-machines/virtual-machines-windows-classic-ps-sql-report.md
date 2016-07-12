@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Azure"
-	description="Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure."
+	description="Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
@@ -18,7 +18,7 @@
 
 # Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. As etapas neste documento usam uma combinação de etapas manuais para criar a máquina virtual e um script do Windows PowerShell para configurar o Reporting Services na VM. O script de configuração inclui a abertura de uma porta de firewall para HTTP ou HTTPs.
@@ -117,7 +117,7 @@ Para usar HTTPS na VM, será necessário um certificado SSL confiável. Dependen
 
 ### Para usar um certificado criado por uma Autoridade de Certificação (CA) confiável
 
-1. **Solicite um certificado do servidor para o site em uma autoridade de certificação**. 
+1. **Solicite um certificado do servidor para o site em uma autoridade de certificação**.
 
 	Você pode usar o Assistente de Certificado de Servidor Web para gerar um arquivo de solicitação de certificado (Certreq.txt) e enviá-lo a uma autoridade de certificação ou para gerar uma solicitação para uma autoridade de certificação online. Por exemplo, os Serviços de Certificados da Microsoft no Windows Server 2012. Dependendo do nível de garantia de identificação oferecido por seu certificado de servidor, talvez demore alguns dias até vários meses para que a autoridade de certificação aprove sua solicitação e envie um arquivo de certificado.
 
@@ -633,7 +633,7 @@ Para verificar se a funcionalidade básica do servidor de relatório está funci
 
 		http://localhost/Reports
 
-- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] \[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
+- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] [nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** do URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

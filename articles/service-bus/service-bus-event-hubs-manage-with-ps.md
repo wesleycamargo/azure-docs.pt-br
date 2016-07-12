@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos"
-   description="Usando o PowerShell para criar e gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos"
-   services="service-bus"
-   documentationCenter=".NET"
-   authors="sethmanheim"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos | Microsoft Azure"
+    description="Usando o PowerShell para criar e gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos"
+    services="service-bus"
+    documentationCenter=".NET"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/24/2016"
+    ms.author="sethm"/>
 
 # Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos
 
@@ -276,4 +276,4 @@ Alguns scripts prontos também estão disponíveis para download:
 [API do .NET para Barramento de Serviço]: https://msdn.microsoft.com/pt-BR/library/azure/mt419900.aspx
 [Instalar e configurar o PowerShell do Azure]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

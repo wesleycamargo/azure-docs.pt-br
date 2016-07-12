@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/02/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Guia de solução de problemas da transmissão ao vivo
@@ -28,19 +28,19 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 - **Problema potencial**: não é possível localizar os logs do codificador que poderiam ajudar na depuração de problemas.
 	
-	- **Telestream Wirecast**: normalmente, você pode encontrar os logs em C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 
-	- **Element Live**: você pode ver que há links para logs no portal de gerenciamento. Clique em **Estatísticas** e, em seguida, em **Logs**. Na página **Arquivos de Log**, você verá uma lista dos logs para todos os itens de LiveEvent; selecione o que corresponde à sua sessão atual. 
+	- **Telestream Wirecast**: normalmente, você pode encontrar os logs em C:\\Users{username}\\AppData\\Roaming\\Wirecast\\
+	- **Element Live**: você pode ver que há links para logs no portal de gerenciamento. Clique em **Estatísticas** e, em seguida, em **Logs**. Na página **Arquivos de Log**, você verá uma lista dos logs para todos os itens de LiveEvent; selecione o que corresponde à sua sessão atual.
 	- **Flash Media Live Encoder**: você pode encontrar o **Diretório de Log...** navegando para a guia **Log Codificação**.
 	
 ###Problema: não há nenhuma opção para gerar uma transmissão progressiva
 
-- **Possível problema**: o codificador que está sendo usado não se desentrelaça automaticamente. 
+- **Possível problema**: o codificador que está sendo usado não se desentrelaça automaticamente.
 
 	**Etapas de solução de problemas**: procure uma opção de desentrelaçamento na interface do codificador. Depois de habilitar o desentrelaçamento, verifique novamente as configurações de saída progressiva.
  
 ###Problema: várias configurações de saída de codificador foram tentadas, mas ainda não é possível se conectar. 
 
-- **Possível problema**: o canal de codificação do Azure não foi redefinido corretamente. 
+- **Possível problema**: o canal de codificação do Azure não foi redefinido corretamente.
 
 	**Etapas de solução de problemas**: verifique se o codificador não está mais enviando para o AMS, pare-o e redefina o canal. Quando estiver em execução novamente, tente conectar seu codificador com as novas configurações. Se isso ainda não corrigir o problema, tente criar um novo canal, pois, às vezes, os canais podem ser corrompidos após várias tentativas com falha.
 
@@ -55,7 +55,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 ###Problema: ao configurar o codificador para a transmissão com o protocolo RTP, não há nenhum campo para inserir um nome de host. 
 
-- **Possível problema**: muitos codificadores RTP não permitem nomes de host, e será necessário adquirir um endereço IP.  
+- **Possível problema**: muitos codificadores RTP não permitem nomes de host, e será necessário adquirir um endereço IP.
 
 	**Etapas de solução de problemas**: para localizar o endereço IP, abra um prompt de comando em qualquer computador. Para fazer isso no Windows, abra o inicializador de Execução (WIN + R) e digite “cmd” para abrir.
 
@@ -69,7 +69,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 ###Problema: não é possível reproduzir a transmissão publicada.
  
-- **Possível problema**: não há nenhum Ponto de Extremidade de Transmissão em execução ou não há nenhuma unidade de transmissão (unidades de escala) alocada. 
+- **Possível problema**: não há nenhum Ponto de Extremidade de Transmissão em execução ou não há nenhuma unidade de transmissão (unidades de escala) alocada.
 
 	**Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão.
 	
@@ -85,4 +85,4 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

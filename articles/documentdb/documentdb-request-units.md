@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Unidades de Solicitação no Banco de Dados de Documentos
@@ -64,6 +64,9 @@ Para ajudar os clientes a ajustar as estimativas de produtividade, há uma [calc
 - Criações de documento (gravações)
 - Leituras de documento
 - Exclusões de documento
+- Atualizações do documento
+
+A ferramenta também inclui suporte para estimar as necessidades de armazenamento de dados com base em documentos de exemplo que você fornecer.
 
 Usar a ferramenta é simples:
 
@@ -71,15 +74,17 @@ Usar a ferramenta é simples:
 
 	![Carregar documentos na calculadora de unidade de solicitação][2]
 
-2. Insira o número necessário de operações criar, ler e excluir documentos (por segundo).
+2. Para estimar os requisitos de armazenamento de dados, insira o número total de documentos que você espera armazenar.
+
+3. Insira o número necessário de operações criar, ler e excluir operações que você requeira (por segundo). Para calcular as alterações da unidade de solicitação relacionadas às operações de atualização do documento, carregue uma cópia do documento de exemplo da etapa 1 acima que inclui atualizações típicas de campo. Por exemplo, se as atualizações de documento normalmente modificam duas propriedades chamadas lastLogin e userVisits, em seguida, simplesmente copie o documento de exemplo, atualize os valores para essas duas propriedades e carregue o documento copiado.
 
 	![Inserir requisitos de produtividade na calculadora de unidade de solicitação][3]
 
-3. Clique em Calcular e examinar os resultados.
+4. Clique em Calcular e examinar os resultados.
 
 	![Resultados da calculadora de unidade de solicitação][4]
 
->[AZURE.NOTE]Se você tiver tipos de documento que serão muito diferentes em termos de tamanho e número de propriedades indexadas, carregue uma amostra da cada *tipo* do documento típico na ferramenta e calcule os resultados.
+>[AZURE.NOTE]Se você tiver tipos de documento que sejam muito diferentes em termos de tamanho e número de propriedades indexadas, carregue uma amostra da cada *tipo* do documento típico na ferramenta e calcule os resultados.
 
 ###Usar o cabeçalho de resposta do encargo de solicitação do Banco de Dados de Documentos
 Todas as respostas do serviço Banco de Dados de Documentos incluem um cabeçalho personalizado (x-ms-request-charge) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Banco de Dados de Documentos. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse. Para consultas, o Gerenciador de Consultas do Banco de Dados de Documentos no portal do Azure fornece informações sobre solicitações de encargo para consultas executadas.
@@ -88,11 +93,11 @@ Todas as respostas do serviço Banco de Dados de Documentos incluem um cabeçalh
 
 Tendo isso em mente, um método para estimar a quantidade de taxa de transferência reservada exigida pelo aplicativo é registrar o encargo de unidade de solicitação associado à execução de operações típicas em relação a um documento representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Também meça e inclua consultas típicas e o uso de scripts do Banco de Dados de Documentos.
 
->[AZURE.NOTE]Se você tiver tipos de documento que serão muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidade de solicitação de operação aplicável associado a cada *tipo* de documento típico.
+>[AZURE.NOTE]Se você tiver tipos de documento que sejam muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidade de solicitação de operação aplicável associado a cada *tipo* de documento típico.
 
 Por exemplo:
 
-1. Registre o encargo de unidade de solicitação para a criação (inserção) de um documento típico. 
+1. Registre o encargo de unidade de solicitação para a criação (inserção) de um documento típico.
 2. Registre o encargo de unidade de solicitação para a leitura de um documento típico.
 3. Registre o encargo de unidade de solicitação para a atualização de um documento típico.
 3. Registre o encargo de unidade de solicitação de consultas de documento comuns e típicos.
@@ -185,7 +190,7 @@ Selecionar os 10 principais|15|Total de 150|155|1275
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s. Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 
 ##Exceder os limites de taxa de transferência reservada
-Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que ultrapassam a taxa de unidades solicitação provisionada para uma coleção, as solicitações a essa coleção são limitadas até que a taxa caia para baixo do nível reservado. Quando ocorre uma restrição, o servidor encerra preventivamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retorna o cabeçalho x-ms-retry-after-ms, indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
+Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que ultrapassam a taxa de unidades solicitação provisionada para uma coleção, as solicitações a essa coleção são limitadas até que a taxa caia para baixo do nível reservado. Quando ocorre uma restrição, o servidor encerra preventivamente a solicitação com RequestRateTooLargeException (código de status HTTP 429) e retorna o cabeçalho x-ms-retry-after-ms, indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 
 	HTTP Status 429
 	Status Line: RequestRateTooLarge
@@ -200,13 +205,13 @@ Se você tiver mais de um cliente operando cumulativamente acima da taxa de soli
 Para saber mais sobre a taxa de transferência reservada com o Banco de Dados de Documentos do Azure, explore estes recursos:
  
 - [Definição de preços no Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/)
-- [Gerenciando a capacidade no Banco de Dados de Documentos](documentdb-manage.md) 
+- [Gerenciando a capacidade no Banco de Dados de Documentos](documentdb-manage.md)
 - [Modelando dados no Banco de Dados de Documentos](documentdb-modeling-data.md)
 - [Níveis de desempenho do Banco de Dados de Documentos](documentdb-partition-data.md)
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
-Para começar com os testes de desempenho e escala com o Banco de Dados de Documentos, confira [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Teste de desempenho e escala com o Banco de Dados de Documentos do Azure).
+Para começar com os testes de desempenho e escala com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
@@ -215,4 +220,4 @@ Para começar com os testes de desempenho e escala com o Banco de Dados de Docum
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

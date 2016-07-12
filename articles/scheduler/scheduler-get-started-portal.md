@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Introdução ao Agendador do Azure no Portal do Azure
@@ -21,7 +21,7 @@
 
 ## Criar um trabalho
 
-1.  Entre no [Portal do Azure](https://portal.azure.com/).  
+1.  Entre no [Portal do Azure](https://portal.azure.com/).
 
 2.  Clique em **+Novo** > digite _Agendador_ na caixa de pesquisa > selecione **Agendador** nos resultados > clique em **Criar**.
 
@@ -29,7 +29,7 @@
 
 3.  Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Trabalho do Agendador**, insira as seguintes informações:
 
-    1.  **Nome:** `getmicrosoft`  
+    1.  **Nome:** `getmicrosoft`
 
     2.  **Assinatura:** sua assinatura do Azure
 
@@ -37,7 +37,7 @@
 
 4.  Em seguida, nas **Configurações de Ação**, defina os seguintes valores:
 
-    1.  **Tipo de ação:** ` HTTP`  
+    1.  **Tipo de ação:** ` HTTP`
 
     2.  **Método:** `GET`
 
@@ -63,7 +63,7 @@
 
 Depois que um trabalho é criado, ele aparece no painel principal do Azure. Clique no trabalho e uma nova janela será aberta com as seguintes guias:
 
-1.  Propriedades  
+1.  Propriedades
 
 2.  Configurações de Ação
 
@@ -111,7 +111,7 @@ Você pode alterar a data e hora de início, o agendamento de recorrência e a d
 
 A guia **Histórico** exibe as métricas selecionadas para cada execução do trabalho do sistema para o trabalho selecionado. Essas métricas fornecem valores em tempo real relacionados à integridade de seu Agendador:
 
-1.  Status  
+1.  Status
 
 2.  Detalhes
 
@@ -182,4 +182,4 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

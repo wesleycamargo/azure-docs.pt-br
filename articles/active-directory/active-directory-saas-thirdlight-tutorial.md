@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Thirdlight**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Thirdlight (por exemplo: "**http://azuresso2.thirdlight.com/*")) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Thirdlight**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Thirdlight (por exemplo: "*http://azuresso2.thirdlight.com/*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configurar a URL do Aplicativo")
 

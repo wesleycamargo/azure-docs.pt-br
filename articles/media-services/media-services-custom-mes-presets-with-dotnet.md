@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -42,7 +42,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Adicione uma tarefa de codificação para o trabalho. 
+- Adicione uma tarefa de codificação para o trabalho.
 - Especifique o ativo de entrada a ser codificado.
 - Crie um ativo de saída que conterá o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
@@ -959,4 +959,4 @@ Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como executar tarefas de gerenciamento de serviços comuns de forma programática no Python."
 	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="lmazuel"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="huvalo"/>
+	ms.date="06/22/2016"
+	ms.author="lmazuel"/>
 
 # Como usar o Gerenciamento de Serviços no Python
 
-Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](../python-how-to-install.md) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] \(como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
+Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](../python-how-to-install.md) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 > [AZURE.NOTE] API de gerenciamento do serviço está sendo substituído com a nova API de gerenciamento de recursos, disponível em uma versão de visualização no momento. Consulte a [documentação de gerenciamento de recursos do Azure](http://azure-sdk-for-python.readthedocs.org/) para obter detalhes sobre como usar a nova API de gerenciamento de recursos do Python.
 
@@ -433,6 +433,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[serviço de nuvem]: https://azure.microsoft.com/documentation/services/cloud-services/
+[serviço de nuvem]: https://azure.microsoft.com/pt-BR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

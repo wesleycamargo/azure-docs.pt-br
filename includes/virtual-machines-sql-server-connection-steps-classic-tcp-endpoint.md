@@ -4,19 +4,22 @@ Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de e
 
 >[AZURE.NOTE] Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
-1. No Portal de Gerenciamento do Azure, clique em **MAQUINAS VIRTUAIS**.
-	
-2. Clique na máquina virtual recém-criada. As informações sobre sua máquina virtual são apresentadas.
-	
-3. Próximo à parte superior da página, selecione a página **PONTOS DE EXTREMIDADE** e, na parte inferior da página, clique em **ADICIONAR**.
-	
-4. Na página **Adicionar Ponto de Extremidade à Máquina Virtual**, clique em **Adicionar Ponto de Extremidade Independente** e, em seguida, clique na seta de avanço para continuar.
-	
-5. Na página **Especificar os detalhes do ponto de extremidade**, forneça as seguintes informações.
+1. No Portal do Azure, selecione **Máquinas virtuais (clássico)**.
 
-	- Na caixa **NOME**, forneça um nome para o ponto de extremidade.
-	- Na caixa **PROTOCOLO**, selecione **TCP**. Você pode digitar **57500** na caixa **PORTA PÚBLICA**. Da mesma forma, você pode digitar a porta de escuta padrão do SQL Server **1433** na caixa **Porta Particular**. Observe que muitas organizações selecionam números de porta diferentes para evitar ataques de segurança mal-intencionados. 
+2. Em seguida, selecione a máquina virtual do SQL Server.
 
-6. Clique na marca de seleção para continuar. O ponto de extremidade é criado.
+3. Selecione **Pontos de Extremidade** e, em seguida, clique no botão **Adicionar** na parte superior da folha de Pontos de extremidade.
 
-<!---HONumber=AcomDC_0323_2016-->
+	![Etapas do Portal para Criação de Pontos de Extremidade](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+
+4. Na folha **Adicionar Ponto de Extremidade**, forneça um **Nome**, como SQLEndpoint.
+
+5. Selecione **TCP** para o **Protocolo**.
+
+6. Para **Porta pública**, especifique um número de porta, como **57500**.
+
+7. Para **Porta privada**, especifique a porta de escuta do SQL Server, cujo valor padrão é **1433**.
+
+6. Clique em **OK** para criar o ponto de extremidade.
+
+<!---HONumber=AcomDC_0629_2016-->

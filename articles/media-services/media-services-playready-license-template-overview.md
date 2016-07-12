@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
@@ -23,10 +23,10 @@ Os Serviços de Mídia do Azure fornecem um serviço de distribuição de licen�
 Os Serviços de Mídia também fornecem APIs que permitem que você configure suas licenças do PlayReady. As licenças contêm os direitos e restrições que você deseja que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. Abaixo estão alguns exemplos de restrições de licença PlayReady que você pode especificar:
 
 - A data e horário em que a licença é válida.
-- O valor de data e hora em que a licença expira. 
+- O valor de data e hora em que a licença expira.
 - Para a licença a ser salva no armazenamento persistente no cliente. Licenças persistentes normalmente são usadas para permitir a reprodução off-line do conteúdo.
-- O nível mínimo de segurança que um player deve ter para reproduzir o conteúdo. 
-- O nível de proteção de saída para os controles de saída para conteúdo áudio\\video. 
+- O nível mínimo de segurança que um player deve ter para reproduzir o conteúdo.
+- O nível de proteção de saída para os controles de saída para conteúdo áudio\\video.
 - Para obter mais informações, consulte a seção Controles de Saída (3.5) no documento [Regras de conformidade do PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 >[AZURE.NOTE]Atualmente, só é possível configurar o PlayRight da licença do PlayReady (esse direito é necessário). O PlayRight permite que o cliente para reproduza o conteúdo. O PlayRight também permite configurar restrições específicas para reprodução. Para obter mais informações, consulte [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -311,4 +311,4 @@ Para obter um exemplo de quais níveis de proteção o Silverlight dá suporte, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

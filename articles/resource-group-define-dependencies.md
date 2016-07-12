@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
@@ -101,11 +101,11 @@ A função reference permite que uma expressão derive seu valor de outro nome J
 
 Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. As diretrizes são usar a referência implícita para evitar o risco de que um elemento dependsOn desnecessário faça com que o mecanismo de implantação pare inadvertidamente de realizar aspectos da implantação em paralelo.
 
-Para saber mais, consulte [Função de referência](../resource-group-template-functions/#reference).
+Para saber mais, consulte [Função de referência](resource-group-template-functions.md#reference).
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
+- Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md).
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

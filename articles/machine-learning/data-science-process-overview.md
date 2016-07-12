@@ -23,7 +23,7 @@ O TDSP (Processo de Ciência de Dados de Equipe) fornece uma abordagem sistemát
 
 Especificamente, no momento, o TDSP fornece às equipes de ciência de dados:
 
-- **Metodologia**: descreve uma sequência de etapas que definem o ciclo de vida de desenvolvimento, fornecendo orientação sobre como definir o problema, analisar os dados relevantes, criar e avaliar os modelos preditivos e implantar esses modelos em aplicativos corporativos. 
+- **Metodologia**: descreve uma sequência de etapas que definem o ciclo de vida de desenvolvimento, fornecendo orientação sobre como definir o problema, analisar os dados relevantes, criar e avaliar os modelos preditivos e implantar esses modelos em aplicativos corporativos.
 - **Recursos**: ferramentas e tecnologias, como a VM de Ciência de Dados, para simplificar a configuração de ambientes para atividades de ciência de dados, e orientação prática para integração de novas tecnologias.
 
 Veja a seguir o ciclo de vida de desenvolvimento do TDSP:
@@ -47,9 +47,9 @@ Iniciar um projeto de análise, definindo suas metas de negócios e os problemas
 
 Um ambiente de análise para o Processo de Ciência de Dados de Equipe envolve vários componentes:
 
-- **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem, 
+- **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem,
 - uma **infraestrutura de processamento** para pré-processamento, exploração e modelagem de dados
-- uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.  
+- uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.
 
 A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para ver as opções, confira [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md) (Configurar ambientes de ciência de dados para uso no Processo de Ciência de Dados de Equipe).
 
@@ -79,9 +79,9 @@ Os cientistas de dados criam modelos de análise para a previsão das principais
 
 Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
 
-- um conjunto de dados de treinamento, 
-- um conjunto de dados de validação, 
-- um conjunto de dados de testes 
+- um conjunto de dados de treinamento,
+- um conjunto de dados de validação,
+- um conjunto de dados de testes
 
 Os modelos são criados usando o **conjunto de dados de treinamento**. A combinação ideal de modelos (com os parâmetros ajustados) é selecionada por meio da execução dos modelos e da medição dos erros de previsão para o **conjunto de dados de validação**. Por fim, o **conjunto de dados de testes** é usada para avaliar o desempenho do modelo escolhido em dados independentes que não foram usados para treinar ou validar o modelo. Para obter procedimentos, consulte [Como avaliar o desempenho do modelo no Aprendizado de Máquina do Azure](machine-learning-evaluate-model-performance.md).
 
@@ -97,11 +97,6 @@ O [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/document
 
 Embora o TDSP não prescreva tipos específicos de artefato de **documentação**, é uma prática recomendada documentar os resultados da exploração de dados, a modelagem e a avaliação e salvar o código pertinente para que a análise possa ser iterada quando necessário. Isso também permite a reutilização do trabalho de análise enquanto você estiver trabalhando em outros aplicativos que envolvam dados e tarefas de previsão semelhantes.
 
-Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Consulte, por exemplo:
+Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados com descrições em miniatura no tópico [Passo a passo do Processo de Ciência de Dados de Equipe](data-science-process-walkthroughs.md).
 
-- [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
-- [Ciência de Dados usando Spark no Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
-- [Ciência de dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta](machine-learning-data-science-process-data-lake-walkthrough.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

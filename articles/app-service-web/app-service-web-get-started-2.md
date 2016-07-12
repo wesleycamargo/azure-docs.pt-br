@@ -64,7 +64,7 @@ O Serviço de Aplicativo fornece uma solução pronta para algumas das necessida
 
 ## Dimensionar seu aplicativo automaticamente com base na demanda
 
-Em seguida, vamos dimensionar automaticamente seu aplicativo, que ajustará automaticamente sua capacidade de responder à demanda do usuário (leia mais em [Dimensionar o tipo de preço no Serviço de Aplicativo do Azure](app-service-scale) e em [Dimensionar a contagem de instância manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md)).
+Em seguida, dimensionaremos automaticamente o aplicativo para que ele ajuste automaticamente sua capacidade de modo a atender à demanda do usuário (leia mais em [Dimensionar seu aplicativo no Azure](web-sites-scale.md) e [Dimensionar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md)).
 
 Com rapidez, você pode dimensionar o aplicativo Web de duas maneiras:
 
@@ -99,7 +99,7 @@ Você talvez tenha observado na folha **Configurações de dimensionamento** que
 - Fazer o dimensionamento automático de acordo com uma agenda
 - Definir o comportamento de dimensionamento automático para um evento futuro
 
-Para saber mais sobre a escala vertical para o aplicativo, confira [Dimensionar o tipo de preço no Serviço de Aplicativo do Azure](../app-service/app-service-scale.md). Para saber mais sobre a escala vertical, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md).
+Para saber mais sobre o dimensionamento do aplicativo, confira [dimensionar seu aplicativo no Azure](../app-service-web/web-sites-scale.md). Para saber mais sobre a escala vertical, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md).
 
 ## Receber alertas para o aplicativo
 
@@ -128,13 +128,13 @@ Quando foi configurar o alerta, talvez você tenha notado um conjunto avançado 
 Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parcial:
 
 - [Comprar e configurar um nome de domínio personalizado](custom-dns-web-site-buydomains-web-app.md) - compre um domínio atraente para seu aplicativo Web em vez do domínio *.azurewebsites.net. Ou use um domínio que você já tenha.
-- [Configurar ambientes de preparo](web-sites-staged-publishing.md) - implante seu aplicativo em uma URL de preparo antes de colocá-lo em produção. Atualize o aplicativo Web dinâmico com confiança. Configure uma solução DevOps elaborada com vários slots de implantação. 
+- [Configurar ambientes de preparo](web-sites-staged-publishing.md) - implante seu aplicativo em uma URL de preparo antes de colocá-lo em produção. Atualize o aplicativo Web dinâmico com confiança. Configure uma solução DevOps elaborada com vários slots de implantação.
 - [Configurar implantação contínua](web-sites-publish-source-control.md) - integre a implantação de aplicativo em seu sistema de controle de origem. Implante no Azure com cada confirmação.
 - [Acessar recursos locais](web-sites-hybrid-connection-get-started.md) - acesse um banco de dados local existente ou um sistema CRM.
 - [Fazer backup de seu aplicativo](web-sites-backup.md) – configure o backup e a restauração para seu aplicativo Web. Prepare-se para falhas inesperadas e recupere-se delas.
 - [Habilitar logs de diagnóstico](web-sites-enable-diagnostic-log.md) - leia os logs do IIS do Azure ou de rastreamentos de aplicativo. Leia-os em um fluxo, baixe-os ou porte-os para o [Application Insights](../application-insights/app-insights-overview.md) para análise turn key.
 - [Examinar seu aplicativo em busca de vulnerabilidades](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) - verifique seu aplicativo Web contra ameaças modernas usando o serviço fornecido pela [Tinfoil Security](https://www.tinfoilsecurity.com/).
 - [Executar trabalhos em segundo plano](../azure-functions/functions-overview.md) - execute trabalhos de processamento de dados, relatórios, etc.
-- [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md) 
+- [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

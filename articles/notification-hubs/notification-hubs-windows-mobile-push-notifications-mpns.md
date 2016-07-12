@@ -5,8 +5,8 @@
 	documentationCenter="windows"
     keywords="notificação por push,notificação por push,envio por push do windows phone"
 	authors="wesmc7777"
-	manager="dwrede"
-	editor="dwrede"/>
+	manager="erikre"
+	editor="erikre"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/10/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Enviar notificações por push com os Hubs de Notificação do Azure no Windows Phone
@@ -219,4 +219,4 @@ Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Noti
 [catálogo de blocos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [tutorial Hubs de Notificação - Silverlight para Windows Phone]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

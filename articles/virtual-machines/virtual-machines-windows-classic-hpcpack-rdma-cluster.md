@@ -18,14 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Configurar um cluster do Windows RDMA com o HPC Pack e instâncias A8 e A9 para executar aplicativos MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
-
-
 Configure um cluster RDMA do Windows no Azure com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [instâncias de tamanho A8 e A9 com computação intensiva](virtual-machines-windows-a8-a9-a10-a11-specs.md) para executar aplicativos MPI (Interface de Transmissão de Mensagem) paralelos. Quando você configura instâncias de tamanho A8 e A9 baseadas no Windows Server para executar em um cluster de Pacote HPC, os aplicativos MPI se comunicam de modo eficiente por uma rede de baixa latência e alta taxa de transferência baseada na tecnologia RDMA (acesso remoto direto à memória).
 
 Se quiser executar cargas de trabalho MPI em VMs Linux que acessam a rede RDMA do Azure, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Opções de implantação do cluster do Pacote HPC
 O Microsoft HPC Pack é uma ferramenta fornecida sem custo adicional para criar clusters HPC com base no Windows Server no Azure. O HPC Pack inclui um ambiente de tempo de execução para a implementação por parte da Microsoft da MS-MPI (Interface de Transmissão de Mensagem para Windows). Quando usado com instâncias A8 e A9, o HPC Pack fornece um meio eficiente de executar aplicativos MPI baseados em Windows que acessam a rede RDMA no Azure.
@@ -40,7 +37,7 @@ Este artigo apresenta dois cenários para implantar instâncias A8 e A9 clusteri
 
 * **Examine as [informações básicas e considerações](virtual-machines-windows-a8-a9-a10-a11-specs.md)** sobre as instâncias de computação intensiva
 
-* **Assinatura do Azure** - Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* **Uma assinatura do Azure**: se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
 * **Cota de núcleos**: talvez seja necessário aumentar a cota de núcleos para implantar um cluster de VMs A8 ou A9. Por exemplo, você precisará de pelo menos 128 núcleos se quiser implantar instâncias A8 e A9 com o HPC Pack. Para aumentar uma cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
@@ -56,13 +53,13 @@ Veja a seguir as considerações e etapas para disparar as instâncias A8 ou A9 
 
 ### Considerações para usar instâncias A8 e A9
 
-* **Nós de proxy**: em cada disparo na implantação do Azure com as instâncias de computação intensiva, o HPC Pack implanta automaticamente um mínimo de duas instâncias A8 como nós de proxy, além das instâncias de função de trabalho do Azure que você especifica. Os nós de proxy usam núcleos que são alocados para a assinatura e incorrem em cobranças juntamente com as instâncias de função de trabalho do Azure.
+* **Nós de proxy**: Em cada disparo na implantação do Azure com as instâncias de computação intensiva, o Pacote HPC implanta automaticamente um mínimo de duas instâncias A8 como nós de proxy, além das instâncias de função de trabalho do Azure que você especifica. Os nós de proxy usam núcleos que são alocados para a assinatura e incorrem em cobranças juntamente com as instâncias de função de trabalho do Azure.
 
 ### Etapas
 
 4. **Implantar e configurar um nó de cabeçalho do HPC Pack 2012 R2**
 
-    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver os requisitos e instruções de como se preparar para uma implantação de disparo do Azure, consulte [Guia de Introdução ao HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Disparar em Instâncias de Trabalho do Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver os requisitos e instruções de como se preparar para uma implantação de disparo do Azure, veja [HPC Pack Getting Started Guide (Guia de introdução ao HPC Pack)](https://technet.microsoft.com/library/jj884144.aspx) e [Burst to Azure Worker Instances with Microsoft HPC Pack (Use instâncias de trabalho do Azure com o Microsoft HPC Pack)](https://technet.microsoft.com/library/gg481749.aspx)
 
 5. **Configurar um certificado de gerenciamento na assinatura do Azure**
 
@@ -102,7 +99,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias A8 ou A9 
 
 ## Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
 
-Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs que ingressaram em um domínio do Active Directory em uma rede virtual do Azure. O HPC Pack fornece uma série de [opções de implantação em VMs do Azure](virtual-machines-linux-hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Por exemplo, as considerações e as etapas abaixo orientam no uso do [script de implantação IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para automatizar a maior parte desse processo.
+Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs que ingressaram em um domínio do Active Directory em uma rede virtual do Azure. O HPC Pack fornece uma série de [opções de implantação em VMs do Azure](virtual-machines-linux-hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Por exemplo, as considerações e as etapas abaixo o orientam no uso do [script de implantação IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para automatizar a maior parte desse processo.
 
 ![Cluster em VMs do Azure][iaas]
 
@@ -122,7 +119,7 @@ Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de comp
 
     * **Serviços de nuvem**: é recomendável implantar o nó de cabeçalho em um serviço de nuvem e seus nós de computação A8 e A9 em outro serviço de nuvem.
 
-    * **Tamanho do nó de cabeçalho**: para este cenário, considere um tamanho de pelo menos A4 (Extra grande) para o nó principal.
+    * **Tamanho do nó de cabeçalho**: para este cenário, considere um tamanho de pelo menos A4 (extra grande) para o nó principal.
 
     * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA.
 
@@ -221,7 +218,7 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 
 * Para executar aplicativos MPI em instâncias do Azure, registre cada aplicativo MPI no Firewall do Windows nas instâncias executando o comando **hpcfwutil**. Isso permite que as comunicações MPI ocorram em uma porta atribuída dinamicamente pelo firewall.
 
-    >[AZURE.NOTE] Para implantações de disparo no Azure, você também pode configurar um comando de exceção de firewall para ser executado automaticamente em todos os nós novos do Azure que são adicionados ao cluster. Depois de executar o comando **hpcfwutil** e verificar se seu aplicativo funciona, adicione o comando ao script de inicialização dos seus nós do Azure. Para obter mais informações, consulte [Usar um script de inicialização para nós do Azure](https://technet.microsoft.com/library/jj899632.aspx).
+    >[AZURE.NOTE] Para implantações de disparo no Azure, você também pode configurar um comando de exceção de firewall para ser executado automaticamente em todos os nós novos do Azure que são adicionados ao cluster. Depois de executar o comando **hpcfwutil** e verificar se seu aplicativo funciona, adicione o comando ao script de inicialização dos seus nós do Azure. Para saber mais, veja [Use a Startup Script for Azure Nodes (Usar um script de inicialização para nós do Azure)](https://technet.microsoft.com/library/jj899632.aspx).
 
 
 
@@ -246,4 +243,4 @@ Veja a seguir as considerações para execução de aplicativos MPI nas instânc
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

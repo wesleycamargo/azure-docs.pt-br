@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/16/2016"
 	ms.author="carlrab"
-	ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -20,77 +20,60 @@
 
 # Cenários de continuidade de negócios para Banco de Dados SQL do Azure
 
-> [AZURE.SELECTOR]
-- [Continuidade dos negócios](sql-database-business-continuity.md)
-- [Cenários](sql-database-business-continuity-scenarios.md)
-- [Restauração pontual](sql-database-point-in-time-retore.md)
-- [Restaurar banco de dados excluído](sql-database-restore-deleted-database.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação geográfica ativa](sql-database-geo-replication)
-
-Neste artigo, você aprenderá sobre vários cenários de continuidade de negócios de banco de dados SQL do Azure.
+Este artigo apresenta vários cenários de recuperação de desastres e diversos cenários de design de aplicativo para continuidade de negócios.
 
 ## Recuperação de uma interrupção
 
-[Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md) descreve como se recuperar de uma interrupção usando os seguintes recursos:
+Caso ocorra uma interrupção, [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md) descreve como usar qualquer uma das soluções de continuidade de negócios a seguir para recuperar-se da interrupção:
 
 - [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
+- [Restauração geográfica](sql-database-recovery-using.backups.md#geo-restore)
 
-Este artigo abordou quando iniciar a recuperação, como se recuperar usando cada recurso, como configurar seu banco de dados depois da recuperação e como configurar seu aplicativo após a recuperação.
+As etapas específicas e o período necessário para recuperar-se de uma interrupção variam de acordo com a solução de continuidade de negócios que você escolher. No entanto, independentemente de sua solução de continuidade de negócios, você precisa saber quando iniciar a recuperação, as etapas de recuperação do banco de dados para cada solução de continuidade de negócios, como configurar o banco de dados após a recuperação e como configurar seu aplicativo após a recuperação para concluir a recuperação de uma interrupção.
 
-## Recuperar de um erro de usuário
+## Recuperação de um erro
 
-[Recuperar um Banco de Dados SQL do Azure de um erro de usuário](sql-database-user-error-recovery.md) descreve como se recuperar de erros de usuário ou de modificação de dados não intencionais usando os seguintes recursos:
+Caso ocorra um erro do usuário ou outro erro de modificação não intencional, [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-user-error-recovery.md) descreve como usar qualquer uma das soluções de continuidade de negócios a seguir para recuperar-se do erro:
 
-- [Restauração pontual](sql-database-point-in-time-restore.md) 
-- [Restaurar banco de dados excluído](sql-database-restore-deleted-database.md)
+- [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Restaurar banco de dados excluído](sql-database-recovery-using-backups.md#deleted-database-restore)
 
-## Executar uma análise de recuperação de desastre
+As etapas específicas e o período necessário para recuperar-se de uma interrupção variam de acordo com a solução de continuidade de negócios que você escolher. No entanto, independentemente de sua solução de continuidade de negócios, você precisa saber como recuperar-se de um erro para cada solução de continuidade de negócios.
 
-[Executar análise de recuperação de desastre](sql-database-disaster-recovery-drills.md) descreve como executar uma análise de recuperação de desastre usando os seguintes recursos:
+## Realizar uma simulação de recuperação de desastre para preparar-se para uma interrupção
 
-- [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-
-Recomenda-se a validação periódica da preparação do aplicativo para o fluxo de trabalho de recuperação. Consideramos uma boa prática de engenharia a verificação do comportamento do aplicativo e as implicações de perda de dados e/ou interrupção que envolvem o failover. Isso também é uma exigência da maioria dos padrões do setor, como parte da certificação de continuidade dos negócios.
+Para que sua solução de continuidade de negócios seja eficaz, é recomendável realizar a validação periódica da preparação do aplicativo para o fluxo de trabalho de recuperação. Consideramos uma boa prática de engenharia a verificação do comportamento do aplicativo e as implicações de perda de dados e/ou interrupção que envolvem o failover. Isso também é uma exigência da maioria dos padrões do setor, como parte da certificação de continuidade dos negócios.
 
 A execução de uma análise de recuperação de desastres é composta por:
 
 - Simulação da interrupção da camada de dados
-- Recuperando 
+- Recuperando
 - Validação da integridade do aplicativo após a recuperação
 
-## Gerenciar a segurança depois da recuperação de desastre
+[Realizar uma simulação de recuperação de desastre](sql-database-disaster-recovery-drills.md) descreve como realizar uma simulação de recuperação de desastre usando uma das seguintes soluções de continuidade de negócios:
 
-[Como gerenciar a segurança após a recuperação de desastre](sql-database-geo-replication-security-config.md) descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso do usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [Restauração Geográfica](sql-database-geo-restore.md).
+- [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
+- [Restauração geográfica](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Gerenciar atualizações sem interrupção dos aplicativos em nuvem usando a Replicação Geográfica Ativa
 
-[Gerenciando a rolagem de atualizações de aplicativos na nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL](sql-database-manage-application-rolling-upgrade.md) descreve como usar a [Replicação Geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar as atualizações sem interrupção do seu aplicativo em nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Este artigo abrange dois métodos diferentes para orquestrar o processo de atualização, bem como os benefícios e as compensações de cada opção.
+Atualizar um aplicativo em nuvem com um Banco de Dados SQL é uma operação de interrupção, portanto, você precisa incluir esse cenário como parte de seu planejamento e design de continuidade de negócios. [Gerenciar atualizações de aplicativos](sql-database-manage-application-rolling-upgrade.md) descreve como usar a [Replicação Geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar atualizações sem interrupção do seu aplicativo na nuvem. Como a atualização Este artigo abrange dois métodos diferentes para orquestrar o processo de atualização, bem como os benefícios e as compensações de cada opção.
 
 ## Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação Geográfica Ativa
 
-[Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação Geográfica Ativa no Banco de Dados SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) descreve como usar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) no Banco de Dados SQL para projetar aplicativos de banco de dados resilientes a falhas regionais e interrupções catastróficas. Esse artigo considera a topologia de implantação de aplicativos, o contrato de nível de serviço que você está visando, a latência do tráfego e os custos. Nele, também podemos encontrar os padrões comuns de aplicativo — cada um com seus benefícios e compensações.
+[Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) descreve como usar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) no Banco de Dados SQL para projetar aplicativos de banco de dados resilientes a falhas regionais e interrupções catastróficas. Esse artigo considera a topologia de implantação de aplicativos, o contrato de nível de serviço que você está visando, a latência do tráfego e os custos. Nele, também podemos encontrar os padrões comuns de aplicativo — cada um com seus benefícios e compensações.
 
 ## Estratégias de recuperação de desastre para aplicativos que usam pools de banco de dados elásticos
 
-[Estratégias de recuperação de desastre para aplicativos que usam o Pool Elástico de Banco de Dados SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) descreve os cenários de recuperação de desastre que usam [pools de banco de dados elásticos](sql-database-elastic-pool.md).
+[Estratégias de recuperação de desastre para Pool Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) descreve os cenários de recuperação de desastre que usam [pools de banco de dados elásticos](sql-database-elastic-pool.md).
 
 ## Próximas etapas
 
-- Para saber mais sobre como usar e configurar a Replicação Geográfica Ativa para recuperação de desastre, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastre, confira [Restauração Geográfica](sql-database-geo-restore.md)
+- Para obter uma visão geral sobre a continuidade de negócios, consulte [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, consulte [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, consulte [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 
-## Recursos adicionais
-
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

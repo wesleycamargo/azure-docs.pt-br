@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Aplicativo Web do Node.js usando Armazenamento
@@ -241,7 +241,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 ### Modificar app.js
 
-1. No diretório **WebRole1**, abra o arquivo **app.js** em um editor de texto. 
+1. No diretório **WebRole1**, abra o arquivo **app.js** em um editor de texto.
 
 2. No início do arquivo, adicione o seguinte para carregar o módulo azure e definir o nome da tabela e a chave de partição:
 
@@ -403,4 +403,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

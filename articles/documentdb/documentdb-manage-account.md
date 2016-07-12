@@ -33,7 +33,7 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 3. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** em **Recurso**. ![Sessão de consistência padrão][6]
 
 4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
-
+5. O andamento da operação pode ser monitorado por meio do hub de Notificações do Portal do Azure.
 
 > [AZURE.NOTE] Pode ser que demore um pouco para que uma alteração na configuração padrão da consistência entre em vigor na sua conta do Banco de Dados de Documentos.
 
@@ -87,11 +87,8 @@ Ele também inclui chaves somente leitura para fornecer aos usuários o acesso s
 ### Exibir e copiar uma chave de acesso no Portal do Azure
 
 1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
-
 2. Na barra **Fundamentos** da folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
-
 3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
-
   ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar chaves de acesso
@@ -113,6 +110,7 @@ Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de D
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
 
 6. Regenere a chave de acesso secundária.
+
 
 > [AZURE.NOTE] Levará alguns minutos para que a chave gerada recentemente possa ser usada para acessar sua conta do Banco de Dados de Documentos.
 
@@ -145,7 +143,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
+[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

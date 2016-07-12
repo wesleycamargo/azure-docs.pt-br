@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="06/23/2016"
    ms.author="carlrab"/>
    
 # Seguranças e Proteções do Banco de Dados SQL do Azure
@@ -33,7 +33,7 @@ Sempre torcemos para não precisa acessar os backups antigos ou de recuperação
 
 ## O maior portfólio de conformidade
 
-O Banco de Dados SQL tem o maior portfólio de conformidade do setor. Portanto, se você precisa de conformidade com a HIPPA, FERPA ou até mesmo a Cingapura MTCS Nível 3, não se preocupe. Estamos aqui para ajudar.
+O Banco de Dados SQL tem o maior portfólio de conformidade do setor. Portanto, se você precisar de conformidade com a HIPPA, FERPA ou até mesmo a Cingapura MTCS Nível 3, não se preocupe. Estamos aqui para ajudar.
 
 [Ler a documentação](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
@@ -55,4 +55,4 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

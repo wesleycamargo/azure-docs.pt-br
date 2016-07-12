@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configurar a replicação geográfica do HBase no HDInsight
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Configurar conectividade VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configurar DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configurar replicação HBase](hdinsight-hbase-geo-replication.md) 
+- [Configurar replicação HBase](hdinsight-hbase-geo-replication.md)
  
 Saiba como configurar a replicação do HBase em dois datacenters. Alguns casos de uso para a replicação em cluster incluem:
 
@@ -169,18 +169,18 @@ Para configurar o encaminhador condicional, você precisa saber os sufixos de do
 
 **Para configurar os encaminhadores DNS**
  
-1.	RDP no **Contoso-DNS-EU**. 
+1.	RDP no **Contoso-DNS-EU**.
 2.	Clique na chave do Windows na parte inferior esquerda.
 2.	Clique em **Ferramentas administrativas**.
 3.	Clique em **DNS**.
 4.	No painel esquerdo, expanda **DSN**, **Contoso-DNS-EU**.
-5.	Clique com o botão direito do mouse em **Encaminhadores condicionais** e, em seguida, clique em **Novo encaminhador condicional**. 
+5.	Clique com o botão direito do mouse em **Encaminhadores condicionais** e, em seguida, clique em **Novo encaminhador condicional**.
 5.	Insira as seguintes informações:
 	- **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-US. Por exemplo: Contoso-HBase-US.f5.internal.cloudapp.net.
 	- **Endereços IP dos servidores mestres**: insira 10.2.0.4, que é o endereço IP do Contoso-DNS-US. Verifique se o IP. O servidor DNS pode ter um endereço IP diferente.
 6.	Pressione **ENTER** e, em seguida, clique em **OK**. Agora você poderá resolver o endereço IP do Contoso-DNS-US por meio do Contoso-DNS-EU.
 7.	Repita as etapas para adicionar um encaminhador condicional do DNS ao serviço DNS na máquina virtual Contoso-DNS-US com os seguintes valores:
-	- **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-EU. 
+	- **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-EU.
 	- **Endereços IP dos servidores mestres**: insira 10.2.0.4, que é o endereço IP do Contoso-DNS-EU.
 
 **Para testar a resolução de nome de domínio**
@@ -314,4 +314,4 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

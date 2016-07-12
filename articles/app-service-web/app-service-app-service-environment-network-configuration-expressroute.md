@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="06/27/2016" 
 	ms.author="stefsch"/>
 
 # Detalhes da configuração de rede para Ambientes de Aplicativo de Serviço com a Rota Expressa 
@@ -29,13 +29,15 @@ Os clientes podem conectar um circuito da [Rota Expressa do Azure][ExpressRoute]
 Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo que não podem ser inicialmente atendidos em uma rede virtual conectada a uma Rota Expressa. Os Ambientes do Serviço de Aplicativo exigem tudo o que se segue para que funcionem corretamente:
 
 
--  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo nas portas 80 e 443. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
--  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Pontos de extremidade do Banco de Dados SQL sãs resolvidos no seguinte domínio: *database.windows.net*.
--  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*. 
+-  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo nas portas 80 e 443. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
+-  Conectividade de rede de saída para o serviço de arquivos do Azure na porta 445.
+-  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Os pontos de extremidade do banco de dados SQL são resolvidos sob este domínio: *database.windows.net*. Isso exige a abertura de acesso às portas 1433, 11000 a 11999 e 14000 a 14999. Para obter mais detalhes, veja [este artigo sobre o uso de portas do banco de dados Sql V12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*.
 -  Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
 -  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
--  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo. 
--  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.  
+-  O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS.
+-  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo.
+-  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.
 -  O acesso de rede de entrada a portas obrigatórias para os Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo][requiredports].
 
 Os requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [Portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
@@ -106,15 +108,15 @@ A última etapa da configuração é associar a tabela de rotas à sub-rede em q
 Depois que a tabela de rotas estiver associada à sub-rede, é recomendável primeiro testar e confirmar o efeito desejado. Por exemplo, implante uma máquina virtual na sub-rede e verifique se:
 
 
-- O tráfego de saída para pontos de extremidade do Azure e que não sejam do Azure mencionados anteriormente neste artigo **não** está fluindo pelo circuito da Rota Expressa. É muito importante verificar esse comportamento, uma vez que o tráfego de saída da sub-rede ainda está sendo encapsulado à força no local, sempre haverá falha na criação do Ambiente do Serviço de Aplicativo. 
-- Todas as pesquisas de DNS para os pontos de extremidade mencionados anteriormente estão sendo resolvidas corretamente. 
+- O tráfego de saída para pontos de extremidade do Azure e que não sejam do Azure mencionados anteriormente neste artigo **não** está fluindo pelo circuito da Rota Expressa. É muito importante verificar esse comportamento, uma vez que o tráfego de saída da sub-rede ainda está sendo encapsulado à força no local, sempre haverá falha na criação do Ambiente do Serviço de Aplicativo.
+- Todas as pesquisas de DNS para os pontos de extremidade mencionados anteriormente estão sendo resolvidas corretamente.
 
 Depois que as etapas acima forem confirmadas, você precisará excluir a máquina virtual porque a sub-rede precisa estar "vazia" no momento em que o Ambiente do Serviço de Aplicativo é criado.
  
 Prossiga então com a criação de um Ambiente do Serviço de Aplicativo.
 
 ## Introdução
-Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
@@ -138,4 +140,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

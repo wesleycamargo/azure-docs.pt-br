@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Copiar um Blob existente em um ativo dos Serviços de Mídia
@@ -39,7 +39,7 @@ Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/sa
 
 Nesta seção você irá criar e configurar um projeto de aplicativo de console em C#.
 
-1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. 
+1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#.
 2. Digite CopyExistingBlobsIntoAsset para o nome e, em seguida, clique em OK.
 1. Use o Nuget para adicionar referências às DLLs relacionadas ao Serviços de Mídia. No Menu Principal do Visual Studio, selecione FERRAMENTAS -> Gerenciador de Pacotes da Biblioteca -> Console do Gerenciador de Pacotes. Na janela do console, digite Install-Package windowsazure.mediaservices e pressione Enter.
 1. Adicione outras referências que são necessárias para este projeto: System.Configuration.
@@ -76,7 +76,7 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
 
 O exemplo de código a seguir executa as seguintes tarefas:
 
-1. Cria uma instância CloudMediaContext 
+1. Cria uma instância CloudMediaContext
 1. Cria instâncias CloudStorageAccount: \_sourceStorageAccount e \_destinationStorageAccount.
 1. Carrega arquivos do Smooth Streaming de um diretório local para um contêiner de blob que está localizado em \_sourceStorageAccount.
 1. Cria um novo ativo. O contêiner de blob que é criado para esse ativo está localizado em \_destinationStorageAccount.
@@ -85,7 +85,7 @@ O exemplo de código a seguir executa as seguintes tarefas:
 	>[AZURE.NOTE]A operação de cópia não lançará uma exceção se o localizador estiver expirado.
 
 1. Já que, neste exemplo, estamos copiando arquivos de streaming suave, o exemplo mostra como definir o arquivo .ism como o arquivo primário. Se, por exemplo, copiarmos um arquivo .mp4, o arquivo mp4 seria definido como o arquivo primário.
-1. Cria a URL do Smooth Streaming para o localizador do OnDemandOrigin associado ao ativo. 
+1. Cria a URL do Smooth Streaming para o localizador do OnDemandOrigin associado ao ativo.
 			
 		class Program
 	        {
@@ -322,4 +322,4 @@ O exemplo de código a seguir executa as seguintes tarefas:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

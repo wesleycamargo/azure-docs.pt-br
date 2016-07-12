@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)
@@ -52,15 +52,13 @@ Como alternativa, você pode executar o mesmo comando com sqlcmd executando o se
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Os parâmetros **MAXSIZE** e **SERVICE\_OBJECTIVE** especificam o espaço máximo que o banco de dados pode usar em disco, e os recursos de computação alocados para sua instância do Data Warehouse. O objetivo do serviço é essencialmente uma alocação de CPU e memória que acompanha linearmente o tamanho do DWU.
-
-O MAXSIZE pode ser entre 250 GB e 240 TB. O Objetivo do Serviço pode ser entre DW100 e DW2000. Para obter uma lista completa de todos os valores válidos para MAXSIZE e SERVICE\_OBJECTIVE, consulte a documentação do MSDN sobre [CREATE DATABASE][]. O MAXSIZE e SERVICE\_OBJECTIVE também podem ser alterados com um comando T-SQL [ALTER DATABASE][]. É necessário ter cuidado ao alterar o SERVICE\_OBJECTIVE, pois isso causa uma reinicialização de serviços que cancelará todas as consultas em trânsito. A alteração de MAXSIZE não reinicia os serviços, pois é apenas uma operação de metadados.
+O `MAXSIZE` pode ser entre 250 GB e 240 TB. O `SERVICE_OBJECTIVE` pode estar entre DW100 e DW2000 [DWU][]. Para obter uma lista de todos os valores válidos, confira a documentação do MSDN para [CREATE DATABASE][]. O MAXSIZE e SERVICE\_OBJECTIVE também podem ser alterados com um comando T-SQL [ALTER DATABASE][]. É necessário ter cuidado ao alterar o SERVICE\_OBJECTIVE, pois isso causa uma reinicialização de serviços que cancelará todas as consultas em trânsito. A alteração de MAXSIZE não reinicia os serviços, pois é apenas uma operação de metadados.
 
 ## Próximas etapas
 Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amostra][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Conectar-se ao SQL Data Warehouse com o Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [migrar]: ./sql-data-warehouse-overview-migrate.md
@@ -82,4 +80,4 @@ Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amo
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

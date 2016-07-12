@@ -311,7 +311,7 @@ Esta seção explica algumas técnicas que você pode usar para ajustar o Banco 
 O Banco de Dados SQL fornece duas ferramentas no Portal do Azure para análise e correção de problemas de desempenho com seu banco de dados:
 
 - [Visão de Desempenho de Consulta](sql-database-query-performance.md)
-- [Advisor do Banco de Dados SQL](sql-database-index-advisor.md)
+- [Advisor do Banco de Dados SQL](sql-database-advisor.md)
 
 Consulte os links anteriores para saber mais sobre cada ferramenta e como usá-las. As duas seções a seguir, Índices ausentes e Ajuste de consultas, fornecem outras maneiras de encontrar e corrigir manualmente problemas de desempenho parecidos. Recomendamos que você experimente primeiro as ferramentas no portal a fim de diagnosticar e corrigir os problemas com mais eficiência. Use o abordagem de ajuste manual para casos especiais.
 
@@ -507,4 +507,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

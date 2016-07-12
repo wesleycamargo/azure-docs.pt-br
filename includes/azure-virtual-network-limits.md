@@ -34,7 +34,7 @@ Regras de NSG por NSG | 200 | 500
 Tabelas de rota definida pelo usuário | 100 | 400
 Rotas definidas pelo usuário por tabela de rotas | 100 | 400
 Endereços IP públicos (dinâmicos) | 60 | entre em contato com o suporte
-Endereços IP públicos reservados | 20 | entre em contato com o suporte
+Endereços IP públicos (estático) | 20 | entre em contato com o suporte
 Balanceadores de carga (internos e para Internet) | 100 | entre em contato com o suporte
 Regras de balanceador de carga por balanceador de carga | 150 | 150
 IP público front-end por balanceador de carga | 5 | entre em contato com o suporte
@@ -43,4 +43,4 @@ Application gateways | 50 | 50
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

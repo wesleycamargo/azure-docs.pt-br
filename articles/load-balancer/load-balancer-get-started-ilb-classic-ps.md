@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -82,7 +82,7 @@ Se você especificar o endereço IP durante a criação da instância do Balance
 
 
 
-Para usar esses comandos, preencha os valores e remova o < and >. Veja um exemplo:
+Para usar esses comandos, preencha os valores e remova < e >. Aqui está um exemplo:
 
 	$svc="mytestcloud"
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
@@ -139,9 +139,9 @@ Para remover uma máquina virtual como um ponto de extremidade de uma instância
 	$epname="<Name of the endpoint>"
 	Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-Para usar esses comandos, preencha os valores removendo o < and >.
+Para usar esses comandos, preencha os valores e remova < e >.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 	$svc="mytestcloud"
 	$vmname="DB1"
@@ -153,9 +153,9 @@ Para remover uma instância do balanceador de carga interno de um serviço de nu
 	$svc="<Cloud service name>"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
-Para usar esses comandos, preencha o valor e remova o < and >.
+Para usar esses comandos, preencha os valores e remova < e >.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 	$svc="mytestcloud"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
@@ -181,4 +181,4 @@ Para obter informações adicionais sobre cmdlets de Balanceamento de Carga Inte
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0629_2016-->

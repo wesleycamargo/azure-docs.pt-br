@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
     
 # Largura de banda de rede do Azure RemoteApp - diretrizes gerais (se não puder testar a sua)
@@ -43,4 +43,4 @@ Esse é um cenário de uso de baixa largura de banda. A 256 KB/s fornecemos uma 
 
 - [Azure RemoteApp - testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

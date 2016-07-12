@@ -23,8 +23,8 @@ Este artigo descreve os principais fatores que afetam o desempenho de movimenta�
 Usando a Atividade de Cópia, você pode obter alta taxa de transferência de movimentação de dados conforme mostrado nos exemplos a seguir:
 
 - Consumir 1 TB de dados no Armazenamento de Blobs do Azure do Sistema de Arquivos local e do Armazenamento de Blobs do Azure em menos de 3 horas (ou seja, a 100 MBps)
-- Consumir 1 TB de dados no Repositório Azure Data Lake do Sistema de Arquivos local e do Armazenamento de Blobs do Azure em menos de 3 horas (ou seja, a 100 MBps) 
-- Consumir 1 TB de dados no Azure SQL Data Warehouse do Armazenamento de Blobs do Azure em menos de 3 horas (ou seja, a 100 MBps) 
+- Consumir 1 TB de dados no Repositório Azure Data Lake do Sistema de Arquivos local e do Armazenamento de Blobs do Azure em menos de 3 horas (ou seja, a 100 MBps)
+- Consumir 1 TB de dados no Azure SQL Data Warehouse do Armazenamento de Blobs do Azure em menos de 3 horas (ou seja, a 100 MBps)
 
 Consulte as seções a seguir para saber mais sobre o desempenho da Atividade de Cópia e dicas de ajuste para melhorá-las ainda mais.
 
@@ -49,7 +49,7 @@ As etapas típicas que sugerimos que você faça para ajustar o desempenho de su
 	- [Gateway de gerenciamento de dados](#considerations-on-data-management-gateway)
 	- [Outras considerações](#other-considerations)
 	- [Cópia paralela](#parallel-copy)
-	- [Unidades de Movimentação de Dados de Nuvem](#cloud-data-movement-units)    
+	- [Unidades de Movimentação de Dados de Nuvem](#cloud-data-movement-units)
 
 3. **Expandir a configuração para todos os dados** Quando você estiver satisfeito com os resultados e o desempenho da execução, poderá expandir a definição do conjunto de dados e o período ativo do pipeline para cobrir todos os dados na imagem.
 
@@ -171,8 +171,8 @@ Consulte os [casos de uso de exemplo](#case-study---parallel-copy) aqui para apr
 ## Cópia em etapas
 Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados do coletor, você poderá usar um armazenamento de Blobs do Azure como um armazenamento de preparação provisório. Esse recurso de preparo é especialmente útil nos seguintes casos:
 
-1.	**Às vezes, leva algum tempo para realizar a movimentação de dados híbridos (ou seja, no armazenamento de dados local para um repositório de dados de nuvem ou vice-versa) em uma conexão de rede lenta.** Para melhorar o desempenho de tal movimentação de dados, você poderá compactar os dados no local para que a movimentação de dados seja mais rápida durante a transmissão para o armazenamento de dados de preparo na nuvem e depois descompactar dados no armazenamento de preparo antes de carregá-lo no armazenamento de dados de destino. 
-2.	**Você não deseja abrir portas diferentes da 80 e da 443 em seu firewall devido a políticas de TI.** Por exemplo, ao copiar dados de um armazenamento de dados local para um coletor do Banco de Dados SQL do Azure ou o coletor do SQL Data Warehouse do Azure, a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo precisam estar habilitados. Em tal cenário, você pode aproveitar os dados da primeira cópia do Gateway de Gerenciamento de Dados para um Armazenamento de Blobs do Azure de preparo, isto é, pela porta 443 e depois carregar os dados no Banco de Dados SQL ou o SQL Data Warehouse do armazenamento de blobs de preparo. Em um fluxo desses, a porta 1433 não precisa estar habilitada. 
+1.	**Às vezes, leva algum tempo para realizar a movimentação de dados híbridos (ou seja, no armazenamento de dados local para um repositório de dados de nuvem ou vice-versa) em uma conexão de rede lenta.** Para melhorar o desempenho de tal movimentação de dados, você poderá compactar os dados no local para que a movimentação de dados seja mais rápida durante a transmissão para o armazenamento de dados de preparo na nuvem e depois descompactar dados no armazenamento de preparo antes de carregá-lo no armazenamento de dados de destino.
+2.	**Você não deseja abrir portas diferentes da 80 e da 443 em seu firewall devido a políticas de TI.** Por exemplo, ao copiar dados de um armazenamento de dados local para um coletor do Banco de Dados SQL do Azure ou o coletor do SQL Data Warehouse do Azure, a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo precisam estar habilitados. Em tal cenário, você pode aproveitar os dados da primeira cópia do Gateway de Gerenciamento de Dados para um Armazenamento de Blobs do Azure de preparo, isto é, pela porta 443 e depois carregar os dados no Banco de Dados SQL ou o SQL Data Warehouse do armazenamento de blobs de preparo. Em um fluxo desses, a porta 1433 não precisa estar habilitada.
 3.	**Inclua dados de vários armazenamentos de dados no SQL Data Warehouse do Azure via PolyBase.** O SQL Data Warehouse do Azure oferece o PolyBase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados no SQL Data Warehouse. No entanto, isso requer que os dados de origem estejam no Armazenamento de Blobs do Azure e que atendam a alguns critérios adicionais. Ao carregar dados de um armazenamento de dados diferente do Armazenamento de Blobs do Azure, você poderá habilitar a cópia de dados por meio de um Armazenamento de Blobs de preparo provisório do Azure e, nesse caso, o Azure Data Factory executará as transformações necessárias nos dados para garantir que eles atendam aos requisitos de formato de dados do PolyBase e então aproveitará o PolyBase para carregar dados no SQL Data Warehouse. Veja [Usar o PolyBase para carregar dados no SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver mais detalhes e exemplos.
 
 ### Como funciona a cópia em etapas
@@ -224,6 +224,7 @@ Veja um exemplo de definição de uma Atividade de Cópia com as propriedades ac
 		}
 	}
 	]
+
 
 ### Impacto de cobrança
 Observe que você será cobrado com base nos dois estágios da duração de cópia e seu tipo de cópia respectivamente, o que significa:
@@ -391,4 +392,4 @@ Aqui estão algumas referências de monitoramento e ajuste de desempenho para al
 - SQL Server local: [monitoramento e ajuste de desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

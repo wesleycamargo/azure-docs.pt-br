@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de ler este artigo, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
@@ -89,7 +89,7 @@ Para criar um namespace de serviço:
 2.  No painel de navegação esquerdo inferior do portal clássico do Azure, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
 3.  No painel superior esquerdo do portal clássico do Azure, clique no nó de **barramento de serviço** e, em seguida, clique no botão **novo**.![Captura de tela do nó do Barramento de Serviço][svc_bus_node]
 4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para verificar se ele é exclusivo, clique no botão **Verificar Disponibilidade**.![Criar uma captura de tela do novo Namespace][create_namespace]
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace**.  
+5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace**.
 
     O namespace que você criou aparecerá no portal clássico do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
@@ -521,4 +521,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="07/05/2016"
 	ms.author="joseidz"/>
 
 
@@ -83,4 +83,4 @@ Agora que você estabeleceu a conexão e criou o arquivo com dados e informaçõ
 - Saiba mais sobre os benefícios dos [pools elásticos](sql-database-elastic-pool.md).
 - Saiba como [criar um aplicativo Web que se conecta ao Banco de Dados SQL em back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -47,7 +47,7 @@ Os seguintes pacotes de instalador estão disponíveis também para download:
 
 * [Windows installer][windows-installer]
 
-* [Arquivo tar de Linux][linux-installer] \(requer o Node. js e npm) - instale executando `sudo npm install -g <path to downloaded tar file>`
+* [Arquivo tar de Linux][linux-installer] (requer o Node. js e npm) - instale executando `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Usar um contêiner do Docker
@@ -123,4 +123,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

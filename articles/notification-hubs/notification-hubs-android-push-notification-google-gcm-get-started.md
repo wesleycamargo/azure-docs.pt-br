@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	keywords="notificações por push, notificação por push, notificação por push do android"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="07/05/2016"
 	ms.author="wesmc"/>
 
 # Como enviar notificações por push para Android com Hubs de Notificação do Azure
@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
+> [AZURE.IMPORTANT] Este tópico demonstra as notificações por push com o Google Cloud Messaging (GCM). Se você estiver usando o Firebase Cloud Messaging (FCM) do Google, confira [Como enviar notificações por push para Android com Hubs de Notificação do Azure e FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Android. Você criará um aplicativo para Android em branco que recebe notificações por push usando o GCM(Google Cloud Messaging).
 
@@ -32,6 +32,8 @@ O código completo para este tutorial pode ser baixado no GitHub [clicando aqui]
 
 
 ##Pré-requisitos
+
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 
 Além de uma conta ativa do Azure mencionada acima, este tutorial requer apenas a última versão do [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
 
@@ -91,7 +93,7 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 ### Atualização do arquivo AndroidManifest.xml.
 
 
-1. Para oferecer suporte ao GCM, devemos implementar um serviço de escuta de ID da Instância em nosso código que será usado para [obter os tokens do registro](https://developers.google.com/cloud-messaging/android/client#sample-register) usando a [API de ID da Instância do Google](https://developers.google.com/instance-id/). Neste tutorial, daremos um nome à classe `MyInstanceIDService`. 
+1. Para oferecer suporte ao GCM, devemos implementar um serviço de escuta de ID da Instância em nosso código que será usado para [obter os tokens do registro](https://developers.google.com/cloud-messaging/android/client#sample-register) usando a [API de ID da Instância do Google](https://developers.google.com/instance-id/). Neste tutorial, daremos à classe o nome `MyInstanceIDService`.
  
 	Adicione a seguinte definição de serviço ao arquivo Androidmanifest.xml, dentro da marcação `<application>`. Substitua o espaço reservado `<your package>` pelo nome do pacote real mostrado na parte superior do arquivo `AndroidManifest.xml`.
 
@@ -102,9 +104,9 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		</service>
 
 
-2. Após recebermos nosso token de registro GCM da API de ID da Instância, iremos usá-lo para nos [registrar no Hub de Notificação do Azure](notification-hubs-push-notification-registration-management.md). Daremos suporte a esse registro em segundo plano usando um `IntentService` denominado `RegistrationIntentService`. Esse serviço também será responsável por [atualizar nosso token de registro GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+2. Após recebermos nosso token de registro GCM da API de ID da Instância, iremos usá-lo para nos [registrar no Hub de Notificação do Azure](notification-hubs-push-notification-registration-management.md). Ofereceremos suporte a esse registro em segundo plano usando um `IntentService` chamado `RegistrationIntentService`. Esse serviço também será responsável por [atualizar nosso token de registro GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
  
-	Adicione a seguinte definição de serviço ao arquivo Androidmanifest.xml, dentro da marcação `<application>`. Substitua o espaço reservado `<your package>` pelo nome do pacote real mostrado na parte superior do arquivo `AndroidManifest.xml`.
+	Adicione a seguinte definição de serviço ao arquivo Androidmanifest.xml, dentro da marca `<application>`. Substitua o espaço reservado `<your package>` pelo nome do pacote real mostrado na parte superior do arquivo `AndroidManifest.xml`.
 
         <service
             android:name="<your package>.RegistrationIntentService"
@@ -141,7 +143,7 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 ### Como adicionar um código
 
 
-1. Na Exibição de Projeto, expanda **app** > **src** > **main** > **java**. Clique na pasta do seu pacote em **java**, clique em **Novo** e então clique em **Classe Java**. Adicione uma nova classe denominada `NotificationSettings`. 
+1. Na Exibição de Projeto, expanda **app** > **src** > **main** > **java**. Clique na pasta do seu pacote em **java**, clique em **Novo** e então clique em **Classe Java**. Adicione uma nova classe denominada `NotificationSettings`.
 
 	![Android Studio - nova classe de Java][6]
 
@@ -229,7 +231,7 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/pt-BR/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -423,11 +425,11 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		}
 
 
-14. No Android Studio, na barra de menus, clique em **Compilar** -> **Recompilar Projeto** para garantir que não haja erros no código.
+14. No Android Studio, na barra de menus, clique em **Compilar** -> **Recompilar Projeto** para garantir que não haja erros presentes no código.
 
 ##Como enviar notificações por push
 
-Você pode testar o recebimento das notificações por push no aplicativo enviando-as por meio do [Portal do Azure] - procure a seção **Solução de problemas** na folha do hub, conforme mostrado abaixo.
+Você pode testar o recebimento de notificações por push no aplicativo enviando-as por meio do [Portal do Azure] - procure a seção **Solução de problemas** na folha do hub, conforme mostrado abaixo.
 
 ![Hubs de notificação do Azure - Testar Enviar](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -619,7 +621,7 @@ Normalmente, você enviaria notificações usando um servidor back-end. Em algun
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/pt-BR/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -724,4 +726,4 @@ Para saber mais sobre os Hubs de Notificação, consulte nossas [Diretrizes dos 
 [Usar Hubs de Notificação para enviar as notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e da Tabela do Azure | Azure Data Factory
@@ -360,7 +360,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| tableName | Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. | Sim
+| tableName | Nome da tabela na instância do Banco de Dados da Tabela do Azure à qual o serviço vinculado se refere. | Sim. Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino. |
 
 ### Esquema do Data Factory
 Para armazenamentos de dados sem esquema, como a Tabela do Azure, o serviço do Data Factory infere o esquema usando uma das seguintes maneiras:
@@ -380,7 +380,7 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Veja os exemplos abaixo. | Não
+azureTableSourceQuery | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta de tabela do Azure. Veja os exemplos abaixo. | Quando um nome de tabela é especificado sem uma azureTableSourceQuery, todos os registros da tabela são copiados para o destino. Se uma azureTableSourceQuery também for especificada, os registros da tabela que atende à consulta são copiados para o destino.  
 azureTableSourceIgnoreTableNotFound | Indique se assimilar a exceção da tabela não existe. | TRUE<br/>FALSE | Não |
 
 ### Exemplos do azureTableSourceQuery
@@ -403,8 +403,8 @@ azureTableDefaultPartitionKeyValue | Valor de chave de partição padrão que po
 azureTablePartitionKeyName | Nome de coluna do usuário especificado, cujos valores de coluna são utilizados como chave de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será utilizado como a chave da partição. | Um nome de coluna. | Não |
 azureTableRowKeyName | Nome de coluna especificado pelo usuário, cujos valores de coluna são utilizados como chave de linha. Se não especificado, um GUID é usado para cada linha. | Um nome de coluna. | Não  
 azureTableInsertType | O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) para saber mais sobre como essas configurações (mescla e substituição) funcionam. <br/><br> Observe que essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existem na entrada. | mesclar (padrão)<br/>substituir | Não 
-writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Inteiro de 1 a 100 (unidade = contagem de linhas) | Não (Padrão = 100) 
-writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | (Unidade = timespan)Exemplo: "00:20:00" (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
+writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Número inteiro | Não (padrão: 10000) 
+writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | TimeSpan<br/><br/>Exemplo: "00:20:00" (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
 
 ### azureTablePartitionKeyName
 Será necessário mapear uma coluna de origem para uma coluna de destino usando a propriedade JSON do conversor antes de poder usar a coluna de destino como o azureTablePartitionKeyName.
@@ -527,6 +527,6 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

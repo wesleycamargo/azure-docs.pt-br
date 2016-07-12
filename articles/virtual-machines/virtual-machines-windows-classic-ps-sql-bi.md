@@ -18,8 +18,7 @@
 
 # Business Intelligence do SQL Server em máquinas virtuais do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 A galeria de Máquinas Virtuais do Microsoft Azure inclui imagens com instalações do SQL Server. As edições do SQL Server com suporte nas imagens da galeria são os mesmos arquivos de instalação que você pode instalar em computadores e em máquinas virtuais locais. Este tópico resume os Recursos de Business Intelligence (BI) do SQL Server instalados nas imagens e as etapas de configuração exigidas após o provisionamento de uma máquina virtual. Este tópico também descreve as topologias de implantação com suporte para recursos de BI e as práticas recomendadas.
 
@@ -316,7 +315,7 @@ Para instalar serviços adicionais do SQL Server, como o Analysis Services no mo
 
 1. Clique em **Central de Instalação do SQL Server**.
 
-Ou execute C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQLServer\_11.0\_full\\setup.exe
+Ou execute C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.exe ou C:\\SQLServer_11.0\_full\\setup.exe
 
 >[AZURE.NOTE] Quando você executar pela primeira vez a instalação do SQL Server, é possível que outros arquivos de instalação sejam baixados e exijam a reinicialização da máquina virtual e da instalação do SQL Server.
 >
@@ -334,7 +333,7 @@ As etapas nesta seção **resumem** a instalação do modo de tabela do Analysis
 
 1. No assistente de instalação do SQL Server, clique em **Instalação** no painel esquerdo e clique em **Nova instalação autônoma do SQL Server ou adicionar recursos a uma instalação existente**.
 
-	- Se a opção **Procurar Pasta** for exibida, navegue até c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full ou c:\\SQLServer\_11.0\_full e clique em **Ok**.
+	- Se a opção **Procurar Pasta** for exibida, navegue até c:\\SQLServer\_13.0_full, c:\\SQLServer_12.0_full ou c:\\SQLServer_11.0\_full e clique em **OK**.
 
 1. Clique em **Avançar** na página de atualizações de produto.
 
@@ -392,8 +391,8 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 	|Port|Tipo|Descrição|
 |---|---|---|
-|**80**|TCP|Acesso remoto ao servidor de relatório (*).| 
-|**1433**|TCP|SQL Server Management Studio (*).| 
+|**80**|TCP|Acesso remoto ao servidor de relatório (*).|
+|**1433**|TCP|SQL Server Management Studio (*).|
 |**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instância padrão do SQL Server Analysis Services e instâncias nomeadas em cluster.|
@@ -437,4 +436,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

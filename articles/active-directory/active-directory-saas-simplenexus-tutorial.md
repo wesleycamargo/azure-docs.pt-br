@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao SimpleNexus | Microsoft Azure" 
     description="Saiba como usar o SimpleNexus com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o SimpleNexus
   
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o SimpleNexus, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **SimpleNexus**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal clássico do Azure, na página de integração do aplicativo **SimpleNexus**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do SimpleNexus**, digite a URL usando o padrão "**https://simplenexus.com/CompanyName\_login*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do SimpleNexus**, digite a URL usando o padrão "*https://simplenexus.com/CompanyName\_login*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configurar a URL do Aplicativo")
 
@@ -84,16 +84,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configurar o logon único")
 
-    >[AZURE.NOTE]O logon único precisa ser habilitado pela equipe de suporte do SimpleNexus.
+    >[AZURE.NOTE] O logon único precisa ser habilitado pela equipe de suporte do SimpleNexus.
 
-5.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+5.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do AD do Azure façam logon no SimpleNexus, eles deverão ser provisionados no SimpleNexus. No caso do SimpleNexus, o provisionamento será uma tarefa manual executada pelo administrador do locatário.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do SimpleNexus ou as APIs fornecidas pelo SimpleNexus para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do SimpleNexus ou as APIs fornecidas pelo SimpleNexus para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -101,9 +101,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao SimpleNexus, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **SimpleNexus**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **SimpleNexus**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Atribuir Usuários")
 
@@ -113,4 +113,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

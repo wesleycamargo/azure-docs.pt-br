@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
@@ -52,7 +52,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
 
 6. Clique em cada parte (**Grupo de Recursos**, **Aplicativo Web**, **Banco de Dados** e **Assinatura**) e insira ou selecione valores para os campos obrigatórios:
 	
-	- Insira um nome de URL de sua escolha	
+	- Insira um nome de URL de sua escolha
 	- Configurar credenciais de servidor de banco de dados
 	- Selecione a região mais próxima de você
 
@@ -137,7 +137,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
 
 		php -S localhost:8000
 
-4. Abra um navegador da Web e navegue até ****http://localhost:8000/createtable.php**. Isso criará a tabela `registration_tbl` no banco de dados.
+4. Abra um navegador da Web e navegue até **http://localhost:8000/createtable.php**. Isso criará a tabela `registration_tbl` no banco de dados.
 
 5. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em várias etapas).
 
@@ -233,7 +233,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Agora você pode navegar até ****http://localhost:8000/index.php** para testar o aplicativo.
+Agora você pode navegar até **http://localhost:8000/index.php** para testar o aplicativo.
 
 ##Publicar seu aplicativo
 
@@ -298,4 +298,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

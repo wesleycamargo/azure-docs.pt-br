@@ -20,9 +20,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-database-geo-restore.md)
-- [Portal do Azure](sql-database-geo-restore-portal.md)
-- [PowerShell](sql-database-geo-restore-powershell.md)
+- [Visão geral](sql-database-recovery-using-backups.md)
+- [Restauração geográfica: Portal do Azure](sql-database-geo-restore-portal.md)
 
 Este artigo mostra como restaurar seu banco de dados para um novo servidor usando a restauração geográfica com o PowerShell.
 
@@ -49,15 +48,14 @@ Este artigo mostra como restaurar seu banco de dados para um novo servidor usand
     
         Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" –ResourceId $GeoBackup.ResourceID –ElasticPoolName "elasticpool01"  
 
+
 ## Próximas etapas
 
-- Para obter as etapas detalhadas de como restaurar um Banco de Dados SQL do Azure usando o portal do Azure de um backup com redundância geográfica, confira [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md) (Restauração geográfica com o Portal do Azure)
-- Para obter informações detalhadas sobre como restaurar um Banco de Dados SQL do Azure de um backup com redundância geográfica, confira [Geo-Restore using PowerShell](sql-database-geo-restore.md) (Restauração geográfica com o PowerShell)
-- Para uma discussão completa sobre como se recuperar de uma interrupção, confira [Recover from an outage](sql-database-disaster-recovery.md) (Recuperação de uma interrupção)
+- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-
-## Recursos adicionais
-
-- [Cenários de continuidade dos negócios](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 		// Load the XML (or JSON) from the local file.
 	    string configuration = File.ReadAllText(fileName);  
-- Adicione uma tarefa de codificação para o trabalho. 
+- Adicione uma tarefa de codificação para o trabalho.
 - Especifique o ativo de entrada a ser codificado.
 - Crie um ativo de saída que conterá o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
@@ -980,7 +980,7 @@ O exemplo a seguir ilustra como você pode gerar uma predefinição para concate
 - O trecho de código e predefinição JSON mostram um exemplo da concatenação de dois arquivos de vídeo. Você pode estendê-lo para mais de dois vídeos da seguinte forma:
 
 	1. Chamando task.InputAssets.Add() repetidamente para adicionar mais vídeos em ordem.
-	2. Fazendo edições correspondentes ao elemento “Fontes” no JSON, adicionando mais entradas na mesma ordem. 
+	2. Fazendo edições correspondentes ao elemento “Fontes” no JSON, adicionando mais entradas na mesma ordem.
 
 
 ###Código do .NET
@@ -1086,4 +1086,4 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

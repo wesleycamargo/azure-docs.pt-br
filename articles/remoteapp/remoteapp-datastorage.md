@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/07/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -39,7 +39,7 @@ Dados de exemplo que podem residir no perfil padrão a ser copiado para o UPD de
 Pontos principais:
 
 - Nunca armazene dados confidenciais que possam ser perdidos na imagem ao criar uma imagem personalizada.
-- Dados confidenciais sempre devem residir em um servidor de arquivos separado, VM do Azure separada, na nuvem e sempre externos às instâncias de VM que hospedam seus aplicativos no Azure RemoteApp. 
+- Dados confidenciais sempre devem residir em um servidor de arquivos separado, VM do Azure separada, na nuvem e sempre externos às instâncias de VM que hospedam seus aplicativos no Azure RemoteApp.
 - Os dados de usuário são salvos e persistem no UPD (disco de perfil do usuário)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

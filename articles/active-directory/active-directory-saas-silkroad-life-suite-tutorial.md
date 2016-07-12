@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/29/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: integração do Active Directory do Azure com o SilkRoad Life Suite
 
-O objetivo deste tutorial é mostrar como integrar o SilkRoad Life Suite com o Active Directory do Azure (AD do Azure).<br>A integração do SilkRoad Life Suite com o AD do Azure oferece os seguintes benefícios:
+O objetivo desse tutorial é mostrar como integrar o SilkRoad Life Suite ao Azure AD (Azure Active Directory). A integração do SilkRoad Life Suite ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure quem tem acesso ao SilkRoad Life Suite 
+- Você pode controlar no AD do Azure quem tem acesso ao SilkRoad Life Suite
 - Você pode habilitar seus usuários a fazer logon automaticamente no SilkRoad Life Suite (logon único) com suas contas do AD do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -40,13 +40,13 @@ Para configurar a integração do AD do Azure com o SilkRoad Life Suite, você p
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o SilkRoad Life Suite por meio da galeria 
+1. Adicionando o SilkRoad Life Suite por meio da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
@@ -55,21 +55,37 @@ Para configurar a integração do SilkRoad Life Suite com o AD do Azure, você p
 
 **Para adicionar o SilkRoad Life Suite por meio da galeria, realize as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
-4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
-5. No diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **SilkRoad Life Suite**.<br><br> ![Aplicativos][5]<br>
-7. No painel de resultados, selecione **SilkRoad Life Suite** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Aplicativos][50]<br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+
+	![Aplicativos][2]
+
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **SilkRoad Life Suite**.
+
+	![Aplicativos][5]
+
+7. No painel de resultados, selecione **SilkRoad Life Suite** e clique em **Concluir** para adicionar o aplicativo.
+
+	![Aplicativos][50]
 
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o SilkRoad Life Suite, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do SilkRoad Life Suite é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no SilkRoad Life Suite.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no SilkRoad Life Suite.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do SilkRoad Life Suite é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no SilkRoad Life Suite. Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no SilkRoad Life Suite.
  
 Para configurar e testar o logon único do AD do Azure com o SilkRoad Life Suite, você precisa concluir os seguintes blocos de construção:
 
@@ -81,55 +97,75 @@ Para configurar e testar o logon único do AD do Azure com o SilkRoad Life Suite
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo do SilkRoad Life Suite.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no Portal clássico do Azure e configurar o logon único em seu aplicativo SilkRoad Life Suite.
 
 **Para configurar o logon único do AD do Azure com o SilkRoad Life Suite, realize as seguintes etapas:**
 
-5. Faça logon no site da empresa SilkRoad como administrador. 
+5. Faça logon no site da empresa SilkRoad como administrador.
 
 
     > [AZURE.NOTE] Para obter acesso ao aplicativo de Autenticação do SilkRoad Life Suite para configurar a federação com o AD do Microsoft Azure, entre em contato com o Suporte da SilkRoad ou com seu representante de Serviços da SilkRoad.
 
 
-6. Vá para **Provedor de Serviços** e clique em **Detalhes de Federação**. <br><br>![Logon único do AD do Azure][10] <br>
+6. Vá para **Provedor de Serviços** e clique em **Detalhes de Federação**.
+
+	![Logon único do AD do Azure][10]
 
 
-1. Clique em **Baixar Metadados de Federação** e salve o arquivo de metadados no computador. <br><br>![Logon único do AD do Azure][11] <br>
+1. Clique em **Baixar Metadados de Federação** e salve o arquivo de metadados no computador.
 
-3. No portal do Azure AD, na página de integração de aplicativos do **SilkRoad Life Suite**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+	![Logon único do AD do Azure][11]
 
-2. Na página **Como você deseja que os usuários façam logon no SilkRoad Life Suite**, selecione **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Logon único do AD do Azure][7] <br>
+3. No Portal clássico do Azure, na página de integração do aplicativo **SilkRoad Life Suite**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-3. Na página do diálogo **Definir Configurações de Aplicativo**, realize as seguintes etapas: <br><br>![Logon único do AD do Azure][8] <br>
+	![Configurar o logon único][6]
+
+2. Na página **Como você deseja que os usuários façam logon no SilkRoad Life Suite**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+
+	![Logon único do AD do Azure][7]
+
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+
+	![Logon único do AD do Azure][8]
  
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar em seu site do SilkRoad Life Suite (por exemplo: **https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*)).
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar em seu site do SilkRoad Life Suite (por exemplo: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
 
     b. Abra o arquivo de metadados do **Silkroad** baixado.
 
-    c. Localize a marca **AssertionConsumerService** e copie o atributo **Location**. <br><br>![Logon único do AD do Azure][21] <br>
+    c. Localize a marca **AssertionConsumerService** e copie o atributo **Location**.
+
+	![Logon único do AD do Azure][21]
    
     d. Cole o valor na caixa de texto **URL de Resposta**.
  
     e. Clique em **Próximo**.
  
-4. Na página **Configurar logon único no SilkRoad Life Suite**, realize as seguintes etapas: <br><br>![Logon único do AD do Azure][9] <br>
+4. Na página **Configurar logon único no SilkRoad Life Suite**, execute as seguintes etapas:
+
+	![Logon único do AD do Azure][9]
 
     a. Clique em Baixar certificado e salve o certificado localmente no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 
 
-1. Em seu aplicativo **SilkRoad**, clique em **Fontes de Autenticação**. <br><br>![Logon único do AD do Azure][12] <br>
+1. Em seu aplicativo **SilkRoad**, clique em **Fontes de Autenticação**.
+
+	![Logon único do AD do Azure][12]
 
 
 
-1. Clique em **Adicionar Fonte de Autenticação**. <br><br>![Logon único do AD do Azure][13] <br>
+1. Clique em **Adicionar Fonte de Autenticação**.
+
+	![Logon único do AD do Azure][13]
 
 
 
-1. Na seção **Adicionar Fonte de Autenticação**, realize as seguintes etapas: <br><br>![Logon único do AD do Azure][14] <br>
+1. Na seção **Adicionar Fonte de Autenticação**, execute as seguintes etapas:
+
+	![Logon único do AD do Azure][14]
 
     a. Em **Opção 2 - Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado.
 
@@ -137,10 +173,14 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 
-1. Na seção **Fontes de Autenticação**, clique em **Editar**. <br><br>![Logon único do AD do Azure][15] <br>
+1. Na seção **Fontes de Autenticação**, clique em **Editar**.
+
+	![Logon único do AD do Azure][15]
 
 
-1. No diálogo **Editar Fonte de Autenticação**, realize as seguintes etapas: <br><br>![Logon único do AD do Azure][16] <br>
+1. No diálogo **Editar Fonte de Autenticação**, execute as seguintes etapas:
+
+	![Logon único do AD do Azure][16]
 
     a. Para **Habilitado**, selecione **Sim**.
 
@@ -151,27 +191,43 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
     d. Clique em **Salvar**.
 
 
-6. Desabilite todas as outras fontes de autenticação. <br><br>![Logon único do AD do Azure][17]<br>
+6. Desabilite todas as outras fontes de autenticação.
 
-7. No portal do Azure AD, na página **Confirmação de logon único**, clique em **Avançar**. <br><br>![Logon único do AD do Azure][18]
+	![Logon único do AD do Azure][17]
 
-1. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][19]
+7. No Portal clássico do Azure, na página **Confirmação de logon único**, clique em **Avançar**.
+
+	![Logon único do AD do Azure][18]
+
+1. Na página **Confirmação de logon único**, clique em **Concluir**.
+
+	![Logon único do AD do Azure][19]
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][20]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png) <br> 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) <br>
- 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) <br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png)
+ 
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png)
+
+5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -179,7 +235,9 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)
  
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -189,9 +247,13 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) <br>
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png)
  
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) <br>
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png)
   
     a. Anote o valor da **Nova Senha**.
 
@@ -211,22 +273,35 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no SilkRo
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela o acesso ao SilkRoad Life Suite. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela o acesso ao SilkRoad Life Suite.
+
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao SilkRoad Life Suite, realize as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br> <br>![Atribuir usuário][201]<br>
-2. Na lista de aplicativos, selecione **SilkRoad Life Suite**. <br><br>![Atribuir usuário][202] <br>
-1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
+	![Atribuir usuário][201]
+
+2. Na lista de aplicativos, selecione **SilkRoad Life Suite**.
+
+	![Atribuir usuário][202]
+
+1. No menu na parte superior, clique em **Usuários**.
+
+	![Atribuir usuário][203]
+
+1. Na lista de usuários, selecione **Brenda Fernandes**.
+
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+
+	![Atribuir usuário][205]
 
 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Quando clica no bloco SilkRoad Life Suite no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo SilkRoad Life Suite.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando clica no bloco SilkRoad Life Suite no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo SilkRoad Life Suite.
 
 
 ## Recursos adicionais
@@ -271,4 +346,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

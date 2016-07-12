@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="06/27/2016"
 	ms.author="kgremban"/>
 
 
 # Logon único com Proxy de Aplicativo
 
 O logon único é um elemento fundamental do Proxy de Aplicativo do Azure AD. Ele oferece a melhor experiência do usuário por meio das seguintes etapas:
+
 1. Um usuário entra na nuvem
 2. Todas as validações de segurança acontecem na nuvem (pré-autenticação)
 3. Quando a solicitação é enviada ao aplicativo local, o Conector do Proxy de Aplicativo representa o usuário para que o aplicativo de back-end pense que se trata de um usuário normal proveniente de um dispositivo ingressado no domínio.
 
 ![Diagrama de acesso do usuário final, por meio do Proxy de Aplicativo, à rede corporativa](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
-O Proxy de Aplicativo do AD do Azure permite que você forneça uma SSO (experiência de um logon único) a seus usuários. Use as instruções a seguir para publicar seus aplicativos usando o SSO:
+O Proxy de Aplicativo do Azure AD permite que você forneça uma experiência de logon único (SSO) a seus usuários. Use as instruções a seguir para publicar seus aplicativos usando o SSO:
 
 
 ## SSO para aplicativos IWA local usando o KCD com Proxy de Aplicativo
@@ -50,10 +51,15 @@ Este diagrama explica o fluxo de quando um usuário tenta acessar um aplicativo 
 
 ### Pré-requisitos
 
-- Certifique-se de que seus aplicativos, tais como seus aplicativos Web do SharePoint, sejam definidos para usar a Autenticação Integrada do Windows. Para obter mais informações, consulte [Habilitar suporte para autenticação Kerberos](https://technet.microsoft.com/library/dd759186.aspx), ou para o SharePoint, consulte [Planejar a autenticação Kerberos no SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-- Criar nomes de entidade de serviço para seus aplicativos.
-- Certifique-se de que o servidor que executa o Conector e o servidor que executa o aplicativo que você está publicando estejam ingressados do domínio e façam parte do mesmo domínio. Para obter mais informações sobre o ingresso no domínio, consulte [Ingressar um computador em um domínio](https://technet.microsoft.com/library/dd807102.aspx).
+Antes de começar com o SSO para o Proxy de aplicativo, certifique-se de que seu ambiente está preparado com as seguintes configurações e definições:
 
+- Seus aplicativos, como os aplicativos Web do SharePoint, são definidos para usar a Autenticação Integrada do Windows. Para obter mais informações, consulte [Habilitar suporte para autenticação Kerberos](https://technet.microsoft.com/library/dd759186.aspx), ou para o SharePoint, consulte [Planejar a autenticação Kerberos no SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+
+- Todos os seus aplicativos têm nomes de entidade de serviço.
+
+- O servidor que executa o Conector e o servidor que executa o aplicativo que você está publicando são ingressados em domínio e fazem parte desse mesmo domínio. Para obter mais informações sobre o ingresso no domínio, consulte [Ingressar um computador em um domínio](https://technet.microsoft.com/library/dd807102.aspx).
+
+- O servidor que executa o conector tem acesso de leitura ao TokenGroupsGlobalAndUniversal para usuários. Isso é uma configuração padrão que talvez seja afetada pela segurança que protege o ambiente. Obter mais ajuda sobre isso em [KB2009157](https://support.microsoft.com/pt-BR/kb/2009157).
 
 ### Configuração do Active Directory
 
@@ -88,8 +94,8 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 
 1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md). Não deixe de selecionar **Active Directory do Azure** como o **Método de Pré-autenticação**.
 2. Depois que o aplicativo aparecer na lista de aplicativos, selecione-o e clique em **Configurar**.
-3. Em **Propriedades**, defina o **Método de Autenticação Interna** como **Autenticação Integrada do Windows**. ![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
-4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/lob.contoso.com.  
+3. Em **Propriedades**, defina o **Método de Autenticação Interna** como **Autenticação Integrada do Windows**. ![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/lob.contoso.com.
 
 >[AZURE.IMPORTANT] Os UPNs no Active Directory do Azure devem ser idênticos aos UPNs no Active Directory local para que a pré-autenticação funcione. Verifique se o AD do Azure está sincronizado com o AD local.
 
@@ -132,12 +138,12 @@ Isso também ajuda com aplicativos que não aceitam endereços na forma de ender
 
 ### Configurando o SSO para diferentes identidades na nuvem e no local
 
-1. Defina as configurações do Azure AD Connect para que a identidade principal seja o endereço de email (email). Isso é feito como parte do processo de personalização, alterando o campo **Nome UPN** nas configurações de sincronização. Observe que essas configurações também determinam como os usuários fazem logon no Office365, em dispositivos Windows 10 e em outros aplicativos que usam o Azure AD como seu repositório de identidades. ![Identificando a captura de tela de usuários - lista suspensa Nome UPN](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
+1. Defina as configurações do Azure AD Connect para que a identidade principal seja o endereço de email (email). Isso é feito como parte do processo de personalização, alterando o campo **Nome UPN** nas configurações de sincronização. Observe que essas configurações também determinam como os usuários fazem logon no Office365, em dispositivos Windows 10 e em outros aplicativos que usam o Azure AD como seu repositório de identidades. ![Identificando a captura de tela de usuários - lista suspensa Nome UPN](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
 2. Nas definições de configuração de aplicativo para o aplicativo que você deseja modificar, selecione a **Identidade de Logon Delegada** a ser usada:
-  - UPN: joe@contoso.com  
-  - UPN alternativo: joed@contoso.local  
-  - Parte do nome de usuário do UPN: joe  
-  - Parte do nome de usuário do UPN alternativo: joed  
+  - UPN: joe@contoso.com
+  - UPN alternativo: joed@contoso.local
+  - Parte do nome de usuário do UPN: joe
+  - Parte do nome de usuário do UPN alternativo: joed
   - Nome da conta SAM local: dependendo da configuração do controlador de domínio local
 
   ![Captura de tela de menu suspenso de identidade delegada de logon](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
@@ -153,11 +159,11 @@ Se houver um erro no processo de SSO, ele aparecerá no log de eventos do comput
 - [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
 - [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
+Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

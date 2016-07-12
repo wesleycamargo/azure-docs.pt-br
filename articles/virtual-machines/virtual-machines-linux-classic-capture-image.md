@@ -20,7 +20,7 @@
 
 # Como capturar uma máquina virtual clássica do Linux como uma imagem
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-linux-capture-image.md).
 
 Este artigo mostra como capturar uma máquina virtual do Azure clássica executando o Linux como uma imagem para criar outras máquinas virtuais. Esta imagem inclui o disco do sistema operacional e discos de dados anexados à máquina virtual. Ele não inclui a configuração de rede, então você precisará configurá-la quando criar as outras máquinas virtuais por meio da imagem.
 
@@ -95,4 +95,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. É possível
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Como criar uma máquina virtual do Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -22,7 +22,7 @@
 
 Se você não pode se conectar a uma máquina virtual Linux no Azure devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use a extensão VMAccessForLinux com a CLI do Azure para redefinir a senha ou chave SSH ou corrigir a configuração do SSH e verificar a consistência do disco.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 Com a CLI do Azure, você poderá usar o comando **azure vm extension set** na sua interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar comandos. Execute **azure help vm extension set** para ver o uso detalhado da extensão.
 
@@ -122,7 +122,7 @@ Se a configuração do SSH está em um estado indesejado, você também pode per
 
 Se você deseja excluir uma conta de usuário sem efetuar login à VM diretamente, você pode usar este script.
 
-1. Crie um arquivo chamado PrivateConf.json com esse conteúdo, substituindo o nome de usuário a ser removido em &#60;usernametoremove&#62;. 
+1. Crie um arquivo chamado PrivateConf.json com esse conteúdo, substituindo o nome de usuário a ser removido em &#60;usernametoremove&#62;.
 
         {
         "remove_user":"<usernametoremove>"
@@ -142,7 +142,7 @@ Para exibir o status da extensão VMAccess, execute este comando.
 
 Para executar fsck em todos os discos na sua máquina virtual Linux, você precisará fazer o seguinte:
 
-1. Crie um arquivo chamado PublicConf.json com esse conteúdo. A verificação de disco tem um valor booliano para se deseja verificar os discos anexados à sua máquina virtual ou não. 
+1. Crie um arquivo chamado PublicConf.json com esse conteúdo. A verificação de disco tem um valor booliano para se deseja verificar os discos anexados à sua máquina virtual ou não.
 
         {   
         "check_disk": "true"
@@ -156,7 +156,7 @@ Para executar fsck em todos os discos na sua máquina virtual Linux, você preci
 
 Para reparar discos que não são de montagem ou tem erros de configuração de montagem, use a extensão VMAccess para redefinir a configuração de montagem em sua máquina virtual do Linux. Substitua o nome do seu disco em &#60;yourdisk&#62;.
 
-1. Crie um arquivo chamado PublicConf.json com esse conteúdo. 
+1. Crie um arquivo chamado PublicConf.json com esse conteúdo.
 
         {
         "repair_disk":"true",
@@ -171,10 +171,10 @@ Para reparar discos que não são de montagem ou tem erros de configuração de 
 
 ## Próximas etapas
 
-* Se você quiser usar os cmdlets do Azure PowerShell ou modelos do Azure Resource Manager para redefinir a senha ou chave SSH, corrigir a configuração de SSH e verificar a consistência do disco, consulte a [documentação da extensão VMAccess no GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Se você quiser usar os cmdlets do Azure PowerShell ou os modelos do Azure Resource Manager para redefinir a senha ou chave SSH, corrigir a configuração de SSH e verificar a consistência do disco, veja a [documentação da extensão VMAccess no GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-* Você também pode usar o [Portal do Azure](https://portal.azure.com) para redefinir a senha ou a chave SSH de uma VM do Linux implantada no modelo de implantação clássico. No momento, não é possível usar o portal para fazer isso para uma VM do Linux implantada no modelo de implantação do Gerenciador de Recursos.
+* Você também pode usar o [portal do Azure](https://portal.azure.com) para redefinir a senha ou a chave SSH de uma VM do Linux implantada no modelo de implantação clássico. No momento, não é possível usar o portal para fazer isso para uma VM do Linux implantada no modelo de implantação do Gerenciador de Recursos.
 
-* Consulte [Sobre os recursos e extensões de máquina virtual](virtual-machines-linux-extensions-features.md) para obter mais informações sobre como usar extensões de VM para máquinas virtuais do Azure.
+* Veja [Sobre os recursos e extensões de máquina virtual](virtual-machines-linux-extensions-features.md) para obter mais informações sobre como usar extensões de VM para máquinas virtuais do Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

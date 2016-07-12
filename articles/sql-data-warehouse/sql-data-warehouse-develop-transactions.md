@@ -18,7 +18,7 @@
 
 # Transações no SQL Data Warehouse
 
-Como esperado, o SQL Data Warehouse oferece suporte a todas as propriedades de transação. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em grande escala, alguns recursos serão limitados em comparação com o SQL Server. Este artigo realça as diferenças e lista as outras.
+Como era esperado, o SQL Data Warehouse oferece suporte a transações como parte da carga de trabalho do data warehouse. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em grande escala, alguns recursos serão limitados em comparação com o SQL Server. Este artigo realça as diferenças e lista as outras.
 
 ## Níveis de isolamento da transação
 O SQL Data Warehouse implementa transações ACID. No entanto, o isolamento do suporte transacional é limitado a `READ UNCOMMITTED` e isso não pode ser alterado. Você pode implementar diversos métodos de codificação para impedir leituras sujas de dados, se isso for importante para você. Os métodos mais populares utilizam CTAS e a alternância de partição de tabela (normalmente conhecida como padrão de janela deslizante) para impedir que os usuários consultem dados que ainda estejam sendo preparados. Modos de exibição que filtram previamente os dados também são uma abordagem popular.
@@ -28,7 +28,7 @@ Uma única transação de modificação de dados é limitada em tamanho. Hoje, o
 
 Na tabela abaixo, foram feitas as seguintes suposições:
 
-* Ocorreu uma distribuição uniforme dos dados 
+* Ocorreu uma distribuição uniforme dos dados
 * O tamanho médio da linha é de 250 bytes
 
 | DWU | Limite por distribuição (GiB) | Número de distribuições | Tamanho máximo de transações (GiB) | Nº de linhas por distribuição | Máximo de linhas por transação |
@@ -127,6 +127,7 @@ Elas são as seguintes:
 - Sem transações distribuídas
 - Não há transações aninhadas permitidas
 - Não são permitidos pontos de salvamento
+- Não há suporte para DDL, como `CREATE TABLE`, em uma transação definida pelo usuário
 
 ## Próximas etapas
 Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
@@ -141,4 +142,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

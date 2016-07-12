@@ -62,16 +62,16 @@ A solução conta o número de ocorrências de um termo de pesquisa ("Microsoft"
     A solução de exemplo usa Lote do Azure (indiretamente por meio de um pipeline do Azure Data Factory) para processar dados de forma paralela em um pool de nós de computação, que é uma coleção gerenciada de máquinas virtuais.
 
 4.  Crie um **pool de Lote do Azure** com pelo menos dois nós de computação.
-	1.  No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Conta do Lote**. 
-	2. Selecione sua conta do Lote do Azure para abrir a folha **Conta do Lote**. 
+	1.  No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Conta do Lote**.
+	2. Selecione sua conta do Lote do Azure para abrir a folha **Conta do Lote**.
 	3. Clique no bloco **Pools**.
 	4. Na folha **Pools**, clique no botão Adicionar na barra de ferramentas para adicionar um pool.
-		1. Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução Data Factory. 
+		1. Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução Data Factory.
 		2. Especifique **Windows Server 2012 R2** para a configuração da família do sistema operacional.
-		3. Selecione um **tipo de preço de nó**. 
+		3. Selecione um **tipo de preço de nó**.
 		3. Digite **2** como valor para a configuração **Destino Dedicado**.
 		4. Digite **2** como valor para a configuração **Máximo de tarefas por nó**.
-	5. Clique em **OK** para criar o pool. 
+	5. Clique em **OK** para criar o pool.
  	 
 5.  [Azure Storage Explorer 6 (ferramenta)](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software). Essas são ferramentas de GUI para inspecionar e alterar os dados em seus projetos de armazenamento do Azure, incluindo os logs dos aplicativos hospedados na nuvem.
 
@@ -380,7 +380,7 @@ O método tem alguns componentes principais que você precisa entender.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blobs: **customactivitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
+13.  Carregue **MyDotNetActivity.zip** como um blob no contêiner de blobs: **customactivitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **StorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
 
 ### Método Execute
 
@@ -539,7 +539,7 @@ Nesta etapa, você criará um serviço vinculado para a sua conta do **Lote do A
 
     2.  Substitua **chave de acesso** pela chave de acesso da conta do Lote do Azure.
 
-    3.  Insira a ID do pool para a propriedade **poolName** **.** Para essa propriedade, você pode especificar o nome do pool ou a ID do pool.
+    3.  Insira a ID do pool para a propriedade **poolName****.** Para essa propriedade, você pode especificar o nome do pool ou o ID do pool.
 
     4.  Digite o URI do lote para a propriedade JSON **batchUri**.
     
@@ -837,7 +837,7 @@ O serviço Data Factory cria um trabalho no Lote do Azure com o nome: **adf-pool
 
 Uma tarefa é criada no trabalho para cada execução de atividade de uma fatia. Se houver 10 fatias prontas para serem processadas, 10 tarefas serão criadas no trabalho. Pode haver mais de uma fatia em execução em paralelo, se você tiver vários nós de computação no pool. Você também pode ter mais de uma fatia em execução na mesmo computação, se o máximo de tarefas por nó de computação for definido como 1 >.
 
-Neste exemplo, haverá cinco fatias, então cinco tarefas no Lote do Azure. Com a **simultaneidade** definida como **5** no pipeline de JSON no Azure Data Factory e **Máximo de tarefas por VM** definido como **2** no pool do Lote do Azure com **2** VMs, as tarefas serão executada com muita rapidez (verifique os horários de início e de término das tarefas).
+Neste exemplo, haverá cinco fatias, então cinco tarefas no Lote do Azure. Com a **simultaneidade** definida como **5** no pipeline de JSON no Azure Data Factory e **Máximo de tarefas por VM** definido como **2** no pool do Lote do Azure com **2** VMs, as tarefas serão executadas com muita rapidez (verifique os horários de início e de término das tarefas).
 
 Use o portal para o trabalho do Lote e suas tarefas associadas às **fatias** e veja em qual VM cada fatia foi executada.
 
@@ -886,7 +886,7 @@ A depuração consiste em algumas técnicas básicas:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Observação:** você verá um **contêiner** no seu Armazenamento de Blobs denominado: **adfjobs**. Esse contêiner não é automaticamente excluído, mas você poderá excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução de Data Factory cria um **trabalho** do Lote do Azure chamado: **adf-<ID/nome do pool>: job-0000000001**. Você pode excluir esse trabalho depois de terminar de testar a solução, se desejar.
-7. A atividade personalizada não usa o arquivo **app.config** a partir do pacote. Portanto, se o código ler as cadeias de conexão a partir do arquivo de configuração, ele não funcionará no tempo de execução. A prática recomendada ao usar o Lote do Azure é armazenar segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificado para proteger o keyvault e distribuir o certificado para o pool de Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
+7. A atividade personalizada não usa o arquivo **app.config** a partir do pacote. Portanto, se o código ler as cadeias de conexão a partir do arquivo de configuração, ele não funcionará no tempo de execução. A prática recomendada ao usar o Lote do Azure é armazenar segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificado para proteger o keyvault e distribuir o certificado para o pool do Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
 
 	Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um novo **serviço vinculado do Azure SQL** com configurações de cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada e isso deve funcionar bem no tempo de execução.
 
@@ -902,11 +902,19 @@ Você pode estender este exemplo para saber mais sobre os recursos de Data Facto
 
 4.  Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente**. O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
  
-		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+	Uma VM por tarefa pendente de cada vez (por exemplo: 5 tarefas pendentes -> 5 VMs):
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = max(pendingTaskSampleVector);
+
+	Máximo de uma VM em um momento, independentemente do número de tarefas pendentes:
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 	Veja [Escalar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
 
-	Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço do Lote poderá demorar de 15 a 30 minutos para preparar a máquina virtual antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de Lote poderá demorar autoScaleEvaluationInterval + 10 minutos.
+	Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço do Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de Lote poderá demorar autoScaleEvaluationInterval + 10 minutos.
 	 
 5. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método Calculate no método Execute por uma chamada para o seu método.
 
@@ -949,4 +957,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -35,7 +35,7 @@ Veja alguns recursos importantes do Serviço de Aplicativo:
 
 - **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](../powershell-install-configure.md) ou a [CLI (interface de linha de comando de plataforma cruzada)](../xplat-cli-install.md).
  
-- **Escala global com alta disponibilidade** - escale [verticalmente](../app-service/app-service-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
+- **Escala global com alta disponibilidade** - escale [verticalmente](../app-service-web/web-sites-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 
 - **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP, Siebel e Oracle), serviços de SaaS (como Salesforce e Office 365) e serviços de Internet (como Facebook e Twitter). Acesse dados locais usando [Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
@@ -43,7 +43,7 @@ Veja alguns recursos importantes do Serviço de Aplicativo:
 
 - **Modelos de aplicativos** - escolha dentre uma lista abrangente de modelos de aplicativos no [Azure Marketplace](https://azure.microsoft.com/marketplace/) que permitem usar um assistente para instalar vários tipos populares de software livre, como WordPress, Joomla e Drupal.
 
-- **Integração do visual Studio** -ferramentas dedicadas no Visual Studio simplificam o trabalho de criar, implantar, depurar e gerenciar.
+- **Integração do Visual Studio** - ferramentas dedicadas no Visual Studio simplificam o trabalho de criação, implantação e depuração.
 
 ## Tipos de aplicativo no Serviço de Aplicativo
 
@@ -61,9 +61,9 @@ A palavra *aplicativo* aqui refere-se aos recursos de hospedagem dedicados à ex
 
 ## Planos de serviço de aplicativo
 
-Os [Planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) especificam o tipo de recursos de computação em que os aplicativos são executados. Se espera cargas de tráfego leve, você pode usar VMs (máquinas virtuais) compartilhadas. Para cargas maiores, você pode escolher dentre vários tamanhos de VMs dedicadas. Vários aplicativos do Serviço de Aplicativo podem compartilhar o mesmo plano e eles são escalados verticalmente e horizontalmente junto com o plano.
+Os [Planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) especificam o tipo de recursos de computação em que os aplicativos são executados. Se a sua expectativa for um tráfego leve, utilize VMs (máquinas virtuais) compartilhadas. Para cargas maiores, selecione um dos vários tamanhos de VMs dedicadas. Vários aplicativos do Serviço de Aplicativo podem compartilhar o mesmo plano e eles são escalados verticalmente e horizontalmente junto com o plano.
 
-Se precisa de mais escalabilidade e isolamento de rede, você pode executar os aplicativos em um [Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md).
+Se precisar de mais escalabilidade e isolamento da rede, execute os aplicativos em um [Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md).
 
 ## Preços
 
@@ -80,4 +80,4 @@ Ou abra uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-t
 * [Tutorial: criar um aplicativo de API](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Tutorial: criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

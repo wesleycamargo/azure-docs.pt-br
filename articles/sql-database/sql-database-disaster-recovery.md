@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -21,9 +21,9 @@
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
 
 - [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
+- [Restauração geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-Para saber mais sobre a preparação para desastres e quando recuperar o banco de dados, visite nossa página [Design para continuidade dos negócios](sql-database-business-continuity-design.md).
+Para saber mais sobre a preparação para desastres e quando recuperar o banco de dados, veja [Continuidade de negócios](sql-database-business-continuity.md) e [Cenários de recuperação e continuidade de negócios.md]().
 
 ## Quando iniciar a recuperação
 
@@ -31,7 +31,7 @@ A operação de recuperação afeta o aplicativo. Ele exige a alteração da cad
 
 1.	Falha de conectividade permanente da camada do aplicativo com o banco de dados.
 2.	O Portal do Azure mostra um alerta sobre um incidente na região com grande impacto.
-3.	O servidor do Banco de Dados SQL do Azure está marcado como degradado. 
+3.	O servidor do Banco de Dados SQL do Azure está marcado como degradado.
 
 Dependendo da tolerância a tempo de inatividade de seu aplicativo e possível responsabilidade comercial, você pode considerar as opções de recuperação a seguir.
 
@@ -52,7 +52,7 @@ Use um dos guias a seguir para fazer failover para um banco de dados de secundá
 
 - [Fazer failover para um secundário replicado geograficamente usando o Portal do Azure](sql-database-geo-replication-portal.md)
 - [Fazer failover para um secundário replicado geograficamente usando o PowerShell](sql-database-geo-replication-powershell.md)
-- [Fazer failover para um secundário replicado geograficamente usando o T-SQL](sql-database-geo-replication-transact-sql.md) 
+- [Fazer failover para um secundário replicado geograficamente usando o T-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 
@@ -63,7 +63,7 @@ Se o tempo de inatividade do aplicativo não resultar em responsabilidade de neg
 Use um dos seguintes guias para realizar a restauração geográfica de um banco de dados para uma nova região:
 
 - [Restauração geográfica de um banco de dados para uma nova região usando o Portal do Azure](sql-database-geo-restore-portal.md)
-- [Restauração geográfica de um banco de dados para uma nova região usando o PowerShell](sql-database-geo-restore-powershell.md) 
+- [Restauração geográfica de um banco de dados para uma nova região usando o PowerShell](sql-database-geo-restore-powershell.md)
 
 
 ## Configurar o banco de dados após a recuperação
@@ -83,9 +83,9 @@ Você precisa certificar-se de que as regras de firewall configuradas no servido
 
 ### Configurar logons e usuários do banco de dados
 
-Você deve verificar se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Para saber mais, confira [Configuração de segurança para Replicação Geográfica](sql-database-geo-replication-security-config.md).
+Você deve verificar se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Para saber mais, confira [Configuração de Segurança para Replicação Geográfica](sql-database-geo-replication-security-config.md).
 
->[AZURE.NOTE] Você deve configurar e testar suas regras de firewall de servidor e logons (e suas permissões) durante uma análise de recuperação de desastre. Esses objetos no nível de servidor e sua configuração podem não estar disponíveis durante a interrupção. Para saber mais, confira [Executar análise de recuperação de desastre](sql-database-disaster-recovery-drills.md).
+>[AZURE.NOTE] Você deve configurar e testar suas regras de firewall de servidor e logons (e suas permissões) durante uma análise de recuperação de desastre. Esses objetos no nível de servidor e sua configuração podem não estar disponíveis durante a interrupção. Para saber mais, confira [Executar Análise de Recuperação de Desastres](sql-database-disaster-recovery-drills.md).
 
 ### Configurar alertas de telemetria
 
@@ -100,18 +100,10 @@ Se a auditoria for necessária para acessar o banco de dados, você precisará h
 
 ## Próximas etapas
 
-- Para saber mais sobre como usar e configurar a Replicação Geográfica Ativa para recuperação de desastre, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- Para saber mais sobre como usar a Restauração Geográfica para recuperação de desastre, confira [Restauração Geográfica](sql-database-geo-restore.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-## Recursos adicionais
-
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

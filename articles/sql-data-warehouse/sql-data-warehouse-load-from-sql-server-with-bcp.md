@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -182,16 +182,16 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 Você pode usar a função **queryout** do bcp para exportar os resultados de uma consulta em vez de exportar toda a tabela.
 
 ## Próximas etapas
-Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][]. Confira [Design da tabela][] ou [Sintaxe CREATE TABLE][] para saber mais sobre como criar uma tabela no SQL Data Warehouse.
+Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][]. Confira [Visão geral da tabela][] ou [Sintaxe CREATE TABLE][] para saber mais sobre como criar uma tabela no SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Carregar dados no SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Visão geral de desenvolvimento do SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Design da tabela]: sql-data-warehouse-develop-table-design.md
-[Estatísticas]: sql-data-warehouse-develop-statistics.md
+[Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Visão geral da tabela]: ./sql-data-warehouse-tables-overview.md
+[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -200,4 +200,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

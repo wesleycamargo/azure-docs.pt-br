@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partições de tabela no SQL Data Warehouse
@@ -31,7 +31,7 @@ O SQL DW oferece ao DBA várias opções de tipos de tabela: heap, CI (índice c
 
 Geralmente, as partições de tabela são úteis de duas maneiras importantes:
 
-1. Usando a alternância de partição para truncar rapidamente uma seção de uma tabela. Um design usado frequentemente é de uma tabela de fatos para conter linhas somente por algum período finito predeterminado. Por exemplo, uma tabela de fatos de vendas pode conter dados somente dos últimos 36 meses. No final de cada mês, o mês de dados de vendas mais antigo é excluído da tabela. Para isso, basta excluir todas as linhas do mês mais antigo, mas excluir um grande volume de dados, linha por linha, pode demorar muito tempo. Para otimizar esse cenário, o SQL DW oferece suporte à permutação de partição, que permite que o conjunto inteiro de linhas em uma partição seja descartado em uma única operação rápida.   
+1. Usando a alternância de partição para truncar rapidamente uma seção de uma tabela. Um design usado frequentemente é de uma tabela de fatos para conter linhas somente por algum período finito predeterminado. Por exemplo, uma tabela de fatos de vendas pode conter dados somente dos últimos 36 meses. No final de cada mês, o mês de dados de vendas mais antigo é excluído da tabela. Para isso, basta excluir todas as linhas do mês mais antigo, mas excluir um grande volume de dados, linha por linha, pode demorar muito tempo. Para otimizar esse cenário, o SQL DW oferece suporte à permutação de partição, que permite que o conjunto inteiro de linhas em uma partição seja descartado em uma única operação rápida.
 
 2. O particionamento permite às consultas excluir facilmente o processamento de um grande conjunto de linhas (isto é, uma partição) se as consultas colocarem um predicado na coluna de particionamento. Por exemplo, se a tabela de fatos de vendas for particionada em 36 meses usando o campo de data das vendas, as consultas que forem filtradas pela data da venda podem pular o processamento de partições que não correspondam ao filtro. Na verdade, o particionamento usado dessa maneira é um índice grosseiro.
 
@@ -236,7 +236,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ### Controle da origem do particionamento da tabela
 Para evitar a definição da tabela de **rusting** em seu sistema de controle de origem, você talvez queira considerar a abordagem a seguir:
 
-1. Criar a tabela como uma tabela particionada, mas sem valores de partição
+Crie a tabela como uma tabela particionada, mas sem valores de partição:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -260,7 +260,7 @@ WITH
 ;
 ```
 
-2. `SPLIT` a tabela como parte do processo de implantação:
+`SPLIT` a tabela como parte do processo de implantação:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -336,4 +336,4 @@ Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Ware
 
 <!-- Other web references -->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

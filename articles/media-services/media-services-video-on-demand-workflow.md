@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -33,8 +33,8 @@ O diagrama a seguir mostra as partes principais da plataforma de serviços de m�
 
 1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
 	
-	É recomendável aplicar a opção de criptografia de armazenamento a seu ativo para proteger o conteúdo durante o carregamento e enquanto ele estiver em repouso no armazenamento. 
-1. Codificar para MP4 definir a taxa de bits adaptável. 
+	É recomendável aplicar a opção de criptografia de armazenamento a seu ativo para proteger o conteúdo durante o carregamento e enquanto ele estiver em repouso no armazenamento.
+1. Codificar para MP4 definir a taxa de bits adaptável.
 
 	É recomendável aplicar a opção de criptografia de armazenamento ao ativo de saída para proteger o conteúdo em repouso.
 	
@@ -58,7 +58,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 2. Configure a política de autorização de chave de conteúdo.
 1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
 1. Publicar o ativo criando um localizador OnDemand.
-1. Fluxo de conteúdo publicado. 
+1. Fluxo de conteúdo publicado.
 
 ###Conteúdo do índice
 
@@ -101,4 +101,4 @@ Para conceitos relacionados ao fornecimento de conteúdo sob demanda, consulte[ 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

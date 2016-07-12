@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
@@ -179,7 +179,7 @@ Se usar o Node-Inspector para depurar aplicativos Node.js, você poderá usá-lo
 
 Para habilitar o Node-Inspector, siga estas etapas:
 
-1. Abra iisnode.yml na raiz do repositório e especifique os seguintes parâmetros: 
+1. Abra iisnode.yml na raiz do repositório e especifique os seguintes parâmetros:
 
         debuggingEnabled: true
         debuggerExtensionDll: iisnode-inspector.dll
@@ -201,6 +201,7 @@ Para habilitar o Node-Inspector, siga estas etapas:
 ## Mais recursos
 
 - [Especificar uma versão do Node.js em um aplicativo do Azure](../nodejs-specify-node-version-azure-apps.md)
+- [Guia de práticas recomendadas e solução de problemas para aplicativos Node.js no Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md)
 - [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 - [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -235,4 +236,4 @@ Para habilitar o Node-Inspector, siga estas etapas:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

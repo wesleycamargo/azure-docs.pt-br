@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/21/2016"
 	ms.author="genli"/>
 
-# Ofertas do Azure - benefícios e limites, como se inscrever, compra, atualizar ou Ativar
+# Como se inscrever, comprar, atualizar ou ativar o Azure
 
 O Azure fornece várias ofertas para atender às suas necessidades de negócio e começar a usar o Azure. Visite as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) para obter uma lista completa de todas as ofertas ativas com detalhes de cada oferta como o que ela abrange, seus benefícios e a disponibilidade por países/regiões.
+
+## Ofertas do Azure - benefícios e limites
 
 A tabela a seguir fornece detalhes sobre ofertas comuns:
 
@@ -30,7 +32,7 @@ A tabela a seguir fornece detalhes sobre ofertas comuns:
 | Pré-paga | • [Inscrição](https://azure.microsoft.com/pricing/purchase-options/)</br>• [Preços](https://azure.microsoft.com/pricing/) |
 | MPN (Microsoft Partner Network) - os membros recebem créditos Azure mensais gratuitamente | • [Benefícios do Azure para parceiros](https://azure.microsoft.com/offers/ms-azr-0025p/)</br>• [Registrar-se como parceiro](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) ou [Assinar o Action Pack da Microsoft](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)</br>• Usar créditos Azure - acesse o [portal do MPN](https://partner.microsoft.com), verifique seu status de qualificação e siga as etapas em Chaves de Software e benefícios. Se não for possível verificar sua qualificação, entre em contato o [suporte do MPN](https://partner.microsoft.com/Support/). |
 | Assinante do MSDN e do Visual Studio |• [Benefícios do Desenvolvimento/Teste MSDN](https://azure.microsoft.com/offers/ms-azr-0023p/)</br>• [Benefícios para o assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)</br>• [Ativar crédito Azure de um assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)</br>• [Ative os benefícios do Azure no MSDN em três etapas simples](https://www.youtube.com/watch?v=SN2CA71uOEI&feature=youtu.be):<br> faça logon na [página da conta do MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx) e verifique a qualificação, clique em "Ativar benefício do Azure". Se não for possível verificar sua qualificação, entre em contato com o [Atendimento ao Cliente de Assinaturas MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx).|
-| BizSpark | [Benefícios do BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). Para ver mais detalhes, consulte [Crédito Azure mensal para assinantes do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0064p/)<br>• [Ingressar no BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). Se encontrar problemas, entre em contato com a [Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team). |
+| BizSpark | • [Benefícios do BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). Para ver mais detalhes, consulte [Crédito Azure mensal para assinantes do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0064p/)<br>• [Ingressar no BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). Se encontrar problemas, entre em contato com a [Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team). |
 | BizSpark Plus |• [Saiba mais sobre o BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). Para obter mais detalhes, consulte [Azure para BizSpark Plus](https://azure.microsoft.com/offers/ms-azr-0149p/)</br>• [Ingresse no BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) e trabalhe com seu contato de parceiro para atualizar para o BizSpark Plus. Se encontrar problemas, entre em contato com a [Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team). |
 | Revendedores (programas de Licenciamento por Volume Aberto) |• [Ativar a Chave de Serviço Online - guia passo a passo](billing-buy-sign-up-azure-subscription.md#activateKey)</br>• [Comprar, Benefícios, Ativar](https://azure.microsoft.com/offers/ms-azr-0111p/)</br> |
 | EA (Enterprise Agreement) |• [Licenciamento do Azure para o Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)</br>• Para ativar, entre em contato com seu Revendedor ou Gerente de Conta Microsoft para começar a usar hoje mesmo |
@@ -88,4 +90,4 @@ Se você tiver comprado créditos do Azure via Open de um revendedor e recebido 
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

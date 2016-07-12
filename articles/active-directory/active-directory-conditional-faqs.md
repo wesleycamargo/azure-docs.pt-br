@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Perguntas frequentes sobre acesso condicional | Microsoft Azure"
-	description="Perguntas frequentes sobre acesso condicional"
+	description="Perguntas frequentes sobre acesso condicional "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Perguntas frequentes sobre acesso condicional
@@ -30,4 +30,4 @@ Sim.
 ## Por que não é possível definir políticas em aplicativos cliente, como o Word ou o Outlook?
 A política de acesso condicional define os requisitos para acessar um serviço e é imposta quando ocorre a autenticação para esse serviço. Portanto, a política não é definida diretamente em um aplicativo cliente, em vez disso, ela é aplicada quando chama um serviço. Por exemplo, o conjunto de políticas no SharePoint será aplicado aos clientes chamando o SharePoint e a política definida no Exchange será aplicada ao Outlook.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

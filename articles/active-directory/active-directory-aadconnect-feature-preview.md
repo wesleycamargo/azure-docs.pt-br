@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/11/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;billmath"/>
 
 # Mais detalhes sobre os recursos no modo de visualização
@@ -43,4 +43,4 @@ Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aa
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

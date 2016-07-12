@@ -74,7 +74,7 @@ Nos tutoriais a seguir, você aprenderá sobre a otimização do [desempenho de 
 |---|---|---|
 | [Alterar a camada de serviço e o nível de desempenho do banco de dados](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | Nesse tutorial, você aprenderá a escalar verticalmente ou reduzir verticalmente o desempenho de um Banco de Dados SQL do Azure usando camadas de serviço. |
 | [Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL](sql-database-performance.md#performance-overview) | Nesse tutorial, você aprenderá como abrir e usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL.|
-| [Recomendações de desempenho do Consultor do Banco de Dados SQL](sql-database-index-advisor.md#viewing-recommendations) | Nesse tutorial, você aprenderá a exibir e a aplicar as recomendações de desempenho do Consultor do Banco de Dados SQL. |
+| [Recomendações de desempenho do Consultor do Banco de Dados SQL](sql-database-advisor.md#viewing-recommendations) | Nesse tutorial, você aprenderá a exibir e a aplicar as recomendações de desempenho do Consultor do Banco de Dados SQL. |
 | [Examinar as consultas que mais consomem CPU](sql-database-query-performance.md#review-top-cpu-consuming-queries)| Nesse tutorial, você aprenderá como abrir e usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL para examinar as consultas que mais consomem CPU.|
 | [Exibindo detalhes de uma consulta individual](sql-database-query-performance.md#viewing-individual-query-details)| Nesse tutorial, você aprenderá a usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL para exibir detalhes de desempenho de uma consulta individual.|
 ||||
@@ -180,4 +180,4 @@ Nesse tutorial, você aprenderá sobre a [Sincronização de Dados](http://downl
 
 [Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

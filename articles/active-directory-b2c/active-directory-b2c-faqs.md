@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Visualização Active Directory B2C do Azure: perguntas frequentes
@@ -34,7 +34,7 @@ O AD B2C do Azure não pode ser usado com o Microsoft Office 365. Em geral, ele 
 
 Em um locatário do AD do Azure, cada usuário no locatário (exceto os usuários com contas existente da Microsoft) entram com um endereço de email do formulário `<xyz>@<tenant domain>` em que `<tenant domain>` é um dos domínios verificados no locatário ou do domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário AD B2C do Azure, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Esse tipo de conta é uma conta local. Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (por exemplo, pedro, paulo, clara ou davi). Você pode escolher um destes dois tipos de conta no serviço do AD B2C do Azure.
+Em um locatário AD B2C do Azure, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (por exemplo, pedro, paulo, clara ou davi). Você pode escolher um destes dois tipos de conta no serviço do AD B2C do Azure.
 
 ### A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 
@@ -102,15 +102,17 @@ Não atualmente. Esse recurso está em nosso roteiro. Observe também que verifi
 
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
-- Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
+- Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+- Navegue até as folhas de **Aplicativos**, **Provedores de identidade** e **Todas as diretivas** e exclua todas as entradas de cada um deles.
+- Agora entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
 - Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C.
+- Clique na guia **Usuários**.
+- Selecione um usuário por vez (excluir o usuário que estiver conectado no momento; por exemplo, o Administrador da Assinatura). Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
 - Clique na guia **Aplicativos**.
-- Selecione **Aplicativos que minha empresa possui** no menu suspenso **Mostrar** e clique na marca de seleção.
+- Selecione **Aplicativos que minha empresa possui** no campo suspenso **Mostrar** e clique na marca de seleção.
 - Você verá um aplicativo chamado **b2c-extensions-app** listado abaixo. Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
 - Navegue até a extensão do Active Directory novamente e selecione seu locatário do B2C.
 - Clique em **Excluir** na parte inferior da página. Siga as instruções na tela para concluir o processo.
-
-Se você já tiver criado **Usuários**, **Aplicativos** ou outros objetos no seu locatário do B2C, será preciso excluí-los antes de executar as etapas acima.
 
 ### Posso obter o AD B2C do Azure como parte do Enterprise Mobility Suite?
 
@@ -126,6 +128,6 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 ## Mais informações
 
-Também convém analisar as [limitações e restrições de visualização](active-directory-b2c-limitations.md) atuais.
+Também convém analisar as [limitações e restrições da versão de atualização](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

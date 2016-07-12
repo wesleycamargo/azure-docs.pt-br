@@ -2,6 +2,6 @@
 |-----------------------------|-------------|---------------------|
 | **Portal clássico** | Sem suporte | Sem suporte |
 | **Portal do Azure** | Sem suporte | Sem suporte |
-| **PowerShell** | [Artigo](../articles/expressroute/expressroute-howto-coexist-classic.md) | Sem suporte |
+| **PowerShell** | [Artigo](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Artigo](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

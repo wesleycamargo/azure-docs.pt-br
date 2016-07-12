@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="xpouyat,vsood" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xpouyat"/>
 
 #Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
@@ -30,19 +30,19 @@ A seguir, uma arquitetura de alto nível e a caixa do Kit de Portabilidade do II
 
 O SSPK é licenciado em termos que oferecem excelente valor comercial. A licença do SSPK fornece ao setor:
 
-- a fonte do Kit de Portabilidade de Smooth Streaming em C++ 
+- a fonte do Kit de Portabilidade de Smooth Streaming em C++
   - implementa a funcionalidade de Cliente do Smooth Streaming
   - adiciona a análise de formato, heurística, lógica de buffer etc.
-- APIs do aplicativo Player 
+- APIs do aplicativo Player
   -	interfaces de programação para interação com um aplicativo de media player
-- Interface da Camada de Abstração de Plataforma (PAL) 
+- Interface da Camada de Abstração de Plataforma (PAL)
   -	interfaces de programação para interação com o sistema operacional (threads, sockets)
-- Interface da Camada de Abstração de Hardware (HAL) 
+- Interface da Camada de Abstração de Hardware (HAL)
   -	interfaces de programação para interação com decodificadores A/V de hardware (decodificação, renderização)
-- Interface de Gerenciamento de Direitos Digitais (DRM) 
+- Interface de Gerenciamento de Direitos Digitais (DRM)
   -	interfaces de programação para tratamento de DRM por meio da Camada de Abstração de DRM (DAL)
   -	O Kit de Portabilidade do Microsoft PlayReady é fornecido separadamente, mas se integra por meio dessa interface. Para saber mais sobre o licenciamento do Dispositivo Microsoft PlayReady, clique [aqui](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-- Amostras de implementação 
+- Amostras de implementação
   -	implementação de amostra de PAL para Linux
   -	implementação de amostra de HAL para GStreamer
 
@@ -71,7 +71,7 @@ O Produto Final de Cliente do Smooth Streaming é oferecido em um modelo de roya
 
 - US$ 0,10 por implementação de dispositivo fornecida
 - O royalty é limitado a US$ 50.000 por ano
-- Nenhum royalty para as primeiras 10.000 implementações de dispositivo por ano 
+- Nenhum royalty para as primeiras 10.000 implementações de dispositivo por ano
 
 ##Procedimento de licenciamento e acesso do SSPK
 
@@ -164,4 +164,4 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

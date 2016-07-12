@@ -16,14 +16,14 @@
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
-# Recuperar um Banco de Dados SQL do Azure de um erro do usuário
+# Recuperar um Banco de Dados SQL do Azure de uma erro
 
 O Banco de Dados SQL do Azure oferece dois recursos principais para recuperação de erro do usuário ou modificação de dados não intencional.
 
-- [Restauração pontual](sql-database-point-in-time-restore.md) 
-- [Restaurar banco de dados excluído](sql-database-restore-deleted-database.md)
+- [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Restaurar banco de dados excluído](sql-database-recovery-using-backups.md#deleted-database-restore)
 
-O Banco de Dados SQL do Azure sempre restaura para um novo banco de dados. Esses recursos de restauração são oferecidos para todos os bancos de dados Basic, Standard e Premium.
+O Banco de Dados SQL do Azure sempre é restaurado em um novo banco de dados ao executar a restauração pontual, mas pode ser restaurado no mesmo nome de banco de dados ao restaurar de um banco de dados excluído. Esses recursos de restauração são oferecidos para todos os bancos de dados Basic, Standard e Premium.
 
 ##Restauração pontual
 
@@ -35,7 +35,7 @@ Para executar uma recuperação pontual, confira:
 
 - [Recuperação pontual com o Portal do Azure](sql-database-point-in-time-restore-portal.md)
 - [Recuperação pontual com o PowerShell](sql-database-point-in-time-restore-powershell.md)
-- [Recuperação Pontual com a API REST (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
+- [Recuperação Pontual com a API REST (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 
 ## Restaurar um banco de dados excluído
@@ -53,18 +53,10 @@ Para restaurar um banco de dados excluído:
 
 ## Próximas etapas
 
-- Para obter informações sobre como usar e configurar a replicação geográfica ativa para recuperação de desastre, confira [Active Geo-Replication](sql-database-geo-replication-overview.md) (Replicação Geográfica Ativa)
-- Para obter informações sobre como usar a restauração geográfica para recuperação de desastre, confira [Geo-Restore](sql-database-geo-restore.md) (Restauração Geográfica)
+- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre como usar a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 
-## Recursos adicionais
-
-- [Recuperação de desastre e continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md)
-- [Restauração pontual](sql-database-point-in-time-restore.md)
-- [Restauração geográfica](sql-database-geo-restore.md)
-- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
-- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
-- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

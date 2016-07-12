@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao Slack | Microsoft Azure" 
     description="Saiba como usar o Slack com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Slack
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Slack, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-slack-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Slack**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal clássico do Azure, na página de integração do aplicativo **Slack**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-slack-tutorial/IC794982.png "Configurar o logon único")
 
@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-slack-tutorial/IC794983.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Entrada do Slack**, digite a URL de locatário do Slack (por exemplo: "**https://azuread.slack.com*")) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Entrada do Slack**, digite a URL de locatário do Slack (por exemplo: "*https://azuread.slack.com*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-slack-tutorial/IC794984.png "Configurar a URL do Aplicativo")
 
@@ -100,11 +100,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações do SAML](./media/active-directory-saas-slack-tutorial/IC794988.png "Configurações do SAML")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Slack**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **Ponto de Extremidade do SAML 2.0 (HTTP)**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Slack**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor do Provedor de Identidade**.
+    1.  No Portal clássico do Azure, na página de diálogo **Configurar logon único no Slack**, copie o valor da **URL de SSO de SAML** e cole-o na caixa de texto **Ponto de Extremidade SAML 2.0 (HTTP)**.
+    2.  No Portal clássico do Azure, na página de diálogo **Configurar logon único no Slack**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor do Provedor de Identidade**.
     3.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
     
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público**.
     5.  Desmarque **Permitir que os usuários alterem seu endereço de email**.
@@ -112,7 +112,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     7.  Para **A autenticação de sua equipe deve ser usada por**, selecione **É opcional**.
     8.  Clique em **Salvar Configuração**.
 
-9.  No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-slack-tutorial/IC794989.png "Configurar o logon único")
 
@@ -128,9 +128,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Slack, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Slack**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Slack**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-slack-tutorial/IC794990.png "Atribuir Usuários")
 
@@ -140,4 +140,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -160,7 +160,7 @@ Retorna o índice no atributo com vários valores em que a cadeia de caracteres 
 
 **Sintaxe:** `str ConvertFromBase64(str source)`<br> - adota Unicode para a codificação de `str ConvertFromBase64(str source, enum Encoding)`
 
-- source: cadeia de caracteres codificada em Base64  
+- source: cadeia de caracteres codificada em Base64
 - Codificação: Unicode, ASCII, UTF8
 
 **Exemplo:** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")``ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -269,7 +269,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### DNComponent
 
-**Descrição:** A função DNComponent retornará o valor de um componente DN especificado, saindo da esquerda.
+**Description:** The DNComponent function returns the value of a specified DN component going from left.
 
 **Sintaxe:** `str DNComponent(ref dn, num ComponentNumber)`
 
@@ -516,16 +516,16 @@ Retorna um valor nulo se o índice está fora dos limites.
 
 **Comentários** há paridade entre as funções Join e Split. A função Join pega uma matriz de cadeias de caracteres e une-as usando uma cadeia de caracteres do delimitador, para retornar uma única cadeia de caracteres. A função Split pega uma cadeia de caracteres e a separa no delimitador, para retornar uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
 
-**Exemplo:** `Join([proxyAddresses],",")` john.doe@contoso.com,smtp:jd@contoso.com pode retornar: "SMTP:
+**Exemplo:** `Join([proxyAddresses],",")` pode retornar: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
 ----------
 ### LCase
 
-**Descrição:** a função LCase o converte todos os caracteres em uma cadeia de caracteres em letras minúsculas.
+**Descrição:** a função LCase converte todos os caracteres em uma cadeia de caracteres em letras minúsculas.
 
 **Sintaxe:** `str LCase(str value)`
 
-**Exemplo:** `LCase("TeSt")` retorna "TEST".
+**Exemplo:** `LCase("TeSt")` retorna "test".
 
 ----------
 ### Left
@@ -545,7 +545,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 
 Se a cadeia de caracteres contém menos caracteres do que o número especificado em numChars, uma cadeia de caracteres idêntica à cadeia de caracteres (ou seja, que contém todos os caracteres no parâmetro 1) será retornada.
 
-**Exemplo:** `Left("John Doe", 3)` retorna “Joh”.
+**Exemplo:** `Left("John Doe", 3)` retorna "Joh".
 
 ----------
 ### Len
@@ -554,7 +554,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `num Len(str value)`
 
-**Exemplo:** `Len("John Doe")` retorna 8.
+**Exemplo:** `Len("John Doe")` retorna 8
 
 ----------
 ### LTrim
@@ -563,7 +563,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `str LTrim(str value)`
 
-**Exemplo:** `LTrim(" Test ")` retorna "TEST".
+**Exemplo:** `LTrim(" Test ")` retorna "Test"
 
 ----------
 ### Mid
@@ -586,30 +586,30 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 Se não houver caracteres numChar restantes na cadeia de caracteres na posição inicial, serão retornados tantos caracteres quanto for possível retornar.
 
-**Exemplo:** `Mid("John Doe", 3, 5)` retorna "hn Do"
+**Exemplo:** `Mid("John Doe", 3, 5)` retorna "hn Do".
 
 `Mid("John Doe", 6, 999)` retorna "Doe"
 
 ----------
 ### Now
 
-**Descrição:** a função Now retorna um DateTime especificando a data e hora atuais, de acordo a data e hora do sistema do seu computador.
+**Descrição:** a função Now retorna um DateTime especificando a data e a hora atual, de acordo a data e hora do sistema do seu computador.
 
 **Sintaxe:** `dt Now()`
 
 ----------
 ### NumFromDate
 
-**Descrição:** a função NumFromDate retorna uma data no formato de data do Active Directory.
+**Descrição:** a função NumFromDate retorna uma data no formato de data do AD.
 
 **Sintaxe:** `num NumFromDate(dt value)`
 
-**Exemplo:** `NumFromDate(CDate("2012-01-01 23:00:00"))` retorna 129699324000000000.
+**Exemplo:** `NumFromDate(CDate("2012-01-01 23:00:00"))` retorna 129699324000000000
 
 ----------
 ### PadLeft
 
-**Descrição:** a função PadLeft preenche à esquerda uma cadeia de caracteres até um comprimento especificado usando um caractere de preenchimento fornecido.
+**Descrição:** a função PadLeft preenche à esquerda uma cadeia de caracteres até um tamanho especificado usando um caractere de preenchimento fornecido.
 
 **Sintaxe:** `str PadLeft(str string, num length, str padCharacter)`
 
@@ -653,7 +653,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### PCase
 
-**Descrição:** a função PCase converte em letras maiúsculas o primeiro caractere de cada palavra delimitada por espaço em uma cadeia de caracteres , enquanto todos os outros caracteres são convertidos em letras minúsculas.
+**Descrição:** a função PCase converte em letras maiúsculas o primeiro caractere de cada palavra delimitada por espaço em uma cadeia de caracteres, enquanto todos os outros caracteres são convertidos em letras minúsculas.
 
 **Sintaxe:** `String PCase(string)`
 
@@ -697,7 +697,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 - \\r - Retorno de carro
 - \\t - Guia
 
-**Exemplo:** `Replace([address],"\r\n",", ")` Substitui CRLF por uma vírgula e um espaço e pode levar a "One Microsoft Way, Redmond, WA, USA"
+**Exemplo:** `Replace([address],"\r\n",", ")` substitui CRLF por uma vírgula e um espaço e pode levar a "One Microsoft Way, Redmond, WA, USA"
 
 ----------
 ### ReplaceChars
@@ -748,7 +748,7 @@ Uma cadeia de caracteres que contém os últimos caracteres numChars na cadeia d
 
 Se a cadeia de caracteres contém menos caracteres do que o número especificado em NumChars, uma cadeia de caracteres idêntica à cadeia de caracteres será retornada.
 
-**Exemplo:** `Right("John Doe", 3)` retorna “Doe”.
+**Exemplo:** `Right("John Doe", 3)` retorna "Doe".
 
 ----------
 ### RTrim
@@ -757,7 +757,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `str RTrim(str value)`
 
-**Exemplo:** `RTrim(" Test ")` retorna "TEST".
+**Exemplo:** `RTrim(" Test ")` retorna "Test".
 
 ----------
 ### Divisão
@@ -770,7 +770,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 - delimitador: um único caractere a ser usado como o delimitador.
 - limite: número máximo de valores a serem retornados.
 
-**Exemplo:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` retorna uma cadeia de caracteres com valores múltiplos e com 2 elementos úteis para o atributo proxyAddress
+**Exemplo:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` retorna uma cadeia de caracteres com valores múltiplos e com 2 elementos úteis para o atributo proxyAddress.
 
 ----------
 ### StringFromGuid
@@ -829,7 +829,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** `str UCase(str string)`
 
-**Exemplo:** `UCase("TeSt")` retorna "Test".
+**Exemplo:** `UCase("TeSt")` retorna "TEST".
 
 ----------
 ### Word
@@ -859,4 +859,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

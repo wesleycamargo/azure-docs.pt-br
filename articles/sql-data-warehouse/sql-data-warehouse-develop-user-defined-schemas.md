@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Esquemas definidos pelo usuário no SQL Data Warehouse
@@ -45,7 +45,7 @@ Se já tiverem sido usados esquemas, então você tem algumas opções:
 
 ### Exemplos:
 
-1. Implementar esquemas definidos pelo usuário com base em nomes de banco de dados
+Implementar esquemas definidos pelo usuário com base em nomes de banco de dados
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -63,7 +63,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-2. Manter nomes de esquema herdados acrescentando-os ao nome da tabela. Usar esquemas para o limite de carga de trabalho.
+Manter nomes de esquema herdados acrescentando-os ao nome da tabela. Usar esquemas para o limite de carga de trabalho.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -81,7 +81,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-3. Manter nomes de esquema herdados usando modos de exibição
+Manter nomes de esquema herdados usando modos de exibição
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -122,4 +122,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Protocolo SAML de Logout Único
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o Azure AD deve registrar sua URL de metadados durante o registro do aplicativo. O Azure AD obtém a URL de logout e a chave de assinatura do serviço de nuvem dos metadados. O Azure AD usa a chave de assinatura para verificar a assinatura do LogoutRequest de entrada e usa a LogoutURL para redirecionar os usuários depois que eles são desconectados.
 
@@ -46,9 +44,9 @@ O elemento `LogoutRequest` enviado ao Azure AD requer os seguintes atributos:
 
 - `ID` : isso identifica a solicitação de saída. O valor de `ID` não deve começar com um número. A prática comum é acrescentar **id** à representação de cadeia de caracteres de um GUID.
 
-- `Version` : define o valor desse elemento como **2.0**. Esse valor é obrigatório.
+- `Version` : Defina o valor desse elemento como **2.0**. Esse valor é obrigatório.
 
-- `IssueInstant` : esse é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor desse tipo, mas não é obrigatório.
+- `IssueInstant` : Esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor desse tipo, mas não é obrigatório.
 
 - Os atributos `Consent`, `Destination`, `NotOnOrAfter` e `Reason` serão ignorados se forem incluídos em um elemento `LogoutRequest`.
 
@@ -86,4 +84,4 @@ Para avaliar o valor do elemento `Issuer`, use o valor do **URI da ID do aplicat
 
 O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o sucesso ou a falha da desconexão. Quando a tentativa de desconexão falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

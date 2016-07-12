@@ -44,4 +44,4 @@ Interface de rede | $vnet = [Get-AzureRmVirtualNetwork](https://msdn.microsoft.c
 - Usar a interface de rede que você acabou de criar durante a [criação de uma VM](virtual-machines-windows-ps-create.md).
 - Saiba mais sobre como você pode [criar uma VM com várias interfaces de rede](../virtual-network/virtual-networks-multiple-nics.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

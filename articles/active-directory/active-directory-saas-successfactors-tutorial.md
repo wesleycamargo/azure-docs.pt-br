@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o SuccessFactors
@@ -39,7 +39,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o SuccessFactors, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -73,7 +73,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **SuccessFactors**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal clássico do Azure, na página de integração do aplicativo **SuccessFactors**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configurar o logon único")
 
@@ -89,7 +89,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Esse valor é apenas um espaço reservado temporário.
-	>Você obterá o valor real com a equipe de suporte do SuccessFactors.
+	>Você obterá o valor real com a equipe de suporte do SuccessFactors.  
 	>Mais tarde neste tutorial, você encontrará instruções sobre como entrar em contato com a equipe de suporte do SuccessFactors.  
 	>No contexto desta conversa, você receberá a URL de Resposta do SuccessFactors real.
 
@@ -103,11 +103,11 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     2.  A URL de Logon Remoto
     3.  A URL de Logoff Remoto
 
-    >[AZURE.IMPORTANT]Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como *“Unspecified”*.
+    >[AZURE.IMPORTANT] Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como “*Unspecified*”.
 
     A equipe de suporte do Successfactors enviará a **URL de Resposta do Successfactors** correta necessária para o diálogo **Configurar URL do Aplicativo**.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Configurar o logon único")
 
@@ -124,9 +124,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao SuccessFactors, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **SuccessFactors**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **SuccessFactors**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Atribuir Usuários")
 
@@ -134,6 +134,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-successfactors-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="06/22/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -48,7 +48,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 
 ## Cota mensal
 
-* Em cada mês corrido, o aplicativo pode enviar no máximo quantidade especificada de telemetria ao Application Insights. Atualmente, a cota para o tipo de preços gratuito é de 5 milhões de pontos de dados por mês e muito mais para outros esquemas. Caso a cota seja atingida, é possível comprar mais pontos. Consulte o [esquema de preços][pricing] para ver os números reais. 
+* Em cada mês corrido, o aplicativo pode enviar no máximo quantidade especificada de telemetria ao Application Insights. Atualmente, a cota para o tipo de preços gratuito é de 5 milhões de pontos de dados por mês e muito mais para outros esquemas. Caso a cota seja atingida, é possível comprar mais pontos. Consulte o [esquema de preços][pricing] para ver os números reais.
 * A cota depende da camada de preços que você escolheu.
 * A cota é contada a partir de meia-noite UTC até o primeiro dia de cada mês.
 * O gráfico de pontos de dados mostra o quanto da sua cota foi usada neste mês.
@@ -64,7 +64,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
  * Cada medida bruta de uma [métrica](app-insights-metrics-explorer.md), como um contador de desempenho. (Os pontos que você vê nos gráficos normalmente são agregados de vários pontos de dados brutos.)
  * Cada ponto em um gráfico de disponibilidade da Web também é uma agregação de vários pontos de dados.
 * Também é possível inspecionar os pontos de dados individuais na origem durante a depuração:
- * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída. 
+ * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída.
  * Para exibir os pontos de dados do cliente, abra o painel de depuração do navegador (geralmente F12) e abra a guia de rede.
 * A taxa de dados pode ser (por padrão) reduzida por [amostragem adaptável](app-insights-sampling.md). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
 
@@ -119,7 +119,7 @@ Se você encontrar as limitações, aqui há algumas coisas que você pode fazer
 * Use a [amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa.
 * [Limite o número de chamadas do Ajax que podem ser informadas](app-insights-javascript.md#detailed-configuration) em cada modo de exibição de página ou desative o relatório de Ajax.
 * Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
-* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
 
 ## Amostragem
@@ -145,10 +145,11 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
 ## Limites de nome
 
-1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os[ nomes de propriedades e métricas][api] são globais por chave de instrumentação, mas não têm escopo definido segundo o tipo de dados.
-2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
+1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os [ nomes de propriedades e métricas][api] são globais por chave de instrumentação.
+2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento apenas enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que o número de valores exclusivos exceder 100, ainda é possível pesquisar a propriedade, mas não a use mais para filtros ou agrupamentos.
 3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
+Se você achar que seu aplicativo está excedendo esses limites, considere dividir os dados entre chaves de instrumentação diferentes - ou seja, [criar novos recursos do Application Insights](app-insights-create-new-resource.md) e enviar alguns dos dados para as novas chaves de instrumentação. Talvez o resultado fique melhor estruturado. Você pode usar [painéis](app-insights-dashboards.md#dashboards) para trazer as métricas diferentes para a mesma tela de modo que essa abordagem não restrinja a capacidade de comparar as métricas diferentes.
 
 ## Resumo de limites
 
@@ -164,4 +165,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

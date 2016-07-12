@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um SQL Data Warehouse usando o Powershell
@@ -55,13 +55,13 @@ Antes de começar, verifique se os seguintes pré-requisitos foram cumpridos:
 
 Os parâmetros necessários para esse cmdlet são:
 
-- **RequestedServiceObjectiveName**: a quantidade de DWU solicitada, no formato “DWXXX”. DWU representa uma alocação de CPU e memória. Cada valor DWU representa um aumento linear nesses recursos. Os valores para os quais há suporte são: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **RequestedServiceObjectiveName**: a quantidade de [DWU][] solicitada. Os valores com suporte são: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500 e DW2000.
 - **DatabaseName**: o nome do SQL Data Warehouse que você está criando.
 - **ServerName**: o nome do servidor que você está usando para a criação (deve ser V12).
 - **ResourceGroupName**: o grupo de recursos que você está usando. Para encontrar os grupos de recursos na sua assinatura, use Get-AzureResource.
 - **Edition**: você deve definir a edição como "DataWarehouse" para criar um SQL Data Warehouse.
 
-Para obter mais detalhes sobre as opções do parâmetro, consulte [Criar Banco de Dados (Azure SQL Data Warehouse)][]. Para obter a referência dos comandos, consulte [New-AzureRmSqlDatabase][]
+Para obter mais detalhes sobre as opções do parâmetro, confira [Criar Banco de Dados (Azure SQL Data Warehouse)][]. Para obter a referência dos comandos, consulte [New-AzureRmSqlDatabase][]
 
 ## Próximas etapas
 Após o provisionamento do SQL Data Warehouse ter terminado, você pode tentar [carregar os dados de amostra][] ou verificar como [desenvolver][], [carregar][] ou [migrar][].
@@ -71,12 +71,12 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 <!--Image references-->
 
 <!--Article references-->
-
-[migrar]: sql-data-warehouse-overview-migrate.md
-[desenvolver]: sql-data-warehouse-overview-develop.md
-[carregar]: sql-data-warehouse-load-with-bcp.md
-[carregar os dados de amostra]: sql-data-warehouse-get-started-load-sample-databases.md
-[Cmdlets do Powershell e APIs REST]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desenvolver]: ./sql-data-warehouse-overview-develop.md
+[carregar]: ./sql-data-warehouse-load-with-bcp.md
+[carregar os dados de amostra]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[Cmdlets do Powershell e APIs REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Como instalar e configurar o Azure PowerShell]: ../powershell/powershell-install-configure.md
@@ -96,4 +96,4 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,6 +1,6 @@
 <properties
  pageTitle="VMs de computação do Linux em um cluster de HPC Pack | Microsoft Azure"
- description="Saiba como criar e usar um cluster HPC Pack em cargas de trabalho HPC (computação de alto desempenho) no Azure para Linux."
+ description="Saiba como criar e usar um cluster HPC Pack em cargas de trabalho HPC (computação de alto desempenho) no Azure para Linux"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="03/21/2016"
+ ms.date="06/23/2016"
  ms.author="danlep"/>
 
 # Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
@@ -27,37 +27,43 @@ Em um alto nível, o diagrama a seguir mostra o cluster HPC Pack que você criar
 
 ![Cluster HPC Pack com nós Linux][scenario]
 
->[AZURE.TIP]Se você estiver interessado em trabalhar em nós do Linux em um cluster HPC Pack local, veja as [diretrizes do TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 ## Implantar um cluster de HPC Pack com nós de computação Linux
 
 A seguir, duas maneiras recomendadas para criar um cluster HPC Pack no Azure em nós de computação do Linux:
 
-* **Modelo do Azure Resource Manager** -use um modelo do Azure Marketplace ou um modelo na galeria de comunidade para automatizar a criação do cluster no modelo de implantação do Resource Manager. Por exemplo, o modelo [cluster HPC Pack para cargas de trabalho Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) no Azure Marketplace cria um cluster HPC Pack completo, incluindo a rede virtual do Azure, um nó principal com bancos de dados SQL locais, a floresta de Domínio do Active Directory (com o nó principal configurado como controlador de domínio) e alguns nós de computação em execução de uma distribuição Linux com suporte.
+* **Modelo do Azure Resource Manager** - use um modelo do Azure Marketplace ou um modelo de início rápido da comunidade para automatizar a criação do cluster no modelo de implantação do Resource Manager. Por exemplo, o modelo de [Cluster do HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) no Azure Marketplace cria uma infraestrutura completa de cluster de HPC Pack para cargas de trabalho do HPC no Linux.
 
-* **Script do PowerShell** - use o [script de implantação de IaaS do Microsoft HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) para automatizar a implantação do cluster no modelo de implantação clássico. Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para tornar a implantação fácil e flexível. O script implanta a rede virtual do Azure, as contas de armazenamento, os serviços de nuvem, o controlador de domínio, o servidor de banco de dados do SQL Server separado opcional, o nó principal do cluster, os nós de computação, os nós do agente, os nós PaaS do Azure ("intermitência") e os nós de computação Linux.
+* **Script do PowerShell** - use o [script de implantação de IaaS do Microsoft HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) para automatizar uma implantação de cluster completa no modelo de implantação clássico. Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para implantar nós de computação do Linux.
 
-Para obter uma visão geral das opções de implantação de cluster do HPC Pack, confira o [Guia de introdução do HPC Pack 2012 R2 e do HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx) e as [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+Para obter uma visão geral das opções de implantação de cluster do HPC Pack, consulte [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Pré-requisitos
 
-* **Assinatura do Microsoft Azure** – você pode usar a assinatura no serviço Azure Global ou Azure China. Se não tiver uma conta, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* **Assinatura do Azure**: você pode usar a assinatura no serviço Azure Global ou no Azure China. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* **Cota para núcleos** – talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Cota para núcleos** – talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para aumentar a cota, abra uma solicitação de atendimento ao cliente online gratuitamente.
 
-* **Distribuições do Linux** - atualmente, o HPC Pack dá suporte às seguintes distribuições do Linux para nós de computação: Ubuntu Server 14.04, CentOS 6.6 ou 7.0, Red Hat Enterprise Linux 6.7 ou 7.2 e SUSE Linux Enterprise Server 12. Você pode usar as versões do Marketplace dessas distribuições quando disponíveis ou fornecer as suas próprias.
+* **Distribuições Linux** -atualmente, o HPC Pack dá suporte às distribuições Linux a seguir para nós de computação. Você pode usar as versões do Marketplace dessas distribuições quando disponíveis ou fornecer as suas próprias.
 
-    >[AZURE.TIP]Para usar a rede RDMA do Azure com o tamanho A8 e A9 em VMs de nós de computação, especifique o SUSE Linux Enterprise Server 12 – otimizado para a imagem de Computação de Alto Desempenho do Marketplace. Você precisará instalar e configurar uma biblioteca MPI com suporte nos nós após a implantação de cluster de acordo com as necessidades do seu aplicativo. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+    * Com base em centOS: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, HPC 6.5, HPC 7.1
+    * Red Hat Enterprise Linux: 6.7, 6.8, 7.2
+    * SUSE Linux Enterprise Server: SLES 12, SLES 12 (Premium), SLES 12 para HPC, SLES 12 para HPC (Premium)
+    * Ubuntu Server: 14.04 LTS, 16.04 LTS
 
-Pré-requisitos adicionais caso você implante o cluster usando o script de implantação de IaaS do HPC Pack:
+
+
+    >[AZURE.TIP]Para usar a rede RDMA do Azure com o tamanho A8 e A9 em VMs de nós de computação, especifique uma das imagens do HPC ou HPC com base em CentOS do SUSE Linux Enterprise Server 12 do Marketplace. Para saber mais, consulte [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-linux-a8-a9-a10-a11-specs.md).
+
+Pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
 
 * **Computador cliente** – você precisa de um computador cliente com Windows para executar o script de implantação do cluster.
 
 * **Azure PowerShell** - [Instale e configure o Azure PowerShell](../powershell-install-configure.md) (versão 0.8.10 ou posterior) no computador cliente.
 
-* **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script ao executar `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 ou posterior do script.
+* **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `.\New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.1 ou posterior do script.
 
-### Cenário de implantação 1. Usar um modelo do Marketplace
+### Opção de implantação 1. Use um modelo do Resource Manager
 
 1. Vá para o modelo [cluster HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) no Azure Marketplace e clique em **Implantar**.
 
@@ -71,18 +77,18 @@ Pré-requisitos adicionais caso você implante o cluster usando o script de impl
 
     >[AZURE.NOTE]A **URL do script pós-configuração** é uma configuração opcional para especificar um script do Windows PowerShell publicamente disponível que você deseja executar na VM do nó principal depois que ela estiver em execução.
     
-5. Na folha **Configurações de nós de computação**, selecione um padrão de nomenclatura para os nós, o número e o tamanho dos nós e a imagem da distribuição do Linux a ser implantada.
+5. Na folha **Configurações de nós de computação**, selecione um padrão de nomenclatura para os nós, o número e o tamanho dos nós e a distribuição Linux a implantar.
 
 6. Na folha **Configurações de infraestrutura**, insira nomes para a rede virtual e o domínio do Active Directory para as credenciais de administrador do cluster, do domínio e da VM, e um padrão de nomenclatura para as contas de armazenamento necessárias ao cluster.
 
     >[AZURE.NOTE]O HPC Pack usa o domínio do Active Directory para autenticar usuários de cluster.
 
-7. Após a execução dos testes de validação e quando você estiver pronto para implantar, clique em **Criar**.
+7. Depois de executar os testes de validação e examinar os termos de uso, clique em **Comprar**.
 
 
-### Cenário de implantação 2. Usar o script de implantação de IaaS do HPC Pack
+### Opção de implantação 2. Usar o script de implantação de IaaS do HPC Pack
 
-O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML como entrada que descreve a infraestrutura do cluster do HPC. O arquivo de configuração de exemplo a seguir implanta um pequeno cluster, que consiste em um nó principal e em nós de computação do Linux A7 CentOS 7 de dois tamanhos. Modifique o arquivo como necessário para seu ambiente e a configuração de cluster desejada. Para saber mais sobre os elementos no arquivo de configuração, veja o arquivo Manual.rtf na pasta scripts e [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML como entrada que descreve a infraestrutura do cluster do HPC. O arquivo de configuração de exemplo a seguir implanta um pequeno cluster, que consiste em um nó principal do HPC Pack e em dois nós de computação do Linux CentOS 7.0 de tamanho A7. Modifique o arquivo como necessário para seu ambiente e a configuração de cluster desejada e salve-o com um nome como HPCDemoConfig.xml. Por exemplo, você precisará fornecer seu nome de assinatura e um nome de conta de armazenamento exclusivo e o nome do serviço de nuvem, e você pode desejar escolher, para os nós de computação, uma outra imagem do Linux com suporte. Para saber mais sobre os elementos no arquivo de configuração, veja o arquivo Manual.rtf na pasta scripts e [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -106,7 +112,7 @@ O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML 
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-  <VMSize>A4</VMSize>
+  <VMSize>ExtraLarge</VMSize>
   <EnableRESTAPI />
   <EnableWebPortal />
   </HeadNode>
@@ -130,7 +136,7 @@ O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML 
     cd E:\IaaSClusterScript
     ```
 
-3. Execute o comando a seguir para implantar o cluster HPC Pack. Este exemplo supõe que o arquivo de configuração esteja localizado em E:\\HPCDemoConfig.xml.
+3. Execute o comando a seguir para implantar o cluster HPC Pack. Este exemplo supõe que o arquivo de configuração esteja localizado em E:\\HPCDemoConfig.xml
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -140,7 +146,7 @@ O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML 
 
     a. Como a **AdminPassword** não é especificada no comando acima, você deverá inserir a senha para o usuário *MyAdminName*.
 
-    b. Em seguida, o script começa a validar o arquivo de configuração. Demora de dezenas de segundos a vários minutos dependendo da conexão de rede.
+    b. Em seguida, o script começa a validar o arquivo de configuração. Pode demorar dezenas de segundos a vários minutos dependendo da conexão de rede.
 
     ![Validação][validate]
 
@@ -180,16 +186,16 @@ O serviço [Arquivo do Azure](https://azure.microsoft.com/services/storage/files
 
 Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../storage/storage-dotnet-how-to-use-files.md). Para montar o compartilhamento de Arquivos do Azure nos nós do Linux, veja [Como usar o Armazenamento de Arquivos do Azure com o Linux](../storage/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-Neste exemplo, criamos um compartilhamento de Arquivos do Azure chamado rdma em nosso allvhdsje de conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
+No exemplo a seguir, crie um compartilhamento de arquivos do Azure em uma conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
 
 ```
 > cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
 > net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-Neste exemplo, allvhdsje é o nome da conta de armazenamento, storageaccountkey é a chave da conta de armazenamento e o rdma é o nome do compartilhamento de Arquivos do Azure. O compartilhamento de Arquivos do Azure será montado em z: no seu nó principal.
+Neste exemplo, allvhdsje é o nome da conta de armazenamento, storageaccountkey é a chave de conta de armazenamento e o rdma é o nome do compartilhamento de arquivos do Azure. O compartilhamento de Arquivos do Azure será montado em z: no seu nó principal.
 
-Para montar o compartilhamento de Arquivo do Azure em nós do Linux, execute um comando **clusrun** no nó de cabeçalho. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** é uma ferramenta útil do HPC Pack para executar tarefas administrativas em vários nós. Consulte também [CLusrun para nós Linux](#CLusrun-for-Linux-nodes) neste artigo.
+Para montar o compartilhamento de Arquivo do Azure em nós do Linux, execute um comando **clusrun** no nó de cabeçalho. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** é uma ferramenta útil do HPC Pack para executar tarefas administrativas em vários nós. (Consulte também [Clusrun para nós Linux](#Clusrun-for-Linux-nodes) neste artigo.)
 
 Abra uma janela do Windows PowerShell e digite os seguintes comandos:
 
@@ -294,6 +300,8 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 
 * Experimente um cluster com nós de computação de tamanho [A8 ou A9](virtual-machines-windows-a8-a9-a10-a11-specs.md) para executar cargas de trabalho MPI. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
 
+* Se você estiver interessado em trabalhar em nós do Linux em um cluster do HPC Pack local, veja as [diretrizes do TechNet](https://technet.microsoft.com/library/mt595803.aspx).
+
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
 [portal]: ./media/virtual-machines-linux-classic-hpcpack-cluster/portal.png
@@ -309,4 +317,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 [nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

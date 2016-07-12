@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Esquema de modelo do cofre da chave
@@ -73,7 +73,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 | Nome | Valor |
 | ---- | ---- | 
 | enabledForDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para implantação da Máquina Virtual ou do Service Fabric. |
-| enabledForTemplateDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para uso em implantações de modelo do Gerenciador de Recursos. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
+| enabledForTemplateDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para uso em implantações de modelo do Resource Manager. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
 | enabledForVolumeEncryption | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para criptografia de volume. |
 | tenantId | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador do locatário para a assinatura. Você pode recuperá-lo com o cmdlet [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) do PowerShell ou o comando **azure account show** da CLI do Azure. |
 | accessPolicies | Matriz<br />Obrigatório<br />[Objeto accessPolicies](#accesspolicies)<br /><br />Uma matriz de até 16 objetos que especificam as permissões do usuário ou da entidade de serviço. |
@@ -101,7 +101,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
 | Nome | Valor |
 | ---- | ---- | 
-| name | Enum<br />Obrigatório<br />**standard** ou **premium** <br /><br />A camada de serviço do KeyVault a ser usada. O tipo de preço Standard dá suporte a segredos e chaves protegidas por software. O tipo de preço Premium adiciona suporte para chaves protegidas pelo HSM. |
+| name | Enum<br />Obrigatório<br />**standard**, or **premium** <br /><br />A camada de serviço do KeyVault a ser usada. O tipo de preço Standard dá suporte a segredos e chaves protegidas por software. O tipo de preço Premium adiciona suporte para chaves protegidas pelo HSM. |
 | família | Enum<br />Obrigatório<br />**A** <br /><br />A família de SKU a ser usada. |
  
 	
@@ -122,13 +122,13 @@ O exemplo a seguir implanta um cofre da chave e um segredo.
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -245,4 +245,4 @@ O modelo de início rápido a seguir implanta um cofre da chave.
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

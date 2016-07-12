@@ -143,7 +143,7 @@ Para obter as IDs de SCSI de cada disco SCSI em uma máquina virtual Linux, habi
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. Verifica se há uma linha com **disk.EnableUUID**. Se houver e estiver definida como **False**, defina-a como **True**(não diferencia maiúsculas de minúsculas). Se houver e estiver definida como true, clique em **Cancelar** e teste o comando SCSI dentro do sistema operacional convidado após a inicialização. Se não houver uma, clique em **Adicionar Linha.**
+4. Verifica se há uma linha com **disk.EnableUUID**. Se houver e estiver definida como **False**, defina-a como **True** (não diferencia maiúsculas de minúsculas). Se houver e estiver definida como true, clique em **Cancelar** e teste o comando SCSI dentro do sistema operacional convidado após a inicialização. Se não houver uma, clique em **Adicionar Linha**.
 5. Adicione disk.EnableUUID na coluna **Nome**. Defina seu valor como TRUE. Não adicione os valores acima com aspas duplas.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
@@ -223,7 +223,7 @@ Antes de aplicar essas alterações, conclua a seção anterior e execute estas 
 3. Faça logon na máquina virtual do servidor de destino mestre com Linux usando um cliente ssh de sua escolha.
 4. Se você estiver conectado à rede do Azure no qual implantou o servidor de destino mestre com Linux por meio de uma conexão VPN, use o endereço IP interno do servidor, obtido na guia **Painel** da máquina virtual, e a porta 22 para se conectar ao servidor de destino mestre com Linux usando Secure Shell.
 5. Se você estiver se conectando ao servidor de destino mestre com Linux em uma conexão de internet pública, use o endereço IP virtual público do servidor de destino mestre com Linux (na guia **Painel** das máquinas virtuais) e o ponto de extremidade público criado para ssh a fim de fazer logon no servidor com Linux.
-6. Extraia os arquivos do tar compactado com gzipped do instalador do servidor de destino com Linux executando: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*”* do diretório que contém o arquivo do instalador.
+6. Extraia os arquivos tar compactado com gzipped do instalador do servidor de destino com Linux executando: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\\”* do diretório que contém o arquivo do instalador.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -325,7 +325,7 @@ Quando uma VM está em estado de failover para o Azure, ocorre a adição de uma
 
 #### Definir as configurações de NAT
 
-1. Para habilitar a proteção das máquinas virtuais, é necessário estabelecer dois canais de comunicação. O primeiro canal está entre a máquina virtual e o Servidor de Processo. Esse canal coleta os dados da VM e os envia ao servidor de processo que envia os dados ao servidor de destino mestre. Se o servidor de processo e a máquina virtual que serão protegidos estiverem na mesma rede virtual do Azure, não será necessário usar as configurações de NAT. Caso contrário, especifique as configurações de NAT. Exiba o endereço IP público do servidor de processo no Azure. 
+1. Para habilitar a proteção das máquinas virtuais, é necessário estabelecer dois canais de comunicação. O primeiro canal está entre a máquina virtual e o Servidor de Processo. Esse canal coleta os dados da VM e os envia ao servidor de processo que envia os dados ao servidor de destino mestre. Se o servidor de processo e a máquina virtual que serão protegidos estiverem na mesma rede virtual do Azure, não será necessário usar as configurações de NAT. Caso contrário, especifique as configurações de NAT. Exiba o endereço IP público do servidor de processo no Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
@@ -424,8 +424,8 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
 
 
 
-- [Leia sobre](site-recovery-vmware-to-azure-classic.md) replicar máquinas virtuais VMware e servidores físicos no Azure usando a implantação avançada.
+- [Leia sobre](site-recovery-vmware-to-azure-classic.md) como replicar máquinas virtuais VMware e servidores físicos no Azure usando a implantação avançada.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

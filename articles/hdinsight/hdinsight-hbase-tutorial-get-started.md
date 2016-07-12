@@ -66,7 +66,7 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 
 4. Clique em **Criar**.
 
->[AZURE.NOTE] Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando a mesma conta de armazenamento padrão e o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original.
+>[AZURE.NOTE] Depois que um cluster HBase for excluído, você pode criar outro cluster HBase usando a mesma conta de armazenamento padrão e o mesmo contêiner de blob padrão. O novo cluster selecionará as tabelas HBase criadas por você no cluster original. É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências.
 
 ## Criar tabelas e inserir dados
 
@@ -163,7 +163,7 @@ Você pode consultar os dados armazenados no HBase usando o Hive. Esta seção c
 
 **Para abrir o painel do cluster**
 
-1. Navegue até **https://<HDInsight Cluster Name>.azurehdinsight.net/**.
+1. Navegue até **https://<Nome do Cluster HDInsight>.azurehdinsight.net/**.
 5. Insira o nome de usuário e senha da conta do usuário do Hadoop. O nome de usuário padrão é **admin**, a senha é a que você inseriu durante o processo de criação. Uma nova guia do navegador é aberta.
 6. Clique em **Editor Hive** na parte superior da página. O Editor Hive é semelhante a:
 
@@ -294,8 +294,7 @@ Para abrir a interface do usuário da Web, você deve fazer RDP no cluster e, em
 Em um cluster de alta disponibilidade, você encontrará um link para o nó mestre HBase ativo atual que está hospedando a interface do usuário da Web.
 
 ##Excluir o cluster
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## O que vem a seguir?
@@ -335,4 +334,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

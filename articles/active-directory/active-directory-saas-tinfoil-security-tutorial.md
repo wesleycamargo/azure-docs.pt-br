@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Resposta do Tinfoil Security**, digite a URL do ACS (Serviço de Declaração do Consumidor) do Tinfoil Security (por exemplo: "**https://www.tinfoilsecurity.com/saml/consume*") e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Resposta do Tinfoil Security**, digite a URL do ACS (Serviço de Declaração do Consumidor) do Tinfoil Security (por exemplo: "*https://www.tinfoilsecurity.com/saml/consume*") e clique em **Avançar**.
 
     >[AZURE.NOTE] Você poderá obter a URL do ACS dos Metadados do Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata)).
 

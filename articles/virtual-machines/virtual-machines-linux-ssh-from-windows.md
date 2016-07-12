@@ -56,10 +56,10 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 
 [A seção](#What-SSH-and-key-creation-programs-do-you-need) acima lista vários utilitários que incluem um `ssh-keygen` e `openssl` para Windows. Alguns exemplos são listados abaixo:
 
-###Usar GitHub para Windows###
+###Usar Git para Windows###
 
-1.	Baixe e instale o GitHub para Windows do seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Execute o Git Bash do Menu Iniciar > Todos os Aplicativos > GitHub
+1.	Baixe e instale o Git para Windows no seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.	Execute o Git Bash do Menu Iniciar > Todos os Aplicativos > Git Shell
 
 > [AZURE.NOTE] É possível encontrar o seguinte erro ao executar os comandos `openssl` acima:
 
@@ -166,4 +166,4 @@ A maneira mais fácil de resolver esse problema é definir a variável de ambien
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

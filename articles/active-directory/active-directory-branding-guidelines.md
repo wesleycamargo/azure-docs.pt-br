@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
@@ -47,7 +47,7 @@ Em uma versão anterior dessas diretrizes, recomendamos usar uma imagem de "crac
 
 Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as seções a seguir fornecem orientação visual para os dois cenários.
 
-**Se seu aplicativo oferecer suporte à inscrição do usuário final (por exemplo, gratuito avaliação ou modelo freemium)**: você pode mostrar um botão de **login** que permite aos usuários acessar seu aplicativo com suas contas comerciais ou de estudante da Microsoft. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
+**Se seu aplicativo oferecer suporte à inscrição do usuário final (por exemplo, gratuita para avaliação ou para o modelo freemium)**: você poderá mostrar um botão **credenciais**, que permite que os usuários acessem seu aplicativo com suas contas corporativas ou de estudante da Microsoft. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
 
 **Se seu aplicativo precisar de permissões que somente os administradores podem conferir, ou se seu aplicativo requer licenciamento organizacional**: você deve separar a aquisição do administrador do logon do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para fazer logon e pedir que eles concedam autorização em nome dos usuários em sua organização. Isso tem o benefício adicional de suprimir as solicitações de consentimento aos usuários finais para seu aplicativo.
 
@@ -60,25 +60,28 @@ Depois que os administradores derem consentimento ao seu aplicativo, eles podem 
 ![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
 No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
-> *Se você já usa o Office 365 ou outro serviço corporativo da Microsoft, você pode simplesmente conceder <your_app_name> acesso aos dados da sua organização. Isso permitirá que os usuários obtenham acesso <your_app_name> com suas contas de trabalho existentes.*
+> *Se você já usa o Office 365 ou outro serviço corporativo da Microsoft, você pode simplesmente conceder ao <your\_app\_name> acesso aos dados da sua organização. Isso permitirá que os usuários obtenham acesso ao <your\_app\_name> com suas contas de trabalho existentes.*
 
 
 ## Orientação visual para logon
 Seu aplicativo deve exibir um botão de logon que redireciona os usuários ao ponto de extremidade de login, que corresponde ao protocolo que você usa para integrar com o Azure AD. A seção a seguir fornece detalhes sobre como deve ser esse botão.
 
-### Imagem e "conta comercial ou de estudante"
-É a associação do logotipo da Microsoft e dos termos genéricos "comercial ou de estudante" que representa exclusivamente o Azure AD entre outros provedores de identidade aos quais seu aplicativo pode oferecer suporte. Se você não tiver espaço suficiente para "contas comerciais ou de estudante", não tem problema reduzir o termo para "conta comercial".
+### Ícone e “Entrar com a Conta da Microsoft”
+É a associação do logotipo da Microsoft e dos termos para “Entrar com a Conta da Microsoft” que representa exclusivamente o Azure AD entre outros provedores de identidade aos quais seu aplicativo pode oferecer suporte. Se você não tiver espaço suficiente para “Entrar com a Conta da Microsoft”, é possível reduzir a "Entrar".
 
-![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-or-school-account.png)
+![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-account.png)
+![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-Você também pode fornecer uma explicação adicional para ajudar os usuários finais a reconhecer se eles podem usar esse botão:
+Você também pode usar um esquema de cores escuras para os botões.
 
-![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
+![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![Cenários e tipos de aplicativos](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## Regras de identidade visual
-**USE** "conta comercial ou de estudante" em combinação com o logotipo da Microsoft para representar logons no Azure AD. Se o espaço for um fator determinante, não tem problema usar o termo "conta comercial", mas **NÃO** use outros termos como "conta empresarial", "conta de negócios" ou "conta corporativa".
+
+**USE** “conta corporativa ou de estudante” em combinação com o botão "Entre com a Conta da Microsoft" para fornecer uma explicação adicional que ajude os usuários finais a reconhecer se podem usá-lo. **NÃO USE** outros termos, como "conta comercial", "conta empresarial" ou "conta corporativa".
 
 **NÃO** use "ID do Office 365" ou "ID do Azure". Office 365 também é o nome de uma oferta ao consumidor da Microsoft que não usa o Azure AD para autenticação.
 
@@ -90,8 +93,4 @@ Você também pode fornecer uma explicação adicional para ajudar os usuários 
 
 **Forneça** uma maneira de os usuários fazerem logout e trocarem para outra conta de usuário. Embora a maioria das pessoas tenha uma única conta pessoal da Microsoft/Facebook/Google/Twitter, as pessoas geralmente são associadas a mais de uma organização. O suporte a vários usuários conectados estará disponível em breve.
 
-## Suporte ao Azure AD e a contas da Microsoft em seu aplicativo
-
-Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você precisa incluir dois botões de login separados em seu aplicativo. Estamos trabalhando ativamente em uma atualização que permitirá que você integre uma vez e ofereça suporte a contas pessoais e comerciais da Microsoft. Quando isso estiver disponível, você poderá mostrar um único botão de "login na Microsoft" em seu aplicativo.
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

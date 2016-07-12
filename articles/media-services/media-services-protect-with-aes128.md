@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="06/16/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Utilizando criptografia dinâmica AES-128 e serviço de entrega de chaves
@@ -39,11 +39,11 @@ Este tópico poderá ser útil para desenvolvedores que trabalham em aplicativos
 
 A seguir estão as etapas gerais que você precisará executar ao criptografar seus ativos com o AES, usando o serviço de distribuição de chaves dos Serviços de Mídia e também usando criptografia dinâmica.
 
-1. [Criar um ativo e carregar arquivos no ativo](media-services-protect-with-aes128.md#create_asset). 
+1. [Criar um ativo e carregar arquivos no ativo](media-services-protect-with-aes128.md#create_asset).
 1. [Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável](media-services-protect-with-aes128.md#encode_asset).
 1. [Criar uma chave de conteúdo e associá-la ao ativo codificado](media-services-protect-with-aes128.md#create_contentkey). Nos Serviços de Mídia, a chave de conteúdo contém a chave de criptografia do ativo.
-1. [Configurar a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy). A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave de conteúdo seja entregue ao cliente. 
-1. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração de política de entrega inclui: URL de aquisição de chave e VI (vetor de inicialização) (o AES 128 requer que o mesmo VI seja fornecido ao criptografar e descriptografar), protocolo de entrega (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos), o tipo de criptografia dinâmica (por exemplo, envelope ou nenhuma criptografia dinâmica). 
+1. [Configurar a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy). A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave de conteúdo seja entregue ao cliente.
+1. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração de política de entrega inclui: URL de aquisição de chave e VI (vetor de inicialização) (o AES 128 requer que o mesmo VI seja fornecido ao criptografar e descriptografar), protocolo de entrega (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos), o tipo de criptografia dinâmica (por exemplo, envelope ou nenhuma criptografia dinâmica).
 
 	Você poderia aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
 
@@ -91,10 +91,10 @@ Para obter informações detalhadas, consulte [Configurar política de autoriza�
 
 Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos:
 
-- A URL de aquisição de chave. 
-- O VI (vetor de inicialização) a ser usado para a criptografia de envelope. O AES 128 requer que o mesmo VI seja fornecido tanto ao criptografar quanto ao descriptografar. 
+- A URL de aquisição de chave.
+- O VI (vetor de inicialização) a ser usado para a criptografia de envelope. O AES 128 requer que o mesmo VI seja fornecido tanto ao criptografar quanto ao descriptografar.
 - O protocolo de entrega de ativos (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos).
-- O tipo de criptografia dinâmica (por exemplo, envelope de AES) ou ausência de criptografia dinâmica. 
+- O tipo de criptografia dinâmica (por exemplo, envelope de AES) ou ausência de criptografia dinâmica.
 
 Para obter informações detalhadas, consulte [Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -630,4 +630,4 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

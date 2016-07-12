@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="06/29/2016" 
 	ms.author="sdanie"/>
 
 # Introdução à camada Premium do Cache Redis do Azure
 O Cache Redis do Azure é um cache distribuído e gerenciado que ajuda você a criar aplicativos altamente escalonáveis e responsivos, fornecendo acesso extremamente rápido aos seus dados.
 
-A nova camada Premium é uma camada pronta para Empresas, que inclui todos os recursos da camada Standard e muito mais, como um melhor desempenho, cargas de trabalho maiores, recuperação de desastres, importação/exportação e segurança avançada. Continue lendo para saber mais sobre os recursos adicionais da camada de cache Premium.
+A nova camada Premium é uma camada pronta para Empresas, que inclui todos os recursos da camada Standard e muito mais, como melhor desempenho, cargas de trabalho maiores, recuperação de desastres, importação/exportação e segurança avançada. Continue lendo para saber mais sobre os recursos adicionais da camada de cache Premium.
 
 ## Melhor desempenho em relação às camadas Standard ou Basic.
 **Melhor desempenho em relação às camadas Standard ou Básica.** Os caches na camada Premium são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado às Camadas Standard ou Básica. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas.
@@ -41,19 +41,43 @@ Se desejar criar caches maiores que 53 GB ou fragmentar dados entre vários nós
 Para começar com o clustering, veja [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 
 ##Isolamento e segurança avançados
+
 Os caches criados na camada Básica ou Standard podem ser acessados na Internet pública. O acesso ao Cache é restrito com base na tecla de acesso. Com a camada Premium, é possível garantir ainda mais que apenas os clientes em uma rede especificada possam acessar o Cache. É possível implantar o Cache Redis em uma [VNet (Rede Virtual) do Azure](https://azure.microsoft.com/services/virtual-network/). Você pode usar todos os recursos da VNet como sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso ao Redis.
 
 Para saber mais, consulte [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Importar/exportar
 
-A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis (RDB) de um cache premium para um blob de página em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
+A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de página em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
 
 A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache Redis do Azure carrega os arquivos RDB do armazenamento do Azure para a memória e insere as chaves no cache.
 
 A exportação permite exportar os dados armazenados no Cache Redis do Azure para arquivos RDB compatíveis com Redis. Você pode usar esse recurso para mover dados de uma instância do Cache Redis do Azure para outro ou para outro servidor Redis. Durante o processo de exportação, um arquivo temporário é criado na VM que hospeda a instância de servidor do Cache Redis do Azure e o arquivo é carregado para a conta de armazenamento designada. Após a operação de exportação ser concluída com um status de êxito ou de falha, o arquivo temporário é excluído.
 
 Para obter mais informações, consulte [Como importar dados e exportar dados do Cache Redis do Azure](cache-how-to-import-export-data.md).
+
+## Reboot
+
+A camada premium permite a reinicialização de um ou mais nós de seu cache sob demanda. Isso permite que você teste seu aplicativo para garantir a resiliência em caso de falhas. Você pode reinicializar os seguintes nós.
+
+-	Nó mestre do cache
+-	Nó subordinado do cache
+-	Nós mestre e subordinado do cache
+-	Ao usar um cache premium com clustering, você pode reinicializar o nó mestre, o nó subordinado ou ambos para fragmentos individuais no cache
+
+Para saber mais, veja [Reinicializar](cache-administration.md#reboot) e [Perguntas frequentes sobre a reinicialização](cache-administration.md#reboot-faq).
+
+## Agendar atualizações
+
+O recurso de atualizações agendadas permite designar uma janela de manutenção para seu cache. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. Para designar uma janela de manutenção, selecione os dias desejados e especifique o horário de início da janela de manutenção para cada dia. Observe que o horário da janela de manutenção é em UTC.
+
+Para saber mais, veja [Agendar atualizações](cache-administration.md#schedule-updates) e [Perguntas frequentes sobre atualizações agendadas](cache-administration.md#schedule-updates-faq).
+
+>[AZURE.NOTE] Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção programada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
+
+## Para dimensionar para a camada premium
+
+Para dimensionar para a camada premium, basta escolher uma das camadas premium na folha **Alterar camada de preços**. Você também pode dimensionar seu cache para a camada premium usando o PowerShell e a CLI. Para obter instruções passo a passo, veja [Como Dimensionar o Cache Redis do Azure](cache-how-to-scale.md) e [Como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ## Próximas etapas
 
@@ -63,6 +87,7 @@ Crie um cache e explore os novos recursos da camada premium.
 -	[Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md)
 -	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
 -	[Como importar dados para e exportar dados do Cache Redis do Azure](cache-how-to-import-export-data.md)
+-	[Como administrar o Cache Redis do Azure](cache-administration.md)
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

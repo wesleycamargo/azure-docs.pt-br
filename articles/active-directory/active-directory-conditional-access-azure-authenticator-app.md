@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator para Android
@@ -37,7 +37,7 @@ As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets
 
 1. Na tela inicial do aplicativo, aceite o EULA (Contrato de Licença de Usuário Final).
 2. Na tela Ativar Conta, clique no menu de contexto à direita e selecione **Conta de Trabalho**.
-3. Na tela Adicionar Conta, selecione **Conta de Trabalho**.
+3. Na tela Adicionar Conta, selecione** Conta de Trabalho**.
 4. Na tela Ativar administrador do dispositivo, clique em **Ativar**.
 5. Na tela de Política de Privacidade, marque a caixa de seleção e clique em **Confirmar**.
 6. Na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em **Ingressar**.
@@ -72,7 +72,7 @@ Adicionar a conta de trabalho do dispositivo não Samsung Android
 
 Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
 
-1. No menu Configurações, navegue até **Contas** e clique em **Adicionar Conta**.
+1. No menu **Configurações**, navegue até Contas e clique em **Adicionar Conta**.
 2. Siga as etapas 2 a 7 no procedimento, adicionando a conta de trabalho por meio da tela** principal do aplicativo, a fim de adicionar uma conta de trabalho.
 
 ### Como descobrir qual versão está instalada
@@ -111,10 +111,10 @@ Você pode remover a conta de trabalho que você criou a qualquer momento da seg
 
 Em um dispositivo Samsung Android, os privilégios de administrador do dispositivo devem ser removidos da seguinte maneira antes de desinstalar o
 1. Comece em **Configurações**, **Sistema** e selecione **Segurança**.
-2. Em A**dministração de Dispositivo**, clique em **Administradores do dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
+2. Em **Administração de Dispositivo**, clique em **Administradores do dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
 
 ##Solucionar problemas
 
 Se você vir o **Erro do Keystore**, isso pode ocorrer por não ter o bloqueio de tela configurado com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

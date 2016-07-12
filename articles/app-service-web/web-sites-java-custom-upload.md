@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Carregar um aplicativo Web Java personalizado no Azure
@@ -30,7 +30,7 @@ As configurações esperadas para aplicativos Web Java personalizados no Azure s
 - Todas as portas de escuta que não sejam a única porta ouvinte HTTP devem ser desabilitadas. No Tomcat, que inclui o desligamento, as portas HTTPS e AJP.
 - O contêiner precisa ser configurado apenas para tráfego IPv4.
 - O comando **startup** do aplicativo precisa ser definido na configuração.
-- Os aplicativos que precisam de diretórios com permissão de gravação precisam estar localizados no diretório de conteúdo do aplicativo Web do Azure, que é **D:\\home**. A variável de ambiente `HOME` refere-se a D:\\home.  
+- Os aplicativos que precisam de diretórios com permissão de gravação precisam estar localizados no diretório de conteúdo do aplicativo Web do Azure, que é **D:\\home**. A variável de ambiente `HOME` refere-se a D:\\home.
 
 Você pode definir as variáveis de ambiente conforme necessário no arquivo web.config.
 
@@ -257,4 +257,4 @@ Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores 
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

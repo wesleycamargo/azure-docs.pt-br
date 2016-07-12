@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,7 +23,7 @@
 
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Linux no modelo de implantação clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Introdução
 - [Introdução ao Linux no Azure](virtual-machines-linux-intro-on-azure.md)
@@ -57,7 +57,6 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 ### Docker
 - [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Usando a extensão de VM Docker do portal do Azure](virtual-machines-linux-classic-portal-use-docker.md)
-- [Introdução rápida ao Docker no Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [Como usar a máquina docker no Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -113,8 +112,8 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 ## Solucionar problemas
 - [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
-- [Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Linux no Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
-- [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
+- [Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Linux no Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
+- [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
 
 
 ## Referência
@@ -126,7 +125,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 
 ## Links de geral
-Os links a seguir são para blogs da Microsoft, páginas da Technet e sites externos em vez da documentação do Azure.com como acima. Como tanto o Azure quanto o mundo da computação de software livre são alvos em rápida evolução, é quase certo que os links a seguir estejam desatualizados, *apesar* do fato de que faremos sempre o possível para adicionar tópicos mais recentes e remover os desatualizados. Se tivermos deixado passar algo, avise nos comentários ou envie uma solicitação pull para nosso [repositório GitHub](https://github.com/Azure/azure-content/).
+Os links a seguir são para blogs da Microsoft, páginas da Technet e sites externos em vez da documentação do Azure.com como acima. Como tanto o Azure quanto o mundo da computação de software livre estão evolução, é quase certo que os links a seguir estejam desatualizados, *apesar* de fazermos sempre o possível para adicionar tópicos mais recentes e remover os desatualizados. Se tivermos deixado passar algo, avise nos comentários ou envie uma solicitação pull para nosso [repositório GitHub](https://github.com/Azure/azure-content/).
 
 - [Executando ASP.NET 5 em Linux usando contêineres de Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [Como implantar uma imagem de VM CentOS da OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
@@ -188,8 +187,6 @@ Como o mundo dos desenvolvimentos, gerenciamento e otimização é muito extenso
 - [Blog: Como fazer Powershell DSC para Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [GitHub: Cliente Docker DSC](https://github.com/anweiss/DockerClientDSC)
 
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
-
 - [Plug-in Packer para o Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

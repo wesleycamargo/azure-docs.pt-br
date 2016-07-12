@@ -98,7 +98,7 @@ Uma fila durável do lado do cliente preserva a ordem das mensagens e protege o 
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
 - [Continuidade dos negócios no Banco de dados SQL do Azure][]
-- [Orientação técnica sobre a continuação de negócios do Azure][]
+- [Orientações técnicas de resiliência do Azure][]
 
   [Autenticação do Barramento de Serviço]: service-bus-authentication-and-authorization.md
   [Entidades de mensagens particionadas]: service-bus-partitioning.md
@@ -109,6 +109,6 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
   [Replicação geográfica com o sistema de mensagens agenciado do Barramento de Serviço]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Remetente de mensagem durável]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuidade dos negócios no Banco de dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
-  [Orientação técnica sobre a continuação de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Orientações técnicas de resiliência do Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

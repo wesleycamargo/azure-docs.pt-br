@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -38,9 +38,9 @@ Este tutorial contém quatro lições:
 
 A solução completa para cada lição pode ser baixada das Amostras de Código de Desenvolvedor do MSDN (Galeria de Códigos):
 
-- [Lição 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - Um Media Player simples de Smooth Streaming do Windows 8, 
-- [Lição 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - Um Media Player simples de Smooth Streaming do Windows 8 com um controle de barra deslizante, 
-- [Lição 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Um Media Player simples de Smooth Streaming do Windows 8 com seleção de fluxo,  
+- [Lição 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - Um Media Player simples de Smooth Streaming do Windows 8,
+- [Lição 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - Um Media Player simples de Smooth Streaming do Windows 8 com um controle de barra deslizante,
+- [Lição 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Um Media Player simples de Smooth Streaming do Windows 8 com seleção de fluxo,
 - [Lição 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - Um Media Player simples de Smooth Streaming do Windows 8 com seleção de faixa.
 
 ##Lição 1: Criar um aplicativo básico de Smooth Streaming para a Store
@@ -83,7 +83,7 @@ Nome|Valor
 Grupo de referências|Windows/Extensions
 Referência|Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++
 	
-3.	Clique em **OK**. 
+3.	Clique em **OK**.
 
 Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU. No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
 
@@ -212,10 +212,10 @@ O arquivo code-behind concluído deve ser semelhante ao seguinte:
 
 1.	No menu **COMPILAR** clique em **Gerenciador de Configurações**.
 2.	Altere **Plataforma da solução ativa** para que corresponda à sua plataforma de desenvolvimento.
-3.	Pressione **F6** para compilar o projeto. 
+3.	Pressione **F6** para compilar o projeto.
 4.	Pressione **F5** para executar o aplicativo.
-5.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-6.	Clique em **Definir Origem**. Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente. Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e **Parar**. É possível controlar o volume da mídia usando o controle deslizante vertical. No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado. 
+5.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
+6.	Clique em **Definir Origem**. Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente. Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e **Parar**. É possível controlar o volume da mídia usando o controle deslizante vertical. No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado.
 
 Você concluiu a Lição 1. Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming. Na próxima lição, você adicionará um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
 
@@ -229,7 +229,7 @@ As origens de mídia são objetos que geram dados de mídia. O resolvedor de ori
 
 Esta lição contém os seguintes procedimentos:
 
-1.	Registrar o manipulador do Smooth Streaming 
+1.	Registrar o manipulador do Smooth Streaming
 2.	Adicionar manipuladores de eventos no nível do gerenciador de origem adaptável
 3.	Adicionar os manipuladores de eventos de origem adaptável
 4.	Adicionar manipuladores de eventos de MediaElement
@@ -484,10 +484,10 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 
 **Para compilar e testar o aplicativo**
 
-1. Pressione **F6** para compilar o projeto. 
+1. Pressione **F6** para compilar o projeto.
 2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
+3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
+4.	Clique em **Definir Origem**.
 5.	Teste a barra de controle deslizante.
 
 Você concluiu a lição 2. Nesta lição, você adicionou um controle deslizante ao aplicativo.
@@ -757,10 +757,10 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 
 **Para compilar e testar o aplicativo**
 
-1. Pressione **F6** para compilar o projeto. 
+1. Pressione **F6** para compilar o projeto.
 2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
+3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
+4.	Clique em **Definir Origem**.
 5.	O idioma padrão é audio\_eng. Tente alternar entre audio\_eng e audio\_es. Toda vez que selecionar um novo fluxo, você deverá clicar no botão Enviar.
 
 Você concluiu a lição 3. Nesta lição, você adicionará a funcionalidade de escolher fluxos.
@@ -960,10 +960,10 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 
 **Para compilar e testar o aplicativo**
 
-1. Pressione **F6** para compilar o projeto. 
+1. Pressione **F6** para compilar o projeto.
 2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
+3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
+4.	Clique em **Definir Origem**.
 5.	Por padrão, todas as faixas do fluxo de vídeo são selecionadas. Para testar as alterações de taxa de bits, é possível selecionar a taxa de bits mais baixa disponível e, em seguida, selecionar a taxa de bits mais alta disponível. Você deve clicar em Enviar após cada alteração. Você pode ver as alterações na qualidade do vídeo.
 
 Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de escolher faixas.
@@ -986,4 +986,4 @@ Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -85,7 +85,7 @@ Nesta seção, você criará um aplicativo do console do Java que cria uma nova 
 
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
-    private static final String deviceId = "javadevice";
+    private static final String deviceId = "myFirstJavaDevice";
     
     ```
     
@@ -325,12 +325,12 @@ Nesta seção, você criará um aplicativo do console do Java que simula um disp
     import java.util.concurrent.ExecutorService;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhubiot}** pelo nome do hub Iot e **{iddoseudispositivo}** e **{chavedoseudispositivo}** pelos valores do dispositivo gerados na seção *Criar uma identidade do dispositivo*:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhubiot}** pelo nome do hub IoT e **{chavedoseudispositivo}** pelo valor da chave do dispositivo gerado na seção *Criar uma identidade do dispositivo*:
 
     ```
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
+    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static String deviceId = "{yourdeviceid}";
+    private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
 
@@ -489,4 +489,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

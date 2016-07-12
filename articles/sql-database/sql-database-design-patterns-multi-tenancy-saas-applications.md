@@ -34,7 +34,7 @@ Os aplicativos multilocatários são um exemplo proeminente de um tipo de aplica
 Podemos encontrar tais aplicativos distribuídos em todo o espectro de aplicativos baseados em nuvem incluindo
 - aplicativos de banco de dados de ISV, fazendo a transição para a nuvem como aplicativos SaaS
 - Aplicativos SaaS compilador para a nuvem do zero
-- Usuário final/consumidor direto voltado para aplicativos 
+- Usuário final/consumidor direto voltado para aplicativos
 - Aplicativos empresariais voltados para funcionários
 
 Aplicativos SaaS de nuvem e aplicativos SaaS enraizados em aplicativos de banco de dados do ISV normalmente resultam em aplicativos de multilocatário. Esses aplicativos SaaS entregam um aplicativo de software especializado, como um serviço para seus locatários. Os locatários têm acesso ao serviço de aplicativo e a propriedade completa dos dados associados armazenados como parte do aplicativo. Mas para tirar proveito dos benefícios de SaaS, seus locatários devem ceder um nível de controle sobre seus próprios dados, confiando no fornecedor SaaS para mantê-lo seguro e isolado de outros dados de locatário. Exemplos típicos são MyOB, SnelStart, Salesforce e etc. Todos esses aplicativos permitem particionamento em limites de locatário e, portanto, dão suporte aos padrões de aplicativos discutidos nas seções a seguir deste artigo.
@@ -49,7 +49,7 @@ Os padrões de design de multilocatário que exploramos nas seções a seguir se
 
 Para os desenvolvedores que criam aplicativos de multilocatários na nuvem, as seguintes dimensões são abrangidas:
 
--	***Isolamento de locatários***: os desenvolvedores precisam assegurar que nenhum locatário obtém acesso indesejado aos dados de outros locatários. Esse requisito de isolamento se estende a outras propriedades, como proteção de vizinhos barulhentos, a capacidade de restaurar dados de um determinado locatário, personalizações específicas de locatário e etc. 
+-	***Isolamento de locatários***: os desenvolvedores precisam assegurar que nenhum locatário obtém acesso indesejado aos dados de outros locatários. Esse requisito de isolamento se estende a outras propriedades, como proteção de vizinhos barulhentos, a capacidade de restaurar dados de um determinado locatário, personalizações específicas de locatário e etc.
 -	***Custo de recursos de nuvem***: o aplicativo de SaaS precisa ter custo competitivo. Com base nisso, os desenvolvedores de aplicativos SaaS otimizam aplicativos para reduzir o custo em seu uso de recursos de nuvem (computação, armazenamento e etc.), ao projetar seus aplicativos de multilocatários.
 -	***Facilidade de DevOps***: os provedores de aplicativos de multilocatários precisam criar uma proteção de isolamento, manter seus aplicativos, o esquema de banco de dados, monitorar a integridade e solucionar problemas de seus locatários. A complexidade de desenvolvimento de aplicativos e a operação se traduz diretamente em custos adicionais e a satisfação de locatário inferior.
 -	***Escalabilidade***: adicionar incrementalmente mais locatários é fundamental para uma operação bem-sucedida de SaaS bem como adicionar mais capacidade para locatários individuais que exigem mais recursos.
@@ -71,7 +71,7 @@ Práticas de design comuns para a colocação de dados do locatário seguem esse
   
 1.	***Banco de dados por locatário***: essa abordagem coloca cada locatário em seu próprio banco de dados. Todos os dados específicos de locatário estão restritos ao seu banco de dados e isolados de outros locatários e seus dados.
 2.	***Banco de dados fragmentados compartilhados***: essa abordagem usa vários bancos de dados, com vários locatários compartilhando um banco de dados. Por exemplo, um conjunto distinto de locatários são atribuídos a cada banco de dados usando uma estratégia de particionamento, como hash, intervalo ou lista de particionamento. Essa estratégia de distribuição de dados é muitas vezes conhecida como fragmentação.
-3.	***Banco de dados único compartilhado***: essa abordagem usa um banco de dados único, às vezes, grande que contém dados para todos os locatários sem ambiguidade com uma coluna de ID de locatário. 
+3.	***Banco de dados único compartilhado***: essa abordagem usa um banco de dados único, às vezes, grande que contém dados para todos os locatários sem ambiguidade com uma coluna de ID de locatário.
   
 > [AZURE.NOTE] Às vezes, locatários diferentes também são colocados em esquemas de banco de dados diferentes em que o nome do esquema é usado para resolver a ambiguidade entre locatários diferentes. Isso não é uma abordagem recomendada pois geralmente requer o uso de SQL dinâmico e ele não pode fazer uso efetivo do cache do plano. Portanto, o restante deste artigo se concentra na abordagem de tabela compartilhada nessa categoria.
  
@@ -80,8 +80,8 @@ Práticas de design comuns para a colocação de dados do locatário seguem esse
 Ao avaliar o uso desses modelos de dados de multilocatário é importante enquadrá-los em termos de compensações do design do aplicativo, discutidos na seção anterior.
 
 -	***Isolamento***: o nível de isolamento entre locatários como uma medida de quanto isolamento de locatário um modelo de dados alcança e
--	***Custo de recursos de nuvem***: a quantidade de compartilhamento de recursos que ocorre entre locatários para otimizar o custo de recursos de nuvem. Um recurso pode ser definido como o custo de computação e armazenamento. 
--	***Custo de DevOps***: facilidade de desenvolvimento de aplicativos, implantação e gerenciamento reduz o custo geral de operação de SaaS.  
+-	***Custo de recursos de nuvem***: a quantidade de compartilhamento de recursos que ocorre entre locatários para otimizar o custo de recursos de nuvem. Um recurso pode ser definido como o custo de computação e armazenamento.
+-	***Custo de DevOps***: facilidade de desenvolvimento de aplicativos, implantação e gerenciamento reduz o custo geral de operação de SaaS.
 
 Usando essas dimensões, podemos caracterizar os modelos de dados de multilocatário descritos anteriormente e seu uso do banco de dados com o espaço de quadrante, conforme mostrado na Figura 2 abaixo. O nível de isolamento de locatários e a quantidade de compartilhamento de recursos descrevem as dimensões de eixo Y e X do espaço. A seta diagonal grande no meio indica os custos de DevOps.
 
@@ -148,7 +148,9 @@ Para provedores de aplicativos de multilocatários que não têm requisitos de i
 
 Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, confira [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
-Para converter os bancos de dados existentes para usar as ferramentas, consulte [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
+Para obter um aplicativo de exemplo que fornece uma solução para um cenário de SaaS (Software como solução) que utiliza Pools Elásticos para fornecer um back-end de banco de dados econômico e escalonável para um aplicativo SaaS, veja [Painel Personalizado de Pool Elástico para Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard).
+
+Para converter os bancos de dados existentes para usar as ferramentas, veja [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para criar um novo pool, confira o [tutorial Criar pool elástico](sql-database-elastic-pool-create-portal.md).
 
@@ -161,6 +163,7 @@ Para monitorar e gerenciar um pool de Banco de Dados Elástico, confira [Monitor
 - [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 - [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Inícios Rápidos da Solução](sql-database-solution-quick-starts.md)
 
 ## Perguntas e solicitações de recursos
 
@@ -176,4 +179,4 @@ Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](h
 
 	
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

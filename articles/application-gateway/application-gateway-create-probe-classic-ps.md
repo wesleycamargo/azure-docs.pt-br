@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](application-gateway-create-probe-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -72,7 +71,7 @@ Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-Azur
 >[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Small, Medium e Large.
 
 
- *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
+ O *VirtualIPs* e o *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
 ## Configurar um Application Gateway
 
@@ -157,16 +156,16 @@ O exemplo a seguir mostra como usar um arquivo de configuração configurando o 
 >[AZURE.IMPORTANT] O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
 
 
-Um novo item de configuração <Probe> é adicionado ao configurar investigações personalizadas.
+Um novo item de configuração <Probe> é adicionado para configurar investigações personalizadas.
 
 Os parâmetros de configuração são:
 
 - **Name** - nome de referência da investigação personalizada.
-- **Protocol** -protocolo usado (os valores possíveis são Http ou Https).
-- **Host** e **Path** - caminho de URL completo que é invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo: você tem um site http://contoso.com/ e a investigação personalizada pode ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com resposta HTTP bem-sucedida.
+- **Protocol** - protocolo usado (os valores possíveis são HTTP ou HTTPS).
+- **Host** e **Path** - caminho de URL completo que é invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/caminho/caminhopersonaliado.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
 - **Interval** - configura as verificações de intervalo de investigação em segundos.
 - **Timeout** - define o tempo limite da investigação para uma verificação de resposta HTTP.
-- **UnhealthyThreshold** - o número de respostas HTTP com falha; ele é necessário para sinalizar a instância de back-end como *não íntegra*.
+- **UnhealthyThreshold** - o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *não íntegra*.
 
 O nome da investigação é referenciado na configuração <BackendHttpSettings> para atribuir qual pool de back-end usará as configurações da investigação personalizada.
 
@@ -223,4 +222,4 @@ Se você quiser configurar o descarregamento de protocolo SSL, veja [Configurar 
 
 Se desejar configurar um Application Gateway para usar com um balanceador de carga interno, veja [Criar um Application Gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->
