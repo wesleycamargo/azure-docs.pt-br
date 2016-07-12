@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/28/2016"
+   	ms.date="06/29/2016"
    	ms.author="jgao"/>
 
 # Publicar aplicativos do HDInsight no Azure Marketplace
@@ -25,6 +25,7 @@ Os aplicativos do HDInsight usam o modelo *BYOL (traga sua própria licença)*, 
 
 Outro artigo relacionado ao aplicativo do HDInsight:
 
+- [Instalar aplicativos do HDInsight](hdinsight-apps-install-applications.md): saiba como instalar um aplicativo do HDInsight em seus clusters.
 - [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): saiba como instalar e testar aplicativos personalizados do HDInsight.
 
  
@@ -55,7 +56,7 @@ Há duas etapas envolvidas na publicação de aplicativos no Azure Marketplace. 
 |-------|---------------|----------------|
 |tipos |Os tipos de cluster com os quais o aplicativo é compatível. |Hadoop, HBase, Storm, Spark (ou qualquer combinação destes)|
 |camadas |As camadas de cluster com as quais o aplicativo é compatível. |Standard, Premium (ou ambos)|
-|versões|	Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3.4|
+|versões|	Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3\.4|
 
 ## Aplicativo de pacote
 
@@ -70,11 +71,11 @@ Crie um arquivo zip que contém todos os arquivos necessários para instalar os 
 		
 	>Observe que há três partes no nome do script:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. Um prefixo de nome de script, que deve incluir o nome do aplicativo ou um nome relevante para o aplicativo.
+	>	2. Um "-" para facilitar a leitura.
+	>	3. Uma função de cadeia de caracteres exclusiva com o nome do aplicativo como o parâmetro.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	O exemplo acima acaba se tornando: hue-install-v0-4wkahss55hlas na lista de ação de script persistente. Para uma carga JSON de exemplo, consulte [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Todos os scripts obrigatórios.
 
@@ -86,16 +87,17 @@ Siga as etapas a seguir para publicar um aplicativo do HDInsight:
 
 1. Entre no [Portal de Publicação do Azure](https://publish.windowsazure.com/).
 2. Clique em **Modelos de solução** para criar um novo modelo de solução.
-3. Clique em **Criar conta do Centro de Desenvolvimento e ingressar no programa do Azure** para registrar sua empresa se você ainda não tiver feito isso. Confira [Criar uma conta de Desenvolvedor da Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+3. Clique em **Criar conta do Centro de Desenvolvimento e ingressar no programa do Azure** para registrar sua empresa, se ainda não tiver feito isso. Confira [Criar uma conta de Desenvolvedor da Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Clique em **Definir algumas topologias para começar**. Um modelo de solução é um "pai" para todas as suas topologias. Você pode definir várias topologias em uma oferta/modelo de solução. Quando uma oferta passa para teste, todas as suas topologias a acompanham.
 5. Adicionar uma nova versão.
 6. Carregue o arquivo zip preparado no [Aplicativo Empacotar](#package-application).
-7. Clique em **Solicitar Certificação** A equipe de certificação da Microsoft revisará os arquivos e certificará a topologia.
+7. Clique em **Solicitar Certificação**. A equipe de certificação da Microsoft revisará os arquivos e certificará a topologia.
 
 ## Próximas etapas
 
+- [Instalar aplicativos do HDInsight](hdinsight-apps-install-applications.md): saiba como instalar um aplicativo do HDInsight em seus clusters.
 - [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.
 - [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
-- [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do ARM para criar clusters HDInsight.
+- [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do Resource Manager para criar clusters HDInsight.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

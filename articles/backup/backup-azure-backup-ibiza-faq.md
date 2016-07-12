@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Versão de Visualização Pública do serviço Backup do Azure - perguntas frequentes
@@ -43,4 +43,4 @@ A versão de Visualização Pública apresenta o cofre dos Serviços de Recupera
 
 **P1. Existem limitações ao suporte do ARM para VMs do Azure?** <br/> R1. Os cmdlets do PowerShell para ARM não estão disponíveis no momento. Você deve usar a interface do usuário do portal do Azure para adicionar recursos a um grupo de recursos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="ios"
     keywords="notificação por push, notificações por push, notificações por push do ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Como enviar notificações por push para iOS com Hubs de Notificação do Azure
@@ -506,4 +506,4 @@ Para obter informações gerais sobre os Hubs de Notificação, confira [Diretri
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

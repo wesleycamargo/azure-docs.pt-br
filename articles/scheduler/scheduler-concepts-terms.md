@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Conceitos, terminologia e hierarquia de entidades do Agendador
@@ -45,7 +45,7 @@ Existem vários tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS qu
 
 Em um nível básico, um trabalho agendado tem várias partes:
 
-- A ação a ser executada quando o temporizador do trabalho é disparado  
+- A ação a ser executada quando o temporizador do trabalho é disparado
 
 - (Opcional) O tempo para executar o trabalho
 
@@ -109,7 +109,7 @@ O código a seguir fornece um exemplo completo de um trabalho agendado. Os detal
 
 Como visto no trabalho agendado no exemplo acima, uma definição de trabalho tem várias partes:
 
-- Hora de início ("startTime")  
+- Hora de início ("startTime")
 
 - Ação ("action"), que inclui a ação de erro ("errorAction")
 
@@ -160,7 +160,7 @@ A seguir, um exemplo de uma ação de fila do barramento de serviço:
 
 A recorrência tem várias partes:
 
-- Frequência: uma por minuto, hora, dia, semana, mês, ano  
+- Frequência: uma por minuto, hora, dia, semana, mês, ano
 
 - Intervalo: intervalo na frequência determinada para a recorrência
 
@@ -214,4 +214,4 @@ Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

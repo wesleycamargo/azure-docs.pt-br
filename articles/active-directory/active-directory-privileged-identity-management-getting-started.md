@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Introdução ao Azure AD Privileged Identity Management
@@ -29,15 +29,16 @@ Antes de usar o Azure AD Privileged Identity Management, você precisa adicionar
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
 2. Se sua organização tiver mais de um diretório, clique em seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório no qual você usará o PIM.
-3. Selecione o ícone **Novo** no painel de navegação esquerdo.
-4. Selecione **Segurança + Identidade**.
-5. Selecione **Azure AD Privileged Identity Management**.
-6. Marque **Fixar no painel** e clique no botão **Criar**. O aplicativo Privileged Identity Management será aberto.
+3. Selecione **Novo** > **Segurança + Identidade** > **Azure AD Privileged Identity Management**.
+
+    ![Habilitar o PIM no portal][1]
+
+4. Marque **Fixar no painel** e clique em **Criar**. O aplicativo Privileged Identity Management será aberto.
 
 
-Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) lhe guiará pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e um **administrador com função privilegiada** do diretório. Somente um administrador com função privilegiada pode acessar esse aplicativo para gerenciar o acesso de outros administradores.
+Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) lhe guiará pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e um **administrador de função com privilégios** do diretório. Somente um administrador com função privilegiada pode acessar esse aplicativo para gerenciar o acesso de outros administradores.
 
-Caso contrário, se tiver sido atribuído a uma ou mais funções por outro administrador com função privilegiada, você poderá escolher qual função ativar. Se você mesmo estiver em uma função de administrador com função privilegiada, verá também uma opção para **Gerenciar Identidades**.
+Se tiver sido atribuído a uma ou mais funções, você terá a opção de **Ativar minhas funções**. Se for um administrador com privilégios de função, você também verá uma opção para **Gerenciar funções privilegiadas**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,4 +48,8 @@ A [visão geral do Azure AD Privileged Identity Management](active-directory-pri
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

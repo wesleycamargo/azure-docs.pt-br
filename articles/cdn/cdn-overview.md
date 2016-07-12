@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
@@ -78,6 +78,8 @@ Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN
 
 Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Saiba como automatizar a CDN do Azure com [.NET](./cdn-app-dev-net.md) ou [Node.js](./cdn-app-dev-node.md).
+
 Para obter informações sobre preços, confira [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

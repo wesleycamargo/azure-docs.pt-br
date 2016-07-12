@@ -1,6 +1,6 @@
 <properties
    pageTitle="Carga de trabalho do data warehouse"
-   description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs."
+   description="A elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Este artigo explica as métricas de data warehouse e como elas se relacionam às DWUs. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/01/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -48,7 +48,7 @@ As consultas de análise e relatórios muitas vezes são classificadas em pequen
 ### Gerenciamento de dados
 O gerenciamento de dados é importante, especialmente quando você sabe que pode esgotar o espaço em disco em um futuro próximo. O data warehouse normalmente divide os dados em intervalos significativos, que são armazenados como partições em uma tabela. Todos os produtos baseados em SQL Server permitem que você mova partições para dentro e fora da tabela. Essa alternância de partição permite mover dados antigos para um armazenamento mais barato e manter os dados mais recentes disponíveis no armazenamento online.
 
-- Os índices columnstore oferecem suporte a tabelas particionadas. Em índices columnstore, as tabelas particionadas são usadas para gerenciamento de dados e arquivamento. Em tabelas armazenadas linha por linha, as partições têm uma função mais importante no desempenho da consulta.  
+- Os índices columnstore oferecem suporte a tabelas particionadas. Em índices columnstore, as tabelas particionadas são usadas para gerenciamento de dados e arquivamento. Em tabelas armazenadas linha por linha, as partições têm uma função mais importante no desempenho da consulta.
 
 - O PolyBase desempenha um papel importante no gerenciamento de dados. Usando o PolyBase, você tem a opção de arquivar dados antigos no armazenamento blob do Azure ou no Hadoop. Isso proporciona muitas opções, uma vez que os dados permanecem online. Pode levar mais tempo para recuperar dados do Hadoop, mas a compensação do tempo de recuperação pode superar o custo do armazenamento.
 
@@ -59,18 +59,16 @@ Uma maneira de disponibilizar dados para relatórios e análise é enviar os dad
 - Para análise, você pode criar um cubo de análise no data warehouse e realizar a análise no data warehouse ou pré-processar os dados e exportá-los para o servidor de análise para análise futura.
 
 ## Próximas etapas
-Para começar a desenvolver seu data warehouse, consulte [visão geral de desenvolvimento][].
-
-## Livros
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) de Karthik Ramachandran, Istvan Szededi e Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um Data Warehouse SQL][] e [carregar dados de amostra][] rapidamente.
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[carregar dados de amostra]: ./sql-data-warehouse-load-sample-databases.md
+[criar um Data Warehouse SQL]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->
