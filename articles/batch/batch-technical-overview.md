@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2016"
+	ms.date="07/06/2016"
 	ms.author="marsma"/>
 
 # Noções básicas de Lote do Azure
@@ -46,7 +46,7 @@ Para obter uma comparação entre o Lote e outras opções de solução HPC no A
 
 ## Desenvolvendo com o Lote
 
-Ao criar soluções que usam o Lote do Azure para processamento paralelo de carga de trabalho, você faz isso programaticamente usando as [APIs do Lote](#batch-development-apis). Com as APIs de Lote, você criar e gerenciar pools de nós de computação (máquinas virtuais) e agendar trabalhos e tarefas para serem executadas nesses nós. Um aplicativo cliente ou serviço que você cria usa as APIs de Lote para se comunicar com o serviço de Lote.
+O processamento de cargas de trabalho paralelas com o Lote normalmente é feito por meio de programação usando uma das [APIs do Lote](#batch-development-apis). Com as APIs de Lote, você criar e gerenciar pools de nós de computação (máquinas virtuais) e agendar trabalhos e tarefas para serem executadas nesses nós. Um aplicativo cliente ou serviço que você cria usa as APIs de Lote para se comunicar com o serviço de Lote.
 
 Você pode processar com eficiência cargas de trabalho em grande escala para sua organização ou fornecer um front-end de serviço a seus clientes para que eles possam executar trabalhos e tarefas, sob demanda ou de acordo com uma agenda, em um ou em centenas ou em milhares de nós. Você também pode usar o Lote como parte de um fluxo de trabalho maior, gerenciado por ferramentas como o [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
 
@@ -71,8 +71,7 @@ Os aplicativos e serviços podem emitir chamadas à API REST diretamente, usar u
 | **REST do Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET do Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python em lotes** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Java do Lote** (visualização) | [github.io][api_java] | [Repositório de instantâneos do Maven][api_java_jar] | - |
+| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Java do Lote** (visualização) | [github.io][api_java] | [Repositório de instantâneos do Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gerenciamento de recursos em lotes
 
@@ -104,7 +103,7 @@ Nesse cenário comum, o aplicativo ou serviço processa uma carga de trabalho co
 
     - 4a. Antes da execução de uma tarefa, ela pode baixar os dados (os arquivos de entrada) que deve processar para o nó de computação ao qual está atribuída. Se o aplicativo ainda não tiver sido instalado no nó (confira a etapa nº 2), ele poderá ser baixado aqui em vez disso. Quando os downloads forem concluídos, as tarefas serão executadas em seus nós atribuídos.
 
-5. À medida que as tarefas são executadas, você pode consultar o Lote para monitorar o andamento do trabalho e suas tarefas. O serviço ou aplicativo cliente se comunica com o serviço de Lote via HTTPS. Como você pode estar monitorando milhares de tarefas em execução em milhares de nós de computação, não deixe de [conferir o serviço do Lote de forma eficiente](batch-efficient-list-queries.md).
+5. À medida que as tarefas são executadas, você pode consultar o Lote para monitorar o andamento do trabalho e suas tarefas. O serviço ou aplicativo cliente se comunica com o serviço de Lote via HTTPS. Como você pode estar monitorando milhares de tarefas em execução em milhares de nós de computação, [confira o serviço do Lote de forma eficiente](batch-efficient-list-queries.md).
 
 6. À medida que as tarefas são concluídas,elas podem carregar seus dados de resultados para o Armazenamento do Azure. Você também pode recuperar arquivos diretamente de nós de computação.
 
@@ -120,7 +119,7 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 
 - [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Essa deve ser uma de suas primeiras etapas ao aprender a usar o serviço de Lote. Também há uma [Versão do Python](batch-python-tutorial.md) do tutorial.
 
-- Baixe os [exemplos de código no GitHub][github_samples] para ver como o C# e o Python pode interagir com o Lote para agendar e processar cargas de trabalho de exemplo.
+- Baixe os [exemplos de código no GitHub][github_samples] para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.
 
 - Confira o [Roteiro de Aprendizagem do Lote][learning_path] para ter uma noção dos recursos disponíveis para você ao aprender a trabalhar com o Lote.
 
@@ -137,6 +136,7 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
@@ -147,4 +147,4 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

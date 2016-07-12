@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/30/2016" 
 	ms.author="sdanie"/>
 
 # Como criar um aplicativo Web com o Cache Redis
@@ -82,7 +82,7 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 ### Adicionar o modelo
 
-1. Clique com o botão direito do mouse em **Modelos** no **Gerenciador de Soluções** e escolha **Adicionar**, **Classe**. 
+1. Clique com o botão direito do mouse em **Modelos** no **Gerenciador de Soluções** e escolha **Adicionar**, **Classe**.
 
     ![Adicionar modelo][cache-model-add-class]
 
@@ -190,7 +190,7 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 ### Adicionar controlador
 
-1. Pressione **F6** para compilar o projeto. 
+1. Pressione **F6** para compilar o projeto.
 2. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Controladores** e escolha **Adicionar**, **Controlador**.
 
     ![Adicionar controlador][cache-add-controller]
@@ -236,9 +236,9 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 ### Configurar os modos de exibição
 
-1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e, em seguida, a pasta **Compartilhado** e clique duas vezes em **\_Layout.cshtml**.
+1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e a pasta **Compartilhado** e clique duas vezes em **\_Layout.cshtml**.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![\_Layout.cshtml.][cache-layout-cshtml]
 
 2. Altere o conteúdo do elemento `title` e substitua `My ASP.NET Application` por `Contoso Team Stats`, conforme é mostrado no exemplo a seguir.
 
@@ -248,7 +248,7 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 3. Na seção `body`, atualize a primeira instrução `Html.ActionLink`, substitua `Application name` por `Contoso Team Stats` e substitua `Home` por `Teams`.
 	-	Antes: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-	-	Depois: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+	-	Após: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
 
     ![Alterações de código][cache-layout-cshtml-code]
 
@@ -268,7 +268,7 @@ Nesta seção do tutorial, você configurará o aplicativo de exemplo para armaz
 
 ### Configurar o aplicativo para usar StackExchange.Redis
 
-1. Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**. 
+1. Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**.
 
     ![Gerenciar pacotes NuGet][redis-cache-manage-nuget-menu]
 
@@ -320,9 +320,9 @@ Nesta seção do tutorial, você configurará o aplicativo de exemplo para armaz
 
 3. Adicione o atributo `file` a seguir ao elemento `appSettings`. Se você usou um nome de arquivo ou local diferente, substitua esses valores pelos mostrados no exemplo.
 	-	Antes: `<appSettings>`
-	-	Depois: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
+	-	Após: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    O tempo de execução do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>`. O tempo de execução ignorará o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo `WebAppPlusCacheAppSecrests.config` não será implantado (que é o que você deseja). Há várias maneiras de especificar os segredos no Azure e, neste tutorial, elas serão configuradas automaticamente quando você [provisionar os recursos do Azure](#provision-the-azure-resources) em uma etapa posterior do tutorial. Para saber mais sobre como trabalhar com segredos no Azure, confira [Práticas recomendadas para implantar senhas e outros dados confidenciais no ASP.NET e no Serviço de Aplicativo do Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+    O tempo de execução do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>`. O tempo de execução ignorará o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo `WebAppPlusCacheAppSecrests.config` não será implantado (isso é o que você deseja). Há várias maneiras de especificar os segredos no Azure e, neste tutorial, elas serão configuradas automaticamente quando você [provisionar os recursos do Azure](#provision-the-azure-resources) em uma etapa posterior do tutorial. Para saber mais sobre como trabalhar com segredos no Azure, confira [Práticas recomendadas para implantar senhas e outros dados confidenciais no ASP.NET e no Serviço de Aplicativo do Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 
 ### Atualizar a classe TeamsController para retornar resultados do cache ou do banco de dados
@@ -520,7 +520,7 @@ Neste exemplo, as estatísticas de equipe podem ser recuperadas do banco de dado
 	    }
 
 
-    O método `GetFromSortedSetTop5` lê as cinco equipes principais do conjunto ordenado armazenado em cache. Ele começa verificando a existência da chave `teamsSortedSet` no cache. Se a chave não estiver presente, o método `GetFromSortedSet` será chamado para ler as estatísticas de equipe e para armazená-las no cache. Em seguida, o conjunto ordenado armazenado em cache é consultado para fornecer as cinco equipes principais, que são retornadas.
+    O método `GetFromSortedSetTop5` lê as cinco equipes principais do conjunto ordenado armazenado em cache. Ele começa verificando a existência da chave `teamsSortedSet` no cache. Se a chave não estiver presente, o método `GetFromSortedSet` será chamado para ler as estatísticas de equipe e armazená-las no cache. Em seguida, o conjunto ordenado armazenado em cache é consultado para fornecer as cinco equipes principais, que são retornadas.
 
 
         List<Team> GetFromSortedSetTop5()
@@ -554,7 +554,7 @@ Neste exemplo, as estatísticas de equipe podem ser recuperadas do banco de dado
 
 O código de scaffolding gerado como parte do exemplo inclui métodos para adicionar, editar e excluir equipes. Sempre que uma equipe é adicionada, editada ou removida, os dados no cache tornam-se desatualizados. Nesta seção, você modificará esses três métodos para limpar as equipes armazenadas em cache, para que o cache não fique fora de sincronia com o banco de dados.
 
-1. Navegue até o método `Create(Team team)` na classe `TeamsController`. Adicione uma chamada para o método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
+1. Navegue até o método `Create(Team team)` na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
 
 
 	    // POST: Teams/Create
@@ -578,7 +578,7 @@ O código de scaffolding gerado como parte do exemplo inclui métodos para adici
 	    }
 
 
-2. Navegue até o método `Edit(Team team)` na classe `TeamsController`. Adicione uma chamada para o método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
+2. Navegue até o método `Edit(Team team)` na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
 
 
 	    // POST: Teams/Edit/5
@@ -601,7 +601,7 @@ O código de scaffolding gerado como parte do exemplo inclui métodos para adici
 		}
 
 
-3. Navegue até o método `DeleteConfirmed(int id)` na classe `TeamsController`. Adicione uma chamada para o método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
+3. Navegue até o método `DeleteConfirmed(int id)` na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no exemplo a seguir.
 
 
 	    // POST: Teams/Delete/5
@@ -727,7 +727,7 @@ Nesta etapa do tutorial, você publicará o aplicativo no Azure e o executará n
 
     ![Publicar][cache-publish-to-app-service]
 
-3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado e clique em **OK**. Se você tiver usado o botão **Implantar no Azure**, o nome do aplicativo Web começa com **webSite**, seguido de alguns caracteres adicionais.
+3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado e clique em **OK**. Se você tiver usado o botão **Implantar no Azure**, o nome do aplicativo Web começará com **webSite**, seguido de alguns caracteres adicionais.
 
     ![Selecionar aplicativo Web][cache-select-web-app]
 
@@ -783,7 +783,7 @@ Para executar o aplicativo localmente em seu computador, você precisa de uma in
 -	Se tiver outra instância do Cache Redis do Azure existente, você poderá usá-la para executar esse exemplo localmente.
 -	Se precisar criar uma instância do Cache Redis do Azure, você poderá seguir as etapas em [Criar um cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do Azure e recupere o [nome do host](cache-configure.md#properties) e as [chaves de acesso](cache-configure.md#access-keys) para o cache. Para obter instruções, confira [definir configurações de cache Redis](cache-configure.md#configure-redis-cache-settings).
+Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do Azure e recupere o [nome do host](cache-configure.md#properties) e as [chaves de acesso](cache-configure.md#access-keys) para o cache. Para obter instruções, confira [Definir configurações de cache Redis](cache-configure.md#configure-redis-cache-settings).
 
 1. Abra o arquivo `WebAppPlusCacheAppSecrets.config` criado durante a etapa [Configurar o aplicativo para usar o Cache Redis](#configure-the-application-to-use-redis-cache) deste tutorial usando o editor de sua escolha.
 
@@ -846,4 +846,4 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

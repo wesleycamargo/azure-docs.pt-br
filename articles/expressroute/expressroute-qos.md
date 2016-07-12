@@ -21,7 +21,7 @@ Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS d
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] Os requisitos de QoS aplicam-se somente ao emparelhamento Microsoft.
+>[AZURE.NOTE] Os requisitos de QoS aplicam-se somente ao emparelhamento Microsoft. Os valores de DSCP no tráfego de rede recebido no emparelhamento público e no emparelhamento privado do Azure serão redefinidos como 0.
 
 A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Business. Para obter mais informações, consulte [Gerenciamento de QoS para Skype for Business](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -50,4 +50,4 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

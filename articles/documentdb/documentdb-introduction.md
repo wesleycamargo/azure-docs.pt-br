@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/30/2016" 
+	ms.date="07/01/2016" 
 	ms.author="mimig"/>
 
 # Introdução ao Banco de Dados de Documentos: um banco de dados JSON NoSQL
 
-O Banco de Dados de Documentos do Azure é um serviço de banco de dados NoSQL totalmente gerenciado criado para fornecer desempenho rápido e previsível, alta disponibilidade, dimensionamento automático e facilidade de desenvolvimento. Seu modelo de dados flexível, suas latências baixas consistentes e seus recursos de consulta avançada o tornam uma ótima opção para aplicativos Web, móveis, de jogos e da IoT e muitos outros que precisam de dimensionamento sem problemas.
+O Banco de Dados de Documentos do Azure é um serviço de banco de dados NoSQL totalmente gerenciado criado para fornecer desempenho rápido e previsível, alta disponibilidade, dimensionamento automático, distribuição global e facilidade de desenvolvimento. Seu modelo de dados flexível, suas latências baixas consistentes e seus recursos de consulta avançada o tornam uma ótima opção para aplicativos Web, móveis, de jogos e da IoT e muitos outros que precisam de dimensionamento sem problemas.
 
 Uma maneira rápida para conhecer esse banco de dados JSON e vê-lo em ação é seguir estas três etapas:
 
@@ -32,19 +32,21 @@ Em seguida, volte para este artigo, onde mostraremos mais detalhes e você conhe
 -	[O que é o Banco de Dados de Documentos e quais vantagens ele fornece para aplicativos modernos?](#what-is-azure-documentdb)
 -	[Como são gerenciados os meus dados no Banco de Dados de Documentos e como acessá-los?](#data-management)
 -	[Como posso desenvolver aplicativos usando o Banco de Dados de Documentos?](#develop)
--	[Quais são as próximas etapas para criar um aplicativo Banco de Dados de Documentos?](#next-steps)  
+-	[Quais são as próximas etapas para criar um aplicativo Banco de Dados de Documentos?](#next-steps)
 
 ## O que é o Banco de Dados de Documentos do Azure?  
 
 Aplicativos modernos produzem, consomem e respondem rapidamente a volumes muito grandes de dados. Esses aplicativos evoluem rapidamente, assim como o esquema de dados subjacente. Em resposta a isso, os desenvolvedores têm escolhido cada vez mais bancos de dados de documentos NoSQL livres de esquema como soluções simples, rápidas e dimensionáveis para armazenar e processar dados enquanto preservam a capacidade de iterar rapidamente em modelos de dados de aplicativos e feeds de dados não estruturados. Porém, muitos bancos de dados livres de esquema não permitem o processamento transacional e de consultas complexas, dificultando o gerenciamento avançado de dados. Isso é onde entra o Banco de Dados de Documentos. A Microsoft desenvolveu o Banco de Dados de Documentos para atender a esses requisitos ao gerenciar dados para os aplicativos de hoje.
 
-O Banco de Dados de Documentos é um serviço de banco de dados NoSQL independente de esquema projetado para aplicativos modernos móveis, Web, de jogos e da IoT. O Banco de Dados de Documentos proporciona leituras e gravações consistentemente rápidas, flexibilidade de esquema e capacidade de expandir e reduzir um banco de dados sob demanda. Ele não assume nem requer qualquer esquema para os documentos JSON que indexa. Por padrão, ele indexa automaticamente todos os documentos no banco de dados e não espera ou exige qualquer esquema ou a criação de índices secundários. O Banco de Dados de Documentos habilita consultas ad hoc complexas usando a linguagem SQL, dá suporte a níveis de consistência bem-definidos e oferece linguagem JavaScript integrada e processamento de transações com vários documentos usando o modelo de programação familiar de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário).
+O Banco de Dados de Documentos é um serviço de banco de dados NoSQL independente de esquema projetado para aplicativos modernos móveis, Web, de jogos e da IoT. O Banco de Dados de Documentos garante que 99% das leituras sejam atendidas abaixo de 10 milissegundos e 99% das gravações sejam atendidas em 15 milissegundos. Ele também fornece flexibilidade de esquema e a capacidade de escalar verticalmente e horizontalmente sob demanda um banco de dados. Ele não assume nem requer qualquer esquema para os documentos JSON que indexa. Por padrão, ele indexa automaticamente todos os documentos no banco de dados e não espera ou exige qualquer esquema ou a criação de índices secundários. O Banco de Dados de Documentos habilita consultas ad hoc complexas usando a linguagem SQL, dá suporte a níveis de consistência bem-definidos e oferece linguagem JavaScript integrada e processamento de transações com vários documentos usando o modelo de programação familiar de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário).
 
 Como um banco de dados JSON, o Banco de Dados de Documentos dá suporte nativo a documentos JSON, habilitando a fácil iteração do esquema do aplicativo, e dá suporte a aplicativos que precisam de modelos de dados de chave-valor, documentos ou tabulares. O Banco de Dados de Documentos engloba a ubiquidade do JSON e JavaScript, eliminando incompatibilidades entre objetos definidos por aplicativos e o esquema do banco de dados. Ampla integração do JavaScript também permite que os desenvolvedores executem a lógica do aplicativo com eficiência e diretamente - no mecanismo de banco de dados em uma transação de banco de dados.
 
 O Banco de Dados de Documentos do Azure oferece os principais recursos e benefícios a seguir:
 
--	**Taxa de transferência e armazenamento elasticamente escalonável:** escale ou reduza verticalmente o banco de dados JSON Banco de Dados de Documentos facilmente para atender às necessidades do seu aplicativo. Os dados são armazenados em SSD (discos de estado sólido) para fornecer latências baixas previsíveis. O Banco de Dados de Documentos dá suporte a contêineres para armazenar dados JSON chamados de coleções, que podem ser dimensionados para tamanhos de armazenamento praticamente ilimitados e taxa de transferência provisionada. Você pode dimensionar elasticamente o Banco de Dados de Documentos com desempenho previsível sem problemas, à medida que o aplicativo cresce. 
+-	**Taxa de transferência e armazenamento elasticamente escalonável:** escale ou reduza verticalmente o banco de dados JSON Banco de Dados de Documentos facilmente para atender às necessidades do seu aplicativo. Os dados são armazenados em SSD (discos de estado sólido) para fornecer latências baixas previsíveis. O Banco de Dados de Documentos dá suporte a contêineres para armazenar dados JSON chamados de coleções, que podem ser dimensionados para tamanhos de armazenamento praticamente ilimitados e taxa de transferência provisionada. Você pode dimensionar elasticamente o Banco de Dados de Documentos com desempenho previsível sem problemas, à medida que o aplicativo cresce.
+
+-	**Replicação de várias regiões:** o Banco de Dados de Documentos replica de forma transparente os dados para todas as regiões que você associou à sua conta do Banco de Dados de Documentos, habilitando-o a desenvolver aplicativos que exigem acesso global aos dados e fornecendo compensações entre consistência, disponibilidade e desempenho, com garantias correspondentes. O Banco de Dados de Documentos fornecem failover regional transparente com APIs de hospedagem múltipla e a capacidade de dimensionar de forma elástica a taxa de transferência e o armazenamento em todo o mundo. Saiba mais em [Distribuir dados globalmente com o Banco de Dados de Documentos](documentdb-distribute-data-globally.md).
 
 -	**Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos no Banco de Dados de Documentos e consulte-os com uma sintaxe SQL familiar. O Banco de Dados de Documentos utiliza uma tecnologia de indexação estruturada por log, sem bloqueio e altamente simultânea para indexar automaticamente todo o conteúdo do documento. Isso habilita consultas avançadas em tempo real sem a necessidade de especificar dicas de esquema, índices secundários ou exibições. Saiba mais em [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
 
@@ -102,8 +104,8 @@ Se você já tiver uma conta do Azure, poderá começar a usar o Banco de Dados 
 
 Se você não tiver uma conta do Azure, poderá:
 
-- Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. 
-- Se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure. 
+- Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/free/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure.
+- Se você tiver uma assinatura do MSDN, estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você.
 
@@ -111,4 +113,4 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

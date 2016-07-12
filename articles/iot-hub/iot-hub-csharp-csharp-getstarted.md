@@ -229,11 +229,11 @@ Este tutorial apresenta as etapas para criar um cliente de dispositivo do Hub Io
 
 Agora você está pronto para executar os aplicativos.
 
-1.	No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização**. Selecione **Vários projetos de inicialização** e **Iniciar** como a ação para os projetos **ProcessDeviceToCloudMessages** e **SimulatedDevice**.
+1.	No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização**. Selecione **Vários projetos de inicialização** e selecione **Iniciar** como a ação para os projetos **ReadDeviceToCloudMessages** e **SimulatedDevice**.
 
    	![Propriedades do projeto de inicialização][41]
 
-2.	Pressione **F5** para iniciar ambos os aplicativos em execução. A saída do console do aplicativo **SimulatedDevice** mostra as mensagens que seu dispositivo simulado envia para o hub IoT. A saída do console do aplicativo **ProcessDeviceToCloudMessages** mostra as mensagens que seu hub IoT recebe.
+2.	Pressione **F5** para iniciar ambos os aplicativos em execução. A saída do console do aplicativo **SimulatedDevice** mostra as mensagens que seu dispositivo simulado envia para o hub IoT. A saída do console do aplicativo **ReadDeviceToCloudMessages** mostra as mensagens que seu hub IoT recebe.
 
    	![Saída de console dos aplicativos][42]
 
@@ -277,4 +277,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

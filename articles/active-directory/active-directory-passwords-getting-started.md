@@ -195,7 +195,7 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
 
 
 ### Etapa 1: baixar a versão mais recente do Azure AD Connect
-O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior. O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior. O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Para verificar a versão do Azure AD Sync
 1.	Navegue até **%ProgramFiles%\\Azure Active Directory Sync**.
@@ -232,7 +232,7 @@ Agora que você já baixou a ferramenta Azure AD Connect, você está pronto par
 4.	Para obter o status atual do write-back do conector atual, execute o seguinte cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Habilite o Write-back de Senha executando o cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] Se for solicitada uma credencial, certifique-se de que a conta de administrador que você especificar como AzureADCredential é uma **conta de administrador na nuvem (criada no Azure AD)**, e não uma conta federada (criado no AD local e sincronizada com o Azure AD.[AZURE.NOTE] Você pode desabilitar o Write-back de Senha por meio do PowerShell repetindo as mesmas instruções acima, mas passando `$false` em vez disso, ou definindo a configuração **Gravar senhas novamente no Diretório Local** definir como **Não** na **seção Política de Redefinição de Senha do Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Se for solicitada uma credencial, certifique-se de que a conta de administrador que você especificar como AzureADCredential é uma **conta de administrador na nuvem (criada no Azure AD)**, e não uma conta federada (criado no AD local e sincronizada com o Azure AD. [AZURE.NOTE] Você pode desabilitar o Write-back de Senha por meio do PowerShell repetindo as mesmas instruções acima, mas passando `$false` em vez disso, ou definindo a configuração **Gravar senhas novamente no Diretório Local** definir como **Não** na **seção Política de Redefinição de Senha do Usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
 #### Verificar se a configuração foi bem-sucedida
 Se a configuração for bem-sucedida, você verá a mensagem “Write-back de redefinição de senha habilitado” na janela do Windows PowerShell, ou uma mensagem de êxito na interface de usuário de configuração.
@@ -351,4 +351,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!----HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

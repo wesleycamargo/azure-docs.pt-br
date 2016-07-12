@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -28,7 +28,7 @@ O Azure DNS permite hospedar uma zona DNS e gerenciar os registros DNS para um d
 
 ### Zonas e domínios
 
-O Sistema de nomes de domínio é uma hierarquia de domínios. A hierarquia começa no domínio “raiz”, cujo nome é simplesmente ‘**.**’. Abaixo dele vêm domínios de nível superior, como “com”, “net”, “org”, “uk” ou “jp”. Abaixo desses estão domínios de segundo nível, como “org.uk” ou “co.jp”. E assim por diante. Os domínios na hierarquia de DNS são hospedados usando zonas DNS separadas. Essas zonas são distribuídas globalmente, hospedadas por servidores de nomes DNS pelo mundo.
+O Sistema de nomes de domínio é uma hierarquia de domínios. A hierarquia começa no domínio 'raiz', cujo nome é simplesmente '**.**'. Abaixo dele vêm domínios de nível superior, como “com”, “net”, “org”, “uk” ou “jp”. Abaixo desses estão domínios de segundo nível, como “org.uk” ou “co.jp”. E assim por diante. Os domínios na hierarquia de DNS são hospedados usando zonas DNS separadas. Essas zonas são distribuídas globalmente, hospedadas por servidores de nomes DNS pelo mundo.
 
 **Zona DNS**
 
@@ -116,7 +116,9 @@ Você também pode usar a CLI do Azure de plataforma cruzada para recuperar os r
 
 Cada registrador tem suas próprias ferramentas de gerenciamento de DNS para alterar os registros de servidor de nomes para um domínio. Na página de gerenciamento do DNS do registrador, edite os registros NS e substitua-os por aqueles criados pelo Azure DNS.
 
-Ao delegar um domínio ao DNS do Azure, você deve usar os nomes do servidor de nomes fornecidos pelo DNS do Azure. Você não deve usar 'registros cola' para apontar para endereços IP do servidor de nomes do DNS do Azure, pois esses endereços IP podem mudar no futuro. Atualmente não há suporte às delegações usando nomes do servidores de nomes em sua própria zona, às vezes chamados de 'servidores de nome intuitivos', no Azure DNS.
+Ao delegar um domínio ao DNS do Azure, você deve usar os nomes do servidor de nomes fornecidos pelo DNS do Azure. Você sempre deve usar todos os quatro nomes de servidores, independentemente do nome do domínio. A delegação de domínio não requer que o nome do servidor use o mesmo domínio de nível superior que seu domínio.
+
+Você não deve usar 'registros cola' para apontar para endereços IP do servidor de nomes do DNS do Azure, pois esses endereços IP podem mudar no futuro. Atualmente não há suporte às delegações usando nomes do servidores de nomes em sua própria zona, às vezes chamados de 'servidores de nome intuitivos', no Azure DNS.
 
 ### Para verificar se a resolução de nomes está funcionando
 
@@ -199,4 +201,4 @@ Você pode verificar se tudo está configurado corretamente examinando o registr
 
 [Gerenciar registros DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

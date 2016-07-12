@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="07/05/2016"
    ms.author="yurid"/>
 
 # Configuração de políticas de segurança na Central de segurança do Azure
@@ -69,11 +69,11 @@ Use a tabela a seguir como uma referência para entender o que cada opção far�
 
 | Política | Quando o estado for Ativado |
 |----- |-----|
-| Atualizações do Sistema | Diariamente, recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual e recomenda que as atualizações ausentes sejam aplicadas. |
+| Atualizações do Sistema | Diariamente, recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual e recomenda que as atualizações ausentes sejam aplicadas. Ele também verifica as atualizações mais recentes em sistemas Linux e a verificação de segurança e atualizações críticas de máquinas virtuais dos [Serviços de Nuvem](./cloud-services/cloud-services-how-to-configure.md). |
 | Regras de linha de base | Diariamente, analisa as configurações do SO que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para endereçar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
 | Proteção do Ponto de Extremidade | Recomenda que seja fornecida uma proteção do ponto de extremidade para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. 
-| Grupos de segurança de rede | Recomenda que os [Grupos de Segurança da Rede (NSGs)](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as sub-redes e as interfaces de rede. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
-| Firewall do Aplicativo Web | Recomenda que um Firewall do Aplicativo Web seja fornecido nas máquinas virtuais quando: o [IP Público no Nível da Instância](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) é usado e as Regras de Segurança de Entrada do NSG Associadas são configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md)) |
+| Grupos de segurança de rede | Recomenda que os [NSGs (Grupos de Segurança da Rede)](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as sub-redes e as interfaces de rede. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
+| Firewall do Aplicativo Web | Recomenda que um Firewall do Aplicativo Web seja fornecido nas máquinas virtuais quando o [ILPIP (IP Público no Nível da Instância)](../virtual-network/virtual-networks-instance-level-public-ip.md) é usado e as Regras de Segurança de Entrada do NSG Associadas são configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md)) |
 | Firewall da Próxima Geração | Isso estende as proteções da rede para além dos Grupos de Segurança da Rede, que são internos no Azure. A Central de Segurança descobrirá as implantações para as quais o Firewall da Próxima Geração é recomendado e irá habilitá-lo para fornecer um dispositivo virtual. |
 | Auditoria SQL | Recomenda que a auditoria de acesso a Servidores SQL do Azure e bancos de dados esteja habilitada para conformidade, detecção avançada e fins de investigação. |
 | Transparent Data Encryption do SQL | Recomenda que a criptografia em repouso seja habilitada para arquivos de log de bancos de dados SQL do Azure, backups associados e transação para que mesmo se os seus dados forem violados, eles não possam ser lidos. |
@@ -100,8 +100,8 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções do parceiro.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

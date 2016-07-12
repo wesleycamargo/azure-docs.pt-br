@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -103,13 +103,13 @@ Para copiar seus dados para o armazenamento de blobs do Azure:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Execute o comando a seguir para carregar o arquivo. Especifique a URL do ponto de extremidade do serviço blob para <blob service endpoint URL> e sua chave de conta de armazenamento do Azure para <azure_storage_account_key>.
+1. Execute o comando a seguir para carregar o arquivo. Especifique a URL de ponto de extremidade do serviço Blob para <URL de ponto de extremidade de serviço Blob> e sua chave de conta de armazenamento do Azure para <azure\_storage\_account\_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Confira também [Introdução ao utilitário de linha de comando AzCopy][].
+Confira também [Introdução ao utilitário de linha de comando AzCopy][latest version of AzCopy].
 
 ### E. Explorar o contêiner de armazenamento de blobs
 
@@ -256,13 +256,11 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[Estatísticas]: sql-data-warehouse-develop-statistics.md
-[Guia do PolyBase]: sql-data-warehouse-load-polybase-guide.md
-[Introdução ao utilitário de linha de comando AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
+[Guia do PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 [versão mais recente do AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
@@ -287,4 +285,4 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

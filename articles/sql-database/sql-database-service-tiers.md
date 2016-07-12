@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/13/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
 
-O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) tem várias camadas de serviço para lidar com cargas de trabalho diferentes. Você pode alterar as camadas de serviço a qualquer momento sem tempo de inatividade para seu aplicativo. Você também pode [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados individuais e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados individuais e elásticos.
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) tem várias camadas de serviço para lidar com cargas de trabalho diferentes. Você pode [alterar os níveis de serviço](sql-database-scale-up.md) a qualquer momento com tempo de inatividade mínimo para seu aplicativo (tempo médio de quatro segundos). Você também pode [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados individuais e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados individuais e elásticos.
 
 ## Opções de camadas de serviço e banco de dados
 Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de atividade de 99,99% e oferecem desempenho previsível, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
@@ -33,7 +33,7 @@ Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de 
 >[AZURE.NOTE] As edições Web e Business foram descontinuadas. Leia [Perguntas frequentes sobre a descontinuação](https://azure.microsoft.com/pricing/details/sql-database/web-business/) se planeja continuar usando as edições Web e Business.
 
 ## Camadas de serviço e níveis de desempenho de banco de dados individual
-Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às suas demandas de carga de trabalho. Se precisar escalar verticalmente ou horizontalmente, você poderá alterar as camadas do banco de dados com facilidade, **sem tempo de inatividade dos aplicativos.** Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
+Para bancos de dados individuais, há vários níveis de desempenho dentro de cada camada de serviço. Você tem a flexibilidade de escolher o nível que melhor atenda às suas demandas de carga de trabalho. Se você precisar expandir ou reduzir, poderá alterar facilmente as camadas do banco de dados. Consulte [Alterando camadas de serviços e níveis de desempenho do banco de dados](sql-database-scale-up.md) para obter detalhes.
 
 As características de desempenho listadas aqui se aplicam a bancos de dados criados com o [Banco de Dados SQL V12](sql-database-v12-whats-new.md). Em situações em que o hardware subjacente no Azure hospeda vários bancos de dados, o banco de dados ainda obterá um conjunto garantido de recursos e as características de desempenho esperadas de seu banco de dados não são afetadas.
 
@@ -62,10 +62,10 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 - Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Conheça os detalhes dos [pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md) e [considerações sobre o preço e o desempenho dos pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md).
 - Saiba como [Monitorar, gerenciar e redimensionar pools elásticos](sql-database-elastic-pool-manage-portal.md) e [Monitorar o desempenho de bancos de dados individuais](sql-database-single-database-monitor.md).
-- Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
+- Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md).
 
 ## Recursos adicionais
 
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

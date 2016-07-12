@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Confira [Design da tabela][] ou [CREATE TABLE syntax][] \(sintaxe CREATE TABLE) para saber mais sobre como criar uma tabela no SQL Data Warehouse e as opções disponíveis com a cláusula WITH.
+>[AZURE.NOTE] Confira [Visão geral da tabela][] ou [Sintaxe CREATE TABLE][] para saber mais sobre como criar uma tabela no SQL Data Warehouse e as opções disponíveis com a cláusula WITH.
 
 ### Etapa 2: Criar um arquivo de dados de origem
 
@@ -178,16 +178,16 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 
 <!--Article references-->
 
-[Carregar dados no SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Visão geral de desenvolvimento do SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Design da tabela]: sql-data-warehouse-develop-table-design.md
-[Estatísticas]: sql-data-warehouse-develop-statistics.md
+[Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Visão geral da tabela]: ./sql-data-warehouse-tables-overview.md
+[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[Sintaxe CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

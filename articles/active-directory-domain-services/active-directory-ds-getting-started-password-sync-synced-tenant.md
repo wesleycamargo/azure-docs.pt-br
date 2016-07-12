@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Habilitar a sincronização de senhas nos Serviços de Domínio do AD do Azure
@@ -40,7 +40,7 @@ Você precisará instalar a versão mais recente do Azure AD Connect recomendada
 
 **[Baixar o Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versão recomendada: **1.1.130.0** - publicada em 12 de abril de 2016.
+Versão recomendada: **1.1.189.0** - publicada em 3 de junho de 2016.
 
   > [AZURE.WARNING] Você DEVE instalar a versão GA do Azure AD Connect para habilitar as credenciais de senha herdadas (necessárias para a autenticação NTLM e Kerberos) para sincronizar seu locatário do AD do Azure. Essa funcionalidade não está disponível em versões anteriores do Azure Connect AD ou com a ferramenta DirSync herdada.
 
@@ -80,4 +80,4 @@ Dependendo do tamanho do seu diretório (número de usuários, grupos etc.), a s
 
 - [Ingressar em uma máquina virtual do Red Hat Enterprise Linux para um domínio gerenciado dos Serviços de Domínio do AD do Azure](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

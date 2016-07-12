@@ -25,23 +25,27 @@
 
 - Se você excluir o grupo de recursos no [portal do Azure][lnk-azure-portal], excluirá apenas os recursos desse grupo de recursos; também será necessário excluir o aplicativo do Active Directory do Azure associado à solução pré-configurada no [portal clássico do Azure][lnk-classic-portal].
 
+### Quantas instâncias do Hub IoT posso provisionar em uma assinatura? 
+
+Dez. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite mas, por padrão, só será possível provisionar dez Hubs IoT por assinatura, como descrito em [limites de assinatura do Azure][link-azuresublimits]. Como resultado, uma vez que cada solução pré-configurada provisiona um novo Hub IoT, você só poderá provisionar até dez soluções pré-configuradas em uma determinada assinatura.
+
 ### Quantas instâncias do Banco de Dados de Documentos posso provisionar em uma assinatura?
 
-Cinquenta. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite, mas por padrão, só será possível provisionar cinquenta instâncias do Banco de Dados de Documentos por assinatura. Como resultado, você só poderá provisionar até cinco as soluções pré-configuradas de monitoramento remotas em uma determinada assinatura.
+Cinquenta. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite, mas por padrão, só será possível provisionar cinquenta instâncias do Banco de Dados de Documentos por assinatura.
 
 ### Quantas APIs do Bing Mapas Gratuitas posso provisionar em uma assinatura?
 
 Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 para planos Enterprise em uma assinatura do Azure. A solução de monitoramento remoto é provisionada por padrão com o plano Transações Internas de Nível 1. Como resultado, você só poderá provisionar até duas soluções de monitoramento remotas em uma assinatura sem modificações.
 
 ### Tenho uma implantação de solução de monitoramento remoto com um mapa estático, como posso adicionar um mapa interativo do Bing? 
-1. Obtenha a API do Bing Maps para Enterprise QueryKey no [Portal do Azure][lnk-azure-portal]\:
- 1. Navegue até o Grupo de Recursos onde está a API do Bing Maps para Empresa no [Portal do Azure][lnk-azure-portal].
+1. Obtenha a API do Bing Maps para Enterprise QueryKey no [portal do Azure][lnk-azure-portal]\:
+ 1. Navegue até o Grupo de Recursos onde está a API do Bing Maps para Empresa no [portal do Azure][lnk-azure-portal].
  2. Clique em Todas as Configurações e em Gerenciamento de Chave.
  3. Você perceberá duas chaves: MasterKey e QueryKey. Copie o valor de QueryKey.
 
-     > [AZURE.NOTE] Você não tem uma conta da API do Bing Maps para Empresa? Crie uma no [Portal do Azure][lnk-azure-portal] clicando em + Novo, pesquisando por API do Bing Maps para Empresa e seguindo os prompts.
+     > [AZURE.NOTE] Você não tem uma conta da API do Bing Maps para Empresa? Crie uma no [portal do Azure][lnk-azure-portal] clicando em + Novo, procurando pela API do Bing Mapas para Empresas e seguindo os prompts.
 
-2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github] \(monitoramento remoto do Azure IoT).
+2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
 
 3. Execute uma implantação local ou em nuvem seguindo as diretrizes de implantação de linha de comando na pasta /docs/ no repositório.
 
@@ -59,6 +63,7 @@ Neste momento, você não pode criar uma solução pré-configurada com uma cont
 Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um locatário do AD do Azure][lnk-delete-aad-tennant].
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[link-azuresublimits]: https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -67,4 +72,4 @@ Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um loc
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

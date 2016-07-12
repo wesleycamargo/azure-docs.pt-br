@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -97,8 +97,21 @@ No exemplo acima, uma VM tem uma recomendação crítica relacionada a programas
 
 Essa folha tem os detalhes de segurança da VM. Na parte inferior dessa folha, você pode ver a ação recomendada e a gravidade de cada problema.
 
-###Monitorar redes virtuais
-Quando você clicar em **Rede** no bloco **Integridade de segurança de recursos**, a folha **Rede** será aberta com mais detalhes, conforme mostrado abaixo:
+#### Seção Serviços de nuvem (Visualização)
+O status de integridade dos serviços de nuvem está incluído no bloco de integridade de segurança de máquinas virtuais. Uma recomendação é criada quando a versão do sistema operacional está desatualizada, como mostrado abaixo:
+
+![Serviços de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+Você precisará seguir as etapas na recomendação para atualizar a versão do sistema operacional. Por exemplo, se você clicar no alerta vermelho em uma das funções da Web (executa o Windows Server com o seu aplicativo Web automaticamente implantado no IIS) ou das funções de Trabalho (executa o Windows Server com o seu aplicativo Web automaticamente implantado no IIS), será aberta uma nova folha com mais detalhes sobre essa recomendação, como mostrado abaixo:
+
+![Detalhes do Serviço de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+
+Para ver a uma explicação mais detalhada sobre essa recomendação, clique em Atualizar **Versão do sistema operacional**, na coluna **DESCRIÇÃO**. A folha **Atualizar versão do sistema operacional (Visualização)** será aberta com mais detalhes.
+
+![Recomendações dos Serviços de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+
+### Monitorar redes virtuais
+Quando você clicar em **Rede** no bloco **Integridade de segurança de recursos**, a folha **Rede** será aberta com mais detalhes, como mostrado abaixo:
 
 ![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -129,7 +142,7 @@ Na seção **Pontos de extremidade voltados para a Internet**, você será capaz
 ![Pontos de extremidade voltados para a Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
 
 Esta tabela tem o nome do ponto de extremidade que representa a VM, endereço IP voltado para a Internet, status atual da gravidade do NSG e NGFW. Esta tabela é classificada por gravidade, conforme descrito abaixo:
-- Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente 
+- Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente
 - Laranja: prioridade média e deve ser endereçado assim que possível
 - Verde (último): estado da integridade
 
@@ -140,7 +153,7 @@ Na seção **Topologia da rede**, há uma exibição hierárquica dos recursos, 
 ![Topologia da rede](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Esta tabela é classificada (VMs e Sub-redes) por gravidade, conforme descrito abaixo:
-- Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente 
+- Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente
 - Laranja: prioridade média e deve ser endereçado assim que possível
 - Verde (último): estado da integridade
 
@@ -191,8 +204,8 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 
 - [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções do parceiro.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

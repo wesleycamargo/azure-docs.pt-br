@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="05/27/2016"
 	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API do JavaScript usando CORS
@@ -22,7 +22,7 @@ O Serviço de Aplicativo oferece suporte interno para [CORS (Compartilhamento de
 
 Este artigo contém duas seções:
 
-* A seção [Como configurar o CORS](#corsconfig) explica de forma geral como configurar o CORS para qualquer aplicativo de API, aplicativo Web ou aplicativo móvel. Ela se aplica igualmente a todas as estruturas às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java. 
+* A seção [Como configurar o CORS](#corsconfig) explica de forma geral como configurar o CORS para qualquer aplicativo de API, aplicativo Web ou aplicativo móvel. Ela se aplica igualmente a todas as estruturas às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java.
 
 * Começando pela seção [Continuação dos tutoriais de Introdução ao .NET](#tutorialstart), o artigo é um tutorial que demonstra o suporte a CORS com base no que você fez no [primeiro tutorial de Introdução a aplicativos de API](app-service-api-dotnet-get-started.md).
 
@@ -210,7 +210,7 @@ Nesta seção, você define a configuração de CORS no Azure para o aplicativo 
 
 ### Testar o aplicativo com CORS habilitado
 
-* Abra um navegador para a URL HTTPS do aplicativo Web. 
+* Abra um navegador para a URL HTTPS do aplicativo Web.
 
 	Desta vez, o aplicativo lhe permite exibir, adicionar, editar e excluir itens pendentes.
 
@@ -285,4 +285,4 @@ Para saber mais sobre os recursos do Visual Studio que simplificam a solução d
 
 Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. Para saber mais sobre aplicativos de API, leia a [introdução à autenticação no Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) e vá para o tutorial [autenticação de usuário para aplicativos de API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->
