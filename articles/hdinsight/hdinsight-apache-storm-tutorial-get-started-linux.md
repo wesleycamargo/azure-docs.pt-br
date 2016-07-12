@@ -42,7 +42,7 @@ Você deve ter o seguinte para concluir com êxito este tutorial do Apache Storm
 
 Nesta seção, você cria um cluster do HDInsight versão 3.2 (Storm versão 0.9.3) usando um modelo ARM do Azure. Para obter informações sobre as versões do HDInsight e seus SLAs, consulte [Controle de versão de componentes do HDInsight](hdinsight-component-versioning.md). Para obter outros métodos de criação de cluster, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.
+1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
