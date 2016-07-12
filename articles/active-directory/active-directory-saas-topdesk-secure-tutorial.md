@@ -112,8 +112,8 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar a URL do Aplicativo")
 
     1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "**https://qssolutions.topdesk.net*")).
-2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-3.  Clique em **Próximo**.
+    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  Clique em **Próximo**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
