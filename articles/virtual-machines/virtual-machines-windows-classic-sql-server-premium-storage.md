@@ -126,7 +126,7 @@ Para cada disco, siga estas etapas:
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 
@@ -1148,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
