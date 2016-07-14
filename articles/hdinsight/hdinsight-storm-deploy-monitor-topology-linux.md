@@ -111,7 +111,7 @@ A IU do Storm fornece uma interface Web para trabalhar com as topologias em func
 
 A página principal da interface do usuário do Storm fornece as seguintes informações:
 
-* **Resumo do cluster **: informações básicas sobre o cluster do Storm
+* **Resumo do cluster**: informações básicas sobre o cluster do Storm
 
 * **Resumo da topologia**: uma lista das topologias em execução. Use os links desta seção para exibir mais informações sobre topologias específicas.
 
@@ -135,7 +135,7 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
     Para obter mais informações, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de uma topologia Storm</a>
 
-  * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
+* **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 
 * **Estatísticas da topologia**: estatísticas sobre a topologia. Use os links na coluna **Janela** para definir o período de tempo para as entradas restantes na página.
 
@@ -197,4 +197,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->

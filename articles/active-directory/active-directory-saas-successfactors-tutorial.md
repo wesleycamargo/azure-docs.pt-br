@@ -103,7 +103,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     2.  A URL de Logon Remoto
     3.  A URL de Logoff Remoto
 
-    >[AZURE.IMPORTANT] Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como “*Unspecified*”.
+    >[AZURE.IMPORTANT] Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como “ *Unspecified* ”.
 
     A equipe de suporte do Successfactors enviará a **URL de Resposta do Successfactors** correta necessária para o diálogo **Configurar URL do Aplicativo**.
 
@@ -136,4 +136,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
