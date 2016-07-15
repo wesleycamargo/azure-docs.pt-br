@@ -36,7 +36,7 @@ Selecione um ícone para saber como aproveitar rapidamente esses conectores para
 |[![Ícone de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Ícone de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Usuários**][office365usersdoc]|
 |[![Ícone de API][office365icon]<br/>**Office 365**<br/>**Vídeo**][office365videodoc]|[![Ícone de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Ícone de API][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|[![Ícone de API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Ícone de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Ícone de API][rssicon]<br/>**RSS**][rssdoc]|[![Ícone de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Ícone de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
-|[![Ícone de API][servicebusicon]<br/>**Barramento<br/>de Serviço**][servicebusdoc]|[![Ícone de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Ícone de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Ícone de API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Ícone de API][servicebusicon]<br/>**Barramento de Serviço**][servicebusdoc]|[![Ícone de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Ícone de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Ícone de API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Ícone de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Ícone de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Ícone de API][trelloicon]<br/>**Trello**][trellodoc]|[![Ícone de API][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![Ícone de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Ícone de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Ícone de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
@@ -62,10 +62,10 @@ Há dois tipos de gatilhos:
 Os conectores também podem ser usados como ações em seus aplicativos. Ações são úteis para pesquisar dados no que podem então ser usados na execução do seu aplicativo. Por exemplo, talvez seja necessário pesquisar dados de um cliente de um banco de dados SQL durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em uma tabela de destino. Você pode fazer isso usando as ações fornecidas pelos conectores. As ações são mapeadas para as operações que são definidas nos metadados do Swagger.
 
 
-[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
-[Compilar um aplicativo Lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md) 
-[Introdução aos PowerApps agora](../power-apps/powerapps-get-started-azure-portal.md) 
-[Migrar Aplicativos lógicos para a versão mais recente do esquema](connectors-schema-migration.md)
+[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Compilar um aplicativo Lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Introdução aos PowerApps agora](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migrar Aplicativos lógicos para a versão mais recente do esquema](connectors-schema-migration.md)  
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conecte-se ao Blob do Azure para gerenciar arquivos no seu contêiner de blob."
@@ -148,4 +148,4 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
