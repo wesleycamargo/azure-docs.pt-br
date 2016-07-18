@@ -39,7 +39,7 @@ Nos Reliable Services, o serviço herda a classe `StatefulService`, que é deriv
 
  - Backup e restauração de serviço.
  - Funcionalidade compartilhada para todos os Atores, por exemplo, um disjuntor.
- - Chamadas de procedimento de comunicação remota no próprio serviço de ator, bem como em cada ator individual. 
+ - Chamadas de procedimento de comunicação remota no próprio serviço de ator, bem como em cada ator individual.
 
 ### Usando o Serviço de Ator
 
@@ -251,7 +251,7 @@ Ao usar GUIDs e cadeias de caracteres, os valores são codificados em hash para 
  - [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
  - [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
  - [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
+ - [Exemplo de código](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -261,4 +261,4 @@ Ao usar GUIDs e cadeias de caracteres, os valores são codificados em hash para 
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

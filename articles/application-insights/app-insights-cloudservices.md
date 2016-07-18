@@ -38,7 +38,7 @@ O que se segue informa como adaptar seu próprio projeto de serviço de nuvem da
 
 Um recurso do Application Insights é onde os dados de telemetria serão analisados e exibidos.
 
-1.  No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha o aplicativo ASP.NET. 
+1.  No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha o aplicativo ASP.NET.
 
     ![Clique em Novo, Application Insights](./media/app-insights-cloudservices/01-new.png)
 
@@ -59,7 +59,7 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
     ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Para funções web, adicione o pacote do NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versão do SDK inclui módulos que adicionam o contexto do servidor, como informações de função. Para funções de trabalho, use o [Application Insights para Windows Services](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. Para funções web, adicione o pacote do NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versão do SDK inclui módulos que adicionam o contexto do servidor, como informações de função. Para funções de trabalho, use o [Application Insights para Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Pesquise "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -87,9 +87,9 @@ Como alternativa, você pode enviar dados de todas as funções a apenas um recu
  
  * [Função Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
  * [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
- * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+ * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
-4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída. 
+4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída.
 
     (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la por meio do arquivo .cscfg. Isso garante que a função seja identificada corretamente no portal).
 
@@ -145,7 +145,7 @@ Os diagnósticos do Azure são especialmente úteis se uma função falhar inesp
 
 Onde encontrar o diagnóstico:
 
-* Os contadores de desempenho são exibidos como métricas personalizadas. 
+* Os contadores de desempenho são exibidos como métricas personalizadas.
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
 * Logs de aplicativo, Logs de ETW e logs de infraestrutura de diagnóstico aparecem como rastreamentos.
 
@@ -234,9 +234,7 @@ Você pode especificar contadores de desempenho personalizados adicionais, ou ou
 
 ## Telemetria correlacionada para funções de trabalho
 
-É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. 
-Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. 
-Isso permitirá que você veja se o problema de latência/falha foi causado devido a alguma dependência ou ao seu código, rapidamente!
+É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. Isso permitirá que você veja se o problema de latência/falha foi causado devido a alguma dependência ou ao seu código, rapidamente!
 
 Faça assim:
 
@@ -288,4 +286,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

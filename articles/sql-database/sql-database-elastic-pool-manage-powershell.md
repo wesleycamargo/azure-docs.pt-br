@@ -83,8 +83,8 @@ Métricas que podem ser recuperadas como uma porcentagem do limite do pool de re
 
 **Períodos de retenção/granularidade das métricas:**
 
-* Os dados retornarão com uma granularidade de cinco minutos.  
-* A retenção de dados é de 14 dias.  
+* Os dados retornarão com uma granularidade de cinco minutos.
+* A retenção dos dados é de 35 dias.
 
 Esse cmdlet e a API limitam o número de linhas que podem ser recuperadas em uma chamada para 1000 linhas (cerca de três dias de dados a uma granularidade de cinco minutos). Mas esse comando pode ser chamado várias vezes com intervalos de tempo de início/término diferentes para recuperar mais dados
 
@@ -177,7 +177,7 @@ Para usar esta implementação de exemplo, siga as etapas listadas abaixo.
 
 1. Baixe os [scripts e a documentação](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modifique os scripts para seu ambiente. Especifique um ou mais servidores nos quais os pools elásticos são hospedados.
-3. Especifique um banco de dados de telemetria no qual as métricas coletadas serão armazenadas. 
+3. Especifique um banco de dados de telemetria no qual as métricas coletadas serão armazenadas.
 4. Personalize o script para especificar a duração da execução de scripts.
 
 Em um alto nível, os scripts fazem o seguinte:
@@ -276,4 +276,4 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 - [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 - Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

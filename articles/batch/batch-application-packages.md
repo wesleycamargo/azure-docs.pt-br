@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/30/2016"
 	ms.author="marsma" />
 
 # Implantação de aplicativo nos pacotes de aplicativos do Lote do Azure
@@ -198,6 +198,8 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
+Os pacotes de aplicativo que você especifica para um pool são instalados em cada nó de computação quando esse nó se une ao pool, e quando o nó é reinicializado ou tem sua imagem refeita. Se uma implantação de pacote de aplicativo falhar por algum motivo, o serviço de Lote marcará o nó como [inutilizável][net_nodestate] e nenhuma tarefa será agendada para execução nesse nó. Nesse caso, você deve **reiniciar** o nó para reiniciar a implantação do pacote (reiniciar o nó também reativará o agendamento de tarefas no nó).
+
 ## Executar os aplicativos instalados
 
 Como cada nó de computação ingressa em um pool (ou é reiniciado ou tem a imagem refeita), os pacotes que você especificou são baixados e extraídos para um diretório nomeado no `AZ_BATCH_ROOT_DIR` do nó. O Lote também cria uma variável de ambiente para linhas de comando da sua tarefa a ser usada ao chamar os binários do aplicativo; essa variável adere ao seguinte esquema de nomenclatura:
@@ -244,7 +246,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Agora que a nova versão foi configurada, qualquer nó *novo* que ingresse no pool terá a versão 2.76b implantada nele. Para instalar a versão 2.76b nos nós que *já estão* no pool, reinicialize-os (ou refaça a imagem deles). Observe que nós reinicializados reterão os arquivos das implantações anteriores do pacote.
+Agora que a nova versão foi configurada, qualquer nó *novo* que ingresse no pool terá a versão 2.76b implantada nele. Para instalar a versão 2.76b nos nós que já *estão* no pool, reinicialize-os (ou refaça a imagem deles). Observe que nós reinicializados reterão os arquivos das implantações anteriores do pacote.
 
 ## Listar os aplicativos em uma conta do Lote
 
@@ -284,6 +286,7 @@ Com os pacotes de aplicativos, você pode fornecer mais facilmente aos clientes 
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -301,4 +304,4 @@ Com os pacotes de aplicativos, você pode fornecer mais facilmente aos clientes 
 [11]: ./media/batch-application-packages/app_pkg_11.png "Folha Atualizar pacote no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

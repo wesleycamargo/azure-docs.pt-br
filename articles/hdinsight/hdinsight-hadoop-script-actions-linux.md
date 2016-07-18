@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="07/05/2016"
     ms.author="larryfr"/>
 
 # Desenvolvimento de ação de script com o HDInsight
@@ -50,6 +50,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 - [Configurar os componentes personalizados para usar armazenamento de Blob do Azure](#bPS6)
 - [Gravar informações para STDOUT e STDERR](#bPS7)
 - [Salvar arquivos como ASCII com terminações de linha LF](#bps8)
+- [Usar a lógica de repetição para recuperar-se de erros transitórios](#bps9)
 
 > [AZURE.IMPORTANT] Ações de script devem ser concluídas em 60 minutos ou atingirão o tempo limite. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
 
@@ -115,6 +116,40 @@ Scripts de Bash devem ser armazenados com formato ASCII, com linhas terminadas e
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
+
+###<a name="bps9"></a> Usar a lógica de repetição para recuperar-se de erros transitórios
+
+Ao baixar arquivos de instalação de pacotes usando apt-get ou outras ações que transmitem dados pela Internet, a ação pode falhar devido a erros de rede temporários. Por exemplo, o recurso remoto com o qual você está se comunicando pode estar em processo de failover para um nó de backup.
+
+Para tornar o script resistente a erros transitórios, você pode implementar lógica de repetição. Veja a seguir um exemplo de uma função que executará qualquer comando passado a ele e, se o comando falhar, repeti-lo até três vezes. Ele aguardará dois segundos entre cada repetição.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+Veja a seguir exemplos de como usar essa função.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
 ## <a name="helpermethods"></a>Métodos auxiliares para scripts personalizados
 
@@ -190,7 +225,7 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 - [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md)
 - [Instalar e usar R em clusters Hadoop do HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
-- [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
+- [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
 > [AZURE.NOTE] Os documentos vinculados acima são específicos de clusters HDInsight baseados em Linux. Para scripts que funcionam com o HDInsight baseados em Windows, consulte [Desenvolvimento de Ação de Script com o HDInsight (Windows)](hdinsight-hadoop-script-actions.md) ou use os links disponíveis na parte superior de cada artigo.
 
@@ -227,10 +262,10 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 ## <a name="seeAlso"></a>Próximas etapas
 
-* Saiba como [personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
+* Saiba como [Personalizar os clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 
 * Use a [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
 
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

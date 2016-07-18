@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/15/2016"
 	ms.author="spelluru"/>
 
 # Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
@@ -646,4 +646,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -47,13 +47,13 @@ A seguir, uma descrição dos pontos de extremidade:
 * **Pontos de extremidade do dispositivo**. Para cada dispositivo provisionado no registro de identidade do dispositivo, o Hub IoT expõe um conjunto de pontos de extremidade que pode ser usado por um dispositivo para enviar e receber mensagens:
     - *Enviar mensagens do dispositivo para a nuvem*. Use este ponto de extremidade para enviar mensagens do dispositivo para a nuvem. Para saber mais, consulte [Sistema de mensagens do dispositivo para a nuvem](#d2c).
     - *Receber mensagens da nuvem para o dispositivo*. Um dispositivo usa este ponto de extremidade para receber mensagens direcionadas da nuvem para o dispositivo. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
-    - *Inicie os uploads de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do Armazenamento do Azure do Hub IoT para carregar um arquivo. Para saber mais, veja [Carregamentos de arquivo](#fileupload). 
+    - *Inicie os uploads de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do Armazenamento do Azure do Hub IoT para carregar um arquivo. Para saber mais, veja [Carregamentos de arquivo](#fileupload).
 
     Esses pontos de extremidade são expostos usando os protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível sobre [WebSockets][lnk-websockets] na porta 443.
 * **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade que o seu back-end de aplicativo pode usar para se comunicar com seus dispositivos. Atualmente, esses pontos de extremidade são expostos apenas com o protocolo [AMQP][lnk-amqp].
     - *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [Hubs de Eventos do Azure][lnk-event-hubs]. Um serviço de back-end pode usá-lo para ler todas as mensagens do dispositivo para a nuvem enviadas por seus dispositivos. Para saber mais, consulte [Sistema de mensagens do dispositivo para a nuvem](#d2c).
     - *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de aplicativo envie mensagens confiáveis da nuvem para o dispositivo e receba confirmações de entrega ou de vencimento correspondentes. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
-    - *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo. 
+    - *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo.
 
 O artigo [APIs e SDKs do Hub IoT][lnk-apis-sdks] descreve as várias maneiras de acessar esses pontos de extremidade.
 
@@ -70,7 +70,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![Configurações de dispositivo para a nuvem][img-eventhubcompatible]
 
-> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Se o SDK exigir um valor de **Nome do host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -248,7 +248,7 @@ O Hub IoT oferece primitivos de mensagens para comunicar:
 
 - [Da nuvem para o dispositivo](#c2d) de um back-end de aplicativo (*serviço* ou *nuvem*).
 - [Do dispositivo para a nuvem](#d2c) de um dispositivo para um back-end de aplicativo.
-- [Carregamentos de arquivos](#fileupload) de um dispositivo para uma conta do Armazenamento do Azure associada. 
+- [Carregamentos de arquivos](#fileupload) de um dispositivo para uma conta do Armazenamento do Azure associada.
 
 As propriedades básicas da funcionalidade de mensagens do Hub IoT são a confiabilidade e a durabilidade das mensagens. Isso permite a adaptação à conectividade intermitente no lado do dispositivo e a picos de carga no processamento de eventos no lado da nuvem. O Hub IoT implementa *pelo menos uma vez* as garantias de entrega de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo.
 
@@ -550,18 +550,18 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 
 | Restrição | Valor por hub |
 | -------- | ------------- |
-| Operações de registro de identidade (criar, recuperar, listar, atualizar, excluir) | 100/min/unidade, até 5000/min. |
-| Conexões do dispositivo | 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 contêm 2*12 = 24/s, mas você terá, pelo menos, 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9*12) em suas unidades. |
-| Envios do dispositivo para a nuvem | 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 contêm 2*12 = 24/s, mas você terá, pelo menos, 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9*12) em suas unidades. |
-| Envios da nuvem para o dispositivo | 100/min/unidade. |
-| Recebimentos da nuvem para o dispositivo | 1000/min/unidade. |
-| Operações de upload de arquivo | 100 notificações de upload de arquivos/min/unidade <br/> 10000 URIs de SAS podem ser enviados para uma conta de armazenamento ao mesmo tempo <br/> 10 URIs de /dispositivo podem ser enviados de uma só vez | 
+| Operações de registro de identidade (criar, recuperar, listar, atualizar, excluir) | 5000/min/unidade (para S3) <br/> min/100/unidade (para S1 e S2). |
+| Conexões do dispositivo | 6000/s/unidade (para S3), 120/s/unidade (S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 contêm 2*12 = 24/s, mas você terá, pelo menos, 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9*12) em suas unidades. |
+| Envios do dispositivo para a nuvem | 6000/s/unidade (para S3), 120/s/unidade (S2), 12/s/unidade (para S1). <br/>Mínimo de 100/s. <br/> Por exemplo, duas unidades de S1 contêm 2*12 = 24/s, mas você terá, pelo menos, 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9*12) em suas unidades. |
+| Envios da nuvem para o dispositivo | 5000/min/unidade (para S3), 100/min/unidade (para S1 e S2). |
+| Recebimentos da nuvem para o dispositivo | 50000/min/unidade (para S3) 1000/min/unidade (para S1 e S2). |
+| Operações de upload de arquivo | 5000 notificações de upload de arquivos/min/unidade (para S3), 100 notificações de upload de arquivos/min/unidade (para S1 e S2). <br/> 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo.<br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. | 
 
 É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT e não o número máximo de dispositivos conectados simultaneamente. A restrição depende do número de unidades provisionadas para o hub.
 
 Por exemplo, se você comprar uma única unidade S1, obterá uma restrição de 100 conexões por segundo. Isso significa que serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade do dispositivo.
 
-Para uma discussão aprofundada do comportamento de limitação do Hub IoT, veja a postagem do blog [Hub IoT throttling and you][lnk-throttle-blog] (A limitação do Hub IoT e você).
+Para uma discussão aprofundada do comportamento de limitação do Hub IoT, confira a postagem de blog [Hub IoT throttling and you][lnk-throttle-blog] (A limitação do Hub IoT e você).
 
 >[AZURE.NOTE] A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
@@ -624,4 +624,4 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

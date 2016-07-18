@@ -28,7 +28,7 @@ Se você já tiver implantado o Gerenciamento de Senha ou estiver somente procur
   - [Como acessar os dados de redefinição de senha de seus usuários](#how-to-access-password-reset-data-for-your-users)
 
 ## Visão geral de write-back de senha
-O write-back de senha é um componente do [Azure Active Directory Connect](active-directory-aadconnect) que pode ser habilitado e usado pelos assinantes atuais do Active Directory Premium do Azure. Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
+O write-back de senha é um componente do [Azure Active Directory Connect](active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais do Active Directory Premium do Azure. Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
 
 O write-back de senha permite que você configure o locatário de nuvem para gravar senhas de volta no seu Active Directory local. Ele evita que você precise configurar e gerenciar uma solução de redefinição de senha de autoatendimento complicado no local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. Leia sobre alguns dos principais recursos de write-back de senha:
 
@@ -66,7 +66,7 @@ Quando um usuário federado ou com sincronização de hash de senha redefine ou 
 10.	Se a operação de definição de senha falhar, retornamos o erro para o usuário e o deixamos tentar novamente. A operação pode falhar porque o serviço estava inoperante, porque a senha selecionada não atende às políticas da organização, porque não foi possível encontrar o usuário no AD local ou por vários outros motivos. Temos uma mensagem específica para muitos desses casos e informamos ao usuário o que podem fazer para resolver o problema.
 
 ### Cenários com suporte para write-back de senha
-A tabela a seguir descreve quais os cenários com suporte para quais versões de nossos recursos de sincronização. Em geral, é altamente recomendável que você instale a versão mais recente do [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) se quiser usar o write-back de senha.
+A tabela a seguir descreve quais os cenários com suporte para quais versões de nossos recursos de sincronização. Em geral, é altamente recomendável que você instale a versão mais recente do [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) se quiser usar o write-back de senha.
 
   ![][002]
 
@@ -279,7 +279,7 @@ Os seguintes campos são acessíveis com o Azure AD PowerShell e a Graph API:
 * E-mail de autenticação
 
 ####Dados configuráveis somente com a interface do usuário de registros
-Os seguintes campos só são acessíveis por meio da interface do usuário de do registro SSPR (https://aka.ms/ssprsetup):
+Os seguintes campos só são acessíveis por meio da interface do usuário de registro SSPR (https://aka.ms/ssprsetup):
 
 * Perguntas de segurança e respostas
 
@@ -379,4 +379,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

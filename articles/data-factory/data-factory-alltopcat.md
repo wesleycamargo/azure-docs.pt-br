@@ -45,11 +45,7 @@ Este tópico lista cada tópico que se aplica diretamente ao serviço do data fa
 | [Compilar sua primeira Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando o Azure PowerShell. |
 | [Tutorial: compilar sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Gerenciador de Recursos do Azure. |
 | [Tutorial: compilar a sua primeira data factory (visão geral)](data-factory-build-your-first-pipeline.md) | Este tutorial mostra como criar um data factory com um pipeline de dados que transforma os dados usando o Azure HDInsight. |
-| [Tutorial: Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](data-factory-get-started.md) | Este tutorial mostra como usar a Atividade de Cópia em um pipeline do Azure Data Factory para copiar dados de um blob do Azure para um banco de dados do Azure SQL. |
-| [Tutorial: Criar um pipeline com a Atividade de Cópia usando o Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Azure PowerShell. |
 | [Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory](data-factory-copy-data-wizard-tutorial.md) | Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Assistente de Cópia com suporte do Data Factory |
-| [Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor](data-factory-get-started-using-editor.md) | Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no Portal do Azure. |
-| [Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio](data-factory-get-started-using-vs.md) | Neste tutorial, você criará um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Visual Studio. |
 
 ## Movimentação de dados
 
@@ -74,7 +70,7 @@ Este tópico lista cada tópico que se aplica diretamente ao serviço do data fa
 | [Mover dados para e do Repositório Data Lake do Azure usando o Azure Data Factory](data-factory-azure-datalake-connector.md) | Saiba como mover dados para/do Repositório Data Lake do Azure usando o Azure Data Factory |
 | [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) | Saiba como mover dados para/do SQL Data Warehouse do Azure usando o Azure Data Factory |
 | [Mover dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory](data-factory-azure-sql-connector.md) | Saiba como mover dados para/do Banco de Dados SQL do Azure usando o Azure Data Factory |
-| [Mover dados para e da Tabela do Azure Azure Data Factory](data-factory-azure-table-connector.md) | Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory |
+| [Mover dados para e da Tabela do Azure | Azure Data Factory](data-factory-azure-table-connector.md) | Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory |
 | [Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory](data-factory-azure-documentdb-connector.md) | Saiba como mover dados para/da coleção Banco de Dados de Documentos do Azure usando o Azure Data Factory |
 | [Mover dados para e do sistema de arquivos local usando o Azure Data Factory](data-factory-onprem-file-system-connector.md) | Aprenda como mover dados para/do sistema de arquivos local usando o Azure Data Factory |
 | [Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory](data-factory-sqlserver-connector.md) | Saiba mais sobre como mover dados de/para o banco de dados do SQL Server local ou em uma VM do Azure usando o Azure Data Factory. |
@@ -157,4 +153,4 @@ Este tópico lista cada tópico que se aplica diretamente ao serviço do data fa
 
 - Gráfico do Roteiro de Aprendizagem: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

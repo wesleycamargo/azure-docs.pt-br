@@ -19,7 +19,16 @@
 
 # Gerenciar recursos do Azure por meio do portal
 
-Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](../resource-group-overview.md) para gerenciar seus recursos do Azure. Para saber mais sobre a implantação de recursos por meio do portal, consulte [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
+> [AZURE.SELECTOR]
+- [Portal](azure-portal/resource-group-portal.md)
+- [CLI do Azure](xplat-cli-azure-resource-manager.md)
+- [PowerShell do Azure](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
+Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](../resource-group-overview.md) para gerenciar seus recursos do Azure. Para saber mais sobre a implantação de recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
 
 Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para ver o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -30,7 +39,7 @@ O portal fornece um painel que você pode usar para monitorar e gerenciar seus r
 
 ![painel Transações da Web](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] A melhor maneira de aprender a trabalhar com painéis é assistir ao vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Criar painéis personalizados no Portal do Microsoft Azure).
+> [AZURE.TIP] A melhor maneira de aprender a trabalhar com painéis é assistir ao vídeo [Build Custom Dashboards in the Microsoft Azure Portal (Criar painéis personalizados no Portal do Microsoft Azure)](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
 
 ### Compartilhamento de painéis do Azure e controle de acesso
 Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. O [Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-configure.md) do Azure controla o acesso às informações exibidas pelos blocos no portal. Todos os painéis publicados são implementados como recursos do Azure. Do ponto de vista do controle de acesso, os painéis não são diferentes de uma máquina virtual ou de uma conta de armazenamento.
@@ -120,6 +129,6 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 
 - Para ver os logs de auditoria, confira [Operações de auditoria com o Resource Manager](../resource-group-audit.md).
 - Para solucionar erros de implantação, confira [Exibir operações de implantação com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Para implantar recursos por meio do portal, consulte [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
+- Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

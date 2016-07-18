@@ -20,15 +20,14 @@
 
 Quando a conexão com o banco de dados SQL falha, você recebe [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que ajuda a solucionar problemas de conectividade do Banco de Dados SQL do Azure. Ele apresenta [as causas comuns](#cause) de problemas de conexão, recomenda [uma ferramenta de solução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identificar o problema e fornece etapas de solução de problemas para resolver [erros transitórios](#troubleshoot-transient-errors) e [erros persistentes ou não transitórios](#troubleshoot-the-persistent-errors). Por fim, ele lista [todos os artigos relevantes sobre problemas de conectividade do Banco de Dados SQL](#all-topics-for-azure-sql-database-connection-problems).
 
-Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
 Problemas de conexão podem ser causados por qualquer um dos seguintes fatores:
 
 - Falha ao aplicar práticas recomendadas e diretrizes de design durante o processo de design do aplicativo. Confira [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) para uma introdução.
-- Reconfiguração do banco de dados SQL do Azure
+- Reconfiguração do Banco de Dados SQL do Azure
 - Configurações de firewall
 - Tempo limite da conexão
 - Informações de logon incorretas
@@ -53,7 +52,7 @@ Se seu aplicativo estiver apresentando erros transitórios, examine os seguintes
 
 ## Solucionar problemas de erros persistentes (erros não transitórios)
 
-Se o aplicativo falhar persistentemente para se conectar ao banco de dados SQL Azure, ele normalmente indicará um problema com um dos seguintes:
+Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do Azure, ele normalmente indicará um problema com um dos seguintes:
 
 - Configuração do firewall. O firewall de banco de dados ou do lado do cliente do SQL Azure está bloqueando conexões do Banco de Dados SQL.
 - Reconfiguração da rede no lado do cliente: por exemplo, um novo endereço IP ou um servidor proxy.
@@ -99,6 +98,6 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 - [Diretrizes gerais para tratamento de falhas transitórias](../best-practices-retry-general.md)
 - [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 - [O roteiro de aprendizagem para usar o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

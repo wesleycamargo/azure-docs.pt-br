@@ -62,7 +62,7 @@ A tabela abaixo lista os recursos de continuidade de negócios do Banco de Dados
 
 | Recurso | Camada básica | Camada padrão |Camada premium
 | --- |--- | --- | ---
-| Ponto de restauração pontual | Qualquer ponto de restauração dentro de 7 dias | Qualquer ponto de restauração dentro de 14 dias | Qualquer ponto de restauração dentro de 35 dias
+| Ponto de restauração pontual | Qualquer ponto de restauração dentro de 7 dias | Qualquer ponto de restauração dentro de 35 dias | Qualquer ponto de restauração dentro de 35 dias
 | Restauração geográfica | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
 | Replicação geográfica ativa | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
@@ -73,7 +73,7 @@ Esses recursos são fornecidos para tratar dos cenários listados anteriormente.
 
 ###Restauração pontual
 
-A [Restauração Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) foi projetada para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar 7 dias com a básica, 14 dias com a padrão e 35 dias com a premium.
+A [Restauração Pontual](sql-database-recovery-using-backups.md#point-in-time-restore) foi projetada para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar sete dias com Basic, 35 dias com Standard e 35 dias com a Premium.
 
 ### Restauração geográfica
 
@@ -126,4 +126,4 @@ Para estratégias de recuperação detalhadas ao usar um pool elástico, confira
 - Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

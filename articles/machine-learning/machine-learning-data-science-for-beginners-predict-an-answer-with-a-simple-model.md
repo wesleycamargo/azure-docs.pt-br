@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Preveja uma resposta com um modelo simples | Microsoft Azure"
+   pageTitle="Prever uma resposta com um modelo simples - Ciência de dados para iniciantes | Microsoft Azure"
    description="Como criar um modelo simples para prever o preço de um diamante em Ciência de dados para iniciantes, vídeo 4. Inclui uma regressão linear básica com dados de destino."                                  
    keywords="criar um modelo, modelo simples, modelo de dados simples, previsão de preço, modelo de regressão simples"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Prever uma resposta com um modelo simples: Ciência de dados para iniciantes, vídeo 4
+# Ciência de Dados para Iniciantes - vídeo 4: Prever uma resposta com um modelo simples
 
 Saiba como criar um modelo simples para prever o preço de um diamante em Ciência de dados para iniciantes, vídeo 4. Vamos desenhar um modelo de regressão com dados de destino.
+
+Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -72,11 +74,11 @@ Agora fazemos isso para cada diamante nesta lista. Quando terminarmos, este ser�
 
 Agora, se você os pontos e semicerrar os olhos, a coleção parecerá uma linha espessa e difusa. Podemos usar nosso marcador para desenhar uma linha reta através deles.
 
-Ao desenhar uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e fazer uma versão simples em desenho dele. Agora, o desenho está incorreto, a linha não passa por todos os pontos de dados. Mas, é uma simplificação útil.
+Desenhando uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e fazer uma versão simples em desenho dele. Agora, o desenho está incorreto, a linha não passa por todos os pontos de dados. Mas, é uma simplificação útil.
 
 ![Linha da regressão linear](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-O fato de que todos os pontos não passam exatamente pela linha não tem qualquer problema. Cientistas de dados explicam isso dizendo que há o modelo - essa é a linha - e cada ponto tem algum *ruído* ou *variação* associada a ele. Há a relação perfeita subjacente, e há o mundo real que adiciona ruído e incerteza.
+O fato de que todos os pontos não passam exatamente pela linha não tem qualquer problema. Cientistas de dados explicam isso dizendo que há o modelo (essa é a linha) e cada ponto tem algum *ruído* ou *variação* associada a ele. Há a relação perfeita subjacente, e há o mundo real que adiciona ruído e incerteza.
 
 Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de uma *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
@@ -90,7 +92,7 @@ Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate 
 
 ## Criar um intervalo de confiança
 
-É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
+É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
 
 ![Intervalo de confiança](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -121,18 +123,19 @@ Hoje, falamos sobre como fazer a regressão linear e fizemos uma previsão usand
 Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendizado de Máquina do Microsoft Azure.
 
 
-## Outros vídeos na série
+## Outros vídeos nesta série
 
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-  * Vídeo 1: [As cinco perguntas que a ciência de dados pode responder](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Disponível agora.**
-  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Disponível agora.**
-  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Disponível agora.**
-  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponível em 30 de junho.
+  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Vídeo 4: Preveja uma resposta com um modelo simples
+  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Próximas etapas
 
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

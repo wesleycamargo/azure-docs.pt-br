@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Atualizando para a versão 2 da API de Análise de Texto #
 
-Este guia explicará o processo de atualizar seu código, desde o uso da [primeira versão da API](../machine-learning-apps-text-analytics/) até o uso da segunda versão.
+Este guia explicará o processo de atualizar seu código, desde o uso da [primeira versão da API](../machine-learning/machine-learning-apps-text-analytics.md) até o uso da segunda versão.
 
 Se você nunca tiver usado a API e deseja saber mais, **[saiba mais sobre a API aqui](//go.microsoft.com/fwlink/?LinkID=759711)** ou **[siga o Guia de Início Rápido](//go.microsoft.com/fwlink/?LinkID=760860)**. Para obter referência técnica, veja um texto sobre a **[definição de API](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
@@ -278,7 +278,7 @@ A resposta agora incluirá um valor de cabeçalho, como se segue, em que `operat
 
 **Versão 2 (GET)**
 
-Como antes, **sonde a saída periodicamente** (o período sugerido é a cada minuto) até que a saída seja retornada.
+Como antes, **sonde a saída periodicamente ** (o período sugerido é a cada minuto) até que a saída seja retornada.
 
 Quando a API de tópicos for concluída, um status apresentando `succeeded` será retornado. Isso incluirá os resultados da saída no formato mostrado abaixo:
 
@@ -308,4 +308,4 @@ Quando a API de tópicos for concluída, um status apresentando `succeeded` ser�
 
 Agora você está pronto para seguir adiante! Teste seu código com um pequeno exemplo para garantir que você possa processar seus dados com êxito.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

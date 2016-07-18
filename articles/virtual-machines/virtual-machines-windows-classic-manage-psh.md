@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="07/01/2016"
    ms.author="kasing"/>
 
 # Gerenciar suas máquinas virtuais usando o Azure PowerShell
@@ -95,4 +95,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente.
 - Com um endereço IP estático.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

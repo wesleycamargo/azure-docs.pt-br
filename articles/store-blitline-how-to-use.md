@@ -69,7 +69,7 @@ Você pode encontrar mais informações sobre as *funções* com suporte aqui:<h
 
 Também pode encontrar uma documentação sobre as opções de trabalho aqui:<http://www.blitline.com/docs/api>
 
-Quando você tiver seu JSON, tudo o que deverá fazer é **POST** em `http://api.blitline.com/jobs`
+Quando você tiver seu JSON, tudo o que deverá fazer é **POST** em `http://api.blitline.com/job`
 
 O JSON de volta será semelhante a isto:
 
@@ -85,7 +85,7 @@ O JSON de volta será semelhante a isto:
     }
 
 
-Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## Como salvar uma imagem em sua conta de armazenamento do Azure
 
@@ -132,4 +132,4 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
 * Exemplos da API do Blitline <http://www.blitline.com/docs/examples>
 * Biblioteca de Nuget de terceiros <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

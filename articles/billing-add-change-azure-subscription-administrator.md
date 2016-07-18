@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # Como adicionar ou alterar funções de administrador do Azure
@@ -48,7 +48,7 @@ Há três tipos de funções de administrador no Microsoft Azure:
 
 	**Observação**
 	- A função Proprietário tem os mesmos privilégios de acesso da função Coadministrador. Essa função não tem privilégios de acesso à [Central de Contas Azure](https://account.windowsazure.com/subscriptions).
-	- Os proprietários adicionados por meio de [Portal do Azure](https://portal.azure.com) não podem gerenciar serviços no [portal clássico do Azure](https://manage.windowsazure.com).  
+	- Os proprietários adicionados por meio de [Portal do Azure](https://portal.azure.com) não podem gerenciar serviços no [portal clássico do Azure](https://manage.windowsazure.com).
 
 5. Digite o endereço de email do usuário que deseja adicionar como proprietário, clique no usuário e, em seguida, clique em **Selecionar**.
 
@@ -69,7 +69,7 @@ Há três tipos de funções de administrador no Microsoft Azure:
 O seguinte endereço de email pode ser adicionado como Coadministrador:
 
 * **Conta da Microsoft** (anteriormente Windows Live ID) </br>: você pode usar uma Conta da Microsoft para entrar em todos os produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
-* **Conta organizacional**</br>: uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço de conta organizacional será semelhante ao seguinte: user@&lt;your domain&gt;.onmicrosoft.com
+* **Conta organizacional**</br>: uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço de conta organizacional é semelhante ao seguinte: usuário@seudomínio.com.onmicrosoft.com
 
 ### Limitações e restrições
 
@@ -90,7 +90,7 @@ O seguinte endereço de email pode ser adicionado como Coadministrador:
 
 Somente o Administrador da Conta pode alterar o Administrador de Serviços de uma assinatura.
 
-1. Efetue logon na [Central de Contas do Azure](https://account.windowsazure.com/subscriptions) usando o administrador da conta.
+1. Faça logon na [Central de Contas do Azure](https://account.windowsazure.com/subscriptions) usando o Administrador da Conta.
 
 2. Selecione a assinatura que deseja alterar.
 
@@ -104,14 +104,14 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 
 ## Como alterar o Administrador da Conta
 
-Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo uma assinatura do Azure](billing-subscription-transfer.md).
+Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo a propriedade de uma assinatura do Azure](billing-subscription-transfer.md).
 
 ## Próximas etapas
 
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](./active-directory/active-directory-understanding-resource-access.md)
 
-* Para saber mais sobre como o Active Directory do Azure está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Active Directory do Azure] (./active-directory/active-directory-how-subscriptions-associated directory.md)
+* Para obter mais informações sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, consulte [Como as assinaturas do Azure estão associadas ao Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md)
 
-* Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Atribuindo funções de administrador no Azure Active Directory (Azure AD)](./active-directory/active-directory-assign-admin-roles.md)
+* Para obter mais informações sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Atribuindo funções de administrador no Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

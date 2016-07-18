@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
@@ -177,4 +177,4 @@ Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-
 - [Installing Kerberos](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalando o Kerberos)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: Guia de integração do Windows)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

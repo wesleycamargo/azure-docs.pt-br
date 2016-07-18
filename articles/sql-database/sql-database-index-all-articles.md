@@ -161,7 +161,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
 | 83 | [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md) | PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure |
-| 84 | [Criar e gerenciar bancos de dados do SQL Azure expandidos (preview)](sql-database-elastic-jobs-create-and-manage.md) | Explore a criação e o gerenciamento de um trabalho de banco de dados elástico. |
+| 84 | [Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal (visualização)](sql-database-elastic-jobs-create-and-manage.md) | Explore a criação e o gerenciamento de um trabalho de banco de dados elástico. |
 | 85 | [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md) | como usar trabalhos de banco de dados elástico |
 | 86 | [Visão geral de Instalando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md) | Percorra a instalação do recurso de trabalho elástico. |
 | 87 | [Gerenciando bancos de dados de nuvem com escalonamento horizontal](sql-database-elastic-jobs-overview.md) | Ilustra o serviço do trabalho de banco de dados elástico |
@@ -351,7 +351,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 180 | [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md) | Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure. |
 | 181 | [Diferenças de Transact-SQL de Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) | Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL |
 | 182 | [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md) | Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft. |
-| 183 | [Pesquisar com filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
+| 183 | [Pesquisar com filtros](https://azure.microsoft.com/pt-BR/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
 
 
 ## Diversos
@@ -378,4 +378,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 
 - Elemento gráfico do Roteiro de Aprendizagem: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

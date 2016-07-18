@@ -14,14 +14,16 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/18/2016"
+ms.date="06/29/2016"
 ms.author="larryfr"/>
 
-#Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
+#Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Windows (Hadoop)
 
 Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o HDInsight do Azure (Hadoop).
 
 O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
+
+> [AZURE.NOTE] As etapas neste documento pressupõem que você está usando um cluster HDInsight baseado em Windows. Para saber mais sobre como usar um cluster HDInsight baseado em Linux, veja [Usar o Maven para criar aplicativos Java que usam o HBase com HDInsight baseado em Linux](hdinsight-hbase-build-java-maven-linux.md)
 
 ##Requisitos
 
@@ -29,7 +31,9 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 * [Maven](http://maven.apache.org/)
 
-* [Um cluster Azure HDInsight com HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [Um cluster HDInsight baseado em Windows com HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
+
+    > [AZURE.NOTE] As etapas neste documento foram testadas com as versões 3.2 e 3.3 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se a um cluster HDInsight 3.3.
 
 ##Criar o projeto
 
@@ -54,10 +58,29 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
         <dependency>
           <groupId>org.apache.hbase</groupId>
           <artifactId>hbase-client</artifactId>
-          <version>0.98.4-hadoop2</version>
+          <version>1.1.2</version>
         </dependency>
 
-    Isso informa ao Maven que o projeto exige o __cliente hbase__ versão __0.98.4-hadoop2__. No momento da compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
+    Isso informa ao Maven que o projeto exige o __hbase-client__ versão __1.1.2__. No momento da compilação, ele será baixado do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
+
+    > [AZURE.IMPORTANT] O número da versão deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
+
+    | Versão do cluster HDInsight | Versão do HBase a ser usada |
+    | ----- | ----- |
+    | 3\.2 | 0\.98.4-hadoop2 |
+    | 3\.3 | 1\.1.2 |
+
+    Para saber mais sobre as versões e os componentes do HDInsight, confira [Quais são os diferentes componentes do Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md).
+
+2. Se estiver usando um cluster HDInsight 3.3, você também deverá adicionar o seguinte à seção `<dependencies>`:
+
+        <dependency>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+            <version>4.4.0-HBase-1.1</version>
+        </dependency>
+    
+    Isso carregará os componentes phoenix-core, usados pelo Hbase versão 1.1.x.
 
 2. Adicione o código a seguir ao arquivo __pom.xml__. Isso precisa estar dentro das marcas `<project>...</project>` no arquivo; por exemplo, entre `</dependencies>` e `</project>`.
 
@@ -78,8 +101,8 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
               </plugin>
             <plugin>
@@ -152,19 +175,11 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
             <name>hbase.zookeeper.property.clientPort</name>
             <value>2181</value>
           </property>
-          <!-- Uncomment the following if you are using
-               a Linux-based HDInsight cluster -->
-          <!--
-          <property>
-            <name>zookeeper.znode.parent</name>
-            <value>/hbase-unsecure</value>
-          </property>
-          -->
         </configuration>
 
     Esse arquivo será usado para carregar a configuração HBase para um cluster HDInsight.
 
-    > [AZURE.NOTE] Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight. Para clusters baseados em Linux, você deve cancelar os comentários de entrada para `zookeeper.znode.parent` a fim de definir corretamente o znode Zookeeper raiz usado pelo HBase.
+    > [AZURE.NOTE] Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight.
 
 3. Salve o arquivo __hbase-site.xml__.
 
@@ -446,9 +461,9 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccountName `
+                    -DefaultStorageAccountName $storage.storageAccount `
                     -DefaultStorageAccountKey $storage.storageAccountKey `
-                    -HttpCredential $creds
+                    -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -456,7 +471,7 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccountName `
+                    -DefaultStorageAccountName $storage.storageAccount `
                     -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
@@ -631,4 +646,4 @@ Substitua __hdinsightclustername__ pelo nome do seu cluster HDInsight.
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

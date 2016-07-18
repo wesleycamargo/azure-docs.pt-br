@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="07/01/2016"
 	ms.author="giridham; jimpark;"/>
 
 
@@ -30,7 +30,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 3. Recuperar o banco de dados do Azure.
 
 ## Antes de começar
-Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-introduction/#prerequisites) para usar o Backup do Microsoft Azure para proteger as cargas de trabalho foram atendidos. Os pré-requisitos abrangem tarefas como criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o servidor no cofre.
+Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-introduction.md#prerequisites) para usar o Backup do Microsoft Azure para proteger as cargas de trabalho foram atendidos. Os pré-requisitos abrangem tarefas como criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o servidor no cofre.
 
 ## Criar política de backup para proteger bancos de dados SQL Server no Azure
 
@@ -62,7 +62,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     ![Objetivos de curto prazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] Às 20:00 (de acordo com a entrada da tela), um ponto de backup é criado diariamente transferindo os dados que foram modificados do ponto de backup das 20:00 do dia anterior. Esse processo é chamado de **Backup Completo Expresso**. Enquanto os logs de transição são sincronizados a cada 15 minutos, se houver a necessidade de recuperar o banco de dados às 9h, o ponto será criado reproduzindo novamente os logs do último ponto de backup completo expresso (20h, neste caso).
+    >[AZURE.NOTE] Às 20h (de acordo com a entrada da tela), um ponto de backup é criado diariamente transferindo os dados que foram modificados do ponto de backup das 20h do dia anterior. Esse processo é chamado de **Backup Completo Expresso**. Enquanto os logs de transição são sincronizados a cada 15 minutos, se houver a necessidade de recuperar o banco de dados às 9h, o ponto será criado reproduzindo novamente os logs do último ponto de backup completo expresso (20h, neste caso).
 
 8. Clique em **Próximo**.
 
@@ -174,4 +174,4 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -36,23 +36,24 @@ A implantação de um aplicativo combina as etapas a seguir em uma única opera�
 
 No Visual Studio, pressionar **F5** também implanta seu aplicativo e anexa o depurador a todas as instâncias do aplicativo. Você pode usar **Ctrl + F5** para implantar um aplicativo sem depuração ou pode publicar um cluster local ou remoto usando o perfil de publicação. Para saber mais, confira [Publicar um aplicativo em um cluster remoto usando o Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
-### Preservar os dados entre as execuções de teste
+### Modo de Depuração do Aplicativo
 
-Geralmente, você testa serviços localmente adicionando entrada de dados de teste, modificando alguns blocos de código e depurando localmente novamente. As ferramentas do Service Fabric do Visual Studio fornecem uma propriedade útil chamada **Preservar Dados na Inicialização** para manter os dados inseridos na sessão anterior e permitir que você os use novamente.
+Ao depurar o serviço localmente, em algum momento talvez você queira manter os dados e os aplicativos existentes. As Ferramentas do Service Fabric para Visual Studio fornecem uma propriedade denominada **Modo de Depuração do Aplicativo**, que controla se **F5** deve desinstalar o aplicativo ou manter o aplicativo após uma sessão de depuração terminar.
 
-#### Para habilitar a propriedade Preservar dados na inicialização
+#### Para definir a propriedade Modo de Depuração do Aplicativo
 
 1. No menu de atalho do projeto de aplicativo, escolha **Propriedades** (ou pressione a tecla **F4**).
-1. Na janela **Propriedades**, defina a propriedade **Preservar dados na inicialização** como **Sim**.
+2. Na janela **Propriedades**, defina a propriedade **Modo de Depuração do Aplicativo** para **Remover** ou ** Atualização Automática**.
 
-	![Definir a propriedade Preservar dados na inicialização][preservedata]
+![Definir a Propriedade Modo de Depuração do Aplicativo][debugmodeproperty]
 
-Quando você executar o aplicativo novamente, o script de implantação tratará a implantação como uma atualização usando o modo auto não monitorado para atualizar rapidamente o aplicativo para uma versão mais recente com uma cadeia de caracteres de data anexada. O processo de atualização preserva todos os dados inseridos em uma sessão de depuração anterior.
+Definir esse valor da propriedade para **Atualização Automática** deixará o aplicativo em execução no cluster local. O próximo **F5** tratará a implantação como uma atualização usando o modo automático não monitorado para atualizar rapidamente o aplicativo para uma versão mais recente com uma cadeia de caracteres de data anexada. O processo de atualização preserva todos os dados inseridos em uma sessão de depuração anterior.
 
-![Exemplo de nova versão do aplicativo com a data incluída][preservedate]
+![Exemplo da nova versão do aplicativo com a data1 incluída][preservedate]
 
 Os dados são preservados, aproveitando o recurso de atualização da plataforma do Service Fabric. Para saber mais sobre a atualização de um aplicativo, consulte [Atualização de aplicativo do Service Fabric](service-fabric-application-upgrade.md)
 
+**Observação:** essa propriedade não existe antes da versão 1.1 das Ferramentas do Service Fabric para Visual Studio. Antes da versão 1.1, use a propriedade **Preservar Dados no Início** para ter o mesmo comportamento.
 ## Adicione um serviço ao aplicativo da Malha de Serviços
 
 Você pode adicionar novos serviços de malha ao seu aplicativo para estender sua funcionalidade. Para garantir que o serviço esteja incluído no seu pacote de aplicativos, adicione o serviço usando o item de menu **Novo Serviço de Malha...**.
@@ -96,5 +97,6 @@ Você pode remover o provisionamento de um tipo de aplicativo do seu cluster loc
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+[debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

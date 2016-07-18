@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="06/06/2016"
+	 ms.date="06/28/2016"
 	 ms.author="nasing"/>
 
 # Gerenciar Hubs IoT por meio do portal do Azure
@@ -44,11 +44,13 @@ Para criar um Hub IoT, você deve dar um nome ao hub. Observe que esse nome deve
 
 ### Escolher a camada de preços
 
-Você pode escolher entre três camadas: **Gratuita**, **Standard 1** e **Standard 2**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
+Você pode escolher entre quatro camadas: **Grátis**, **Padrão 1**, **Padrão 2** e **Padrão S3**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
 
-**S1 (Baixa Frequência)**: a edição S1 (Baixa Frequência) do Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 (Baixa Frequência) permite a transmissão de até 400.000 mensagens por dia entre todos os dispositivos conectados.
+**Padrão S1**: a edição S1 de Hubs IoT foi projetada para soluções IoT com um grande número de dispositivos gerando quantidades relativamente pequenas de dados por dispositivo. Cada unidade da edição S1 permite até 400.000 mensagens por dia entre todos os dispositivos conectados.
 
-**S2 (Alta Frequência)**: a edição S2 (Alta Frequência) do Hub IoT foi projetada para soluções IoT nas quais os dispositivos geram grandes quantidades de dados. Cada unidade da edição S2 (Alta Frequência) permite a transmissão de até seis milhões de mensagens por dia entre todos os dispositivos conectados.
+**Padrão S2**: a edição S2 de Hub IoT foi projetada para soluções IoT nas quais os dispositivos geram grandes quantidades de dados. Cada unidade da edição S2 permite a transmissão de até seis milhões de mensagens por dia entre todos os dispositivos conectados.
+
+**S3 Padrão**: a edição S3 do Hub IoT é projetada para soluções de IoT que geram grandes quantidades de dados. Cada unidade da edição S3 permite a transmissão de até 300 milhões de mensagens por dia entre todos os dispositivos conectados.
 
 ![][4]
 
@@ -72,7 +74,7 @@ O Hub IoT do Azure mostra automaticamente a lista de assinaturas à qual a conta
 
 ### Escolher o local
 
-A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido. O Hub IoT está disponível para implantação nos seguintes locais: Leste dos EUA, Oeste dos EUA, Norte da Europa, Oeste da Europa, Ásia Oriental e Sudeste da Ásia.
+A opção de local oferece uma lista das regiões em que o Hub IoT é oferecido. O Hub IoT está disponível para implantação nos seguintes locais: Leste da Austrália, Sudeste da Austrália, Leste da Ásia, Sudeste da Ásia, Norte da Europa, Oeste da Europa, Leste do Japão, Oeste do Japão, Leste dos EUA, Oeste dos EUA.
 
 ### Criar o Hub IoT
 
@@ -94,7 +96,7 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 
 	Há várias permissões que podem ser associadas a essas políticas compartilhadas. As duas primeiras políticas, **Leitura do Registro** e **Gravação do Registro**,concedem direitos de acesso de leitura e gravação ao repositório de identidade do dispositivo ou ao registro de identidade. Observe que a escolha da opção de gravação escolhe automaticamente a opção de leitura.
 
- 	A política de conexão do serviço concede permissão ao grupo de consumidores para serviços que estejam se conectando ao Hub IoT, enquanto a conexão do dispositivo concede permissões para o lado do dispositivo do Hub IoT.
+ 	A política de **Conexão de serviço** concede permissão para acessar os pontos de extremidade na nuvem, como o grupo de consumidores para serviços que se conectam ao hub IoT, enquanto a política **Conexão de dispositivo** concede permissões para enviar e receber mensagens nos pontos de extremidade no dispositivo do hub IoT.
 
 - Clique em **Criar** para adicionar essa política recém-criada à lista existente.
 
@@ -124,7 +126,7 @@ Clique nas políticas do **Sistema de Mensagens** para exibir uma lista de propr
 
 Para usar o recurso de upload de arquivo do Hub IoT, primeiro você deve associar uma conta de Armazenamento do Azure ao hub. Selecione as configurações de **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.
 
-**Contêiner de armazenamento**: use o portal para selecionar um contêiner de blob em uma conta de armazenamento na sua assinatura atual para ser associado ao seu Hub IoT. Se necessário, você pode criar uma nova conta de armazenamento na folha **Contas de armazenamento** e um novo contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+**Contêiner de armazenamento**: use o portal para selecionar um contêiner de blob em uma conta de armazenamento na assinatura atual para ser associado ao Hub IoT. Se necessário, você pode criar uma nova conta de armazenamento na folha **Contas de armazenamento** e um novo contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
 ![][14]
 
@@ -147,7 +149,7 @@ O preço de um Hub IoT existente pode ser alterado por meio das configurações 
 
 ![][12]
 
-Mudar de uma camada alta (S2) para uma camada baixa (S1) só será permitido quando o número de mensagens enviadas naquele dia não estiver em conflito. Por exemplo, se o número de mensagens por dia exceder 400.000, a camada do Hub IoT não poderá ser alterada de S2 para S1.
+Mudar de uma camada alta (S2 ou S3) para uma camada baixa (S1 ou S2) só é permitido quando o número de mensagens enviadas naquele dia não está em conflito. Por exemplo, se o número de mensagens por dia exceder 400.000, a camada para o hub IoT poderá ser alterada, mas se você alterar para a camada S1, o hub será limitado para esse dia.
 
 ## Excluir o Hub IoT
 
@@ -173,4 +175,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

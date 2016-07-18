@@ -52,7 +52,7 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 | Recomendações | Descrição |
 | :--- | :--- |
 | Atualizar | Atualize para uma nova camada. |
-| Indisponível | Um banco de dados exige uma carga de trabalho mínima ou, aproximadamente, 14 dias de atividade. Não há dados suficientes para fornecer uma recomendação válida. |
+| Indisponível | Um banco de dados exige uma carga de trabalho mínima ou, aproximadamente, 35 dias de atividade. Não há dados suficientes para fornecer uma recomendação válida. |
 
 ## Obtendo recomendações de camada de preços
 
@@ -96,4 +96,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

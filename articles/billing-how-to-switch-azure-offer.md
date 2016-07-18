@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # Alterar para uma oferta do Azure diferente
@@ -25,6 +25,8 @@ Você pode alterar sua assinatura existente para uma oferta mais favorável sem 
 -	Se você quiser aproveitar os benefícios da associação, como o MSDN ou o BizSpark, após sua inscrição em uma assinatura Pré-paga.
 
 ## Como trocar sua assinatura por outra oferta
+
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions).
 2.	Selecione a assinatura para transferir.
@@ -68,9 +70,9 @@ Esse mecanismo pode ser usado para trocar somente de e para ofertas Web Direct. 
 
 ## Ofertas disponíveis paras as quais você pode trocar
 
-Veja abaixo os caminhos atualmente suportados no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Este artigo será atualizado conforme adicionarmos mais opções. Para outras alterações de oferta, [entre em contato com o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
+Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Este artigo será atualizado conforme adicionarmos mais opções. Para outras alterações de oferta, [entre em contato com o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 -	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para a [Oferta de 12 Meses de Pagamento Antecipado](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para todas as [ofertas mensais de Crédito Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

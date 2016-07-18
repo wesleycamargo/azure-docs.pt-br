@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="07/06/2016" 
 	ms.author="anbacker"/>
 	
 # Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos
@@ -148,7 +148,7 @@ Para gerar um tíquete de suporte para o ASR, acesse o Suporte do Azure usando a
 -   [Como preservar a letra da unidade das máquinas virtuais protegidas com failover ou migradas para o Azure](http://support.microsoft.com/kb/3031135)
 -   [Como gerenciar localmente o uso de largura de banda de rede para proteção do Azure](https://support.microsoft.com/kb/3056159)
 -   [ASR: erro "O recurso de cluster não pôde ser encontrado" quando você tenta habilitar a proteção para uma máquina virtual](http://support.microsoft.com/kb/3010979)
--   [Guia para compreender e solucionar problemas da Réplica do Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+-   [Guia para compreender e solucionar problemas da Réplica do Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 
 ## Erros de ASR comuns e suas resoluções
 
@@ -171,15 +171,15 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 ### Proteção
 - <span style="color:green;">NOVO</span> [Falha em Habilitar Proteção com o erro "Não foi possível configurar a proteção para a máquina virtual". Erro 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
 - <span style="color:green;">NOVO</span> [Falha em Habilitar Proteção com o erro "Não foi possível habilitar a proteção para a máquina virtual". Erro 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-- <span style="color:green;">NOVO</span> [Erro 23848 de migração dinâmica — a máquina virtual será movida usando o tipo Live. Isso pode interromper o status da proteção de recuperação da máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
--   [Falha na habilitação da proteção, pois o Agente não está instalado no computador host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
--   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois há poucos recursos de computação](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
--   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois não há uma rede lógica anexada](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
--   [Não é possível conectar-se ao computador host de réplica, pois não foi possível estabelecer conexão](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+- <span style="color:green;">NOVO</span> [Erro 23848 de migração dinâmica — a máquina virtual será movida usando o tipo Live. Isso pode interromper o status da proteção de recuperação da máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
+- [Falha na habilitação da proteção, pois o Agente não está instalado no computador host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
+- [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois há poucos recursos de computação](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
+- [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois não há uma rede lógica anexada](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
+- [Não é possível conectar-se ao computador host de réplica, pois não foi possível estabelecer conexão](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
 
 ### Recuperação
--   A VMM não conseguiu concluir a operação do host -
+- A VMM não conseguiu concluir a operação do host -
     -   [Failover para o ponto de recuperação selecionado para a máquina virtual: erro geral de acesso negado.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
     -   [O Hyper-V não conseguiu fazer failover para o ponto de recuperação selecionado para a máquina virtual: operação anulada. Tente um ponto de recuperação mais recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
     -   Não foi possível estabelecer uma conexão com o servidor (0x00002EFD)
@@ -202,4 +202,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 ### Solução de problemas da área de trabalho remota após failover
 -   Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. [Use o documento de solução de problemas para fazer o RDP na VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

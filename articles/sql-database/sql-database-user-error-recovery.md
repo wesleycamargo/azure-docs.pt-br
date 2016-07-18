@@ -29,7 +29,7 @@ O Banco de Dados SQL do Azure sempre é restaurado em um novo banco de dados ao 
 
 No caso de um erro do usuário ou de uma modificação de dados involuntária, a Restauração Pontual poderá ser usada para restaurar seu banco de dados para qualquer momento determinado dentro do período de retenção dos bancos de dados.
 
-Os bancos de dados Basic tem 7 dias de retenção, os bancos de dados Standard tem 14 dias de retenção e os bancos de dados Premium têm 35 dias de retenção. Para saber mais sobre a retenção de backup de banco de dados, confira [automated backups](sql-database-automated-backups.md) (backups automatizados).
+Os bancos de dados Basic têm 7 dias de retenção, os bancos de dados Standard têm 35 dias de retenção e os bancos de dados Premium têm 35 dias de retenção. Para saber mais sobre a retenção de backup de banco de dados, confira [automated backups](sql-database-automated-backups.md) (backups automatizados).
 
 Para executar uma recuperação pontual, confira:
 
@@ -59,4 +59,4 @@ Para restaurar um banco de dados excluído:
 - Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
 - Para saber mais sobre como usar a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

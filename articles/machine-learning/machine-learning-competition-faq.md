@@ -34,7 +34,7 @@ Use nosso [fórum do Aprendizado de Máquina do Microsoft Azure](https://social.
 
 Acesse a home page das Competições usando a Cortana Intelligence Gallery. Essa página contém todas as competições que estão em andamento. Cada competição terá instruções e regras de participação, prêmios e duração detalhados na página de inscrição. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
 
-1. Encontre a competição de que você gostaria de participar na Cortana Intelligence Gallery, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão "Ingressar na Competição" para copiar o Teste Inicial para seu espaço de trabalho existente do Aprendizado de Máquina do Azure. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Você provavelmente passará a maior parte do seu tempo nessa etapa.   
+1. Encontre a competição de que você gostaria de participar na Cortana Intelligence Gallery, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão "Ingressar na Competição" para copiar o Teste Inicial para seu espaço de trabalho existente do Aprendizado de Máquina do Azure. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Você provavelmente passará a maior parte do seu tempo nessa etapa.
 
 2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Ajuste cuidadosamente o esquema de entrada e saída do serviço Web para fazer com que estejam em conformidade com os requisitos especificados nas regras da Competição. O documento do tutorial geralmente terá instruções detalhadas sobre como fazer isso. Você também pode assistir ao vídeo do tutorial, se ele estiver disponível.
 
@@ -54,7 +54,7 @@ Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidad
 
 * Administradores de dados: aqueles que têm conhecimento sobre os dados, o que eles significam, como se destinam a serem usados e para qual finalidade
 
-* Estudantes e Pesquisadores: aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos universitários ou participantes de MOOCs (Massively Open Online Courses, Cursos Online de Acesso Livre)
+* Estudantes e Pesquisadores: aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos universitários ou participantes de MOOCs (Cursos Online de Acesso Livre)
 
 
 **Posso me inscrever com meus colegas como uma equipe?**
@@ -115,4 +115,4 @@ Atualmente, a plataforma da Competição só é compatível com entradas de envi
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

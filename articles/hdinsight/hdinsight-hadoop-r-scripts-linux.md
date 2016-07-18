@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="larryfr"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
@@ -146,4 +146,4 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

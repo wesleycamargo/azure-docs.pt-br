@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
@@ -25,12 +25,10 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE] No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure, apenas no Portal Clássico do Azure.
-
 ## Pré-requisitos
 
 * Conta do Microsoft Azure
-* Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.  
+* Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.
 * Conta corporativa ou de estudante para Power BI
 
 ## Criar trabalho do Azure Stream Analytics
@@ -100,11 +98,11 @@ Forneça valores como a seguir:
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
 *	**Espaço de trabalho**: selecione um espaço de trabalho no seu locatário do Power BI sob a qual o conjunto de dados será criado.
 
->	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Gravar consulta
@@ -203,9 +201,18 @@ Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha
 
 ![elementográfico12][graphic12]
 
+Da mesma forma, se um trabalho tentar iniciar enquanto o token estiver vencido, ocorrerá um erro e o início do trabalho falhará. O erro será algo semelhante a isto:
+
+![Erro de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI. Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
 
-![elementográfico13][graphic13]
+![Renovação de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Após a atualização da autorização com o Power BI, você verá um alerta verde na área de autorização:
+
+![Renovação de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -233,4 +240,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

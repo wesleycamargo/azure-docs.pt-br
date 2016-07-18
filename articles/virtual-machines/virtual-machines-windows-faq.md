@@ -79,4 +79,8 @@ As duas novas regiões, Central e Leste, do Canadá não são automaticamente re
 
 Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma VM Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Posso adicionar um NIC à minha VM depois que ela é criada?
+
+Não. Isso só pode ser feito no momento da criação.
+
+<!---HONumber=AcomDC_0706_2016-->

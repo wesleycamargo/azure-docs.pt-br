@@ -26,6 +26,18 @@ Este artigo contém informações sobre as várias versões e atualizações mai
 
 > [AZURE.NOTE] Há também um kit de ferramentas do Azure para o IDE do IntelliJ. Para obter mais informações, confira [Kit de Ferramentas do Azure para IntelliJ].
 
+### 29 de junho de 2016
+
+O Kit de Ferramentas do Azure para Eclipse, versão de junho de 2016, inclui os seguintes aprimoramentos:
+
+* **Requisito do Java 8**. O Kit de ferramentas do Azure para Eclipse agora exige o Java 8, embora esse requisito seja somente para o kit de ferramentas - seus aplicativos podem continuar a usar todas as versões do Java com suporte do Azure.
+* **Suporte para os JDKs do Java mais recentes**. Agora há suporte para as versões mais recentes de JDKs do Java pelo Kit de Ferramentas do Azure para Eclipse.
+* **Suporte para o SDK do Azure v2.9.1**. A versão mais recente do SDK do Azure agora é o pré-requisito mínimo para o Kit de Ferramentas do Azure para Eclipse.
+* **Exemplos Integrados**. O Kit de Ferramentas do Azure para Eclipse agora apresenta vários aplicativos de exemplo para ajudar os desenvolvedores a começar.
+* **Integração de Ferramentas HDInsight**. As Ferramentas de HDInsight do Azure agora estão incluídas no Kit de Ferramentas do Azure para Eclipse.
+* **Depuração remota de aplicativos Web do Java**. O Kit de Ferramentas do Azure para Eclipse agora dá suporte a depuração remota de aplicativos Web do Java no Serviço de Aplicativo do Azure.
+* **Suporte para a versão Luna do Eclipse.** A nova versão mínima exigida pelo IDE do Eclipse é a Luna.
+
 ### 12 de abril de 2016
 
 O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2016, inclui as seguintes melhorias:
@@ -280,7 +292,7 @@ O Plug-in do Azure para Eclipse, CTP de junho de 2012, foi lançado. Os novos re
 * **Detecção automática do pré-requisito do SDK 1.7 do Azure:** quando você cria um novo projeto de implantação do Azure, o SDK 1.7 do Azure é baixado automaticamente, caso ainda não esteja instalado.
 * **Pontos de extremidade de instância:** permite acesso direto ao ponto de extremidade de porta para comunicação com instâncias de função com carga balanceada. Os pontos de extremidade de instância podem ser adicionados pela interface de usuário dos pontos de extremidade, disponível na página [Propriedades de pontos de extremidade]. Isso ajuda a habilitar a depuração remota e o diagnóstico de JMX para determinadas instâncias de computação em execução na nuvem em cenários de implantações com várias instâncias.
 * **Interface de usuário dos componentes:** facilita, para os usuários avançados, a configuração de dependências de projeto entre funções individuais do Azure no projeto e outros recursos externos, como projetos de aplicativo Java; também facilita a descrição de suas lógicas de implantação. Para saber mais, consulte as [Propriedades dos componentes].
-* **Atualização automática de versões anteriores de projetos:** quando você abre um espaço de trabalho que possui um projeto do Azure criado com uma versão anterior do plug-in, os projetos antigos aparecerão no Eclipse como fechados, pois as versões anteriores dos projetos não são compatíveis com a nova versão. Se você tentar abrir um desses projetos antigos, um assistente de atualização será iniciado. Se você concordar com a atualização, um novo projeto com **\_Upgraded** anexado ao nome, será criado e atualizado automaticamente a fim de funcionar com a nova versão. Você pode renomear o novo projeto conforme o necessário. Como parte da atualização, seu projeto original não será modificado (e permanecerá fechado).
+* **Atualização automática de versões anteriores de projetos:** quando você abre um espaço de trabalho que possui um projeto do Azure criado com uma versão anterior do plug-in, os projetos antigos aparecerão no Eclipse como fechados, pois as versões anteriores dos projetos não são compatíveis com a nova versão. Se você tentar abrir um desses projetos antigos, um assistente de atualização será iniciado. Se você concordar com a atualização, um novo projeto com **\_Upgraded** anexado ao nome será criado e atualizado automaticamente a fim de funcionar com a nova versão. Você pode renomear o novo projeto conforme o necessário. Como parte da atualização, seu projeto original não será modificado (e permanecerá fechado).
 
 ### 10 de dezembro de 2011
 
@@ -308,6 +320,7 @@ Para obter mais informações sobre os kits de ferramentas do Azure para Java ID
 - [Kit de Ferramentas do Azure para IntelliJ]
   - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
   - [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  - [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
@@ -320,9 +333,12 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [página da Web do Azul Systems para o Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Ponto de extremidade de serviço do Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de contas de armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Propriedades dos componentes]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
@@ -355,4 +371,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

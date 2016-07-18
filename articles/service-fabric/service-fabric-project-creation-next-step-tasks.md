@@ -47,7 +47,7 @@ Ao adicionar um novo reliable actor, o Visual Studio adiciona dois projetos à s
 O projeto de ator fornece métodos para a configuração e a obtenção do valor de um contador mantido de forma confiável no estado do ator. O projeto de interface fornece uma interface que outros serviços podem usar para invocar o ator.
 
 ### API Web sem monitoração de estado
-O projeto de API da Web sem monitoração de estado fornece um serviço Web básico que você pode usar para abrir o aplicativo para clientes externos. Para saber mais sobre como o projeto é estruturado, confira [Serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi).
+O projeto de API da Web sem monitoração de estado fornece um serviço Web básico que você pode usar para abrir o aplicativo para clientes externos. Para ter mais informações sobre como o projeto é estruturado, consulte [Serviços da API Web do Service Fabric com a auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 ## Próximas etapas
 ### Criar um cluster do Azure
@@ -80,4 +80,4 @@ Para saber como definir um processo de integração contínuo para o aplicativo 
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

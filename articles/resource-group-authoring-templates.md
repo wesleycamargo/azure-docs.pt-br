@@ -348,7 +348,7 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
     "outputs": {
        "<outputName>" : {
          "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>",
+         "value": "<output-value-expression>"
        }
     }
 
@@ -368,11 +368,13 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
        }
     }
 
+Para obter mais informações sobre como trabalhar com a saída, consulte [Compartilhando estados nos modelos do Azure Resource Manager](best-practices-resource-manager-state.md).
+
 ## Próximas etapas
-- Para exibir modelos completos de diversos tipos diferentes de soluções, veja os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-- Para obter detalhes sobre as funções que podem ser usadas em um modelo, veja [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+- Para exibir modelos completos de diversos tipos diferentes de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+- Para obter detalhes sobre as funções que podem ser usadas em um modelo, veja [Funções de Modelo do Azure Resource Manager](resource-group-template-functions.md).
 - Para combinar vários modelos durante a implantação, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

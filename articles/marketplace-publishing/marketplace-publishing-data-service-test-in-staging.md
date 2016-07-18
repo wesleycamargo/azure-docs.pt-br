@@ -29,7 +29,7 @@ O envio da sua oferta para o preparo permite que você teste a oferta antes que 
 1.	Faça logon no [Portal de Publicação](https://publish.windowsazure.com)
 2.	Selecione **Serviços de Dados** na janela de navegação à esquerda
 3.	Selecione a oferta que você deseja enviar por push para o preparo. Você verá a tela acima.
-4.	Clique no botão **Enviar por Push para Preparo**.  
+4.	Clique no botão **Enviar por Push para Preparo**.
 5.	Se houver problemas com a oferta que precisam ser concluídos antes de enviar para o preparo, você verá uma lista exibida. Corrija esses itens clicando em cada um deles na lista. Quando todas as correções forem feitas, clique novamente no botão **Enviar por Push para Preparo**.
 
 Se não houver nenhum problema com a sua oferta, você verá a janela pop-up abaixo.
@@ -42,7 +42,7 @@ Recorte e cole sua ID de Assinatura e clique na marca de seleção para continua
 
   ![desenho](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-> [AZURE.NOTE]Essas IDs de assinaturas do Azure só são necessárias para teste e preparo no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Elas não são necessárias para testar no Azure Marketplace.
+> [AZURE.NOTE] Essas IDs de assinaturas do Azure só são necessárias para teste e preparo no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Elas não são necessárias para testar no Azure Marketplace.
 
 A próxima tela exibida mostra que a publicação está ocorrendo pela exibição do ícone “Em andamento” realçado em amarelo abaixo. O envio por push para o preparo leva de 10 a 15 minutos. Se levar mais tempo, primeiro atualize seu navegador (pressione F5 no IE). Nos casos raros em que a sua oferta ainda estiver sendo enviada por push para preparo após uma hora, clique no link Entre em contato conosco para nos informar de um problema.
 
@@ -74,7 +74,7 @@ Teste ou verifique cada um dos 12 itens marcados acima para garantir que todos o
 
 Por fim, verifique se o serviço funcionará por meio do Datamarket, clicando no link “EXPLORAR ESTE CONJUNTO DE DADOS”. Uma nova janela será aberta na ferramenta que chamamos de “Gerenciador de Serviços”, para que possa visualizar os resultados de uma consulta em seu serviço. Nessa janela, você pode inserir os parâmetros necessários e ver os resultados exibidos em uma consulta em seu serviço. Além disso, é exibida a URL de sua Consulta.
 
-> [AZURE.NOTE]Examinar a descrição textual do serviço exibida na parte superior. E se a sua oferta consistir em mais de uma chamada de serviço, clique nas guias na parte inferior para alternar para o próximo serviço para examinar e testar.
+> [AZURE.NOTE] Examinar a descrição textual do serviço exibida na parte superior. E se a sua oferta consistir em mais de uma chamada de serviço, clique nas guias na parte inferior para alternar para o próximo serviço para examinar e testar.
 
 
 
@@ -86,4 +86,4 @@ Se você estiver satisfeito e pronto para publicar sua oferta, leia a documenta�
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="genli"/>
 
 # Não consigo fazer logon para gerenciar minha assinatura do Azure
 
-> [AZURE.NOTE]Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) e clique em Obter Suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure no [site de Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Este artigo ajudará a solucionar algumas causas comuns de problemas de logon.
 
@@ -54,4 +54,4 @@ Agora que é possível fazer logon no Azure com uma conta institucional, aqui es
 
 Tente excluir cache/cookies usando o modo de Navegação InPrivate do IE e também usando um navegador diferente.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -84,11 +84,11 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. Na página **Definir Configurações de Aplicativo**, preencha a **URL de Logon** digitando a URL do domínio do Salesforce usando o seguinte formato:
  - Conta empresarial: `https://<domain>.my.salesforce.com`
- - Conta de desenvolvedor: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Conta de desenvolvedor: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Digite a URL de Logon][8]
 
@@ -216,7 +216,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT]  Se você estiver provisionando para um ambiente de **desenvolvedor** do Salesforce, terá um número bem limitado de licenças disponíveis para cada perfil. Portanto, é melhor provisionar usuários para o perfil **Usuário Chatter Free**, que tem 4.999 licenças disponíveis.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Salesforce**.
 
@@ -256,4 +256,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

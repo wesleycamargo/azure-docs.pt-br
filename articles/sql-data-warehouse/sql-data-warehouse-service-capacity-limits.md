@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de capacidade do SQL Data Warehouse
@@ -25,30 +25,30 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 
 | Categoria | Descrição | Máximo |
 | :------------------ | :------------------------------------------- | :----------------- |
-| DWU (Unidades de Data Warehouse)| Computação, memória e recursos de E/S | 2000 |
-| Conexão de banco de dados | Sessões abertas simultâneas | 1024<br/><br/>Damos suporte a um máximo de 1024 conexões ativas, e cada uma pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento.|
+| [DWU (Unidades de Data Warehouse)][]| Computação, memória e recursos de E/S | 2000 |
+| Conexão de banco de dados | Sessões abertas simultâneas | 1\.024<br/><br/>Damos suporte a um máximo de 1.024 conexões ativas e cada uma pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento.|
 | Conexão de banco de dados | Memória máxima para instruções preparadas | 20 MB |
-| Gerenciamento de carga de trabalho | Máximo de consultas simultâneas | 32<br/><br/> Por padrão, o SQL Data Warehouse executará até 32 consultas simultâneas e consultas restantes na fila.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar. Para saber mais, consulte [Gerenciamento de simultaneidade e de carga de trabalho][].|
+| [Gerenciamento de carga de trabalho][] | Máximo de consultas simultâneas | 32<br/><br/> Por padrão, o SQL Data Warehouse executará até 32 consultas simultâneas e colocará em fila as consultas restantes.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar.|
 
 
 ## Objetos de banco de dados
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Banco de dados | Tamanho máx. | 240 TB compactados em disco<br/><br/>Esse espaço é independente do espaço de tempdb ou de log e, portanto, é dedicado a tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 1 PB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão).|
+| Banco de dados | Tamanho máx. | 240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 1 PB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão).|
 | Tabela | Tamanho máx. | 60 TB compactados em disco |
 | Tabela | Tabelas por banco de dados | 2 bilhões |
 | Tabela | Colunas por tabela | 1024 colunas |
 | Tabela | Bytes por coluna | 8000 bytes |
-| Tabela | Bytes por linha, tamanho definido | 8\.060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que para o SQL Server com a opção de compactação de página ativada. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha que permite que colunas de comprimento variável sejam empurradas para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Para saber mais, veja o tópico [Dados de estouro de linha excedendo 8 KB][] nos Manuais Online do SQL Server.<br/><br/>Para obter uma lista dos tamanhos de tipo de dados do SQL Data Warehouse, veja [CREATE TABLE (Azure SQL Data Warehouse)][]. |
-| Tabela | Partições por tabela | 15\.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento.|
+| Tabela | Bytes por linha, tamanho definido | 8\.060 bytes<br/><br/>O número de bytes por linha é calculado como ocorre para o SQL Server, com a compactação de página ativada. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha que permite que colunas de comprimento variável sejam empurradas para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Para saber mais, consulte o tópico [Dados de Estouro de Linha excedendo 8 KB][] nos Manuais Online do SQL Server.<br/><br/>Para obter uma lista dos tamanhos do tipo de dados do SQL Data Warehouse, consulte [CREATE TABLE (Azure SQL Data Warehouse)][]. |
+| Tabela | Partições por tabela | 15\.000<br/><br/>Para ter um alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento.|
 | Tabela | Caracteres por valor de limite de partição.| 4000 |
-| Índice | Índices não clusterizados por tabela. | 999<br/><br/>Aplica-se somente a tabelas rowstore.|
-| Índice | Índices clusterizados por tabela. | 1<br><br/>Aplica-se a tabelas rowstore e columnstore.|
+| Índice | Índices não clusterizados por tabela. | 999<br/><br/>Aplica-se somente às tabelas rowstore.|
+| Índice | Índices clusterizados por tabela. | 1<br><br/>Aplica-se às tabelas rowstore e columnstore.|
 | Índice | Linhas em um grupo de linhas do índice columnstore | 1\.024<br/><br/>Cada índice columnstore é implementado como vários índices columnstore. Observe que se você inserir 1.024 linhas em um índice columnstore do SQL Data Warehouse, as linhas não irão para o mesmo grupo de linhas.|
 | Índice | Compilações simultâneas de índices columnstore clusterizados. | 32<br/><br/>Aplica-se quando todos os índices columnstore clusterizados estão sendo criados em tabelas diferentes. Apenas um build de índice columnstore clusterizado é permitido por tabela. As solicitações adicionais aguardarão em uma fila.|
-| Índice | Tamanho da chave de índice. | 900 bytes.<br/><br/>Aplica-se somente a índices rowstore.<br/><br/>Índices em colunas varchar com um tamanho máximo de mais de 900 bytes poderão ser criados se os dados existentes nas colunas não excederem 900 bytes quando o índice for criado. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão.|
-| Índice | Colunas de chave por índice. | 16<br/><br/>Aplica-se somente a índices rowstore. Os índices columnstore clusterizados incluem todas as colunas.|
+| Índice | Tamanho da chave de índice. | 900 bytes.<br/><br/>Aplica-se somente aos índices rowstore.<br/><br/>Índices nas colunas varchar com um tamanho máximo de mais de 900 bytes poderão ser criados se os dados existentes nas colunas não excederem 900 bytes quando o índice for criado. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão.|
+| Índice | Colunas de chave por índice. | 16<br/><br/>Aplica-se somente aos índices rowstore. Os índices columnstore clusterizados incluem todas as colunas.|
 | Estatísticas | O tamanho dos valores de coluna combinados. | 900 bytes. |
 | Estatísticas | As colunas por objeto de estatísticas. | 32 |
 | Estatísticas | As estatísticas criadas em colunas por tabela. | 30\.000 |
@@ -60,7 +60,7 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Cargas de Polybase | Bytes por linha | 32\.768<br/><br/>As cargas Polybase estão limitadas a carregar as duas linhas com menos de 32K e não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Embora esse limite exista hoje, ele será removida muito em breve.<br/><br/>
+| Cargas de Polybase | Bytes por linha | 32\.768<br/><br/>As cargas Polybase estão limitadas a carregar as duas linhas com menos de 32 K e não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) nem VARBINARY(MAX). Embora esse limite exista hoje, ele será removido muito em breve.<br/><br/>
 
 
 ## Consultas
@@ -74,10 +74,10 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 | Batch | Tamanho máximo | 65\.536*4096 |
 | Resultados de SELECT | Colunas por linha | 4\.096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela.|
 | SELECIONAR | Subconsultas aninhadas | 32<br/><br/>Você nunca poderá ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível.|
-| SELECIONAR | Colunas por JOIN | 1024 colunas<br/><br/>Você nunca poderá ter mais de 1024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
-| SELECIONAR | Bytes por colunas GROUP BY. | 8060<br/><br/>As colunas na cláusula GROUP BY podem ter no máximo 8060 bytes.|
-| SELECIONAR | Bytes por colunas ORDER BY | 8060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter no máximo 8060 bytes.|
-| Identificadores e constantes por instrução | O número de identificadores referenciados e constantes. | 65\.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para saber mais, veja [Erro interno: foi atingido um limite de serviços de expressão][].|
+| SELECIONAR | Colunas por JOIN | 1\.024 colunas<br/><br/>Você nunca poderá ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
+| SELECIONAR | Bytes por colunas GROUP BY. | 8\.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes.|
+| SELECIONAR | Bytes por colunas ORDER BY | 8\.060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8.060 bytes.|
+| Identificadores e constantes por instrução | O número de identificadores referenciados e constantes. | 65\.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para saber mais, consulte [Erro interno: foi atingido um limite dos serviços de expressão][].|
 
 
 ## Metadados
@@ -101,12 +101,13 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de referência do SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
-[Gerenciamento de simultaneidade e de carga de trabalho]: sql-data-warehouse-develop-concurrency.md
+[DWU (Unidades de Data Warehouse)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Visão geral de referência do SQL Data Warehouse]: ./sql-data-warehouse-overview-reference.md
+[Gerenciamento de carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
-[Dados de estouro de linha excedendo 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
+[Dados de Estouro de Linha excedendo 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
-[Erro interno: foi atingido um limite de serviços de expressão]: https://support.microsoft.com/kb/913050
+[Erro interno: foi atingido um limite dos serviços de expressão]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

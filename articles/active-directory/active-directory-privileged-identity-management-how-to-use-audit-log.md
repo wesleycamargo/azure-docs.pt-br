@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Como usar o log de auditoria no Azure AD Privileged Identity Management
@@ -21,7 +21,7 @@
 Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo.
 
 ## Navegar até o log de auditoria
-No painel do [portal do Azure](https://portal.azure.com), selecione o aplicativo **Azure AD Privileged Identity Management**. Lá, acesse o log de auditoria ao clicar em **Histórico de auditoria** no painel PIM.
+No painel do [portal do Azure](https://portal.azure.com), selecione o aplicativo **Azure AD Privileged Identity Management**. Lá, acesse o log de auditoria clicando em **Gerenciar funções com privilégios** > **Histórico de auditoria** no painel PIM.
 
 ## O gráfico do log de auditoria
 Você pode usar o log de auditoria para exibir, em um gráfico de linha, o total de ativações, o número máximo de ativações diárias e a média diária de ativações. Você também pode filtrar os dados por função se houver mais de uma função no histórico de auditoria.
@@ -47,9 +47,9 @@ Depois de definir os filtros, clique em **Atualizar** para filtrar os dados no l
 
 
 ### Alterar o intervalo de data
-Use os botões **Hoje**, **Semana Passada**, **Último Mês** ou **Personalizado** para alterar o intervalo de tempo do log de auditoria.
+Use os botões **Hoje**, **Última Semana**, **Último Mês** ou **Personalizado** para alterar o intervalo de tempo do log de auditoria.
 
-Quando você escolhe o botão **Personalizado**, terá um campo de data **De** e um campo de data **Até** para especificar o intervalo de datas para o log. Você pode digitar as datas no formato DD/MM/AAAA, ou clique no ícone **calendário** e escolha a data em um calendário.
+Ao escolher o botão **Personalizado**, você terá um campo de data **De** e um campo de data **Até** para especificar o intervalo de datas para o log. Você pode digitar as datas no formato DD/MM/AAAA, ou clique no ícone **calendário** e escolha a data em um calendário.
 
 ### Alterar as funções incluídas no log
 
@@ -60,4 +60,4 @@ Marque ou desmarque a caixa de seleção **Função** ao lado de cada função p
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Replicar VMs Hyper-V em uma nuvem VMM para um site secundário com o Azure Site Recovery usando SAN
@@ -40,8 +40,8 @@ Aqui está o que esse cenário fornece:
 - Utilização dos recursos de replicação de SAN fornecidos pelos parceiros de armazenamento corporativo por meio do armazenamento fibre channel e iSCSI. Confira nossos [Parceiros de armazenamento SAN](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).
 - Aproveita de sua infraestrutura de SAN atual para proteger aplicativos fundamentais implantados em clusters Hyper-V.
 - Fornece suporte para clusters de convidado.
-- Garantia de consistência da replicação em camadas diferentes de um aplicativo, com replicação sincronizada para RTO e RPO baixo, e replicação assíncrona para alta flexibilidade, dependendo das capacidades da matriz de armazenamento.  
-- A integração com o VMM fornece gerenciamento de SAN no console do VMM, e o SMI-S no VMM descobre o armazenamento existente.  
+- Garantia de consistência da replicação em camadas diferentes de um aplicativo, com replicação sincronizada para RTO e RPO baixo, e replicação assíncrona para alta flexibilidade, dependendo das capacidades da matriz de armazenamento.
+- A integração com o VMM fornece gerenciamento de SAN no console do VMM, e o SMI-S no VMM descobre o armazenamento existente.
 
 ## Arquitetura
 
@@ -178,7 +178,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 	![Atualizações da Microsoft](./media/site-recovery-vmm-san/ms-update.png)
 
-7. O local de instalação é definido como **<SystemDrive>\\Arquivos de Programas\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor.
+7. O local de instalação é definido para **<UnidadeSistema>\\Arquivos de Programa\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor.
 
 	![InstallLocation](./media/site-recovery-vmm-san/install-location.png)
 
@@ -202,7 +202,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
 10. Em **Chave de registro**, selecione que você baixou a partir de Recuperação de Site do Azure e copiou para o servidor VMM.
-11. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. 
+11. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado.
 
 	![Registros do servidor](./media/site-recovery-vmm-san/vault-creds.png)
 
@@ -211,7 +211,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 	![Registros do servidor](./media/site-recovery-vmm-san/encrypt.png)
 
 13. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-14. Em **Sincronização inicial dos metadados de nuvem**, especifique um nome amigável para o servidor que aparecerá no cofre e selecione se deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
+14. Em **Sincronização inicial dos metadados da nuvem**, especifique um nome amistoso para o servidor que aparecerá no cofre e selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
 
 	![Registros do servidor](./media/site-recovery-vmm-san/friendly-name.png)
 
@@ -223,7 +223,7 @@ O Provedor do Azure Site Recovery também pode ser instalado usando a linha de c
 
 1. Baixar o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR
 2. Parar o Serviço System Center Virtual Machine Manager
-3. Extrair o instalador do Provedor executando o seguinte de um prompt de comando com privilégios de **Administrador**:
+3. Extraia o instalador do Provedor executando o seguinte em um prompt de comando com os privilégios de **Administrador**:
 
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -239,7 +239,7 @@ O Provedor do Azure Site Recovery também pode ser instalado usando a linha de c
 
 Em que os parâmetros são:
 
- - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
+ - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado
  - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
  - **/EncryptionEnabled**: parâmetro opcional que você precisa usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se de que o nome do arquivo que você fornecer tem uma extensão **. pfx**.
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
@@ -316,7 +316,7 @@ Depois que as máquinas virtuais forem habilitadas para proteção, elas aparece
 
 >[AZURE.NOTE] Depois de habilitar a replicação para uma máquina, você não deve adicionar VHDs para ela para LUNs que não estejam localizadas em um grupo de replicação de Recuperação de Site. Caso faça isso, eles não serão detectados pela Recuperação de Site.
 
-Pode-se acompanhar o progresso da ação Habilitar Proteção na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover.
+É possível acompanhar o progresso da ação Habilitar Proteção na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover.
 
 ![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-san/job-props.png)
 
@@ -325,9 +325,7 @@ Pode-se acompanhar o progresso da ação Habilitar Proteção na guia **Trabalho
 Teste a implantação para garantir que as máquinas virtuais e os dados executem o failover conforme o esperado. Para fazer isso, você criará um plano de recuperação selecionando grupos de replicação. Em seguida, execute um failover de teste no plano.
 
 1. Na guia **Planos de Recuperação**, clique em **Criar Plano de Recuperação**.
-2. Especifique um nome para o plano de recuperação e servidores do VMM de origem e destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação. Selecione **SAN** para exibir somente as nuvens que estão configuradas para replicação de SAN.
-3.
-	![Criar plano de recuperação](./media/site-recovery-vmm-san/r-plan.png)
+2. Especifique um nome para o plano de recuperação e servidores do VMM de origem e destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação. Selecione **SAN** para exibir somente as nuvens que estão configuradas para replicação de SAN. 3. ![Criar plano de recuperação](./media/site-recovery-vmm-san/r-plan.png)
 
 4. Em **Selecionar Máquina Virtual**, selecione os grupos de replicação. Todas as máquinas virtuais associadas ao grupo de replicação serão selecionadas e adicionadas ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação — Grupo 1. Você pode adicionar mais grupos se necessário. Observe que, depois da replicação, as máquinas virtuais serão inicializadas de acordo com a ordem dos grupos de plano de recuperação.
 
@@ -363,4 +361,4 @@ Teste a implantação para garantir que as máquinas virtuais e os dados execute
 
 Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [saiba mais sobre](site-recovery-failover.md) os diferentes tipos de failover.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

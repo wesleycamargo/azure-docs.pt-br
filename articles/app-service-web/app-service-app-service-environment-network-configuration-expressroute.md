@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>
 
 # Detalhes da configuração de rede para Ambientes de Aplicativo de Serviço com a Rota Expressa 
@@ -21,7 +21,7 @@
 ## Visão geral ##
 Os clientes podem conectar um circuito da [Rota Expressa do Azure][ExpressRoute] à infraestrutura de rede virtual, estendendo, assim, a rede local até o Azure. Um Ambiente de Serviço de Aplicativo pode ser criado em uma sub-rede dessa infraestrutura de [rede virtual][virtualnetwork]. Os aplicativos em execução no Ambiente de Serviço de Aplicativo podem então estabelecer conexões seguras com recursos de back-end acessíveis apenas pela conexão de Rota Expressa.
 
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2". Atualmente, os Ambientes do Serviço de Aplicativo têm suporte apenas nas redes virtuais "v1" clássicas usando um espaço de endereço RFC1918 (ou seja, endereços privados).
+**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2". Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -140,4 +140,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

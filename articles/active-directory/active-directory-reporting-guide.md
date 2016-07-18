@@ -27,7 +27,6 @@
  - [Aterramento de Relatórios do Active Directory do Azure](active-directory-reporting-backfill.md)
  - [Latências de Relatórios do Active Directory do Azure](active-directory-reporting-latencies.md)
  - [Evento de “ator desconhecido” de Relatórios do Active Directory do Azure](active-directory-reporting-unknown-actor.md)
- - [Relatório de atividade de entrada de todos os usuários do Active Directory do Azure](active-directory-reporting-all-user-sign-in-activity-report.md)
- - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
+ - [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

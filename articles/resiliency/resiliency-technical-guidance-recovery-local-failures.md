@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="07/05/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de falhas locais no Azure
@@ -69,7 +69,7 @@ As Máquinas Virtuais do Azure são diferentes de funções de computação de P
 
 Diferentemente do que ocorre nas instâncias de função de PaaS, os dados armazenados em unidades de máquina virtual são persistentes mesmo quando a máquina virtual é realocada. As máquinas virtuais do Azure usam discos de VM que existem como blobs no Armazenamento do Azure. Devido às características de disponibilidade do Armazenamento do Azure, os dados armazenados nas unidades de uma máquina virtual também têm alta disponibilidade.
 
-Observe que a unidade D é a exceção a essa regra. A unidade D é na verdade o armazenamento físico no servidor de rack que hospeda a VM, e seus dados serão perdidos se a VM for reciclada. A unidade D destina-se somente a armazenamento temporário.
+Observe que a unidade D (em VMs do Windows) é a exceção a essa regra. A unidade D é na verdade o armazenamento físico no servidor de rack que hospeda a VM, e seus dados serão perdidos se a VM for reciclada. A unidade D destina-se somente a armazenamento temporário. No Linux, o Azure "geralmente" (mas nem sempre) expõe o disco temporário local como o dispositivo de bloco /dev/sdb. Geralmente, ele é montado pelo Agente Linux do Azure como pontos de montagem /mnt/resource ou /mnt (configuráveis via /etc/waagent.conf).
 
 ###Particionamento
 
@@ -118,13 +118,13 @@ O Banco de Dados SQL do Azure fornece resiliência interna a falhas no nível de
 
 ####Gerenciamento de recursos
 
-Cada banco de dados, quando criado, é configurado com um limite de tamanho superior. O tamanho máximo disponível atualmente é de 150 GB. Quando um banco de dados atinge seu limite de tamanho superior, ele rejeita os comandos adicionais INSERT ou UPDATE. (Ainda é possível consultar e excluir dados).
+Cada banco de dados, quando criado, é configurado com um limite de tamanho superior. O tamanho máximo disponível atualmente é de 1 TB (os limites de tamanho variam com base em sua camada de serviço; confira [camadas de serviço e níveis de desempenho de Bancos de Dados do SQL Azure](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels). Quando um banco de dados atinge seu limite de tamanho superior, ele rejeita os comandos adicionais INSERT ou UPDATE. (Ainda é possível consultar e excluir dados).
 
 Em um banco de dados, o Banco de Dados SQL do Azure usa uma malha para gerenciar recursos. No entanto, em vez de um controlador de malha, ele usa uma topologia de anel para detectar falhas. Cada réplica em um cluster tem dois vizinhos e é responsável por detectar quando eles são desativados. Quando uma réplica é desativada, seus vizinhos disparam um agente de reconfiguração para recriá-la em outro computador. A limitação de mecanismo é fornecida para garantir que um servidor lógico não use recursos demais em um computador ou exceda seus limites físicos.
 
 ###Elasticidade
 
-Se o aplicativo exigir mais do que o limite de banco de dados de 150 GB, ele deverá implementar uma abordagem de escalonamento horizontal. Escale horizontalmente com o Banco de Dados SQL particionando manualmente os dados, também conhecido como fragmentação, entre vários bancos de dados SQL. Essa abordagem de escalonamento horizontal dá oportunidade de atingir o crescimento de custo praticamente linear com escala. O crescimento elástico ou a capacidade sob demanda podem crescer com custos incrementais conforme necessário, porque os bancos de dados são cobrados com base no tamanho real médio usado por dia, e não no tamanho máximo possível.
+Se o aplicativo exigir mais do que o limite de banco de dados de 1 TB, ele deverá implementar uma abordagem de escalonamento horizontal. Escale horizontalmente com o Banco de Dados SQL particionando manualmente os dados, também conhecido como fragmentação, entre vários bancos de dados SQL. Essa abordagem de escalonamento horizontal dá oportunidade de atingir o crescimento de custo praticamente linear com escala. O crescimento elástico ou a capacidade sob demanda podem crescer com custos incrementais conforme necessário, porque os bancos de dados são cobrados com base no tamanho real médio usado por dia, e não no tamanho máximo possível.
 
 ##SQL Server em máquinas virtuais
 
@@ -132,11 +132,11 @@ A instalar o SQL Server (versão 2014 ou posterior) nas Máquinas Virtuais do Az
 
 ###Nós de alta disponibilidade em um conjunto de disponibilidade
 
-Quando você implementa uma solução de alta disponibilidade no Azure, é possível usar o conjunto de disponibilidade no Azure para colocar os nós de alta disponibilidade em domínios de falha e domínios de atualização separados. Para ser claro, o conjunto de disponibilidade é um conceito do Azure. É uma prática recomendada que deve ser seguida para garantir que seus bancos de dados sejam, de fato, altamente disponibilizados, esteja você usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados ou outro meio. Não seguir essa prática recomendada pode fazê-lo supor erroneamente que seu sistema esteja altamente disponível. Na realidade, os nós podem falhar simultaneamente, pois pode acontecer de serem colocados no mesmo domínio de falha que o datacenter do Azure.
+Quando você implementa uma solução de alta disponibilidade no Azure, é possível usar o conjunto de disponibilidade no Azure para colocar os nós de alta disponibilidade em domínios de falha e domínios de atualização separados. Para ser claro, o conjunto de disponibilidade é um conceito do Azure. É uma prática recomendada que deve ser seguida para garantir que seus bancos de dados sejam, de fato, altamente disponibilizados, esteja você usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados ou outro meio. Não seguir essa prática recomendada pode fazê-lo supor erroneamente que seu sistema esteja altamente disponível. Na realidade, os nós podem falhar simultaneamente, pois pode acontecer de serem colocados no mesmo domínio de falha na região do Azure.
 
-Essa recomendação não se aplica integralmente ao envio de logs. Como um recurso de recuperação de desastre, você deve garantir que os servidores estejam sendo executados em locais (regiões) separados do datacenter do Azure. Por definição, esses locais do datacenter são domínios de falha separados.
+Essa recomendação não se aplica integralmente ao envio de logs. Como um recurso de recuperação de desastre, você deve garantir que os servidores estejam sendo executados em regiões separadas do Azure. Por definição, essas regiões são domínios de falha separados.
 
-Para que VMs do Azure sejam colocadas no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo serviço de nuvem. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Além disso, as VMs deve estar na mesma rede virtual para garantir que elas mantenham seus IPs mesmo depois da recuperação do serviço. Isso evita tempos de atualização de DNS.
+Para VMs de Serviços de Nuvem do Azure implantadas por meio do portal clássico para estarem no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo Serviço de Nuvem. VMs implantadas por meio do Azure Resource Manager (o portal atual) não têm essa limitação. Para VMs implantadas do portal clássico no Serviço de Nuvem do Azure, apenas os nós no mesmo Serviço de Nuvem podem participar do mesmo conjunto de disponibilidade. Além disso, as VMs dos Serviços de Nuvem deve estar na mesma rede virtual para garantir que mantenham seus IPs mesmo após a recuperação do serviço. Isso evita interrupções de atualização de DNS.
 
 ###Somente Azure: soluções de alta disponibilidade
 
@@ -176,7 +176,7 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 ###Serviços de Nuvem
 
-  1. Leia a seção [Serviços de Nuvem](#cloud-services) deste documento.
+  1. Examinar a seção [Serviços de Nuvem](#cloud-services) deste documento.
   2. Configure pelo menos duas instâncias para cada função.
   3. Mantenha o estado no armazenamento durável, não em instâncias de função.
   4. Trate corretamente o evento StatusCheck.
@@ -187,40 +187,40 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 ###Máquinas Virtuais
 
-  1. Leia a seção [Máquinas Virtuais](#virtual-machines) deste documento.
+  1. Examinar a seção [Máquinas Virtuais](#virtual-machines) deste documento.
   2. Não use a unidade D para armazenamento persistente.
   3. Agrupe computadores em uma camada de serviço em um conjunto de disponibilidade.
   4. Configure o balanceamento de carga e investigações opcionais.
 
 ###Armazenamento
 
-  1. Leia a seção [Armazenamento](#storage) deste documento.
+  1. Examinar a seção [Armazenamento](#storage) deste documento.
   2. Use várias contas de armazenamento quando dados ou largura de banda excederem as cotas.
 
 ###Banco de Dados SQL
 
-  1. Leia a seção [Banco de Dados SQL](#sql-database) deste documento.
+  1. Examinar a seção [Banco de Dados SQL](#sql-database) deste documento.
   2. Implemente uma política de repetição para tratar de erros transitórios.
   3. Use particionamento/fragmentação como uma estratégia de escalonamento horizontal.
 
 ###SQL Server em máquinas virtuais
 
-  1. Leia a seção [SQL Server em Máquinas Virtuais](#sql-server-on-virtual-machines) deste documento.
+  1. Examinar a seção [SQL Server em máquinas virtuais](#sql-server-on-virtual-machines) deste documento.
   2. Siga as recomendações anteriores para máquinas virtuais.
   3. Use recursos de alta disponibilidade do SQL Server, como o AlwaysOn.
 
 ###Barramento de Serviço
 
-  1. Leia a seção [Barramento de Serviço](#service-bus) deste documento.
+  1. Examinar a seção [Barramento de Serviço](#service-bus) deste documento.
   2. Considere a criação de uma fila durável do lado do cliente como um backup.
 
 ###HDInsight
 
-  1. Leia a seção [HDInsight](#hdinsight) deste documento.
+  1. Examinar a seção [HDInsight](#hdinsight) deste documento.
   2. Nenhuma etapa adicional de disponibilidade é necessária para falhas locais.
 
 ##Próximas etapas
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->
