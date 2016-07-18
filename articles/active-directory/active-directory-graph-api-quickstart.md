@@ -20,7 +20,7 @@
 
 # Guia de início rápido para a Graph API do AD do Azure
 
-A Graph API do Active Directory do Azure fornece acesso programático ao AD do Azure por meio de pontos de extremidade OData REST API. Os aplicativos podem usar a Graph API para realizar operações de criação, leitura, atualização e exclusão (CRUD) nos objetos e dados do diretório. Por exemplo, você pode usar a Graph API para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para obter mais informações sobre os recursos da Graph API e cenários de aplicativo, consulte [a Graph API do AD do Azure ](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Pré-requisitos da Graph API do AD do Azure](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
+A Graph API do Active Directory do Azure fornece acesso programático ao AD do Azure por meio de pontos de extremidade OData REST API. Os aplicativos podem usar a Graph API para realizar operações de criação, leitura, atualização e exclusão (CRUD) nos objetos e dados do diretório. Por exemplo, você pode usar a Graph API para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para obter mais informações sobre os recursos da Graph API e cenários de aplicativo, consulte [a Graph API do AD do Azure ](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Pré-requisitos da Graph API do AD do Azure](https://msdn.microsoft.com/library/hh974476.aspx).
 
 > [AZURE.IMPORTANT] A funcionalidade API do Azure AD Graph também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, o OneDrive, o OneNote, o Planner e o Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
 
@@ -120,4 +120,4 @@ Para saber mais sobre entidades e tipos do AD do Azure que são expostos pelo Gr
 - Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - Saiba mais sobre [Escopos de Permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

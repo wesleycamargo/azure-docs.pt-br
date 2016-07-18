@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 #  Replicar máquinas virtuais do Hyper-V em um único servidor de VMM
@@ -27,7 +27,7 @@ Se você tiver dúvidas após a leitura deste artigo, publique-as no [Fórum dos
 
 Você pode replicar VMs do Hyper-V localizadas em hosts do Hyper-V em nuvens do VMM de duas maneiras:
 
-- Replicar para o Azure. 
+- Replicar para o Azure.
 - Replicar para um site do VMM secundário
 
 Porém, o que acontecerá se você desejar replicar para um local de VMM secundário, mas tiver apenas um único servidor VMM em sua implantação?
@@ -62,7 +62,7 @@ Siga as instruções [neste artigo](site-recovery-vmm-to-vmm.md) para criar um c
 
 Quando paralisações ocorrem, você recuperará as cargas de trabalho em VMs do Hyper-V da seguinte maneira:
 
-1. Faça o failover da réplica da VM do VMM manualmente para o site secundário usando o Gerenciador do Hyper-V com um failover planejado. 
+1. Faça o failover da réplica da VM do VMM manualmente para o site secundário usando o Gerenciador do Hyper-V com um failover planejado.
 2. Depois que a VM do VMM for recuperada, você pode entrar no Gerenciador de Recuperação do Hyper-V do site secundário e fazer um failover não planejado das VMs do site secundário para o site primário. Observe que a VM do VMM precisa passar por um failover manualmente para o site secundário para que as VMs de carga de trabalho possam passar por failover.
 3. Após a conclusão do failover não planejado, todos os recursos poderão ser acessados no site principal novamente.
 
@@ -93,4 +93,4 @@ Quando paralisações ocorrem, o servidor de VMM e seu banco de dados do SQL Ser
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

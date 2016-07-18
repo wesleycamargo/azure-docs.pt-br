@@ -52,10 +52,10 @@ Quando você usa o servidor MFA (Multi-Factor Authentication) local, os dados do
 - Endereço de email: opcional
 - Número de telefone: ao fazer uma chamada de voz ou SMS de autenticação
 - Token de dispositivo: ao fazer autenticação de aplicativos móveis
-- Modo de autenticação 
-- Resultado da autenticação 
-- Nome do servidor MFA 
-- Servidor IP MFA 
+- Modo de autenticação
+- Resultado da autenticação
+- Nome do servidor MFA
+- Servidor IP MFA
 - Cliente IP: se disponível
 
 
@@ -83,7 +83,7 @@ Modelos de cobrança | Preço
 Consumo por usuário (compromisso monetário do Azure)| US$ 1,40 por mês (autenticações ilimitadas)
 Consumo por autenticação (compromisso monetário do Azure)|$1,40 por 10 autenticações
 Licença anual por usuário (Direto)|US$ 1,40 por mês (autenticações ilimitadas)
-Licença anual por usuário (Licenciamento por Volume)|Entre em contato com seu representante do [Enterprise Agreement.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
+Licença anual por usuário (Licenciamento por Volume)|Entre em contato com seu representante do [Enterprise Agreement.](https://www.microsoft.com/pt-BR/licensing/licensing-programs/enterprise.aspx)
 
 **P: o modelo de cobrança ‘por usuário’ se baseia no número de usuários habilitados para o Multi-Factor Authentication ou no número de usuários que executam as verificações?**
 
@@ -132,7 +132,7 @@ Você pode excluir todas as senhas de aplicativo dos usuários para impedir qual
 **P: e se o usuário não conseguir entrar nos aplicativos que não usam navegador?**
 
 - Os usuários habilitados para autenticação multifator exigirão a senha de aplicativo para entrar em alguns aplicativos que não usam navegador.
-- Os usuários precisarão limpar as informações de entrada (excluir as informações para conexão), reiniciar o aplicativo e entrar com os respectivos nome de usuário e senha de aplicativo. 
+- Os usuários precisarão limpar as informações de entrada (excluir as informações para conexão), reiniciar o aplicativo e entrar com os respectivos nome de usuário e senha de aplicativo.
 
 Para obter informações sobre como criar senhas de aplicativo, confira [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md)
 
@@ -183,6 +183,6 @@ No entanto, se você estiver usando o Windows Server 2012 R2, você precisará d
 
 Atualmente, a verificação de segurança adicional pode ser usada somente com aplicativos/serviços que você pode acessar pelo navegador. Os aplicativos que não usam navegador (também conhecidos como aplicativos cliente avançados) que são instalados no computador local, como o Windows PowerShell, não funcionarão com contas que exigem a verificação de segurança adicional. Nesse caso, o aplicativo pode gerar o erro 0x800434D4L.
 
-Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
+Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] \(http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

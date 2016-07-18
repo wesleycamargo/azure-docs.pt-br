@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="07/05/2016"
     ms.author="sethm" />
 
 # Usando o Barramento de Serviço do .NET com AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Baixar o SDK do Barramento de Serviço
 
-O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço. Você pode baixar os bits mais recentes do Barramento de Serviço do [NuGet][].
+O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK do Barramento de Serviço. Você pode garantir que tem a versão mais recente baixando os bits do Barramento de Serviço do [NuGet][].
 
 ## Configurando aplicativos .NET para usar o AMQP 1.0
 
@@ -99,51 +99,7 @@ Os seguintes recursos da API .NET do Barramento de Serviço não são atualmente
 
 -   Enviar por meio de destino da transferência.
 
--   Receber pelo número sequencial da mensagem.
-
--   Procurar mensagens e sessões.
-
--   Estado de sessão.
-
--   APIs baseadas em lote.
-
 -   Recebimento dimensionado.
-
--   Manipulação do tempo de execução das regras de assinatura.
-
--   Renovação de bloqueio da sessão.
-
-Especificamente, as seguintes APIs não são suportadas atualmente ao usar o AMQP:
-
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession][]
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)][]
-
-- [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)][]
-- [(Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch)][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch][]
-
-- [Microsoft.ServiceBus.Messaging.QueueClient.Peek][]
-- [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch][]
-
-- [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)][]
-
-- [Microsoft.ServiceBus.Messaging.MessageSession.GetState][]
-- [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)][]
-- [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock][]
-
-- [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock][]
 
 Também há algumas pequenas diferenças no comportamento da API .NET do Barramento de Serviço ao usar AMQP, em comparação com o protocolo padrão:
 
@@ -176,26 +132,6 @@ Está pronto(a) para saber mais? Visite os links a seguir:
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh322665.aspx
-  [(Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek]: https://msdn.microsoft.com/library/azure/jj908731.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh293110.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.addrule.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.removerule.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.GetState]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx
-  [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [portal clássico do Azure]: http://manage.windowsazure.com
@@ -203,4 +139,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

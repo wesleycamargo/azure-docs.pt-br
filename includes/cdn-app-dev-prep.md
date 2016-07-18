@@ -1,24 +1,28 @@
-## Preparação
+## Pré-requisitos
 
-Para que possamos gravar o código de gerenciamento de CDN, precisaremos fazer algumas preparações. A primeira tarefa que vamos fazer é criar um grupo de recursos para conter o perfil de CDN que criamos neste tutorial. Em seguida, configuraremos o Azure Active Directory para fornecer autenticação para o nosso aplicativo. Quando tivermos terminado, aplicaremos permissões ao grupo de recursos para que somente usuários autorizados do nosso locatário do Azure AD possam interagir com nosso perfil de CDN.
+Para podermos escrever código de gerenciamento de CDN, precisamos fazer algumas preparações para habilitar o código a interagir com o Azure Resource Manager. Para fazer isso, você precisará:
+
+* Criar um grupo de recursos para conter o perfil de CDN que criamos neste tutorial
+* Configurar o Azure Active Directory para fornecer autenticação ao aplicativo
+* Aplicar permissões ao grupo de recursos para que somente usuários autorizados do nosso locatário do Azure AD possam interagir com o perfil de CDN
 
 ### Criando o grupo de recursos
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-2. Clique no botão **Novo** no canto superior esquerdo e, em seguida, clique em **Gerenciamento** e depois em **Grupo de Recursos**.
+2. Clique no botão **Novo** no canto superior esquerdo e clique em **Gerenciamento** e depois em **Grupo de Recursos**.
 	
-	![Criando um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1.png)
+	![Criando um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 
 3. Chame seu grupo de recursos de *CdnConsoleTutorial*. Selecione sua assinatura e escolha uma localização perto de você. Se desejar, você poderá clicar na caixa de seleção **Fixar no painel** para fixar o grupo de recursos no painel que está no portal. Isso facilitará a localização posteriormente. Após fazer suas seleções, clique em **Criar**.
 
-	![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2.png)
+	![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 
-4. Depois que o grupo de recursos for criado, se você não fixá-lo ao seu painel, poderá encontrá-lo clicando em **Procurar** e, em seguida, em **Grupos de Recursos**. Clique no grupo de recursos para abri-lo. Anote sua **ID da assinatura**. Precisaremos dela mais tarde.
+4. Depois que o grupo de recursos for criado, se você não o fixar ao painel, poderá encontrá-lo clicando em **Procurar** e em **Grupos de Recursos**. Clique no grupo de recursos para abri-lo. Anote sua **ID da assinatura**. Precisaremos dela mais tarde.
 
-	 ![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id.png)
+	![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### Criando o aplicativo Azure AD
+### Criar o aplicativo do Azure AD e aplicar permissões
 
 Há duas abordagens para autenticação de aplicativo com o Azure Active Directory: usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows. Em vez de conceder permissões a um determinado usuário para interagir com os perfis de CDN, conceda as permissões à entidade de serviço. As entidades de serviço geralmente são usadas para processos automatizados não interativos. Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
 
@@ -32,18 +36,18 @@ A criação de uma entidade de serviço abarca várias etapas, incluindo o desen
 
 Depois de ter criado a entidade de serviço e atribuído a função **Colaborador do Perfil CDN**, a folha **Usuários** do seu grupo de recursos deve ser semelhante a esta.
 
-![Folha de usuários](./media/cdn-app-dev-prep/cdn-service-principal.png)
+![Folha de usuários](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
 
 ### Autenticação de usuário interativo
 
 Se, em vez de uma entidade de serviço, você preferir a autenticação de usuário individual interativa, o processo será muito semelhante ao de uma entidade de serviço. Na verdade, você precisará seguir o mesmo procedimento, mas fazer algumas pequenas alterações.
 
->[AZURE.IMPORTANT] Siga as próximas etapas, se escolher usar a autenticação de usuário individual, em vez de uma entidade de serviço.
+> [AZURE.IMPORTANT] Siga as próximas etapas, se escolher usar a autenticação de usuário individual, em vez de uma entidade de serviço.
 
 1. Ao criar seu aplicativo, em vez de **Aplicativo Web**, escolha **Aplicativo nativo**.
 	
-	![Aplicativo nativo](./media/cdn-app-dev-prep/cdn-native-application.png)
+	![Aplicativo nativo](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 	
 2. Na próxima página, será solicitada o **URI de redirecionamento**. O URI não será validado, mas lembre-se do que você digitou. Você precisará dela mais tarde.
 
@@ -51,6 +55,6 @@ Se, em vez de uma entidade de serviço, você preferir a autenticação de usuá
 
 4. Em vez de atribuir uma entidade de serviço para a função **Colaborador do Perfil CDN**, vamos atribuir usuários individuais ou grupos. Neste exemplo, é possível ver que você atribuiu o *Usuário de Demonstração CDN* para a função **Colaborador do Perfil CDN**.
 	
-	![Acesso de usuário individual](./media/cdn-app-dev-prep/cdn-aad-user.png)
+	![Acesso de usuário individual](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

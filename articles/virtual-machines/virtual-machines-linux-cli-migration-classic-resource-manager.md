@@ -27,9 +27,8 @@ Veja a seguir algumas das práticas que recomendamos durante a avaliação de mi
 
 - Leia a [lista de recursos ou de configurações sem suporte](virtual-machines-windows-migration-classic-resource-manager.md). Caso você tenha máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte para o recurso/configuração seja anunciado. Como alternativa, é possível remover esse recurso ou mudar a configuração para habilitar a migração, caso ela atenda às suas necessidades.
 -	Se você tiver scripts automatizados que implantam sua infraestrutura e aplicativos atualmente, tente criar uma configuração de teste semelhante usando esses scripts para migração. Você também pode configurar ambientes de exemplo usando o portal do Azure.
-- Uma vez que o serviço está em visualização pública, certifique-se de que o ambiente de teste para migração esteja isolado do ambiente de produção. Não combine contas de armazenamento, redes virtuais ou outros recursos entre os ambientes de teste e de produção.
 
-## Etapa 2: Definir sua assinatura e se inscrever na visualização pública da migração
+## Etapa 2: Definir sua assinatura e se inscrever para a migração
 
 Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos. [Instale a CLI do Azure](../xplat-cli-install.md) e [selecione sua assinatura](../xplat-cli-connect.md).
 
@@ -37,7 +36,11 @@ Selecione a assinatura do Azure usando o seguinte comando.
 
 	azure account set "azure-subscription-name"
 
-Inscreva-se na visualização pública usando o comando a seguir. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro será bem-sucedido.
+>[AZURE.NOTE] O registro é uma etapa única, mas é preciso executá-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro
+
+>	*BadRequest : Subscription is not registered for migration.* 
+
+Registre-se no provedor de recursos de migração usando o comando a seguir. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro será bem-sucedido.
 
 	azure provider register Microsoft.ClassicInfrastructureMigrate
 
@@ -105,9 +108,25 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 
 	azure network vnet commit-migration virtualnetworkname
 
+### Migrar uma conta de armazenamento
+
+Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
+
+Prepare a conta de armazenamento para migração usando o comando a seguir
+
+	azure storage account prepare-migration storageaccountname
+
+Verifique a configuração da conta de armazenamento preparada usando a CLI ou o Portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+
+	azure storage account abort-migration storageaccountname
+
+Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+
+	azure storage account commit-migration storageaccountname
+
 ## Próximas etapas
 
 - [Migração de recursos de IaaS com suporte da plataforma do Clássico para o Gerenciador de Recursos](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

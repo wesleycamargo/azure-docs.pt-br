@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/30/2016"
 	ms.author="tdykstra"/>
 
 # Autenticação de usuário para Aplicativos de API no Serviço de Aplicativo do Azure
@@ -91,7 +91,7 @@ Agora você tem o aplicativo em execução no Serviço de Aplicativo do Azure se
 
 * Configurar o Serviço de Aplicativo para exigir autenticação do Active Directory do Azure (Azure AD) para chamar o aplicativo de API de camada intermediária.
 * Criar um aplicativo Azure AD.
-* Configurar o aplicativo Azure AD para enviar o token de portador após o logon para o front-end do AngularJS. 
+* Configurar o aplicativo Azure AD para enviar o token de portador após o logon para o front-end do AngularJS.
 
 Se você enfrenta problemas ao seguir as instruções do tutorial, consulte a seção [Solução de problemas](#troubleshooting) no final do tutorial.
  
@@ -135,7 +135,7 @@ Agora, somente os usuários em seu locatário do Azure AD podem chamar o aplicat
 
 ### Opcional: testar o aplicativo de API
 
-1. Em um navegador, vá para a URL do aplicativo de API: na folha **Aplicativo de API** no portal do Azure, clique no link em **URL**.  
+1. Em um navegador, vá para a URL do aplicativo de API: na folha **Aplicativo de API** no portal do Azure, clique no link em **URL**.
 
 	Você será redirecionado para uma tela de logon, pois solicitações não autenticadas não têm permissão para chegar ao aplicativo de API.
 
@@ -329,11 +329,11 @@ Para obter informações sobre como criar um aplicativo de página única do Ang
 
 [AZURE.INCLUDE [solucionar problemas](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* Não confunda ToDoListAPI (camada intermediária) e ToDoListDataAPI (camada de dados). Por exemplo, verifique se que você adicionou autenticação ao aplicativo de API de camada intermediária, não de camada de dados. 
-* Verifique se o código-fonte AngularJS referencia a URL do aplicativo de API de camada intermediária (ToDoListAPI, não ToDoListDataAPI) e a ID de cliente do Azure AD correta. 
+* Não confunda ToDoListAPI (camada intermediária) e ToDoListDataAPI (camada de dados). Por exemplo, verifique se que você adicionou autenticação ao aplicativo de API de camada intermediária, não de camada de dados.
+* Verifique se o código-fonte AngularJS referencia a URL do aplicativo de API de camada intermediária (ToDoListAPI, não ToDoListDataAPI) e a ID de cliente do Azure AD correta.
 
 ## Próximas etapas
 
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

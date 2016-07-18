@@ -27,7 +27,6 @@ Veja a seguir algumas das práticas que recomendamos durante a avaliação de mi
 
 - Leia a [lista de recursos ou de configurações sem suporte](virtual-machines-windows-migration-classic-resource-manager.md). Caso você tenha máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos aguardar até que o suporte do recurso/configuração seja anunciado. Como alternativa, é possível remover esse recurso ou mudar a configuração para habilitar a migração, caso ela atenda às suas necessidades.
 -	Se você tiver scripts automatizados que implantam sua infraestrutura e aplicativos atualmente, tente criar uma configuração de teste semelhante usando esses scripts para migração. Você também pode configurar ambientes de exemplo usando o portal do Azure.
-- Uma vez que o serviço está em visualização pública, certifique-se de que o ambiente de teste para migração esteja isolado do ambiente de produção. Não combine contas de armazenamento, redes virtuais ou outros recursos entre os ambientes de teste e de produção.
 
 ## Etapa 2: instalar a versão mais recente do Azure PowerShell
 
@@ -35,7 +34,7 @@ Há duas opções principais para instalação, a [Galeria do PowerShell](https:
 
 Para obter mais informações, consulte [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
-## Etapa 3: Definir sua assinatura e se inscrever na visualização pública da migração
+## Etapa 3: Definir sua assinatura e se inscrever para a migração
 
 Primeiro, inicie um prompt do PowerShell. Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos.
 
@@ -47,13 +46,17 @@ Obtenha as assinaturas disponíveis usando o comando a seguir.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
-Inscreva-se na visualização pública usando o comando a seguir.
+>[AZURE.NOTE] O registro é uma etapa única, mas é preciso executá-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro
 
+>	*BadRequest : Subscription is not registered for migration.* 
+
+Registre-se no provedor de recursos de migração usando o comando a seguir.
+	
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 Aguarde cinco minutos para concluir o registro. É possível verificar o status da aprovação usando o comando a seguir. Verifique se RegistrationState é `Registered` antes de continuar.
@@ -68,7 +71,7 @@ Obtenha as assinaturas disponíveis usando o comando a seguir.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
@@ -133,10 +136,27 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 
 	Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
+### Migrar uma conta de armazenamento
+
+Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
+
+Prepare a conta de armazenamento para migração usando o comando a seguir
+
+	$storageAccountName = "storagename"
+	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
+
+Verifique a configuração da conta de armazenamento preparada usando o PowerShell ou o Portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+
+	Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
+
+Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+
+	Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
+
 ## Próximas etapas
 
 - [Migração de recursos de IaaS com suporte da plataforma do Clássico para o Gerenciador de Recursos](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

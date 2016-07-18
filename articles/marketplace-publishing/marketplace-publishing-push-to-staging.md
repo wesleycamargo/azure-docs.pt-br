@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="06/29/2016"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -175,10 +175,8 @@ Abaixo está uma exibição detalhada de como a oferta de informações de marke
 
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
-
-||Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
-|----|----|----|----|----|
-| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Visualização particular | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+- [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md)
+- [Testar a oferta de modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -192,4 +190,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

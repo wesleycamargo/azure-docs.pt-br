@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="mimig"/>
 
 # Expandindo o Banco de Dados de Documentos para as redes sociais
@@ -106,6 +106,33 @@ Os fluxos de feed podem ser criados com os processos em segundo plano dos [Servi
 
 Os pontos e as curtidas de uma postagem podem ser processados de forma adiada usando essa mesma técnica, a fim de criar um ambiente que, no final das contas, seja consistente.
 
+Os seguidores são mais complicados. O Banco de Dados de Documentos tem um limite de tamanho de documento de 512Kb, portanto, pense em armazenar seguidores como um documento com essa estrutura:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+Isso pode funcionar para um usuário com alguns milhares seguidores, mas, no caso de algumas celebridades, essa abordagem eventualmente atingirá o limite de tamanho do documento.
+
+Para resolver isso, podemos usar uma abordagem mista. Como parte do documento de Estatísticas do Usuário, podemos armazenar o número de seguidores:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+E o gráfico real de seguidores pode ser armazenado nas Tabelas do Armazenamento do Azure usando uma [extensão](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) que permite o armazenamento e recuperação simples ao estilo "A-segue-B". Dessa forma, podemos delegar o processo de recuperação da lista exata de seguidores (quando for necessário) às Tabelas de Armazenamento do Azure, mas para uma pesquisa rápida de números, continuamos usando o Banco de Dados de Documentos.
+
 ## O padrão de “Escada” e a duplicação de dados
 
 Como vocês devem ter observado no documento JSON que faz referência a uma postagem, há várias ocorrências de um usuário. E devem ter acertado: isso significa que as informações que representam um usuário, considerando essa desnormalização, podem estar presentes em mais de um local.
@@ -140,21 +167,26 @@ A etapa intermediária é chamada de User: são os dados completos que serão us
 
 A maior etapa é Extended User. Ela inclui todas as informações críticas do usuário, bem como outros dados que realmente não precisam ser lidos rapidamente ou cujo uso é eventual (como o processo de logon). Esses dados podem ser armazenados fora do Banco de Dados de Documentos, no Banco de Dados SQL do Azure ou nas Tabelas de Armazenamento do Azure.
 
-Por que dividiríamos o usuário e, até mesmo, armazenaríamos essas informações em locais diferentes? Porque o espaço de armazenamento do Banco de Dados de Documentos não é infinito e, da perspectiva de desempenho, quanto maiores os documentos, mais caras as consultas. Mantenha os documentos simples, com as informações certas para fazer todas as suas consultas dependentes de desempenho para sua rede social, e armazene as outras informações extras para eventuais cenários como edições de perfil completo, logons e, até mesmo, mineração de dados para análise de uso e iniciativas de Big Data. Realmente, não nos importamos se a coleta de dados para mineração de dados é mais lenta porque está em execução no Banco de Dados SQL do Azure; o que nos preocupa é fazer com que nossos usuários tenham uma experiência rápida e descomplicada. Um usuário, armazenado no Banco de Dados de Documentos, teria esta aparência:
+Por que dividiríamos o usuário e, até mesmo, armazenaríamos essas informações em locais diferentes? Porque o espaço de armazenamento do Banco de Dados de Documentos [não é infinito ](documentdb-limits.md) e, da perspectiva de desempenho, quanto maiores os documentos, mais caras as consultas. Mantenha os documentos simples, com as informações certas para fazer todas as suas consultas dependentes de desempenho para sua rede social, e armazene as outras informações extras para eventuais cenários como edições de perfil completo, logons e, até mesmo, mineração de dados para análise de uso e iniciativas de Big Data. Realmente, não nos importamos se a coleta de dados para mineração de dados é mais lenta porque está em execução no Banco de Dados SQL do Azure; o que nos preocupa é fazer com que nossos usuários tenham uma experiência rápida e descomplicada. Um usuário, armazenado no Banco de Dados de Documentos, teria esta aparência:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
         "surname":"Doe",
+        "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "totalPoints":100,
-        "totalPosts":24,
-        "following":{
-            "count":2,
-            "list":[
-                UserChunk1, UserChunk2
-            ]
+        "twitterHandle":"@john"
+    }
+
+E um Post teria a seguinte aparência:
+
+    {
+        "id":"1234-asd3-54ts-199a",
+        "title":"Awesome post!",
+        "date":"2016-01-02",
+        "createdBy":{
+        	"id":"dse4-qwe2-ert4-aad2",
+    		"username":"johndoe"
         }
     }
 
@@ -184,6 +216,8 @@ Agora que prendi a atenção de vocês, é provável que achem que é preciso co
 
 O [Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), é um serviço de nuvem totalmente gerenciado que permite a criação de fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", a codificação de seus próprios algoritmos em [R] (https://en.wikipedia.org/wiki/R_(programming_language)) ou o uso de algumas das APIs já criadas e prontas para uso, como: [Análise de Texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Moderador de Conteúdo](https://www.microsoft.com/moderator) ou [Recomendações](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
+Para conseguir qualquer um desses cenários de Aprendizado de Máquina, podemos usar o [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para ingerir informações de fontes diferentes e usar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que possa ser processada pelo Aprendizado de Máquina do Azure.
+
 ## Conclusão
 
 Este artigo tenta esclarecer as alternativas para a criação completa de redes sociais no Azure com serviços de baixo custo e para a entrega de excelentes resultados com o incentivo do uso de uma solução de armazenamento em várias camadas e da distribuição de dados chamada “Escada”.
@@ -198,4 +232,4 @@ Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no Banco d
 
 Caso contrário, saiba mais sobre o Banco de Dados de Documentos seguindo o [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

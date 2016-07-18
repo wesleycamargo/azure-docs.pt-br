@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Kit de Ferramentas do Azure para IntelliJ
@@ -28,6 +28,7 @@ O Kit de Ferramentas do Azure para IntelliJ fornece modelos e funcionalidade que
 
 Os artigos a seguir o ajudarão a começar a usar o Kit de Ferramentas do Azure para IntelliJ:
 
+* [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
 * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
 
@@ -42,18 +43,21 @@ Para obter mais informações sobre os kits de ferramentas do Azure para Java ID
 - *Kit de ferramentas do Azure para o IntelliJ (Este artigo)*
   - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
   - [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  - [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
 <!-- URL List -->
 
 [Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

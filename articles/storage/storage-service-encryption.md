@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/01/2016"
 	ms.author="robinsh"/>
 
 # Criptografia do Serviço de Armazenamento do Azure para dados em repouso (Visualização)
@@ -37,9 +37,9 @@ Depois de clicar na configuração da Criptografia, habilite ou desabilite a Cri
 
 ##Disponibilidade
 
-Para o armazenamento padrão, esse recurso está disponível atualmente no Oeste dos EUA, EUA Central, Ásia Oriental e Europa Ocidental.
+Para o Armazenamento Padrão, esse recurso está disponível atualmente em EUA Central, Ásia Oriental, Leste dos EUA 2, Europa Ocidental e Oeste dos EUA.
 
-Para o armazenamento premium, esse recurso está disponível atualmente no Oeste dos EUA, EUA Central e Leste do Japão.
+Para o Armazenamento Premium, esse recurso está disponível atualmente em EUA Central, Leste dos EUA 2, Leste do Japão e Oeste dos EUA.
 
 Atualizaremos este documento à medida que lançarmos esse recurso em outras regiões.
 
@@ -229,4 +229,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -31,7 +31,9 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## Investigar a execução da consulta
 Para monitorar a execução da consulta, comece com [sys.dm\_pdw\_exec\_requests][]. Essa exibição contém consultas em andamento, bem como um histórico das consultas concluídas recentemente. A request\_id identifica cada consulta exclusivamente e é a chave primária para essa exibição. A request\_id é atribuída em sequência para cada nova consulta. Consultar esta tabela para uma determinada session\_id mostrará todas as consultas para um logon específico.
 
-Estas são as etapas para investigar os planos de execução de consulta e as horas para uma consulta específica.
+>[AZURE.NOTE] Os procedimentos armazenados usam vários request\_ids. As ids de solicitação serão atribuídas na ordem sequencial.
+
+Estas são as etapas para investigar os planos de execução da consulta e as horas para uma consulta específica.
 
 ### ETAPA 1: Localizar a consulta a ser investigada
 
@@ -74,7 +76,7 @@ Os resultados da consulta anterior mostrarão o estado de espera da sua solicita
 
 ### ETAPA 3: localizar a etapa de execução mais longa do plano de consulta
 
-Use a ID da Solicitação para recuperar uma lista das etapas do plano de consulta de [sys.dm\_pdw\_request\_steps][]. Localize a etapa de execução longa observando o tempo total decorrido.
+Use a ID de Solicitação para recuperar uma lista das etapas do plano de consulta em [sys.dm\_pdw\_request\_steps][]. Localize a etapa de execução longa observando o tempo total decorrido.
 
 ```sql
 
@@ -95,7 +97,7 @@ Verifique a coluna *operation\_type* da etapa de consulta de execução longa:
 
 ### ETAPA 4a: localizar o progresso da execução de uma etapa SQL
 
-Use a ID da Solicitação e o Índice de Etapa para recuperar informações de [sys.dm\_pdw\_sql\_requests][] que contenham detalhes sobre a execução da consulta em instâncias distribuídas do SQL Server. Observe a ID de Distribuição e o SPID se a consulta ainda estiver em execução e você desejar obter o plano da distribuição do SQL Server.
+Use a ID de Solicitação e o Índice da Etapa para recuperar as informações em [sys.dm\_pdw\_sql\_requests][], que contém detalhes sobre a execução da consulta nas instâncias distribuídas do SQL Server. Observe a ID de Distribuição e o SPID se a consulta ainda estiver em execução e você desejar obter o plano da distribuição do SQL Server.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -118,7 +120,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ### ETAPA 4b: localizar o progresso da execução de uma etapa DMS
 
-Use a ID da Solicitação e o Índice de Etapa para recuperar informações sobre a etapa de movimentação de dados em execução em cada distribuição de [sys.dm\_pdw\_dms\_workers][].
+Use a ID de Solicitação e o Índice da Etapa para recuperar as informações sobre a Etapa de Movimentação dos Dados em execução em cada distribuição em [sys.dm\_pdw\_dms\_workers][].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -143,15 +145,14 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Próximas etapas
-Para obter mais informações sobre DMVs (exibições de gerenciamento dinâmico), consulte [Exibições do sistema][]. Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [visão geral de gerenciamento][]. Para práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
+Para obter mais informações sobre as DMVs (Exibições de Gerenciamento Dinâmico), consulte [Exibições do sistema][]. Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [Visão geral do gerenciamento][]. Para ver as práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
-[Práticas recomendadas do SQL Data Warehouse]: sql-data-warehouse-best-practices.md
-[Exibições do sistema]: sql-data-warehouse-reference-tsql-system-views.md
+[Visão geral do gerenciamento]: ./sql-data-warehouse-overview-manage.md
+[Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Exibições do sistema]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +163,4 @@ Para obter mais informações sobre DMVs (exibições de gerenciamento dinâmico
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

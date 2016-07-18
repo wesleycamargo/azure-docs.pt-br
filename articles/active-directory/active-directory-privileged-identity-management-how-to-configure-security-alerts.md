@@ -13,54 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Como configurar alertas de segurança no Azure AD Privileged Identity Management
 
 ## Alertas de segurança
-O Azure PIM (Privileged Identity Management) gera os seguintes alertas, que podem ser exibidos na seção Alertas do painel PIM.
+O Azure PIM (Privileged Identity Management) gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM.
+
+![Alertas de segurança do painel PIM – captura de tela][1]
+
+
 
 | Alerta | Gatilho | Recomendações |
 | ----- | ------- | -------------- |
-| **Ativação permanente** | Um administrador foi atribuído permanentemente a uma função, fora do PIM. | Revise a nova atribuição de função e altere-a para temporária, se necessário. |
-| **Renovação da ativação suspeitas de funções privilegiadas** | Havia muitas reativações da mesma função durante o tempo permitido nas configurações. | Entre em contato com o usuário para assegurar que ele possa ativar a função com êxito. |
-| **Autenticação fraca é configurada para ativação de função** | Há funções sem MFA nas configurações. | Considere exigir o MFA para a ativação de todas as funções. |
-| **Administradores redundantes** | Existem administradores temporários que não ativaram suas funções recentemente. | Remova as atribuições de função que não são mais necessárias. |
-| **Muitos administradores globais** | Existem mais administradores globais do que o recomendado. | Remova as atribuições de função que não são mais necessárias ou torne algumas delas temporárias. |
+| **As funções estão sendo atribuídas fora do PIM** | Um administrador foi atribuído permanentemente a uma função, fora da interface do PIM. | Examine a nova atribuição de função. Já que outros serviços podem atribuir apenas administradores permanentes, altere-a para uma atribuição qualificada, se necessário. |
+| **As funções estão sendo ativadas com muita frequência** | Havia muitas reativações da mesma função durante o tempo permitido nas configurações. | Entre em contato com o usuário para ver por que ele ativou a função tantas vezes. Talvez o limite de tempo seja muito curto para que ele conclua suas tarefas ou talvez ele esteja utilizando scripts para contornar o processo. |
+| **Roles don't require multi-factor authentication for activation (As funções não exigem o multi-factor authentication para ativação)** | Há funções sem o MFA habilitado nas configurações. | Exigimos o MFA para as funções mais altamente privilegiadas, mas recomendamos que você habilite o MFA para a ativação de todas as funções. |
+| **Administrators aren't using their privileged roles (Os administradores não estão utilizando suas funções privilegiadas)** | Existem administradores temporários que não ativaram suas funções recentemente. | Inicie uma análise de acesso para determinar os usuários que não precisam mais de acesso. |
+| **Há muitos administradores globais** | Existem mais administradores globais do que o recomendado. | Caso você tenha um grande número de administradores globais, é provável que os usuários estejam obtendo mais permissões do que eles precisam. Mova os usuários para funções menos privilegiadas ou torne alguns deles qualificados para a função em vez de atribuídos permanentemente. |
 
 ## Definir configurações de alerta de segurança
 
-### Alerta “Renovação da ativação suspeita de funções com privilégios”
+Você pode personalizar os alertas de segurança no PIM para trabalhar com seu ambiente e objetivos de segurança. Siga estas etapas para acessar a folha de configurações:
 
-Defina as configurações **Período de tempo de renovação de ativação** e **Número de renovações de ativação** para controlar quando esse alerta for disparado.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e selecione bloco **Azure AD Privileged Identity Management** no painel.
+2. Selecione **Managed privileged roles (Funções com privilégios gerenciadas)** > **Configurações** > **Configurações de alertas**.
 
-1. Selecione **Alertas de segurança** na seção **Atividade** do painel. A folha **Alertas de segurança ativos** será exibida.
-2. Clique em **Configurações**.
-3. Defina o **Prazo de renovação da ativação** ajustando o controle deslizante ou digitando o número de minutos no campo de texto. O máximo é 100.
-4. Defina o **Número de renovações da ativação** dentro do prazo de renovação da ativação ajustando o controle deslizante ou inserindo o número de renovações no campo de texto. O máximo é 100.
-5. Clique em **Salvar**.
+    ![Navegar até as configurações de alertas de segurança][2]
 
-### Alerta “Administradores redundantes”
-1. Selecione **Alertas de segurança** na seção **Atividade** do painel. A folha **Alertas de segurança ativos** será exibida.
-2. Clique em **Configurações**.
-3. Selecione o número de dias permitido sem a ativação da função ajustando o controle deslizante ou inserindo o número de dias no campo de texto.
-4. Clique em **Salvar**.
+### Alerta “As funções estão sendo ativadas com muita frequência”
 
-### Alerta “Muitos administradores globais”
+Esse alerta será disparado se um usuário ativar a mesma função com privilégios várias vezes dentro de um período especificado. Você pode configurar o período e o número de ativações.
 
-Há duas configurações que podem disparar esse alerta:
-- O **Número mínimo de Administradores Globais** vai disparar o alerta se houver mais administradores do que o número permitido.
-- O **Percentual de administradores globais** vai disparar o alerta se o percentual de administradores que são administradores globais for maior do que as configurações permitem.
+- **Período de tempo de renovação de ativação**: especifique em dias, horas, minutos e segundos o período que você deseja usar para rastrear renovações suspeitas.
 
-1. Selecione **Alertas de segurança** na seção **Atividade** do painel. A folha **Alertas de segurança ativos** será exibida.
-2. Clique em **Configurações**.
-3. Defina o **Número mínimo de Administradores Globais** ajustando o controle deslizante ou digitando o número no campo de texto.
-4. Defina o **Percentual de Administradores Globais** ajustando o controle deslizante ou inserindo o percentual no campo de texto.
-5. Clique em **Salvar**.
+- **Number of activation renewals (Número de renovações de ativação)**: especifique o número de ativações, de 2 a 100, que você considera suspeito, ou pelo menos digno de alerta, dentro do período escolhido. Você pode definir isso movendo o controle deslizante ou digitando um número na caixa de texto.
+
+
+### Alerta “Há muitos administradores globais”
+
+O PIM disparará esse alerta se dois critérios diferentes forem atendidos, e você poderá configurar ambos. Primeiro, você precisa atingir certo limite de administradores globais. Em segundo lugar, um determinado percentual do seu total de atribuições de função deve ser de administradores globais. Se você atender apenas a uma dessas medidas, o alerta não será exibido.
+
+- **Número mínimo de Administradores Globais**: especifique o número de administradores globais, de 2 a 100, que você considera uma quantidade não segura.
+
+- **Percentual de administradores globais**: especifique o percentual de administradores que são administradores globais, de 0 a 100%, que não é seguro no seu ambiente.
+
+### Alerta “Administrators aren't using their privileged roles” (Os administradores não estão utilizando suas funções privilegiadas)
+
+Esse alerta será disparado se um usuário passar um determinado período sem ativar uma função.
+
+- **Número de dias**: especifique o número de dias, de 0 a 100, que um usuário pode passar sem ativar uma função.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,24 +1,26 @@
 
-This article walks you through how to move a VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+Este artigo explica como mover uma VM entre as assinaturas. Isso pode ser útil se você tiver criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [AZURE.NOTE] Novas IDs de recurso serão criadas como parte da mudança. Após a mudança da VM, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recurso.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Abra o [Portal do Azure](https://portal.azure.com).
+2. Clique em **Procurar** > **Máquinas virtuais** e selecione a VM que deseja mover na lista.
 	
-	![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
+	![Captura de tela da seção Essentials na qual você clica no ícone de lápis para abrir a folha Mover recursos.](./media/virtual-machines-common-move-vm/move-button.png)
 	
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+3. Na seção **Essentials**, clique no ícone de lápis **Alterar assinatura** ao lado do nome da assinatura. A folha **Mover recursos** será aberta.
 	
-	![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
+	![Captura de tela da folha Mover recursos.](./media/virtual-machines-common-move-vm/move.png)
 	
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+4. Selecione cada um dos recursos para movimentação. Na maioria dos casos, você deve mover todos os recursos opcionais listados.
+5. Selecione a **Assinatura** para a qual você deseja mover a VM.
+6. Escolha um **Grupo de recursos** existente ou digite um nome para criar um novo.
+7. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**.
 
 
 
-## Next steps
+## Próximas etapas
 
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).	
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../articles/resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0706_2016-->

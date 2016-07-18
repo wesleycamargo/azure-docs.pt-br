@@ -93,7 +93,7 @@ ReplicatorConfig
 |MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
 |SharedLogId|GUID|""|Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado.|
 |SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado.|
-
+|SlowApiMonitoringDuration|Segundos|300|Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade.|
 
 ### Amostra de configuração via código
 ```csharp
@@ -162,4 +162,4 @@ As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para
  - [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
  - [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

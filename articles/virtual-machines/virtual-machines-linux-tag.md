@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Como marcar uma máquina virtual do Linux no Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Li
 
 ## Marcando com a CLI do Azure
 
-A marcação também tem suporte de recursos que já foram criados por meio da CLI do Azure. Para começar, configure seu [ambiente da CLI do Azure][]. Faça logon na sua assinatura usando a CLI do Azure e alterne para o modo do Resource Manager (`azure config mode arm`).
+Para começar, [instale e configure a CLI do Azure](../xplat-cli-azure-resource-manager.md) e verifique se você está no modo do Resource Manager (`azure config mode arm`).
 
 É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 
@@ -53,10 +53,10 @@ Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Por
 
 
 
-[ambiente da CLI do Azure]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Visão geral do Azure Resource Manager]: ../resource-group-overview.md
 [Usando marcas para organizar os Recursos do Azure]: ../resource-group-using-tags.md
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

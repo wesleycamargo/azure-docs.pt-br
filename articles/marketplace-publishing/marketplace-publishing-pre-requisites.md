@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="04/07/2016"
+  ms.date="06/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Pré-requisitos gerais para a criação de uma oferta para o Azure Marketplace
@@ -46,13 +46,11 @@ Esta é a assinatura que você usará para criar suas imagens VM e passar as ima
 Para vender seus serviços no Azure Marketplace, você deve garantir que a entidade registrada seja de um dos países aprovados para vender. Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Próximas etapas
-Em seguida, estão os pré-requisitos técnicos para cada tipo de oferta. Clique no link para o artigo para o respectivo tipo de oferta que você gostaria de criar para o Azure Marketplace.
-
-| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de Solução |
-|-----|-----|-----|-----|
-| [Pré-requisitos técnicos de VM](marketplace-publishing-vm-image-creation-prerequisites.md) | Visualização particular | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+Depois que os pré-requisitos técnicos são atendidos, há os pré-requisitos técnicos específicos da oferta. Clique no link para o artigo para o respectivo tipo de oferta que você gostaria de criar para o Azure Marketplace.
+- [Pré-requisitos técnicos de VM](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Pré-requisitos técnicos de Modelo de Solução](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Gerenciar clusters HDInsight usando a API REST do Ambari
@@ -76,13 +76,11 @@ Se você executar esse exemplo substituindo __SENHA__ pela senha de administrado
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Como se trata de JSON, normalmente é mais fácil usar um analisador JSON para recuperar dados. Por exemplo, se você quiser recuperar uma contagem de alertas (contidas no elemento __"Host/host\_status/ALERT"__) você poderá usar o seguinte para acessar diretamente o valor:
+Como se trata de JSON, normalmente é mais fácil usar um analisador JSON para recuperar dados. Por exemplo, se quiser recuperar informações de status de integridade do cluster, você pode usar o seguinte.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-Isso recupera o documento JSON e redireciona a saída para jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indica o elemento dentro do documento JSON que você deseja recuperar.
-
-> [AZURE.NOTE] O elemento __Host/host\_status/ALERT__ está entre aspas para indicar que '/' faz parte do nome do elemento. Para saber mais sobre como usar jq, consulte o [site do jq](https://stedolan.github.io/jq/).
+Isso recupera o documento JSON e redireciona a saída para jq. `.Clusters.health_report` indica o elemento dentro do documento JSON que você deseja recuperar.
 
 ##Exemplo: obter o FQDN de nós do cluster
 
@@ -146,7 +144,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
         
-    Isso retornará um documento JSON contendo a configuração atual (identificada pelo valor de _tag_) para os componentes instalados no cluster. Por exemplo, veja a seguir um trecho dos dados retornados de um tipo de cluster Spark.
+    Isso retornará um documento JSON contendo a configuração atual (identificada pelo valor _tag_) para os componentes instalados no cluster. Por exemplo, veja a seguir um trecho dos dados retornados de um tipo de cluster Spark.
     
         "spark-metrics-properties" : {
             "tag" : "INITIAL",
@@ -164,9 +162,9 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
             "version" : 1
         }
 
-    Nesta lista, você precisa copiar o nome do componente (por exemplo, __spark\_thrift\_sparkconf__ e o valor de __tag__.
+    Nesta lista, você precisa copiar o nome do componente (por exemplo, __spark\_thrift\_sparkconf__ e o valor __tag__.
     
-2. Recupere a configuração do componente e da marca usando o comando a seguir. Substitua __spark-thrift-sparkconf__ e __INITIAL__ pelo componente e pela marcação cuja configuração você deseja recuperar.
+2. Recupere a configuração do componente e da marca usando o comando a seguir. Substitua __spark-thrift-sparkconf__ e __INITIAL__ pelo componente e pela marca cuja configuração você deseja recuperar.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
@@ -174,8 +172,8 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
     
     * Cria um valor exclusivo que contém a cadeia de caracteres “version” e a data, que é armazenada em __newtag__
     * Cria um documento raiz para a nova configuração desejada
-    * Obtém o conteúdo da matriz .items e o adiciona sob o elemento __desired\_config__.
-    * Exclui os elementos __href__, __version__ e __Config__, pois não são necessários para enviar uma nova configuração
+    * Obtém o conteúdo da matriz .items e o adiciona no elemento __desired\_config__.
+    * Exclui os elementos __href__, __version__ e __Config__, pois eles não são necessários para enviar uma nova configuração
     * Adiciona um novo elemento __tag__ e define seu valor como __version#################__, no qual a parte numérica é baseada na data atual. Cada configuração deve ter uma marca exclusiva.
     
     Por fim, os dados são salvos no documento __newconfig.json__. A estrutura do documento será semelhante a esta:
@@ -257,4 +255,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

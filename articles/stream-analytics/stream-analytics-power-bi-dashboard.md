@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
@@ -25,12 +25,10 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE] No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure, apenas no Portal Clássico do Azure.
-
 ## Pré-requisitos
 
 * Conta do Microsoft Azure
-* Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.  
+* Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.
 * Conta corporativa ou de estudante para Power BI
 
 ## Criar trabalho do Azure Stream Analytics
@@ -203,9 +201,18 @@ Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha
 
 ![elementográfico12][graphic12]
 
+Da mesma forma, se um trabalho tentar iniciar enquanto o token estiver vencido, ocorrerá um erro e o início do trabalho falhará. O erro será algo semelhante a isto:
+
+![Erro de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI. Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
 
-![elementográfico13][graphic13]
+![Renovação de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Após a atualização da autorização com o Power BI, você verá um alerta verde na área de autorização:
+
+![Renovação de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -233,4 +240,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -64,6 +64,26 @@ O build de recomendação tem duas funcionalidades que o tornam atraente:
  Um exemplo clássico em que você talvez queira aplicar recomendações de usuário é quando o usuário primeiro faz logon em seu site/loja na página de boas-vindas. Lá você pode promover o conteúdo que se aplica ao usuário específico.
  
  Talvez você também queira aplicar um tipo de build Recomendações quando o usuário estiver prestes a fazer o check-out. Nesse ponto, você tem a lista de itens que o cliente está prestes a comprar e essa é sua chance para fornecer recomendações com base na cesta de compras atual.
+ 
+#### Recomendações de parâmetros de compilação 
+ 
+| Nome | 	Descrição |	 Tipo, <br> Valores Válidos <br> (Valor Padrão)
+|-------|-------------------|------------------
+| NumberOfModelIterations |	O número de iterações que o modelo executa é refletido pelo tempo de computação geral e a precisão do modelo. Quanto maior o número, maior será a precisão obtida, mas o tempo de computação será mais longo. |	 Número inteiro, <br> 10 a 50 <br>Padrão: 40 
+| NumberOfModelDimensions |	O número de dimensões está relacionado ao número de “recursos” que o modelo tentará localizar em seus dados. Aumentar o número de dimensões possibilitará um melhor ajuste dos resultados em clusters menores. No entanto, ter muitas dimensões impedirá que o modelo localize correlações entre itens. |	Número inteiro, <br> 10 a 40 <br>Padrão: 20 |
+| ItemCutOffLowerBound |	Define o número mínimo de pontos de uso nos quais um item deve estar para que seja considerado no modelo. |		Número inteiro, <br> 2 ou mais. <br> Padrão: 2 |
+| ItemCutOffUpperBound | 	Define o número máximo de pontos de uso nos quais um item deve estar para que seja considerado no modelo. | Número inteiro, <br> 2 ou mais.<br> Padrão: 2147483647 |
+|UserCutOffLowerBound |	Define o número mínimo de transações que um usuário deve ter realizado para ser considerado no modelo. |	Número inteiro, <br> 2 ou mais. <br> Padrão: 2 
+| ItemCutOffUpperBound |	Define o número máximo de transações que um usuário deve ter realizado para ser considerado no modelo. |	Número inteiro, <br> 2 ou mais. <br> Padrão: 2147483647|
+| UseFeaturesInModel |	Indica se os recursos podem ser usados para aperfeiçoar o modelo de recomendação. | 	 Booliano<br> Padrão: True 
+|ModelingFeatureList |	Lista separada por vírgulas de nomes de recursos a serem usados na compilação de recomendação a fim de melhorar as recomendações. (Depende de recursos que são importantes) |	Cadeia de caracteres, até 512 caracteres
+| AllowColdItemPlacement |	Indica se a recomendação também enviar itens sem interesse através da similaridade de recursos. | Booliano<br> Padrão: False	
+| EnableFeatureCorrelation | Indica se os recursos podem ser usados no raciocínio. |	Booliano<br> Padrão: False
+| ReasoningFeatureList |	Lista separada por vírgulas de nomes de recursos a serem usado em frases de raciocínio (isto é, explicações de recomendação). (Depende dos recursos que são importantes para os clientes) | Cadeia de caracteres, até 512 caracteres
+| EnableU2I |	Permitir a recomendação personalizada, também conhecida como U2I (usuário às recomendações de item). | Booliano<br> Padrão: True
+|EnableModelingInsights |	Define se a avaliação offline deve ser executada para reunir informações de modelagem (ou seja, métricas de precisão e diversidade). Se for definido como true, um subconjunto dos dados não será usado para treinamento, pois precisará ser reservado para testes do modelo. Leia mais sobre [avaliações offline](#OfflineEvaluation) | Booliano<br> Padrão: False
+| SplitterStrategy | Se habilitar informações de modelagem estiver definido como true, a maneira como os dados devem ser divididos para fins de avaliação | Cadeia de caracteres, *RandomSplitter* ou *LastEventSplitter* <br>Padrão: RandomSplitter 
+
 
 <a name="FBTBuild"></a>
 ### Tipo de build FBT ###
@@ -77,6 +97,16 @@ Em nosso exemplo do telefone Lumia 650, um telefone X será retornado se e somen
 No momento, assume-se que dois itens foram comprados na mesma sessão se eles ocorrerem em uma transação com a mesma ID de usuário e carimbo de data/hora.
 
 As compilações FBT não dão suporte a itens sem interesse no momento, uma vez que elas, por definição, esperam que dois itens sejam realmente comprados na mesma transação. Embora as compilações FBT possam retornar conjuntos de itens (triplos), elas não dão suporte a recomendações personalizadas, já que elas aceitam um único item de semente como entrada.
+
+
+#### Parâmetros de compilação FBT 
+ 
+| Nome | 	Descrição |		Tipo, <br> Valores Válidos <br> (Valor Padrão)
+|-------|---------------|-----------------------
+| FbtSupportThreshold | O quanto o modelo é conservador. O número de co-ocorrências de itens a ser considerado para modelagem. | Número inteiro, <br> 3 a 50 <br> Padrão: 6 
+| FbtMaxItemSetSize | Limita o número de itens em um conjunto frequente.| Número inteiro, <br> 2 a 3 <br> Padrão: 2
+| FbtMinimalScore | Pontuação mínima que um conjunto frequente deve ter para ser incluído nos resultados retornados. Quanto maior, melhor. | Duplo <br> 0 e acima <br> Padrão: 0
+| FbtSimilarityFunction | Define a função de semelhança a ser usada pela compilação. A comparação de precisão favorece a serendipidade, a concorrência favorece a previsibilidade e Jaccard é uma boa combinação entre os dois. | Cadeia de caracteres, <br> <i>cooccurrence, lift, jaccard</i><br> Padrão: <i>jaccard</i> 
 
 <a name="SelectBuild"></a>
 ## Como seleciono o build exato a ser usado? ##
@@ -156,7 +186,7 @@ As métricas offline de diversidade e precisão podem ser úteis para você na s
 No momento do build, como parte dos parâmetros de build de Recomendação ou FBT:
 1.	Defina o parâmetro de build enableModelingInsights como true.
 
-2.	Como alternativa, você pode selecionar o *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* divide os dados de uso nos conjuntos de dados de teste e de treinamento com base na porcentagem de teste *randomSplitterParameters* determinada e em valores de semente aleatórios. *LastEventSplitter* divide os dados de uso nos conjuntos de dados de treinamento e de teste com base na última transação de cada usuário.
+2.	Como alternativa, você pode selecionar *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* divide os dados de uso nos conjuntos de dados de teste e de treinamento com base na porcentagem de teste *randomSplitterParameters* determinada e em valores de semente aleatórios. *LastEventSplitter* divide os dados de uso nos conjuntos de dados de treinamento e de teste com base na última transação de cada usuário.
 
 Isso vai disparar um build que usa apenas um subconjunto dos dados para treinamento e o restante dos dados é usado para calcular métricas de avaliação. Após o build ser concluído, para obter a saída da avaliação, você apenas precisa chamar a [API para obter métricas de build](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console), passando as respectivas *modelId* e *buildId*.
 
@@ -241,4 +271,4 @@ Isso vai disparar um build que usa apenas um subconjunto dos dados para treiname
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

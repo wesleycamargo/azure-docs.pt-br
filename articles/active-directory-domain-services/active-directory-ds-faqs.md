@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Visualização dos Serviços de Domínio do Active Directory do Azure: perguntas frequentes
@@ -78,4 +78,4 @@ Consulte nossa [página de regiões](active-directory-ds-regions.md) para ver um
 #### Quando os Serviços de Domínio do AD do Azure estão disponíveis completamente?
 Atualmente, não é possível compartilhar cronogramas para quando o serviço estará disponível.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

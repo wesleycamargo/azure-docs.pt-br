@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="06/28/2016"
 	ms.author="jahogg"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -26,7 +26,7 @@ Questões de diagnóstico e de solução de problemas em um aplicativo distribu�
 
 Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e entenda todos os aspectos de como se faz o diagnóstico e a solução de problemas deles e de suas tecnologias dependentes. Como usuário dos serviços de Armazenamento do Azure, monitore continuamente o serviços de Armazenamento que o seu aplicativo utiliza para qualquer mudança inesperada em comportamento (como um tempo maior de resposta do que o normal) e faça o login para coletar mais dados detalhados para analisar o problema em profundidade. As informações de diagnósticos que você obtiver tanto do monitoramento como do registro em log irão ajudá-lo a determinar a raiz do problema que o seu aplicativo encontrou. Você poderá solucionar o problema e determinar as etapas apropriadas que você pode tomar para corrigi-lo. O Armazenamento do Azure é um serviço básico do Azure e é parte importante da maioria das soluções que os clientes implantam para a infraestrutura Azure. O Armazenamento do Azure inclui capacidades de simplificar questões de monitoramento, diagnóstico e de soluções de problemas de armazenamento em seus aplicativos em nuvem.
 
-> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento.
+> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento. Além disso, o serviço de arquivos do Azure não oferece suporte ao registro em log no momento.
 
 Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](storage-e2e-troubleshooting.md).
 
@@ -102,9 +102,11 @@ Os "[Anexos]" incluem informações sobre o uso de ferramentas como o Wireshark 
 
 ## <a name="monitoring-your-storage-service"></a>Monitoramento do seu serviço de armazenamento
 
-Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento, você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou percentual de êxito em solicitações de serviço (para obter uma lista completa de métricas disponíveis, consulte <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas de Armazenamento Analítico</a> no MSDN). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Habilitação das métricas de armazenamento</a> no MSDN.
+Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento, você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou percentual de êxito em solicitações de serviço. Para obter uma lista completa das métricas disponíveis, confira [Esquema da tabela de métricas da análise do armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, confira [Habilitação das métricas de armazenamento e exibição dos dados de métrica](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-Você pode escolher quais intervalos de hora das métricas que você quer exibir no [Portal do Azure](https://portal.azure.com) e configurar as regras de notificação dos administradores por email caso a métrica a cada hora ultrapasse um valor particular (para obter mais informações, consulte a página <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Como Receber Notificações de Alerta e Gerenciar Regras de Alerta no Azure</a>). O serviço de armazenamento coleta as métricas usando o melhor esforço, porém pode não registrar todas as operações de armazenamento.
+Você pode escolher quais intervalos de hora das métricas que você quer exibir no [Portal do Azure](https://portal.azure.com) e configurar as regras de notificação dos administradores por email caso a métrica a cada hora ultrapasse um valor particular. Para saber mais, veja [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md).
+
+O serviço de armazenamento coleta as métricas usando o melhor esforço, porém pode não registrar todas as operações de armazenamento.
 
 No Portal do Azure, você pode exibir as métricas de disponibilidade, total de solicitações e números das médias de latência para uma conta de armazenamento. Uma regra de notificação também foi configurada para alertar um administrador caso uma disponibilidade caia abaixo de um certo nível. Para exibir esses dados uma possível área para investigação é a tabela de porcentagem de êxito estar abaixo de 100% (para obter mais informações, consulte a seção "[As métricas mostram uma baixa porcentagem de êxito ou as entradas de log analíticas têm operações com status de ClientOtherErrors]").
 
@@ -125,23 +127,23 @@ O restante desta seção descreve quais as métricas que você deve monitorar e 
 
 Você pode usar o [Portal do Azure](https://portal.azure.com) para exibir a integridade do serviço de armazenamento (e outros serviços do Azure) em todas as regiões do Azure no mundo. Isso permite que você veja imediatamente se um problema fora do seu controle está afetando o serviço de armazenamento na região em que você usa o seu aplicativo.
 
-O [Portal do Azure](https://portal.azure.com) pode também fornecer notificações de incidentes que afetam os diversos serviços do Azure. Nota: Essa informação está disponível anteriormente, juntamente com os dados históricos, no painel de serviços do Azure em <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
+O [Portal do Azure](https://portal.azure.com) pode também fornecer notificações de incidentes que afetam os diversos serviços do Azure. Nota: Essa informação está disponível anteriormente, juntamente com os dados históricos, no [Painel de Serviços do Azure](http://status.azure.com).
 
-Enquanto o [Portal do Azure](https://portal.azure.com) coleta informações sobre integridade de dentro dos centros de dados do Azure (monitoramento inside-out), você também pode considerar a adoção de uma abordagem outside-in para gerar transações sintéticas que acessam periodicamente o seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> e Application Insights no Visual Studio Team Services são exemplos dessa abordagem outside-in. Para obter mais informações sobre o Application Insights no Visual Studio Team Services, consulte o anexo "[Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services]".
+Enquanto o [Portal do Azure](https://portal.azure.com) coleta informações sobre integridade de dentro dos centros de dados do Azure (monitoramento inside-out), você também pode considerar a adoção de uma abordagem outside-in para gerar transações sintéticas que acessam periodicamente o seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights no Visual Studio Team Services são exemplos dessa abordagem outside-in. Para obter mais informações sobre o Application Insights no Visual Studio Team Services, consulte o anexo "[Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Monitoramento de capacidade
 
-As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos dados do usuário (**dados** do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêiners (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para saber mais sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob**, consulte <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Esquema de tabela de métricas analíticas de armazenamento</a> no MSDN.
+As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos dados do usuário (**dados** do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêiners (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para saber mais sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob**, consulte [Esquema da tabela de métricas da análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [AZURE.NOTE] Monitore esses valores por meio de um aviso antecipado de que você está se aproximando dos limites de capacidade de sua conta de armazenamento. No Portal do Azure, você pode adicionar as regras de alertas para notificá-lo se o uso de armazenamento agregado excede ou está abaixo dos limites que você especificou.
 
-Para ajudar na estimativa do tamanho dos diversos objetos de armazenamento, tais como os blobs, consulte a postagem no blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Compreendendo a cobrança do Armazenamento do Azure – Largura de banda, transações e capacidade</a>.
+Para ajudar na estimativa do tamanho dos diversos objetos de armazenamento, tais como os blobs, consulte a postagem no blog [Compreendendo a cobrança do Armazenamento do Azure – Largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 ### <a name="monitoring-availability"></a>Monitoramento de disponibilidade
 
 Monitore a disponibilidade dos serviços de monitoramento em sua conta de armazenamento monitorando os valores na coluna de **Disponibilidade** nas tabelas métricas de hora em hora ou de minuto em minuto — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linda (a **RowKey** mostra se uma linha contém as métricas para o serviço como um todo ou para uma operação API específica.
 
-Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError**. Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. A página <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> lista os tipos de transações que as métricas de armazenamento incluem em seu cálculo de **Disponibilidade**.
+Qualquer valor inferior a 100% indica que houve falha em algumas solicitações de armazenamento. Você pode ver porque estão falhando ao examinar as outras colunas nos dados de métricas que mostras os números de solicitações com diferentes tipos de erros, tais como **ServerTimeoutError**. Espere para ver a **Disponibilidade** cair temporariamente abaixo de 100% devido a razões como tempo limite do servidor transitório enquanto o serviço muda as partições para melhor balancear a carga da solicitação; a lógica de nova tentativa no aplicativo do seu cliente deve lidar com tais condições intermitentes. O artigo [Operações registradas e mensagens de status da análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343260.aspx) lista os tipos de transação que as Métricas de armazenamento incluem em seu cálculo de **Disponibilidade**.
 
 No [Portal do Azure](https://portal.azure.com), você pode adicionar as regras de alertas para notificá-lo se a **Disponibilidade** de um serviço está abaixo dos limites que você especificou.
 
@@ -182,7 +184,7 @@ As seguintes seções apresentam as etapas que você deve seguir para diagnostic
 
 ### <a name="service-health-issues"></a>Problemas de integridade do serviço
 
-Problemas de integridade do serviço são normalmente fora do seu controle. O [Portal do Azure](https://portal.azure.com) dá informações sobre quaisquer problemas existentes com os serviços do Azure inclusive com os serviços de armazenamento. Se você optou pelo armazenamento com redundância geográfica de acesso a leitura (RA\_GRS) quando você criou sua conta de armazenamento, então no evento de seus dados estarem indisponíveis no local principal, seu aplicativo pode mudar temporariamente para cópia somente de leitura em um local secundário. Para fazer isso, seu aplicativo deve ser capaz de alterar entre o uso de locais de armazenamento principal e secundário e ser capaz de trabalhar em modo de funcionamento reduzido com dados somente de leitura. As bibliotecas do cliente de armazenamento do Azure permitem que você defina uma política de tentativa que pode ler a partir do armazenamento secundário caso a leitura do armazenamento principal falhar. Seu aplicativo também precisa estar ciente que os dados do local secundário são consistentes. Para saber mais, consulte no blog a postagem <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica do acesso de leitura</a>.
+Problemas de integridade do serviço são normalmente fora do seu controle. O [Portal do Azure](https://portal.azure.com) dá informações sobre quaisquer problemas existentes com os serviços do Azure inclusive com os serviços de armazenamento. Se você optou pelo armazenamento com redundância geográfica de acesso a leitura (RA\_GRS) quando você criou sua conta de armazenamento, então no evento de seus dados estarem indisponíveis no local principal, seu aplicativo pode mudar temporariamente para cópia somente de leitura em um local secundário. Para fazer isso, seu aplicativo deve ser capaz de alterar entre o uso de locais de armazenamento principal e secundário e ser capaz de trabalhar em modo de funcionamento reduzido com dados somente de leitura. As bibliotecas do cliente de armazenamento do Azure permitem que você defina uma política de tentativa que pode ler a partir do armazenamento secundário caso a leitura do armazenamento principal falhar. Seu aplicativo também precisa estar ciente que os dados do local secundário são consistentes. Para saber mais, consulte no blog a postagem [Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica do acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues"></a>Problemas de desempenho
 
@@ -198,12 +200,13 @@ Usuários do seu aplicativo podem notificá-lo de erros registrados pelo aplicat
 
 > [AZURE.NOTE] Lembre-se de que você deve esperar ver alguns erros intermitentes: por exemplo, erros devido a condições transitórias da rede ou erros de aplicativo.
 
-Os seguintes recursos no MSDN são úteis para compreender os status relacionados a armazenamento e os códigos de erro:
+Os seguintes recursos são úteis para compreender os status relacionados a armazenamento e os códigos de erro:
 
-- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Códigos de erro do serviço Blob</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Códigos de erro do serviço Fila</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Códigos de erro do serviço Tabela</a>
+- [Códigos de erro comuns da API REST](http://msdn.microsoft.com/library/azure/dd179357.aspx)
+- [Códigos de erro do serviço blob](http://msdn.microsoft.com/library/azure/dd179439.aspx)
+- [Códigos de erro do serviço de fila](http://msdn.microsoft.com/library/azure/dd179446.aspx)
+- [Códigos de erro do serviço de tabela](http://msdn.microsoft.com/library/azure/dd179438.aspx)
+- [Códigos de erro do serviço de arquivo](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
 ### <a name="storage-emulator-issues"></a>Problemas de emulador de armazenamento
 
@@ -213,9 +216,9 @@ A seção "[Diretrizes para solução de problemas]" deste guia descreve alguns 
 
 ### <a name="storage-logging-tools"></a>Ferramentas de log de armazenamento
 
-O log de armazenamento oferece o log do lado do servidor para solicitações de armazenamento na sua conta de armazenamento do Azure. Para saber mais sobre como habilitar o log do lado do servidor e acessar os dados de log, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">Usando o log do lado do servidor</a> no MSDN.
+O log de armazenamento oferece o log do lado do servidor para solicitações de armazenamento na sua conta de armazenamento do Azure. Para saber mais sobre como habilitar o log do lado do servidor e acessar os dados de log, consulte [Enabling Storage Logging and Accessing Log Data](http://go.microsoft.com/fwlink/?LinkId=510867) (Como habilitar o registro em log do armazenamento e o acesso aos dados do log).
 
-A biblioteca do cliente de armazenamento para .NET habilita você a coletar dados de log do cliente relacionados as operações de armazenamento realizadas pelo seu aplicativo. Para saber mais sobre como habilitar o log do lado do cliente e acessar os dados de log, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">Registro em log no lado do cliente usando a biblioteca do cliente de armazenamento</a> no MSDN.
+A biblioteca do cliente de armazenamento para .NET habilita você a coletar dados de log do cliente relacionados as operações de armazenamento realizadas pelo seu aplicativo. Para saber mais, consulte [Registro em log no lado do cliente com a biblioteca do cliente de armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkId=510868).
 
 > [AZURE.NOTE] Em algumas circunstâncias (tais como falhas de autorizações SAS) um usuário pode informar um erro pelo qual você não pode encontrar nenhum dado de solicitação nos logs de armazenamento do lado do cliente. Você pode usar as capacidades de log da biblioteca do cliente de armazenamento para investigar se a causa desse problema está no cliente ou use as as ferramentas de monitoramento de rede para investigar a rede.
 
@@ -223,10 +226,10 @@ A biblioteca do cliente de armazenamento para .NET habilita você a coletar dado
 
 Você pode capturar o tráfego entre o cliente e o servidor para dar informações detalhadas sobre os dados que o cliente e o servidor estão trocando e as condições subjacentes de rede. Ferramentas úteis de log de rede incluem:
 
-- Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de carga das solicitações HTTP e HTTPS e as mensagens de resposta. Para saber mais, consulte "[Anexo 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS]".
-- Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) e Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]".
-- O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para saber mais, consulte "[Anexo 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede]".
-- Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a ferramenta **tcping** para verificar a conectividade. O **Tcping** está disponível para download em <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
+- [Fiddler](http://www.telerik.com/fiddler) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de conteúdo das solicitações HTTP e HTTPS e as mensagens de resposta. Para saber mais, consulte [Anexo 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
+- [Microsoft Network Monitor (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](http://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
+- O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para saber mais, consulte "[Anexo 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede](#appendix-3)".
+- Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a ferramenta [**tcping**](http://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
 Em muitos casos, os dados de log a partir do log de armazenamento e da biblioteca do cliente serão suficientes para diagnosticar um problema, porém, em alguns cenários, você poderá precisar de informações mais detalhadas que podem ser providas por essas ferramentas de log de rede. Por exemplo, usando o Fiddler para ver as mensagens HTTP e HTTPS permitem que você exiba o cabeçalho e os dados de carga enviados para e a partir dos serviços de armazenamento, o qual permite que você examine como o aplicativo do cliente repete as operações de armazenamento. Analisadores de protocolo, tais como Wireshark opera em nível de pacote permitindo que você exiba os dados TCP, os quais permitem que você solucione problemas de pacotes perdidos e problemas de conectividade. O Message Analyzer pode operar tanto em camadas HTTP como TCP.
 
@@ -369,7 +372,7 @@ Observe que o serviço de armazenamento calcula apenas a métrica **AverageE2ELa
 
 Entre as possíveis razões para a lentidão de resposta do cliente estão: ter um número limitado de conexões ou threads disponíveis ou ter poucos recursos, como CPU, memória ou largura de banda de rede. Você pode ser capaz de resolver os problemas ao modificar o código do cliente para ser mais eficiente (por exemplo ao usar chamadas assíncronas para o serviço de armazenamento) ou usar uma máquina virtual maior (com mais cores e mais memória).
 
-Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar alto **AverageE2ELatency** em comparação com **AverageServerLatency**: para saber mais, consulte a postagem <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Algoritmo do Nagle não é amigável em direção a pequenas solicitações</a> no Blog da equipe de Armazenamento do Microsoft Azure. Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net**. Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application\_Start** na função de trabalho.
+Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar alto **AverageE2ELatency** em comparação com **AverageServerLatency**: para saber mais, consulte a postagem [Algoritmo do Nagle não é amigável em direção a pequenas solicitações](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Você pode desabilitar o algoritmo de Nagle em código ao usar a classe **ServicePointManager** no namespace **System.Net**. Faça isso antes de fazer qualquer chamada para os serviços de tabela ou fila no seu aplicativo já que isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application\_Start** na função de trabalho.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -377,7 +380,7 @@ Para os serviços Tabela e Fila, o algoritmo Nagle também pode causar alto **Av
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-Verifique os logs do lado do cliente para ver quantas solicitações seu aplicativo do cliente está enviando e verifique se há afunilamentos gerais de desempenho relacionados ao .NET no seu cliente, tais como CPU, coleta de lixo .NET, utilização da rede ou memória (como ponto inicial para solução de problemas dos aplicativos do cliente .NET, consulte <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Depuração, rastreamento e criação de perfil</a> no MSDN).
+Verifique os logs do lado do cliente para ver quantas solicitações seu aplicativo do cliente está enviando e verifique se há afunilamentos gerais de desempenho relacionados ao .NET no seu cliente, tais como CPU, coleta de lixo .NET, utilização da rede ou memória. Como ponto de partida para solucionar problemas de aplicativos do cliente .NET, confira [Depuração, rastreamento e criação de perfil](http://msdn.microsoft.com/library/7fe0dd2y).
 
 #### Investigando os problemas de latência de rede
 
@@ -397,7 +400,7 @@ Verifique também se o cliente está realizando várias tentativas e investigue 
 
 - Examine os logs da Análise de Armazenamento. Se estiverem ocorrendo várias repetições, você verá várias operações com a mesma ID de solicitação do cliente, mas com IDs de solicitação de servidor diferentes.
 - Examine os logs do cliente. O log detalhado indica que ocorreu uma repetição.
-- Depure seu código e verifique as propriedades do objeto **OperationContext** associado à solicitação. Se a operação foi repetida, a propriedade **RequestResults** incluirá várias IDs de solicitação de servidor exclusivas. Você também pode verificar as horas de início e término de cada solicitação. Para obter mais informações, veja o exemplo de código na seção [ID de solicitação do servidor]. 
+- Depure seu código e verifique as propriedades do objeto **OperationContext** associado à solicitação. Se a operação foi repetida, a propriedade **RequestResults** incluirá várias IDs de solicitação de servidor exclusivas. Você também pode verificar as horas de início e término de cada solicitação. Para obter mais informações, veja o exemplo de código na seção [ID de solicitação do servidor].
 
 Se não houver problemas no cliente, investigue os possíveis problemas de rede, tais como perda de pacote. Você pode usar as ferramentas, tais como Wireshark ou Microsoft Message Analyzer para investigar os problemas de rede.
 
@@ -428,7 +431,7 @@ Se você estiver sofrendo um atraso entre o tempo um aplicativo adiciona uma men
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>As métricas mostram um aumento em PercentThrottlingError
 
-Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para saber mais, consulte <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Metas de desempenho e de escalabilidade do Armazenamento do Azure</a> para obter detalhes sobre alvos de escalabilidade para contas de armazenamento e alvos de desempenho para partições dentro de contas de armazenamento.
+Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para obter mais informações, consulte [Metas de desempenho e de escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para detalhes sobre alvos de escalabilidade para contas de armazenamento e alvos de desempenho para partições dentro de contas de armazenamento.
 
 Se a métrica de **PercentThrottlingError** mostra um aumento na porcentagem de solicitações que estão falhando com um erro de limitação, você precisa investigar um dos dois cenários:
 
@@ -439,7 +442,7 @@ Um aumento em **PercentThrottlingError** frequentemente acontece ao mesmo tempo 
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório em PercentThrottlingError
 
-Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade para o aplicativo, você deve implementar uma retirada estratégia exponencial (não linear) para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudará seu aplicativo a suavizar picos no tráfego. Para saber mais sobre como implementar políticas de repetição usando a Biblioteca do Cliente de Armazenamento, veja o <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Namespace Microsoft.WindowsAzure.Storage.RetryPolicies</a> no MSDN.
+Se você estiver vendo picos no valor do **PercentThrottlingError** que coincidam com períodos de alta atividade para o aplicativo, você deve implementar uma retirada estratégia exponencial (não linear) para novas tentativas em seu cliente: isso reduzirá a carga imediata na partição e ajudará seu aplicativo a suavizar picos no tráfego. Para saber mais sobre como implementar políticas de repetição usando a Biblioteca do Cliente de Armazenamento, veja o [Namespace Microsoft.WindowsAzure.Storage.RetryPolicies](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
 
 > [AZURE.NOTE] Você também pode ver os picos no valor de **PercentThrottlingError** que não coincidem com períodos de alta atividade para o aplicativo: a causa mais provável aqui é o serviço de armazenamento estar movendo partições para melhorar o balanceamento de carga.
 
@@ -491,10 +494,10 @@ Nesse cenário, você deve investigar porque o token de SAS está expirando ante
 
 - Normalmente, você não deveria definir um tempo de início quando você cria uma SAS para um cliente para usar imediatamente. Se houver pequenas diferenças entre os relógios do hospedeiro que gera o SAS usando o horário atual e o serviço de armazenamento, então é possível que o serviço de armazenamento receba uma SAS que não seja válida.
 - Não defina um tempo de expiração muito curto na SAS. Novamente, pequenas diferenças entre os relógios do hospedeiro gerando a SAS e o serviço de armazenamento pode levar a uma SAS aparentemente expirando mais cedo do que esperado.
-- Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05**) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/). Para obter mais informações sobre controle de versão token SAS, consulte [Novidades para o Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05**) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/).
 - Se você gerar suas chaves de acesso de armazenamento, isso pode invalidar quaisquer tokens de SAS existentes. Isso pode ser um problema se você token de SAS com um tempo de expiração longo para aplicativos de cliente para o cache.
 
-Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando a API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegando acesso com uma assinatura de acesso compartilhado</a> no MSDN.
+Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando a API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico [Delegando acesso com uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>O cliente está recebendo mensagens HTTP 404 (Não encontrado)
 Se o aplicativo do cliente recebe uma mensagem HTTP 404 (Não encontrado) do ser, isso implica que o objeto do cliente estava tentando usar (tais como: uma entidade, tabela, blob, contêiner ou fila) não existe no serviço de armazenamento. Existem muitas razões para isso, tais como:
@@ -621,9 +624,9 @@ Se você estiver usando um cliente JavaScript e um serviço de armazenamento est
 
 > [AZURE.NOTE] Você pode usar a ferramenta de desenvolvedor F12 no Internet Explorer para rastrear as mensagens trocadas entre o navegador e o serviço de armazenamento quando você estiver solucionando os problemas JavaScript do lado do cliente.
 
-Esses erros acontecem porque o navegador da Web implementa a restrição de segurança de <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">política de mesma origem</a>, que impede uma página da Web de chamar uma API em um domínio diferente do domínio de onde a página vem.
+Esses erros acontecem porque o navegador da Web implementa a restrição de segurança de [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamar uma API em um domínio diferente do domínio de onde a página vem.
 
-Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Suporte de CORS (Compartilhamento de Recursos entre Origens) para os Serviços de Armazenamento do Azure</a> no MSDN.
+Para resolver o problema JavaScript, configure o compartilhamento de recursos entre origens (CORS) para o serviço de armazenamento que o cliente está acessando. Para saber mais, veja [Suporte de CORS (Compartilhamento de Recursos entre Origens) para os Serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 O código a seguir mostra como configurar seu serviço blob para permitir que o JavaScript execute o domínio Contoso para acessar um blob no seu serviço de armazenamento de blob:
 
@@ -677,7 +680,7 @@ As métricas de **PercentSuccess** capturam a porcentagem das operações que ti
 - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
 - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido carregada a partir da última operação.
 
-Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>.
+Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página [Códigos de erro comuns da API REST](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado em uso de capacidade de armazenamento
 
@@ -686,9 +689,9 @@ Se você ver mudanças repentinas, inesperadas na capacidade de uso na sua conta
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Você está enfrentando reinicializações inesperadas das máquinas virtuais do Azure que contêm um grande número de VHDs anexados
 
-Se uma máquina virtual (VM) do Azure tem um grande número de VHDs anexados que estão na mesma conta de armazenamento, você pode exceder os alvos de escalabilidade de uma conta de armazenamento individual causando uma falha na VM. Verifique as métricas de minuto da conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para ver se há picos que excedem as metas de escalabilidade para uma conta de armazenamento. Consulte a seção "[As métricas mostram um aumento em PercentThrottlingError]" para ajudar a determinar se a limitação ocorreu na sua conta de armazenamento.
+Se uma máquina virtual (VM) do Azure tem um grande número de VHDs anexados que estão na mesma conta de armazenamento, você pode exceder os alvos de escalabilidade de uma conta de armazenamento individual causando uma falha na VM. Verifique as métricas de minuto da conta de armazenamento (**TotalRequests**/**TotalIngress**/**TotalEgress**) para ver se há picos que excedem os alvos de escalabilidade da conta de armazenamento. Consulte a seção "[As métricas mostram um aumento em PercentThrottlingError]" para ajudar a determinar se a limitação ocorreu na sua conta de armazenamento.
 
-Em geral, cada operação de entrada ou saída individual em um VHD a partir de uma máquina virtual traduz em operações **Get Page** ou **Put Page** nos blobs de páginas subjacentes. Portanto, você pode usar os IOPS estimados para o seu ambiente para ajustar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico do seu aplicativo. Não recomendamos ter mais do que 40 discos em uma única conta de armazenamento. Consulte <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Metas de desempenho e escalabilidade do armazenamento do Azure</a> para obter detalhes sobre as metas de escalabilidade atuais para contas de armazenamento, em particular a largura de banda total e a taxa de solicitação para o tipo de conta de armazenamento que você está usando. Se você está excedendo as metas de escalabilidade para sua conta de armazenamento, você deve colocar seus VHDs em várias contas de armazenamento diferentes para reduzir a atividade de cada conta individual.
+Em geral, cada operação de entrada ou saída individual em um VHD a partir de uma máquina virtual traduz em operações **Get Page** ou **Put Page** nos blobs de páginas subjacentes. Portanto, você pode usar os IOPS estimados para o seu ambiente para ajustar quantos VHDs você pode ter em uma única conta de armazenamento com base no comportamento específico do seu aplicativo. Não recomendamos ter mais do que 40 discos em uma única conta de armazenamento. Consulte [Metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes sobre as metas de escalabilidade atuais para contas de armazenamento, em particular a largura de banda total e a taxa de solicitação para o tipo de conta de armazenamento que você está usando. Se você está excedendo as metas de escalabilidade para sua conta de armazenamento, você deve colocar seus VHDs em várias contas de armazenamento diferentes para reduzir a atividade de cada conta individual.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste
 
@@ -700,7 +703,7 @@ Você normalmente usa o emulador de armazenamento durante o desenvolvimento e te
 
 #### <a name="feature-X-is-not-working"></a>O recurso "X” não está funcionando no emulador de armazenamento
 
-O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Diferenças entre o emulador de armazenamento e os Serviços de Armazenamento do Azure</a> no MSDN.
+O emulador de armazenamento não é compatível com todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md).
 
 Para os recursos que não são compatíveis com o emulador de armazenamento, use o serviço de armazenamento do Azure em nuvem.
 
@@ -716,7 +719,7 @@ Esse cenário normalmente acontece se você instalar e usar a versão mais recen
 
 Você pode solicitar credenciais para o administrador quando você executar o emulador de armazenamento. Isso acontece apenas quando você inicializar o emulador de armazenamento pela primeira vez. Após você ter inicializado o emulador de armazenamento, você não precisa de privilégios de administrador para executá-lo novamente.
 
-Para saber mais, veja <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Inicializar o emulador de armazenamento usando a Ferramenta de Linha de Comando</a> no MSDN (você também pode inicializar o emulador de armazenamento no Visual Studio, o que também exige privilégios de administrador).
+Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md). Observe que você também pode inicializar o emulador de armazenamento no Visual Studio, o que também exige privilégios administrativos.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Você encontrou problemas ao instalar o SDK do Azure para .NET
 
@@ -754,7 +757,7 @@ Os anexos descrevem várias ferramentas que você pode achar úteis ao diagnosti
 
 ### <a name="appendix-1"></a>Apêndice 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS
 
-O Fiddler é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre o aplicativo do cliente e o serviço de armazenamento do Azure que você está usando. É possível baixar o Fiddler no site <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
+O [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre o aplicativo do cliente e o serviço de armazenamento do Azure que você está usando.
 
 > [AZURE.NOTE] O Fiddler pode decodificar o tráfego HTTPS; leia a documentação do Fiddler cuidadosamente para entender como ele faz isso e para entender as implicações de segurança.
 
@@ -771,14 +774,14 @@ Para limitar o valor de tráfego que o Fiddler captura, você pode usar filtros 
 
 ### <a name="appendix-2"></a>Apêndice 2: usando o Wireshark para capturar o tráfego de rede
 
-O Wireshark é um analisar de protocolo de rede que permite que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. É possível baixar o Wireshark no site <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
+O [Wireshark](http://www.wireshark.org/) é um analisar de protocolo de rede que permite que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede.
 
 O procedimento a seguir mostra como capturar informações detalhadas de pacote para tráfego a partir do computador local onde você instalou o Wireshark para o serviço de tabela na sua conta de armazenamento do Azure.
 
 1.	Habilite o Wireshark no seu computador local.
 2.	Na seção **Iniciar**, selecione a interface de rede local ou as interfaces que estão conectadas à Internet.
 3.	Clique em **Opções de Captura**.
-4.	Adicione um filtro à caixa de texto **Filtro de Captura**. Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela na conta de armazenamento **contosoemaildist**. Para obter uma lista completa de Filtros de Captura, veja <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+4.	Adicione um filtro à caixa de texto **Filtro de Captura**. Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela na conta de armazenamento **contosoemaildist**. Confira a [Lista completa de filtros de captura](http://wiki.wireshark.org/CaptureFilters).
 
     ![][6]
 
@@ -790,11 +793,11 @@ O Wireshark irá realçar qualquer erro que existir na janela **packetlist**. Vo
 
 ![][7]
 
-Você também pode escolher para exibir os dados de TCP enquanto a camada do aplicativo vê isso ao clicar com o botão direito nos dados de TCP e ao selecionar **Siga o Fluxo TCP**. Isso é bastante útil se você capturou o seu despejo sem o filtro de captura. Clique <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">aqui</a> para saber mais.
+Você também pode escolher para exibir os dados de TCP enquanto a camada do aplicativo vê isso ao clicar com o botão direito nos dados de TCP e ao selecionar **Siga o Fluxo TCP**. Isso é bastante útil se você capturou o seu despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
-> [AZURE.NOTE] Para saber mais sobre como usar o Wireshark, veja o <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guia de Usuários do Wireshark</a>.
+> [AZURE.NOTE] Para saber mais sobre como usar o Wireshark, veja o [Guia de Usuários do Wireshark](http://www.wireshark.org/docs/wsug_html_chunked).
 
 ### <a name="appendix-3"></a>Apêndice 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede
 
@@ -810,7 +813,7 @@ Para configurar a sessão de rastreamento Web para tráfego HTTP e HTTPS usando 
 
 Quando você estiver pronto para coletar os dados de rastreamento, clique no botão **Iniciar Com**.
 
-Para saber mais sobre o rastreamento de **Proxy da Web** do Microsoft Message Analyzer, consulte <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">Provedor PEF-WebProxy</a> no TechNet.
+Para saber mais sobre o rastreamento de **Proxy da Web** do Microsoft Message Analyzer, consulte [Provedor Microsoft-PEF-WebProxy](http://technet.microsoft.com/library/jj674814.aspx).
 
 O rastreamento interno de **Proxy da Web** no Microsoft Message Analyzer é com base no Fiddler; ele pode capturar o tráfego do lado do cliente e exibir as mensagens HTTPS não criptografadas. O rastreamento **Proxy da Web** funciona ao configurar um proxy local para todo o tráfego HTTP e HTTPS que dá acesso às mensagens não criptografadas.
 
@@ -826,11 +829,11 @@ Quando você cria uma sessão de rastreamento no Microsoft Message Analyzer, é 
 
 ![][10]
 
-Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte Provedor do <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture</a> no TechNet.
+Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte [Provedor do Microsoft-PEF-NDIS-PacketCapture](http://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Anexo 4: usando o Excel para exibir as métricas e os dados de log
 
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Formato de Log Analítico de Armazenamento</a> e no <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Esquema de Tabela de Métricas Analíticas de Armazenamento</a>.
+Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 Para importar os dados de log de armazenamento para o Excel após ter baixado do armazenamento de blob:
 
@@ -847,8 +850,7 @@ Você pode também usar o recurso Application Insights no Visual Studio Team Ser
 - Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço da Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
 - Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós podemos enviá-lo um email. Você pode monitorar os serviços da Web .NET e Java.
 
-Na hora da gravação o Application Insights está em visualização. Você pode encontrar mais informações no <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights para Visual Studio Team Services</a> no MSDN.
-
+Você pode encontrar mais informações em [O que é o Application Insights?](../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introdução]: #introduction
@@ -910,7 +912,7 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [Anexos]: #appendices
 [Anexo 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS]: #appendix-1
 [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
-[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
+[Apêndice 2: usando o Wireshark para capturar o tráfego de rede]: #appendix-2
 [Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede]: #appendix-3
 [Anexo 4: Usando o Excel para exibir as métricas e os dados de log]: #appendix-4
 [Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services]: #appendix-5
@@ -926,4 +928,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

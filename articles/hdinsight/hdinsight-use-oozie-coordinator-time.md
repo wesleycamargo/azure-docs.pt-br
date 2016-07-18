@@ -86,7 +86,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	<tr><td>Nome do banco de dados SQL</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará dados. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para obter instruções sobre como criar um Banco de Dados SQL e configurar regras de firewall, consulte [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configure].
+	> [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-get-started].
 
 
 > [AZURE.NOTE] Preencha os valores nas tabelas. Isso poderá ser útil para percorrer este tutorial.
@@ -211,7 +211,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
 	<tr><td>${hiveOutputFolder}</td><td>A pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
 	</table>
 
-	Para saber mais sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
+	Para saber mais sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] \(para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] \(para a versão 2.1 do cluster HDInsight).
 
 2. Salve o arquivo como **C:\\Tutorials\\UseOozie\\workflow.xml** usando a codificação ANSI (ASCII). (Use o Bloco de Notas se o seu editor de texto não fornecer essa opção.)
 
@@ -257,7 +257,7 @@ Ao provisionar um cluster HDInsight, uma conta de Armazenamento do Azure e um co
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] No cluster HDInsight versão 3.0, há suporte apenas para a sintaxe **wasb://*. A antiga sintaxe **asv://* tem suporte em clusters HDInsight 2.1 e 1.6, mas não tem suporte em clusters HDInsight 3.0.
+> [AZURE.NOTE] No cluster HDInsight versão 3.0, há suporte apenas para a sintaxe *wasb://*. A antiga sintaxe *asv://* é compatível com clusters HDInsight 2.1 e 1.6, mas não com clusters HDInsight 3.0.
 
 > [AZURE.NOTE] O caminho wasb:// é um caminho virtual. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage].
 
@@ -276,7 +276,7 @@ Se você desejar acessar o arquivo diretamente da conta de armazenamento, o nome
 Existem algumas coisas que você precisa saber sobre a tabela interna e a tabela externa do Hive:
 
 - O comando CREATE TABLE cria uma tabela interna, também conhecida como uma tabela gerenciada. O arquivo de dados deve estar localizado no contêiner padrão.
-- O comando CREATE TABLE move o arquivo de dados para a pasta /hive/warehouse/<TableName> no contêiner padrão.
+- O comando CREATE TABLE move o arquivo de dados para a pasta /hive/warehouse/<NomeDaTabela> no contêiner padrão.
 - O comando CREATE EXTERNAL TABLE cria uma tabela externa. O arquivo de dados pode estar localizado fora do contêiner padrão.
 - O comando CREATE EXTERNAL TABLE não move o arquivo de dados.
 - O comando CREATE EXTERNAL TABLE não permite nenhuma subpasta dentro da pasta especificada na cláusula LOCATION. Essa é a razão pela qual o tutorial faz uma cópia do arquivo sample.log.
@@ -378,7 +378,7 @@ Para saber mais, confira [HDInsight: Introdução às tabelas internas e externa
 
 ##Executar o projeto Oozie
 
-Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de Serviços Web do Oozie, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
+Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de Serviços Web do Oozie, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] \(para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] \(para a versão 2.1 do cluster HDInsight).
 
 **Para enviar um trabalho do Oozie**
 
@@ -717,7 +717,6 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
@@ -741,4 +740,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

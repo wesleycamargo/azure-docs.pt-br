@@ -20,7 +20,7 @@
 
 Este tópico aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure AD (Azure Active Directory) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo para tratar a substituição de chave, se necessário.
 
-> [AZURE.IMPORTANT] A próxima substituição de chave de assinatura ocorrerá no dia 15 de agosto de 2016 e *não* afetará os Aplicativos da Galeria ou o aplicativo em locatários B2C.
+> [AZURE.IMPORTANT] A próxima substituição de chave de assinatura está agendada para 15 de agosto de 2016 e **não** afetará aplicativos cliente, aplicativos adicionados da galeria (incluindo Personalizados), aplicativos publicados por meio de proxy de aplicativo ou aplicativos em locatários B2C.
 
 ## Visão geral das chaves de assinatura no Azure AD
 
@@ -328,4 +328,4 @@ Para recuperar manualmente a chave mais recente do documento de metadados de fed
 
 Você acabou de criar o certificado X509 que é usado como a chave pública do Azure AD. Usando os detalhes do certificado, como sua impressão digital e data de validade, você pode verificar manual ou programaticamente se o certificado e a impressão digital usados atualmente pelo aplicativo são válidos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

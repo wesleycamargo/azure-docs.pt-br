@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/20/2016"
+   ms.date="07/06/2016"
    ms.author="larryfr"/>
 
 
@@ -92,6 +92,8 @@ Se você precisar instalar o HDInsight em uma Rede Virtual protegida, será nece
 * 138\.91.141.162
 
 Permitir o acesso de entrada desses endereços por meio da porta 443 permitirá a instalação bem-sucedida do HDInsight em uma rede virtual protegida.
+
+> [AZURE.IMPORTANT] O HDInsight não permite a restrição do tráfego de saída, somente o tráfego de entrada. Ao definir regras do Grupo de Segurança de Rede para a sub-rede que contém o HDInsight, use somente regras de entrada.
 
 Os exemplos a seguir demonstram como criar um novo Grupo de Segurança de Rede que permite os endereços necessários e que aplica o grupo de segurança a uma sub-rede em sua Rede Virtual. Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-rede na qual deseja instalar o HDInsight.
 
@@ -305,4 +307,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

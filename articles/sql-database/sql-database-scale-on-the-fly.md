@@ -19,14 +19,14 @@
 
 # Escalas do Banco de Dados SQL do Azure em tempo real
 
-## Quando seu aplicativo aumenta de um número pequeno de clientes para qualquer pessoa, o Banco de Dados SQL do Azure pode dimensionar em tempo real sem tempo de inatividade do aplicativo
+## Quando seu aplicativo aumenta de um número pequeno de clientes para incluir qualquer pessoa, o Banco de Dados SQL do Azure pode dimensionar-se dinamicamente com um tempo de inatividade mínimo do aplicativo
 
 Uma das vantagens da execução do Banco de Dados SQL no Microsoft Azure é a capacidade de escalar e reduzir verticalmente o desempenho em tempo real para se adaptar rapidamente às demandas de carga de trabalho em transformação. O Banco de Dados SQL oferece uma ampla variedade de níveis de desempenho para atender às necessidades específicas do seu aplicativo. E cada nível garante desempenho, de forma que os usuários de seu aplicativo têm uma experiência de desempenho previsível.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
 ## Quando seu aplicativo é um sucesso instantâneo
-O Banco de Dados SQL facilita o dimensionamento imediato. Portanto, se seu aplicativo se torna um sucesso instantâneo, é necessário apenas um clique para acomodar as novas necessidades de desempenho. Além disso, sem nenhum tempo de inatividade, você não precisará se preocupar com seu aplicativo sendo impactado ao escalar ou reduzir verticalmente.
+O Banco de Dados SQL facilita o dimensionamento imediato. Portanto, se seu aplicativo se torna um sucesso instantâneo, é necessário apenas um clique para acomodar as novas necessidades de desempenho. Além disso, com um tempo mínimo de inatividade você não precisa se preocupar com seu aplicativo tendo um impacto quando chega o momento de se dimensionar na horizontal ou na vertical.
 
 [Ler a documentação](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -54,4 +54,4 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

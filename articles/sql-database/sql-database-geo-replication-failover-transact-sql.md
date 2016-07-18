@@ -32,7 +32,11 @@ Este artigo mostra como iniciar o failover para um Banco de Dados SQL secundári
 Para iniciar o failover, você precisará do seguinte:
 
 - Um logon que é o DBManager no primário, ter o db\_ownership do banco de dados local que você replicará geograficamente e ser o DBManager no servidor parceiro para o qual você vai configurar a Replicação Geográfica.
-- A versão mais recente do SQL Server Management Studio - Para obter a versão mais recente do SQL Server Management Studio (SSMS), vá para [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obter informações sobre como usar o SQL Server Management Studio para gerenciar os servidores lógicos e os bancos de dados do Banco de Dados SQL do Azure, confira [Gerenciamento do Banco de Dados SQL do Azure usando o SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+
+> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 
 
@@ -55,7 +59,7 @@ Use as etapas a seguir para iniciar um failover planejado.
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
 
-3. Use a seguinte instrução **ALTER DATABASE** para alternar o banco de dados secundário para a função primária.
+3. Use a seguinte instrução **ALTER DATABASE** para trocar o banco de dados secundário para a função primária.
 
         ALTER DATABASE <MyDB> FAILOVER;
 
@@ -80,7 +84,7 @@ Use as etapas a seguir para iniciar um failover não planejado.
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
 
-3. Use a seguinte instrução **ALTER DATABASE** para alternar o banco de dados secundário para a função primária.
+3. Use a seguinte instrução **ALTER DATABASE** para trocar o banco de dados secundário para a função primária.
 
         ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 
@@ -98,4 +102,4 @@ Use as etapas a seguir para iniciar um failover não planejado.
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

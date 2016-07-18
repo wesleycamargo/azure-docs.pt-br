@@ -46,6 +46,7 @@ Para habilitar manualmente o Banco de Dados de Stretch no servidor, execute **sp
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -62,6 +63,10 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 1.  Antes de começar, escolha um servidor existente do Azure para os dados que o Banco de Dados de Stretch migra ou crie um novo servidor do Azure.
 
 2.  No servidor do Azure, crie uma regra de firewall com o endereço IP do SQL Server que permita ao SQL Server comunicar-se com o servidor remoto.
+
+    Você pode localizar facilmente os valores necessários e criar a regra de firewall tentando se conectar ao servidor do Azure no Pesquisador de Objetos no SQL Server Management Studio (SSMS). O SSMS ajuda você a criar a regra, abrindo a caixa de diálogo a seguir, que já inclui os valores de endereços IP necessários.
+
+	![Criar uma regra de firewall no SSMS][FirewallRule]
 
 3.  Para configurar um banco de dados do SQL Server para o Banco de Dados de Stretch, o banco de dados deve ter uma chave mestra do banco de dados. A chave mestra do banco de dados protege as credenciais que o banco de Dados de Stretch usa para se conectar ao banco de dados remoto. Veja um exemplo que cria uma nova chave mestra de banco de dados.
 
@@ -120,7 +125,7 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
     ```
 
 ## Próximas etapas
--   [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
+-   [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
 
 -   [Monitorar o Banco de Dados de Stretch](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
 
@@ -136,4 +141,6 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
+
+<!---HONumber=AcomDC_0706_2016-->

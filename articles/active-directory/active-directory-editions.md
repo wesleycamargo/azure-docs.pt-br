@@ -64,7 +64,7 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 **Recursos comuns**
 
-- [Objetos do diretório](#directory-objects) 
+- [Objetos do diretório](#directory-objects)
 
 - [Gerenciamento de usuário/Grupo (adicionar/atualizar/excluir)/Provisionamento baseado em usuário, Registro de dispositivo](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
@@ -163,11 +163,11 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicativos por usuário [1]\(aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [1]\(camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [2]\(gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [1] \(aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
+| 10 aplicativos por usuário (1) | 10 aplicativos por usuário (1) | Sem limite (2) | 10 aplicativos por usuário (1)|
 
-[1] Com o AD do Azure Gratuito e o AD do Azure Básico, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
+1. Com o Azure AD Free e o Azure AD Basic, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
 
-[2] Integração de autoatendimento de qualquer aplicativo que dê suporte a autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para mais detalhes, confira [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](active-directory-saas-custom-apps.md)
+2. Integração de autoatendimento de qualquer aplicativo que dê suporte à autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para mais detalhes, confira [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Mais detalhes:**
 
@@ -430,7 +430,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 ## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
 #### Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 
-**Tipo:** Ingresso do Active Directory do Azure – apenas para recursos relacionados ao Windows 10
+**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
 
 
 **Disponibilidade:**
@@ -444,7 +444,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure
 
-**Tipo:** Ingresso do Active Directory do Azure – apenas para recursos relacionados ao Windows 10
+**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
 
 
 **Disponibilidade:**
@@ -456,7 +456,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Enterprise State Roaming
 
-**Tipo:** Ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
+**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
 
 
 **Disponibilidade:**
@@ -495,4 +495,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

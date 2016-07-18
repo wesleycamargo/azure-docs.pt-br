@@ -18,7 +18,7 @@
 
 #Roteamento dependente de dados
 
-**Roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. Trata-se de um padrão fundamental ao trabalhar com bancos de dados fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta específica ou a transação em um aplicativo que usa o roteamento dependentes de dados é restrita a acessar um banco de dados individual por solicitação. Para as ferramentas de Banco de Dados Elástico do SQL Azure, esse encaminhamento é feito com a **[classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** em aplicativos ADO.NET.
+**Roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. Trata-se de um padrão fundamental ao trabalhar com bancos de dados fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta específica ou a transação em um aplicativo que usa o roteamento dependentes de dados é restrita a acessar um banco de dados individual por solicitação. Para as ferramentas do Banco de Dados Elástico SQL do Azure, esse encaminhamento é feito com a **[classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** nos aplicativos ADO.NET.
 
 O aplicativo não precisa controlar a várias cadeias de caracteres de conexão ou locais de BD associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de Mapa de Fragmento](sql-database-elastic-scale-shard-map-management.md) abre as conexões no banco de dados correto quando necessário, com base nos dados do mapa do fragmento e o valor da chave de fragmentação é o destino da solicitação do aplicativo. A chave é normalmente o *customer\_id*, *tenant\_id*, *date\_key* ou outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
 
@@ -52,7 +52,7 @@ O método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/a
 	)
 
 
-* O parâmetro **key** é usado como uma chave de pesquisa no mapa de fragmentos para determinar o banco de dados apropriado para a solicitação. 
+* O parâmetro **key** é usado como uma chave de pesquisa no mapa de fragmentos para determinar o banco de dados apropriado para a solicitação.
 
 * **connectionString** é usado para transmitir somente as credenciais do usuário para a conexão desejada. Nenhum nome de banco de dados ou de servidor está incluído nessa *connectionString*, pois o método determinará o banco de dados e o servidor usando o **ShardMap**.
 
@@ -85,7 +85,7 @@ Este exemplo usa o valor de uma chave de inteiro **CustomerID**, usando um objet
 
 O método **OpenConnectionForKey** retorna uma nova conexão já aberta para o banco de dados correto. Conexões utilizados dessa forma ainda se beneficiar do pool de conexões do ADO.Net. Como transações e solicitações podem ser atendidas por um fragmento por vez, isso deve ser a única modificação necessária em um aplicativo já usando ADO.Net.
 
-O método **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** também está disponível se o seu aplicativo usa a programação assíncrona com o ADO.NET. Seu comportamento é o equivalente ao roteamento dependente de dados do método ADO.Net's **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
+O método **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** também está disponível se o seu aplicativo usa a programação assíncrona com o ADO.NET. Seu comportamento é equivalente ao roteamento dependente de dados do método **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** do ADO.Net.
 
 ## Integrando a manipulação de falhas transitórias 
 
@@ -133,4 +133,4 @@ Para desanexar um fragmento ou anexar um fragmento novamente, consulte [Usando a
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

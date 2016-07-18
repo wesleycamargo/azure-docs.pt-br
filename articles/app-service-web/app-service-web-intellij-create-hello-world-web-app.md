@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Criar um aplicativo Web Hello World para o Azure no IntelliJ
@@ -26,7 +26,7 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
  
 ## Pré-requisitos
 
-* Um JDK (Java Developer Kit) versão 1.7 ou posterior.
+* Um JDK (Java Developer Kit) versão 1.8 ou posterior.
 * IntelliJ IDEA Ultimate Edition. Isso pode ser baixado em <https://www.jetbrains.com/idea/download/index.html>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
 * Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
@@ -80,7 +80,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
    ![][08]
 
-1. Quando a caixa de diálogo **Implantar no Contêiner do Aplicativo Web do Azure** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.   
+1. Quando a caixa de diálogo **Implantar no Contêiner do Aplicativo Web do Azure** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.
 
    ![][09]
 
@@ -224,10 +224,11 @@ Para obter mais informações sobre os kits de ferramentas do Azure para Java ID
 - [Kit de Ferramentas do Azure para IntelliJ]
   - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
   - *Criar um aplicativo Web Hello World para o Azure no IntelliJ (este artigo)*
+  - [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
-Para obter mais informações sobre como criar aplicativos Web do Azure, consulte a [Visão geral de Aplicativos Web].
+Para obter mais informações sobre como criar aplicativos Web do Azure, confira a [Visão geral de Aplicativos Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
@@ -236,9 +237,11 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, consult
 [Kit de ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
 [Visão geral de Aplicativos Web]: ./app-service-web-overview.md
@@ -265,4 +268,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, consult
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

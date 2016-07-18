@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Orientação arquitetural do push corporativo
@@ -45,7 +45,7 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 ###Benefícios:
 
 1. A separação entre o receptor (aplicativo/serviço móvel via Hub de Notificação) e o remetente (sistemas de back-end) permite que os sistemas de back-end adicionais sejam integrados com alterações mínimas.
-2. Isso também torna o cenário de vários aplicativos móveis, sendo capaz de receber eventos de um ou mais sistemas de back-end.  
+2. Isso também torna o cenário de vários aplicativos móveis, sendo capaz de receber eventos de um ou mais sistemas de back-end.
 
 ## Exemplo:
 
@@ -272,4 +272,4 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

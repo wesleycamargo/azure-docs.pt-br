@@ -17,9 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introdução ao Transparent Data Encryption (TDE)
+
+
 > [AZURE.SELECTOR]
-- [Portal do Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
+- [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
+- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
+- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 O Transparent Data Encryption (TDE) do SQL Data Warehouse do Azure ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
 
@@ -66,7 +73,7 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 ##DMVs de criptografia  
 
-- [sys.databases][] 
+- [sys.databases][]
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
 
 
@@ -79,4 +86,4 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

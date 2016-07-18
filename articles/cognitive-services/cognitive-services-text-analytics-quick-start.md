@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Introdução às APIs de Análise de Texto para detectar o sentimento, as frases-chave, os tópicos e o idioma
@@ -24,7 +24,7 @@ Este documento descreve como integrar seu serviço ou aplicativo para usar as [A
 
 Confira as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
-Este guia destina-se à versão 2 das APIs. Para obter detalhes sobre a versão 1 das APIs, [confira este documento](../machine-learning-apps-text-analytics/).
+Este guia destina-se à versão 2 das APIs. Para obter detalhes sobre a versão 1 das APIs, [confira este documento](../machine-learning/machine-learning-apps-text-analytics.md).
 
 No final deste tutorial, você será capaz de detectar de forma programática:
 
@@ -66,22 +66,32 @@ Nessa tarefa, você se inscreverá para obter o serviço de análise de texto.
 
 >[AZURE.TIP] Para a análise do sentimento, recomendamos que você divida o texto em sentenças. Isso geralmente leva a uma maior precisão em previsões de sentimento.
 
+Observe que os idiomas com suporte são os seguintes:
+
+| Recurso | Códigos de idioma com suporte |
+|:-----|:----|
+| Sentimento | `en` (Inglês), `es` (Espanhol), `fr` (Francês), `pt` (Português) |
+| Frases principais | `en` (Inglês), `es` (Espanhol), `de` (Alemão), `ja` (Japonês) |
+
+
 1. Você precisará definir os cabeçalhos da seguinte maneira. Observe que, atualmente, JSON é o único formato de entrada aceito para as APIs. Não há suporte para XML.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. Em seguida, formate as linhas de entrada em JSON. O formato é o mesmo para sentimento, frases-chave e idioma. Observe que cada ID deve ser exclusiva e será a ID retornada pelo sistema. O tamanho máximo de um único documento que pode ser enviado é 10 KB, e o tamanho máximo total da entrada enviada é de 1 MB. Podem ser enviados no máximo 1.000 documentos em uma chamada. Um exemplo de entrada é mostrado abaixo:
+1. Em seguida, formate as linhas de entrada em JSON. O formato é o mesmo para sentimento, frases-chave e idioma. Observe que cada ID deve ser exclusiva e será a ID retornada pelo sistema. O tamanho máximo de um único documento que pode ser enviado é 10 KB, e o tamanho máximo total da entrada enviada é de 1 MB. Podem ser enviados no máximo 1.000 documentos em uma chamada. O idioma é um parâmetro opcional que deve ser especificado se estiver analisando um texto que não está em inglês. Veja abaixo um exemplo de entrada, onde o parâmetro opcional `language` para análise de sentimento ou a extração de expressão chave está incluído:
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
@@ -153,18 +163,17 @@ Nessa tarefa, você se inscreverá para obter o serviço de análise de texto.
 			]
 		}
 
-        
 
 ## Tarefa 3 - detectar tópicos em um corpus de texto ####
 
 Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
-Essa API requer o envio de, **no mínimo, 100 registros de texto**, mas foi projetada para detectar tópicos em centenas ou milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos a tópicos. Para a detecção de tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB, e o tamanho máximo total da entrada enviada é de 30 MB.
+Essa API requer o envio de **no mínimo, 100 registros de texto** mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos a tópicos. Para a detecção de tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB, e o tamanho máximo total da entrada enviada é de 30 MB.
 
 Há mais dois parâmetros de entrada **opcionais** que podem ajudar a melhorar a qualidade dos resultados:
 
 - **Palavras irrelevantes.** Essas palavras e suas formas aproximadas (por exemplo, plurais) serão excluídas de todo o pipeline de detecção de tópicos. Use esse recurso para palavras comuns (por exemplo, "problema", "erro" e "usuário" podem ser opções apropriadas para reclamações do cliente sobre o software). Cada cadeia de caracteres deve ser uma única palavra.
-- **Frases irrelevantes** - essas expressões serão excluídas da lista de tópicos retornados. Use esse recurso para excluir tópicos genéricos que você não deseja ver nos resultados. Por exemplo, "Microsoft" e "Azure" seriam opções adequadas para os tópicos a serem excluídos. As cadeias de caracteres podem conter várias palavras.
+- **Frases irrelevantes** - essas frases serão excluídas da lista de tópicos retornados. Use esse recurso para excluir tópicos genéricos que você não deseja ver nos resultados. Por exemplo, "Microsoft" e "Azure" seriam opções adequadas para os tópicos a serem excluídos. As cadeias de caracteres podem conter várias palavras.
 
 Siga estas etapas para detectar tópicos no texto.
 
@@ -198,7 +207,7 @@ Siga estas etapas para detectar tópicos no texto.
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-1. Consulte periodicamente o `operation-location` retornado com uma solicitação **GET**. O intervalo recomendado é uma vez por minuto.
+1. Confira periodicamente o `operation-location` retornado com uma solicitação **GET**. O intervalo recomendado é uma vez por minuto.
 
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
@@ -206,7 +215,7 @@ Siga estas etapas para detectar tópicos no texto.
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -284,4 +293,4 @@ Explicações de cada parte da resposta são as seguintes:
 
 Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convém examinar o uso de uma ferramenta como o [Power BI](//powerbi.microsoft.com) para visualizar os dados e para automatizar as percepções para fornecer uma exibição em tempo real dos dados de texto.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

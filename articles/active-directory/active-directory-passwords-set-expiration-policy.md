@@ -32,7 +32,7 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 - [Definir uma senha para expirar](#set-a-password-to-expire)
 
-- [Definir uma senha para que ela não expire](#set-a-password-not-to-expire)
+- [Definir uma senha para que ela não expire](#set-a-password-to-never-expire)
 
 ## Como verificar a política de expiração de senha
 
@@ -64,4 +64,4 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

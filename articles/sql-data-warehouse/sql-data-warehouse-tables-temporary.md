@@ -1,6 +1,6 @@
 <properties
    pageTitle="Tabelas temporárias no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para usar tabelas temporárias no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+   description="Introdução às tabelas temporárias no Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,21 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Tabelas temporárias no SQL Data Warehouse
-As tabelas temporárias são muito úteis durante o processamento de dados - especialmente durante a transformação onde os resultados intermediários são temporários. No SQL Data Warehouse, existem tabelas temporárias no nível de sessão. No entanto, elas ainda estão definidas como tabelas temporárias locais, mas diferentemente das tabelas do SQL Server, elas podem ser acessadas de qualquer lugar dentro da sessão.
 
-Este artigo contém algumas diretrizes essenciais de como usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível de sessão. Usar essas informações pode ajudar você a modularizar seu código. A modularidade do código é importante para facilidade de manutenção e reutilização do código.
+> [AZURE.SELECTOR]
+- [Visão geral][]
+- [Tipos de dados][]
+- [Distribuir][]
+- [Índice][]
+- [Partition][]
+- [Estatísticas][]
+- [Temporário][]
 
-## Criando tabelas temporárias
-Criar uma tabela temporária é bem simples e fácil. Tudo o que você precisa fazer é prefixar o nome da tabela com #, como no exemplo abaixo:
+As tabelas temporárias são muito úteis durante o processamento de dados - especialmente durante a transformação onde os resultados intermediários são temporários. No SQL Data Warehouse, existem tabelas temporárias no nível de sessão. Elas são visíveis apenas para a sessão na qual foram criadas e são descartadas automaticamente quando a sessão faz logoff. As tabelas temporárias oferecem um benefício de desempenho, pois seus resultados são gravados no local, em vez do armazenamento remoto. As tabelas temporárias são um pouco diferentes no Azure SQL Data Warehouse em relação ao Banco de Dados SQL porque elas podem ser acessadas de qualquer lugar na sessão, incluindo dentro e fora de um procedimento armazenado.
+
+Este artigo contém as diretrizes essenciais de como usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão. Usar as informações neste artigo pode ajudá-lo a modularizar seu código, melhorando a reutilização e a facilidade de manutenção do seu código.
+
+## Criar uma tabela temporária
+
+As tabelas temporárias são criadas simplesmente prefixando o nome da tabela com `#`. Por exemplo:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-	[schema_name]			NVARCHAR(128) NOT NULL
+	[schema_name]		NVARCHAR(128) NOT NULL
 ,	[table_name]            NVARCHAR(128) NOT NULL
 ,	[stats_name]            NVARCHAR(128) NOT NULL
 ,	[stats_is_filtered]     BIT           NOT NULL
@@ -42,7 +53,7 @@ WITH
 )
 ```
 
-As tabelas temporárias também podem ser criadas usando `CTAS` com a mesma abordagem.
+As tabelas temporárias também podem ser criadas usando `CTAS` com a mesma abordagem:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -95,12 +106,12 @@ FROM    t1
 ;
 ``` 
 
->[AZURE.NOTE] `CTAS` é um comando bastante potente e tem a vantagem de ser muito eficiente em seu uso de espaço de log de transações.
+>[AZURE.NOTE] `CTAS` é um comando bastante potente e tem a vantagem extra de ser muito eficiente em seu uso do espaço de log das transações.
 
 
 ## Descartando tabelas temporárias
 
-Para garantir que as declarações `CREATE TABLE` sejam bem-sucedidas, é importante garantir que a tabela ainda não exista na sessão. Isso pode ser tratado com uma simples verificação de pré-existência usando o padrão abaixo:
+Quando uma nova sessão é criada, não deve haver nenhuma tabela temporária. No entanto, se você estiver chamando o mesmo procedimento armazenado, que cria um temporário com o mesmo nome, para garantir que suas instruções `CREATE TABLE` sejam bem-sucedidas, uma simples verificação da existência com `DROP` pode ser usada como no exemplo abaixo:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -109,23 +120,15 @@ BEGIN
 END
 ```
 
-> [AZURE.NOTE] Para consistência de codificação, é recomendável usar esse padrão para tabelas e tabelas temporárias.
-
-Também é uma boa prática usar `DROP TABLE` para remover tabelas temporárias quando você tiver finalizado o trabalho com elas no código.
+Para a consistência da codificação, é recomendável usar esse padrão para as tabelas e as tabelas temporárias. Também é uma boa prática usar `DROP TABLE` para remover as tabelas temporárias quando você tiver terminado o trabalho com elas no código. No desenvolvimento de procedimento armazenado, é bastante comum ver os comandos de remoção agrupados no fim de um procedimento para garantir que esses objetos sejam limpos.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-No desenvolvimento de procedimento armazenado, é bastante comum ver os comandos de remoção agrupados no fim de um procedimento para garantir que esses objetos sejam limpos.
-
 ## Modularizar o código
 
-O fato de que as tabelas temporárias podem ser vistas em qualquer lugar em uma sessão de usuário pode ser explorado para ajudá-lo a modularizar o código do seu aplicativo.
-
-Vamos fazer um exemplo funcional.
-
-O procedimento armazenado abaixo reúne os exemplos mencionados acima. O código pode ser usado para gerar a DDL exigida na atualização das estatísticas em cada coluna no banco de dados:
+Como as tabelas temporárias podem ser vistas em qualquer lugar em uma sessão do usuário, isso pode ser explorado para ajudá-lo a modularizar o código do aplicativo. Por exemplo, o procedimento armazenado a seguir reúne as práticas recomendadas acima para gerar a DDL que atualizará todas as estatísticas no banco de dados pelo nome da estatística.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -199,15 +202,7 @@ FROM    t1
 GO
 ```
 
-Neste estágio, nenhuma ação ocorreu na tabela. O procedimento simplesmente gerou a DDL necessária para atualizar as estatísticas e armazenou esse código em uma tabela temporária.
-
-No entanto, observe também que o procedimento armazenado não inclui um comando `DROP TABLE` no fim. Entretanto, incluímos uma verificação de pré-existência no procedimento armazenado para tornar o código robusto e reproduzível; garantindo que nosso `CTAS` não falhará como consequência de um objeto duplicado existente na sessão.
-
-Agora a parte interessante!
-
-No SQL Data Warehouse, é possível usar a tabela temporária fora do procedimento que o criou. Isso é diferente para o SQL Server. Na verdade, a tabela temporária pode ser usada **em qualquer lugar** na sessão.
-
-Isso pode levar a um código mais modular e gerenciável. Veja o exemplo abaixo:
+Neste estágio, a única ação que ocorreu é a criação de um procedimento armazenado que simplesmente irá gerar uma tabela temporária, #stats\_ddl, com instruções DDL. Esse procedimento armazenado descartará #stats\_ddl se ela já existir para garantir que não falhará se for executada mais de uma vez em uma sessão. No entanto, já que não há nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado for concluído, ele deixará a tabela criada para que possa ser lida de fora do procedimento armazenado. No SQL Data Warehouse, ao contrário dos outros bancos de dados do SQL Server, é possível usar a tabela temporária fora do procedimento que a criou. As tabelas temporárias do SQL Data Warehouse podem ser usadas **em qualquer lugar** na sessão. Isso pode levar a um código mais modular e gerenciável, como no exemplo abaixo:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -228,30 +223,33 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-O código resultante é muito mais compacto.
-
-Em alguns casos, funções embutidas e de várias instruções também podem ser substituídas usando essa técnica.
-
-> [AZURE.NOTE] Você também pode ampliar essa solução. Se você quiser atualizar uma única tabela por exemplo, tudo o que precisaria fazer é simplesmente filtrar a tabela #stats\_ddl
-
 ## Limitações da tabela temporária
-O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias.
 
-As principais limitações são:
-
-- Não há suporte para Tabelas Temporárias Globais
-- Exibições não podem ser criadas em tabelas temporárias
+O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias. Atualmente, somente a sessão com o escopo das tabelas temporárias é suportada. Não há suporte para as Tabelas Temporárias Globais. E mais, as exibições não podem ser criadas nas tabelas temporárias.
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+
+Para saber mais, consulte os artigos em [Visão Geral da Tabela][Overview], [Tipos de Dados da Tabela][Data Types], [Distribuindo uma Tabela][Distribute], [Indexando uma Tabela][Index], [Particionando uma Tabela][Partition] e [Mantendo as Estatísticas da Tabela][Statistics]. Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do desenvolvimento]: ./sql-data-warehouse-overview-develop.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Visão geral]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Distribuir]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Índice]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
+[Temporário]: ./sql-data-warehouse-tables-temporary.md
+[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

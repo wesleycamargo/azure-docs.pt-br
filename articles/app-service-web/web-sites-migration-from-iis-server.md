@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Migrar um aplicativo Web corporativo para o Serviço de Aplicativo do Azure
@@ -30,14 +30,14 @@ O [Assistente de migração de aplicativos Web](https://www.movemetothecloud.net
 ## Elementos verificados durante a análise de compatibilidade ##
 O Assistente de migração cria um relatório de prontidão para identificar quaisquer potenciais causas de preocupação ou problemas de bloqueio que podem impedir uma migração bem-sucedida do IIS local para aplicativos Web do Serviço de Aplicativo do Azure. Alguns dos principais itens aos quais você deve se atentar:
 
--	Associações de porta – aplicativos Web somente dão suporte à porta 80 para HTTP e à porta 443 para tráfego HTTPS. Configurações de porta diferentes serão ignoradas e o tráfego será roteado para 80 ou 443. 
--	Autenticação – os aplicativos Web dão suporte à Autenticação Anônima por padrão e à Autenticação de Formulários onde especificado por um aplicativo. A autenticação do Windows pode ser usada somente com a integração com o Active Directory do Azure e o ADFS. Não há suporte no momento para nenhuma outra forma de autenticação - por exemplo, Autenticação Básica. 
--	Cache de Assembly Global (GAC) – os aplicativos Web não dão suporte ao GAC. Se seu aplicativo faz referência a conjuntos que você normalmente implanta no GAC, você precisará implantar na pasta bin do aplicativo em aplicativos Web. 
--	Modo de compatibilidade IIS5 – não há suporte para esse modo nos aplicativos Web. 
+-	Associações de porta – aplicativos Web somente dão suporte à porta 80 para HTTP e à porta 443 para tráfego HTTPS. Configurações de porta diferentes serão ignoradas e o tráfego será roteado para 80 ou 443.
+-	Autenticação – os aplicativos Web dão suporte à Autenticação Anônima por padrão e à Autenticação de Formulários onde especificado por um aplicativo. A autenticação do Windows pode ser usada somente com a integração com o Active Directory do Azure e o ADFS. Não há suporte no momento para nenhuma outra forma de autenticação - por exemplo, Autenticação Básica.
+-	Cache de Assembly Global (GAC) – os aplicativos Web não dão suporte ao GAC. Se seu aplicativo faz referência a conjuntos que você normalmente implanta no GAC, você precisará implantar na pasta bin do aplicativo em aplicativos Web.
+-	Modo de compatibilidade IIS5 – não há suporte para esse modo nos aplicativos Web.
 -	Pools de aplicativos – em aplicativos Web, cada site e seus aplicativos filho são executados no mesmo pool de aplicativos. Se o site tiver vários aplicativos filho utilizando vários pools de aplicativos, consolide-os em um único pool de aplicativos com as mesmas configurações ou migre cada aplicativo em um aplicativo Web separado.
 -	Componentes COM – aplicativos Web não permitem o registro de componentes COM na plataforma. Se seus sites ou aplicativos utilizarem componentes COM, você deve reescrevê-los em código gerenciado e implantá-los em seu site ou aplicativo.
 -	Filtros ISAPI – os aplicativos Web podem dar suporte ao uso de filtros ISAPI. Você precisa fazer o seguinte:
-	-	implantar as DLLs com seu aplicativo Web 
+	-	implantar as DLLs com seu aplicativo Web
 	-	registrar as DLLs usando [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
 	-	Coloque um arquivo applicationHost.xdt na raiz do site com o conteúdo seguinte:
 
@@ -57,7 +57,7 @@ O Assistente de migração cria um relatório de prontidão para identificar qua
 ## Como usar o Assistente de migração de aplicativos Web ##
 Esta seção percorre um exemplo para migrar alguns sites que usam um banco de dados do SQL Server e em execução em um computador Windows Server 2003 R2 (IIS 6.0) no local:
 
-1.	No servidor IIS ou em seu computador cliente, navegue até [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1.	No servidor IIS ou em seu computador cliente, navegue até [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
@@ -135,4 +135,4 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

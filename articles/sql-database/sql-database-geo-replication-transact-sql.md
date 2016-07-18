@@ -36,7 +36,10 @@ Para configurar a replicação geográfica ativa usando Transact-SQL, você prec
 - Um servidor do Banco de Dados SQL do Azure lógico <MyLocalServer> e um banco de dados SQL <MyDB>: o banco de dados primário que você deseja replicar.
 - Um ou mais servidores lógicos do Banco de Dados SQL do Azure <MySecondaryServer(n)> - os servidores lógicos que serão os servidores parceiros nos quais você criará bancos de dados secundários.
 - Um logon que é o DBManager no primário, ter o db\_ownership do banco de dados local que você replicará geograficamente e ser o DBManager no servidor parceiro para o qual você vai configurar a Replicação Geográfica.
-- A versão mais recente do SQL Server Management Studio - Para obter a versão mais recente do SQL Server Management Studio (SSMS), vá para [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obter informações sobre como usar o SQL Server Management Studio para gerenciar os servidores lógicos e os bancos de dados do Banco de Dados SQL do Azure, confira [Gerenciamento do Banco de Dados SQL do Azure usando o SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ## Adicionar banco de dados secundário
 
@@ -56,7 +59,7 @@ Use as seguintes etapas para criar um secundário não legível como um banco de
 
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
 
-3. Use a instrução **ALTER DATABASE** a seguir para transformar um banco de dados local em uma Replicação Geográfica primária com um banco de dados secundário não legível em MySecondaryServer1, no qual MySecondaryServer1 é o nome amigável do servidor.
+3. Use a instrução **ALTER DATABASE** a seguir para transformar um banco de dados local em uma Replicação Geográfica primária com um banco de dados secundário não legível em MySecondaryServer1, no qual MySecondaryServer1 é o nome amistoso do servidor.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -164,7 +167,7 @@ Use as etapas a seguir para monitorar uma parceria de Replicação Geográfica.
 
 ## Próximas etapas
 
-- Para saber mais sobre a Replicação Geográfica Ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre a Replicação Geográfica Ativa, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

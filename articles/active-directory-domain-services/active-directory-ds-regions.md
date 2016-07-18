@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Serviços de domínio do AD do Azure *(visualização)*
 
 Para saber onde os Serviços de Domínio do AD do Azure estão disponíveis, confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

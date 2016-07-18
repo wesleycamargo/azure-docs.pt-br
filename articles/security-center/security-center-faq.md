@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -102,7 +102,7 @@ A Central de segurança do Azure automaticamente coleta, analisa e funde os dado
 ### Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?
 O MSRC (Microsoft Security Response Center) executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros. Quando o MSRC fica ciente de que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal ou que o uso do cliente do Azure não está de acordo com os termos de Uso Aceitável, um gerente de incidentes de segurança notifica o cliente. A notificação ocorrerá normalmente ao enviar um email para os contatos de segurança especificados na Central de Segurança do Azure ou o proprietário da assinatura do Azure, se um contato de segurança não for especificado.
 
-A Central de Segurança é um serviço do Azure que monitora o ambiente do cliente do Azure continuamente e aplica a análise para detectar automaticamente uma ampla gama de atividades potencialmente mal-intencionadas. Essas detecções são exibidas como alertas de segurança no painel da Central de Segurança. No futuro, uma notificação por email de alertas de segurança também será enviada para o contato de segurança.
+A Central de Segurança é um serviço do Azure que monitora o ambiente do cliente do Azure continuamente e aplica a análise para detectar automaticamente uma ampla gama de atividades potencialmente mal-intencionadas. Essas detecções são exibidas como alertas de segurança no painel da Central de Segurança.
 
 ### Como as permissões são tratadas na Central de segurança do Azure?
 A Central de segurança do Azure oferece suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md).
@@ -114,15 +114,15 @@ Para editar uma política de segurança, você deve ser um proprietário ou cola
 ## Máquinas Virtuais
 
 ### Quais tipos de máquinas virtuais terão suporte?
-As máquinas virtuais criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md) têm suporte, incluindo as máquinas virtuais que fazem parte dos clusters do Azure Service Fabric.
+O monitoramento de integridade de segurança e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md), inclusive VMs que fazem parte dos clusters do Azure Service Fabric.
 
-Máquinas virtuais Windows com suporte:
+VMs do Windows com suporte:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Máquinas virtuais Linux com suporte:
+VMs do Linux com suporte:
 
 - Ubuntu versões 12.04, 14.04, 15.10, 16.04
 - Debian versões 7, 8
@@ -130,4 +130,8 @@ Máquinas virtuais Linux com suporte:
 - Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
 - SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
 
-<!---HONumber=AcomDC_0615_2016-->
+Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
+
+A recomendação da Central de Segurança [aplicar atualizações do sistema](security-center-recommendations.md) recomenda que você implante atualizações de segurança do sistema e atualizações críticas ausentes nas VMs. Para VMs em serviços de nuvem, a recomendação **atualizar versão do sistema operacional** recomenda que o sistema operacional seja atualizado para a última versão.
+
+<!---HONumber=AcomDC_0706_2016-->
