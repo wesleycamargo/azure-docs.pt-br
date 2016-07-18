@@ -179,7 +179,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
     Esse arquivo será usado para carregar a configuração HBase para um cluster HDInsight.
 
-    > [AZURE.NOTE] Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight.
+	> [AZURE.NOTE] Esse é um arquivo hbase-site.xml absolutamente mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight.
 
 3. Salve o arquivo __hbase-site.xml__.
 

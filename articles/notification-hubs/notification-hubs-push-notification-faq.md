@@ -197,7 +197,7 @@ Também fornecemos a capacidade de exportar a telemetria programaticamente (na c
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [exemplos completos]: https://github.com/Azure/azure-notificationhubs-samples
-[Aplicativos Móveis do Azure]: https://azure.microsoft.com/pt-BR/services/app-service/mobile/
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[Aplicativos Móveis do Azure]: https://azure.microsoft.com/services/app-service/mobile/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 
 <!---HONumber=AcomDC_0706_2016-->

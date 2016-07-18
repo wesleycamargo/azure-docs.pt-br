@@ -274,7 +274,7 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [Visão geral do SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 <!---HONumber=AcomDC_0706_2016-->
