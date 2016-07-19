@@ -25,7 +25,7 @@ Depois de criar um ou mais cofres de chaves, provavelmente você desejará monit
 Você pode acessar suas informações de log em até 10 minutos após a operação do cofre da chave. Na maioria dos casos, será mais rápido do que isso. Cabe a você gerenciar os logs em sua conta de armazenamento:
 
 - Use os métodos de controle de acesso padrão do Azure para proteger seus logs ao restringir quem pode acessá-los.
-- Exclua os logs que você não deseja manter em sua conta de armazenamento. 
+- Exclua os logs que você não deseja manter em sua conta de armazenamento.
 
 Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do Azure, para criar sua conta de armazenamento, para habilitar o log e para interpretar as informações de log coletadas.
 
@@ -40,8 +40,8 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- Um cofre da chave existente que você esteja usando.  
-- Azure PowerShell, **versão mínima: 1.0.1**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`.  
+- Um cofre da chave existente que você esteja usando.
+- Azure PowerShell, **versão mínima: 1.0.1**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`.
 - Armazenamento suficiente no Azure para seus logs do Cofre da Chave.
 
 
@@ -105,7 +105,7 @@ O que é registrado em log:
 - Todas as solicitações de API REST autenticadas são registradas, o que inclui as solicitações que falharam devido a permissões de acesso, erros do sistema ou solicitações inválidas.
 - As operações do próprio cofre da chave, o que inclui a criação, a exclusão, a configuração de políticas de acesso ao cofre da chave e a atualização dos atributos do cofre da chave, como as marcas.
 - As operações em chaves e segredos no cofre da chave, o que inclui criar, modificar ou excluir essas chaves ou segredos; as operações como assinar, verificar, criptografar, descriptografar, encapsular e desencapsular chaves, obter segredos, listar chaves e segredos e suas versões.
-- Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador, estão malformadas ou expiradas ou têm um token inválido.  
+- Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador, estão malformadas ou expiradas ou têm um token inválido.
 
 
 ## <a id="access"></a>Acessar seus logs ##
@@ -116,7 +116,7 @@ Os logs do cofre da chave são armazenados no contêiner **insights-logs-auditev
 
 A saída será parecida com esta:
 
-****Uri do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Uri do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Nome**
@@ -130,7 +130,7 @@ A saída será parecida com esta:
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
-Como você pode ver nessa saída, os blobs seguem uma convenção de nomenclatura: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/nomedoarquivo.json**
+Como você pode ver nessa saída, os blobs seguem uma convenção de nomenclatura: **resourceId=<ID de recurso do ARM>/y=<ano>/m=<mês>/d=<dia do mês>/h=<hora>/m=<minuto>/filename.json**
 
 Os valores de data e hora usam UTC.
 
@@ -166,12 +166,12 @@ Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
 
 Agora você está pronto para começar a examinar o conteúdo dos logs. Mas antes de fazer isso, há mais dois parâmetros para Get-AzureRmDiagnosticSetting que você precisa conhecer:
 
-- Para consultar o status das configurações de diagnóstico do recurso cofre da chave: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+- Para consultar o status das configurações de diagnóstico do recurso cofre de chave: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
  
-- Para desabilitar o log do recurso cofre da chave: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+- Para desabilitar o log do recurso cofre de chave: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
-## <a id="interpret"></a>Interpretar os logs do Cofre da Chave ##
+## <a id="interpret"></a>Interpretar os logs do Cofre de Chave ##
 
 Os blobs individuais são armazenados como texto, formatados como um blob JSON. Este é um exemplo de entrada de log a partir da execução de `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
@@ -221,7 +221,7 @@ A tabela a seguir lista os nomes e as descrições de campo.
 
 Os valores do campo **operationName** estão no formato ObjectVerb. Por exemplo:
 
-- Todas as operações do cofre da chave têm o formato 'Vault`<action>`', como `VaultGet` e `VaultCreate`. 
+- Todas as operações do cofre de chave têm o formato 'Vault`<action>`', como `VaultGet` e `VaultCreate`.
 
 - Todas as operações da chave têm o formato 'Key`<action>`', como `KeySign` e `KeyList`.
 
@@ -264,11 +264,12 @@ A tabela a seguir lista o operationName e o comando da API REST correspondente.
 
 ## <a id="next"></a>Próximas etapas ##
 
-Para obter um tutorial que usa o Cofre da Chave do Azure em um aplicativo Web, confira [Usar o Cofre da Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
+Para obter um tutorial que usa o Cofre de Chave do Azure em um aplicativo Web, confira [Usar o Cofre de Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre da Chave do Azure, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
- 
+Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chave do Azure, confira [Cmdlets do Cofre de Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+Para obter um tutorial sobre a rotação de chaves e o log de auditoria com o Cofre de Chaves do Azure, confira [Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md).
+
+<!---HONumber=AcomDC_0713_2016-->

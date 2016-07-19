@@ -59,7 +59,7 @@ O Hub IoT do Azure enfrenta os desafios de conectividade do dispositivo das segu
 
 -   **Protocolos e extensibilidade do IoT**. Se sua solução não puder usar as bibliotecas de dispositivos, o Hub IoT exporá um protocolo público para permitir que os dispositivos usem os protocolos MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0 nativamente. Você também pode estender o Hub IoT para dar suporte a protocolos personalizados por meio da:
 
-    - Criação de um gateway de campo com o [SDK do Gateway IoT do Azure][lnk-gateway-sdk] que converte seu protocolo personalizado em um dos três protocolos compreendidos pelo Hub IoT. 
+    - Criação de um gateway de campo com o [SDK do Gateway IoT do Azure][lnk-gateway-sdk] que converte seu protocolo personalizado em um dos três protocolos compreendidos pelo Hub IoT.
     - Personalização do [gateway de protocolo IoT do Azure][protocol-gateway], um componente de código aberto que é executado na nuvem.
 
 -   **Escala**. O Hub IoT do Azure pode ser dimensionado para milhões de dispositivos conectados simultaneamente, além de milhões de eventos por segundo.
@@ -96,13 +96,14 @@ O setor de dispositivos móveis tem usado com êxito o padrão de comunicação 
 
 ## Próximas etapas
 
-Para saber mais sobre o Hub IoT do Azure, consulte estes links:
+Para saber como o Hub IoT do Azure permite o gerenciamento de dispositivo IoT baseado em padrões para que você possa gerenciar, configurar e atualizar os dispositivos remotamente, confira [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-device-management].
 
-* [Introdução ao Hub IoT][lnk-get-started]
-* [Conectar seu dispositivo][lnk-connect-device]
-* [Processar mensagens de dispositivo para nuvem][lnk-d2c]
+Para implementar aplicativos cliente em uma grande variedade de sistemas operacionais e plataformas de hardware do dispositivo, você pode usar os SDKs do dispositivo IoT. Os SDKs do dispositivo IoT incluem bibliotecas que facilitam o envio de telemetria para um hub IoT e o recebimento de comandos da nuvem para o dispositivo. Ao usar os SDKs, você poderá escolher entre vários protocolos de rede para comunicar-se com o Hub IoT. Para saber mais, confira as [informações sobre SDKs de dispositivo][lnk-device-sdks].
+
+Para começar a escrever código e executar alguns exemplos, confira o tutorial [Introdução ao Hub IoT][lnk-get-started].
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,5 +121,6 @@ Para saber mais sobre o Hub IoT do Azure, consulte estes links:
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

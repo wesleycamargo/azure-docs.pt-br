@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/28/2016"
-	ms.author="wesmc"/>
+	ms.date="07/07/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guia de introdução com práticas recomendadas
 
@@ -24,12 +24,12 @@
 
 O usuário móvel comum instalará e desinstalará aplicativos frequentemente, dependendo das mudança de interesse e nas experiências proporcionadas no aplicativo. Para determinar o êxito de um aplicativo, tornou-se essencial ter mais informações além de quantos usuários instalaram o seu aplicativo. É importante saber a utilidade de seu aplicativo e se essa tendência de uso está mudando. As perguntas a seguir tornam-se importantes:
 
-- Seus usuários estão começando a achar seu aplicativo pouco interessante ou obsoleto? 
-- Quantos usuários deixaram de usar seu aplicativo? 
+- Seus usuários estão começando a achar seu aplicativo pouco interessante ou obsoleto?
+- Quantos usuários deixaram de usar seu aplicativo?
 - A tendência de compras no aplicativo está aumentando ou diminuindo?
-- Os usuários estão deixando de concluir os fluxos de trabalho devido a problemas com o aplicativo ou pela falta de interesse? 
-- Você conseguiria manter a utilidade e relevância de seu aplicativo disponibilizando conteúdo atualizado para sua base de usuários? 
-- Esse conteúdo atualizado seria o mesmo para todos os usuários ou estaria focado em segmentos de usuários baseados no comportamento em seu aplicativo? 
+- Os usuários estão deixando de concluir os fluxos de trabalho devido a problemas com o aplicativo ou pela falta de interesse?
+- Você conseguiria manter a utilidade e relevância de seu aplicativo disponibilizando conteúdo atualizado para sua base de usuários?
+- Esse conteúdo atualizado seria o mesmo para todos os usuários ou estaria focado em segmentos de usuários baseados no comportamento em seu aplicativo?
  
 As respostas a perguntas parecidas poderiam ajudar a estender a vida útil e a receita de seu aplicativo. Elas também podem ajudar você a definir e a manter sua base de usuários.
 
@@ -70,7 +70,7 @@ A criação dos KPIs de Negócios deve ser a parte mais fácil. Provavelmente vo
 	- Número de contas
 	- Recursos ativados
 	- Páginas de ofertas visitadas
-	- Alertas clicados ou ativados	   
+	- Alertas clicados ou ativados
 
 
 
@@ -80,7 +80,7 @@ Uma KPI de Envolvimento é um indicador de desempenho que mede o envolvimento do
 
 - Usuários ativos nos últimos sete dias
 - Contagem de usuários inativos nos últimos sete dias
-- Contagem de usuários que não usaram o aplicativo em 30 dias  
+- Contagem de usuários que não usaram o aplicativo em 30 dias
 
 Alguns fatores externos óbvios podem influenciar os indicadores nessa área. Por exemplo, você pode considerar que um usuário carrega o dispositivo móvel sempre com ele. Isso pode ou não ser verdadeiro. Um aplicativo de jogo tende a ser mais usado durante os feriados, quando um jogador pode jogar mais por estar de folga do trabalho ou da escola.
 
@@ -94,7 +94,7 @@ Os indicadores de desempenho nessa categoria ajudarão você a determinar se o s
  
 Veja alguns exemplos de KPIs Técnicos:
 
-- Contagem e informações sobre exceções manipuladas ou não manipuladas 
+- Contagem e informações sobre exceções manipuladas ou não manipuladas
 - Carimbo de data e hora do último travamento
 - Último botão clicado ou última página visitada
 - Uso de memória do aplicativo
@@ -213,7 +213,7 @@ O redirecionamento também pode ser gerenciado para outros sistemas. Por exemplo
 - Uma caixa de correio com um email já configurado
 - Uma caixa de SMS
 - Um serviço de discagem
-- Diretamente à loja de aplicativos para classificação do aplicativo. 
+- Diretamente à loja de aplicativos para classificação do aplicativo.
 
 Isso proporciona muitas oportunidades de envolvimento com os usuários finais e cria regras automáticas para melhorar o desempenho.
 
@@ -297,7 +297,7 @@ Trabalhos são usados para relatar ações com uma duração. Alguns exemplos in
 
 - Execução de chamadas à API
 - Tempo de exibição de anúncios
-- Execução de tarefas em segundo plano 
+- Execução de tarefas em segundo plano
 - Duração do processo de compra
 - Reprodução de um vídeo
 
@@ -362,7 +362,7 @@ Recomendamos que você comece definindo as funções certas e associações de f
 
 - Administradores
 - Desenvolvedores
-- Visualizadores 
+- Visualizadores
 
 Em seguida:
 - Registre o deviceID para testar seu próprio dispositivo.
@@ -382,7 +382,7 @@ Inicialmente, durante o desenvolvimento da experiência com as estratégias de e
 
 Depois de reunir alguma experiência, adicione o seguinte aos seus programas de envolvimento:
 
-- Acompanhamento: você vai adquirir usuários e provavelmente definirá fontes de coleta de dados. O Azure mobile Engagement pode ser vinculado a fontes de coleta de dados. Isso permite o monitoramento do desempenho de cada fonte. Essas informações serão interessantes para maximizar seus investimentos de aquisição. 
+- Acompanhamento: você vai adquirir usuários e provavelmente definirá fontes de coleta de dados. O Azure mobile Engagement pode ser vinculado a fontes de coleta de dados. Isso permite o monitoramento do desempenho de cada fonte. Essas informações serão interessantes para maximizar seus investimentos de aquisição.
 
 - Teste A/B: essa é uma parte essencial do programa de envolvimento. Cada aplicativo tem suas própria especificações. Com o teste A/B, você pode melhorar seu programa de envolvimento.
 
@@ -407,4 +407,4 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

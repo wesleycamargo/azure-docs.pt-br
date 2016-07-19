@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Visão geral de Aplicativos de API
 
@@ -57,10 +57,10 @@ Alguns recursos de Gerenciamento de API e Aplicativos de API têm funções seme
 
 Para começar a usar os Aplicativos de API implantando código de exemplo em um deles, confira o tutorial para a estrutura de sua preferência:
 
-* [ASP.NET](app-service-api-dotnet-get-started.md) 
-* [Node.js](app-service-api-nodejs-api-app.md) 
-* [Java](app-service-api-java-api-app.md) 
+* [ASP.NET](app-service-api-dotnet-get-started.md)
+* [Node.js](app-service-api-nodejs-api-app.md)
+* [Java](app-service-api-java-api-app.md)
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -42,6 +42,11 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Mais exemplos
+
+Para obter exemplos adicionais usando o Armazenamento de Tabelas, confira [Introdução ao Armazenamento de Tabelas do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Você pode baixar o aplicativo de exemplo e executá-lo ou procurar o código no GitHub.
+
+
 [AZURE.INCLUDE [armazenamento-tabela-conceitos-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -50,7 +55,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 ### Adicionar declarações do namespace
 
-Adicione as seguintes instruções `using` na parte superior do arquivo `program.cs`:
+Adicione as seguintes instruções `using` à parte superior do arquivo `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -437,6 +442,7 @@ Se estiver lendo um grande número de entidades e quiser processar/exibir as ent
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
 
+- Ver mais exemplos de Armazenamento de Tabelas na [Introdução ao Armazenamento de Tabelas do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 - Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
     - [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
@@ -463,4 +469,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="get-started-article"
 	ms.date="06/01/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Criar e implantar um aplicativo de API Java no Serviço de Aplicativo do Azure
 
@@ -153,7 +153,7 @@ Esta demonstração começa com um corpo JSON do Swagger que você colará no ed
 
 Nesta seção, você substituirá a implementação do lado servidor do código gerado pelo Swagger pelo seu código personalizado. O novo código retornará uma ArrayList de entidades de Contact para o cliente da chamada.
 
-1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/io/swagger/model* usando o [Visual Studio Code] ou seu editor de texto favorito. 
+1. Abra o arquivo de modelo *Contact.java* localizado na pasta *src/gen/java/io/swagger/model* usando o [Visual Studio Code] ou seu editor de texto favorito.
 
     ![Abrir Arquivo de Modelo de Contato][open-contact-model-file]
 
@@ -338,4 +338,4 @@ Para obter mais informações sobre como usar o Java no Azure, consulte o [Centr
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

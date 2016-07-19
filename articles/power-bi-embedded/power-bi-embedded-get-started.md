@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introdução ao Microsoft Power BI Embedded Preview"
+   pageTitle="Introdução ao Microsoft Power BI Embedded"
    description="Power BI Embedded, adicione relatórios interativos do Power BI a seu aplicativo de business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Introdução ao Microsoft Power BI Embedded Preview
+# Introdução ao Microsoft Power BI Embedded
 
-O **Power BI Embedded** é um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. O **Power BI Embedded** funciona com aplicativos existentes sem a necessidade de recriá-los ou alterar o modo de entrada de seus usuários.
+O **Power BI Embedded** é um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. O **Power BI Embedded** funciona com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
 
-Para saber mais sobre o Power BI Embedded, confira [O que é o Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
-
-Conforme descrito em [O que é o Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md), os recursos para **Microsoft Power BI Embedded** são provisionados pelas [ APIs do Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**. A próxima seção mostra como criar uma coleção de espaços de trabalho.
+Os recursos para o **Microsoft Power BI Embedded** são provisionados por meio de [APIs do ARM do Azure](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
@@ -51,14 +49,12 @@ A **Coleção de espaços de trabalho** levará alguns minutos para provisionar.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
-Essa **Folha de Criação** contém as informações necessárias para chamar as APIs que criam espaços de trabalho e implanta conteúdo nelas.
-
-A próxima seção descreve como as **Chaves de acesso** são usadas para gerar **tokens do aplicativo** que são usados na autenticação de solicitações de API.
+A **Folha de Criação** contém as informações necessárias para chamar as APIs que criam espaços de trabalho e implanta conteúdo nelas.
 
 <a name="view-access-keys"/>
 ## Exibir chaves de acesso da API do Power BI
 
-Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens do aplicativo**, confira [Como funciona o fluxo de tokens de aplicativo](power-bi-embedded-app-token-flow.md).
+Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para obter mais informações sobre **tokens do aplicativo**, consulte [Como funciona o fluxo de tokens de aplicativo](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -66,7 +62,7 @@ Você notará que tem duas chaves.
 
    ![](media\power-bi-embedded-get-started\access-keys-2.png)
 
-Copie essas chaves e armazene-as com segurança em seu aplicativo. É muito importante tratar essas chaves como faria com uma senha, pois elas dão acesso a todo o conteúdo em sua **Coleção de espaços de trabalho**.
+Copie essas chaves e armazene-as com segurança em seu aplicativo. É muito importante tratar essas chaves como faria com uma senha, pois elas darão acesso a todo o conteúdo em sua **Coleção de espaços de trabalho**.
 
 Embora duas chaves estejam listadas, somente uma chave é usada de cada vez. A segunda chave é fornecida para regenerar as chaves periodicamente sem interromper o acesso ao serviço.
 
@@ -107,4 +103,4 @@ Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o prim
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->
