@@ -541,9 +541,9 @@ Nesta etapa, você criará um serviço vinculado para a sua conta do **Lote do A
 
     3.  Insira a ID do pool para a propriedade **poolName****.** Para essa propriedade, você pode especificar o nome do pool ou o ID do pool.
 
-    4.  Digite o URI do lote para a propriedade JSON **batchUri**.
+    4.  Digite o URI do lote para a propriedade JSON **batchUri**.  
     
-		> [AZURE.IMPORTANT] A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: \<nomeconta\>.\<região\>.batch.azure.com. Para a propriedade **batchUri** em JSON, você precisará **remover "accountname."** da URL. Exemplo: "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: &lt;nomeconta&gt;.&lt;região&gt;.batch.azure.com. Para a propriedade **batchUri** em JSON, você precisará **remover "accountname."** da URL. Exemplo: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
