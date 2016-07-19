@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Guia do desenvolvedor do Active Directory do Azure
 
 ## Visão geral
-Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Active Directory do Azure fornece aos desenvolvedores uma maneira eficiente de integrar o gerenciamento de identidades em seus aplicativos. Os artigos a seguir fornecem visões gerais sobre a implementação e os principais recursos do Active Directory do Azure. Sugerimos que você os leia na ordem ou pule para a [Introdução](#getting-started) se estiver pronto para se aprofundar.
+Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Azure Active Directory (AD) fornece aos desenvolvedores uma maneira eficiente de integrar o gerenciamento de identidades em seus aplicativos. Os artigos a seguir fornecem visões gerais sobre a implementação e os principais recursos do Azure AD. Sugerimos que você os leia na ordem ou pule para a [Introdução](#getting-started) se estiver pronto para se aprofundar.
 
 
-1. [Os benefícios da integração do Active Directory do Azure](active-directory-how-to-integrate.md): descubra por que a integração com o Active Directory do Azure oferece a melhor solução para entrada e autorização seguras.
+1. [Os benefícios da integração do Azure Active Directory](active-directory-how-to-integrate.md): descubra por que a integração com o Azure AD oferece a melhor solução para entrada segura e autorização.
 
-1. [Cenários de autenticação do Active Directory](active-directory-authentication-scenarios.md): Aproveite a autenticação simplificada do Active Directory do Azure para fornecer logon em seu aplicativo.
+1. [Cenários de autenticação do Active Directory](active-directory-authentication-scenarios.md): aproveite a autenticação simplificada do Azure AD para fornecer logon em seu aplicativo.
 
-1. [Integrando aplicativos ao Active Directory do Azure](active-directory-integrating-applications.md): saiba mais sobre como adicionar, atualizar e remover aplicativos do Active Directory do Azure e sobre as diretrizes de identidade visual para aplicativos integrados.
+1. [Integrando aplicativos ao Azure Active Directory](active-directory-integrating-applications.md): saiba mais sobre como adicionar, atualizar e remover aplicativos do Azure AD e sobre as diretrizes de identidade visual para aplicativos integrados.
 
-1. [Graph API do Active Directory do Azure](active-directory-graph-api.md): use a Graph API do Active Directory do Azure para acessar programaticamente o Active Directory do Azure por meio de pontos de extremidade da API REST. Observe que a Graph API do Azure AD também é acessível por meio da [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que permite acesso a várias APIs do serviço de nuvem da Microsoft por meio de um único ponto de extremidade da API REST e com um token de acesso único.
+1. [API do Graph do Azure Active Directory](active-directory-graph-api.md): use a API do Graph do Azure AD para acessar de forma programática o Azure AD por meio de pontos de extremidade da API REST. Observe que a Graph API do Azure AD também é acessível por meio da [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que permite acesso a várias APIs do serviço de nuvem da Microsoft por meio de um único ponto de extremidade da API REST e com um token de acesso único.
 
 1. [Bibliotecas de autenticação do Active Directory do Azure](active-directory-authentication-libraries.md): autentique facilmente os usuários para obter tokens de acesso usando as bibliotecas de autenticação do Azure AD para .NET, JavaScript, Objective-C, Android e mais.
 
@@ -66,12 +66,13 @@ Esses tutoriais são adaptados para várias plataformas e permitem que você com
 
 Esses artigos descrevem como executar tarefas específicas usando o Active Directory do Azure.
 
-- [Obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md)
-- [Listar seu aplicativo na galeria de aplicativos do Active Directory do Azure](active-directory-app-gallery-listing.md)
-- [Noções básicas sobre o manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
-- [Criar um aplicativo com APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Obter um locatário do AD do Azure](active-directory-howto-tenant.md)
+- [Entrar em qualquer usuário do Azure AD usando o padrão de aplicativo multilocatário](active-directory-devhowto-multi-tenant-overview.md)
+- Habilitar o SSO entre aplicativos usando a ADAL em dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
+- [Tornar seu aplicativo Certificado por AppSource para o Azure AD](active-directory-devhowto-appsource-certified.md)
+- [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](active-directory-app-gallery-listing.md)
 - [Enviar aplicativos Web para Office 365 para o Painel do Vendedor](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Saiba como habilitar o SSO entre aplicativos usando a ADAL em dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
+- [Noções básicas sobre o manifesto do aplicativo do Active Directory do Azure](active-directory-application-manifest.md)
 - [Entender as diretrizes de identidade visual para os botões de aquisição de entrada e de aplicativo em seu aplicativo cliente](active-directory-branding-guidelines.md)
 - [Visualização: como criar aplicativos que conectam usuários com as contas pessoais e corporativas ou de estudante](active-directory-appmodel-v2-overview.md)
 - [Visualização: como criar aplicativos que registram e conectam consumidores](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -138,4 +139,4 @@ O [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/)
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

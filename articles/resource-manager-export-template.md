@@ -147,7 +147,7 @@ Embora cada implantação mostre apenas as alterações feitas em seu grupo de r
 
       ![exportar grupo de recursos](./media/resource-manager-export-template/export-resource-group.png)
 
-     Nem todos os tipos de recursos suportam a função para exportar o modelo. Se o grupo de recursos contiver somente a conta de armazenamento e a rede virtual mostradas neste artigo, você não verá um erro. No entanto, se você criou outros tipos de recursos, verá um erro indicando que há um problema com a exportação. Você aprenderá a lidar com esses problemas na seção [Corrigindo os problemas da exportação](#fixing-export-issues).
+     Nem todos os tipos de recursos suportam a função para exportar o modelo. Se o grupo de recursos contiver somente a conta de armazenamento e a rede virtual mostradas neste artigo, você não verá um erro. No entanto, se você criou outros tipos de recursos, verá um erro indicando que há um problema com a exportação. Você aprenderá a lidar com esses problemas na seção [Corrigir os problemas da exportação](#fix-export-issues).
 
       
 
@@ -342,4 +342,4 @@ Parabéns! Você aprendeu a exportar um modelo a partir dos recursos criados no 
 - Para ver como exportar um modelo por meio do PowerShell, consulte [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para ver como exportar um modelo por meio da CLI do Azure, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

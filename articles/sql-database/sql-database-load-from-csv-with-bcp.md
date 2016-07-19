@@ -1,0 +1,130 @@
+<properties
+   pageTitle="Carregar dados do arquivo CSV no Banco de Dados SQL do Azure (bcp) | Microsoft Azure"
+   description="Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/30/2016"
+   ms.author="carlrab"/>
+
+
+# Carregar dados do CSV no Azure SQL Data Warehouse (arquivos simples)
+
+Você pode usar o utilitário de linha de comando bcp para importar dados de um arquivo CSV para o Banco de Dados SQL.
+
+## Antes de começar
+
+### Pré-requisitos
+
+Para acompanhar este tutorial, você precisará:
+
+- Um servidor lógico e um banco de dados do Banco de Dados SQL do Azure
+- O utilitário de linha de comando bcp instalado
+- O utilitário de linha de comando sqlcmd instalado
+
+Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][].
+
+### Dados em formato ASCII ou UTF-16
+
+Se você estiver experimentando este tutorial com seus próprios dados, eles precisarão usar a codificação ASCII ou UTF-16, já que bcp não oferece suporte a UTF-8.
+
+O PolyBase oferece suporte a UTF-8, mas ainda não oferece suporte a UTF-16. Observe que se você quiser combinar bcp com o PolyBase, será necessário transformar os dados em UTF-8 após a exportação do SQL Server.
+
+
+## 1\. Criar uma tabela de destino
+
+Defina uma tabela no SQL Data Warehouse que será a tabela de destino para a carga. As colunas na tabela devem corresponder aos dados em cada linha do arquivo de dados.
+
+Para criar uma tabela, abra um prompt de comando e use sqlcmd.exe para executar o comando a seguir:
+
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    ;
+"
+```
+
+
+## 2\. Criar um arquivo de dados de origem
+
+Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\\Temp\\DimDate2.txt. Esses dados estão no formato ASCII.
+
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
+
+(Opcional) Para exportar seus próprios dados de um banco de dados do SQL Server, abra um prompt de comando e execute o comando a seguir. Substitua TableName, ServerName, DatabaseName, Username e Password por suas próprias informações.
+
+```sql
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```
+
+## 3\. Carregar os dados
+Para carregar os dados, abra um prompt de comando e execute o comando a seguir, substituindo os valores de Nome do Servidor, Nome do Banco de Dados, Nome de Usuário e Senha por suas próprias informações.
+
+```sql
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```
+
+Use este comando para verificar se os dados foram carregados corretamente
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
+```
+
+O resultado deve parecer com o seguinte:
+
+DateId |CalendarQuarter |FiscalQuarter
+----------- |--------------- |-------------
+20150101 |1 |3
+20150201 |1 |3
+20150301 |1 |3
+20150401 |2 |4
+20150501 |2 |4
+20150601 |2 |4
+20150701 |3 |1
+20150801 |3 |1
+20150801 |3 |1
+20151001 |4 |2
+20151101 |4 |2
+20151201 |4 |2
+
+
+## Próximas etapas
+
+Para migrar um banco de dados do SQL Server, confira [Migração de banco de dados do SQL Server](sql-database-cloud-migrate.md).
+
+<!--MSDN references-->
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+<!--Other Web references-->
+[Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+
+<!---HONumber=AcomDC_0713_2016-->

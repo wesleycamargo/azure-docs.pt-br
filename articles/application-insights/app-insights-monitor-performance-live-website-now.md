@@ -180,6 +180,12 @@ Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 
 Você pode iniciar e interromper o monitoramento usando o PowerShell.
 
+Primeiro, importe o módulo do Application Insights:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Saiba quais aplicativos estão sendo monitorados:
+
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
 * `-Name` (Opcional) O nome de um aplicativo Web.
@@ -205,7 +211,7 @@ Você pode iniciar e interromper o monitoramento usando o PowerShell.
 
     Para baixar a versão mais recente, use Update-ApplicationInsightsVersion.
 
-* Retorna `ApplicationInsightsApplication` ao ser bem-sucedido. Se ele falhar, registrará em log um rastreamento para stderr.
+* Retorna `ApplicationInsightsApplication` se há êxito. Se ele falhar, registrará em log um rastreamento para stderr.
 
     
           Name                      : Default Web Site/WebApp1
@@ -284,4 +290,4 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

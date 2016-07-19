@@ -30,7 +30,7 @@ O Gerenciador de Recursos fornece vários benefícios:
 - Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
 - Você pode aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
-- Você pode esclarecer a cobrança para a sua organização exibindo os custos acumulados para todo o grupo ou para um grupo de recursos compartilhando a mesma marca.  
+- Você pode esclarecer a cobrança para a sua organização exibindo os custos acumulados para todo o grupo ou para um grupo de recursos compartilhando a mesma marca.
 
 O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Se você usou o modelo de implantação anterior e quiser saber mais sobre as alterações, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -125,9 +125,35 @@ Para saber mais sobre o uso do portal, confira [Usando o Portal do Azure para ge
 
 O Gerenciador de Recursos do Azure oferece suporte a compartilhamento de recursos entre origens (CORS). Com o CORS, você pode chamar a API REST do Gerenciador de Recursos ou uma API REST do serviço do Azure de um aplicativo Web que resida em um domínio diferente. Sem suporte do CORS, o navegador da Web impediria que um aplicativo em um domínio acessasse recursos em outro domínio. O Gerenciador de Recursos habilita o CORS para todas as solicitações com credenciais de autenticação válidas.
 
+## SDK e exemplos
+
+Os SDKs do Azure estão disponíveis em várias linguagens e plataformas. Cada uma dessas implementações da linguagem está disponível por meio do gerenciador de pacotes do ecossistema e do GitHub.
+
+O código em cada um desses SDKs é gerado a partir de especificações da API RESTful do Azure. Essas especificações têm o código-fonte aberto e baseiam-se na especificação Swagger 2.0. O código do SDK é gerado por um projeto de fonte-aberta denominado AutoRest. O AutoRest transforma essas especificações da API RESTful em bibliotecas de cliente em várias linguagens. Se você quiser melhorar algum aspecto do código gerado nos SDKs, todo o conjunto de ferramentas para criar os SDKs é aberto, está disponível gratuitamente e baseado em um formato de especificação API amplamente adotado.
+
+**Exemplos**: comece rapidamente no idioma de sua escolha.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *em breve*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *em breve*
+- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *em breve*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**Repositórios do SDK de Software Livre**: apreciamos receber comentários, questões relativas a problemas e solicitações.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.js](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] Se o SDK não fornecer a funcionalidade necessária, você também poderá chamar a [API REST do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) diretamente.
+
 ## Próximas etapas
 
-- Para obter uma introdução simples do trabalho com modelos, consulte [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
+- Para obter uma introdução simples do trabalho com modelos, confira [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
 - Para obter uma explicação mais completa da criação de um modelo, consulte [Passo a Passo do Modelo do Resource Manager](resource-manager-template-walkthrough.md).
 - Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](resource-group-template-functions.md)
 - Para obter informações sobre como usar o Visual Studio com o Resource Manager, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -136,4 +162,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

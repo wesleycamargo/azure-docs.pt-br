@@ -75,7 +75,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Interxion** | Com suporte | Suportado | Amsterdã, Londres, Paris |
 | **Jisc** | Em breve | Em breve | Londres+ | 
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Com suporte | Amsterdã, Chicago, Dallas, Las Vegas+, Londres, Seattle, SVale do Silício, Washington, D.C. |
-| **Megaport** | Suportado | Suportado | Dallas, Las Vegas+, Los Angeles, Melbourne, Nova Iorque, Seattle, Cingapura, Sydney, Washington, D.C. |
+| **Megaport** | Suportado | Suportado | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, Nova Iorque, Seattle, Cingapura, Sydney, Washington, D.C. |
 | **MTN** | Com suporte | Com suporte | Londres |
 | **NEXTDC** | Suportado | Suportado | Melbourne, Sydney |
 | **NTT Communications** | Suportado | Com suporte | Londres, Osaka, Tóquio |
@@ -164,4 +164,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

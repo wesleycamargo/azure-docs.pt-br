@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Lista de conectores gerenciados pela Microsoft para uso em aplicativos Lógicos do Microsoft Azure | Serviço de Aplicativo do Microsoft Azure"
+	pageTitle="Lista de conectores gerenciados pela Microsoft para uso em Aplicativos Lógicos do Microsoft Azure | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure"
 	description="Obter uma lista completa dos conectores Gerenciados pela Microsoft que você pode usar para compilar os Aplicativos lógicos no Serviço de Aplicativo do Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # Lista de conectores
@@ -105,7 +105,7 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Saiba mais sobre a integração corporativa do AS2."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Saiba mais sobre a integração corporativa do X12"
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Saiba mais sobre o arquivo simples de integração corporativa."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Saiba mais sobre a validação de XML de integração corporativa."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa."
 
@@ -148,4 +148,4 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

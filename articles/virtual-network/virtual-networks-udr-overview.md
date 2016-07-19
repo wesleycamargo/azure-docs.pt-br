@@ -36,7 +36,7 @@ A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encamin
 
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT] As rotas definidas pelo usuário só são aplicadas ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede por meio da Internet, por exemplo. Além disso, o dispositivo para o qual o tráfego é encaminhado não pode estar na mesma sub-rede em que se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos.
+>[AZURE.IMPORTANT] Rotas definidas pelo usuário só se aplicam ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede da Internet, por exemplo. Além disso, o dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos.
 
 ## Recurso de rota
 Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
@@ -77,7 +77,7 @@ As sub-redes contam com rotas de sistema até que uma tabela de rotas seja assoc
 
 Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
+>[AZURE.IMPORTANT] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito da Rota Expressa diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
 
 ### Rotas BGP
 Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure. Essas rotas BGP são usadas da mesma maneira que as rotas do sistema e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../expressroute/expressroute-introduction.md).
@@ -94,4 +94,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes.
 - Saiba como [criar rotas no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md) e associá-las a sub-redes.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

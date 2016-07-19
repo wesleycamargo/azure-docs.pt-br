@@ -54,9 +54,11 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, consulte [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
+- Se você quiser carregar alguns dados em uma nova tabela de um arquivo CSV usando BCP, confira [Carregar dados no Banco de Dados SQL de um arquivo CSV usando BCP](sql-database-load-from-csv-with-bcp.md).
+
 
 ## Recursos adicionais
 
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

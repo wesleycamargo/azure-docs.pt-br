@@ -41,6 +41,11 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Mais exemplos
+
+Para obter exemplos adicionais usando o armazenamento de Blobs, confira [Introdução ao Armazenamento de Blobs do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Você pode baixar o aplicativo de exemplo e executá-lo ou procurar o código no GitHub.
+
+
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -49,7 +54,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 ### Adicionar declarações do namespace
 
-Adicione as seguintes instruções `using` na parte superior do arquivo `program.cs`:
+Adicione as seguintes instruções `using` à parte superior do arquivo `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -89,7 +94,8 @@ Este exemplo mostra como criar um contêiner se ele ainda não existir:
 Por padrão, o novo contêiner é privado, o que significa que você deve especificar sua chave de acesso de armazenamento para baixar blobs desse contêiner. Para disponibilizar arquivos dentro do contêiner a todas as pessoas, você pode definir o contêiner como público usando o seguinte código:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess =
+ 	    BlobContainerPublicAccessType.Blob });
 
 Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você só poderá modificá-los ou excluí-los se tiver a chave de acesso ou a assinatura de acesso compartilhado adequada.
 
@@ -360,18 +366,22 @@ Por padrão, o Armazenamento do Azure mantém seus dados seguros limitando o ace
 Por padrão, os dados de blob em sua conta de armazenamento são acessíveis apenas para o proprietário da conta de armazenamento. A autenticação de solicitações no armazenamento de Blobs requer a chave de acesso da conta, por padrão. No entanto, talvez você queira disponibilizar determinados dados de blob para outros usuários. Você tem duas opções:
 
 - **Acesso anônimo:** você pode tornar um contêiner ou seus blobs publicamente disponíveis para acesso anônimo. Veja [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md) para obter mais informações.
-- **Assinaturas de acesso compartilhado:** você pode fornecer aos clientes uma SAS (assinatura de acesso compartilhado), que fornece acesso delegado a um recurso em sua conta de armazenamento, com permissões e em um intervalo que você especifica. Confira [Assinaturas de Acesso Compartilhado: compreender o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
+- **Assinaturas de acesso compartilhado:** você pode fornecer aos clientes uma SAS (assinatura de acesso compartilhado), que fornece acesso delegado a um recurso em sua conta de armazenamento, com permissões e em um intervalo que você especifica. Confira [Assinaturas de Acesso Compartilhado: noções básicas do modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
 
 ### Criptografia de dados de blob
 
 O Armazenamento do Azure dá suporte à criptografia de dados de blob no cliente e no servidor:
 
-- **Criptografia no cliente** A Biblioteca de Clientes do Armazenamento para .NET dá suporte à criptografia de dados em aplicativos clientes antes de fazer o carregamento no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o Cofre da Chave do Azure para o gerenciamento de chaves de contas de armazenamento. Confira [Criptografia no cliente com o .NET para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md) para saber mais. Confira também [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Criptografia no servidor**: o Armazenamento do Azure agora dá suporte à criptografia no servidor. Confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso (Visualização)](storage-service-encryption.md). 
+- **Criptografia no cliente** A Biblioteca de Clientes do Armazenamento para .NET dá suporte à criptografia de dados em aplicativos clientes antes de fazer o carregamento no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o Cofre da Chave do Azure para o gerenciamento de chaves de contas de armazenamento. Confira [Criptografia no cliente com o .NET para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md) para saber mais. Confira também [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre de Chave do Azure](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Criptografia no servidor**: o Armazenamento do Azure agora dá suporte à criptografia no servidor. Confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso (Visualização)](storage-service-encryption.md).
 
 ## Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga estes links para saber mais.
+
+### Exemplos do Armazenamento de Blobs
+
+- [Introdução ao Armazenamento de Blobs do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Referência do armazenamento de Blobs
 
@@ -395,4 +405,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

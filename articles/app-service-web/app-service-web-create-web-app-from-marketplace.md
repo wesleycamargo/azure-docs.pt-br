@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares de
 
 Neste tutorial, você aprenderá a:
 
-* Localizar um modelo de aplicativo no Azure Marketplace.
-* Criar um aplicativo Web no Serviço de Aplicativo do Azure com base no modelo.
-* Definir configurações do Serviço de Aplicativo do Azure para o novo aplicativo Web e o banco de dados.
+* Localize e crie o aplicativo Web no Serviço de Aplicativo do Azure baseado em um modelo do Azure Marketplace.
+* Defina as configurações do Serviço de Aplicativo do Azure para o novo aplicativo Web.
+* Inicie e gerencie seu aplicativo Web.
 
 Para fins deste tutorial, você implantará um site de blog do WordPress no Azure Marketplace. Quando você tiver concluído as etapas neste tutorial, terá seu próprio site do WordPress em execução na nuvem.
 
-![Painel do aplicativo Web WordPress de exemplo][WordPressDashboard]
+![Painel do aplicativo Web WordPress de exemplo][WordPressDashboard1]
 
 O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados. Se você deseja usar o Banco de Dados SQL como banco de dados, confira [Projeto Nami], que também está disponível no Azure Marketplace.
 
@@ -41,7 +41,7 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 >
 > Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo, sem exigência de cartão de crédito e sem compromissos.
 
-## Selecionar WordPress e configurar o Serviço de Aplicativo do Azure
+## Localizar e Criar um Aplicativo Web no Serviço de Aplicativo do Azure
 
 1. Faça logon no [Portal do Azure].
 
@@ -57,7 +57,9 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 
 	![Criar um aplicativo Web WordPress][MarketplaceCreate]
 
-1. A folha de configurações do WordPress será exibida, que você usará para concluir as seguintes etapas:
+## Definir as Configurações do Serviço de Aplicativo do Azure para o Novo Aplicativo Web
+
+1. Depois de criar um novo aplicativo Web, a folha de configurações do WordPress será exibida, que você usará para concluir as etapas a seguir:
 
 	![Definir configurações do aplicativo Web WordPress][ConfigStart]
 
@@ -79,7 +81,7 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 
 1. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
 
-	Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure][AzureAppServicePlans]
+	Para obter mais informações sobre planos de Serviço de Aplicativo, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure][AzureAppServicePlans].
 
 	![Configurar o plano de serviço para o aplicativo Web][ConfigServicePlan]
 
@@ -91,7 +93,7 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 
 	c. Escolha o mesmo local que o que você escolheu para o aplicativo Web.
 
-	d. Escolha uma camada de preços. **Mercury**, que é gratuito, com conexões e espaço em disco no mínimo permitido, é adequado.
+	d. Escolha uma camada de preços. **Mercury** - que é gratuito, com conexões e espaço em disco mínimos - é adequado para este tutorial.
 
 	e. Na folha **Novo Banco de Dados MySQL**, aceite os termos legais e clique em **OK**.
 
@@ -131,7 +133,7 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 
 1. A página Painel do site será aberta e exibirá as informações que você forneceu.
 
-	![Exibir o painel do WordPress][WordPressDashboard]
+	![Exibir o painel do WordPress][WordPressDashboard2]
 
 ## Próximas etapas
 
@@ -139,7 +141,7 @@ Neste tutorial, você viu como criar e implantar um aplicativo Web de exemplo no
 
 Para obter mais informações sobre como trabalhar com aplicativos Web do Serviço de Aplicativo, consulte os links no lado esquerdo da página (para janelas de navegador amplas) ou na parte superior da página (para janelas de navegador estreitas).
 
-Para saber mais sobre o desenvolvimento de aplicativos Web do WordPress no Azure, confira [Desenvolvendo WordPress no Serviço de Aplicativo do Azure][WordPressOnAzure].
+Para obter mais informações sobre o desenvolvimento de aplicativos Web do WordPress no Azure, consulte [Desenvolvendo o WordPress no Serviço de Aplicativo do Azure][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -174,7 +176,8 @@ Para saber mais sobre o desenvolvimento de aplicativos Web do WordPress no Azure
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->
