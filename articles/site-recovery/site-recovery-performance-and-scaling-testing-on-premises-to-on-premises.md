@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Resultados do teste de desempenho e de escala para a replicação Hyper-V do local para o local com o Site Recovery
@@ -195,17 +195,17 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Processor(\_Total)\\% Processor Time|
-|Available memory|\\Memory\\Available MBytes|
-|IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec|
-|VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec|
-|VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S|
-|VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec|
-|VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
+|CPU|\\Processador(\_Total)\\% Tempo do processador|
+|Memória disponível|\\Memória\\MBytes disponíveis|
+|IOPS|\\Disco físico(\_Total)\\Transferências do disco/seg|
+|Operações de leitura da VM (IOPS)/seg|\\Dispositivo de Armazenamento Virtual do Hyper-V(<VHD>)\\Operações de Leitura/Seg|
+|Operações de gravação da VM (IOPS)/seg|\\Dispositivo de Armazenamento Virtual do Hyper-V(<VHD>)\\Operações de Gravação/S|
+|Taxa de transferência de leitura da VM|\\Dispositivo de Armazenamento Virtual do Hyper-V(<VHD>)\\Bytes de Leitura/seg|
+|Taxa de transferência de gravação da VM|\\Dispositivo de Armazenamento Virtual do Hyper-V(<VHD>)\\Bytes de Gravação/seg|
 
 
 ## Próximas etapas
 
 - [Configurar a proteção entre dois sites VMM locais](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

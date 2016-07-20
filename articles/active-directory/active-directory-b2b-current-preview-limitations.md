@@ -25,7 +25,7 @@
 - Atualmente, não há suporte a convites para endereços de email do consumidor (como hotmail.com, Gmail.com ou comcast.net).
 - O acesso de usuário externo aos aplicativos locais não é testado.
 - Os usuários externos não são automaticamente limpos quando o usuário real é excluído de seu diretório.
-- Não há suporte a convites para DLs.
+- Não há suporte para convites para listas de distribuição.
 - Um máximo de 2.000 registros pode ser carregado por meio do CSV.
 
 ## Artigos relacionados
@@ -39,4 +39,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

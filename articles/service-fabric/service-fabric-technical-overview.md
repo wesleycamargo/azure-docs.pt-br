@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="07/01/2016"
    ms.author="ryanwi"/>
 
 # Visão geral da terminologia do Service Fabric
@@ -90,4 +90,4 @@ Para saber mais sobre o Service Fabric:
 - [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 - [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

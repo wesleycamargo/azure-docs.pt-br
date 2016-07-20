@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Conectar máquinas virtuais do Windows criadas com o modelo clássico de implantação com um serviço de nuvem ou de rede virtual
@@ -33,4 +33,4 @@ Ao colocar as máquinas virtuais no mesmo serviço de nuvem autônomo, você ain
 
 Após criar uma máquina virtual, é uma boa ideia [adicionar um disco de dados](virtual-machines-windows-classic-attach-disk.md) para que seus serviços e cargas de trabalho tenham um local para armazenar dados.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

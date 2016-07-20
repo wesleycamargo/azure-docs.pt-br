@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/15/2016" 
 	ms.author="spelluru"/>
 
 # Atividade Pig
@@ -98,7 +98,7 @@ Para executar esse script de Pig em um pipeline de Data Factory, você precisa f
 1. Criar um serviço vinculado para registrar [seu próprio cluster de computação HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de cálculo HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado de "HDInsightLinkedService".
 2.	Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o armazenamento de blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado de "StorageLinkedService".
 3.	Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de "PigSampleIn" e o conjunto de dados de saída de "PigSampleOut".
-4.	Copie a consulta de Pig em um arquivo configurado pelo Armazenamento de Blob do Azure configurado na etapa 2 acima. Se o serviço vinculado para hospedagem dos dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado separado do Armazenamento do Azure e consulte-o na configuração da atividade. Use **scriptPath** para especificar o caminho até o arquivo de script de pig e **scriptLinkedService** para especificar o Armazenamento do Azure que contém o arquivo de script.
+4.	Copie a consulta de Pig em um arquivo configurado pelo Armazenamento de Blob do Azure configurado na etapa 2 acima. Se o serviço vinculado para hospedagem dos dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado separado do Armazenamento do Azure e consulte-o na configuração da atividade. Use **scriptPath** para especificar o caminho até o arquivo de script do pig e **scriptLinkedService** para especificar o Armazenamento do Azure que contém o arquivo de script.
 	
 	> [AZURE.NOTE] Você também pode fornecer o script de Pig embutido na definição da atividade usando a propriedade **script**, mas isso não é recomendado, pois todos os caracteres especiais no script dentro do documento JSON precisam ser escapados e talvez causem problemas de depuração. A prática recomendada é seguir a etapa 4.
 5. Crie o pipeline abaixo com a atividade HDInsightPig para processar os dados.
@@ -133,7 +133,7 @@ Para executar esse script de Pig em um pipeline de Data Factory, você precisa f
 		    ]
 		  }
 		} 
-6. Implante o pipeline. Consulte o artigo [Criando pipelines](data-factory-create-pipelines.md) para obter detalhes. 
+6. Implante o pipeline. Consulte o artigo [Criando pipelines](data-factory-create-pipelines.md) para obter detalhes.
 7. Monitore o pipeline usando as exibições de gerenciamento e monitoramento de data factory. Consulte o artigo [Monitoramento e gerenciando pipelines do Data Factory](data-factory-monitor-manage-pipelines.md) para obter detalhes.
 
 ## Especificando parâmetros para um script Pig usando o elemento defines
@@ -194,4 +194,4 @@ Para usar os scripts Pig, faça o seguinte:
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

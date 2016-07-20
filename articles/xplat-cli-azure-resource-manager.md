@@ -20,14 +20,18 @@
 # Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
+- [Portal](azure-portal/resource-group-portal.md)
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
-
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 Este artigo apresenta como criar e gerenciar os recursos do Azure usando a CLI (Interface de Linha de Comando) do Azure no modo Azure Resource Manager.
 
->[AZURE.NOTE] Para criar e gerenciar os recursos do Azure na linha de comando, você precisará de uma assinatura do Azure ([conta do Azure gratuita aqui](https://azure.microsoft.com/free/)). Também precisará [instalar a CLI do Azure](xplat-cli-install.md) e [fazer logon para usar os recursos do Azure associados à sua conta](xplat-cli-connect.md). Se você tiver feito isso, você está pronto para continuar.
+>[AZURE.NOTE] Para criar e gerenciar os recursos do Azure na linha de comando, você precisará de uma assinatura do Azure ([conta do Azure gratuita aqui](https://azure.microsoft.com/free/)). Você também precisará [instalar a CLI do Azure](xplat-cli-install.md) e [fazer logon para usar os recursos do Azure associados à sua conta](xplat-cli-connect.md). Se você tiver feito isso, você está pronto para continuar.
 
 ## Recursos do Azure
 
@@ -59,7 +63,7 @@ A maioria dos comandos do Gerenciador de Recursos do Azure precisa de um local v
 
 	azure location list
 
-Isto lista as regiões do Azure que estão disponíveis, como "Oeste dos EUA", "Leste dos EUA" e assim por diante. Para obter detalhes sobre os provedores de recursos disponíveis e os locais onde eles estão disponíveis, use o comando `azure provider list` seguido do comando `azure provider show`. Por exemplo, o comando a seguir lista os locais do serviço de Contêiner do Azure:
+Isto lista as regiões do Azure que estão disponíveis, como "Oeste dos EUA", "Leste dos EUA" e assim por diante. Para obter detalhes sobre os provedores de recursos disponíveis e os locais nos quais eles estão disponíveis, use o comando `azure provider list` seguido do comando `azure provider show`. Por exemplo, o comando a seguir lista os locais do serviço de Contêiner do Azure:
 
     azure provider show Microsoft.ContainerService 
 
@@ -86,7 +90,7 @@ A criação de um novo modelo está fora do escopo deste artigo. Portanto, para 
 
 >[AZURE.TIP] Estas etapas mostram apenas uma maneira de usar um modelo de VM com a CLI do Azure. Para obter outros exemplos, consulte [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
-1. Siga o link "Saiba mais com o GitHub" para baixar os arquivos azuredeploy.json e azuredeploy.parameters.json do [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) para uma pasta de trabalho no computador local. (Selecione o formato _raw_ de cada arquivo no GitHub).
+1. Siga o link "Saiba mais com o GitHub" para baixar os arquivos azuredeploy.json e azuredeploy.parameters.json do [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) para uma pasta de trabalho no computador local. (Selecione o formato _raw_ de cada arquivo no GitHub.)
 
 2. Abra o arquivo azuredeploy.parameters.json em um editor de texto e insira valores de parâmetro adequados para seu ambiente (deixando o valor **ubuntuOSVersion** inalterado).
 
@@ -234,4 +238,4 @@ Usando a CLI do Azure, você pode exportar um modelo que representa o estado atu
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
 * Para obter informações sobre como trabalhar com o Azure Resource Manager no portal do Azure, consulte [Usando o Portal do Azure para implantar e gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

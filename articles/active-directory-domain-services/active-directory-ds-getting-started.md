@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do Azure AD *(Preview)*: criar o grupo “AAD DC Administrators”
@@ -58,4 +58,4 @@ Nessa etapa de configuração, você criará o grupo administrativo e adicionar�
 ## Etapa 2: Criar ou selecionar uma rede virtual do Azure
 A próxima tarefa de configuração é [criar ou selecionar uma rede virtual do Azure](active-directory-ds-getting-started-vnet.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

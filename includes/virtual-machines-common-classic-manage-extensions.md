@@ -22,7 +22,7 @@ As tarefas mais comuns são:
 Você pode localizar a extensão e as informações estendidas usando:
 
 -   PowerShell
--   Interface de Plataforma Cruzada do Azure (CLI do Azure)
+-   Interface de linha de comando da plataforma cruzada do Azure (CLI do Azure)
 -   API REST de gerenciamento de serviço
 
 ###PowerShell do Azure
@@ -36,9 +36,7 @@ Você pode usar os cmdlets a seguir para obter informações sobre as extensões
 
      Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o PowerShell.
 
-        PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
-        VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
-        VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
+        PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
 
         Publisher                   : Microsoft.Azure.Diagnostics
         ExtensionName               : IaaSDiagnostics
@@ -64,7 +62,7 @@ Você pode usar os cmdlets a seguir para obter informações sobre as extensões
 
 Algumas extensões têm os comandos da CLI do Azure específicos a elas (a Extensão de VM do Docker é um exemplo), que podem facilitar suas configurações; mas os comandos a seguir funcionam para todas as extensões de VM.
 
-Você pode usar o comando **azure vm extension list** para obter informações sobre as extensões disponíveis e usar a opção **–-json** para exibir todas as informações disponíveis sobre uma ou mais extensões. Se você não usar um nome de extensão, o comando retorna uma descrição json de todas as extensões disponíveis.
+Você pode usar o comando **azure vm extension list** para obter informações sobre as extensões disponíveis e usar a opção **–-json** para exibir todas as informações disponíveis sobre uma ou mais extensões. Se você não usar um nome de extensão, o comando retorna uma descrição JSON de todas as extensões disponíveis.
 
 Por exemplo, o exemplo de código a seguir mostra como listar as informações para a extensão **IaaSDiagnostics** usando o comando **azure vm extension list** da CLI do Azure e usa a opção **–-json** para retornar informações completas.
 
@@ -119,4 +117,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

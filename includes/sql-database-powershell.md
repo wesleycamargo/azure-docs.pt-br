@@ -1,7 +1,7 @@
 
 ## Iniciar sua sessão do PowerShell
 
-Primeiro, você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 ou posterior) instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../articles/powershell-install-configure.md).
+Primeiro, você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../articles/powershell-install-configure.md).
 
 
 >[AZURE.NOTE] Muitos recursos novos do Banco de Dados SQL só têm suporte usando o [modelo de implantação do Azure Resource Manager](../articles/resource-group-overview.md), portanto, os exemplos usam os [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) para oResource Manager. Os cmdlets do Banco de Dados SQL do Azure (clássico) do [modelo de implantação clássico existente](https://msdn.microsoft.com/library/azure/dn546723.aspx) têm suporte para a compatibilidade com versões anteriores, mas é recomendável usar os cmdlets do Resource Manager.
@@ -15,3 +15,4 @@ Se você tiver várias assinaturas, use o cmdlet [**Set-AzureRmContext**](https:
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
+<!---HONumber=AcomDC_0706_2016-->

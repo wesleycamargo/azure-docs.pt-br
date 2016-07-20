@@ -27,7 +27,7 @@ Esta página descreve como o Gerenciador de Tráfego oferece suporte aos pontos 
 
 Há três tipos de ponto de extremidade suportados pelo Gerenciador de Tráfego:
 
-- Os **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.  
+- Os **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
 - Os **pontos de extremidade externos** são usados para os serviços hospedados fora do Azure, no local ou com um provedor de hospedagem diferente.
 - Os **pontos de extremidade aninhados** são usados para combinar os perfis do Gerenciador de Tráfego para criar esquemas de roteamento de tráfego mais flexíveis para suportar as necessidades de implantações maiores e mais complexas.
 
@@ -121,13 +121,13 @@ Assim que receber uma consulta DNS, o Gerenciador de Tráfego responderá com o 
 
 Observe que para as verificações de integridade do Gerenciador de Tráfego funcionarem corretamente, o serviço também precisará expor um ponto de extremidade do IPv4. Isso precisa ser mapeado a partir o mesmo nome DNS do ponto de extremidade usando um registro DNS A.
 
-### Posso usar o Gerenciador de Tráfego com mais de um aplicativo Web na mesma região?
+### Posso usar o Gerenciador de Tráfego com mais de um Aplicativo Web na mesma região?
 
 Normalmente, o Gerenciador de Tráfego é usado para direcionar o tráfego para os aplicativos implantados em regiões diferentes. No entanto, ele também pode ser usado onde um aplicativo tem mais de uma implantação na mesma região.
 
 No caso dos Aplicativos Web, os pontos de extremidade do Azure do Gerenciador de Tráfego não permitem que mais de um ponto de extremidade do Aplicativo Web na mesma região do Azure seja adicionado ao mesmo perfil do Gerenciador de Tráfego. As etapas a seguir fornecem uma solução alternativa para essa restrição:
 
-1.	Verifique se seus Aplicativos Web na mesma região estão em 'unidades de escala' diferentes do aplicativo Web, ou seja, diferentes instâncias do serviço do Aplicativo Web. Para tanto, verifique o caminho DNS para a entrada DNS <...>.azurewebsites.net; a unidade de escala será algo parecido com ‘waws-prod-xyz-123.vip.azurewebsites.net’. Um nome de domínio fornecido deve mapear um único site em uma unidade de escala e por esse motivo, dois Aplicativos Web na mesma unidade de escala não podem compartilhar um perfil do Gerenciador de Tráfego. 
+1.	Verifique se seus Aplicativos Web na mesma região estão em 'unidades de escala' diferentes do aplicativo Web, ou seja, diferentes instâncias do serviço do Aplicativo Web. Para tanto, verifique o caminho DNS para a entrada DNS <...>.azurewebsites.net; a unidade de escala será algo parecido com ‘waws-prod-xyz-123.vip.azurewebsites.net’. Um nome de domínio fornecido deve mapear um único site em uma unidade de escala e por esse motivo, dois Aplicativos Web na mesma unidade de escala não podem compartilhar um perfil do Gerenciador de Tráfego.
 2.	Supondo que cada Aplicativo Web está em uma unidade de escala diferente, adicione seu nome de domínio intuitivo como um nome de host personalizado a cada Aplicativo Web. Isso requer que todos os Aplicativos Web pertençam à mesma assinatura.
 3.	Adicione um ponto de extremidade do Aplicativo Web (e somente um) como faria normalmente para seu perfil do Gerenciador de Tráfego, como um ponto de extremidade do Azure.
 4.	Adicione cada ponto de extremidade do Aplicativo Web extra ao seu perfil do Gerenciador de Tráfego como um ponto de extremidade externo. Isso requer que você utilize a experiência do Gerenciador de Recursos para o Gerenciador de Tráfego, não a experiência do Gerenciamento de Serviços.
@@ -142,4 +142,4 @@ No caso dos Aplicativos Web, os pontos de extremidade do Azure do Gerenciador de
 
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) do Gerenciador de Tráfego.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

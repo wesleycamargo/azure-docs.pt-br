@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Transferindo uma assinatura do Azure | Microsoft Azure"
+   pageTitle="Transferindo a propriedade de uma assinatura do Azure | Microsoft Azure"
    description="Como transferir uma assinatura do Azure para outro usuário e algumas Perguntas Frequentes (FAQ) sobre o processo"
    services="billing"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="04/14/2016"
+   ms.date="07/04/2016"
    ms.author="genli"/>
 
-# Transferindo uma assinatura do Azure
+# Transferindo a propriedade de uma assinatura do Azure
 
 Você:
 
@@ -27,7 +27,16 @@ Você:
 
 Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, para assinaturas pré-pagas, do MSDN, Action Pack ou BizSpark. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer assinatura pré-paga, do MSDN, Action Pack ou do BizSpark que você possuir, não importa o país em que você está localizado. Agora, oferecemos suporte a transferência de compras do Azure Marketplace para esses tipos de assinatura também.
 
-## Como transferir uma assinatura do Azure
+**Observação** Você precisa ser administrador da conta para executar uma transferência de propriedade. Você pode confirmar que é o administrador da conta da assinatura da seguinte maneira:
+
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No menu Hub, selecione **Assinatura**.
+3. Selecione a assinatura que você deseja verificar e, em seguida, selecione **Configurações**. ![configurações](./media/billing-subscription-transfer/settings.png)
+4. Selecionar **Propriedades**. O administrador da conta da assinatura será exibido na caixa **ADMINISTRADOR DA CONTA**. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+
+## Como transferir a propriedade de uma assinatura do Azure
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Entre em <https://account.windowsazure.com/Subscriptions>
 
@@ -70,7 +79,7 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Esta não é uma lista completa. O destinatário deve considerar a atualização de qualquer segredo associado ao serviço, se for necessário restringir o acesso a seus recursos. A maioria dos recursos pode ser atualizada da seguinte maneira:
 
-    1.   Vá para o portal do Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Abra o portal do Azure em [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Clique em Procurar tudo - & gt; Todos os recursos
 
@@ -114,4 +123,4 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

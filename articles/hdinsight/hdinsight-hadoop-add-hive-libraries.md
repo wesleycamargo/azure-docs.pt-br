@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/20/2016"
+ms.date="07/05/2016"
 ms.author="larryfr"/>
 
 #Adicionar bibliotecas do Hive durante a criação do cluster HDInsight
@@ -51,7 +51,7 @@ __Requisitos__
     
     * Estando em um contêiner em um contêiner de armazenamento vinculado. Por exemplo, no portal, é possível usar __Configuração Opcional__, __Contas de armazenamento vinculadas__ para adicionar mais armazenamento.
 
-* O caminho WASB para o contêiner deve ser especificado como um parâmetro para a Ação de Script. Por exemplo, se os jars estivessem armazenados em um contêiner denominado __libs__ em uma conta de armazenamento denominada __mystorage__, o parâmetro seria \_\___wasb://libs@mystorage.blob.core.windows.net/__.
+* O caminho WASB para o contêiner deve ser especificado como um parâmetro para a Ação de Script. Por exemplo, se os jars estivessem armazenados em um contêiner denominado __libs__ em uma conta de armazenamento denominada __mystorage__, o parâmetro seria \_\_wasb://libs@mystorage.blob.core.windows.net/__.
 
     > [AZURE.NOTE] Este documento supõe que você já criou uma conta de armazenamento, um contêiner de blobs, e carregou os arquivos nela.
     >
@@ -72,7 +72,7 @@ __Requisitos__
     * __CABEÇALHO__: marque esta opção
     * __TRABALHO__: marque esta opção.
     * __ZOOKEEPER__: deixe essa opção em branco.
-    * __PARÂMETROS__: insira o endereço WASB para o contêiner e a conta de armazenamento que contém os jars. Por exemplo, \_\___wasb://libs@mystorage.blob.core.windows.net/__.
+    * __PARÂMETROS__: insira o endereço WASB para o contêiner e a conta de armazenamento que contém os jars. Por exemplo, \_\_wasb://libs@mystorage.blob.core.windows.net/__.
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração.
 
@@ -88,4 +88,4 @@ Assim que a criação do cluster for concluída, você poderá usar os jars adic
 
 Neste documento, você aprendeu a adicionar bibliotecas Hive contidas nos arquivos jar a um cluster HDInsight durante a criação do cluster. Para saber mais sobre como trabalhar com o Hive, confira [Usar o Hive com o HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

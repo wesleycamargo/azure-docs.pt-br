@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
@@ -43,7 +43,7 @@ Consulte a seção Pré-requisito em [Usando o Azure PowerShell com o Azure Reso
 
 ## Criar uma conta do Repositório Azure Data Lake
 
-1. Na área de trabalho, abra uma nova janela do Azure PowerShell e insira o trecho de código a seguir para fazer logon em sua conta do Azure, definir a assinatura e registrar o provedor do Repositório Data Lake. Quando solicitado a fazer logon, lembre-se de fazer logon como o proprietário ou um dos administradores da assinatura:
+1. Na área de trabalho, abra uma nova janela do Windows PowerShell e insira o trecho de código a seguir para fazer logon em sua conta do Azure, definir a assinatura e registrar o provedor do Repositório Data Lake. Quando solicitado a fazer logon, lembre-se de fazer logon como o proprietário ou um dos administradores da assinatura:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +141,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

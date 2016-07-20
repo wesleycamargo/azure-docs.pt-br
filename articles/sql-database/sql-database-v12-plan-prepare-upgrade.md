@@ -137,8 +137,8 @@ Há três portais do Azure, e cada um deles tem diferentes capacidades relaciona
  - *Não* pode atualizar o banco de dados da V11 para V12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portal clássico do banco de dados SQL do Azure:
- - *Não* pode gerenciar servidores V12.
+- (http://*yourservername*.database.windows.net<br/> Portal Clássico do Banco de Dados SQL do Azure:
+ - Não *pode* gerenciar servidores V12.
 
 
 Incentivamos você a se conectar aos bancos de dados SQL do Azure com o Visual Studio 2013 (VS2013). O VS2013 pode ser usado para tarefas como as seguintes:
@@ -158,6 +158,9 @@ No antigo portal clássico do Azure, na página de banco de dados, você pode cl
 Como outra alternativa, você pode usar o SQL Server Management Studio (SSMS) 2014 com [CU6](http://support.microsoft.com/kb/3031047/) para se conectar ao Banco de Dados SQL do Azure. Há mais detalhes nesta postagem de blog:<br/>[Atualizações das ferramentas do cliente para Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
+> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ### Limitação *durante* a atualização para V12
 
 
@@ -166,7 +169,7 @@ O banco de dados anterior à V11 continua disponível para acesso aos dados dura
 
 | Limitações | Descrição |
 | :--- | :--- |
-| Duração da atualização | A duração da atualização depende do tamanho, da edição e do número de bancos de dados no servidor. O processo de atualização de servidores pode levar horas ou dias, especialmente para servidores que tenham bancos de dados:<br/><br/>* Com mais de 50 GB ou <br/>* Em uma camada de serviço que não seja Premium<br/><br/>A criação de novos bancos de dados no servidor durante a atualização também pode aumentar o tempo da atualização. |
+| Duração da atualização | A duração da atualização depende do tamanho, da edição e do número de bancos de dados no servidor. O processo de atualização dos servidores pode levar horas ou dias, especialmente para os servidores com bancos de dados:<br/><br/>* Com mais de 50 GB ou <br/>* Em uma camada de serviço não premium<br/><br/>A criação de novos bancos de dados no servidor durante a atualização também pode aumentar o tempo da atualização. |
 | Sem Replicação Geográfica | Não há suporte para Replicação Geográfica em um servidor V12 atualmente envolvido em uma atualização a partir da V11. |
 | O banco de dados está temporariamente indisponível na fase final da atualização para o V12 | Os bancos de dados que pertencem ao servidor V11 permanecem disponíveis durante o processo de atualização. No entanto, a conexão com o servidor e os bancos de dados está temporariamente indisponível na fase final, durante a transição do V11 para o V12 pronto.<br/><br/>O período de transição pode variar de 40 segundos a 5 minutos. Para a maioria dos servidores, a transição deve ser concluída em até 90 segundos. O tempo de transição aumenta para servidores que têm um grande número de bancos de dados, ou quando os bancos de dados têm cargas de trabalho pesadas de gravação. |
 
@@ -253,4 +256,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

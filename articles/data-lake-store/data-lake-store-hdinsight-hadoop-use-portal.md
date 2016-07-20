@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
@@ -31,7 +31,11 @@ Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase,
 
 * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional. Para saber mais, confira [Usar Repositório Data Lake com clusters HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versões 3.2 e 3.4 (para clusters Hadoop, HBase e Storm no Windows e no Linux). Para clusters Spark no Linux, esta opção só está disponível em clusters HDInsight 3.4.
+> [AZURE.NOTE] Alguns pontos importantes a serem considerados.
+> 
+> * A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versões 3.2 e 3.4 (para clusters Hadoop, HBase e Storm no Windows e no Linux). Para clusters Spark no Linux, esta opção só está disponível em clusters HDInsight 3.4.
+>
+> * Conforme mencionado acima, o Repositório Data Lake está disponível como armazenamento padrão para alguns tipos de cluster (HBase) e como um armazenamento adicional para outros tipos de cluster (Hadoop, Spark, Storm). O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster. Em um cenário no qual o Repositório Data Lake é usado como um armazenamento adicional, os arquivos relacionados ao cluster (como logs etc.) são gravados no armazenamento padrão (Blobs do Azure), enquanto os dados que você deseja processar podem ser armazenados em uma conta do Repositório Data Lake.
 
 
 ## Pré-requisitos
@@ -343,4 +347,4 @@ Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamen
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

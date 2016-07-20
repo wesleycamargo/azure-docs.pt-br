@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="notificação por push, notificações por push, notificações por push do iOS, notificações por push do android, push do ios, push do android"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Notificações por push com os Hubs de Notificação do Azure - perguntas frequentes
@@ -200,4 +200,4 @@ Também fornecemos a capacidade de exportar a telemetria programaticamente (na c
 [Aplicativos Móveis do Azure]: https://azure.microsoft.com/services/app-service/mobile/
 [Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

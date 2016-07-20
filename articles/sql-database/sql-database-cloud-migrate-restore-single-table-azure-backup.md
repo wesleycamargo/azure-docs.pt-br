@@ -34,7 +34,7 @@
 
 | Restauração de banco de dados | Camada básica | Camadas Standard | Camadas Premium |
 | :-- | :-- | :-- | :-- |
-| Restauração Pontual | Qualquer ponto de restauração dentro de 7 dias|Qualquer ponto de restauração dentro de 14 dias| Qualquer ponto de restauração dentro de 35 dias|
+| Restauração Pontual | Qualquer ponto de restauração dentro de 7 dias|Qualquer ponto de restauração dentro de 35 dias| Qualquer ponto de restauração dentro de 35 dias|
 
 ## Copiando a tabela do banco de dados restaurado usando a Ferramenta de migração do Banco de Dados SQL
 1. Baixe e instale o [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
@@ -71,4 +71,4 @@
 
 [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

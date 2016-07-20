@@ -34,18 +34,18 @@ Visão geral sobre considerações, melhores práticas e tarefas para monitorame
 
 ## Próximas etapas
 
-Para obter mais dicas de gerenciamento, acesse a [Visão geral de gerenciamento][].
+Para obter mais dicas de gerenciamento, acesse a [Visão geral do gerenciamento][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Encontrar consultas com execução longa]: sql-data-warehouse-manage-find-long-running-queries.md
-[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md
-[Visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
+[Encontrar consultas com execução longa]: ./sql-data-warehouse-manage-monitor.md
+[Gerenciamento de simultaneidade e carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
+[Visão geral do gerenciamento]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

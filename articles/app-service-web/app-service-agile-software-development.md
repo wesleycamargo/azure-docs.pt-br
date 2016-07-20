@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 
@@ -43,7 +43,7 @@ Você verá um fluxo de trabalho dev-test-stage-production típico para publicar
 
 Colocando em palavras:
 
--	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](../resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL. 
+-	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](../resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL.
 -	Cada ambiente pode ser gerenciado separadamente. Eles podem até mesmo existir em assinaturas diferentes.
 -	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
 -	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
@@ -60,16 +60,18 @@ Você também usará a estratégia de ramificação típica, com código movendo
 
 -	Uma conta do Azure
 -	Uma conta do [GitHub](https://github.com/)
--	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão 
+-	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão
 -	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
 -	Noções básicas sobre:
 	-	Implantação do modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Você precisa de uma conta do Azure para concluir este tutorial: + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – Você recebe créditos que podem ser usados para experimentar os serviços pagos do Azure e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços gratuitos do Azure, como Aplicativos Web. + Você pode [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – A cada mês, a sua assinatura do Visual Studio fornece créditos que podem ser usados para serviços pagos do Azure.
+> [AZURE.NOTE] Você de uma conta do Azure para concluir este tutorial:
+> + É possível [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> + É possível [ativar os benefícios para assinantes do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Configurar seu ambiente de produção ##
 
@@ -121,7 +123,7 @@ Agora você configurou o ambiente de produção. Em seguida, você iniciará uma
 
 Agora que há um aplicativo complexo em execução em produção no Azure, você fará uma atualização para o aplicativo de acordo com a metodologia Agile. Nesta seção, você criará as ramificações de desenvolvimento e teste das quais precisará para fazer as atualizações necessárias.
 
-1.	Crie o ambiente de teste primeiro. Na sessão do Git Shell, execute os seguintes comandos para criar o ambiente para uma nova ramificação chamada **NewUpdate**. 
+1.	Crie o ambiente de teste primeiro. Na sessão do Git Shell, execute os seguintes comandos para criar o ambiente para uma nova ramificação chamada **NewUpdate**.
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -280,4 +282,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

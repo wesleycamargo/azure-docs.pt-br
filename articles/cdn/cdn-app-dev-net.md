@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Introdução à biblioteca do Azure CDN para .NET
+# Introdução ao desenvolvimento de CDN do Azure
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
 
 Você pode usar a [Biblioteca do Azure CDN para .NET](https://msdn.microsoft.com/library/mt657769.aspx) para automatizar a criação e o gerenciamento de perfis CDN e de pontos de extremidade. Este tutorial o orientará na criação de um aplicativo de console simples do .NET, que demonstra várias das operações disponíveis. Este tutorial não pretende descrever todos os aspectos da biblioteca do Azure CDN para o .NET em detalhes.
 
 Você precisará do Visual Studio 2015 para concluir este tutorial. O [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponível gratuitamente para download.
 
-Um exemplo completo deste tutorial pode ser encontrado [aqui](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] O [projeto concluído deste tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) está disponível para download no MSDN.
 
-[AZURE.INCLUDE [aplicativo de desenvolvimento de preparação para CDN](../../includes/cdn-app-dev-prep.md)]
+[AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Crie seu projeto e adicione pacotes NuGet
 
@@ -65,7 +69,7 @@ Vejamos a estrutura básica do nosso programa gravado.
 	using Microsoft.Rest;
 	```
 
-2. Precisamos definir algumas constantes que serão usadas nos nossos métodos. Na classe `Program`, mas antes do método `Main`, adicione o seguinte. Certifique-se de substituir os espaços reservados, incluindo os **&lt;colchetes angulares&gt;**, com seus próprios valores conforme necessário.
+2. Precisamos definir algumas constantes que serão usadas nos nossos métodos. Na classe `Program`, mas antes do método `Main`, adicione o seguinte. Substitua os espaços reservados, inclusive os **&lt;colchetes angulares&gt;**, por seus próprios valores, conforme necessário.
 
 	```
 	//Tenant app constants
@@ -142,7 +146,7 @@ Vejamos a estrutura básica do nosso programa gravado.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -329,8 +333,8 @@ Em seguida, podemos confirmar as solicitações para executar o restante do prog
 
 ## Próximas etapas
 
-Para ver o projeto concluído desse passo a passo, [baixe a amostra](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

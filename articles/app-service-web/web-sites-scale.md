@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure" 
-	description="Saiba como escalar verticalmente e horizontalmente um aplicativo Web no Serviço de Aplicativo do Azure, incluindo o dimensionamento automático." 
+	pageTitle="Dimensionar um aplicativo no Azure" 
+	description="Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure a fim de adicionar capacidade e recursos." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -13,119 +13,61 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="07/05/2016" 
 	ms.author="cephalin"/>
 
-# Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure #
+# Dimensionar um aplicativo no Azure #
 
-Para aumentar o desempenho e a produtividade de seus aplicativos Web no Microsoft Azure, você pode usar o [Portal do Azure](http://portal.azure.com) para dimensionar seu plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) do modo **Gratuito** para **Compartilhado**, **Básico**, **Padrão** ou **Premium**.
+Este artigo mostra como dimensionar seu aplicativo no Serviço de Aplicativo do Azure. Há dois fluxos de trabalho para dimensionamento, e este artigo abordará o primeiro fluxo de trabalho (expansão):
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+- [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos adicionais como VMs dedicadas, domínios e certificados personalizados, slots de preparação, dimensionamento automático e muito mais. Você escala horizontalmente ao alterar o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
+- [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentando o número de instâncias de VM que executam seu aplicativo. Você pode escalar horizontalmente até 20 instâncias, dependendo de seu tipo de preço. O uso dos [Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md) na camada **Premium** aumentará ainda mais sua contagem de expansão para 50 instâncias. Para saber mais sobre a escala vertical, confira [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md). Lá você encontrará como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e programações predefinidas.
 
-A expansão de Sites do Azure envolve duas ações relacionadas: mudar seu modo de plano do Serviço de Aplicativo para um nível mais alto de serviço e configurar determinados parâmetros depois de ter mudado para o nível mais alto de serviço. Os dois tópicos são abordados neste artigo. Níveis de serviço mais altos, como os modos **Padrão** e **Premium**, oferecem maior eficiência e flexibilidade para determinar como os recursos do Azure são usados.
+As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Elas não exigem a alteração de seu código ou a reimplantação de seu aplicativo.
 
-As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos Web em seu plano do Serviço de Aplicativo. Não é necessário alterar seu código nem reimplantar seus aplicativos.
+Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
 
-Para obter informações sobre planos do serviço de aplicativo, consulte [O que é um plano do Serviço de Aplicativo?](../app-service/app-service-how-works-readme.md) e [Visão geral aprofundada de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
+> [AZURE.NOTE] Antes de mudar um Plano do Serviço de Aplicativo do tipo **Gratuito**, é necessário remover os [limites de gastos](/pricing/spending-limits/) em vigor para sua Assinatura do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-> [AZURE.NOTE] Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura do Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
-## Dimensionando para o modo Compartilhado ou Básico
-<!-- ===================================== -->
+## Escale verticalmente seu tipo de preço
 
 1. No seu navegador, abra o [Portal do Azure][portal].
 	
-2. Na folha do aplicativo Web, clique em **Todas as configurações** e em **Escalar Verticalmente**.
+2. Na folha do aplicativo, clique em **Todas as configurações** e em **Escalar Verticalmente**.
 	
-	![Escolher um plano][ChooseWHP]
+	![Navegue para escalar verticalmente seu aplicativo do Azure.][ChooseWHP]
 	
-4. Na folha **Escolha sua faixa de preços**, escolha **Compartilhado** ou um modo **Básico** e, então, clique em **Selecionar**.
-	
+4. Role e escolha seu tipo e depois clique em **Selecionar**.
+
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-5. Em configurações, clique em **Escalar horizontalmente**, selecione *contagem de instâncias que eu escolher manualmente* no menu suspenso, deslize a barra **Instância** da esquerda para a direita para aumentar o número de instâncias e clique em **Salvar** na barra de comandos. A opção de tamanho de instância não está disponível no modo **Compartilhado**. Para obter mais informações sobre esses tamanhos de instâncias, consulte [Preços do Serviço de Aplicativo][vmsizes].
-	
-	![Tamanho da instância para o modo Básico][ChooseBasicInstances]
-	
-	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
-	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
-## Dimensionando para o modo Standard ou Premium
-<!-- ================================= -->
-
-> [AZURE.NOTE] Antes de mudar um plano do Serviço de Aplicativo para o modo **Padrão** ou **Premium**, você deve remover os limites de gasto existentes para sua assinatura do Serviço de Aplicativo do Microsoft Azure. Caso contrário, seu aplicativo Web correrá o risco de se tornar indisponível se você atingir os limites antes do término do período de cobrança. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
-
-1. Para dimensionar para o modo **Padrão** ou **Premium**, execute as mesmas etapas iniciais executadas para dimensionar para **Compartilhado** ou **Básica** e, em seguida, escolha um modo **Padrão** ou **Premium** em **Escolha sua faixa de preço** e, depois clique em **Selecionar**. 
-	
-	A guia **Notificações** piscará **SUCESSO** em verde quando a operação for concluída, e o **Dimensionamento automático** será habilitado.
-	
-	![Escala em modo Padrão ou Premium][ScaleStandard]
-	
-	Você ainda pode deslizar a barra **Instância** para dimensionar manualmente mais instâncias, assim como no modo **Básico** mostrado acima. No entanto, aqui você aprenderá a aplicar o dimensionamento automático ao seu aplicativo.
-	
-2. Em **Dimensionar por**, selecione **regras de agendamento e desempenho** para aplicar o dimensionamento automático ao seu aplicativo.
-	
-	![Modo de dimensionamento automático definido como Desempenho][Autoscale]
-	
-3. Em **Configurações**, clique em **Padrão, escala 1-1**, mova os dois controles deslizantes para definir os números mínimo e máximo de instâncias a ser dimensionadas automaticamente para o plano do Serviço de Aplicativo. Para este tutorial, mova o controle deslizante máximo para **seis** instâncias.
-	
-4. Clique em **OK**.
-	
-4. Em **Configurações**, clique em **Percentual de CPU > 80 (aumentar contagem em 1)** para configurar as regras de dimensionamento automático para a métrica padrão.
-	
-	![Definir métricas de destino][SetTargetMetrics]
-	
-	Você pode configurar as regras de dimensionamento automático para métricas de desempenho diferentes, incluindo CPU, memória, fila de disco, fila HTTP e fluxo de dados. Aqui, você vai configurar o dimensionamento automático para o percentual de CPU que faz o seguinte:
-	
-	- Escalar verticalmente em 1 instância se a CPU estiver acima de 80% nos últimos 10 minutos
-	- Escale verticalmente para mais em 3 instâncias se CPU estiver acima de 90% nos últimos 5 minutos
-	- Reduza verticalmente para menos em 1 instância se a CPU está abaixo de 50% nos últimos 30 minutos 
-	
-	
-4. Deixe o menu suspenso **Nome da métrica** como **Percentual de CPU**.
-	
-5. Em **Regras de escalonamento vertical**, configure a primeira regra definindo **Operador** como **Maior que**, **Limite** como **70** (%) **Duração** como **10** (minutos), **Agregação de tempo** como Média, **Ação** como **aumentar contagem por** como **1** (instância) e **Tempo de resfriamento** como **10** (minutos).
-	
-	![Definir primeira regra de dimensionamento automático][SetFirstRule]
-	
-	>[AZURE.NOTE] A configuração de **Esfriar** especifica quanto tempo que essa regra deve esperar após a ação de escala anterior para dimensionar novamente.
-	
-6. Clique em **Adicionar Regra** e configure a segunda regra definindo **Operador** como **Maior que**, **Limite** como **90** (%) **Duração** como **1** (minutos), **Agregação de tempo** como Média, **Ação** como **aumentar contagem por**, **Valor** como **3** (instância) e **Tempo de resfriamento** como **1** (minutos).
-
-7. Clique em **OK**.
-	
-	![Definir segunda regra de dimensionamento automático][SetSecondRule]
-	
-5. Em **Configurações**, clique em **Adicionar regra** para configurar a terceira regra definindo **Operador** como **Menor que**, **Limite** como **50** (%), **Duração** como **30** (minutos), **Agregação de tempo** como **Média**, **Ação** como **diminuir contagem por**,**Valor** como **1** (instância) e **Tempo de resfriamento** como **60** (minutos).
-	
-	![Definir terceira regra de dimensionamento automático][SetThirdRule]
-	
-7. Clique em **OK**. A regra de escala automática agora deve ser refletida na folha **Configuração de escala**.
-	
-	![Definir resultado da regra de dimensionamento automático][SetRulesFinal]
-
 <a name="ScalingSQLServer"></a>
-##Dimensionando um Banco de Dados do SQL Server conectado ao seu aplicativo Web
-Se você tiver um ou mais Bancos de Dados SQL Server vinculados ao seu aplicativo Web (independentemente do modo de plano do Serviço de Aplicativo), você pode dimensionar com base em suas necessidades rapidamente.
+##Dimensionando recursos relacionados
+Se o seu aplicativo depender de outros serviços, como o Banco de Dados SQL do Azure ou o Armazenamento do Azure, você também poderá escalar verticalmente esses recursos com base em suas necessidades. Esses recursos não são dimensionados com o Plano do Serviço de Aplicativo e devem ser dimensionados separadamente.
 
-1. Para dimensionar um dos bancos de dados vinculados, abra a folha de seu aplicativo Web no [Portal do Azure][portal]. Na lista suspensa recolhível **Essentials**, clique no link **Grupo de Recursos**. Em seguida, na parte de **Resumo** da folha de grupo de recursos, clique em um dos bancos de dados vinculados.
+1. Em **Essentials**, clique no link **Grupo de recursos**.
 
-	![Banco de dados vinculado][ResourceGroup]
-	
-2. Na folha do Banco de Dados SQL vinculado, clique na parte **Configurações** > **Tipo de preço**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**.
-	
-	![Dimensionar seu banco de dados SQL][ScaleDatabase]
-	
-3. Você também pode configurar a replicação geográfica para aumentar os recursos de recuperação de desastres e alta disponibilidade do Banco de Dados SQL. Para fazer isso, clique na parte **Replicação Geográfica**.
-	
-	![Configurar a replicação geográfica para o banco de dados SQL][GeoReplication]
+	![Escale verticalmente os recursos relacionados de seu aplicativo do Azure](./media/web-sites-scale/RGEssentialsLink.png)
+
+2. Em seguida, na parte **Resumo** da folha do grupo de recursos, clique em um dos recursos que você deseje dimensionar. A captura de tela abaixo mostra um recurso do Banco de Dados SQL e um recurso do Armazenamento do Azure.
+
+	![Navegue até a folha do grupo de recursos para escalar verticalmente seu aplicativo do Azure](./media/web-sites-scale/ResourceGroup.png)
+
+3. Para um recurso do Banco de Dados SQL, clique em **Configurações** > **Tipo de preço** para dimensionar o tipo de preço.
+
+	![Escalar verticalmente o back-end do Banco de Dados SQL para seu aplicativo do Azure](./media/web-sites-scale/ScaleDatabase.png)
+
+	Você também pode ativar a [replicação geográfica](../sql-database/sql-database-geo-replication-overview.md) de seu Banco de Dados SQL.
+
+    Para um recurso de Armazenamento do Azure, clique em **Configurações** > **Configuração** para expandir suas opções de armazenamento.
+
+    ![Escalar verticalmente a conta do Armazenamento do Azure usada por seu aplicativo do Azure](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
 ## Recursos de desenvolvedor
-Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvolvedores estarão disponíveis:
+Dependendo da camada de preços, os seguintes recursos para desenvolvedores estarão disponíveis:
 
 ### Número de bits ###
 
@@ -140,11 +82,7 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 <a name="OtherFeatures"></a>
 ## Outros recursos
 
-### Monitoramento do ponto de extremidade da web ###
-
-- O monitoramento de ponto de extremidade da Web está disponível nos modos **Básico**, **Padrão** e **Premium**. Para obter mais informações sobre o monitoramento de ponto de extremidade da web, consulte [Como monitorar aplicativos Web](web-sites-monitor.md).
-
-- Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de Preços do Serviço de Aplicativo](/pricing/details/web-sites/).
+- Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
 >[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
@@ -153,31 +91,29 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 
 - Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 - Para obter informações sobre preços, suporte e SLA, visite os links a seguir.
-	
+
 	[Detalhes de preços de transferências de dados](/pricing/details/data-transfers/)
-	
+
 	[Planos de suporte do Microsoft Azure](/support/plans/)
-	
+
 	[Contratos de Nível de Serviço](/support/legal/sla/)
-	
+
 	[Detalhes de preços do banco de dados SQL](/pricing/details/sql-database/)
-	
+
 	[Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
-	
-	[Detalhes de Preços do Serviço de Aplicativo](/pricing/details/web-sites/)
-	
+
+	[Detalhes de Preços do Serviço de Aplicativo](/pricing/details/app-service/)
+
 	[Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](/pricing/details/web-sites/#ssl-connections)
 
 - Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Vídeos sobre como dimensionar aplicativos Web:
-	
+- Vídeos sobre dimensionamento de aplicativos do Serviço de Aplicativo:
+
 	- [Quando dimensionar Sites do Azure - com Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	- [Dimensionamento automático de Sites do Azure, CPU ou programado - com Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
 	- [Como dimensionar sites do Azure - com Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
 [vmsizes]: /pricing/details/app-service/
@@ -202,4 +138,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

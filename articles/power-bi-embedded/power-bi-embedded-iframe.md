@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded Preview - inserir um relatório do Power BI com um IFrame"
-   description="Microsoft Power BI Embedded Preview - código essencial para integrar um relatório em seu aplicativo, como autenticar com o token do aplicativo Power BI Embedded, como obter relatórios"
+   pageTitle="Microsoft Power BI Embedded - inserir um relatório do Power BI com um IFrame"
+   description="Microsoft Power BI Embedded - código essencial para integrar um relatório em seu aplicativo, como autenticar com o token do aplicativo Power BI Embedded, como obter relatórios"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,28 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Inserir um relatório do Power BI com um IFrame
 Este artigo mostra o código essencial para usar a API REST do **Power BI Embedded**, tokens do aplicativo, um IFrame e JavaScript para integrar, ou inserir um relatório em seu aplicativo.
 
-Em [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md), você aprenderá a configurar uma **Coleção de Espaços de Trabalho** para manter um ou mais **Espaços de Trabalho** para o conteúdo do relatório. Em seguida, em [Introdução ao exemplo do Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md), você importa um relatório para um **Espaço de Trabalho**.
+Em [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md), você aprenderá a configurar uma **Coleção de Espaços de Trabalho** para manter um ou mais **Espaços de Trabalho** para o conteúdo do relatório. Em seguida, em [Introdução ao exemplo do Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md), você importa um relatório para um **Espaço de Trabalho**.
 
-Este artigo mostra as etapas para inserir um relatório em seu aplicativo. Para acompanhar este artigo, você deve baixar o exemplo [Integrar um relatório com um IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) no GitHub. Este exemplo é um aplicativo de formulário da Web ASP.NET simples com o objetivo de ilustrar os códigos C# e JavaScript essenciais necessários para integrar um relatório. Para obter um exemplo mais avançado que utiliza o padrão de design MVC (Model-View-Controller) para integrar um relatório, confira o [Aplicativo Web do painel de amostra](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
+Neste artigo, explicaremos as etapas para inserir um relatório em seu aplicativo. Para acompanhar este artigo, você deve baixar o exemplo [Integrar um relatório com um IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) no GitHub. Este exemplo é um aplicativo de formulário da Web ASP.NET simples com o objetivo de ilustrar os códigos C# e JavaScript essenciais necessários para integrar um relatório. Para obter um exemplo mais avançado que utiliza o padrão de design MVC (Model-View-Controller) para integrar um relatório, confira o [Aplicativo Web do painel de amostra](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
 
-Começaremos descrevendo como integrar um relatório **Power BI Embedded** em seu aplicativo.
-
-Aqui estão as etapas para integrar um relatório.
+Aqui estão as etapas para integrar um relatório:
 
 - Etapa 1: [obter um relatório em um espaço de trabalho](#GetReport). Nesta etapa, você usa um fluxo de token do aplicativo para obter um token de acesso para chamar a operação REST [Obter Relatórios](https://msdn.microsoft.com/library/mt711510.aspx). Depois de obter um relatório da lista **Obter Relatórios**, você irá inseri-lo em um aplicativo com um elemento **IFrame**.
 - Etapa 2: [inserir um relatório em um aplicativo](#EmbedReport). Nesta etapa, você usa um token de inserção para um relatório, um JavaScript e um IFrame para integrar ou inserir um relatório em um aplicativo Web.
 
 Se você quiser executar o exemplo para ver como integrar um relatório, baixe o exemplo [Integrar um relatório com um IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) no GitHub e defina três configurações Web.config:
 
-- **AccessKey**: uma **AccessKey** é usada para gerar um JWT (JSON Web Token) usado para obter relatórios e inserir um relatório. Para saber como obter uma **AccessKey**, consulte [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceName**: para saber como obter um **WorkspaceName**, consulte [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceId**: para saber como obter uma **WorkspaceId**, consulte [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+- **AccessKey**: uma **AccessKey** é usada para gerar um JWT (Token Web JSON) usado para obter relatórios e inserir um relatório. Para saber como obter uma **AccessKey**, consulte [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceName**: para saber como obter um **WorkspaceName**, consulte [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceId**: para saber como obter uma **WorkspaceId**, consulte [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 As próximas seções mostram o código necessário para integrar um relatório.
 
@@ -213,19 +211,16 @@ Para ocultar o **Painel de Filtro**, adicione **filterPaneEnabled** à cadeia de
 &filterPaneEnabled=false
 ```
 
-## Conclusão
+## Recursos adicionais
 
-Neste artigo, você foi apresentado ao código para integrar um relatório **Power BI** em seu aplicativo. Para começar a integrar rapidamente um relatório em um aplicativo, baixe estes exemplos no GitHub:
+Neste artigo, você foi apresentado ao código para integrar um relatório **Power BI** em seu aplicativo. Não deixe de conferir estes exemplos adicionais no GitHub:
 
 - [Integrar um relatório com um exemplo de IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Aplicativo Web do painel de exemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Veja também
-- [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Introdução a exemplos](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Obter Relatórios](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

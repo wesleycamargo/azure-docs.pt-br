@@ -30,7 +30,7 @@ Para obter informações mais detalhadas sobre como usar o portal, confira [Gere
 
 SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) no Visual Studio são ferramentas cliente que executam em seu computador e permitem a conexão, gerenciamento e desenvolvimento do banco de dados na nuvem. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou outros ambientes de desenvolvimento integrado (IDEs), [tente usar o SSDT no Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Muitos administradores de banco de dados estão familiarizados com o SSMS, que pode ser usado com bancos de dados SQL do Azure. [Baixe a versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290) e use sempre o lançamento mais recente ao trabalhar com o banco de dados SQL do Azure. Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com SSMS, confira a seção [Gerenciar bancos de dados SQL usando o SSMS](sql-database-manage-azure-ssms.md).
 
-> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SQL Server Management Studio e SQL Server Data Toools for Visual Studio para permanecer sincronizado com as atualizações do Microsoft Azure e do Banco de Dados SQL. As versões antigas dessas ferramentas não funcionarão corretamente com o Banco de Dados SQL.
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SQL Server Management Studio e das SQL Server Data Tools para Visual Studio para permanecer sincronizado com as atualizações do Microsoft Azure e do Banco de Dados SQL. As versões antigas dessas ferramentas não funcionarão corretamente com o Banco de Dados SQL.
 
 ## Ferramentas de linha de comando
 
@@ -46,4 +46,4 @@ Use as ferramentas de banco de dados elástico para executar ações como
 * Gerenciar bancos de dados em um modelo de locatário único ou um modelo de multilocatário usando a [biblioteca de cliente de dimensionamento elástico](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

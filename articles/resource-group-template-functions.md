@@ -432,7 +432,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base **http://contoso.com/resources/**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base de **http://contoso.com/resources/**.
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 
@@ -444,9 +444,9 @@ O Gerenciador de Recursos fornece diversas funções para trabalhar com valores 
 
 - [concat](#concat)
 - [length](#length)
-- [take](#take)
 - [skip](#skip)
 - [split](#split)
+- [take](#take)
 
 <a id="length" />
 ### length
@@ -469,37 +469,6 @@ Ou você pode usar com uma cadeia de caracteres:
     },
     "variables": { 
         "nameLength": "[length(parameters('appName'))]"
-    }
-
-<a id="take" />
-### take
-**take(originalValue, numberToTake)**
-
-Retorna uma matriz ou cadeia de caracteres com o número especificado de elementos ou caracteres desde o início da matriz ou cadeia de caracteres.
-
-| Parâmetro | Obrigatório | Descrição
-| :--------------------------------: | :------: | :----------
-| originalValue | Sim | A matriz ou cadeia de caracteres da qual obter os elementos ou caracteres.
-| numberToTake | Sim | O número de elementos ou caracteres a serem obtidos. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia retornará. Se for maior do que o tamanho da cadeia de caracteres ou matriz especificada, todos os elementos da matriz ou cadeia de caracteres retornarão.
-
-O exemplo a seguir usa o número especificado de elementos da matriz.
-
-    "parameters": {
-      "first": {
-        "type": "array",
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int"
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
     }
 
 <a id="skip" />
@@ -530,6 +499,37 @@ O exemplo a seguir ignora o número especificado de elementos na matriz.
       "return": {
         "type": "array",
         "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Retorna uma matriz ou cadeia de caracteres com o número especificado de elementos ou caracteres desde o início da matriz ou cadeia de caracteres.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| originalValue | Sim | A matriz ou cadeia de caracteres da qual obter os elementos ou caracteres.
+| numberToTake | Sim | O número de elementos ou caracteres a serem obtidos. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia retornará. Se for maior do que o tamanho da cadeia de caracteres ou matriz especificada, todos os elementos da matriz ou cadeia de caracteres retornarão.
+
+O exemplo a seguir usa o número especificado de elementos da matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
       }
     }
 
@@ -669,7 +669,7 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
 
 **list* (resourceName ou resourceIdentifier, apiVersion)**
 
-Qualquer operação que começar com **list** pode ser usada como uma função no seu modelo. Isso inclui **listKeys**, como mostrado acima, mas também operações como **list**, **listAdminKeys**, e **listStatus**. Ao chamar a função, use o nome real da função e não list*. Para determinar quais tipos de recursos têm uma operação de lista, use o seguinte comando do PowerShell.
+Qualquer operação que começar com **list** pode ser usada como uma função no seu modelo. Isso inclui **listKeys**, como mostrado acima, mas também operações como **list**, **listAdminKeys** e **listStatus**. Ao chamar a função, use o nome real da função e não list*. Para determinar quais tipos de recursos têm uma operação de lista, use o seguinte comando do PowerShell.
 
     PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
@@ -877,4 +877,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

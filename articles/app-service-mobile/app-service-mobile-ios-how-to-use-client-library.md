@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # Como usar a Biblioteca de Cliente iOS para os Aplicativos Móveis do Azure
@@ -792,4 +792,4 @@ Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativ
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

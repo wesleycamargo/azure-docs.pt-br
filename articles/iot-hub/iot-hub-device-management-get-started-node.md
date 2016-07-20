@@ -182,9 +182,11 @@ Para recuperar, compilar e executar a interface do usuário de exemplo do gerenc
 Deixe os dispositivos simulados e o aplicativo de gerenciamento de dispositivos em execução enquanto prossegue para o próximo tutorial de gerenciamento.
 
 
-## Próxima etapa
+## Próximas etapas
 
-Para continuar a aprender sobre os recursos de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Explorar o gerenciamento de dispositivos do Hub IoT do Azure usando a interface do usuário de exemplo][lnk-sample-ui].
+Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gateway][lnk-gateway-SDK].
+
+Para saber mais sobre os recursos de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Explorar o gerenciamento de dispositivos do Hub IoT do Azure usando a interface do usuário de exemplo][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
@@ -200,5 +202,6 @@ Para continuar a aprender sobre os recursos de gerenciamento de dispositivos do 
 [Usando os grupos de recursos para gerenciar seus recursos do Azure]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

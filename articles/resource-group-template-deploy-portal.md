@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tomfitz"/>
 
 # Implantar recursos com modelos do Resource Manager e o portal do Azure
@@ -22,13 +22,16 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber mais sobre como gerenciar seus recursos, consulte [Usando o Portal do Azure para implantar e gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
+Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber mais sobre como gerenciar seus recursos, consulte [Gerenciar recursos do Azure pelo portal](./azure-portal/resource-group-portal.md).
 
-Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para ver o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para obter o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Criar grupo de recursos
 
@@ -117,7 +120,7 @@ O portal permite que você salve um modelo em sua conta do Azure e o reimplante 
 ## Próximas etapas
 
 - Para ver os logs de auditoria, confira [Operações de auditoria com o Resource Manager](resource-group-audit.md).
-- Para solucionar erros de implantação, confira [Exibir operações de implantação com o Portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
-- Para recuperar um modelo de uma implantação ou de um grupo de recursos, consulte [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
+- Para solucionar erros de implantação, confira [Solucionando problemas de implantações de grupo de recursos com o portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Para recuperar um modelo de uma implantação ou de um grupo de recursos, consulte [Exportar um modelo do Azure Resource Manager por meio dos recursos existentes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

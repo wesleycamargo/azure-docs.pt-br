@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="douglasl"/>
 
 # Restaurar o backup de bancos de dados habilitados para o Stretch
@@ -56,28 +56,13 @@ Para restaurar um banco de dados do Azure excluído para o ponto no tempo em que
 5. Especifique um novo **Nome de banco de dados** e clique em **Criar**.
 6. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**.
 
-### Recupere um banco de dados do Azure em uma região do Azure diferente  
-O serviço SQL Server Stretch Database no Azure copia instantâneos assincronamente para uma região geográfica do Azure diferente para capacidade de recuperação adicionada em caso de falha regional. Se você não conseguir acessar o banco de dados devido a uma falha em uma região do Azure, você poderá restaurar seu banco de dados para um dos instantâneos com redundância geográfica.
-
->   [AZURE.NOTE] Recuperar o banco de dados do Azure em uma região do Azure diferente exige a alteração da cadeia de conexão em aplicativos cliente após a recuperação, e pode resultar em perda de dados permanente. Faça esse tipo de recuperação somente quando for provável que a interrupção dure um longo tempo.
-
-Para recuperar um banco de dados do Azure ao vivo para um ponto anterior no tempo em uma região do Azure diferente por meio do portal do Azure, faça o descrito a seguir.
-
-1. Faça logon no Portal do Azure.
-2. No lado esquerdo da tela, selecione **+NOVO**, selecione **Dados e Armazenamento** e selecione **SQL Data Warehouse**
-3. Selecione **BACKUP** como a origem e selecione o backup redundante geograficamente do qual você deseja recuperar
-4. Especifique o restante das propriedades do banco de dados e clique em **Criar**
-5. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**
-
-Depois de restaurar o banco de dados do Azure em uma região diferente, você precisa executar os procedimentos armazenados **sys.sp\_rda\_deauthorize\_db** e **sys.sp\_rda\_reauthorize\_db** para restabelecer a conexão entre o banco de dados do SQL Server habilitado para o Stretch e o banco de dados remoto do Azure. Para obter mais informações, consulte [Restaurar a conexão entre o banco de dados do SQL Server e banco de dados remoto do Azure](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-
 ## Restaurar a conexão entre o banco de dados do SQL Server e banco de dados remoto do Azure
 
-1.  Se você vai se conectar a um banco de dados do Azure restaurado com um nome diferente ou em uma região diferente, execute o procedimento armazenado [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) para desconectar-se do banco de dados do Azure anterior.  
+1.  Se você vai se conectar a um banco de dados do Azure restaurado com um nome diferente ou em uma região diferente, execute o procedimento armazenado [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) para desconectar-se do banco de dados do Azure anterior.
 
 2.  Execute o procedimento armazenado [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) para reconectar o banco de dados habilitado para Stretch local com o banco de dados do Azure.
 
-	-   Forneça as credenciais existentes do banco de dados com escopo como um sysname ou um valor varchar(128). (Não use varchar(max).) Você pode procurar o nome da credencial no modo de exibição **sys.database\_scoped\_credentials**.  
+	-   Forneça as credenciais existentes do banco de dados com escopo como um sysname ou um valor varchar(128). (Não use varchar(max).) Você pode procurar o nome da credencial no modo de exibição **sys.database\_scoped\_credentials**.
 
 	-   Especifique se deseja fazer uma cópia dos dados remotos e conecte-se à cópia (recomendado).
 
@@ -98,4 +83,4 @@ Depois de restaurar o banco de dados do Azure em uma região diferente, você pr
 
 [Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

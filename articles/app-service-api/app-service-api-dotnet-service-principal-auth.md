@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticação de entidade de serviço para Aplicativos de API no Serviço de Aplicativo do Azure
@@ -83,8 +83,8 @@ Depois que o token for adquirido, o chamador o incluirá em solicitações HTTP 
 
 Tokens de portador para usuários no mesmo locatário são considerados válidos para o aplicativo de API protegido. Se você quiser garantir que apenas uma entidade de serviço possa chamar o aplicativo de API protegido, adicione o código no aplicativo de API protegido para validar as seguintes declarações do token:
 
-* `appid` deve ser a ID do cliente do aplicativo Azure AD que está associada ao chamador. 
-* `oid` (`objectidentifier`) deve ser a ID da entidade de serviço do chamador. 
+* `appid` deve ser a ID do cliente do aplicativo Azure AD que está associada ao chamador.
+* `oid` (`objectidentifier`) deve ser a ID da entidade de serviço do chamador.
 
 O Serviço de Aplicativo também fornece a declaração `objectidentifier` no cabeçalho X-MS-CLIENT-PRINCIPAL-ID.
 
@@ -150,7 +150,7 @@ Se você tiver problemas para seguir as instruções do tutorial, consulte a se�
 
 ### Verificar se o aplicativo de API está protegido
 
-1. Em um navegador, vá para a URL do aplicativo de API: na folha **Aplicativo de API** no portal do Azure, clique no link em **URL**. 
+1. Em um navegador, vá para a URL do aplicativo de API: na folha **Aplicativo de API** no portal do Azure, clique no link em **URL**.
 
 	Você será redirecionado para uma tela de logon, pois solicitações não autenticadas não têm permissão para chegar ao aplicativo de API.
 
@@ -166,7 +166,7 @@ Nesta seção, você executará as seguintes tarefas:
 
 * Adicionar código no aplicativo de API de camada intermediária que usa credenciais do aplicativo Azure AD para adquirir um token e enviá-lo com solicitações HTTP ao aplicativo de API de camada de dados.
 * Obter as credenciais necessárias do Azure AD.
-* Inserir as credenciais nas configurações de ambiente de tempo de execução do Serviço de Aplicativo do Azure no aplicativo de API de camada intermediária. 
+* Inserir as credenciais nas configurações de ambiente de tempo de execução do Serviço de Aplicativo do Azure no aplicativo de API de camada intermediária.
 
 ### Configurar o projeto ToDoListAPI para adquirir e enviar o token do Azure AD
 
@@ -415,4 +415,4 @@ Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
 
 Para saber mais sobre outras maneiras de implantar projetos do Visual Studio em aplicativos de API, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

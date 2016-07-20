@@ -34,7 +34,7 @@ Cada SQL Data Warehouse é hospedado por um servidor lógico SQL Server. Esse se
 
 ### Instalar o PowerShell
 
-Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
+Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
 ## Restaurar um banco de dados ativo ou pausado
 
@@ -175,4 +175,4 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

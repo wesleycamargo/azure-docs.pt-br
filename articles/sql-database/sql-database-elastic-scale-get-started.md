@@ -51,19 +51,20 @@ O aplicativo de exemplo **Banco de Dados Elástico com SQL do Azure – Introdu�
 
 Parabéns – você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as ferramentas de banco de dados elástico no banco de dados do SQL Azure. Analise rapidamente os fragmentos que a amostra criados ao se conectar com o Visual Studio ou o SQL Server Management Studio ao seu Servidor de Banco de Dados do Azure. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
 
-**Observação** Se você não tiver o SQL Server Management Studio, consulte [Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio](sql-database-manage-azure-ssms.md), que inclui instruções para obter a ferramenta.
+> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ### Principais partes do exemplo de código
 
-1. **Gerenciamento de fragmentos e mapas de fragmentos**: o código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo **ShardMapManagerSample.cs**. Você pode encontrar mais informações sobre esse tópico aqui: [Shard Map Management](http://go.microsoft.com/?linkid=9862595).  
-2. **Roteamento dependente de dados**: o roteamento de transações para o fragmento correto é mostrado em **DataDependentRoutingSample.cs**. Para obter mais detalhes, consulte [Roteamento dependente de dados](http://go.microsoft.com/?linkid=9862596). 
+1. **Gerenciamento de fragmentos e mapas de fragmentos**: o código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo **ShardMapManagerSample.cs**. Você pode encontrar mais informações sobre esse tópico aqui: [Shard Map Management](http://go.microsoft.com/?linkid=9862595).
+2. **Roteamento dependente de dados**: o roteamento de transações para o fragmento correto é mostrado em **DataDependentRoutingSample.cs**. Para obter mais detalhes, consulte [Roteamento dependente de dados](http://go.microsoft.com/?linkid=9862596).
 3. **Consulta em vários fragmentos**: a consulta entre os fragmentos é ilustrada no arquivo **MultiShardQuerySample.cs**. Para obter mais detalhes, consulte [Consulta de vários fragmentos](http://go.microsoft.com/?linkid=9862597).
 4. **Consulta em vários fragmentos**: a adição iterativa de novos fragmentos vazios é realizada pelo código no arquivo **AddNewShardsSample.cs**. Os detalhes deste tópico são abordados aqui: [Gerenciamento de mapa de fragmentos](http://go.microsoft.com/?linkid=9862595).
 
 ### Outras operações da escala elástica
 
 1. **Divisão de um fragmento existente:**: A capacidade de dividir fragmentos é fornecida por meio da **Ferramenta da Divisão de Mesclagem**. Você pode encontrar mais informações sobre essa ferramenta aqui: [Visão geral da ferramenta da Divisão de Mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).   
+2. **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando-se a **ferramenta de mesclagem de divisão**. Para obter mais informações, consulte: [Visão geral da ferramenta de divisão de mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).
 
 
 ## Custo
@@ -77,15 +78,15 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 ## Próximas etapas
 Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados elásticos.
 
-* [Mapa de documentação de ferramentas elásticas de banco de dados](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
--    Amostras de código: 
+* [Mapa de documentação de ferramentas elásticas de banco de dados](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
+-    Amostras de código:
     -    [Banco de dados elásticos com o SQL Azure - Introdução](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Banco de dados elásticos com o SQL Azure - integração com o Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 -    Blog: [Anúncio da Escala Elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Canal 9: [Visão geral da Escala Elástica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Fórum de discussão: [Fórum do banco de dados do SQL Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
--    Para medir o desempenho: [Contadores de desempenho do Gerenciador de mapa do fragmento](sql-database-elastic-database-client-library.md)
+-    Para medir o desempenho: [Contadores de desempenho do gerenciador de mapas do fragmento](sql-database-elastic-database-client-library.md)
 
 
 <!--Anchors-->
@@ -101,4 +102,4 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

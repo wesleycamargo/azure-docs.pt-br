@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="06/30/2016" 
     ms.author="elizapo" />
 
 # Como o Azure RemoteApp salva configurações e dados de usuário?
@@ -50,9 +50,6 @@ Também recomendamos que você use o modo "cache" no Outlook e o modo de "servid
 
 Confira [este artigo](remoteapp-outlook.md) para obter mais informações sobre como usar o Outlook e o Azure RemoteApp.
 
-## Podemos usar soluções de dados compartilhados?
-Sim, o Azure RemoteApp é compatível com o uso de soluções de dados compartilhados; particularmente o OneDrive for Business e Dropbox. No entanto, observe que o consumidor do OneDrive (a versão pessoal) e o Box não são compatíveis.
-
 ## E quanto ao redirecionamento?
 Você pode configurar o Azure RemoteApp para permitir que os usuários acessem dispositivos locais configurando o [redirecionamento](remoteapp-redirection.md). Depois, os dispositivos locais podem acessar os dados no UPD.
 
@@ -84,7 +81,7 @@ Talvez você queira desabilitar UPDs em qualquer uma das seguintes situações:
 
 - Você precisa concluir o acesso e o controle de dados do usuário (para fins de auditoria e de revisão, como instituições financeiras).
 - Você tem soluções de terceiros para o gerenciamento de perfis de usuário e deseja continuar usando-as na implantação do Azure RemoteApp ingressado no domínio. Isso exige que o agente de perfil seja carregado na imagem dourada.
-- Você não precisa de qualquer armazenamento de dados local ou ter todos os dados na nuvem (como no OneDrive for Business) ou em um compartilhamento de arquivos e gostaria de controlar o salvamento de dados no local usando o Azure RemoteApp.
+- Você não precisa de um armazenamento de dados local nem de ter todos os dados na nuvem ou em um compartilhamento de arquivos e deseja controlar o salvamento de dados no local usando o Azure RemoteApp.
 
 Veja [Desabilitar Discos de Perfil de Usuário (UPDs) no Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) para saber mais.
 
@@ -111,7 +108,6 @@ Não, todos os UPDs têm 50 GB de armazenamento. Se você quiser armazenar difer
 3. Carregue o compartilhamento de arquivos usando um script de inicialização. Consulte abaixo para obter detalhes sobre scripts de inicialização no Azure RemoteApp.
 4. Oriente os usuários a salvar todos os dados para o compartilhamento de arquivos.
 
-Você também pode usar aplicativos de sincronização de dados como o OneDrive for Business.
 
 ## Como posso executar um script de inicialização no Azure RemoteApp?
 
@@ -121,7 +117,7 @@ Se você quiser executar um script de inicialização, comece criando uma tarefa
 
 ![Criar uma tarefa do sistema que seja executada quando um usuário fizer logon](./media/remoteapp-upd/upd2.png)
 
-Na guia **Geral**, certifique-se de alterar a **Conta de Usuário** em Segurança para "BUILTIN\\Usuários".
+Na guia **Geral**, altere a **Conta de Usuário** em Segurança para "BUILTIN\\Usuários".
 
 ![Alterar a conta de usuário para um grupo](./media/remoteapp-upd/upd4.png)
 
@@ -143,7 +139,7 @@ Não, não há suporte para isso com o Azure RemoteApp.
 
 ## Posso armazenar dados na VM localmente?
 
-NÃO, os dados armazenados em qualquer lugar na VM que não o UPD serão perdidos. Há uma chance de alta de que o usuário não receba a mesma VM na próxima vez que ele se conectar ao Azure RemoteApp. Nós não mantemos persistência de VM do usuário, assim, o usuário não se conectará à mesma VM e os dados serão perdidos. Além disso, quando atualizamos a coleção, as VMs existentes são substituídas por um novo conjunto de VMs, o que significa que todos os dados armazenados na própria VM são perdidos. A recomendação é armazenar dados no UPD, armazenamento compartilhado, como arquivos do Azure, um servidor de arquivos em uma VNET ou na nuvem usando o OneDrive para empresas ou outro sistema de armazenamento de nuvem com suporte, como o DropBox.
+NÃO, os dados armazenados em qualquer lugar na VM que não o UPD serão perdidos. Há uma chance de alta de que o usuário não receba a mesma VM na próxima vez que ele se conectar ao Azure RemoteApp. Nós não mantemos persistência de VM do usuário, assim, o usuário não se conectará à mesma VM e os dados serão perdidos. Além disso, quando atualizamos a coleção, as VMs existentes são substituídas por um novo conjunto de VMs, o que significa que todos os dados armazenados na própria VM são perdidos. A recomendação é armazenar dados no UPD, armazenamento compartilhado, como arquivos do Azure, um servidor de arquivos em uma VNET ou na nuvem usando um sistema de armazenamento de nuvem com suporte, como o DropBox.
 
 ## Como posso montar um compartilhamento de Arquivos do Azure em uma VM usando o PowerShell?
 
@@ -159,4 +155,4 @@ Você também pode salvar suas credenciais executando o seguinte:
 
 Isso permite ignorar o parâmetro -Credential no cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

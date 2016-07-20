@@ -47,7 +47,7 @@ Você pode encontrar as representações do clássico e do Gerenciador de Recurs
 | UDRs | UDRs | As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. Observe que a UDR no modelo de implantação clássica não é removida durante a migração. No entanto, as operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. | | |
 | Propriedade de encaminhamento IP em uma configuração de rede da VM | Propriedade de encaminhamento IP na NIC | A propriedade de encaminhamento IP em uma VM é convertida em uma propriedade na interface de rede durante a migração. | | |
 | Balanceador de carga com vários IPs | Balanceador de carga com vários recursos IP públicos | Cada IP público associado ao balanceador de carga é convertido em um recurso IP público e associado ao balanceador de carga após a migração. | | |
-| Nomes DNS internos na VM | Nomes DNS internos na NIC | Durante a migração, os sufixos DNS internos são atualizados para corresponderem aos sufixos do modelo de implantação do Gerenciador de Recursos. Observe que a resolução de nomes continua funcionando após a migração. No entanto, os sufixos associados às VMs são alterados. | | |
+| Nomes DNS internos na VM | Nomes DNS internos na NIC | Durante a migração, os sufixos DNS internos das VMs são migrados para uma propriedade somente leitura chamada "InternalDomainNameSuffix" no NIC. O sufixo permanece inalterado após a migração, e a resolução da VM deve continuar a funcionar como antes. | | |
 
 ## Ilustração de um passo a passo de migração simples
 
@@ -64,4 +64,4 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 - [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

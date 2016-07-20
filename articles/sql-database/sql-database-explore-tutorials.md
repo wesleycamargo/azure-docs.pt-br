@@ -25,6 +25,10 @@ Os links a seguir levam você a uma visão geral de cada área de recurso listad
 
 Nos tutoriais a seguir, você aprenderá sobre o uso do SQL Server Management Studio para administrar e consultar o Banco de Dados SQL do Azure.
 
+
+> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 | Tutorial | Descrição |
 |---|---|---|
 | [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor.|
@@ -61,8 +65,8 @@ Nos tutoriais a seguir, você aprenderá sobre a execução de [consultas elást
 
 | Tutorial | Descrição |
 |---|---|---|
-| [Consultando em um banco de dados horizontalmente particionado (fragmentado)](sql-database-elastic-query-getting-started.md) | Nesse tutorial, você aprenderá a criar relatórios de todos os bancos de dados em um banco de dados horizontalmente particionado (fragmentado) usando a [consulta elástica](sql-database-elastic-query-overview.md) |
-| [Consultando em um banco de dados verticalmente particionado](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) | Nesse tutorial, você aprenderá a criar relatórios de todos os bancos de dados em um banco de dados vertical usando uma [consulta elástica](sql-database-elastic-query-overview.md) |
+| [Consultando em um banco de dados horizontalmente particionado (fragmentado)](sql-database-elastic-query-getting-started.md) | Neste tutorial, você aprenderá a criar relatórios de todos os bancos de dados em um banco de dados horizontalmente particionado (fragmentado) usando a [consulta elástica](sql-database-elastic-query-overview.md) |
+| [Consultando em um banco de dados verticalmente particionado](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) | Neste tutorial, você aprenderá a criar relatórios de todos os bancos de dados em um banco de dados vertical usando uma [consulta elástica](sql-database-elastic-query-overview.md) |
 | [Migrar um banco de dados existente para escalar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md)| Nesse tutorial, você aprenderá a escalar horizontalmente (fragmentos) um Banco de Dados SQL do Azure. |
 ||||
 
@@ -105,7 +109,7 @@ Nos tutoriais a seguir, você aprenderá sobre a [migração de um banco de dado
 
 ##Desenvolver
 
-Nos tutoriais a seguir, você aprenderá sobre [Desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md) e o uso de [bibliotecas de conectividade](sql-database-libraries.md).
+Nos tutoriais a seguir, você aprenderá sobre o [Desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md) e o uso das [bibliotecas de conectividade](sql-database-libraries.md).
 
 | Tutorial | Descrição |
 |---|---|---|
@@ -151,7 +155,7 @@ Nos tutoriais a seguir, você aprenderá sobre a [proteção de dados do Banco d
 
 ## Continuidade dos negócios e Expansão de Consulta
 
-Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfica e da Replicação Geográfica Ativa](sql-database-business-continuity.md) para se recuperar de erros, para continuidade dos negócios e para escala horizontal de consulta.
+Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfica e da Replicação Geográfica Ativa](sql-database-business-continuity.md) para se recuperar de erros, para a continuidade dos negócios e para a escala horizontal de consulta.
 
 | Tutorial | Descrição |
 |---|---|---|
@@ -169,7 +173,7 @@ Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfi
 
 ## Sincronização de Dados
 
-Nesse tutorial, você aprenderá sobre a [Sincronização de Dados](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+Neste tutorial, você aprenderá sobre a [Sincronização de Dados](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Descrição |
 |---|---|---| 
@@ -180,4 +184,4 @@ Nesse tutorial, você aprenderá sobre a [Sincronização de Dados](http://downl
 
 [Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

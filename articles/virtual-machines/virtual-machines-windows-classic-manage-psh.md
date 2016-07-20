@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="07/01/2016"
    ms.author="kasing"/>
 
 # Gerenciar suas máquinas virtuais usando o Azure PowerShell
@@ -67,7 +67,7 @@ Execute este comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Anexar um disco de dados
-Essa tarefa requer algumas etapas. Primeiro, use o cmdlet ****Add-AzureDataDisk**** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet **Update-AzureVM** para atualizar a configuração da VM.
+Essa tarefa requer algumas etapas. Primeiro, use o cmdlet ***Add-AzureDataDisk*** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet **Update-AzureVM** para atualizar a configuração da VM.
 
 Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e o anexa.
 
@@ -95,4 +95,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente.
 - Com um endereço IP estático.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

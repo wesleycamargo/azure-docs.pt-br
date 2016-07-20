@@ -13,22 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="07/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
 # Modos de exibição no SQL Data Warehouse
 
-Os modos de exibição são particularmente úteis no SQL Data Warehouse. Eles podem ser usados em diversas maneiras diferentes de melhorar a qualidade de sua solução.
-
-Este artigo destaca alguns exemplos de como aprimorar sua solução implementando com modos de exibição. Existem algumas limitações que também precisam ser consideradas.
+Os modos de exibição são particularmente úteis no SQL Data Warehouse. Eles podem ser usados em diversas maneiras diferentes de melhorar a qualidade de sua solução. Este artigo destaca alguns exemplos de como aprimorar sua solução com exibições, bem como as limitações que precisam ser consideradas.
 
 > [AZURE.NOTE] A sintaxe para `CREATE VIEW` não é abordada neste artigo. Consulte o artigo [CREATE VIEW][] no MSDN para obter essas informações de referência.
 
 ## Abstração de arquitetura
 Um padrão de aplicativo muito comum é recriar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido por um objeto de renomeação do padrão durante o carregamento dos dados.
 
-O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como um novo objeto, DimDate\_New, é criado pela primeira vez e, em seguida, renomeado para substituir a versão original do objeto.
+O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como uma nova tabela, DimDate\_New, é criada pela primeira vez e renomeada para substituir a versão original da tabela.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -48,33 +46,32 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-No entanto, isso pode resultar em objetos de tabela que aparecem e desaparecem da exibição do usuário no Gerenciador de Objetos do SQL Server do SSDT. As exibições podem ser usadas para fornecer aos consumidores de data warehouse uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados. O fornecimento de acesso aos dados através de uma exibição significa que os usuários não precisam ter visibilidade das tabelas subjacentes. Isso fornece uma experiência de usuário consistente ao mesmo tempo que garante que os designers do data warehouse possam aprimorar o modelo de dados e também maximizar o desempenho usando CTAS durante o processo de carregamento de dados.
+No entanto, essa abordagem pode resultar em tabelas que aparecem e desaparecem da exibição do usuário, bem como nas mensagens de erro "a tabela não existe". As exibições podem ser usadas para fornecer aos usuários uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados. Fornecer aos usuários o acesso aos dados através de uma exibição significa que os usuários não precisam ter visibilidade das tabelas subjacentes. Isso fornece uma experiência de usuário consistente enquanto garante que os designers do data warehouse podem aprimorar o modelo de dados e maximizar o desempenho usando o CTAS durante o processo de carregamento de dados.
 
 ## Otimização do desempenho
-Os modos de exibição são uma forma de impor as junções de desempenho otimizado entre as tabelas. Por exemplo, o modo de exibição pode incorporar uma chave de distribuição redundante como parte dos critérios de junção para minimizar a movimentação de dados. Outra razão pode ser forçar uma consulta específica ou dica de junção. Isso garante que a junção seja sempre executada de forma ideal e não seja dependente do usuário, lembre-se de construir a junção corretamente.
+As exibições também podem ser utilizadas para impor junções de desempenho otimizadas entre as tabelas. Por exemplo, uma exibição pode incorporar uma chave de distribuição redundante como parte dos critérios de junção para minimizar a movimentação dos dados. Outro benefício de uma exibição pode ser forçar uma dica de consulta ou junção específica. Usar exibições dessa maneira garante que as junções sempre sejam executadas de forma ideal, evitando a necessidade dos usuários lembrarem a construção correta de suas junções.
 
 ## Limitações
-Os modos de exibição no SQL Data Warehouse são somente metadados.
+Os modos de exibição no SQL Data Warehouse são somente metadados. Consequentemente, as opções a seguir não estão disponíveis:
 
-Consequentemente, as opções a seguir não estão disponíveis:
 - 	Não há opção de associação de esquema
 - 	Tabelas base não podem ser atualizadas por meio da exibição
 - 	Exibições não podem ser criadas em tabelas temporárias
-- 	Não há suporte para EXPAND / NOEXPAND para dicas
+- 	Não há suporte para as dicas EXPAND / NOEXPAND
 - 	não há exibições indexadas no SQL Data Warehouse
 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][]. Para obter a sintaxe `CREATE VIEW`, confira [CREATE VIEW][].
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][]. Para ver a sintaxe `CREATE VIEW`, consulte [CREATE VIEW][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CREATE VIEW]: https://msdn.microsoft.com/pt-BR/library/ms187956.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Criar uma aplicativo Web Hello World para o Azure no Eclipse
@@ -26,8 +26,8 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
  
 ## Pré-requisitos
 
-* Um JDK (Java Developer Kit) versão 1.7 ou posterior.
-* Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
+* Um JDK (Java Developer Kit) versão 1.8 ou posterior.
+* Um IDE do Eclipse para desenvolvedores do Java EE, Luna ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
 * Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
 * O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse].
@@ -46,7 +46,7 @@ Primeiro, vamos começar com a criação de um projeto Java.
 
 1. No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 
-1. Na caixa de diálogo **Novo arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**.
+1. Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo **index.jsp**, mantenha a pasta pai como **MyHelloWorld/WebContent** e, em seguida, clique em **Avançar**.
 
 1. Na caixa de diálogo **Selecionar Modelo JSP**, para a finalidade deste tutorial, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
 
@@ -115,7 +115,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
       * Na caixa de texto **Nome**, especifique um nome para o novo Grupo de Recursos.
 
-      * No menu suspenso **Região**, selecione o local do data center do Azure apropriado ao Grupo de Recursos.
+      * No menu suspenso **Região**, selecione a localização do data center do Azure apropriada ao Grupo de Recursos.
 
       * Clique em **OK**.
 
@@ -133,7 +133,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
       * Na caixa de texto **Nome**, especifique um nome para o novo Plano do Serviço de Aplicativo.
 
-      * No menu suspenso **Local**, selecione o local do data center do Azure apropriado ao plano.
+      * No menu suspenso **Localização**, selecione a localização do data center do Azure apropriada ao plano.
 
       * No menu suspenso **Tipo de Preço**, selecione o preço apropriado ao plano. Para fins de teste, é possível escolher **Gratuito**.
 
@@ -155,11 +155,11 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
     Observação: por padrão, o aplicativo será implantado como um subdiretório do servidor de aplicativos. Se desejar implantá-lo como o aplicativo raiz, marque a caixa de seleção **Implantar na raiz** antes de clicar em **OK**.
 
-1. Em seguida, você deverá ver o modo de exibição do **Log de Atividades do Azure**, que indicará o status da implantação do Aplicativo Web.
+1. Em seguida, você deverá ver o modo de exibição do **Log de Atividades do Azure**, que indicará o status da implantação de seu Aplicativo Web.
 
     ![][12]
 
-    O processo de implantação de seu aplicativo Web no Azure deve demorar apenas alguns segundos para ser concluído. Quando o aplicativo estiver pronto, você verá um link chamado **Publicado** na coluna **Status**. Ao clicar no link, você será levado à home page do Aplicativo Web implantado.
+    O processo de implantação de seu aplicativo Web no Azure deve demorar apenas alguns segundos para ser concluído. Quando seu aplicativo estiver pronto, você verá um link chamado **Publicado** na coluna **Status**. Ao clicar no link, você será levado à home page do Aplicativo Web implantado.
 
 ## Atualização de seu aplicativo Web
 
@@ -187,9 +187,9 @@ Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você p
 Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para interromper o Aplicativo Web:
 
 1. Expanda o nó **Azure**.
-2. Expanda o nó **Aplicativos Web**. 
+2. Expanda o nó **Aplicativos Web**.
 3. Clique com botão direito do mouse no Aplicativo Web desejado.
-5. Quando o menu de contexto for exibido, clique em **Parar**. ![][13]
+5. Quando o menu de contexto for exibido, clique em **Parar**.![][13]
 
 ## Próximas etapas
 
@@ -202,10 +202,11 @@ Para obter mais informações sobre os kits de ferramentas do Azure para Java ID
 - [Kit de Ferramentas do Azure para IntelliJ]
   - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
   - [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  - [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
-Para obter mais informações sobre como criar aplicativos Web do Azure, consulte a [Visão geral de Aplicativos Web].
+Para obter mais informações sobre como criar aplicativos Web do Azure, confira a [Visão geral de Aplicativos Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
@@ -213,11 +214,13 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, consult
 
 [Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
 [Visão geral de Aplicativos Web]: ./app-service-web-overview.md
@@ -240,4 +243,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, consult
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

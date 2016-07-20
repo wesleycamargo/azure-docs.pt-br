@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Guia de solução de problemas
@@ -64,4 +64,4 @@ Se você encontrar uma situação em que um ou mais usuários em seu locatário 
 ### Entre em contato
 Entre em contato com a equipe de produto do Serviços de Domínio do Azure Active Directory para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Funções no Azure AD Privileged Identity Management
@@ -24,8 +24,9 @@ Você pode atribuir usuários na sua organização a diferentes funções admini
 
 Um administrador global pode atualizar quais usuários estão **permanentemente** atribuídos a funções no Azure AD, usando cmdlets PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember` ou por meio do portal clássico como descrito em [atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
-O Azure AD PIM (Privileged Identity Management) gerencia políticas para o acesso privilegiado para usuários no Azure AD. O PIM atribui usuários a uma ou mais funções no Azure AD e essas atribuições podem ser permanentes ou temporárias. Quando um usuário é atribuído permanentemente a uma função ou ativa uma atribuição de função temporária, ele pode gerenciar o Azure Active Directory, o Office 365 e outros aplicativos com as permissões atribuídas às suas funções.
+O Azure AD PIM (Privileged Identity Management) gerencia políticas para o acesso privilegiado para usuários no Azure AD. O PIM atribui usuários a uma ou mais funções no Azure AD e você pode atribuir uma pessoa para estar permanentemente na função ou qualificada para a função. Quando um usuário é atribuído permanentemente a uma função ou ativa uma atribuição de função qualificada, ele pode gerenciar o Azure Active Directory, o Office 365 e outros aplicativos com as permissões atribuídas às suas funções.
 
+Não há nenhuma diferença no modo de acesso concedido a uma pessoa com uma atribuição de função permanente em comparação com uma qualificada. A única diferença é que algumas pessoas não precisam desse acesso o tempo todo. Elas são qualificadas para a função e podem ativá-la ou desativá-la sempre que precisarem.
 
 ## Funções gerenciadas no PIM
 
@@ -33,9 +34,9 @@ O Privileged Identity Management permite que você atribua usuários às funçõ
 
 
 - O **Administrador global** (também conhecido como Administrador da empresa) tem acesso a todos os recursos administrativos. Você pode ter mais de um administrador global na sua organização. A pessoa que se inscreve para comprar o Office 365 automaticamente se torna um administrador global.
-- O **Administrador de função com privilégios** gerencia o PIM do Azure AD e atualiza as atribuições de função para outros usuários.  
+- O **Administrador com função com privilégios** gerencia o Azure AD PIM e atualiza as atribuições de função para outros usuários.
 - O **Administrador de cobrança** faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
-- O **Administrador de senha** redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Os administradores de senha são limitados à redefinição de senhas para usuários.
+- O **Administrador de senhas** redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Os administradores de senha são limitados à redefinição de senhas para usuários.
 - O **Administrador de serviços** gerencia as solicitações de serviço e monitora a integridade do serviço.
 
   > [AZURE.NOTE] Se você estiver usando o Office 365, antes de atribuir a função de administrador de serviço a um usuário, primeiro atribua permissões administrativas ao usuário para um serviço, como o Exchange Online.
@@ -50,7 +51,7 @@ Leia estes artigos para obter mais detalhes sobre a [atribuição de funções d
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
 
-Do PIM, você pode [atribuir essas funções para um usuário como temporárias](active-directory-privileged-identity-management-how-to-add-role-to-user.md) para que o usuário possa [ativar a função quando necessário](active-directory-privileged-identity-management-how-to-activate-role.md).
+Do PIM, você pode [atribuir essas funções para um usuário](active-directory-privileged-identity-management-how-to-add-role-to-user.md) para que ele possa [ativar a função quando necessário](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 Se você desejar conceder acesso para gerenciar no próprio PIM a outro usuário, as funções que o PIM exige que o usuário tenha serão descritas detalhadamente em [como conceder acesso ao PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
@@ -66,26 +67,26 @@ As assinaturas e grupos de recursos do Azure também não são representados no 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
-## Funções de Usuário e Realização de Logon
+## Funções de usuário e entrada
 Para alguns serviços e aplicativos da Microsoft, atribuir um usuário a uma função pode não ser suficiente para permitir que aquele usuário seja um administrador.
 
 O acesso ao portal clássico do Azure requer que o usuário seja um administrador ou coadministrador de serviços em uma assinatura do Azure, mesmo se o usuário não precisar gerenciar as assinaturas do Azure. Por exemplo, para gerenciar as definições de configuração do Azure AD no portal clássico, um usuário deve ser um administrador global no Azure AD e um coadministrador de assinatura em uma assinatura do Azure. Para saber como adicionar usuários às assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md).
 
 O acesso ao Microsoft Online Services pode exigir que o usuário também tenha uma licença atribuída antes de poder abrir o portal do serviço ou realizar tarefas administrativas.
 
-## Atribuir uma Licença a um Usuário no AD do Azure
+## Atribuir uma licença a um usuário no Azure AD
 
-1. Entre no [portal clássico do Azure](http://manage.windowsazure.com) com uma conta de administrador global ou uma conta de coadministrador.
+1. Entre no [Portal Clássico do Azure](http://manage.windowsazure.com) com uma conta de administrador global ou uma conta de coadministrador.
 2. Selecione **Todos os Itens** no menu principal.
 3. Selecione o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
 4. Selecione **Licenças**. A lista de licenças disponíveis será exibida.
 5. Selecione o plano de licença que contém as licenças que você deseja distribuir.
-6. Selecione **Atribuir usuários**.
+6. Selecione **Atribuir Usuários**.
 7. Selecione o usuário ao qual você deseja atribuir uma licença.
-8. Clique no botão **Atribuir**. O usuário agora pode fazer logon no Azure.
+8. Clique no botão **Atribuir**. O usuário agora pode entrar no Azure.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

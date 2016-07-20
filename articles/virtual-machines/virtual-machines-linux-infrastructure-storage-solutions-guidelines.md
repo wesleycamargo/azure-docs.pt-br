@@ -46,7 +46,7 @@ O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamen
 Há dois tipos de conta de armazenamento disponíveis para dar suporte às VMs:
 
 - Uma conta de armazenamento Standard fornece acesso ao armazenamento de blobs (usado para armazenar discos da VM do Azure), armazenamento de tabelas, armazenamento de filas e armazenamento de arquivos
-- O [armazenamento Premium](../storage/storage-premium-storage.md) dá suporte a discos de alto desempenho e baixa latência para cargas de trabalho de E/S intensiva, como SQL Servers em um cluster do AlwaysOn. Atualmente, ele dá suporte somente a discos de VM do Azure.
+- O [Armazenamento Premium](../storage/storage-premium-storage.md) dá suporte a discos de alto desempenho e baixa latência para cargas de trabalho de E/S intensiva, como cluster fragmentado do MongoDB. Atualmente, ele dá suporte somente a discos de VM do Azure.
 
 O Azure cria VMs com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Tome cuidado ao projetar aplicativos para usar somente este disco temporário para dados não persistentes, pois a VM poderá ser migrada entre hosts durante um evento de manutenção. Todos os dados armazenados no disco temporário seriam perdidos.
 
@@ -56,7 +56,7 @@ Os discos do sistema operacional e os discos de dados têm um tamanho máximo de
 
 Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure – veja [Assinatura, limite de serviços, cotas e restrições do Microsoft Azure](azure-subscription-service-limits.md#storage-limits) para obter mais detalhes. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
 
-Quando se trata de armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs, etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
+Quando se trata de armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
 
 
 ## Discos distribuídos
@@ -71,7 +71,7 @@ Se você estiver usando a distribuição de disco para os discos de dados do Azu
 - Usar o LVM
 - Evite usar opções de cache de disco de dados do Azure (política de cache = Nenhuma)
 
-Para saber mais, consulte [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Para saber mais, confira [Configuração de LVM em uma VM Linux](virtual-machines-linux-configure-lvm.md).
 
 
 ## Várias contas de armazenamento
@@ -85,4 +85,4 @@ Para obter mais informações sobre as funcionalidades de E/S das diferentes op�
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

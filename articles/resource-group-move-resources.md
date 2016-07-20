@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -82,7 +82,7 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 
 Ao trabalhar com aplicativos do Serviço de Aplicativo, você não pode mover um plano de Serviço de Aplicativo. Para mover os Aplicativos do Serviço de Aplicativo, as opções são:
 
-- Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Isso significa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo. 
+- Mova o plano do Serviço de Aplicativo e todos os outros recursos do Serviço de Aplicativo nesse grupo de recursos para um novo grupo de recursos que ainda não têm os recursos do Serviço de Aplicativo. Isso significa mover até mesmo os recursos do Serviço de Aplicativo que não estão associados ao plano do Serviço de Aplicativo.
 - Mova os aplicativos para um grupo de recursos diferente, mas mantenha todos os planos do Serviço de Aplicativo no grupo de recursos original.
 
 Se o grupo de recursos original também incluir um recurso do Application Insights, não será possível mover esse recurso, pois, atualmente, o Application Insights não dá suporte à operação de movimentação. Se você incluir o recurso do Application Insights ao mover aplicativos do Serviço de Aplicativo, toda a operação de movimentação falhará. No entanto, para que o aplicativo funcione corretamente, o Application Insights e o plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo.
@@ -119,7 +119,7 @@ As opções de movimentação dos recursos implantados por meio do modelo cláss
 Ao mover recursos de um grupo de recursos para outro **na mesma assinatura**, as seguintes restrições se aplicarão:
 
 - Redes virtuais (clássicas) não podem ser movidas.
-- Máquinas virtuais (clássicas) devem ser movidas com o serviço de nuvem. 
+- Máquinas virtuais (clássicas) devem ser movidas com o serviço de nuvem.
 - Um serviço de nuvem pode ser movido apenas quando a movimentação inclui todas as suas máquinas virtuais.
 - Apenas um serviço de nuvem pode ser movido por vez.
 - Apenas uma conta de armazenamento (clássica) pode ser movida por vez.
@@ -132,11 +132,11 @@ Ao mover recursos para uma **nova assinatura**, as seguintes restrições se apl
 
 ## Usando o portal para mover recursos
 
-Você pode mover alguns recursos por meio do portal; no entanto, nem todos os provedores de recursos que dão suporte à operação de movimentação fornecem essa funcionalidade no portal.
-
-Para mover um recurso, selecione o recurso e selecione o botão **Mover**.
+Para mover um recurso, selecione o recurso e o botão **Mover**.
 
 ![mover recursos](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] Nem todos os recursos atualmente dão suporte à sua movimentação pelo portal. Se você não vir o botão **Mover** para o recurso que você deseja mover, use o PowerShell, CLI ou API REST para mover o recurso.
 
 Você especifica a assinatura e o grupo de recursos de destino ao mover o recurso. Se outros recursos tiverem de ser movidos com o recurso, eles serão listados.
 
@@ -270,6 +270,6 @@ Com o corpo da solicitação:
 - Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Como usar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
 - Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Como usar a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
-- Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Como usar marcações para organizar seus recursos](resource-group-using-tags.md).
+- Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

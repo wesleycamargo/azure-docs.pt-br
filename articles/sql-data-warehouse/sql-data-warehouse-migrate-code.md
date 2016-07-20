@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
@@ -35,7 +35,7 @@ A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Dat
 - funções definidas pelo usuário embutidas
 - funções com várias instruções
 - [expressões de tabela comuns](#Common-table-expressions)
-- [CTE (expressão de tabela comum) recursiva](#Recursive-common-table-expressions-(CTE)
+- [CTE (expressão de tabela comum) recursiva] (#Recursive-common-table-expressions-(CTE)
 - procedimentos e funções CLR
 - função $partition
 - variáveis de tabela
@@ -115,14 +115,14 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, consul
 <!--Image references-->
 
 <!--Article references-->
-[Junções ANSI em atualizações]: ./sql-data-warehouse-develop-ctas.md
-[Junções ANSI em exclusões]: ./sql-data-warehouse-develop-ctas.md
-[instrução merge]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Junções ANSI em atualizações]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[Junções ANSI em exclusões]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[instrução merge]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Tópicos do Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [cursores]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento]: ./sql-data-warehouse-develop-group-by-options.md
 [cláusula group by com as opções rollup/cube/grouping sets]: ./sql-data-warehouse-develop-group-by-options.md
 [níveis de aninhamento superiores a 8]: ./sql-data-warehouse-develop-transactions.md
@@ -134,4 +134,4 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, consul
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/28/2016"
+	ms.date="07/05/2016"
 	ms.author="sdanie" />
 
 # Como administrar o Cache Redis do Azure
@@ -47,7 +47,7 @@ O impacto em aplicativos cliente varia de acordo com os nós que você reinicial
 
 -	**Mestre** - quando o nó mestre é reinicializado, o Cache Redis do Azure realiza o failover para o nó de réplica e o promove a mestre. Durante esse failover, pode haver um breve intervalo em que as conexões podem falhar para o cache.
 -	**Subordinado** - quando o nó subordinado é reinicializado, geralmente não há impacto para os clientes de cache.
--	**Mestre e subordinado** - quando ambos os nós de cache são reinicializados, todos os dados são perdidos no cache, e as conexões com o cache falham até que o nó primário fique online novamente. Se você tiver configurado a [persistência de dados](cache-how-to-premium-persistence.md), o backup mais recente será restaurado quando o cache ficar online novamente.
+-	**Mestre e subordinado** - quando ambos os nós de cache são reinicializados, todos os dados são perdidos no cache, e as conexões com o cache falham até que o nó primário fique online novamente. Se você tiver configurado a [persistência de dados](cache-how-to-premium-persistence.md), o backup mais recente será restaurado quando o cache ficar online novamente. Observe que as gravações de cache que ocorrerem após o backup mais recente serão perdidas.
 -	**Nó(s) de um cache premium com clustering habilitado** - quando você reinicializa o(s) nó(s) de um cache premium com clustering habilitado, o comportamento é o mesmo que ocorre quando você reinicializa o(s) nó(s) de um cache não clusterizado.
 
 
@@ -70,11 +70,13 @@ Para testar a resiliência do aplicativo contra falhas do nó principal do cache
 
 Sim, se você reinicializar o cache, todas as conexões de cliente serão limpas. Isso pode útil quando todas as conexões de cliente são usadas, por exemplo, devido a um erro de lógica ou um bug no aplicativo cliente. Cada tipo de preços tem diferentes [limites de conexão do cliente](cache-configure.md#default-redis-server-configuration) para os vários portes, e quando os limites são atingidos, não são mais aceitas mais conexões de cliente. Reinicializar o cache fornece uma maneira de limpar todas as conexões de cliente.
 
+>[AZURE.IMPORTANT] Se as conexões de cliente forem totalmente usadas devido a um erro de lógica ou um bug no código do cliente, observe que StackExchange.Redis se reconectará automaticamente quando o nó do Redis estiver online novamente. Se o problema subjacente não for resolvido, as conexões de cliente continuarão a ser usadas.
+
 ### Perderei dados do cache se eu fizer uma reinicialização?
 
-Se você reinicializar os nós **Mestre** e **Subordinado**, todos os dados no cache (ou nesse fragmento, se você estiver usando um cache premium com clustering habilitado) serão perdidos. Se você tiver configurado a [persistência de dados](cache-how-to-premium-persistence.md), o backup mais recente será restaurado quando o cache ficar online novamente.
+Se você reinicializar os nós **Mestre** e **Subordinado**, todos os dados no cache (ou nesse fragmento, se você estiver usando um cache premium com clustering habilitado) serão perdidos. Se você tiver configurado a [persistência de dados](cache-how-to-premium-persistence.md), o backup mais recente será restaurado quando o cache ficar online novamente. Observe que as gravações em cache ocorridas após o backup serão perdidas.
 
-Se você reinicializar apenas um dos nós, normalmente os dados não serão perdidos, mas isso ainda poderá ocorrer. Por exemplo, se o nó mestre for reinicializado e uma gravação de cache estiver em andamento, os dados da gravação do cache serão perdidos.
+Se você reinicializar apenas um dos nós, normalmente os dados não serão perdidos, mas isso ainda poderá ocorrer. Por exemplo, se o nó mestre for reinicializado e uma gravação de cache estiver em andamento, os dados da gravação do cache serão perdidos. Outro cenário de perda de dados ocorre se você reinicializa um nó e o outro nó ocorre fica inoperante devido a uma falha ao mesmo tempo. Para saber mais sobre as possíveis causas de perda de dados, confira [O que aconteceu com meu dados no Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md).
 
 ### Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 
@@ -110,4 +112,8 @@ Apenas as atualizações do servidor Redis são realizadas durante a janela de m
 
 As atualizações de agenda estão disponíveis apenas no tipo de preços premium.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Próximas etapas
+
+-	Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md).
+
+<!---HONumber=AcomDC_0706_2016-->

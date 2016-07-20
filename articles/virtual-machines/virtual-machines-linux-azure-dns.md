@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/11/2016"
+   ms.date="06/21/2016"
    ms.author="rclaus" />
 
 # Opções de resolução de nomes DNS para VMs Linux no Azure
@@ -78,9 +78,9 @@ Há uma série de pacotes de armazenamento em cache de DNS diferentes disponíve
 - **Ubuntu (usa resolvconf)**:
 	- apenas instale o pacote de dnsmasq ("sudo apt-get install dnsmasq").
 - **SUSE (usa netconf)**:
-	- instale o pacote de dnsmasq ("sudo zypper install dnsmasq"). 
-	- habilite o serviço dnsmasq ("systemctl enable dnsmasq.service") 
-	- inicie o serviço dnsmasq ("systemctl enable dnsmasq.service") 
+	- instale o pacote de dnsmasq ("sudo zypper install dnsmasq").
+	- habilite o serviço dnsmasq ("systemctl enable dnsmasq.service")
+	- inicie o serviço dnsmasq ("systemctl enable dnsmasq.service")
 	- edite "/etc/sysconfig/network/config" e altere NETCONFIG\_DNS\_FORWARDER = "" para "dnsmasq"
 	- atualize resolv. conf ("netconfig update") para definir o cache do resolvedor DNS local
 - **OpenLogic (usa NetworkManager)**:
@@ -96,8 +96,8 @@ Há uma série de pacotes de armazenamento em cache de DNS diferentes disponíve
 
 O DNS é principalmente um protocolo UDP. Como o protocolo UDP não garante a entrega de mensagens, a lógica de repetição é manipulada no próprio protocolo DNS. Cada cliente DNS (sistema operacional) pode apresentar uma lógica de repetição diferente dependendo da preferência dos criadores:
 
- - Sistemas operacionais Windows tentam novamente depois de 1 segundo e, em seguida, novamente após outros 2, 4 e outros 4 segundos. 
- - As tentativas de instalação do Linux ocorrem, por padrão, depois de 5 segundos. É recomendável alterar para repetir 5 vezes em intervalos de 1 segundo.  
+ - Sistemas operacionais Windows tentam novamente depois de 1 segundo e, em seguida, novamente após outros 2, 4 e outros 4 segundos.
+ - As tentativas de instalação do Linux ocorrem, por padrão, depois de 5 segundos. É recomendável alterar para repetir 5 vezes em intervalos de 1 segundo.
 
 Para verificar as configurações atuais em uma VM do Linux, 'cat /etc/resolv.conf' e examine a linha 'options', por exemplo:
 
@@ -106,13 +106,13 @@ Para verificar as configurações atuais em uma VM do Linux, 'cat /etc/resolv.co
 O arquivo resolv.conf é normalmente gerado automaticamente e não deve ser editado. As etapas específicas para adicionar a linha 'options' variam de acordo com a distribuição:
 
 - **Ubuntu** (usa resolvconf):
-	- adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head' 
+	- adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head'
 	- execute 'resolvconf -u' para atualizar
 - **SUSE** (usa netconf):
-	- adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
+	- adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS = "" em '/ etc/sysconfig/rede/config'
 	- execute 'netconfig update' para atualizar
 - **OpenLogic** (usa NetworkManager):
-	- adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- execute 'service network restart' para atualizar
 
 ## Resolução de nome usando o seu próprio servidor DNS
@@ -126,16 +126,16 @@ O encaminhamento de DNS também permite a resolução DNS entre redes virtuais e
 
 Ao usar a resolução de nomes fornecida pelo Azure, o sufixo DNS interno é fornecido para cada máquina virtual que usar o DHCP. Ao usar sua própria solução de resolução de nome, esse sufixo não será fornecido para as VMs porque interfere com outras arquiteturas de DNS. Para fazer referência a máquinas pelo FQDN, ou para configurar o sufixo em suas VMs, ele pode ser determinado usando o PowerShell ou a API:
 
--  Para redes virtuais gerenciadas do Azure Resource Management, o sufixo está disponível por meio do recurso da [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx), ou você pode executar o comando `azure network public-ip show <resource group> <pip name>` para exibir os detalhes de seu IP público, incluindo o FQDN da NIC.    
+-  Para redes virtuais gerenciadas do Azure Resource Management, o sufixo está disponível por meio do recurso da [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx), ou você pode executar o comando `azure network public-ip show <resource group> <pip name>` para exibir os detalhes de seu IP público, incluindo o FQDN da NIC.
 
 
 Se o encaminhamento de consultas para o Azure não atender às suas necessidades, você precisará fornecer sua própria solução DNS. A solução DNS precisará:
 
--  Fornecer resolução de nome do host apropriada, por exemplo, via [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente. 
+-  Fornecer resolução de nome do host apropriada, por exemplo, via [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente.
 -  Fornecer a resolução recursiva apropriada para permitir a resolução de nomes de domínio externo.
 -  Ser acessível (TCP e UDP na porta 53) dos clientes a que ela serve e ser capaz de acessar a Internet.
 -  Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
 > [AZURE.NOTE] Para obter um melhor desempenho, ao usar as VMs do Azure como servidores DNS, o IPv6 deve ser desabilitado e um [IP Público em Nível de Instância](../virtual-network/virtual-networks-instance-level-public-ip.md) deve ser atribuído a cada VM do servidor DNS.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="04/18/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Limites e padrões do Agendador
@@ -23,7 +23,7 @@
 
 ## O cabeçalho x-ms-request-id
 
-Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado * * x-ms-solicitação-id * *. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
+Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado **x-ms-request-id**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
 
 Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor de x-ms-request-id, a hora aproximada na qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
 
@@ -46,4 +46,4 @@ Se uma solicitação estiver falhando consistentemente e você tiver verificado 
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

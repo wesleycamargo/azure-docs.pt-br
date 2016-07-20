@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Adicione autenticação ao aplicativo Xamarin.Android
@@ -107,4 +107,4 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
 <!-- URLs. -->
 [Criar um aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

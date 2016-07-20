@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar e gerenciar bancos de dados do SQL Azure expandidos | Micosoft Azure"
+	pageTitle="Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal | Microsoft Azure"
 	description="Explore a criação e o gerenciamento de um trabalho de banco de dados elástico."
 	services="sql-database"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/27/2016"
 	ms.author="ddove"/>
 
-# Criar e gerenciar bancos de dados do SQL Azure expandidos (preview)
+# Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal (visualização)
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

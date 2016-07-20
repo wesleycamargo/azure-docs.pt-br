@@ -18,7 +18,7 @@
 
 # Backups automatizados do Banco de Dados SQL
 
-O serviço Banco de Dados SQL do Azure protege todos os bancos de dados com um backup automatizado, que é mantido por sete dias para Basic, 14 dias para Standard e 35 dias para Premium. Consulte [Camadas de serviço](sql-database-service-tiers.md) para obter mais informações sobre os recursos disponíveis em cada camada de serviço.
+O serviço Banco de Dados SQL do Azure protege todos os bancos de dados com um backup automatizado, que é mantido por sete dias para Basic, 35 dias para Standard e 35 dias para Premium. Consulte [Camadas de serviço](sql-database-service-tiers.md) para obter mais informações sobre os recursos disponíveis em cada camada de serviço.
 
 Os backups de banco de dados são feitos automaticamente sem nenhuma necessidade de aceitação e sem encargos adicionais. Esses backups automáticos e a restauração pontual fornecem uma maneira sem custo e sem administração para proteger bancos de dados de corrupção ou de exclusão acidental, seja qual for a causa. Você pode usar esses backups automatizado para executar recuperações pontuais e restaurar um banco de dados excluído após uma corrupção ou exclusão de dados acidental.
 
@@ -48,7 +48,7 @@ Você também pode usar os [backups automatizados do Banco de Dados SQL](sql-dat
 
 ## O que acontece com o período de retenção do meu ponto de restauração quando faço downgrade/atualização pela camada de serviço?
 
-Após o downgrade para um nível de desempenho inferior, o período de retenção do ponto de restauração é imediatamente truncado para o período de retenção do nível desempenho do banco de dados atual. Se a camada de serviço for atualizada, o período de retenção começará a ser estendido somente depois que o banco de dados for atualizado. Por exemplo, se for feito downgrade de um banco de dados, de P1 para S3, o período de retenção mudará de 35 dias para 14 dias imediatamente; todos os pontos de restauração antes de 14 dias não estarão mais disponíveis. Subsequentemente, se ele for atualizado para P1 novamente, o período de retenção começará a partir de 14 dias e começara a ser construído até 35 dias.
+Após o downgrade para um nível de desempenho inferior, o período de retenção do ponto de restauração é imediatamente truncado para o período de retenção do nível desempenho do banco de dados atual. Se a camada de serviço for atualizada, o período de retenção começará a ser estendido somente depois que o banco de dados for atualizado. Por exemplo, se for feito downgrade de um banco de dados, de P1 para S3, o período de retenção mudará de 35 dias para 35 dias imediatamente; todos os pontos de restauração antes de 35 dias não estarão mais disponíveis. Posteriormente, se ele for atualizado para P1 novamente, o período de retenção iniciará a partir de 35 dias e começará a ser construído até 35 dias.
 
 ## De quanto tempo é o período de retenção para um banco de dados descartado? 
 O período de retenção é determinado pela camada de serviço do banco de dados enquanto ele existiu ou pelo número de dias que o banco de existe, o que for menor.
@@ -62,4 +62,4 @@ O período de retenção é determinado pela camada de serviço do banco de dado
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 - Para obter uma visão geral sobre a continuidade de negócios, consulte [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -30,7 +30,7 @@ Pré-requisitos para os exercícios deste documento:
 
 ## Implantar um novo contêiner
 
-Para criar um novo contêiner no Docker Swarm, use o comando `docker run`. Este exemplo cria um contêiner da imagem `yeasy/simple-web`:
+Para criar um novo contêiner no Docker Swarm, use o comando `docker run` (verificando que você abriu um túnel SSH para os mestres de acordo com os pré-requisitos acima). Este exemplo cria um contêiner da imagem `yeasy/simple-web`:
 
 
 ```bash
@@ -54,9 +54,11 @@ Agora você pode acessar o aplicativo em execução nesse contêiner por meio do
 
 ![Resultados da visita real](media/real-visit.jpg)
 
+Por padrão, o Balanceador de Carga tem as portas 80, 8080 e 443 abertas. Se você quiser conectar outra porta, precisará abrir a porta no Azure Load Balancer para o Pool de Agentes.
+
 ## Implantar vários contêineres
 
-Como vários contêineres são iniciados no cluster do Docker Swarm, você pode usar o comando `docker ps` para ver em quais hosts os contêineres estão em execução. Neste exemplo, três contêineres são espalhados uniformemente entre os três agentes de Swarm:
+Como diversos contêineres são iniciados, executando 'docker run' várias vezes, você pode usar o comando `docker ps` para ver qual hospeda os contêineres nos quais estão em execução. No exemplo abaixo, três contêineres são espalhados igualmente em três agentes Swarm:
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Implantar contêineres usando Docker Compose
 
-O recurso Docker Compose pode ser usado para automatizar a implantação e a configuração de vários contêineres. Para isso, verifique se um túnel SSH (Secure Shell) foi criado e se a variável DOCKER\_HOST foi definida.
+O recurso Docker Compose pode ser usado para automatizar a implantação e a configuração de vários contêineres. Para tanto, verifique se um túnel Secure Shell (SSH) foi criado e se a variável DOCKER\_HOST foi definida (consulte os pré-requisitos acima).
 
 Crie um arquivo docker-compose.yml em seu sistema local. Para fazer isso, use este [exemplo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -88,7 +90,7 @@ rest:
 
 ```
 
-Execute `docker-compose up -d` para iniciar as implantações de contêineres:
+Execute `docker-compose up -d` para iniciar as implantações do contêiner:
 
 
 ```bash
@@ -115,8 +117,10 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Naturalmente, você pode usar `docker-compose ps` para examinar apenas os contêineres definidos em seu arquivo `compose.yml`.
+
 ## Próximas etapas
 
-[Saiba mais sobre o Docker Swarm](https://docs.docker.com/swarm/).
+[Saiba mais sobre o Docker Swarm.](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -65,7 +65,9 @@ Você deve configurá-los na guia **Armazenamento do Servidor**, na página **Re
 
 ![Configurar o mapeamento de armazenamento](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-Com este exemplo: - quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD\_TARGET (TargetShare1). -Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER\_TARGET (TargetShare2) e assim por diante.
+Neste exemplo:
+- Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD\_TARGET (TargetShare1).
+- Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER\_TARGET (TargetShare2) etc.
 
 Os compartilhamentos de arquivo reais e suas classificações atribuídas no VMM aparecem na captura de tela a seguir.
 
@@ -98,4 +100,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, 
 
 Agora que você compreende melhor o mapeamento de armazenamento, [prepare-se para implantar o Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

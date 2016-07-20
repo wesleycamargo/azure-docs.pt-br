@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
-    ms.author="sethm" />
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # Entidades de mensagens particionadas
 
@@ -93,7 +93,7 @@ Se qualquer uma das propriedades que servem como uma chave de partição for def
 
 Para enviar uma mensagem transacional a uma fila ou um tópico com reconhecimento de sessão, a mensagem deve ter a propriedade [BrokeredMessage.SessionId][] definida. Se a propriedade [BrokeredMessage.PartitionKey][] também for especificada, ela deverá ser idêntica à propriedade [SessionId][]. Se elas forem diferentes, o Barramento de Serviço retornará uma exceção **InvalidOperationException**.
 
-Diferentemente de filas ou tópicos regulares (não particionados), não é possível usar uma única transação para enviar várias mensagens a sessões diferentes. Se isso for tentado, o Barramento de Serviço retornará uma exceção **InvalidOperationException **. Por exemplo:
+Diferentemente de filas ou tópicos regulares (não particionados), não é possível usar uma única transação para enviar várias mensagens a sessões diferentes. Se isso for tentado, o Barramento de Serviço retornará uma exceção **InvalidOperationException**. Por exemplo:
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -111,16 +111,25 @@ committableTransaction.Commit();
 
 O Barramento de Serviço do Azure dá suporte ao encaminhamento automático de mensagens de, para ou entre entidades particionadas. Para habilitar o encaminhamento automático de mensagens, defina a propriedade [QueueDescription.ForwardTo][] na fila de origem ou assinatura. Se a mensagem especificar uma chave de partição ([SessionId][], [PartitionKey][] ou [MessageId][]), essa chave será usada para a entidade de destino.
 
+## Considerações e diretrizes
+
+- **Recursos de alta consistência**: se uma entidade usa recursos como sessões, detecção de duplicatas ou controle explícito de chave de particionamento, as operações de mensagens serão sempre roteadas para fragmentos específicos. Se qualquer um dos fragmentos tiver alto tráfego ou se o repositório subjacente não estiver íntegro, essas operações falharão e a disponibilidade será reduzida. Em geral, a consistência ainda é muito maior do que em entidades não particionadas; somente um subconjunto de tráfego tem problemas, em vez de todo o tráfego.
+- **Gerenciamento**: operações como Criar, Atualizar e Excluir devem ser executadas em todos os fragmentos da entidade. Se qualquer fragmento não estiver íntegro, isso poderá resultar em falhas para essas operações. Para a operação Get, informações como contagens de mensagens devem ser agregadas de todos os fragmentos. Se qualquer fragmento não estiver íntegro, o status de disponibilidade será relatado como limitado.
+- **Cenários de mensagens de baixo volume**: para esses cenários, particularmente ao usar o protocolo HTTP, talvez você precise executar várias operações de recebimento para obter todas as mensagens. Para solicitações de recebimento, o front-end executa um recebimento em todos os fragmentos e armazena em cache todas as respostas recebidas. Uma solicitação de recebimento subsequente na mesma conexão se beneficiará desse armazenamento em cache, e as latências de recebimento serão menores. No entanto, se você tiver várias conexões ou se usar HTTP, isso estabelecerá uma nova conexão para cada solicitação. Assim, não há garantia de que ela chegará ao mesmo nó. Se todas as mensagens existentes forem bloqueadas e armazenadas em cache no outro front-end, a operação de recebimento retornará **nulo**. As mensagens eventualmente expiram e você pode recebê-las novamente. O keep-alive de HTTP é recomendável.
+- **Pesquisar/inspecionar mensagens**: PeekBatch nem sempre retorna o número de mensagens especificado na [Propriedade MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). Há duas razões comuns para isso. Uma razão é que o tamanho agregado da coleção de mensagens excede o tamanho máximo de 256 KB. Outro motivo é que, se a fila ou o tópico tiver a [Propriedade EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) definida como **true**, uma partição poderá não ter mensagens suficientes para concluir o número solicitado de mensagens. Em geral, se um aplicativo quiser receber um número específico de mensagens, deverá chamar [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) repetidamente até obter o número de mensagens ou até não existirem mais mensagens para inspecionar. Para obter mais informações, incluindo exemplos de código, confira [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) ou [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+
+## Últimos recursos adicionados
+
+- Agora há suporte para adicionar ou remover regras com entidades particionadas. Diferentes de entidades não particionadas, essas operações não têm suporte em transações.
+- Agora há suporte a AMQP para enviar e receber mensagens de e para uma entidade particionada.
+- AMQP agora tem suporte para as seguintes operações: [Enviar em Lote](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [Receber em Lote](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [Receber pelo Número de Sequência](https://msdn.microsoft.com/library/azure/hh330765.aspx), [Inspecionar](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [Renovar Bloqueio](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [Agendar Mensagem](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [Cancelar Mensagem Agendada](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [Adicionar Regra](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Remover Regra](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Renovar Bloqueio de Sessão](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [Definir Estado de Sessão](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [Obter Estado de Sessão](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [Inspecionar Mensagens de Sessão](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx) e [Enumerar Sessões](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx).
+
 ## Limitações das entidades particionadas
 
 Em sua implementação atual, o Barramento de Serviço impõe as seguintes limitações a filas e tópicos particionados:
 
--   Filas e tópicos particionados estão disponíveis via SBMP ou HTTP/HTTPS, bem como com AMQP.
-
 -   Filas e tópicos particionados não dão suporte ao envio de mensagens que pertencem a sessões diferentes em uma única transação.
-
 -   O Barramento de Serviço atualmente permite até 100 filas ou tópicos particionados por namespace. Cada fila ou tópico particionado conta para a cota de 10.000 entidades por namespace.
-
 -   Filas e tópicos particionados não têm suporte no Barramento de Serviço para Windows Server versões 1.0 e 1.1.
 
 ## Próximas etapas
@@ -144,4 +153,4 @@ Veja a discussão sobre o [suporte do AMQP 1.0 para filas e tópicos particionad
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [suporte do AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

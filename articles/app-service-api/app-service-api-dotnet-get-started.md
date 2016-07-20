@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/27/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Introdução aos aplicativos de API, ASP.NET e Swagger no Serviço de Aplicativo do Azure
 
@@ -42,7 +42,7 @@ A solução do Visual Studio inclui três projetos:
 
 ![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
-* **ToDoListAngular** ‒ o front-end: um SPA do AngularJS que chama a camada intermediária. 
+* **ToDoListAngular** ‒ o front-end: um SPA do AngularJS que chama a camada intermediária.
 
 * **ToDoListAPI** ‒ a camada intermediária: um projeto de API Web ASP.NET que chama a camada de dados para executar operações CRUD em itens pendentes.
 
@@ -86,7 +86,7 @@ Um projeto de API Web ASP.NET pode gerar dinamicamente metadados do Swagger usan
 
 Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e experimentará uma interface do usuário de teste baseada nos metadados do Swagger.
 
-2. Defina o projeto ToDoListDataAPI (**não** o projeto ToDoListAPI) como o projeto de inicialização. 
+2. Defina o projeto ToDoListDataAPI (**não** o projeto ToDoListAPI) como o projeto de inicialização.
  
 4. Pressione F5 ou clique em **Depurar > Iniciar Depuração** para executar o projeto no modo de depuração.
 
@@ -233,7 +233,7 @@ Nesta seção, você usará as ferramentas do Azure integradas no assistente **P
 
 	Se inserir um nome que outra pessoa já tenha usado, você verá um ponto de exclamação vermelho à direita.
 
-	A URL do aplicativo de API será `{APi app name}.azurewebsites.net`.
+	A URL do aplicativo de API será `{API app name}.azurewebsites.net`.
 
 6. Na lista suspensa **Grupo de Recursos**, clique em **Novo** e insira "ToDoListGroup" ou outro nome, se preferir.
 
@@ -391,7 +391,7 @@ O projeto ToDoListAPI já tem o código de cliente gerado, mas, nas etapas a seg
 
 	O parâmetro do construtor obtém a URL do ponto de extremidade na configuração do aplicativo `toDoListDataAPIURL`. No arquivo Web.config, esse valor é definido como a URL do IIS Express local do projeto de API para que você possa executar o aplicativo localmente. Se você omitir o parâmetro do construtor, o ponto de extremidade padrão será a URL da qual você gerou o código.
 
-6. A classe de cliente será gerada com um nome diferente baseado no nome do aplicativo de API. Altere o código em *Controllers\\ToDoListController.cs* para que o nome do tipo corresponda ao que foi gerado em seu projeto. Por exemplo, se chamar o aplicativo de API de ToDoListDataAPI0121, você alterará este código:
+6. A classe de cliente será gerada com um nome diferente baseado no nome do aplicativo de API. Altere o código em *Controllers\\ToDoListController.cs* para que o nome do tipo corresponda ao que foi gerado em seu projeto. Por exemplo, se chamar o aplicativo de API de ToDoListDataAPI071316, você alterará este código:
 
 		private static ToDoListDataAPI NewDataAPIClient()
 		{
@@ -399,9 +399,9 @@ O projeto ToDoListAPI já tem o código de cliente gerado, mas, nas etapas a seg
 
 para isto:
 
-		private static ToDoListDataAPI0121 NewDataAPIClient()
+		private static ToDoListDataAPI071316 NewDataAPIClient()
 		{
-		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Criar um aplicativo de API para hospedar a camada intermediária
@@ -445,7 +445,7 @@ Se você chamasse o aplicativo de API da camada intermediária agora, ele tentar
 	| **Chave** | toDoListDataAPIURL |
 	|---|---|
 	| **Valor** | https://{your nome do aplicativo de API da camada de dados}.azurewebsites.net |
-	| **Exemplo** | https://todolistdataapi0121.azurewebsites.net |
+	| **Exemplo** | https://todolistdataapi.azurewebsites.net |
 
 4. Clique em **Salvar**.
 
@@ -491,4 +491,4 @@ Se você quiser criar novos projetos de aplicativo de API do zero, use o modelo 
 
 O modelo de projeto **Aplicativo de API do Azure** é equivalente a escolher o modelo **Vazio** do ASP.NET 4.5.2, clicar na caixa de seleção para adicionar o suporte da API Web e instalar o pacote NuGet do Swashbuckle. Além disso, o modelo adiciona alguns códigos de configuração do Swashbuckle projetados para evitar a criação de IDs de operação do Swagger duplicadas. Depois de criar um projeto de aplicativo de API, você pode implantá-lo em um aplicativo de API da mesma maneira como viu neste tutorial.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

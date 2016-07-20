@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Procedimentos armazenados no SQL Data Warehouse
@@ -89,12 +89,12 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 <!--Image references-->
 
 <!--Article references-->
-[tabelas temporárias]: sql-data-warehouse-develop-temporary-tables.md
-[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[tabelas temporárias]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[Visão geral do desenvolvimento]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

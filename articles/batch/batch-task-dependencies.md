@@ -26,7 +26,7 @@ Você pode criar tarefas que dependem de outras tarefas em uma relação um-para
 
 ## Dependências de tarefas com o .NET do Lote
 
-Neste artigo, discutiremos a configuração de dependências de tarefas usando a biblioteca do [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependency) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutimos os [cenários de dependência](#dependency-scenarios) com suporte no Lote.
+Neste artigo, discutiremos a configuração de dependências de tarefas usando a biblioteca do [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutimos os [cenários de dependência](#dependency-scenarios) com suporte no Lote.
 
 ## Habilitar dependências de tarefas
 
@@ -162,4 +162,4 @@ Confira a postagem [Instalação de aplicativos e preparação de dados em nós 
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um-para-muitos"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de ids de tarefas"
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

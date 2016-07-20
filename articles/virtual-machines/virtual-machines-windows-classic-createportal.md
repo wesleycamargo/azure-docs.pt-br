@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Criar uma máquina virtual personalizada executando Windows
@@ -30,4 +30,4 @@
 
 Você também pode [criar uma máquina virtual personalizada executando o Linux](virtual-machines-linux-classic-createportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

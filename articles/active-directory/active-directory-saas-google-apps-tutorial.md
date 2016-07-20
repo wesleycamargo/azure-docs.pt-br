@@ -88,7 +88,7 @@ Como habilitar o logon único no Google Apps em dois minutos:
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do Google Apps usando o seguinte formato: `https://mail.google.com/a/<yourdomain>`
 
@@ -124,7 +124,7 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do Google Apps usando o seguinte formato: `https://mail.google.com/a/<yourdomain>`
 
@@ -194,7 +194,7 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 
 4. Se você ainda não adicionou um nome de domínio personalizado ao Active Directory do Azure, siga as etapas abaixo:
 
-	- No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**. Na lista de diretórios, selecione o diretório. 
+	- No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**. Na lista de diretórios, selecione o diretório.
 
 	- Clique em **Domínios** no menu de nível superior e, em seguida, clique em **Adicionar um domínio personalizado**.
 
@@ -313,4 +313,4 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->
