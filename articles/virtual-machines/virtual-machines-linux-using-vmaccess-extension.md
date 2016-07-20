@@ -25,9 +25,12 @@ Este artigo mostra como usar a extensão de VM VMAcesss [(Github)](https://githu
 
 ## Comandos rápidos
 
-Há duas maneiras de usar VMAccess em suas VMs do Linux. A primeira é usar a CLI do Azure com o `azure vm reset-access` com o sinalizador correto. A segunda maneira de usar a VMAccess é com arquivos json brutos que a VMAccess processará e usará. Para a seção de comando rápido, usaremos o método `azure vm reset-access`.
+Há duas maneiras de usar VMAccess em suas VMs do Linux:
 
-Nos exemplos de comandos a seguir, substitua os valores entre &lt; e &gt; pelos valores de seu próprio ambiente.
+- Usando a CLI do Azure e os parâmetros necessários.
+- Usando os arquivos JSON brutos que a VMAccess processará e usará.
+
+Para a seção de comando rápido, usaremos o método `azure vm reset-access` da CLI do Azure. Nos exemplos de comandos a seguir, substitua os valores entre &lt; e &gt; pelos valores de seu próprio ambiente.
 
 ## Redefinir a senha raiz
 
@@ -101,7 +104,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Usar a VMAccess para redefinir o acesso do usuário para Linux
 
-Se você tiver perdido o acesso à raiz na sua VM do Linux, poderá iniciar um script VMAccess para redefinir a senha raiz, desbloqueando o Linux.
+Se você tiver perdido o acesso à raiz na sua VM do Linux, poderá iniciar um script VMAccess para redefinir a senha raiz.
 
 Para redefinir a senha raiz, use este script VMAccess:
 
@@ -205,4 +208,4 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

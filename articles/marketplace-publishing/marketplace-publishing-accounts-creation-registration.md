@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="06/27/2016"
    ms.author="hascipio"/>
 
 # Criar uma conta de Desenvolvedor da Microsoft
@@ -65,7 +65,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 
 2. Acesse [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com)).
+3. Entre com a conta da Microsoft de registro de sua empresa (por exemplo, marketplace@example.com).
 
     ![desenho][img-signin]
 
@@ -143,7 +143,7 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
 2.	Acesse [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com)) e adicione coadministradores conforme necessário.
+3.	Entre com a conta da Microsoft de registro de sua empresa (ou seja, marketplace@example.com) e adicione coadministradores conforme necessário.
 
   > [AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
@@ -159,14 +159,7 @@ O portal de publicação do Azure é usado para publicar e gerenciar suas oferta
 
 
 ## Próximas etapas
-Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquina virtual, serviço do desenvolvedor, serviço de dados, modelo de solução) que você deseja publicar no Azure Marketplace. Visite um dos seguintes artigos para saber como publicar sua respectiva oferta:
-
-|| Imagem de máquina virtual | Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
-|----|-----|-----|-----|-----|
-|**Etapa 2: Criar sua oferta** |[Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| Visualização particular | [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-|| [Pré-requisitos técnicos de imagem de VM][link-single-vm-prereq] | Visualização particular | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guia de publicação de imagem de VM][link-single-vm] | Visualização particular | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
-|| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | Visualização particular | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
+Agora que sua conta foi criada e registrada, cumpra ou atenda a todos os pré-requisitos não técnicos para publicar sua oferta, examinando [Pré-requisitos não técnicos](marketplace-publishing-pre-requisites.md).
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +191,4 @@ Agora que sua conta foi criada e registrada, clique no tipo de artefato (máquin
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

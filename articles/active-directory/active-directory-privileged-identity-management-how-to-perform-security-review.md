@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Como executar uma análise de segurança | Microsoft Azure"
+   pageTitle="Como executar uma análise de acesso | Microsoft Azure"
    description="Saiba como executar uma revisão com o aplicativo Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
-# Como executar uma revisão de segurança no Azure AD Privileged Identity Management
+# Como executar uma análise de acesso no Azure AD Privileged Identity Management
 
 O Azure AD (Active Directory) Privileged Identity Management simplifica como as empresas gerenciam as identidades com privilégios e o acesso a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
 
@@ -28,25 +28,32 @@ Se você for um administrador de função com privilégios interessado nas revis
 
 Você pode usar o aplicativo Azure AD PIM (Privileged Identity Management) no [portal do Azure](https://portal.azure.com/) para executar a revisão. Se você não tiver o aplicativo Azure AD Privileged Identity Management em seu portal, siga estas etapas para começar.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) se ainda não tiver feito isso.
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Se sua organização tiver mais de um diretório, clique em seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório no qual você vai operar.
-3. Selecione o ícone **Novo** no painel de navegação esquerdo.
-4. Selecione **Segurança + Identidade** no menu.
-5. Selecione **Azure AD Privileged Identity Management**.
-6. Deixe a opção **Fixar no painel** marcada e clique no botão **Criar**. O aplicativo Privileged Identity Management será aberto.
+3. Selecione **Novo** > **Segurança + Identidade** > **Azure AD Privileged Identity Management**.
+
+	![Habilitar o PIM no portal][1]
+
+4. Marque a opção **Fixar no painel** e clique no botão **Criar**. O Painel Privileged Identity Management será aberto.
 
 
 ## Aprovar ou negar acesso
 
-O acesso não será alterado até [a revisão ser concluída](active-directory-privileged-identity-management-how-to-complete-review.md). Esse processo é simplesmente criar uma lista de verificação para aqueles cujo acesso à função deseja-se alterar. Quando pelo menos um usuário tiver sido selecionado, os botões **Aprovar acesso** e **Negar acesso** serão habilitados.
+Ao aprovar ou negar o acesso, você está apenas dizendo ao revisor se ainda usa essa função ou não. Escolha **Aprovar** se deseja permanecer na função ou **Negar** se você não precisa mais do acesso. Seu status não mudará imediatamente até que o revisor aplique os resultados. Siga estas etapas para localizar e concluir a análise de acesso:
 
-1. No aplicativo PIM, clique em **Examinar acesso administrativo** no menu principal. Será exibida uma lista das análises de segurança.
-2. Selecione o(s) **usuário(s)** na lista para o(s) qual(is) você deseja alterar o acesso.
-3. Clique em **Aprovar acesso** ou **Negar acesso** para os usuários que você selecionou. Uma notificação será exibida no menu principal do portal do Azure e os nomes selecionados na lista de revisão desaparecerão (você pode tê-los de volta alterando a opção de filtro). Feche a folha **Funções de análise do AD do Azure**.
+1. No aplicativo PIM, selecione **Examinar o acesso com privilégios**. Se você tiver quaisquer análises de acesso pendentes, elas aparecerão na folha de análises do Acesso do Azure AD.
+2. Selecione a análise que deseja concluir.
+3. A menos que tenha criado a análise, você aparecerá como o único usuário na análise. Selecione a marca de seleção ao lado de seu nome.
+4. Escolha **Aprovar** ou **Negar**. Talvez seja necessário incluir um motivo para a sua decisão na caixa de texto **Fornecer um motivo**.
+5. Feche a folha **Funções de análise do AD do Azure**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -21,7 +21,7 @@ Você deve fazer o modelo de risco da solução como um todo e se concentrar nas
 
 - Os recursos de segurança e privacidade
 - Os recursos cujas falhas são relevantes para a segurança
-- Os recursos que tocam um limite de confiança 
+- Os recursos que tocam um limite de confiança
 
 ### Quem faz os modelos de risco
 
@@ -40,9 +40,9 @@ O processo de modelagem de risco é composto por quatro etapas; as etapas são:
 
 Há três regras básicas para ter em mente ao criar um modelo de risco:
 
-1. Crie um diagrama da arquitetura de referência. 
+1. Crie um diagrama da arquitetura de referência.
 2. Inicie primeiro por abrangência. Obtenha uma visão geral e entenda o sistema como um todo, antes de se aprofundar. Isso ajuda a garantir que você se aprofunde nos lugares certos.
-3. Conduza o processo, não deixe que o processo conduza você. Caso você encontre um problema na fase de modelagem e queira explorá-lo, vá em frente! Não pense que você precisa seguir essas etapas submissamente.  
+3. Conduza o processo, não deixe que o processo conduza você. Caso você encontre um problema na fase de modelagem e queira explorá-lo, vá em frente! Não pense que você precisa seguir essas etapas submissamente.
 
 #### Ameaças
 
@@ -224,9 +224,9 @@ Cada dispositivo e gateway de campo têm alguma forma de armazenamento (temporá
 
 | **Componente** | **Ameaça** | **Redução** | **Risco** | **Implementação** |
 |------------------------------------------|------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Armazenamento de dispositivo | TRID | Criptografia de armazenamento, assinar os logs | Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria. Violação de dados de controle de comando em cache ou enfileirados. Violação de pacotes de atualização de firmware ou configuração enquanto os armazenados em cache ou enfileirados localmente podem levar aos componentes de sistema operacional e/ou sistema a serem comprometidos | Criptografia, MAC (Message Authentication Code) ou assinatura digital. Onde for possível, controle de acesso forte por meio de permissões ou ACLs (listas de controle de acesso) de recurso. |
-| Imagem do sistema operacional do dispositivo | TRID | | Violação do sistema operacional/substituição de componentes do sistema operacional, | Partição do sistema operacional somente leitura, imagem do sistema operacional assinada, criptografia |
-| Armazenamento de gateway de campo (enfileirando os dados) | TRID | Criptografia de armazenamento, assinar os logs | Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria, violação de dados de controle de comando enfileirado ou em cache. Violação de pacotes de atualização de firmware ou configuração (destinados a dispositivos ou gateway de campo) enquanto os armazenados em cache ou enfileirados localmente podem levar aos componentes de sistema operacional e/ou sistema a serem comprometidos | BitLocker |
+| Armazenamento de dispositivo | TRID | Criptografia de armazenamento, assinar os logs | Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria. Violação de dados de controle de comando em cache ou enfileirados. Violação de pacotes de atualização de firmware ou configuração enquanto os armazenados em cache ou enfileirados localmente podem levar os componentes de sistema operacional e/ou sistema a serem comprometidos | Criptografia, MAC (Message Authentication Code) ou assinatura digital. Onde for possível, controle de acesso forte por meio de permissões ou ACLs (listas de controle de acesso) de recurso. |
+| Imagem do sistema operacional do dispositivo | TRID | | Violação do sistema operacional/substituição de componentes do sistema operacional | Partição do sistema operacional somente leitura, imagem do sistema operacional assinada, criptografia |
+| Armazenamento de gateway de campo (enfileirando os dados) | TRID | Criptografia de armazenamento, assinar os logs | Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria, violação de dados de controle de comando enfileirado ou em cache. Violação de pacotes de atualização de firmware ou configuração (destinados a dispositivos ou gateway de campo) enquanto os armazenados em cache ou enfileirados localmente podem levar os componentes de sistema operacional e/ou sistema a serem comprometidos | BitLocker |
 | Imagem do sistema operacional do gateway de campo | TRID | | Violação do sistema operacional/substituição de componentes do sistema operacional | Partição do sistema operacional somente leitura, imagem do sistema operacional assinada, criptografia |
 
 ### Zona de gateway de nuvem/processamento de eventos e dispositivo
@@ -250,4 +250,4 @@ Consulte os seguintes artigos para obter informações adicionais:
 - [Microsoft Azure IoT reference architecture (Arquitetura de referência da IoT do Microsoft Azure)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

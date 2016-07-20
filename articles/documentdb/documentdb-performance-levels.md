@@ -82,7 +82,7 @@ Se ajustar o nível de desempenho de uma coleção dentro de uma hora, você ser
 
 As unidades de solicitação são reservadas para cada coleção com base no nível de desempenho definido. O consumo de unidades de solicitação é avaliado em uma taxa por segundo. Aplicativos que ultrapassam a taxa de unidades solicitação (ou o nível de desempenho) provisionada para uma coleção são limitados até que a taxa caia para baixo do nível reservado. Se o seu aplicativo demandar um nível de produtividade mais alto, você pode aumentar o nível de desempenho para cada coleção.
 
-> [AZURE.NOTE] Quando seu aplicativo ultrapassa os níveis de desempenho para uma ou várias coleções, as solicitações são limitadas por coleção. Isso significa que algumas solicitações do aplicativo podem ser bem-sucedidas enquanto outras são limitadas. É recomendável adicionar
+> [AZURE.NOTE] Quando seu aplicativo ultrapassa os níveis de desempenho para uma ou várias coleções, as solicitações são limitadas por coleção. Isso significa que algumas solicitações do aplicativo podem ser bem-sucedidas enquanto outras são limitadas. Recomendamos a adição de um pequeno número de repetições durante uma limitação, a fim de lidar com picos de tráfego de solicitação.
 
 ## Trabalhando com os níveis de desempenho
 Coleções do Banco de Dados de Documentos permitem agrupar seus dados com base nos padrões de consulta e nas necessidades de desempenho do seu aplicativo. Com o suporte a consultas e a indexação automática do Banco de Dados de Documentos, é bastante comum colocar documentos heterogêneos na mesma coleção. As principais considerações para decidir se coleções diferentes devem ser usadas incluem:
@@ -179,4 +179,4 @@ Para começar com os testes de escala e desempenho com o Banco de Dados de Docum
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

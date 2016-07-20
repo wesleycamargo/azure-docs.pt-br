@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Usar cofre da chave do Azure em um aplicativo Web #
@@ -97,7 +97,8 @@ A seguir, o código para obter um token de acesso do Active Directory do Azure. 
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE] Usar um Segredo de Cliente, uma ID do Cliente e um Segredo do Cliente é a maneira mais fácil de autenticar um aplicativo do AD do Azure. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração A seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo do AD do Azure.
+> [AZURE.NOTE] 
+Usar uma ID do Cliente e um Segredo do Cliente é a maneira mais fácil de autenticar um aplicativo do AD do Azure. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração A seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo do AD do Azure.
 
 
 
@@ -228,7 +229,7 @@ A última alteração de código é feita no método Application\_Start. Primeir
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**Adicionar um Certificado ao seu Aplicativo Web** A adição de um certificado ao seu Aplicativo Web é um processo simples de duas etapas. Primeiro, vá até o Portal de Gerenciamento do Azure e navegue até o seu Aplicativo Web. Na folha Configurações do seu Aplicativo Web, clique na entrada "Domínios personalizados e SSL". Na folha aberta, você poderá carregar o certificado criado acima, KVWebApp.pfx; verifique se ainda se lembra da senha do pfx.
+**Adicionar um Certificado ao seu Aplicativo Web por meio do Portal do Azure** A adição de um certificado ao seu Aplicativo Web é um processo simples de duas etapas. Primeiro, vá até o Portal de Gerenciamento do Azure e navegue até o seu Aplicativo Web. Na folha Configurações do seu Aplicativo Web, clique na entrada "Domínios personalizados e SSL". Na folha aberta, você poderá carregar o certificado criado acima, KVWebApp.pfx; verifique se ainda se lembra da senha do pfx.
 
 ![Adicionando um Certificado a um Aplicativo Web no Portal do Azure][2]
 
@@ -236,6 +237,9 @@ A última alteração de código é feita no método Application\_Start. Primeir
 A última coisa que você precisa fazer é adicionar uma Configuração de Aplicativo ao seu Aplicativo Web com o nome WEBSITE\_LOAD\_CERTIFICATES e um valor *. Isso garantirá que todos os Certificados sejam carregados. Se quiser carregar apenas os Certificados obtidos por upload, você poderá inserir uma lista separada por vírgulas das impressões digitais deles.
 
 Para saber mais sobre como adicionar um certificado a um Aplicativo Web, consulte [Usando Certificados em aplicativos de sites do Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+
+
+**Adicione um Certificado ao Cofre de Chaves como um segredo** em vez de carregar o certificado diretamente para o serviço de Aplicativo Web. Você pode armazená-lo no Cofre de Chaves como um segredo e implantá-lo de lá. Esse é um processo em duas etapas que é descrito na postagem de blog [Implantação do certificado do Azure do aplicativo Web por meio do Cofre de Chaves](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 
 
@@ -249,4 +253,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

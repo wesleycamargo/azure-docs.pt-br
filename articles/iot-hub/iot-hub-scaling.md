@@ -38,6 +38,7 @@ As mensagens do dispositivo para a nuvem seguem estas diretrizes de taxa de tran
 | ---- | -------------------- | ------------------- |
 | S1 | Até 1111 KB/minuto por unidade<br/>(1,5 GB/dia/unidade) | Média de 278 mensagens/minuto por unidade<br/>(400.000 mensagens/dia por unidade) |
 | S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
+| S3 | Até 814 MB/minuto por unidade<br/>(1144,4 GB/dia/unidade) | Média de 208,333 mensagens/minuto por unidade<br/>(300 milhões de mensagens/dia por unidade) |
 
 O desempenho de mensagens da nuvem para o dispositivo é dimensionado por dispositivo, e cada dispositivo recebe até cinco mensagens por minuto.
 
@@ -64,4 +65,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

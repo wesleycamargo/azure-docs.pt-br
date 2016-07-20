@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/29/2016"
+	ms.date="06/30/2016"
 	ms.author="carlrab" />
 
 # Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos
@@ -23,7 +23,7 @@
 
 O Banco de Dados SQL do Microsoft Azure tem três [camadas de serviço](sql-database-service-tiers.md), Basic, Standard e Premium. Todas elas isolam estritamente o recurso fornecido ao seu Banco de Dados SQL do Azure e garantem um desempenho previsível. A produtividade garantida ao seu banco de dados aumenta gradativamente do Basic para o Standard e para o Premium.
 
->[AZURE.NOTE] As camadas de serviço Web e de negócios serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obter informações detalhadas sobre como atualizar bancos de dados da Web e Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-server-portal.md).
+>[AZURE.NOTE] As camadas de serviço Web e de Negócios foram desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obter informações detalhadas sobre como atualizar bancos de dados da Web e Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-server-portal.md).
 
 Este documento fornece orientação para ajudar você a determinar a camada de serviço adequada para seu aplicativo e fornece recomendações para ajustar seu aplicativo para obter o máximo proveito de seu Banco de Dados SQL do Azure.
 
@@ -206,7 +206,7 @@ Para outras consultas, consulte os exemplos em [sys.dm\_db\_resource\_stats](htt
 
 ### Usando sys.resource\_stats
 
-A exibição [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** fornece mais informações sobre o monitoramento de desempenho de seu banco de dados SQL dentro de sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada cinco minutos e mantidos por aproximadamente 14 dias. Esse modo de exibição é mais útil para análises de histórico de longo prazo de sua utilização de recursos do banco de dados SQL.
+A exibição [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** fornece mais informações sobre o monitoramento de desempenho de seu banco de dados SQL dentro de sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada cinco minutos e mantidos por aproximadamente 35 dias. Esse modo de exibição é mais útil para análises de histórico de longo prazo de sua utilização de recursos do banco de dados SQL.
 
 O gráfico a seguir mostra os recursos da CPU para o banco de dados Premium com nível de desempenho P2 para cada hora em uma semana. Esse gráfico em particular começa na segunda-feira, mostrando 5 dias úteis e um fim de semana em que ocorrem menos atividades no aplicativo.
 
@@ -507,4 +507,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

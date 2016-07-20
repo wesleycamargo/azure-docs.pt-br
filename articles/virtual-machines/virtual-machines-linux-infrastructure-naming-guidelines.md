@@ -62,7 +62,7 @@ Os afixos podem se referir a diversos aspectos que descrevam os recursos em ques
 | Ambiente | dev, stg, prod | Dependendo da finalidade e do nome de cada ambiente. |
 | Local | usw (Oeste dos EUA), use (Leste dos EUA 2) | Dependendo da região do datacenter ou da região da organização. |
 | Componente, serviço ou produto do Azure | Rg para o grupo de recursos, VNet para a rede virtual | Dependendo do produto para o qual o recurso oferece suporte. |
-| Função | SQL, ora, sp, iis | Dependendo da função da máquina virtual. |
+| Função | db, app, web | Dependendo da função da máquina virtual. |
 | Instância | 01, 02, 03 etc. | Para recursos com mais de uma instância. Por exemplo, servidores Web com balanceamento de carga em um serviço de nuvem. |
 
 
@@ -110,4 +110,4 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 ## Próximas etapas
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

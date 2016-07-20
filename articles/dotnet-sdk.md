@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # O que é o SDK do Azure para .NET?
 
 ## Visão geral
 
-O SDK do Azure para .NET é um conjunto de ferramentas do Visual Studio, ferramentas de linha de comando, binários de tempo de execução e bibliotecas de cliente que ajudam a desenvolver, testar e implantar aplicativos que são executados no Azure. Este artigo detalha o que você obtém quando instala o SDK. Você pode baixar o SDK na [página de downloads do Azure](/downloads/).
+O SDK do Azure para .NET é um conjunto de ferramentas do Visual Studio, ferramentas de linha de comando, binários de tempo de execução e bibliotecas de cliente que ajudam a desenvolver, testar e implantar aplicativos que são executados no Azure. Este artigo detalha o que você obtém quando instala o SDK. Você pode baixar o SDK na [página de downloads do Azure](https://azure.microsoft.com/downloads/).
 
 O SDK do Azure para .NET também inclui [bibliotecas de cliente para consumo de serviços do Azure](http://go.microsoft.com/fwlink/?LinkId=510472). Essas bibliotecas são instaladas separadamente utilizando o NuGet.
 
@@ -28,47 +28,30 @@ O SDK do Azure para .NET também inclui [bibliotecas de cliente para consumo de 
 
 O SDK do Azure para .NET instala os seguintes produtos:
 
-- [Visual Studio Express para Web](#vwd)
-- [Microsoft ASP.NET e Ferramentas da Web para Visual Studio](#wte)
-- [Ferramentas do Microsoft Azure para Microsoft Visual Studio](#tools)
-- [Ferramentas de criação do Microsoft Azure](#auth)
-- [Emulador do Microsoft Azure](#emulator)
+- [Visual Studio Community Edition 2015](#vwd)
 - [Emulador de Armazenamento do Microsoft Azure](#stgemulator)
 - [Ferramentas de Armazenamento do Microsoft Azure](#stgtools)
-- [Bibliotecas do Microsoft Azure para .NET](#libraries)
+- [Ferramentas de criação do Microsoft Azure](#auth)
+- [Emulador do Microsoft Azure](#emulator)
 - [Ferramentas do HDInsight para Visual Studio e Driver ODBC do Microsoft Hive](#hdinsight)
-- [SDK V1.0 para Aplicativo Móvel do Microsoft Azure](#mobile)
+- [Bibliotecas do Microsoft Azure para .NET](#libraries)
+- [SDK para Aplicativo Móvel do Microsoft Azure](#mobile)
 - [PowerShell do Microsoft Azure](#ps)
+- [Ferramentas do Microsoft Azure para Microsoft Visual Studio](#tools)
+- [Microsoft ASP.NET e Ferramentas da Web para Visual Studio](#wte)
+- [Ferramentas do Microsoft Azure Data Lake para Visual Studio](#datalake)
 
 ###<a id="vwd"></a>Visual Studio Express para Web
 
-Se você não tiver o Visual Studio em seu computador, o SDK instalará o [Visual Studio Express para Web](http://www.visualstudio.com/products/visual-studio-express-vs.aspx).
- 
-###<a id="wte"></a>Microsoft ASP.NET e Ferramentas da Web para Visual Studio
+Se você não tiver o Visual Studio em seu computador, o SDK instalará o [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-Isto permite que você trabalhe com sites do Azure:
+###<a id="stgemulator"></a>Emulador de Armazenamento do Microsoft Azure
 
-* [Publicar projetos da Web em sites do Azure](app-service-web/web-sites-dotnet-get-started.md).
-* [Publicar projetos de aplicativos de console no WebJobs do Azure](app-service-web/websites-dotnet-deploy-webjobs.md).
-* [Criar recursos de sites do Azure e de bancos de dados SQL ao criar um novo projeto da Web ou ao publicar um projeto da Web](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
-* [Criar scripts de implantação do PowerShell ao criar novos sites](http://msdn.microsoft.com/library/dn642480.aspx).
-* [Gerenciar e solucionar problemas de sites do Azure no Gerenciador de Servidores](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
-* [Executar no modo de depuração remotamente para sites e WebJobs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
+O [Emulador de Armazenamento do Azure](http://msdn.microsoft.com/library/hh403989.aspx) utiliza uma instância do SQL Server e o sistema de arquivo local para simular o Armazenamento do Azure (filas, tabelas, blobs), para que seja possível testar localmente.
 
->[AZURE.NOTE] Você não precisa instalar o SDK do Azure para .NET para utilizar esses recursos, eles já são incluídos nas atualizações do Visual Studio.
+###<a id="stgtools"></a>Ferramentas de Armazenamento do Microsoft Azure
 
-###<a id="tools"></a>Ferramentas do Microsoft Azure para Microsoft Visual Studio
-
-Permitem que você trabalhe com os recursos do Azure, basicamente Serviços de Nuvem e Máquinas Virtuais:
-
-* [Criar, abrir e publicar projetos de serviço de nuvem](cloud-services/cloud-services-dotnet-get-started.md).
-* [Criar pacotes de implantação para projetos de serviço de nuvem](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Criar Máquinas Virtuais do Azure ao criar novos projetos da Web](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md).
-* [Criar novos scripts do PowerShell ao criar novas máquinas virtuais](http://msdn.microsoft.com/library/dn642480.aspx).
-* [Visualizar e gerenciar configurações de projeto de serviços em nuvem em janelas de Propriedades de Projeto no Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx).
-* Visualizar e gerenciar [serviços de nuvem](http://msdn.microsoft.com/library/ff683675.aspx), [máquinas virtuais](http://msdn.microsoft.com/library/jj131259.aspx) e [Barramento de Serviço](http://msdn.microsoft.com/library/jj149828.aspx) no Gerenciador de Servidores. 
-* [Executar em modo de depuração remotamente para serviços de nuvem e máquinas virtuais](http://msdn.microsoft.com/library/ff683670.aspx).
-* [Automatizar o provisionamento de recursos usando os Projetos de Implantação de Grupo de Recursos do Azure](https://msdn.microsoft.com/library/dn872471.aspx)
+Instala o [AzCopy](http://aka.ms/AzCopy), uma ferramenta de linha de comando utilizada para transferir dados de e para uma conta de Armazenamento do Azure.
 
 ###<a id="auth"></a>Ferramentas de criação do Microsoft Azure
 
@@ -82,26 +65,18 @@ Incluem os itens a seguir:
 
 O [Emulador do Azure](http://msdn.microsoft.com/library/dn339018.aspx) simula o ambiente do serviço de nuvem para que você possa testar serviços de nuvem localmente em seu computador antes de implantá-los no Azure.
 
-###<a id="stgemulator"></a>Emulador de Armazenamento do Microsoft Azure
+###<a id="hdinsight"></a>Ferramentas do HDInsight para Visual Studio e Driver ODBC do Microsoft Hive
 
-O [Emulador de Armazenamento do Azure](http://msdn.microsoft.com/library/hh403989.aspx) utiliza uma instância do SQL Server e o sistema de arquivo local para simular o Armazenamento do Azure (filas, tabelas, blobs), para que seja possível testar localmente.
-
-###<a id="stgtools"></a>Ferramentas de Armazenamento do Microsoft Azure
-
-Instala o [AzCopy](http://aka.ms/AzCopy), uma ferramenta de linha de comando utilizada para transferir dados de e para uma conta de Armazenamento do Azure.
+As ferramentas do HDInsight no Gerenciador de Servidores permitem que você navegue pelos bancos de dados do Hive e contas de armazenamento vinculadas de clusters do HDInsight, crie tabelas, e crie e envie consultas do Hive. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ###<a id="libraries"></a>Bibliotecas do Microsoft Azure para .NET
 
 Incluem os itens a seguir:
 
 * Pacotes NuGet para Caching, Barramento de Serviço e Armazenamento do Azure, que são armazenados em seu computador de modo que o Visual Studio possa criar novos projetos de serviço de nuvem enquanto estiver offline.
-* Um plug-in do Visual Studio que permite que projetos de [Cache na Função](http://msdn.microsoft.com/library/dn386103.aspx) sejam executados localmente no Visual Studio. 
+* Um plug-in do Visual Studio que permite que projetos de [Cache na Função](http://msdn.microsoft.com/library/dn386103.aspx) sejam executados localmente no Visual Studio.
 
-###<a id="hdinsight"></a>Ferramentas do HDInsight para Visual Studio e Driver ODBC do Microsoft Hive
-
-As ferramentas do HDInsight no Gerenciador de Servidores permitem que você navegue pelos bancos de dados do Hive e contas de armazenamento vinculadas de clusters do HDInsight, crie tabelas, e crie e envie consultas do Hive. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
-
-###<a id="mobile"></a>SDK V1.0 para Aplicativo Móvel do Microsoft Azure
+###<a id="mobile"></a>SDK para Aplicativo Móvel do Microsoft Azure
 
 Ferramentas para trabalhar com [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
@@ -109,11 +84,41 @@ Ferramentas para trabalhar com [Aplicativos Móveis do Serviço de Aplicativo do
 
 O PowerShell do Azure permite que você [automatize a criação e implantação de ambiente do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
+###<a id="tools"></a>Ferramentas do Microsoft Azure para Microsoft Visual Studio
+
+Permitem que você trabalhe com os recursos do Azure, basicamente Serviços de Nuvem e Máquinas Virtuais:
+
+* [Criar, abrir e publicar projetos de serviço de nuvem](cloud-services/cloud-services-dotnet-get-started.md).
+* [Criar pacotes de implantação para projetos de serviço de nuvem](http://msdn.microsoft.com/library/ff683672.aspx).
+* [Criar Máquinas Virtuais do Azure ao criar novos projetos da Web](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md).
+* [Criar novos scripts do PowerShell ao criar novas máquinas virtuais](http://msdn.microsoft.com/library/dn642480.aspx).
+* [Visualizar e gerenciar configurações de projeto de serviços em nuvem em janelas de Propriedades de Projeto no Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx).
+* Visualizar e gerenciar [serviços de nuvem](http://msdn.microsoft.com/library/ff683675.aspx), [máquinas virtuais](http://msdn.microsoft.com/library/jj131259.aspx) e [Barramento de Serviço](http://msdn.microsoft.com/library/jj149828.aspx) no Gerenciador de Servidores.
+* [Executar em modo de depuração remotamente para serviços de nuvem e máquinas virtuais](http://msdn.microsoft.com/library/ff683670.aspx).
+* [Automatizar o provisionamento de recursos usando os Projetos de Implantação de Grupo de Recursos do Azure](https://msdn.microsoft.com/library/dn872471.aspx)
+
+###<a id="wte"></a>Ferramentas de Serviço de Aplicativo da Microsoft para Visual Studio
+
+Isto permite que você trabalhe com sites do Azure:
+
+* [Publicar projetos da Web em sites do Azure](app-service-web/web-sites-dotnet-get-started.md).
+* [Publicar projetos de aplicativos de console no WebJobs do Azure](app-service-web/websites-dotnet-deploy-webjobs.md).
+* [Criar recursos de sites do Azure e de bancos de dados SQL ao criar um novo projeto da Web ou ao publicar um projeto da Web](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* [Criar scripts de implantação do PowerShell ao criar novos sites](http://msdn.microsoft.com/library/dn642480.aspx).
+* [Gerenciar e solucionar problemas de sites do Azure no Gerenciador de Servidores](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
+* [Executar no modo de depuração remotamente para sites e WebJobs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug).
+
+>[AZURE.NOTE] Você não precisa instalar o SDK do Azure para .NET para utilizar esses recursos, eles já são incluídos nas atualizações do Visual Studio.
+
+##<a id="datalake"></a>Ferramentas do Microsoft Azure Data Lake para Visual Studio
+
+Para obter mais informações, consulte o [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
+
 ##<a id="notincluded"></a>O que não está incluído quando você instala o SDK do Azure para .NET
 
 Há algumas coisas que você poderia desejar para o desenvolvimento no Azure que não estão inclusas quando o SDK é instalado. Entre elas, as mais importantes são:
 
-* [Bibliotecas de cliente](http://go.microsoft.com/fwlink/?LinkId=510472). 
+* [Bibliotecas de cliente](http://go.microsoft.com/fwlink/?LinkId=510472).
 
 	O SDK do Azure inclui bibliotecas de cliente para serviços de consumo do Azure, mas nem todas elas são instaladas quando você instala o SDK. Se o seu aplicativo precisar de uma biblioteca cliente que o SDK não instala, você poderá obtê-la no [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472). Se o seu aplicativo usar uma biblioteca de cliente que o SDK instala, é uma boa prática atualizá-la com a versão atual no NuGet.org.
 
@@ -148,7 +153,7 @@ O SDK instala bibliotecas de cliente somente para que você possa criar projetos
 
 ###<a id="olderversions"></a>Onde posso encontrar versões mais antigas do SDK do Azure para .NET?
 
-Para obter versões mais antigas, consulte a página de downloads do [SDK do Azure para .NET](/downloads/archive-net-downloads/).
+Para obter versões mais antigas, consulte a página de downloads do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/).
 
 ###<a id="lifecycle"></a>Qual é a política de ciclo de vida para versões do SDK do Azure para .NET?
 
@@ -176,14 +181,14 @@ Este artigo não lista todos os programas que cada versão antiga do SDK do Azur
 
 ##<a id="versions"></a>Versões
 
-Para ver qual é a versão é atual ou para baixar as versões mais antigas, consulte a página [Histórico de versão do SDK do Azure para .NET](/downloads/archive-net-downloads/).
+Para ver qual é a versão é atual ou para baixar as versões mais antigas, consulte a página [Histórico de versão do SDK do Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/).
 
 ##<a id="resources"></a>Recursos
 
-Para baixar o SDK do Azure para .NET atual ou uma biblioteca de cliente, consulte a [página de Downloads do Azure](/downloads/).
+Para baixar o SDK do Azure para .NET atual ou uma biblioteca de cliente, consulte a [página de Downloads do Azure](https://azure.microsoft.com/downloads/).
 
 Para obter o código-fonte do SDK do Azure para .NET, incluindo as bibliotecas de cliente, consulte [GitHub.com/Azure](https://github.com/azure/).
 
-Para obter a documentação de referência da biblioteca de cliente do Azure, consulte [Referência do .NET do Azure](/documentation/api/).
+Para obter a documentação de referência da biblioteca de cliente do Azure, consulte [Referência do .NET do Azure](https://azure.microsoft.com/documentation/api/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0706_2016-->

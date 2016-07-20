@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/19/2016"
+ ms.date="07/05/2016"
  ms.author="larryfr"/>
 
 # Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
@@ -27,11 +27,11 @@ Neste documento, você aprenderá como criar uma topologia Storm C# básica que 
 
 ## Pré-requisitos
 
--	Ferramentas do HDInsight para o Visual Studio: consulte [Introdução ao uso das ferramentas do HDInsight para o Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre a instalação.
+-	Visual Studio e as ferramentas do HDInsight para Visual Studio: confira [Comece a usar as ferramentas do HDInsight para Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações de instalação.
 
--	Apache Storm no cluster HDInsight
+-	Apache Storm em cluster HDInsight (baseado em Windows). Isso executa a topologia Storm, que processa os dados de entrada e os armazena no HBase.
 
--	Apache HBase no cluster HDInsight
+-	Apache HBase em cluster HDInsight (baseado em Windows ou Linux). Esse é o repositório de dados para este exemplo.
 
 ## Arquitetura
 
@@ -204,4 +204,4 @@ Quando você estiver pronto para parar a topologia, volte para o projeto **Corre
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

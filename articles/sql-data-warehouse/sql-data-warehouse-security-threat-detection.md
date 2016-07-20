@@ -19,11 +19,21 @@
 
 # Introdução à detecção de ameaças
 
+> [AZURE.SELECTOR]
+- [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
+- [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
+- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
+- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Visão geral
 
 A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. Detecção de ameaças está em visualização e tem suporte para o SQL Data Warehouse.
 
-A Detecção de Ameaças fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança nas atividades anormais. Os usuários podem explorar eventos suspeitos usando a [Auditoria do SQL Data Warehouse do Azure](sql-data-warehouse-auditing-overview.md) para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no data warehouse. A Detecção de Ameaças torna simples lidar com possíveis ameaças no data warehouse sem a necessidade de ser uma especialista em segurança ou gerenciar sistemas avançados de monitoramento de segurança.
+A Detecção de Ameaças fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança nas atividades anormais. Os usuários podem explorar os eventos suspeitos usando a [Auditoria do Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no data warehouse. A Detecção de Ameaças torna simples lidar com possíveis ameaças no data warehouse sem a necessidade de ser uma especialista em segurança ou gerenciar sistemas avançados de monitoramento de segurança.
 
 Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais do banco de dados que indicam possíveis tentativas de injeção de SQL. A injeção de SQL é um dos problemas comuns de segurança do aplicativo da Web na Internet, usada para atacar os aplicativos controlados por dados. Os invasores aproveitam as vulnerabilidades do aplicativo para inserir instruções SQL mal-intencionadas nos campos de entrada do aplicativo, para violar ou modificar os dados no banco de dados.
 
@@ -89,4 +99,4 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

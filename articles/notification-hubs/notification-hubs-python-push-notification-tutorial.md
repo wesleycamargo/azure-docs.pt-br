@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Como usar Hubs de notificação do Python
@@ -28,8 +28,8 @@ Você pode acessar todos os recursos dos Hubs de Notificação por meio de um ba
 Neste tópico, mostramos como:
 
 * Crie um cliente REST para recursos de Hubs de notificação em Python.
-* Envie notificações usando a interface do Python para as API do REST do Hub de notificação. 
-* Obtenha um despejo da solicitação/resposta HTTP REST para fins educativos/depuração. 
+* Envie notificações usando a interface do Python para as API do REST do Hub de notificação.
+* Obtenha um despejo da solicitação/resposta HTTP REST para fins educativos/depuração.
 
 Você pode seguir o [tutorial Introdução](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) para a plataforma móvel da sua escolha, implementando a parte de back-end em Python.
 
@@ -320,7 +320,7 @@ Quando você ativa o sinalizador de depuração ao inicializar o NotificationHub
 
 Você verá o resultado do Hub de notificação detalhado, p. ex.
 
-- quando a mensagem é enviada com êxito para o serviço de notificação por Push. 
+- quando a mensagem é enviada com êxito para o serviço de notificação por Push.
 	
 		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
@@ -392,4 +392,4 @@ Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notif
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

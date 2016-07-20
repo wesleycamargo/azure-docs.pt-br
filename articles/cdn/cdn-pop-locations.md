@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 
@@ -28,7 +28,7 @@ Este tópico lista os locais POP atuais para a **CDN do Azure da Verizon** e **C
 | Região | Verizon | Akamai |
 |--------|---------|--------|
 | América do Norte | Atlanta, GA<br />Filadélfia, PA<br />Nova York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA | **&#x2713;*** |
-| América do Sul | São Paulo, Brasil<br />Rio de Janeiro, Brasil<br />Quito, Equador<br />Barranquilla, Colômbia<br />Medellin, Colômbia, <br/>Buenos Aires, Argentina| **&#x2713;*** | 
+| América do Sul | São Paulo, Brasil<br />Rio de Janeiro, Brasil<br />Quito, Equador<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br/>Buenos Aires, Argentina| **&#x2713;*** | 
 | Europa do Norte e Oriental| Copenhague, Dinamarca<br />Helsinki, Finlândia<br />Londres, Reino Unido<br />Estocolmo, Suécia<br />Varsóvia, Polônia | **&#x2713;*** |
 | Europa Ocidental | Amsterdã, Holanda<br />Frankfurt, Alemanha<br />Paris, França<br />Viena, Áustria | **&#x2713;*** |
 | Sul da Europa | Madri, Espanha<br />Milão, Itália | **&#x2713;*** |
@@ -38,4 +38,7 @@ Este tópico lista os locais POP atuais para a **CDN do Azure da Verizon** e **C
 | África | | **&#x2713;*** |
 | Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália | **&#x2713;*** |
 
-<!---HONumber=AcomDC_0629_2016-->
+## Consulte também
+* [Azure CDN from Verizon Edge Server IP Ranges (Intervalos IP do CDN do Azure do Servidor de Borda Verizon)](https://msdn.microsoft.com/library/mt757330.aspx)
+
+<!---HONumber=AcomDC_0706_2016-->

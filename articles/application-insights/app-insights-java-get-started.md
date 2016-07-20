@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Análise de aplicativo Web Java com o Application Insights | Microsoft Azure"
-	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights"
+	description="Monitorar o desempenho e o uso de seu site Java com o Application Insights "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -98,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como:* * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 
@@ -162,6 +162,19 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona isso como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico][diagnostic].
+
+### Maneiras alternativas para definir a chave de instrumentação
+
+O SDK do Application Insights procura a chave nesta ordem:
+
+1. Propriedade do sistema: -DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey
+2. Variável de ambiente: APPLICATION\_INSIGHTS\_IKEY
+3. Arquivo de configuração: ApplicationInsights.xml
+
+Você também pode [defini-lo no código](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4\. Adicionar um filtro HTTP
 
@@ -227,7 +240,7 @@ Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> O Application Insights presume que o formato de solicitações HTTP para aplicativos MVC seja: `VERB controller/action` Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` serão agrupados em `GET Home/Product`. Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
+> O Application Insights presume que o formato de solicitações HTTP para aplicativos MVC seja: `VERB controller/action`. Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` serão agrupados em `GET Home/Product`. Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
 
 
 ### Dados de instância 
@@ -248,16 +261,14 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 ![Exemplo de Análise](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. Instalar aplicativo no servidor
+## 7\. Instalar aplicativo no servidor
 
 Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e observe a telemetria mostrada no portal.
 
 * Verifique se o firewall permite que seu aplicativo envie telemetria para estas portas:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Nos servidores Windows, instale:
@@ -274,7 +285,7 @@ Exceções sem tratamento são coletadas automaticamente:
 
 Para coletar dados em outras exceções, você tem duas opções:
 
-* [Inserir chamadas a TrackException() em seu código][apiexceptions]. 
+* [Inserir chamadas a TrackException() em seu código][apiexceptions].
 * [Instalar o Agente Java em seu servidor](app-insights-java-agent.md). Especifique os métodos que deseja inspecionar.
 
 
@@ -401,4 +412,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -5,19 +5,19 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Arquitetura do Barramento de Serviço
 
-Este artigo descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure.
+Este artigo descreve a arquitetura de processamento de mensagens e retransmissões do Barramento de Serviço do Azure.
 
 ## Unidades de escala do Barramento de Serviço
 
@@ -53,10 +53,10 @@ Quando a conexão de retransmissão é estabelecida, os clientes podem trocar me
 
 ## Próximas etapas
 
-Agora que você teve uma visão geral de como funciona o Barramento de Serviço, para começar, visite os links a seguir:
+Agora que você teve uma visão geral da arquitetura do Barramento de Serviço, para começar, visite os links abaixo:
 
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

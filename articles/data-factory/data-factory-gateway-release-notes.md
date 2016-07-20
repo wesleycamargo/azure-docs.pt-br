@@ -22,16 +22,28 @@ Um dos desafios da integração de dados moderna é mover dados continuamente pa
 
 Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) para obter mais informações.
 
-## VERSÃO ATUAL (1.12.5953.1)
-- Correções de bug
+## VERSÃO ATUAL (2.0.6013.1)
+
+- Você pode selecionar o idioma/cultura a ser usada por um gateway durante a instalação manual.
+- Quando o gateway não funciona conforme o esperado, você pode optar por enviar logs de gateway dos últimos sete dias à Microsoft para facilitar a solução de problemas do problema. Se gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar logs de gateway.
+- Aprimoramentos na interface do usuário para o gerenciador de configuração de gateway:
+	- Torne o status do gateway mais visível na guia Página Inicial.
+	- Controles reorganizados e simplificados.
+- Você pode copiar dados de um armazenamento que não seja o Blob do Azure para o Azure SQL Data Warehouse via Polybase e blob de preparo usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em estágios](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
+- Você pode aproveitar o Gateway de Gerenciamento de Dados para ingerir dados diretamente de um banco de dados do SQL Server local para o Aprendizado de Máquina do Azure.
+- Aprimoramentos de desempenho
+	- Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de visualização de cópia sem código.
 
 
 ## Versões anteriores
 
+## 1\.12.5953.1
+- Correções de bug
+
 ## 1\.11.5918.1
 
 - O tamanho máximo do log de eventos do gateway foi aumentado de 1 MB para 40 MB.
-- Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde. 
+- Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde.
 - Em caso de falha da atualização automática, instalador do gateway tentará novamente executar a atualização automática 3 vezes no máximo.
 - Aprimoramentos de desempenho
 	- Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
@@ -49,7 +61,7 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 - Capacidade de "Atualizar agora" do cliente
 - Capacidade de definir o horário da agenda de atualização
 - Script do PowerShell para ativar/desativar a atualização automática
-- Suporte para o formato JSON  
+- Suporte para o formato JSON
 - Aprimoramentos de desempenho
 - Correções de bug
 
@@ -134,7 +146,7 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 
 ### 1\.2.5303.1
 
-- 	Correção do problema de tempo limite para dar suporte a conexões de fontes de dados mais demoradas. 
+- 	Correção do problema de tempo limite para dar suporte a conexões de fontes de dados mais demoradas.
  	
 ### 1\.1.5526.8
 
@@ -142,11 +154,11 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 
 ### 1\.0.5144.2
 
-- Nenhuma alteração que afeta os cenários do Azure Data Factory. 
+- Nenhuma alteração que afeta os cenários do Azure Data Factory.
 
 ## Perguntas/respostas
 
 ### Por que o Gerenciador de Fonte de Dados está tentando se conectar a um gateway?
 Esse é um design de segurança em que você só pode configurar fontes de dados locais para acesso à nuvem na rede corporativa, e suas credenciais não fluirão para fora do firewall corporativo. Verifique se o seu computador pode acessar o computador em que o gateway está instalado.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

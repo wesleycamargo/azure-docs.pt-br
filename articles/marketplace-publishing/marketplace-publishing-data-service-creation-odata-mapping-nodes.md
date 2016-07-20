@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="06/29/2016"
       ms.author="hascipio; avikova" />
 
 # Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
@@ -39,9 +39,9 @@ A seguir está a descrição detalhada das alterações (elementos adicionados e
 ## Nó FunctionImport
 Um nó FunctionImport representa uma URL (ponto de entrada) que expõe um serviço para o usuário final. O nó permite descrever como a URL é abordada, quais parâmetros estão disponíveis para o usuário final e como esses parâmetros são fornecidos.
 
-Os detalhes sobre esse nó são encontrados em [http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink]
+Há detalhes sobre esse nó [aqui][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]: 'http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
 A seguir estão os atributos adicionais (ou adições aos atributos) que são expostos pelo nó FunctionImport:
 
@@ -53,8 +53,8 @@ A seguir estão os atributos adicionais (ou adições aos atributos) que são ex
 
 **ReturnType** *(opcional)* -Especifica o tipo de elementos retornados por um URI. Não use esse atributo se a função não retorna um valor. A seguir estão os tipos compatíveis:
 
- - **Coleção (<Entity type name>)**: especifica uma coleção de tipos de entidade definidos. O nome está presente no atributo Name do nó EntityType. Um exemplo é Collection(WXC.HourlyResult).
- - **Brutos (<mime type>)**: especifica um documento/blob bruto que é retornado para o usuário. Um exemplo é Raw(image/jpeg) outros exemplos:
+ - **Coleção (<Nome do tipo de entidade>)**: especifica uma coleção de tipos de entidade definidos. O nome está presente no atributo Name do nó EntityType. Um exemplo é Collection(WXC.HourlyResult).
+ - **Brutos (<tipo mime>)**: especifica um documento/blob bruto que é retornado para o usuário. Um exemplo é Raw(image/jpeg) outros exemplos:
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
@@ -143,18 +143,18 @@ Os nós filho adicionais (não cobertos pela documentação CSDL) dentro do nó 
 
 Esse nó representa um parâmetro que é exposto como parte do modelo de URI / corpo da solicitação que foi especificado no nó FunctionImport.
 
-Uma página de documento detalhada muito útil sobre o nó de "Elemento do parâmetro" pode ser encontrada em [http://msdn.microsoft.com/library/ee473431.aspx](http://msdn.microsoft.com/library/ee473431.aspx) (Use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação). *Exemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+Uma página de documento detalhada muito útil sobre o nó de "Elemento do parâmetro" pode ser encontrada [aqui](http://msdn.microsoft.com/library/ee473431.aspx) (use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação). *Exemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Atributo de parâmetro | Obrigatório | Valor |
 |----|----|----|
 | Nome | Sim | O nome do parâmetro. Diferencia maiúsculas de minúsculas! Corresponde o caso de BaseUri. **Exemplo:** `<Property Name="IsDormant" Type="Byte" />` |
-| Tipo | Sim | O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os 6 tipos de propriedade/parâmetro compatíveis". (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.) Consulte também [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][MSDNParameterLink]. **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Tipo | Sim | O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os 6 tipos de propriedade/parâmetro compatíveis". (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.) Confira também [Tipos de modelo conceituais (CSDL)][MSDNParameterLink]. **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Modo | Não | **In**, Out ou InOut dependendo se o parâmetro é uma entrada, saída ou parâmetro de entrada/saída. (Somente "IN" está disponível no Azure Marketplace.) **Exemplo:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | Não | O comprimento máximo permitido do parâmetro. **Exemplo:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precisão | Não | A precisão do parâmetro. **Exemplo:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Escala | Não | A escala do parâmetro. **Exemplo:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: 'http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx'
+[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 Estes são os atributos que foram adicionados à especificação do CSDL:
 
@@ -169,7 +169,7 @@ Estes são os atributos que foram adicionados à especificação do CSDL:
 
 Esse nó representa um dos tipos que são retornados do Marketplace para o usuário final. Ele também contém o mapeamento da saída que é retornado pelo serviço do provedor de conteúdo para os valores que são retornados para o usuário final.
 
-Os detalhes sobre esse nó podem ser encontrados em [http://msdn.microsoft.com/library/bb399206.aspx](http://msdn.microsoft.com/library/bb399206.aspx) (Use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação).
+Os detalhes sobre esse nó podem ser encontrados [aqui](http://msdn.microsoft.com/library/bb399206.aspx) (use a lista suspensa **Outra versão** para selecionar uma versão diferente, se necessário, para exibir a documentação).
 
 | Nome do atributo | Obrigatório | Valor |
 |----|----|----|
@@ -242,7 +242,7 @@ A expressão XPath aqui seria ./bar/baz0 para obter o nó baz0 do serviço do pr
 
 **d:IsReturned** - É o valor booliano que determina se o serviço expõe esse valor ao cliente. Exemplo de CSDL de DataService
 
-**d:IsQueryable** - É o booliano que determina se a coluna pode ser usada em uma consulta de banco de dados. Exemplo de CSDL de DataService
+**d:IsQueryable** - é o Booliano que determina se a coluna pode ser usada em uma consulta de banco de dados. Exemplo de CSDL de DataService
 
 **d:OrdinalPosition** - É a posição da coluna numérica de aparência, x, na tabela ou exibição, onde x vai de 1 até o número de colunas na tabela. Exemplo de CSDL de DataService
 
@@ -272,4 +272,4 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

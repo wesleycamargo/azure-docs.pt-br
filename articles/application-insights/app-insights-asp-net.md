@@ -3,7 +3,7 @@
 	description="Configurar análise de desempenho, disponibilidade e uso para seu site ASP.NET, hospedado no local ou no Azure." 
 	services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="NumberByColors" 
 	manager="douge"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="06/21/2016" 
-	ms.author="awills"/>
+	ms.author="daviste"/>
 
 
 # Configurar o Application Insights para ASP.NET
@@ -26,7 +26,7 @@ O [Application Insights do Visual Studio](app-insights-overview.md) monitora seu
 Você precisa de:
 
 * Atualização 3 ou mais recente do Visual Studio 2013. Mais tarde é melhor.
-* Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com). 
+* Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
 
 Há artigos alternativos para conferir se você está interessado em:
 
@@ -50,7 +50,7 @@ Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e e
 
 ![Escolher Adicionar Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-* Projeto do ASP.NET Core? - [Siga estas instruções para corrigir algumas linhas de código](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
+* Projeto do ASP.NET Core? - [Siga estas instruções para corrigir algumas linhas de código](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
 
 
 
@@ -88,7 +88,7 @@ Abra o recurso Application Insights no [Portal do Azure](https://portal.azure.co
 
 O portal é aberto em uma exibição da telemetria do aplicativo: ![](./media/app-insights-asp-net/66.png)
 
-* Eventos individuais são mostrados em **Pesquisar** (1). Os dados são mostrados aqui pela primeira vez (e no[Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Clique em qualquer evento para ver suas propriedades. 
+* Eventos individuais são mostrados em **Pesquisar** (1). Os dados são mostrados aqui pela primeira vez (e no[Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Clique em qualquer evento para ver suas propriedades.
 * As métricas agregadas são exibidas nos gráficos (2). Pode levar alguns minutos para que os dados sejam exibidos aqui. Clique em qualquer gráfico para abrir uma folha com mais detalhes.
 
 [Saiba mais sobre como usar o Application Insights no portal do Azure](app-insights-dashboards.md).
@@ -123,4 +123,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 |**[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Seus dados estão pronto para ciência de dados? - avaliação dos dados | Microsoft Azure"
+   pageTitle="Seus dados estão prontos para a ciência de dados? (avaliação de dados) - Ciência de Dados para Iniciantes | Microsoft Azure"
    description="Saiba sobre os quatro critérios para os dados estarem prontos para a ciência de dados. O vídeo Ciência de Dados para Iniciantes 2 tem exemplos concretos para ajudar na avaliação dos dados básicos."
    keywords="avaliação dos dados, dados relevantes, avaliar dados, preparar dados, critérios dos dados, dados prontos"
    services="machine-learning"
@@ -18,15 +18,17 @@
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Seus dados estão prontos para a ciência de dados? Vídeo Ciência de Dados para Iniciantes 2
+# Ciência de Dados para Iniciantes - vídeo 2: Seus dados estão prontos para a ciência de dados?
 
 Saiba como avaliar seus dados para assegurar que eles atendem aos critérios básicos da ciência de dados.
+
+Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
 ## Transcrição: Seus dados estão prontos para a ciência de dados?
 
-Bem-vindo ao "Seus dados estão prontos para a ciência de dados?", o segundo vídeo na série *Ciência de Dados para Iniciantes*.
+Bem-vindo a "Seus dados estão prontos para a ciência de dados?", o segundo vídeo da série *Ciência de Dados para Iniciantes*.
 
 Antes da ciência de dados poder fornecer as respostas desejadas, você precisa dar-lhe algum material bruto de alta qualidade com o qual trabalhar. Assim como fazer uma pizza, quanto melhores os ingredientes com os quais você inicia, melhor o produto final.
 
@@ -95,17 +97,18 @@ Conforme você adiciona mais dados, a imagem fica mais clara e você pode tomar 
 
 Com dados relevantes, conectados, precisos e suficientes, temos todos os ingredientes necessários para fazer uma ciência de dados com alta qualidade.
 
-Verifique os outros quatro vídeos em *Ciência de Dados para Iniciantes* no Aprendizado de Máquina do Microsoft Azure.
+Confira os outros quatro vídeos em *Ciência de Dados para Iniciantes* do Aprendizado de Máquina do Microsoft Azure.
 
 
-## Outros vídeos na série
+## Outros vídeos nesta série
 
-*Ciência de Dados para Iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
+*Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-  * Vídeo 1: [As cinco perguntas que a ciência de dados pode responder](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Disponível agora.**
-  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Disponível agora.**
-  * Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). **Disponível agora.**
-  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponível em 30 de junho.
+  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Vídeo 2: Seus dados estão prontos para a ciência de dados?
+  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## Próximas etapas
@@ -113,4 +116,4 @@ Verifique os outros quatro vídeos em *Ciência de Dados para Iniciantes* no Apr
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

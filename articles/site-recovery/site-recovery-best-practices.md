@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/29/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Preparar-se para a implantação do Azure Site Recovery
@@ -139,4 +139,4 @@ Depois de aprender e comparando os requisitos de implantação geral, você pode
 - [Replicar máquinas virtuais do Hyper-V para um site secundário com SAN](site-recovery-vmm-san.md)
 - [Replicar máquinas virtuais do Hyper-V com um único servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

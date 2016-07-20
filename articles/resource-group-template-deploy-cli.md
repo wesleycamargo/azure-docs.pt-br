@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Implantar recursos com modelos do Resource Manager e a CLI do Azure
@@ -22,15 +22,29 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 Este tópico explica como usar a CLI do Azure com modelos do Resource Manager para implantar seus recursos no Azure.
 
 > [AZURE.TIP] Para obter ajuda com a depuração de erros durante a implantação, consulte:
 >
 > - [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md) para saber mais sobre como obter informações que o ajudarão a solucionar o erro
-> - [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como solucionar problemas comuns de implantação
+> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver problemas comuns de implantação
+
+Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
+
+## Etapas rápidas para implantação
+
+Este artigo descreve todas as diferentes opções disponíveis para você durante a implantação. No entanto, normalmente você somente precisará de dois comandos simples. Para começar a implantação de forma rápida, use os seguintes comandos:
+
+    azure group create -n ExampleResourceGroup -l "West US"
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+
+Para saber mais sobre opções de implantação que podem ser mais adequado para seu cenário, continue lendo este artigo.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -161,4 +175,4 @@ Para obter um exemplo de como usar um token SAS com modelos vinculados, consulte
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para obter detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

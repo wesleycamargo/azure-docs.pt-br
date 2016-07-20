@@ -19,7 +19,7 @@
 
 # Definições de configuração para o cluster autônomo no Windows
 
-Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo _**ClusterConfig.JSON**_. Esse arquivo é baixado em seu computador de trabalho quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). O arquivo ClusterConfig.JSON permite que você especifique informações como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, as configurações de segurança, bem como a topologia de rede em termos de domínios de falha/atualização, para o cluster do Service Fabric.
+Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo _**ClusterConfig.JSON**_. Esse arquivo é baixado em seu computador de trabalho quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). O arquivo ClusterConfig.JSON permite que você especifique informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster do Service Fabric.
 
 Vamos examinar abaixo as várias seções desse arquivo.
 
@@ -75,9 +75,9 @@ Você pode configurar parâmetros para habilitar o diagnóstico e solucionar pro
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. [Despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) para o nó do Service Fabric, bem como o cluster, podem ser direcionados para a pasta **crashDumpConnectionString**. Os [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) do cluster podem ser direcionados para a pasta **perfCtrConnectionString** em seu computador.
@@ -97,7 +97,7 @@ A seção **segurança** é necessária para um cluster de autônomo seguro do S
 		. . .
 	}
 
-**Metadados** contêm uma descrição do seu cluster seguro e podem ser definidos de acordo com a sua configuração. **ClusterCredentialType** e **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos como *X509* para segurança baseada em certificado, ou *Windows* para uma segurança baseada no Azure Active Directory. O restante da seção **segurança** terá base no tipo de segurança. leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para obter informações sobre como preencher o resto da seção **segurança**.
+**Metadados** contêm uma descrição do seu cluster seguro e podem ser definidos de acordo com a sua configuração. **ClusterCredentialType** e **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos para *X509* para segurança baseada em certificados ou *Windows* para uma segurança baseada no Azure Active Directory. O restante da seção **segurança** terá base no tipo de segurança. leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para obter informações sobre como preencher o resto da seção **segurança**.
 
 ### **reliabilityLevel**
 **reliabilityLevel** define o número de cópias de serviços do sistema que podem ser executadas em nós primários do cluster. Isso aumenta a confiabilidade desses serviços e, portanto, do cluster. Você pode definir essa variável como *Bronze*, *Prata*, *Ouro* ou *Platina* para 3, 5, 7 ou 9 cópias desses serviços, respectivamente. Veja um exemplo abaixo.
@@ -109,7 +109,7 @@ Observe que como um nó principal executa uma única cópia dos serviços do sis
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
-A seção **nodeTypes** descreve o tipo de nó que o cluster possui. Pelo menos um tipo de nó deve ser especificado para um cluster, conforme mostra o trecho a seguir.
+A seção **nodeTypes** descreve o tipo de nó que o cluster possui. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir.
 
 	"nodeTypes": [{
         "name": "NodeType0",
@@ -137,10 +137,10 @@ Esta seção permite que você defina os diretórios raiz para os dados e logs d
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
@@ -150,4 +150,4 @@ Observe que se você personalizar somente a raiz dos dados, a raiz do log será 
 
 Uma vez que o arquivo ClusterConfig.JSON estiver totalmente configurado de acordo com a configuração do cluster autônomo, você poderá implantar o cluster seguindo o artigo [Criar um cluster do Azure Service Fabric no local ou na nuvem](service-fabric-cluster-creation-for-windows-server.md) e ir para [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

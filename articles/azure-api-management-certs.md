@@ -32,19 +32,24 @@ Você também pode usar o [Active Directory do Azure](/services/active-directory
 Após criar um certificado de gerenciamento (arquivo .cer somente com a chave pública), você poderá carregá-lo no portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado correspondente (chave particular) pode conectar-se por meio da API de Gerenciamento e acessar os recursos para a assinatura associada.
 
 1. Faça logon no [portal clássico do Azure](http://manage.windowsazure.com).
-2. Clique em **Configurações** no lado esquerdo do portal (talvez seja necessário rolar para baixo). 
+
+2. Certifique-se de selecionar a assinatura correta a qual você deseja associar um certificado. Pressione o texto **assinaturas** no canto superior direito do portal.
+
+	![Configurações](./media/azure-api-management-certs/subscription.png)
+
+3. Depois de ter a assinatura correta selecionada, pressione **Configurações** no lado esquerdo do portal (talvez seja necessário rolar para baixo).
     
     ![Configurações](./media/azure-api-management-certs/settings.png)
 
-3. Clique na guia **Certificados de Gerenciamento**.
+4. Pressione a guia **Certificados de Gerenciamento**.
 
     ![Configurações](./media/azure-api-management-certs/certificates-tab.png)
     
-4. Clique no botão **Carregar**.
+5. Pressione o botão **Carregar**.
 
     ![Configurações](./media/azure-api-management-certs/upload.png)
     
-5. Preencha as informações da caixa de diálogo e clique na **marca de seleção** de conclusão.
+6. Preencha as informações da caixa de diálogo e pressione a **marca de seleção** de conclusão.
 
     ![Configurações](./media/azure-api-management-certs/upload-dialog.png)
 
@@ -52,4 +57,4 @@ Após criar um certificado de gerenciamento (arquivo .cer somente com a chave p�
 
 Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar os diversos recursos do Azure que também estão associados à assinatura.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

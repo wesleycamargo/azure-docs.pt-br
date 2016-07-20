@@ -174,7 +174,7 @@ AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
 6. Clique em **X** para fechar as folhas do Data Factory Editor e para navegar de volta para a folha do Data Factory, e clique em **Diagrama**.
 7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial.
 8. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **sprocsampleout**. Você verá as partes no estado pronto. Deve haver 24 partes porque uma parte é produzida para cada hora entre 01/02/2015 e 01/03/2015.
-10. Quando uma parte estiver no estado **pronto**, executar *selecionar* a partir de consulta de sampledata** o banco de dados SQL Azure para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
+10. Quando uma parte estiver no estado **pronto**, executar **selecionar * a partir de consulta de sampledata** o banco de dados SQL Azure para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
 
 	![Dados de saída](./media/data-factory-stored-proc-activity/output.png)
 
@@ -208,4 +208,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->

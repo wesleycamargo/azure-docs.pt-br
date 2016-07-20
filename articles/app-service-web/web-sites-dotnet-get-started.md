@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio
 
@@ -199,8 +199,7 @@ Nesta seção, você implanta o projeto Web no aplicativo Web.
 
 	![Aplicativo Web em execução no Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] Você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**. 
-	![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] Você pode habilitar a barra de ferramentas **Publicação Web com um Clique** para uma implantação rápida. Clique em **Exibir > Barras de Ferramentas** e, em seguida, selecione **Publicação Web com Um Clique**. Você pode usar a barra de ferramentas para selecionar um perfil, clicar em um botão para publicar ou clicar em um botão para abrir o assistente **Publicar Web**. ![Barra de ferramentas Publicação Web com Um Clique](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Solucionar problemas
 
@@ -214,7 +213,7 @@ Quando seu aplicativo Web do ASP.NET estiver em execução no Serviço de Aplica
 
 Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em um aplicativo Web do Azure. Aqui estão alguns recursos e tópicos relacionados para aprender mais sobre o Serviço de Aplicativo do Azure:
 
-* Monitore e gerencie o aplicativo Web no [Portal do Azure](https://portal.azure.com/) 
+* Monitore e gerencie o aplicativo Web no [Portal do Azure](https://portal.azure.com/)
 
 	Para saber mais, consulte [uma visão geral do Portal do Azure](/services/management-portal/) e [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md).
 
@@ -241,4 +240,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Para saber mais sobre como trabalhar com os grupos de recursos no Portal do Azure, consulte [Como usar o Portal do Azure para implantar e gerenciar os recursos do Azure](../resource-group-portal.md).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

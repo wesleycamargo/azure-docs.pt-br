@@ -54,4 +54,8 @@ Sim. Para obter instruções, veja [Como criar uma cópia de uma máquina virtua
 
 As duas novas regiões, Central e Leste, do Canadá não são automaticamente registradas para a criação de máquinas virtuais para as assinaturas existentes do Azure. Esse registro será feito automaticamente quando uma máquina virtual for implantada por meio do portal do Azure para qualquer outra região usando o Azure Resource Manager. Depois que uma máquina virtual é implantada em qualquer outra região do Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Posso adicionar um NIC à minha VM depois que ela é criada?
+
+Não. Isso só pode ser feito no momento da criação.
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -114,13 +114,13 @@ O SQL Data Warehouse tem base no mecanismo de banco de dados relacional do SQL S
 
 - O SQL Data Warehouse também contém vários recursos recentes do SQL Server, incluindo índices **columnstore** clusterizados, integração de PolyBase e auditoria de dados (completo com avaliação de ameaças).
 
-- Talvez determinados elementos de linguagem T-SQL que são menos comuns para cargas de trabalho de armazenamento de dados, ou que são mais recentes para o SQL Server, não estejam disponíveis no momento. Para obter mais informações, consulte a [Documentação de migração][].
+- Talvez determinados elementos de linguagem T-SQL que são menos comuns para cargas de trabalho de armazenamento de dados, ou que são mais recentes para o SQL Server, não estejam disponíveis no momento. Para saber mais, confira a [Documentação de migração][].
 
 Com a semelhança do Transact-SQL e recursos entre o SQL Server, SQL Data Warehouse, Banco de Dados SQL e Analytics Platform System, você pode desenvolver uma solução adequada às suas necessidades de dados. Você pode decidir onde manter os dados, com base no desempenho, na segurança e nos requisitos de escala e, em seguida, transferir dados, conforme a necessidade, entre sistemas diferentes.
 
 ## Proteção de dados
 
-O SQL Data Warehouse armazena todos os dados no armazenamento com redundância local do Azure Premium. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. Além disso, o SQL Data Warehouse faz o backup automaticamente dos bancos de dados ativos (sem pausa) em intervalos regulares usando Instantâneos de Armazenamento do Azure. Para saber mais sobre como o backup e a restauração funcionam, consulte a [Visão geral de backup e restauração ][].
+O SQL Data Warehouse armazena todos os dados no armazenamento com redundância local do Azure Premium. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. Além disso, o SQL Data Warehouse faz o backup automaticamente dos bancos de dados ativos (sem pausa) em intervalos regulares usando Instantâneos de Armazenamento do Azure. Para saber mais sobre como o backup e a restauração funcionam, confira a [Visão geral de backup e restauração ][].
 
 ## Integrado com as ferramentas da Microsoft
 
@@ -162,13 +162,13 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um D
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[carregar dados de amostra]: ./sql-data-warehouse-load-sample-databases.md
-[criar um Data Warehouse SQL]: ./sql-data-warehouse-get-started-provision.md
-[Documentação de migração]: ./sql-data-warehouse-overview-migrate.md
-[Parceiros de solução do SQL Data Warehouse]: ./sql-data-warehouse-integrate-solution-partners.md
-[Visão geral das ferramentas integradas]: ./sql-data-warehouse-overview-integrate.md
-[Visão geral de backup e restauração ]: ./sql-data-warehouse-restore-database-overview.md
+[Criar um tíquete de suporte]: sql-data-warehouse-get-started-create-support-ticket.md
+[carregar dados de amostra]: sql-data-warehouse-load-sample-databases.md
+[criar um Data Warehouse SQL]: sql-data-warehouse-get-started-provision.md
+[Documentação de migração]: sql-data-warehouse-overview-migrate.md
+[Parceiros de solução do SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
+[Visão geral das ferramentas integradas]: sql-data-warehouse-overview-integrate.md
+[Visão geral de backup e restauração ]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um D
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs da equipe CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureSQLDataWarehouse
+[Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -32,7 +32,7 @@ O ASP.NET 5 é uma reestruturação significativa do ASP.NET. ASP.NET 5 é uma n
 
 * Instale o [Código do VS](http://code.visualstudio.com/Docs/setup).
 * Instale o [Node.js](http://nodejs.org) - o Node.js é uma plataforma para a compilação rápida e escalonável de aplicativos de servidor com o uso do JavaScript. O nó é o tempo de execução (Nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo Web ASP.NET 5 neste tutorial.
-* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para **Usar o Git no Prompt de Comando do Windows**. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).  
+* Instale o Git - você pode instalá-lo de um destes locais: [Chocolatey](https://chocolatey.org/packages/git) ou [git scm.com](http://git-scm.com/downloads). Se você for iniciante no Git, escolha [git-scm.com](http://git-scm.com/downloads) e selecione a opção para **Usar o Git no Prompt de Comando do Windows**. Depois de instalar o Git, também será necessário definir o nome de usuário e email do Git, pois eles são necessários posteriormente no tutorial (ao realizar uma confirmação do Código do VS).
 
 ## Instalar o ASP.NET 5 e DNX
 O ASP.NET 5/DNX (o Ambiente de Execução do .NET) é uma pilha enxuta do .NET para criar aplicativos Web e de nuvem modernos e que são executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
@@ -123,7 +123,7 @@ Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o ap
 
 	A janela de comando será exibida se o aplicativo foi iniciado. Se a janela de comando não exibir esta mensagem, verifique o canto inferior esquerdo do Código do VS em busca de erros em seu projeto.
 	
-	> [AZURE.NOTE] Emitir um comando na **Paleta de Comandos** exige um caractere **>** no início da linha de comando. Você pode exibir os detalhes relacionados ao comando **web** no arquivo *project.json*.
+	> [AZURE.NOTE] Emitir um comando na **Paleta de Comandos** exige um caractere **>** no início da linha de comando. Você pode exibir os detalhes relacionados ao comando **web** no arquivo *project.json*. Se o comando não for exibido ou não estiver disponível, talvez seja necessário instalar a extensão do C#. Execute `>Extensions: Install Extension` e `ext install c#` para instalar as extensões do c#.
 
 2. Abra uma janela de navegador e navegue até a URL a seguir.
 
@@ -241,7 +241,7 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE] Se fizer alterações ao seu aplicativo, você poderá publicá-las de novo diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida da opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo** e dos botões **Atualizar**.
+> [AZURE.NOTE] Se fizer alterações ao seu aplicativo, você poderá publicá-las de novo diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida da opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
 
 Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
@@ -250,7 +250,7 @@ Agora que você implantou seu aplicativo Web, vamos executar o aplicativo enquan
 
 Isso pode ser feito de duas maneiras:
 
-* Abra um navegador e digite o nome do aplicativo Web da maneira a seguir.   
+* Abra um navegador e digite o nome do aplicativo Web da maneira a seguir.
 
 		http://SampleWebAppDemo.azurewebsites.net
  
@@ -262,4 +262,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para saber mais sobre o Código do VS, confira o artigo [Por que o Visual Studio Code?](https://code.visualstudio.com/Docs/) Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/21/2016"
 	ms.author="rclaus"/>
 
 # Otimizar sua VM do Linux no Azure
@@ -59,7 +59,7 @@ Localizar e modificar duas entradas no arquivo **/etc/waagent.conf**. Eles contr
 Você precisará alterá-los para o seguinte:
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={tamanho em MB para atender às suas necessidades} 
+* ResourceDisk.SwapSizeMB={tamanho em MB para atender às suas necessidades}
 
 Depois de fazer a alteração, você precisará reiniciar o waagent ou sua VM Linux para refletir essas alterações. Você sabe que as alterações foram implementadas e que um arquivo de permuta foi criado ao usar o comando `free` para exibir o espaço livre. O exemplo a seguir possui um arquivo de permuta de 512MB criado como resultado da modificação do arquivo waagent.conf.
 
@@ -126,4 +126,4 @@ Alguns links úteis para recursos adicionais:
 - [Otimizando o desempenho do MySQL nas VMs Linux do Azure](virtual-machines-linux-classic-optimize-mysql.md)
 - [Configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -29,7 +29,7 @@ Você pode usar o SQL Server Management Studio (SSMS) para administrar servidore
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure.
 
-> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SSMS (SQL Server Management Studio) para permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Uma versão mais antiga do SSMS não funcionará corretamente com o Banco de Dados SQL. Visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-la.
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SSMS (SQL Server Management Studio) para permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Uma versão mais antiga do SSMS não funcionará corretamente com o Banco de Dados SQL, portanto, visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo.
 
 ## Criar e gerenciar Banco de Dados SQL do Azure
 
@@ -76,7 +76,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
 -   Para dar permissões de login1 para um banco de dados chamado **myTestDB**, execute as seguintes etapas:
 
- 1.  Para atualizar o Gerenciador de Objetos e visualizar o banco de dados **myTestDB** que você acabou de criar, clique com o botão direito do mouse no nome do servidor no Gerenciador de Objetos e, em seguida, clique em **Atualizar**.  
+ 1.  Para atualizar o Gerenciador de Objetos e visualizar o banco de dados **myTestDB** que você acabou de criar, clique com o botão direito do mouse no nome do servidor no Gerenciador de Objetos e, em seguida, clique em **Atualizar**.
 
      Se você fechou a conexão, você pode se reconectar, selecionando **conectar Object Explorer** no menu arquivo.
 
@@ -151,4 +151,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

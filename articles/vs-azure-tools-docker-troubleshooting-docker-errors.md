@@ -61,7 +61,7 @@ Para testar se o mapeamento do volume está funcionando, tente o seguinte comand
 **No Windows**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -105,14 +105,14 @@ Se você estiver usando o navegador Microsoft Edge, o site pode não abrir se o 
 
 1. Vá para **Opções da Internet**.
     - No Windows 10, você pode digitar `Internet Options` na caixa Executar do Windows.
-    - No Internet Explorer, você pode ir para o menu **Configurações** e selecionar **Opções da Internet**. 
-1. Selecione **Opções da Internet** quando forem exibidas. 
+    - No Internet Explorer, você pode ir para o menu **Configurações** e selecionar **Opções da Internet**.
+1. Selecione **Opções da Internet** quando forem exibidas.
 1. Selecione a guia **Segurança**.
 1. Selecione a zona **Intranet Local**.
-1. Selecione **Sites**. 
-1. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista. 
-1. Atualize a página no Edge e verá o site em funcionamento. 
-1. Para obter mais informações sobre esse problema, visite a postagem do blog de Scott Hanselman, [O Microsoft Edge não pode ver nem abrir sites da Web locais hospedados no VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
+1. Selecione **Sites**.
+1. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista.
+1. Atualize a página no Edge e verá o site em funcionamento.
+1. Para obter mais informações sobre esse problema, visite a postagem do blog de Scott Hanselman, [O Microsoft Edge não pode ver nem abrir sites da Web locais hospedados no VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
 
 ##Solução de problemas da versão 0.15 ou anterior
 
@@ -135,4 +135,4 @@ Isso pode ser um erro durante `docker-compose-up`. Para exibir o erro, execute a
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

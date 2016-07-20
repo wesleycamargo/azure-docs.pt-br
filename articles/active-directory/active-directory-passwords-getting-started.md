@@ -5,8 +5,8 @@
 	keywords="Gerenciamento de senha do Active Directory, gerenciamento de senhas, redefinir senha do AD do Azure"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Introdução ao Gerenciamento de Senhas
+
+> [AZURE.IMPORTANT] **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 Permitir que os usuários gerenciem suas próprias senhas da nuvem do Active Directory do Azure ou do Active Directory local leva apenas algumas etapas simples. Depois de garantir que você cumpriu alguns pré-requisitos simples, você terá as opções de alteração e redefinição de senha habilitadas para toda a sua organização num piscar de olhos. Este artigo o guiará pelos seguintes conceitos:
 
 * [**Como permitir que os usuários redefinam suas senhas da nuvem do Active Directory do Azure**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -307,7 +310,7 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui porque está tendo problemas para entrar?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
@@ -351,4 +354,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

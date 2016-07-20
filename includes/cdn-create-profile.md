@@ -4,7 +4,7 @@
 
     A folha do novo perfil CDN é exibida.
 
-    ![Novo perfil CDN](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Novo perfil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Insira um nome para o perfil CDN.
 
@@ -14,8 +14,10 @@
 
 5. Selecione um **tipo de preço**. Confira a [Visão geral da CDN](cdn-overview.md#azure-cdn-features) para uma comparação de tipos de preço.
     
-    ![Seleção de tipo de preço de CDN](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Seleção de tipo de preço de CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Selecione a **Assinatura** para este perfil CDN.
 
 7. Clique no botão **Criar** para criar um novo perfil.
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="07/06/2016"
  ms.author="nberdy"/>
 
 # Introdução às métricas de diagnóstico
 
-As métricas de diagnóstico fazem parte de um envio por push de métricas em todo o Azure para fornecer a você melhores dados sobre o estado dos recursos do Azure na sua assinatura. As métricas permitem que um usuário avalie a integridade geral do serviço e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam o usuário a ver o que está acontecendo com o Hub IoT e ajudam com os problemas de causa raiz sem precisar contatar o suporte do Azure.
+As métricas de diagnóstico lhe fornecem melhores dados sobre o estado dos recursos do Azure em sua assinatura. As métricas permitem que um usuário avalie a integridade geral do serviço e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam o usuário a ver o que está acontecendo com o Hub IoT e ajudam com os problemas de causa raiz sem precisar contatar o suporte do Azure.
 
 Você pode habilitar as métricas de diagnóstico no portal do Azure.
 
@@ -70,4 +70,4 @@ Depois da visão geral das métricas de diagnóstico, siga estes links para sabe
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

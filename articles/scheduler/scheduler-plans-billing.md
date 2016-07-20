@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Planos e Cobrança no Agendador do Azure
@@ -25,7 +25,8 @@ Coleções de trabalho são a entidade faturável no Agendador do Azure. As cole
 |:---|:---|:---|:---|:---|
 |**Gratuito**|5 trabalhos por coleção de trabalhos|Uma vez por hora. Não é possível executar trabalhos com uma frequência maior do que uma vez por hora|É permitida até 1 coleção de trabalho gratuita por assinatura|Não é possível usar [objeto de saída de autorização HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 100 coleções de trabalho standard por assinatura|Acesso ao conjunto completo de recursos do Agendador|
-|**Premium**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 10.000 coleções de trabalhos premium por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
+|**P10 Premium**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 10.000 coleções de trabalhos Premium P10 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
+|**P20 Premium**|1000 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 500 coleções de trabalhos Premium P20 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
 
 ## Atualizações e Downgrades de Planos de Coleção de Trabalhos
 
@@ -85,4 +86,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

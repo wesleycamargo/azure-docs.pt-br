@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Otimização de transações para o SQL Data Warehouse
@@ -172,7 +172,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 ## Otimizando com alternância de partição
 
-Quando houver modificações em larga escala dentro de uma [partição de tabela][], fará sentido considerar um padrão de alternância de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
+Quando houver modificações em larga escala dentro de uma [partição da tabela][], fará mais sentido considerar um padrão de troca de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
 
 As etapas para executar uma alternância de partições são as seguintes:
 1. Criar uma partição de saída vazia
@@ -413,7 +413,7 @@ Confira [Transações no SQL Data Warehouse][] para saber mais sobre níveis de 
 
 <!--Article references-->
 [Transações no SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[partição de tabela]: ./sql-data-warehouse-develop-table-partitions.md
+[partição da tabela]: ./sql-data-warehouse-tables-partition.md
 [simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Práticas recomendadas para o Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
@@ -424,4 +424,4 @@ Confira [Transações no SQL Data Warehouse][] para saber mais sobre níveis de 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

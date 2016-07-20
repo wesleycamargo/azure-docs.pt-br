@@ -1,4 +1,4 @@
-* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service/app-service-scale.md)
+* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service-web/web-sites-scale.md)
 	* Noções Básicas Sobre Confiabilidade e Redundância
 	* Aplicativos Com monitoração de estado vs aplicativos Sem monitoração de estado
 		* [Configurando seu aplicativo Sem monitoração de Estado](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
@@ -14,4 +14,4 @@
 * Distribuição geográfica
 	* [Utilizando o Gerenciador de Tráfego para atingir escala global](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->
