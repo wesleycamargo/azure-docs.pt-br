@@ -111,12 +111,20 @@ A atualização dessa tela após alguns instantes altera o status do trabalho pa
 
 ## Próximas etapas
 
-Você concluiu uma exploração guiada dos conceitos de gerenciamento de dispositivo, por exemplo, usando o exemplo de experiência de interface do usuário de gerenciamento de dispositivo. Se você quiser obter uma compreensão mais avançada das APIs de gerenciamento de dispositivos e experimentar alguns exemplos de código, visite os seguintes tutoriais para desenvolvedores:
+Você concluiu uma exploração guiada dos conceitos de gerenciamento de dispositivo, por exemplo, usando o exemplo de experiência de interface do usuário de gerenciamento de dispositivo. Se você quiser obter uma compreensão mais avançada das APIs de gerenciamento de dispositivos e experimentar alguns exemplos de código, visite os seguintes recursos e tutoriais para desenvolvedores:
 
 - [Como usar o dispositivo gêmeo][lnk-tutorial-twin]
 - [Como encontrar dispositivos gêmeos usando consultas][lnk-tutorial-queries]
 - [Como usar trabalhos do dispositivo para atualizar o firmware do dispositivo][lnk-tutorial-jobs]
+- [Habilitar dispositivos gerenciados atrás de um gateway IoT][lnk-dm-gateway]
 - [Introdução à biblioteca de clientes gerenciamento de dispositivos do Hub IoT do Azure][lnk-library-c]
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -130,9 +138,16 @@ Você concluiu uma exploração guiada dos conceitos de gerenciamento de disposi
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
-[lnk-library-c]: iot-hub-device-management-library.md
+
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

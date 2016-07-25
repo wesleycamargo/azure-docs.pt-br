@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Boomi
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Boomi, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-boomi-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Boomi**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Boomi**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-boomi-tutorial/IC790824.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-boomi-tutorial/IC790825.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Resposta do Boomi**, digite a **URL de Logon do Boomi AtomSphere** (por exemplo: "*https://platform.boomi.com/sso/AccountName/saml*”)) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Resposta do Boomi**, digite a **URL de Logon do Boomi AtomSphere** (por exemplo: “*https://platform.boomi.com/sso/AccountName/saml*”) e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-boomi-tutorial/IC790826.png "Configurar a URL do Aplicativo")
 
@@ -100,11 +100,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     1.  Selecione **Habilitar Logon Único do SAML**.
     2.  Clique em **Importar** para carregar o certificado baixado.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Boomi**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Boomi**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
     4.  Para **Local do ID de Federação**, selecione **A ID de Federação está contida no elemento NameID da Entidade**.
     5.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -130,7 +130,7 @@ Para permitir que os usuários do AD do Azure façam logon no Boomi, eles dever�
     1.  Digite o **Nome**, **Sobrenome** e **Email** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em OK.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Boomi ou as APIs fornecidas pelo Boomi para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Boomi ou as APIs fornecidas pelo Boomi para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -138,9 +138,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Boomi, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Boomi**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Boomi**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-boomi-tutorial/IC790834.png "Atribuir Usuários")
 
@@ -150,4 +150,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

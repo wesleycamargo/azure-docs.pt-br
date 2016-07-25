@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/22/2016"
+    ms.date="07/11/2016"
     ms.author="sethm"/>
 
 # Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
@@ -22,7 +22,7 @@ Este artigo mostra como criar e implantar recursos de Barramento de Serviço e d
 
 Os modelos do Azure Resource Manager ajudam você a definir os recursos a serem implantados em uma solução e a especificar os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação. Para obter informações detalhadas sobre a criação de modelos do Azure Resource Manager e uma discussão sobre o formato do modelo, confira [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 
->[AZURE.NOTE] Os exemplos neste artigo mostram como usar o Azure Resource Manager para criar um namespace do Barramento de Serviço e uma entidade de mensagens (fila). Para obter outros exemplos de modelo, confira a [Galeria de Modelos de Início Rápido do Azure][] e pesquise "Barramento de Serviço".
+>[AZURE.NOTE] Os exemplos neste artigo mostram como usar o Azure Resource Manager para criar um namespace do Barramento de Serviço e uma entidade de mensagens (fila). Para obter outros exemplos de modelo, visite a [Galeria de Modelos de Início Rápido do Azure][] e pesquise "Barramento de Serviço".
 
 ## Modelos do Gerenciador de Recursos do Barramento de Serviço e dos Hubs de Eventos
 
@@ -144,7 +144,7 @@ Para usar um arquivo de parâmetros opcionais, copie o arquivo [201-servicebus-c
 }
 ```
 
-Para saber mais, confira o artigo [Arquivo de parâmetro](../resource-group-template-deploy.md#parameter-file).
+Para saber mais, confira o tópico [Arquivo de parâmetro](../resource-group-template-deploy.md#parameter-file).
 
 ### Entrar no Azure e definir a assinatura do Azure
 
@@ -154,13 +154,13 @@ Em um prompt do PowerShell, execute o seguinte comando:
 Login-AzureRmAccount
 ```
 
-Você precisará entrar em sua conta do Azure. Após o logon, execute o seguinte comando para exibir suas assinaturas disponíveis:
+Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir suas assinaturas disponíveis.
 
 ```
 Get-AzureRMSubscription
 ```
 
-Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que você deseja usar:
+Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que você deseja usar.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -174,7 +174,7 @@ Se você não tiver um grupo de recursos existente, crie um novo grupo de recurs
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Se for bem-sucedido, um resumo do novo grupo de recursos será exibido:
+Se for bem-sucedido, um resumo do novo grupo de recursos será exibido.
 
 ```
 ResourceGroupName : MyDemoRG
@@ -202,7 +202,7 @@ O comando abaixo solicita os três parâmetros na janela do PowerShell:
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Para usar um arquivo de parâmetros em vez disso, use o comando a seguir.
+Para especificar um arquivo de parâmetros em vez disso, use o comando a seguir.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -253,4 +253,4 @@ Agora você já viu o fluxo de trabalho básico e os comandos para implantar um 
 [Implantar recursos com modelos do Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galeria de Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

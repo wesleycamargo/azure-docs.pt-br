@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade do processamento de dados do fluxo
@@ -40,14 +40,14 @@ O artigo mostra como calcular e ajustar a consulta para aumentar a taxa de trans
 ## Trabalho embaraçosamente paralelo
 O trabalho embaraçosamente paralelo é o cenário mais escalonável que temos no Stream Analytics do Azure. Ele conecta uma partição da entrada para uma instância da consulta a uma partição da saída. Obter esse paralelismo exige alguns requisitos:
 
-1.  Se sua lógica de consulta for dependente da mesma chave que está sendo processada pela mesma instância de consulta, você deverá garantir que os eventos sejam encaminhados para a mesma partição da entrada. No caso de Hubs de Eventos, isso significa que os Dados do Evento precisam ter a **PartitionKey** definida ou você pode usar remetentes particionados. Para Blob, isso significa que os eventos são enviados à mesma pasta de partição. Se sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você poderá ignorar esse requisito. Um exemplo disso seria uma consulta simples de seleção/projeto/filtro.  
-2.	Depois que os dados são dispostos como precisam ser no lado da saída, precisamos garantir que a consulta seja particionada. Isso exige que você use **Partition By** em todas as etapas. Várias etapas são permitidas, mas todas elas devem ser particionadas pela mesma chave. Outra coisa a ser observada é que, atualmente, a chave de particionamento precisa ser definida como **PartitionId** para ter um trabalho totalmente paralelo.  
-3.	Atualmente, somente Hubs de Eventos e Blobs permitem a saída particionada. Para a saída de Hubs de Eventos, você precisa configurar o campo **PartitionKey** para ser **PartitionId**. Para Blob, você não precisa fazer nada.  
-4.	Outra coisa a ser observada, o número de partições de entrada deve ser igual ao número de partições de saída. A saída de Blob não permite partições no momento, mas isso não é problema, pois ela herdará o esquema de particionamento da consulta upstream. Exemplos de valores de partição que permitiriam um trabalho totalmente paralelo:  
+1.  Se sua lógica de consulta for dependente da mesma chave que está sendo processada pela mesma instância de consulta, você deverá garantir que os eventos sejam encaminhados para a mesma partição da entrada. No caso de Hubs de Eventos, isso significa que os Dados do Evento precisam ter a **PartitionKey** definida ou você pode usar remetentes particionados. Para Blob, isso significa que os eventos são enviados à mesma pasta de partição. Se sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você poderá ignorar esse requisito. Um exemplo disso seria uma consulta simples de seleção/projeto/filtro.
+2.	Depois que os dados são dispostos como precisam ser no lado da saída, precisamos garantir que a consulta seja particionada. Isso exige que você use **Partition By** em todas as etapas. Várias etapas são permitidas, mas todas elas devem ser particionadas pela mesma chave. Outra coisa a ser observada é que, atualmente, a chave de particionamento precisa ser definida como **PartitionId** para ter um trabalho totalmente paralelo.
+3.	Atualmente, somente Hubs de Eventos e Blobs permitem a saída particionada. Para a saída de Hubs de Eventos, você precisa configurar o campo **PartitionKey** para ser **PartitionId**. Para Blob, você não precisa fazer nada.
+4.	Outra coisa a ser observada, o número de partições de entrada deve ser igual ao número de partições de saída. A saída de Blob não permite partições no momento, mas isso não é problema, pois ela herdará o esquema de particionamento da consulta upstream. Exemplos de valores de partição que permitiriam um trabalho totalmente paralelo:
 	1.	8 partições de entrada de Hubs de Eventos e 8 partições de saída de Hubs de Eventos
-	2.	8 partições de entrada de Hubs de Eventos e Saída de Blob  
-	3.	8 partições de saída de Blob e Saída de Blob  
-	4.	8 partições de entrada de Blob e 8 partições de saída de Hubs de Eventos  
+	2.	8 partições de entrada de Hubs de Eventos e Saída de Blob
+	3.	8 partições de saída de Blob e Saída de Blob
+	4.	8 partições de entrada de Blob e 8 partições de saída de Hubs de Eventos
 
 Veja aqui alguns cenários de exemplo que são embaraçosamente paralelos.
 
@@ -148,7 +148,7 @@ A consulta anterior tem duas etapas.
 
 Particionamento de uma etapa exige as seguintes condições:
 
-- A fonte de entrada deve ser particionada. Para obter mais informações, consulte o [Guia de programação de Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md).
+- A fonte de entrada deve ser particionada. Para obter mais informações, confira o [Guia de programação de Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md).
 - A instrução **SELECT** da consulta deve ser lida de uma origem de entrada particionada.
 - A consulta dentro da etapa deve ter a palavra-chave **Partition By**
 
@@ -326,7 +326,6 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 - [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
-- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
@@ -351,4 +350,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
-	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
+	description="Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Como funciona o gerenciamento de senhas
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 O Gerenciamento de Senhas no Active Directory do Azure consiste em vários componentes lógicos que são descritos abaixo. Clique em cada link para saber mais sobre esse componente.
 
 - [**Portal de Configuração de Gerenciamento de Senha**](#password-management-configuration-portal) – os administradores podem controlar diferentes aspectos de como as senhas são gerenciadas em seus locatários, navegando até a guia Configurar de seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
@@ -102,7 +105,7 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
@@ -121,4 +124,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

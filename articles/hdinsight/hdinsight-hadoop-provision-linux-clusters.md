@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/09/2016"
+   	ms.date="07/08/2016"
    	ms.author="jgao"/>
 
 
@@ -224,9 +224,13 @@ Para obter mais informações sobre o uso de repositórios de blob secundários,
 
 É altamente recomendável usar um metastore personalizado se desejar manter as tabelas do Hive depois de excluir o cluster HDInsight, para fins de anexação desse metastore a outro cluster HDInsight no futuro.
 
+> [AZURE.IMPORTANT] O metastore HDInsight não é compatível com versões anteriores. Por exemplo, você não pode usar um metastore de um cluster do HDInsight 3.4 para criar um cluster do HDInsight 3.3.
+
 O metastore contém metadados de Hive e Oozie, como tabelas Hive, partições, esquemas e colunas. Usar o metastore ajuda a manter seus metadados de Hive e Oozie, para que você não precise recriar tabelas Hive ou trabalhos do Oozie ao criar um novo cluster. Por padrão, o Hive usa um banco de dados SQL do Azure integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído. Por exemplo, você tem um cluster criado com um metastore do Hive. Você criou algumas tabelas do Hive. Depois de excluir o cluster e recriá-lo usando o mesmo Hive metastore, você poderá ver as tabelas do Hive criadas no cluster original.
 
-> [AZURE.NOTE] A configuração de Metastore não está disponível para tipos de cluster HBase.
+A configuração de Metastore não está disponível para tipos de cluster HBase.
+
+> [AZURE.IMPORTANT] Ao criar um metastore personalizado, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.
 
 ## Usar redes virtuais do Azure
 
@@ -294,4 +298,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados no SQL Data Warehouse do Azure
@@ -100,14 +100,27 @@ Resumo do processo de carregamento
 3. Envie os discos para a Microsoft.
 4. A Microsoft carrega os dados no SQL Data Warehouse
 
+## Carregar do HDInsight
+O SQL Data Warehouse dá suporte ao carregamento de dados do HDInsight via PolyBase. O processo é igual ao carregamento de dados do Armazenamento de Blobs do Azure, usando o PolyBase para se conectar ao HDInsight para carregar dados.
+
+### 1\. Usar PolyBase e T-SQL
+
+Resumo do processo de carregamento:
+
+2. Formate seus dados como UTF-8, pois o PolyBase atualmente não dá suporte a UTF-16.
+2. Transfira seus dados para o HDInsight e armazene-os em arquivos de texto, no formato ORC ou Parquet.
+3. Configurar objetos externos no SQL Data Warehouse para definir o local e o formato dos dados.
+4. Execute um comando T-SQL para carregar os dados em paralelo em uma nova tabela de banco de dados.
+
+Para ver um tutorial, confira [Carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse (PolyBase)][].
 
 ## Recomendações
 
-Muitos de nossos parceiros têm soluções de carregamento. Para saber mais, consulte uma lista dos nossos [parceiros de solução][].
+Muitos de nossos parceiros têm soluções de carregamento. Para saber mais, confira uma lista dos nossos [parceiros de solução][].
 
 Se seus dados forem provenientes de uma fonte não relacional e você desejar carregá-los no SQL Data Warehouse, você precisará transformá-los em linhas e colunas antes de carregá-los. Os dados transformados não precisam ser armazenado em um banco de dados, eles podem ser armazenados em arquivos de texto.
 
-Crie estatísticas sobre os dados recém-carregados. O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter detalhes, consulte [Estatísticas][].
+Crie estatísticas sobre os dados recém-carregados. O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter detalhes, confira [Estatísticas][].
 
 
 ## Próximas etapas
@@ -124,7 +137,7 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 
 [Carregar bancos de dados de exemplo]: ./sql-data-warehouse-load-sample-databases.md
 [Visão geral da migração]: ./sql-data-warehouse-overview-migrate.md
-[parceiros de solução]: ./sql-data-warehouse-integrate-solution-partners.md
+[parceiros de solução]: ./sql-data-warehouse-partner-business-intelligence.md
 [visão geral sobre desenvolvimento]: ./sql-data-warehouse-overview-develop.md
 [Estatísticas]: ./sql-data-warehouse-tables-statistics.md
 
@@ -133,4 +146,4 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 <!--Other Web references-->
 [Importar/Exportar]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

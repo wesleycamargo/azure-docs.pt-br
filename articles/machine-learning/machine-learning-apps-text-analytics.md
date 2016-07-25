@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/07/2016"
 	ms.author="onewth"/>
 
 
 # APIs de Aprendizado de Máquina: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
 
->[AZURE.NOTE] Este guia destina-se à versão 1 da API. Para a versão 2, [**consulte este documento**](../cognitive-services-text-analytics-quick-start/). A versão 2 agora é a versão preferencial desta API.
+>[AZURE.NOTE] Este guia destina-se à versão 1 da API. Para a versão 2, [**consulte este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). A versão 2 agora é a versão preferencial desta API.
 
 ## Visão geral
 
@@ -385,4 +385,4 @@ As propriedades de cada parte da resposta são as seguintes:
 | TopicId | A ID do tópico a que o registro foi atribuído. |
 | Distância | Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

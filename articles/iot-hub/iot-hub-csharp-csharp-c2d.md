@@ -26,7 +26,7 @@ O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir com
 
 Esse tutorial se baseia [Começar com ao Hub IoT]. Ele mostra como:
 
-- Do seu aplicativo de nuvem de back-end, enviar mensagens da nuvem para o dispositivo em um único dispositivo por meio do Hub IoT.
+- Do seu aplicativo de nuvem de back-end, envie mensagens da nuvem para o dispositivo em um único dispositivo por meio do Hub IoT.
 - Receber mensagens da nuvem para o dispositivo em um dispositivo.
 - Do seu aplicativo de nuvem de back-end, solicitar confirmação de entrega (*comentários*) para as mensagens enviadas a um dispositivo do Hub IoT.
 
@@ -173,18 +173,11 @@ Nesta seção, você modificará o aplicativo **SendCloudToDevice** para solicit
 
 ## Próximas etapas
 
-Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. Você pode continuar explorando os recursos e cenários de Hub IoT com os seguintes tutoriais:
+Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 
-- [Processar mensagens do Dispositivo para a Nuvem] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
-- [Carregando arquivos de dispositivos], descreve um padrão que faz uso das mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Azure IoT Suite].
 
-Informações adicionais sobre o Hub IoT:
-
-* [Visão geral do Hub IoT]
-* [Guia do desenvolvedor do Hub IoT]
-* [Orientação sobre o Hub IoT]
-* [Plataformas e idiomas do dispositivo com suporte]
-* [Centro de Desenvolvedores do IoT do Azure]
+Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -198,16 +191,11 @@ Informações adicionais sobre o Hub IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Processar mensagens do Dispositivo para a Nuvem]: iot-hub-csharp-csharp-process-d2c.md
-[Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
-
-[Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
-[Orientação sobre o Hub IoT]: iot-hub-guidance.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[Plataformas e idiomas do dispositivo com suporte]: iot-hub-supported-devices.md
 [Começar com ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

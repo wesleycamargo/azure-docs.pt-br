@@ -1,4 +1,4 @@
-Há vários motivos pelos quais você pode ter problemas a se conectar a um aplicativo que esteja sendo executado em uma VM (máquina virtual do Azure, como o aplicativo não estar em execução e estar escutando nas portas esperadas ou as regras de rede não estarem passando corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
+Há vários motivos pelos quais você pode ter problemas ao se conectar a um aplicativo que esteja sendo executado em uma VM (máquina virtual) do Azure, como o aplicativo não estar em execução ou estar escutando nas portas esperadas, estar escutando em portas bloqueadas ou as regras de rede não estarem passando corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
 
 Se você estiver tendo problemas para se conectar à sua VM usando RDP ou SSH, consulte um dos seguintes artigos primeiro:
 
@@ -29,7 +29,7 @@ Para obter mais informações, consulte [Solução de problemas de conectividade
 
 Há quatro áreas principais nas quais é possível solucionar problemas de acesso de um aplicativo que está sendo executado em uma máquina virtual do Azure.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![solucionar o problema de incapacidade de iniciar o aplicativo](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	O aplicativo em execução na máquina virtual do Azure.
 	- O próprio aplicativo está sendo executado corretamente?
@@ -46,7 +46,7 @@ Para computadores cliente que acessam o aplicativo em uma conexão VPN site a si
 
 Tente acessar o aplicativo com o programa cliente apropriado na VM em que ele está sendo executado. Use o nome de host local, o endereço IP local ou o endereço de loopback (127.0.0.1).
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![iniciar o aplicativo diretamente da VM](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 Por exemplo, se o aplicativo for um servidor Web, abra um navegador na VM e tente acessar uma página da Web hospedada na VM.
 
@@ -63,7 +63,7 @@ Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat -a** 
 
 Tente acessar o aplicativo de uma VM diferente, mas na mesma rede virtual, usando o nome de host da VM ou seu endereço IP público, privado ou do provedor atribuído ao Azure. Em máquinas virtuais criadas usando o modelo de implantação clássica, não use o endereço IP público do serviço de nuvem.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![Iniciar o aplicativo de uma VM diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da Web em um navegador em outra VM na mesma rede virtual.
 
@@ -84,7 +84,7 @@ Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segura
 
 Tente acessar o aplicativo em um computador fora da rede virtual em que está a VM na qual o aplicativo está sendo executado, mas que não esteja na mesma rede que o computador cliente original.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![Iniciar o aplicativo em um computador fora da rede virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da Web em um navegador em execução em um computador que não está na rede virtual.
 
@@ -94,7 +94,7 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 	- A configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
 	- Essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego vindo da Internet.
 	- Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
-	
+
 - Para VMs criadas com o modelo de implantação do Resource Manager:
 	- A configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
 	- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações.
@@ -118,4 +118,4 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

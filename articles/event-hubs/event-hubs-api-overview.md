@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Visão geral de API de Hubs de Eventos
 
-Este artigo resume algumas das principais APIs de cliente .NET de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. APIs de tempo de execução consistem em todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
+Este artigo resume algumas das principais APIs de cliente .NET de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. As APIs de tempo de execução consistem de todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
-Os cenários de monitoramento abrangem gerenciamento e tempo de execução. Para obter a documentação de referência detalhada sobre as APIs do .NET, confira as referências [Barramento de Serviço .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de execução. Para obter a documentação de referência detalhada sobre as APIs do .NET, confira as referências [Barramento de Serviço .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## APIs de gerenciamento
 
@@ -189,4 +189,4 @@ As referências de API .NET estão aqui:
 - [Referências da API do .NET de Hubs de Eventos e do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

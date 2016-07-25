@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introdução aos Reliable Actors
@@ -32,10 +32,11 @@ Para começar a usar os Reliable Actors, você só precisa entender quatro conce
 	* Ela resolve nomes. Ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
 	* Ela lida com falhas. Ela pode repetir as invocações do método e determinar novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
 
-Vale a pena mencionar as seguintes regras que pertencem aos métodos de interface de ator:
+Vale a pena mencionar as seguintes regras que pertencem às interfaces de ator:
 
 - Métodos da interface de ator não podem ser sobrecarregados.
 - Métodos da interface de ator não podem ter parâmetros de saída, de referência e opcionais.
+- Não há suporte para interfaces genéricas.
 
 ## Criar um novo projeto no Visual Studio
 Depois de instalar as ferramentas do Service Fabric para Visual Studio, você poderá criar novos tipos de projeto. Os novos tipos de projeto estão na categoria **Nuvem** da caixa de diálogo **Novo Projeto**.
@@ -139,4 +140,4 @@ Durante o processo de implantação, você poderá ver o andamento na janela **S
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

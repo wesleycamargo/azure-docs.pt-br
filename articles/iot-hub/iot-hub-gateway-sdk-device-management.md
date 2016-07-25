@@ -379,7 +379,14 @@ Agora, você concluiu o tutorial que mostra como usar o software do gateway do H
 
 Para saber mais sobre o gerenciamento de dispositivos com o Hub IoT e a IU de exemplo, consulte o artigo [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-device-management].
 
-Para aprender a conectar os dispositivos físicos ao seu Hub IoT, consulte o artigo [SDK do Gateway IoT – enviar mensagens do dispositivo para a nuvem com um dispositivo real usando o Linux][lnk-gateway-physical].
+Se você quiser obter uma compreensão mais avançada do SDK do Gateway e experimentar alguns exemplos de código, visite [SDK do Gateway do Azure IoT][lnk-gateway-sdk].
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 
 
@@ -411,4 +418,9 @@ Para aprender a conectar os dispositivos físicos ao seu Hub IoT, consulte o art
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

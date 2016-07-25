@@ -54,11 +54,17 @@ O Hub IoT fornece várias métricas que dão uma visão geral da integridade do 
 
 ## Próximas etapas
 
-Depois da visão geral das métricas de diagnóstico, siga estes links para saber mais:
+Depois da visão geral das métricas de diagnóstico, siga estes links para saber mais sobre o gerenciamento do Hub IoT do Azure:
 
-- [Monitoramento de operações do Hub IoT][lnk-operations-monitoring]
-- [Dimensionamento do Hub IoT][lnk-scaling]
-- [Alta disponibilidade e recuperação de desastres do Hub IoT][lnk-dr]
+- [Monitoramento de operações][lnk-monitor]
+- [Gerenciar o acesso ao Hub IoT][lnk-itpro]
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@ Depois da visão geral das métricas de diagnóstico, siga estes links para sabe
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

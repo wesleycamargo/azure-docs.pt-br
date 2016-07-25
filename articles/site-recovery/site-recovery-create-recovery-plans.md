@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/01/2016" 
+	ms.date="07/08/2016" 
 	ms.author="raynew"/>
 
 # Criar planos de recuperação
@@ -73,7 +73,7 @@ Crie um plano de recuperação da seguinte forma:
 
 1. Clique na guia **Planos de Recuperação** > **Criar Plano de Recuperação**. Especifique um nome para o plano de recuperação, bem como uma origem e um destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação.
 
-	- Se estiver replicando da VMM para a VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão configuradas para usar a réplica do Hyper-V. 
+	- Se estiver replicando da VMM para a VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão configuradas para usar a réplica do Hyper-V.
 	- Se estiver replicando da VMM para a VMM usando SAN, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **SAN** para ver as nuvens que estão configuradas para a replicação SAN.
 	- Se estiver replicando da VMM para o Azure, selecione **Tipo de Origem** > **VMM**. Selecione o servidor do VMM de origem e **Azure** como o destino.
 	- Se estiver replicando de um site do Hyper-V, selecione **Tipo de Origem** > **Site do Hyper-V**. Selecione o site como a origem e **Azure **como o destino.
@@ -86,7 +86,7 @@ Crie um plano de recuperação da seguinte forma:
 Depois de adicionar máquinas virtuais protegidas ou grupos de replicação ao grupo de planos de recuperação padrão e criar o plano, você pode personalizá-lo:
 
 - **Adicionar novos grupos**: você pode incluir grupos de plano de recuperação adicionais. Os grupos adicionados são numerados na ordem em que você os adiciona. É possível adicionar até sete grupos. Você pode adicionar mais computadores ou grupos de replicação a esses novos grupos. Observe que uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
-- ****Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- **Adicionar um script** — você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
 - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele é interrompido no ponto em que você inseriu a ação manual, e uma caixa de diálogo solicita que você especifique que a ação manual foi concluída.
 
 ## Estender os planos de recuperação com scripts
@@ -115,7 +115,7 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 1. Abra o plano de recuperação que deseja personalizar.
 2. Clique para adicionar máquinas virtuais ou um novo grupo.
 3. Para adicionar um script ou ação manual, clique em qualquer item na lista **Etapa** e clique em **Script** ou **Ação Manual**. Especifique se deseja adicionar o script ou a ação antes ou depois do item selecionado. Use os botões de comando **Mover para Cima** e **Mover para Baixo** para movimentar o script para cima ou para baixo.
-4. Se estiver adicionando um script do VMM, selecione **Failover no script do VMM** e, no **Caminho do Script**, digite o caminho relativo para o compartilhamento. Portanto, em nosso exemplo, onde o compartilhamento está localizado em \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique o caminho: \\RPScripts\\RPScript.PS1.
+4. Se estiver adicionando um script do VMM, selecione **Failover no script do VMM** e, no **Caminho do Script**, digite o caminho relativo para o compartilhamento. Portanto, em nosso exemplo, onde o compartilhamento está localizado em \\<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique o caminho: \\RPScripts\\RPScript.PS1.
 5. Se estiver adicionando um runboook da automação do Azure, especifique a **Conta de Automação do Azure** na qual o runbook está localizado e selecione o **Script de Runbook do Azure** apropriado.
 5. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 
@@ -127,4 +127,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0713_2016-->

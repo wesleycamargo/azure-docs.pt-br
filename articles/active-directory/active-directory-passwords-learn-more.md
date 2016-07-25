@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Saiba mais: Gerenciamento de senha do Azure AD | Microsoft Azure" 
-	description="Tópicos avançados sobre o gerenciamento de senha do Azure AD, incluindo como funciona o write-back de senha, segurança de write-back de senha, como funciona o portal de redefinição de senha e quais dados são usados na redefinição de senha." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Saiba mais: Gerenciamento de senha do Azure AD | Microsoft Azure"
+	description="Tópicos avançados sobre o gerenciamento de senha do Azure AD, incluindo como funciona o write-back de senha, segurança de write-back de senha, como funciona o portal de redefinição de senha e quais dados são usados na redefinição de senha."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Saiba mais sobre Gerenciamento de Senha
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 Se você já tiver implantado o Gerenciamento de Senha ou estiver somente procurando saber mais sobre a parte técnica antes de implantá-lo, esta seção lhe dará uma boa visão geral dos conceitos técnicos por trás do serviço. Abordaremos o seguinte:
 
 * [**Visão geral de write-back de senha**](#password-writeback-overview)
@@ -36,7 +39,7 @@ O write-back de senha permite que você configure o locatário de nuvem para gra
 - **Com suporte à redefinição de senha para os usuários do AD FS ou outras tecnologias de federação.** Com o write-back de senha, desde que as contas de usuário federado sejam sincronizadas com seu locatário do Azure AD, eles poderão gerenciar suas senhas do AD locais da nuvem.
 - **Com suporte à redefinição de senhas de usuários usando a sincronização de hash de senha.** Quando o serviço de redefinição de senha detecta que uma conta de usuário sincronizada está habilitada para sincronização de hash de senha, redefinimos o local dessa conta e a senha da nuvem ao mesmo tempo.
 - **Com suporte à alteração de senhas do painel de acesso e do Office 365.** Quando usuários federados ou sincronizados com senha alteram suas senhas expiradas ou não expiradas, gravamos as senhas novamente em seu ambiente do AD local.
-- **Com suporte ao write-back de senhas quando um administrador as redefine do** [**Portal de Gerenciamento do Azure**](https://manage.windowsazure.com). Sempre que um administrador redefine uma senha de usuário no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), se esse usuário é federado ou sincronizado com senha, vamos definir a senha que o administrador selecionar no AD local também. Isso não é suportado atualmente no Portal de Administração do Office.
+- **Com suporte ao write-back de senhas quando um administrador as redefine do ** [**Portal de Gerenciamento do Azure**](https://manage.windowsazure.com). Sempre que um administrador redefine uma senha de usuário no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), se esse usuário é federado ou sincronizado com senha, vamos definir a senha que o administrador selecionar no AD local também. Isso não é suportado atualmente no Portal de Administração do Office.
 - **impõe as suas políticas de senha do AD locais.** Quando um usuário redefine a sua senha, verificamos se ele atende às suas políticas do AD locais antes de confirmá-lo nesse diretório. Isso inclui histórico, complexidade, tempo, filtros de senha e qualquer outra restrição de senha que você tenha definido no AD local.
 - **Não requer regras de firewall de entrada.** O write-back de senha usa uma retransmissão do barramento de serviço do Azure como um canal de comunicação subjacente, o que significa que você não precisa abrir todas as portas de entrada no firewall para que esse recurso funcione.
 - **Sem suporte para contas de usuário que existam em grupos protegidos no seu Active Directory local.** Para saber mais sobre grupos protegidos, confira [Contas e grupos protegidos do Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
@@ -365,7 +368,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -379,4 +382,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

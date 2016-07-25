@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Gerenciamento de estado dos Reliable Actors
@@ -62,7 +62,7 @@ Essa configuração usa um provedor de estado somente na memória e define a con
 
 ### Padrões e configurações geradas
 
-Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você no tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**. Evidentemente, é possível alterar esses parâmetros manualmente, porém, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo quaisquer valores anteriores.
+Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você no tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**. Evidentemente, é possível alterar esses parâmetros manualmente, porém, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo quaisquer valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos **somente** em tempo de compilação quando você alterar o valor `StatePersistence` do atributo.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -98,7 +98,7 @@ O estado pode ser acessado por chave por meio do Gerenciador de Estado. Os méto
 
  - Um método de ator gera uma exceção sem tratamento depois de recuperar um objeto do Gerenciador de Estado.
  - Um ator é reativado depois de ser desativado ou devido a uma falha.
- - Se o provedor de estado paginar o estado em disco. Esse comportamento depende da implementação do provedor de estado. O provedor de estado padrão para a configuração `Persisted` apresenta esse comportamento. 
+ - Se o provedor de estado paginar o estado em disco. Esse comportamento depende da implementação do provedor de estado. O provedor de estado padrão para a configuração `Persisted` apresenta esse comportamento.
 
 O estado pode ser recuperado usando uma operação *Get* padrão que gerará `KeyNotFoundException` caso não exista uma entrada para a chave especificada:
 
@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

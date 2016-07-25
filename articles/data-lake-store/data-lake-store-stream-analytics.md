@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Dados de transmissão do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure
 
 Neste artigo, você aprenderá como usar o Repositório Azure Data Lake como uma saída para um trabalho do Stream Analytics do Azure. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Repositório Data Lake (saída).
 
->[AZURE.NOTE] No momento, há suporte para a criação e configuração das saídas do Repositório Data Lake para o Stream Analytics apenas no [Portal Clássico do Azure](manage.windowsazure.com). Portanto, algumas partes deste tutorial usarão o Portal Clássico do Azure.
+>[AZURE.NOTE] No momento, há suporte para a criação e a configuração das saídas do Data Lake Store para o Stream Analytics apenas no [Portal Clássico do Azure](https://manage.windowsazure.com). Portanto, algumas partes deste tutorial usarão o Portal Clássico do Azure.
 
 ## Pré-requisitos
 
@@ -96,7 +96,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
 	* **Digite um alias de saída**. Este é um nome exclusivo que você fornece para a saída do trabalho.
 	* **Especificar uma conta do Repositório Data Lake**. Você já deve tê-la criado, conforme mencionado nos pré-requisitos.
-	* **Especificar um padrão de prefixo do caminho**. Isso é necessário para identificar os arquivos de saída que são gravados no Repositório Data Lake pelo trabalho do Stream Analytics. Visto que os títulos das saídas gravados pelo trabalho estão em um formato GUID, a inclusão de um prefixo ajudará a identificar a saída gravada. Se você quiser incluir um carimbo de data e hora como parte do prefixo, certifique-se de incluir `{date}/{time}` no padrão do prefixo. Se você incluí-lo, os campos **Formato de Data** e **Formato de Hora** serão habilitados e você poderá selecionar o formato escolhido.
+	* **Especificar um padrão de prefixo do caminho**. Isso é necessário para identificar os arquivos de saída que são gravados no Repositório Data Lake pelo trabalho do Stream Analytics. Visto que os títulos das saídas gravados pelo trabalho estão em um formato GUID, a inclusão de um prefixo ajudará a identificar a saída gravada. Se você quiser incluir um carimbo de data e hora como parte do prefixo, certifique-se de incluir `{date}/{time}` no padrão do prefixo. Se você incluí-lo, os campos **Formato de Data **e **Formato de Hora** serão habilitados e você poderá selecionar o formato escolhido.
 
 	Clique na seta para frente.
 
@@ -104,7 +104,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
 	![Especificar o formato de saída](./media/data-lake-store-stream-analytics/create.output.4.png "Especificar o formato de saída")
 
-6. Depois de concluir com o assistente, a saída do Repositório Data Lake será adicionada sob a guia **Saídas** e a coluna **Diagnóstico** deverá exibir **OK**. Você também pode testar a conexão com a saída de maneira explícita usando o botão **Testar conexão** na parte inferior.
+6. Depois de concluir o assistente, a saída do Data Lake Store será adicionada sob a guia **Saídas** e a coluna **Diagnóstico** deverá exibir **OK**. Você também pode testar a conexão com a saída de maneira explícita usando o botão **Testar Conexão** na parte inferior.
 
 ## Executar o trabalho do Stream Analytics
 
@@ -120,14 +120,14 @@ Depois que o trabalho for iniciado, clique na guia **Monitorar** para ver como o
 
 ![Monitorar o trabalho](./media/data-lake-store-stream-analytics/run.query.3.png "Monitorar o trabalho")
 
-Finalmente, você pode usar o [Portal do Azure](portal.azure.com) para abrir sua conta do Repositório Data Lake e verificar se os dados foram gravados com êxito na conta.
+Finalmente, você pode usar o [Portal do Azure](https://portal.azure.com) para abrir sua conta do Data Lake Store e verificar se os dados foram gravados com êxito na conta.
 
 ![Verificar a saída](./media/data-lake-store-stream-analytics/run.query.4.png "Verificar a saída")
 
-No painel Gerenciador de Dados, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Repositório Data Lake (`streamanalytics/job/output/{date}/{time}`).
+No painel Gerenciador de Dados, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
 
 ## Consulte também
 
 * [Criar um cluster do HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

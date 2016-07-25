@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Introdução ao acesso condicional ao Azure AD  
@@ -68,7 +68,7 @@ A visualização atual dá suporte às seguintes opções:
 
 * **Exigir autenticação multifator**: com essa opção, os usuários aos quais as regras de acesso se aplicam precisarão concluir a autenticação multifator antes de acessar o aplicativo ao qual a política se aplica.
 
-* **Exigir autenticação multifator quando não estiver no trabalho**: com essa opção, um usuário proveniente de um endereço IP confiável não precisará realizar a autenticação multifator. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de autenticação multifator ou ao usar a configuração de intervalos de endereços IP públicos na guia Configurar do diretório.
+* **Exigir autenticação multifator quando não estiver no trabalho**: com essa opção, um usuário proveniente de um endereço IP confiável não precisará realizar a autenticação multifator. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de multi-factor authentication.
 
 * **Bloquear o acesso quando não estiver no trabalho**: com essa opção, um usuário que não vem de um endereço IP confiável será bloqueado. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de multi-factor authentication.
 
@@ -94,4 +94,4 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 - [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="06/30/2016" 
 	ms.author="andrl"/>
 
 # SDK do Banco de Dados de Documentos
@@ -36,19 +36,23 @@
 
 ## Notas de versão
 
+### <a name="1.8.1"/>[1\.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+  - Um bug foi corrigido em PartitionKeyDefinitionMap para armazenar as coleções de partição única em cache e para não fazer solicitações extras de chave de partição de busca.
+  - Um bug foi corrigido para não tentar novamente quando um valor de chave de partição incorreto for fornecido.
+
 ### <a name="1.8.0"/>[1\.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
   - Suporte adicionado para contas de banco de dados de várias regiões.
-  - Suporte adicionado para repetição automática em solicitações limitadas, com opções para personalizar o número máximo de repetições e o tempo de espera máximo de repetição. Consulte RetryOptions e ConnectionPolicy.getRetryOptions(). 
-  - IPartitionResolver preterido com base no código de particionamento personalizado. Use coleções particionadas para uma taxa de transferência e armazenamento superiores. 
+  - Suporte adicionado para repetição automática em solicitações limitadas, com opções para personalizar o número máximo de repetições e o tempo de espera máximo de repetição. Consulte RetryOptions e ConnectionPolicy.getRetryOptions().
+  - IPartitionResolver preterido com base no código de particionamento personalizado. Use coleções particionadas para uma taxa de transferência e armazenamento superiores.
 
 ### <a name="1.7.1"/>[1\.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
-- Adicionado suporte à política de repetição para limitação.  
+- Adicionado suporte à política de repetição para limitação.
 
 ### <a name="1.7.0"/>[1\.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
-- Adicionado suporte a TTL (vida útil) para documentos. 
+- Adicionado suporte a TTL (vida útil) para documentos.
 
 ### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
+- [Coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md) implementados.
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Foi corrigido um bug no HashPartitionResolver para gerar valores de hash em little-endian para ser consistente com outros SDKs.
@@ -88,24 +92,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java ante
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junho de 2016 |---
-| [1\.7.1](#1.7.1) | 30 de abril de 2016 |---
-| [1\.7.0](#1.7.0) | 27 de abril de 2016 |---
-| [1\.6.0](#1.6.0) | 29 de março de 2016 |---
-| [1\.5.1](#1.5.1) | 31 de dezembro de 2015 |---
-| [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |--- 
-| [1\.4.0](#1.4.0) | 05 de outubro de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de outubro de 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julho de 2015 |---
-| [1\.0.1](#1.0.1) | 12 de maio de 2015 |---
-| [1\.0.0](#1.0.0) 07 de abril de 2015 |---
-| 0.9.5-prelease | 09 de março de 2015 | 29 de fevereiro de 2016
-| 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016
-| 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016
-| 0.9.2-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.1-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.0-prelease | 10 de dezembro de 2014 | 29 de fevereiro de 2016
+| [1\.8.1](#1.8.1) | 30 de junho de 2016 |--- | [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- | [1\.7.1](#1.7.1) | 30 de abril de 2016 |--- | [1\.7.0](#1.7.0) | 27 de abril de 2016 |--- | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- | [1\.5.1](#1.5.1) | 31 de dezembro de 2015 |--- | [1\.5.0](#1.5.0) | 4 de dezembro de 2015 |--- | [1\.4.0](#1.4.0) | 5 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 5 de outubro de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- | [1\.0.1](#1.0.1) | 12 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 7 de abril de 2015 |--- | 0.9.5-pré-concessão | 9 de março de 2015 | 29 de fevereiro de 2016 | 0.9.4-pré-concessão | 17 de fevereiro de 2015 | 29 de fevereiro de 2016 | 0.9.3-pré-concessão | 13 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-pré-concessão | 19 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.1-pré-concessão | 19 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.0-pré-concessão | 10 de dezembro de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -114,4 +101,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

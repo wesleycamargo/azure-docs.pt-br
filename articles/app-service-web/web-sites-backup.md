@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure" 
-	description="Saiba como criar backups de seus aplicativos Web no Serviço de Aplicativo do Azure" 
+	pageTitle="Fazer backup de seu aplicativo no Azure" 
+	description="Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -13,25 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="07/06/2016" 
 	ms.author="cephalin"/>
 
-# Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure
+# Fazer backup de seu aplicativo no Azure
 
 
-O recurso de Backup e Restauração em [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite que você crie backups de aplicativos Web facilmente, de modo manual ou automático. É possível restaurar seu aplicativo Web para um estado anterior ou criar um novo aplicativo Web baseado em um dos backups do seu aplicativo original.
+O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) permite que você crie backups de aplicativos facilmente, de modo manual ou automático. É possível restaurar seu aplicativo para um estado anterior ou criar um novo aplicativo baseado em um dos backups de seu aplicativo original.
 
-Para saber como restaurar um aplicativo Web do Azure pelo backup, consulte [Restaurar um aplicativo Web](web-sites-restore.md).
-
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 ## Do que é feito backup 
-Aplicativos Web podem fazer backup das seguintes informações:
+O Serviço de Aplicativo pode fazer backup das seguintes informações:
 
-* Configuração de aplicativo Web
-* Conteúdo do arquivo de aplicativo Web
-* Quaisquer bancos de dados SQL do Azure ou bancos de dados MySQL conectados ao aplicativo (é possível escolher quais serão incluídos no backup)
+* Configuração do aplicativo
+* Conteúdo do arquivo
+* Quaisquer Bancos de Dados SQL do Azure ou bancos de dados MySQL do Azure (ClearDB) conectados ao aplicativo (é possível escolher quais serão incluídos no backup)
 
 O backup dessas informações é feito no contêiner e na conta de armazenamento do Azure especificados por você.
 
@@ -40,25 +38,24 @@ O backup dessas informações é feito no contêiner e na conta de armazenamento
 <a name="requirements"></a>
 ## Requisitos e restrições
 
-* O recurso de Backup e Restauração exige que o plano do Serviço de Aplicativo esteja na camada Standard ou superior. Para obter mais informações sobre como colocar em escala seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que a camada Premium permite um número maior de backups diários do que a camada Standard.
-
-* O recurso de Backup e Restauração requer um contêiner e uma conta de armazenamento do Azure, que devem pertencer à mesma assinatura que o aplicativo Web cujo backup você realizará. Se ainda não tiver uma conta de armazenamento, você pode criar uma clicando em **Conta de Armazenamento** na folha **Backups** do [Portal do Azure](https://portal.azure.com/) e, em seguida, escolhendo **Conta de Armazenamento** e o **Contêiner** na folha **Destino**. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
-
-* O recurso de Backup e Restauração oferece suporte para até 10 GB de conteúdo de site e banco de dados. Um erro será indicado se não for possível continuar com o recurso de backup devido à carga exceder esse limite.
+* O recurso de Backup e Restauração exige que o plano do Serviço de Aplicativo esteja na camada **Standard** ou superior. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que a camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
+* Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
+* É possível fazer backup de até 10 GB de conteúdo do aplicativo e do banco de dados. Você obterá um erro se o tamanho do backup exceder esse limite.
 
 <a name="manualbackup"></a>
 ## Criar um backup manual
 
-1. No portal do Azure, escolha seu aplicativo Web na folha aplicativos Web. Isso exibirá os detalhes do seu aplicativo Web em uma nova lâmina.
-2. Na folha do aplicativo, selecione **Configurações** e **Backups**. A folha **Backups** será exibida.
+2. No [Portal do Azure](https://portal.azure.com), navegue até a folha do aplicativo, selecione **Configurações** e **Backups**. A folha **Backups** será exibida.
 	
 	![Página Backups][ChooseBackupsPage]
+
+	>[AZURE.NOTE] Se você receber a mensagem abaixo, clique nela para atualizar seu plano do Serviço de Aplicativo antes de continuar com os backups. Veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md) para obter mais informações.![Escolher uma conta de armazenamento](./media/web-sites-backup/01UpgradePlan.png)
 
 3. Na folha **Backups**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
 
 	![Escolher uma conta de armazenamento][ChooseStorageAccount]
 	
-4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo Web do qual você vai fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
+4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
 	
 	![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
@@ -66,23 +63,22 @@ O backup dessas informações é feito no contêiner e na conta de armazenamento
 
 	![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE] 	Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo Web** no Portal.
+	> [AZURE.NOTE] 	Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
 
 6. Na folha **Definir Configurações de Backup**, clique em **Salvar**.
-6. Na folha **Backups**, selecione o **Destino do backup**. Você deve escolher uma conta de armazenamento e um contêiner existentes.
+
 7. Na barra de comando da folha **Backups**, clique em **Fazer Backup Agora**.
 	
 	![Botão BackUpNow][BackUpNow]
 	
 	Você verá uma mensagem informando o andamento do processo de backup.
-	
 
-Você pode fazer um backup manual a qualquer momento.
+Depois de configurar uma conta de armazenamento e o contêiner para backups, é possível fazer um backup manual a qualquer momento.
 
 <a name="automatedbackups"></a>
 ## Configurar backups automáticos
 
-1. Na folha **Backups**, clique em **Agendamento: não configurado**. 
+1. Na folha **Backups**, clique em **Agendamento: não configurado**.
 
 	![Escolher uma conta de armazenamento](./media/web-sites-backup/05ScheduleBackup.png)
 	
@@ -90,7 +86,7 @@ Você pode fazer um backup manual a qualquer momento.
 	
 	![Habilitar backups automatizados][SetAutomatedBackupOn]
 	
-4. Na folha **Definir Configurações de Backup** que ainda está aberta, clique em **Configurações de Armazenamento** e escolha o destino do backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo Web do qual você vai fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
+4. Na folha **Definir Configurações de Backup** que ainda está aberta, clique em **Configurações de Armazenamento** e escolha o destino do backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
 	
 	![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1.png)
 	
@@ -98,36 +94,28 @@ Você pode fazer um backup manual a qualquer momento.
 
 	![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE] 	Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo Web** no Portal.
+	> [AZURE.NOTE] 	Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
 
 6. Na folha **Definir Configurações de Backup**, clique em **Salvar**.
 
-<a name="notes"></a>
-## Observações
-
-* Não deixe de configurar as cadeias de conexão para cada um dos seus bancos de dados adequadamente na folha **Configurações de aplicativo Web**, dentro da opção **Configurações** no próprio aplicativo Web, para que o recurso de Backup e Restauração possa incluir seus bancos de dados.
-
->[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
 <a name="partialbackups"></a>
-## Fazer backup de apenas parte do aplicativo Web
+## Fazer backup de apenas uma parte de seu aplicativo
 
-Às vezes, você não quer fazer backup de tudo em seu aplicativo Web. Veja alguns exemplos:
+Às vezes, você não quer fazer backup de tudo em seu aplicativo. Veja alguns exemplos:
 
--	Você [configura backups semanais](web-sites-backup.md#configure-automated-backups) do aplicativo Web que inclui conteúdo estático que nunca é alterado, como postagens ou imagens antigas de blog.
--	O aplicativo Web tem mais de 10 GB de conteúdo (que é o volume máximo de backup por vez).
+-	Você [configura backups semanais](web-sites-backup.md#configure-automated-backups) do aplicativo que contém conteúdo estático que nunca muda, como imagens ou postagens antigas no blog.
+-	Seu aplicativo tem mais de 10 GB de conteúdo (que é o volume máximo de backup por vez).
 -	Você não deseja fazer backup dos arquivos de log.
 
 Os backups parciais permitirão que você escolha exatamente quais arquivos deseja incluir no backup.
 
 ### Excluir arquivos do backup
 
-Para excluir arquivos e pastas dos backups, crie um arquivo `_backup.filter` na pasta wwwroot do aplicativo Web e especifique a lista de arquivos e pastas que deseja excluir. Um modo fácil de acessá-la é pelo [Console do Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console).
+Para excluir arquivos e pastas dos backups, crie um arquivo `_backup.filter` na pasta D:\\home\\site\\wwwroot do aplicativo e especifique a lista de arquivos e pastas que você deseja excluir. Um modo fácil de acessá-la é pelo [Console do Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 
-Suponha que você tenha um aplicativo Web que contenha arquivos de log e imagens estáticas de anos anteriores que nunca vão mudar. Você já tem um backup completo do aplicativo Web que inclui as imagens antigas. Agora, você quer fazer backup do aplicativo Web todos os dias, mas não quer pagar para armazenar arquivos de log ou de imagens estáticas que nunca mudam.
+Suponha que você tenha um aplicativo que contém arquivos de log e imagens estáticas de anos anteriores que nunca vão mudar. Você já tem um backup completo do aplicativo que inclui as imagens antigas. Agora, você quer fazer backup do aplicativo todos os dias, mas não quer pagar para armazenar arquivos de log ou de imagens estáticas que nunca mudam.
 
-![Pasta Logs][LogsFolder]
-![Pasta Imagens][ImagesFolder]
+![Pasta Logs][LogsFolder] ![Pasta Imagens][ImagesFolder]
 	
 As etapas abaixo mostram como você pode excluir esses arquivos do backup.
 
@@ -139,7 +127,7 @@ As etapas abaixo mostram como você pode excluir esses arquivos do backup.
 		D:\home\site\wwwroot\Images\2014
 		D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE] A última linha ilustra que você pode excluir os arquivos individualmente, assim como as pastas.
+	[AZURE.NOTE] A última linha mostra que você pode excluir arquivos individualmente, bem como pastas.
 
 2. Crie um arquivo chamado `_backup.filter` e coloque a lista acima no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
 
@@ -159,20 +147,18 @@ Agora, todos os arquivos e pastas especificados em `_backup.filter` serão exclu
 
 ## Como os backups são armazenados
 
-Depois de criar um ou mais backups para seu aplicativo Web, os backups ficarão visíveis na folha **Contêineres** de sua conta de armazenamento, bem como em seu aplicativo Web. Na conta de armazenamento, cada backup consiste em um arquivo .zip que contém os dados de backup e um arquivo .xml que contém um manifesto do conteúdo do arquivo .zip. Você pode descompactar e procurar esses arquivos se quiser acessar seus backups sem realmente executar uma restauração do aplicativo Web.
+Depois de criar um ou mais backups para seu aplicativo, os backups ficarão visíveis na folha **Contêineres** de sua conta de armazenamento, bem como em seu aplicativo. Na conta de armazenamento, cada backup consiste em um arquivo .zip que contém os dados de backup e um arquivo .xml que contém um manifesto do conteúdo do arquivo .zip. Será possível descompactar e procurar esses arquivos se você quiser acessar seus backups sem realmente executar uma restauração do aplicativo.
 
-O backup do banco de dados para o aplicativo Web é armazenado na raiz do arquivo. zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL com base na exportação do BACPAC, veja [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
+O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL com base na exportação do BACPAC, veja [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [AZURE.WARNING] A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
 
 <a name="nextsteps"></a>
 ## Próximas etapas
-Para obter informações sobre como restaurar o aplicativo Web do backup, veja [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode usar a API REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo (consulte [Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
 
-Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
+>[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
@@ -190,4 +176,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

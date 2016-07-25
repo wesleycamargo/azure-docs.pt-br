@@ -3,7 +3,7 @@ pageTitle="Como atualizar um serviço de nuvem | Microsoft Azure"
 description="Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade."
 services="cloud-services"
 documentationCenter=""
-authors="kenazk"
+authors="Thraka"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="10/26/2015"
-ms.author="kenazk"/>
+ms.date="05/05/2016"
+ms.author="adegeo"/>
 
 # Como atualizar um serviço de nuvem
 
@@ -26,7 +26,7 @@ O Azure organiza suas instâncias de função em agrupamentos lógicos chamados 
 
 O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para saber mais sobre o atributo upgradeDomainCount, consulte [Esquema WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) ou [Esquema WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, consulte [Como atualizar os lucros](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) posteriormente neste artigo.
+Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, consulte [Como atualizar os lucros](#howanupgradeproceeds) posteriormente neste artigo.
 
 > [AZURE.NOTE] Embora os termos **atualização** e **upgrade** tenham uma pequena diferença dentro do contexto do Azure, eles podem ser usados de forma intercambiável para os processos e descrições dos recursos neste documento.
 
@@ -132,7 +132,7 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a implantação:
 
 -   Quaisquer instâncias de função que ainda não foram atualizadas para a nova versão não serão atualizadas, porque essas instâncias já estão executando a versão de destino do serviço.
--   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (\*.cspkg) do serviço ou do arquivo de configuração (\*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
+-   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 
@@ -145,7 +145,7 @@ Essa funcionalidade é fornecida pelos seguintes recursos:
 
 Há algumas situações nas quais não há suporte para uma reversão de uma atualização ou upgrade, entre elas:
 
--   Redução nos recursos locais - se a atualização aumentar os recursos locais para uma função, a plataforma do Azure não permitirá a reversão. Para saber mais sobre como configurar os recursos locais para uma função, consulte [Configurar os recursos de armazenamento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Redução nos recursos locais - se a atualização aumentar os recursos locais para uma função, a plataforma do Azure não permitirá a reversão.
 -   Limites de cota - se a atualização foi uma operação de redução vertical, talvez você não tenha cota de computação suficiente para concluir a operação de reversão. Cada assinatura do Azure tem uma cota associada que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços hospedados que pertencem a essa assinatura. Se a execução de uma reversão de uma determinada atualização colocar sua assinatura acima da cota, a reversão não será habilitada.
 -   Condição de corrida - Se a atualização inicial tiver sido concluída, não será possível realizar uma reversão.
 
@@ -167,7 +167,7 @@ Duas operações, [Obter a implantação](https://msdn.microsoft.com/library/azu
 Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01" ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 ## Distribuição de funções em domínios de atualização
-O Azure distribui instâncias de uma função uniformemente por um determinado número de domínios de atualização, que pode ser configurado como parte do arquivo de definição (.csdef) do serviço. O número máximo de domínios de atualização é de 20 e o padrão é cinco. Para saber mais sobre como modificar o arquivo de definição de serviço, consulte [Esquema de definição de serviço do Azure (arquivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+O Azure distribui instâncias de uma função uniformemente por um determinado número de domínios de atualização, que pode ser configurado como parte do arquivo de definição (.csdef) do serviço. O número máximo de domínios de atualização é de 20 e o padrão é cinco. Para saber mais sobre como modificar o arquivo de definição de serviço, consulte [Esquema de definição de serviço do Azure (arquivo .csdef)](cloud-services-model-and-package.md#csdef).
 
 Por exemplo, se a sua função tiver dez instâncias, por padrão cada domínio de atualização conterá duas instâncias. Se a sua função tiver 14 instâncias, quatro dos domínios de atualização conterão três instâncias e um quinto domínio conterá duas.
 
@@ -182,4 +182,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## Próximas etapas
 [Como gerenciar os serviços de nuvem](cloud-services-how-to-manage.md)<br> [Como monitorar os serviços de nuvem](cloud-services-how-to-monitor.md)<br> [Como configurar os serviços de nuvem](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

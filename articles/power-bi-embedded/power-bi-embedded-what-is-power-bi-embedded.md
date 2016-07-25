@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # O que é o Microsoft Power BI Embedded?
 
-Com o **Power BI Embedded**, você pode integrar relatórios do Power BI a seus aplicativos móveis ou Web para que não precise compilar soluções personalizadas para visualizar dados para os seus usuários.
+Com **Power BI Embedded**, você pode integrar relatórios do Power BI diretamente a seus aplicativos móveis ou Web.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-O **Power BI Embedded** é um serviço do Azure que permite que ISVs (fornecedores de software independentes) revelem experiências de dados do Power BI em seus aplicativos. Como um ISV, vocês compilaram aplicativos. Esses aplicativos têm seus próprios usuários e um conjunto distinto de recursos. Esses aplicativos também podem ter alguns elementos de dados internos, como gráficos e relatórios que agora podem ser alimentados pelo **Microsoft Power BI Embedded**. Os usuários do aplicativo não é precisam de uma conta do Power BI para usar o seu aplicativo. Eles podem continuar a entrar no aplicativo que tinham antes e exibir e interagir com a experiência de bloco e emissão de relatórios do Power BI sem a necessidade de qualquer licença adicional.
+O **Power BI Embedded** é um serviço do Azure que permite que ISVs e desenvolvedores de aplicativo revelem experiências de dados do Power BI em seus aplicativos. Como desenvolvedor, você criou aplicativos, e esses aplicativos têm seus próprios usuários e um conjunto distinto de recursos. Esses aplicativos também podem ter alguns elementos de dados internos, como gráficos e relatórios que agora podem ser alimentados pelo Microsoft Power BI Embedded. Os usuários não precisam de uma conta do Power BI para usar seu aplicativo. Eles podem continuar a entrar no aplicativo como antes e exibir e interagir com a experiência de emissão de relatórios do Power BI sem a necessidade de qualquer licença adicional.
 
 ## Licenciamento do Microsoft Power BI Embedded
 
@@ -32,7 +32,7 @@ No modelo de uso do **Microsoft Power BI Embedded**, o licenciamento para o Powe
 
 ![](media\powerbi-embedded-whats-is\model.png)
 
-Como qualquer outro serviço no Azure, recursos para o **Microsoft Power BI Embedded** são provisionados por meio de [APIs do ARM do Azure](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
+Como qualquer outro serviço no Azure, recursos para o Power BI Embedded são provisionados por meio de [APIs do ARM](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
 
 ## Coleção de Espaços de Trabalho
 
@@ -48,17 +48,6 @@ Um **Espaço de Trabalho** é um contêiner de conteúdo do Power BI, que pode i
 
 ## Usando Coleções de Espaços de Trabalho e Espaços de Trabalho
 **Coleções de Espaços de Trabalho** e **Espaços de Trabalho** são contêineres de conteúdo que são usados e organizados da forma que melhor se encaixar no design do aplicativo que você está criando. Haverá muitas maneiras diferentes em que você poderia organizar o conteúdo deles. Você pode optar por colocar todo o conteúdo dentro de um espaço de trabalho e, depois, usar tokens de aplicativo para subdividir ainda mais o conteúdo entre seus clientes. Você também pode optar por colocar todos os seus clientes em espaços de trabalho separados, para que haja alguma separação entre eles. Ou, você pode optar por organizar os usuários por região em vez de organizá-los por cliente. Esse design flexível permite que você escolha a melhor maneira de organizar o conteúdo.
-## Fontes de Dados em Preview
-
-Estaremos habilitando um conjunto limitado de fontes de dados para Preview, da seguinte maneira:
-
-### Consulta Direta
-
-Daremos suporte a conexões de consulta direta a fontes de nuvem para Preview. Isso significa que você será capaz de se conectar às fontes de dados delas para mostrar os dados mais recentes. Essas fontes de dados devem ser acessíveis da nuvem e devem usar a autenticação básica. Alguns dos candidatos ideais para isso incluem:
-
--	SQL Azure
--	DW do SQL Azure
--	HD Insight Spark
 
 ## Conjuntos de Dados em Cache
 
@@ -93,9 +82,6 @@ Para um exemplo de como usar [CreateProvisionToken](https://msdn.microsoft.com/l
 
 ## Consulte também
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-- [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Tokens de Aplicativo](power-bi-embedded-get-started-sample.md#key-flow)
-- [APIs REST do Power BI](http://docs.powerbi.apiary.io/reference)
-- [Regiões do Azure](https://azure.microsoft.com/regions/)
+- [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

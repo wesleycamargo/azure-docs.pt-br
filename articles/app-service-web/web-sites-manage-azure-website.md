@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/27/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
 
@@ -60,8 +60,7 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
 ### Monitoramento
 
 - Usando o Portal do Azure, você pode [Adicionar métricas de desempenho](web-sites-monitor.md) como uso de CPU e o número de solicitações do cliente.
-- Para uma percepção mais aprofundada, use o New Relic para monitorar e gerenciar o desempenho. Consulte [Aplicativo Web do .NET no Serviço de Aplicativo do Azure com o gerenciamento de desempenho de aplicativo New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
-- [Dimensione seu aplicativo Web](web-sites-scale.md) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. Nas camadas Padrão e Premium, você também pode configurar o dimensionamento automático, para que seu aplicativo Web seja dimensionado automaticamente, em uma agenda fixa ou em resposta à carga.  
+- [Dimensione seu aplicativo Web](web-sites-scale.md) em resposta ao tráfego. Dependendo da sua faixa, você pode reduzir o número de VMs e/ou o tamanho das instâncias da VM. Nas camadas Padrão e Premium, você também pode configurar o dimensionamento automático, para que seu aplicativo Web seja dimensionado automaticamente, em uma agenda fixa ou em resposta à carga.
  
 ### Backups
 
@@ -70,7 +69,7 @@ Enquanto seu aplicativo Web estiver em execução, verifique se ele está dispon
 
 ### Solucionar problemas
 
-- Se algo der errado, você pode [solucionar no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), usando os logs de diagnóstico e depuração ao vivo na nuvem. 
+- Se algo der errado, você pode [solucionar no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), usando os logs de diagnóstico e depuração ao vivo na nuvem.
 - Fora do Visual Studio, há várias maneiras de coletar os logs de diagnóstico. Consulte [Habilitar o registro de log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
 - Para aplicativos Node.js, consulte [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-debug.md).
 
@@ -87,7 +86,7 @@ Considere o uso de uma [implantação em estágios](web-sites-staged-publishing.
 
 Se você usar o Visual Studio Team Services, é possível configurar a implantação contínua por meio do controle do código-fonte:
 
-- [Usando o TFVC (Controle de Versão do Team Foundation)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Usando o TFVC (Controle de Versão do Team Foundation)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Usando Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
@@ -98,4 +97,4 @@ Se você usar o Visual Studio Team Services, é possível configurar a implanta�
 
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

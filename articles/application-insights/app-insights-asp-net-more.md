@@ -24,9 +24,9 @@ Veja está um resumo dos recursos que você não pode ter testado no [Visual Stu
 ||
 |---|---
 |[**Testes de disponibilidade**](app-insights-monitor-web-app-availability.md)<br/>envie solicitações HTTP para seu aplicativo Web de todo o mundo em intervalos regulares. Nós o alertaremos se a resposta estiver lenta ou não for confiável.| 
-|[**Chamadas de dependência e AJAX**](app-insights-asp-net-dependencies.md)<br/>monitore consultas SQL e chamadas para REST ou outros recursos.|
+|[**Chamadas de dependência**](app-insights-asp-net-dependencies.md)<br/>Monitore consultas SQL e chamadas para REST ou outros recursos.|
 |[**Exceções**](app-insights-asp-net-exceptions.md)<br/>conte exceções com e sem tratamento, obtenha rastreamentos de pilha e clique até o código.|
-|[**Páginas da Web**](app-insights-javascript.md)<br/>monitore o uso e o desempenho da página instrumentando suas páginas da Web.
+|[**Páginas da Web**](app-insights-javascript.md)<br/>Monitore o uso e o desempenho da página e chamadas AJAX, instrumentando suas páginas da Web.
 |**Desempenho do host: [Diagnóstico do Azure](app-insights-azure-diagnostics.md), [Contadores de desempenho do Windows](app-insights-web-monitor-performance.md)**<br/>veja o uso da CPU e outras métricas de contexto. |![](./media/app-insights-asp-net-more/04.png)
 |[**API do SDK - telemetria personalizada**](app-insights-api-custom-events-metrics.md)<br/>Envie seus próprios eventos e métricas para ter uma exibição mais detalhada do desempenho e do uso do aplicativo, tanto no servidor quanto no código do cliente.|
 |[**Integração de log**](app-insights-asp-net-trace-logs.md)<br/>Se você usar uma estrutura de registros como Log4Net, NLog ou System.Diagnostics.Trace, haverá um adaptador que envia os rastreamentos ao Application Insights com outros dados de telemetria.|
@@ -52,4 +52,4 @@ Veja está um resumo dos recursos que você não pode ter testado no [Visual Stu
 |**API de acesso a dados**<br/>em breve.|
 |[**Amostragem**](app-insights-sampling.md)<br/>reduz a taxa de dados e ajuda você a permanecer dentro do limite de seu tipo de preço.|![Bloco de amostragem](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

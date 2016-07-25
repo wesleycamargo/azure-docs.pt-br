@@ -4,20 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Brightspace by Desire2Learn
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Brightspace by Desire2Learn.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Brightspace by Desire2Learn. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Brightspace by Desire2Learn
@@ -38,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Brightspace by Desire2Learn, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Brightspace by Desire2Learn**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Brightspace by Desire2Learn**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798959.png "Configurar o logon único")
 
@@ -90,18 +89,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Envie o arquivo de metadados baixado para a equipe de suporte do Brightspace by Desire2Learn.
 
-    >[AZURE.NOTE]A equipe de suporte do Brightspace by Desire2Learn precisa fazer a configuração real do SSO.
-    Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+    >[AZURE.NOTE] A equipe de suporte do Brightspace by Desire2Learn precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no Brightspace by Desire2Learn, eles devem ser provisionados no Brightspace by Desire2Learn.  
-No caso do Brightspace by Desire2Learn, as contas de usuário precisam ser criadas pela equipe de suporte do Brightspace by Desire2Learn.
+Para permitir que os usuários do AD do Azure façam logon no Brightspace by Desire2Learn, eles devem ser provisionados no Brightspace by Desire2Learn. No caso do Brightspace by Desire2Learn, as contas de usuário precisam ser criadas pela equipe de suporte do Brightspace by Desire2Learn.
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do Brightspace by Desire2Learn ou as APIs fornecidas pelo Brightspace by Desire2Learn para provisionar as contas de usuário do Active Directory do Azure.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do Brightspace by Desire2Learn ou as APIs fornecidas pelo Brightspace by Desire2Learn para provisionar as contas de usuário do Active Directory do Azure.
 
 ##Atribuindo usuários
 
@@ -109,9 +106,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Brightspace por Desire2Learn, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Brightspace by Desire2Learn**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Brightspace by Desire2Learn**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798964.png "Atribuir Usuários")
 
@@ -121,4 +118,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

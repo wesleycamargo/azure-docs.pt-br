@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # Escalando aplicativos em um Ambiente do Serviço de Aplicativo #
@@ -21,7 +21,7 @@
 No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:
 
 - plano de preços
-- tamanho do trabalho 
+- tamanho do trabalho
 - número de instâncias.
 
 Em um ASE não é necessário selecionar ou alterar o plano de preços. Em termos de recursos, ele já está no nível de recurso de preços Premium.
@@ -84,4 +84,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

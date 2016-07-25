@@ -1,77 +1,81 @@
-<properties 
-   pageTitle="Streaming de dados de diagnóstico do Azure no afunilamento usando os Hubs de Eventos"
-   description="Ilustra como configurar de ponta a ponta o Diagnóstico do Azure com Hubs de Eventos, incluindo diretrizes para cenários comuns."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="tomarcher"
-   manager="douge"
-   editor="" />
-<tags 
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/01/2016"
-   ms.author="tarcher" />
+<properties
+	pageTitle="Transmitindo dados do Diagnóstico do Azure no afunilamento usando os Hubs de Eventos | Microsoft Azure"
+	description="Ilustra como configurar o Diagnóstico do Azure com Hubs de Eventos de ponta a ponta, incluindo as diretrizes para cenários comuns."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="" />
+<tags
+	ms.service="event-hubs"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/12/2016"
+	ms.author="sethm" />
 
-# Streaming de dados de diagnóstico do Azure no afunilamento usando os Hubs de Eventos
+# Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
 
-## Visão geral
-O diagnóstico do Azure fornece maneiras flexíveis de coletar métricas e logs de VMs de computação e transferir para o Armazenamento do Azure. A partir de março de 2016 (SDK 2.9), há a capacidade de coletar diagnósticos do Azure em fontes de dados totalmente personalizadas e transferir dados pelo afunilamento em questão de segundos usando os Hubs de Eventos do Azure.
+O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e os logs das VMs (máquinas virtuais) dos serviços de nuvem e para transferir os resultados para o armazenamento do Azure. A partir de março de 2016 (SDK 2.9), você poderá coletar diagnósticos para fontes de dados totalmente personalizadas e transferir dados do afunilamento em questão de segundos usando os Hubs de Eventos do Azure.
 
 Entre os tipos de dados com suporte estão:
 
-- Eventos de ETW
+- Eventos de ETW (Rastreamento de Eventos para Windows)
 - Contadores de desempenho
-- Logs de Eventos do Windows 
+- Logs de eventos do Windows
 - Logs de aplicativo
 - Logs de infraestrutura do Diagnóstico do Azure
- 
-Este artigo mostrará a configuração completa do diagnóstico do Azure com os Hubs de Eventos. Também há orientações para cenários comuns, por exemplo, personalizar quais logs e métricas são inseridas nos Hubs de eventos, como alterar a configuração em cada ambiente, um exemplo, dentre muitos, de como você pode exibir os dados transmitidos dos Hubs de eventos e também como solucionar problemas de conexão.
+
+Este artigo mostrará a configuração completa do Diagnóstico do Azure com os Hubs de Eventos. Também são fornecidas diretrizes para os seguintes cenários comuns:
+
+- Como personalizar as métricas e os logs que são coletados para os Hubs de Eventos
+- Como alterar as configurações em cada ambiente
+- Como exibir dados de fluxo dos Hubs de Eventos
+- Como solucionar problemas de conexão
 
 ## Pré-requisitos
-Há suporte para a coleta de diagnósticos do Azure nos Hubs de Eventos em todos os tipos de computação - Serviço de Nuvem, VM, VMSS e Servic Fabric - que oferecem suporte a WAD, começando no Azure SDK 2.9 e nas Ferramentas do Azure correspondentes para Visual Studio.
-  
-- O Diagnóstico do Azure extensão 1.6 ([SDK do Azure para .NET 2.9 ou superior](https://azure.microsoft.com/downloads/) resolve isso por padrão)
-- [Visual Studio 2013 ou superior](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- Uma configuração bem-sucedida anterior à configuração do Diagnóstico do Azure no aplicativo usando um arquivo *.wadcfgx*, usando um dos métodos a seguir:
-	- Visual Studio: [Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+Há suporte para a coleta de Hubs de Eventos no Diagnósticos do Azure nos Serviços de Nuvem, nas VMs, nos Conjuntos de escala de Máquina Virtual e no Service Fabric, começando no Azure SDK 2.9 e nas Ferramentas do Azure correspondentes para o Visual Studio.
+
+- Extensão 1.6 do Diagnóstico do Azure (o [SDK do Azure para .NET 2.9 ou posterior](https://azure.microsoft.com/downloads/) resolve isso por padrão)
+- [Visual Studio 2013 ou posterior.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- As configurações existentes do Diagnóstico do Azure em um aplicativo usando um arquivo *.wadcfgx* e um dos seguintes métodos:
+	- Visual Studio: [Configurando o diagnóstico dos Serviços de Nuvem e das Máquinas Virtuais do Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 	- Windows PowerShell: [Habilitar o diagnóstico nos Serviços de Nuvem do Azure usando o PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 - Namespace de Hubs de Eventos provisionado de acordo com o artigo [Get started with Event Hubs (Introdução aos Hubs de Eventos)](./event-hubs-csharp-ephcs-getstarted.md)
 
-## Conexão do Diagnóstico do Azure ao coletor do Hubs de Eventos
-O Diagnóstico do Azure sempre envia logs e métricas, por padrão, a uma conta de Armazenamento do Azure. Um aplicativo pode coletar adicionalmente nos Hubs de Eventos, adicionando uma nova seção **Coletores** ao elemento **WadCfg**, na seção **PublicConfig** do arquivo *.wadcfgx*. No Visual Studio, o arquivo *.wadcfgx* é armazenado em *Projeto do Serviço de Nuvem > Funções > (NomeDaFunção) > arquivo diagnostics.wadcfgx*.
-  
+## Conectar o Diagnóstico do Azure no coletor dos Hubs de Eventos
+O Diagnóstico do Azure sempre envia logs e métricas, por padrão, a uma conta de Armazenamento do Azure. Além disso, um aplicativo pode coletar nos Hubs de Eventos, adicionando uma nova seção **Coletores** ao elemento **WadCfg**, na seção **PublicConfig** do arquivo *.wadcfgx*. No Visual Studio, o arquivo *.wadcfgx* é armazenado no seguinte caminho: **Projeto do Serviço de Nuvem** > **Funções** > **(RoleName)** > arquivo **diagnostics.wadcfgx**.
+
 	  <SinksConfig>
 	    <Sink name="HotPath">
 	      <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
 	    </Sink>
 	  </SinksConfig>
 
-Neste exemplo, a URL do hub de eventos é definida como o namespace totalmente qualificado do hub de eventos (namespace ServiceBus + "/" + nome do hub de evento).
+Neste exemplo, a URL do hub de eventos é definida no namespace totalmente qualificado do hub de eventos: namespace ServiceBus + "/" + nome do hub de eventos.
 
-A URL do hub de eventos é exibida no [Portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) no painel dos Hubs de Eventos.
+A URL do hub de eventos é exibida no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), no painel Hubs de Eventos.
 
-O nome do **Coletor** pode ser definido como qualquer cadeia de caracteres válida, desde que o mesmo valor seja usado consistentemente no arquivo de configuração.
+O nome do **Coletor** pode ser definido como qualquer cadeia de caracteres válida, desde que o mesmo valor seja usado de maneira consistente no arquivo de configuração.
 
-**Observação:** pode haver outros coletores configurados nesta seção, como "applicationInsights". O diagnóstico do Azure permite a definição de um ou mais coletores, desde que cada coletor também seja declarado na seção **PrivateConfig**.
+>[AZURE.NOTE]  Pode haver outros coletores configurados nesta seção, como o *applicationInsights*. O Diagnóstico do Azure permitirá a definição de um ou mais coletores, se cada coletor também for declarado na seção **PrivateConfig**.
 
-O coletor do Hubs de Eventos também deve ser declarado e definido na seção **PrivateConfig** do arquivo de configuração *.wadcfgx*.
+O coletor dos Hubs de Eventos também deve ser declarado e definido na seção **PrivateConfig** do arquivo de configuração *.wadcfgx*.
 
 	  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
 	    <StorageAccount name="" key="" endpoint="" />
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-O **SharedAccessKeyName** deve corresponder a uma chave SAS e uma política definidas no namespace **ServiceBus/EventHub**. Faça isso navegando até o painel do hub de eventos no [portal clássico do Azure](https://manage.windowsazure.com), selecionando a guia **Configurar** e configurando uma política nomeada (por exemplo, "SendRule"), que tem permissões de *Envio*. **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui, especialmente se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, que é um sinal de que um ativo de downstream definirá os valores; por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* definirá os nomes e chaves apropriados do ambiente.
+O **SharedAccessKeyName** deve ser compatível com uma chave de SAS (Assinaturas de Acesso Compartilhado) e com uma política definida no namespace **ServiceBus/EventHub**. Navegue até o painel de Hubs de Eventos no [Portal do Azure](https://manage.windowsazure.com), selecione a guia **Configurar** e configure uma política nomeada (por exemplo, "SendRule") que tenha permissões de *Envio*. A **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui, especialmente se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, o que é um sinal de que um ativo de downstream definirá os valores. Por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* definirá as chaves e os nomes apropriados do ambiente.
 
->[AZURE.WARNING] Lembre-se de que a chave SAS do hub de eventos é armazenada em texto sem formatação no arquivo *.wadcfgx*. Muitas vezes, isso é verificado no controle do código fonte ou como um ativo no servidor de compilação e, portanto, você deve proteger como apropriado. Recomendamos o uso de uma chave SAS com permissões *Somente de envio*, para que qualquer usuário mal-intencionado possa, no máximo, gravar no hub de eventos, mas nunca ouvir ou gerenciá-lo.
+>[AZURE.WARNING] Lembre-se de que a chave de SAS do hub de eventos é armazenada em texto sem formatação no arquivo *.wadcfgx*. Muitas vezes, esta chave é verificada no controle do código-fonte ou está disponível como um ativo no servidor de build e, portanto, você deve protegê-la de maneira apropriada. Recomendamos o uso de uma chave de SAS com permissões do tipo *Somente envio*, de forma que um usuário mal-intencionado poderá gravar no hub de eventos, mas nunca poderá ouvir nem gerenciá-lo.
 
-## Configuração de logs e de métricas do Diagnóstico do Azure para coletor com os Hubs de Eventos
-Como discutido anteriormente, todos os dados de diagnóstico padrão e personalizados (por exemplo, métricas e logs) são automaticamente coletados no Armazenamento do Azure em intervalos configurados. Com os Hubs de Eventos (e qualquer coletor adicional), você tem a opção de especificar a coleta de qualquer nó raiz ou folha na hierarquia com o hub de eventos. Isso inclui eventos de ETW, contadores de desempenho, logs de eventos do Windows e logs de aplicativo.
+## Configurar logs e métricas do Diagnóstico do Azure para o coletor com os Hubs de Eventos
+Como discutido anteriormente, todos os dados de diagnóstico padrão e personalizados, ou seja, as métricas e os logs, são automaticamente coletados no Armazenamento do Azure em intervalos configurados. Com os Hubs de Eventos e com qualquer outro coletor, você pode especificar a coleta de qualquer nó raiz ou folha na hierarquia com o hub de eventos. Isso inclui eventos de ETW, contadores de desempenho, logs de eventos do Windows e logs de aplicativo.
 
-É importante considerar quantos pontos de dados devem ser transferidos para os Hubs de Eventos. Normalmente, os desenvolvedores usam isso para dados de baixa latência de afunilamento que devem ser consumidos e interpretados rapidamente (por exemplo, sistemas de monitoramento e alerta ou regras de dimensionamento automático). Isso também pode ser usado para configurar uma repositório alternativo de pesquisa ou análise , por exemplo, Stream Analytics, ElasticSearch, um sistema de monitoramento personalizado ou seu sistema de monitoramento de terceiros favorito.
+É importante considerar quantos pontos de dados devem ser transferidos para os Hubs de Eventos. Normalmente, os desenvolvedores transferem dados de caminhos recorrentes e de baixa latência, que devem ser consumidos e interpretados rapidamente. Os sistemas que monitoram os alertas ou as regras de dimensionamento automático são exemplos. Um desenvolvedor também pode configurar um repositório de análise alternativo ou um repositório de pesquisa – por exemplo, o Stream Analytics do Azure, o Elasticsearch, um sistema de monitoramento personalizado ou um sistema de monitoramento favorito de outros usuários.
 
 Veja a seguir alguns exemplos de configurações.
 
@@ -86,7 +90,7 @@ Veja a seguir alguns exemplos de configurações.
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
         </PerformanceCounters>
 
-No exemplo a seguir, o coletor é aplicado ao nó **PerformanceCounters** pai na hierarquia, o que significa que todos os **PerformanceCounters** filhos serão enviados aos Hubs de Eventos.
+No exemplo a seguir, o coletor é aplicado ao nó pai **PerformanceCounters** na hierarquia, o que significa que todos os **PerformanceCounters** filho serão enviados aos Hubs de Eventos.
 
         <PerformanceCounters scheduledTransferPeriod="PT1M">
           <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
@@ -99,37 +103,37 @@ No exemplo a seguir, o coletor é aplicado ao nó **PerformanceCounters** pai na
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
         </PerformanceCounters>
 
-No exemplo acima, o coletor é aplicado a apenas três contadores: Solicitações Enfileiradas, Solicitações Rejeitadas e % do Tempo do processador.
+No exemplo anterior, o coletor é aplicado a apenas três contadores: Solicitações Enfileiradas, Solicitações Rejeitadas e % do Tempo do processador.
 
-O exemplo a seguir mostra como um desenvolvedor pode assumir o controle e limitar a quantidade de dados enviados, a fim de definir as métricas essenciais usadas para a integridade deste serviço.
+O exemplo a seguir mostra como um desenvolvedor pode limitar a quantidade de dados enviados, a fim de definir as métricas essenciais que são usadas para a integridade deste serviço.
 
         <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
 
-Neste exemplo, o coletor é aplicado aos logs e filtra apenas para o rastreamento de nível Erro.
- 
-## Implantação e atualização de uma configuração de diagnóstico e de aplicativo do Serviço de Nuvem
+Neste exemplo, o coletor é aplicado aos logs e é filtrado apenas para o rastreamento de nível de erro.
 
-O caminho mais fácil para implantar o aplicativo juntamente com a configuração de coletor dos Hubs de Eventos é usando o Visual Studio. Para exibir e fazer as edições desejadas, abra o arquivo *.wadcfgx* no Visual Studio, que é armazenado em *Projeto do Serviço de Nuvem -> Funções -> (NomeDaFunção) -> arquivo diagnostics.wadcfgx* e salve ao concluir.
+## Implantar e atualizar uma configuração de aplicativo e diagnóstico dos Serviços de Nuvem
 
-Neste ponto, todas as ações de implantação e atualização da implantação no Visual Studio, Visual Studio Team System ou comandos ou scripts com base em MSBUILD (usando /t:publish target) incluirão *.wadcfgx* no processo de empacotamento. Implante-o no Azure usando a extensão do agente WAD apropriada com suas VMs.
-  
-Após a implantação bem-sucedida do aplicativo e da configuração do Diagnóstico do Azure, você verá imediatamente a atividade no painel do hub de eventos. Essa é uma indicação de que você está pronto para começar a ver os dados do afunilamento no cliente ouvinte ou na ferramenta de análise de sua escolha.
- 
-Na figura a seguir, o painel do hub de eventos mostra o envio íntegro de dados de diagnóstico para o hub de eventos, começando um pouco após às 23h, quando o aplicativo foi implantado com *.wadcfgx* atualizado e o coletor configurado corretamente.
+O Visual Studio fornece o caminho mais fácil para implantar o aplicativo e a configuração do coletor de Hubs de Eventos. Para exibir e editar o arquivo, abra o arquivo *.wadcfgx* no Visual Studio, edite e salve-o. O caminho é **Projeto de Serviço de Nuvem** > **Funções** > **(RoleName)** > **diagnostics.wadcfgx**.
+
+Neste ponto, todas as implantações e ações de atualização de implantações no Visual Studio, no Visual Studio Team System e em todos os comandos ou scripts que são baseados no MSBuild e usam o destino /t:publish incluirão o *.wadcfgx* no processo de empacotamento. Além disso, as implantações e atualizações implantarão o arquivo no Azure usando a extensão apropriada do agente de diagnóstico do Azure em suas VMs.
+
+Depois de implantar o aplicativo e a configuração do Diagnóstico do Azure, você imediatamente verá a atividade no painel do hub de eventos. Isso indica que você está pronto para começar a ver os dados do afunilamento no cliente ouvinte ou na ferramenta de análise de sua escolha.
+
+Na figura a seguir, o painel do hub de eventos mostra os envios íntegros dos dados de diagnóstico para o hub de eventos começando em algum momento depois das 23:00 h. Ou seja, quando o aplicativo foi implantado com um arquivo *.wadcfgx* atualizado e o coletor foi configurado corretamente.
 
 ![][0]
-  
->[AZURE.NOTE] Quando você faz atualizações no arquivo de configuração do Diagnóstico do Azure (.wadcfgx), recomendamos o envio das atualizações por push para todo o aplicativo e também a configuração usando a publicação do Visual Studio ou o script do Windows PowerShell.
 
-## Exibição de dados do afunilamento
+>[AZURE.NOTE] Quando você faz atualizações no arquivo de configuração do Diagnóstico do Azure (.wadcfgx), recomendamos o envio por push das atualizações para todo o aplicativo e também a configuração usando a publicação do Visual Studio ou o script do Windows PowerShell.
 
-Como discutido anteriormente, há muitos casos de uso sobre ouvir e processar dados dos Hubs de Eventos.
-  
-Uma abordagem simples é criar um pequeno aplicativo de console de teste para ouvir o hub de eventos e imprimir a transmissão de saída. O código a seguir (que é explicado mais detalhadamente no artigo, [Introdução aos Hubs de Eventos](./event-hubs-csharp-ephcs-getstarted.md)) pode ser colocado em um aplicativo de console.
+## Exibir dados de caminhos recorrentes
+
+Como discutido anteriormente, há muitos casos de uso sobre ouvir e processar os dados dos Hubs de Eventos.
+
+Uma abordagem simples é criar um pequeno aplicativo de console de teste para ouvir o hub de eventos e imprimir a transmissão de saída. Você pode colocar o código a seguir, que é explicado em mais detalhes na [Introdução aos Hubs de Eventos](./event-hubs-csharp-ephcs-getstarted.md), em um aplicativo de console.
 
 Observe que o aplicativo de console deve incluir o [pacote EventProcessor do Nuget](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
 
-Substitua os valores entre colchetes na função **Main** abaixo por valores de seus recursos.
+Lembre-se de substituir os valores entre colchetes na função **Principal** pelos valores de seus recursos.
 
 	//Console application code for EventHub test client
 	using System;
@@ -139,13 +143,13 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 	using System.Text;
 	using System.Threading.Tasks;
 	using Microsoft.ServiceBus.Messaging;
-	
+
 	namespace EventHubListener
 	{
 	    class SimpleEventProcessor : IEventProcessor
 	    {
 	        Stopwatch checkpointStopWatch;
-	
+
 	        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	        {
 	            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
@@ -154,7 +158,7 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 	                await context.CheckpointAsync();
 	            }
 	        }
-	
+
 	        Task IEventProcessor.OpenAsync(PartitionContext context)
 	        {
 	            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
@@ -162,22 +166,22 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 	            this.checkpointStopWatch.Start();
 	            return Task.FromResult<object>(null);
 	        }
-	
+
 	        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 	        {
 	            foreach (EventData eventData in messages)
 	            {
 	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
-	
+
 	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
 	                    context.Lease.PartitionId, data));
-	
+
 	                foreach (var x in eventData.Properties)
 	                {
 	                    Console.WriteLine(string.Format("    {0} = {1}", x.Key, x.Value));
 	                }
 	            }
-	
+
 	            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
 	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
 	            {
@@ -186,7 +190,7 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 	            }
 	        }
 	    }
-	
+
 	    class Program
 	    {
 	        static void Main(string[] args)
@@ -196,14 +200,14 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 	            string storageAccountName = "<Storage Account Name>";
 	            string storageAccountKey = "<Storage Account Key>”;
 	            string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
-	
+
 	            string eventProcessorHostName = Guid.NewGuid().ToString();
 	            EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
 	            Console.WriteLine("Registering EventProcessor...");
 	            var options = new EventProcessorOptions();
 	            options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
 	            eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
-	
+
 	            Console.WriteLine("Receiving. Press enter key to stop worker.");
 	            Console.ReadLine();
 	            eventProcessorHost.UnregisterEventProcessorAsync().Wait();
@@ -213,22 +217,22 @@ Substitua os valores entre colchetes na função **Main** abaixo por valores de 
 
 ## Solucionar problemas do coletor dos Hubs de Eventos
 
-- O hub de eventos não mostra a atividade de entrada ou saída de eventos conforme o esperado
+- O hub de eventos não mostra a atividade de entrada ou saída de eventos conforme o esperado.
 
-	Verifique se o seu hub de eventos foi provisionado com êxito. Todas as informações de conexão na seção **PrivateConfig** de *.wadcfgx* devem corresponder aos valores de seu recurso, como visto no portal. Verifique se você tem uma política SAS definida ("SendRule", no exemplo) no portal e se a permissão de Envio foi concedida.
+	Verifique se o seu hub de eventos foi provisionado com êxito. Todas as informações de conexão na seção **PrivateConfig** de *.wadcfgx* devem corresponder aos valores de seu recurso, como visto no portal. Verifique se você tem uma política SAS definida ("SendRule", no exemplo) no portal e se a permissão de *Envio* foi concedida.
 
-- Depois de executar uma atualização, o hub de eventos não mostra mais a atividade de entrada ou saída dos eventos
+- Depois de uma atualização, o hub de eventos não mostrará mais a atividade de entrada ou saída dos eventos.
 
-	Primeiro, verifique se as informações de configuração e do hub de evento mostram correspondência, de acordo com o exposto acima. Alguns problemas são causados pela redefinição de **PrivateConfig** em uma atualização de implantação. A solução recomendada é fazer todas as alterações em *.wadcfgx* no projeto e, depois, enviar uma atualização completa do aplicativo. Se isso não for possível, certifique-se de que a atualização do diagnóstico envie uma **PrivateConfig** completa, incluindo a chave SAS.
+	Primeiro, verifique se as informações do hub de eventos e de configuração estão corretas, conforme explicado anteriormente. Às vezes, a **PrivateConfig** é redefinida em uma atualização de implantação. A solução recomendada é fazer todas as alterações em *.wadcfgx* no projeto e, depois, enviar uma atualização completa do aplicativo por push. Se isso não for possível, verifique se a atualização do diagnóstico enviará por push uma **PrivateConfig** completa, que inclui a chave SAS.
 
-- Tentei o procedimento acima e o hub de eventos ainda não está funcionando
+- Eu testei as sugestões, mas o hub de eventos ainda não está funcionando.
 
-	Tente procurar na tabela do Armazenamento do Azure que contém logs e erros do próprio diagnóstico do Azure: **WADDiagnosticInfrastructureLogsTable**. Uma opção é usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://www.storageexplorer.com) para se conectar a essa conta de armazenamento, exibir essa tabela e adicionar uma Consulta por TimeStamp nas últimas 24 horas. Você pode usar a ferramenta para exportar o CSV e abri-lo em um aplicativo como o Microsoft Excel, pois o Excel facilita a pesquisa por cadeias de caracteres de cartão de chamada como "EventHubs" para ver qual erro é relatado.
+	Tente examinar a tabela do Armazenamento do Azure que contém logs e erros do próprio diagnóstico do Azure: **WADDiagnosticInfrastructureLogsTable**. Uma opção é usar uma ferramenta, como o [Gerenciador de Armazenamento do Azure](http://www.storageexplorer.com), para se conectar a esta conta de armazenamento, exibir esta tabela e adicionar uma consulta por carimbo de data/hora nas últimas 24 horas. Você pode usar a ferramenta para exportar um arquivo .csv e abri-lo em um aplicativo, como o Microsoft Excel. O Excel facilita a pesquisa de cadeias de caracteres de cartão, como EventHubs, para ver qual erro é relatado.
 
 ## Próximas etapas
-• [Saiba mais sobre Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/)
+• [Saiba mais sobre os Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/)
 
-## Apêndice: Concluir o exemplo de arquivo de configuração do diagnóstico do Azure (.wadcfgx)
+## Apêndice: Concluir o exemplo de arquivo de configuração do Diagnóstico do Azure (.wadcfgx)
 	<?xml version="1.0" encoding="utf-8"?>
 	<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
 	  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -295,4 +299,4 @@ O *ServiceConfiguration.Cloud.cscfg* complementar para este exemplo se parece co
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

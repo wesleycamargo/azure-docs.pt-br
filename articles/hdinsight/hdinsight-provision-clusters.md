@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/09/2016"
+   ms.date="07/08/2016"
    ms.author="jgao"/>
 
 # Crie clusters Hadoop baseados no Windows no HDInsight
@@ -45,7 +45,7 @@ Cada tipo de cluster tem sua própria terminologia para nós no cluster, bem com
 |Storm|Nó do Nimbus (2), Servidor do supervisor (1+), Nó do Zookeeper (3)|![Nós de cluster Storm do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Nó de cabeçalho (2), Nó de trabalho (1+), Nó do Zookeeper (3) (gratuito para tamanho de VM A1 do Zookeepers)|![Nós de cluster Spark do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Entre parênteses está o número de nós para cada tipo de nó.
+(Observação: entre parênteses está o número de nós para cada tipo de nó.)
 
 > [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, deverá selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
 
@@ -110,7 +110,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	Para obter mais informações sobre o uso de repositórios de blobs secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-    Além do Armazenamento de blobs do Azure, também é possível usar o [repositório Azure Data Lake](data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para obter instruções, veja [Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+    Além do Armazenamento de blobs do Azure, também é possível usar o [Azure Data Lake Store](data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para obter instruções, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
     
 - **Local (Região)**
 
@@ -182,16 +182,20 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 Em alguns casos, você poderá adicionar mais armazenamento ao cluster. Por exemplo, se você tiver várias Contas do Armazenamento do Azure para diferentes regiões geográficas ou para diferentes serviços, mas desejar analisá-los com o HDInsight.
 
-Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter mais informações sobre como usar repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Repositório Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter mais informações sobre como usar repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 ## Usar o Hive/Oozie metastore
 
 É altamente recomendável usar um metastore personalizado se desejar manter as tabelas do Hive depois de excluir o cluster HDInsight, para fins de anexação desse metastore a outro cluster HDInsight no futuro.
 
+> [AZURE.IMPORTANT] O metastore HDInsight não é compatível com versões anteriores. Por exemplo, você não pode usar um metastore de um cluster do HDInsight 3.3 para criar um cluster do HDInsight 3.2.
+
 O metastore contém metadados de Hive e Oozie, como tabelas Hive, partições, esquemas e colunas. Usar o metastore ajuda a manter seus metadados de Hive e Oozie, para que você não precise recriar tabelas Hive ou trabalhos do Oozie ao criar um novo cluster. Por padrão, o Hive usa um banco de dados SQL do Azure integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído. Por exemplo, você tem um cluster criado com um metastore do Hive. Você criou algumas tabelas do Hive. Depois de excluir o cluster e recriá-lo usando o mesmo Hive metastore, você poderá ver as tabelas do Hive criadas no cluster original.
 
-> [AZURE.NOTE] A configuração de Metastore não está disponível para tipos de cluster HBase.
+A configuração de Metastore não está disponível para tipos de cluster HBase.
+
+> [AZURE.IMPORTANT] Ao criar um metastore personalizado, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.
 
 ## Usar redes virtuais do Azure
 
@@ -254,4 +258,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

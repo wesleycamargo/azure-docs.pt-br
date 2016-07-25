@@ -3,8 +3,8 @@
 	description="Descreve como funciona o script do PowerShell no projeto de implantação do Grupo de Recursos do Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Visão geral do script de implantação de projeto do Grupo de Recursos do Azure
 
@@ -94,7 +94,7 @@ Veja a seguir uma descrição das ações executadas por seções específicas d
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.	Esta seção verifica se o arquivo <app name>.parameters.json (conhecido como o "Arquivo de parâmetros") tem um nó pai chamado **parameters** (no bloco `else`). Caso contrário, ela não terá um nó pai. Qualquer um dos formatos é aceitável.
+1.	Esta seção verifica se o arquivo <nome do aplicativo>.parameters.json (conhecido como o "Arquivo de parâmetros") tem um nó pai chamado **parameters** (no bloco `else`). Caso contrário, ela não terá um nó pai. Qualquer um dos formatos é aceitável.
     
 	```
     if ($JsonParameters -eq $null) {
@@ -105,7 +105,7 @@ Veja a seguir uma descrição das ações executadas por seções específicas d
         }
     ```
 
-1.	Itere na coleção de parâmetros JSON. Se um valor de parâmetro tiver sido atribuído para *\_artifactsLocation* ou *\_artifactsLocationSasToken*, defina a variável *$OptionalParameters* com esses valores. Isso impede que o script substitua inadvertidamente os valores de parâmetro fornecidos por você.
+1.	Itere na coleção de parâmetros JSON. Se um valor de parâmetro foi atribuído a *\_artifactsLocation* ou *\_artifactsLocationSasToken*, defina a variável *$OptionalParameters* com esses valores. Isso impede que o script substitua inadvertidamente os valores de parâmetro fornecidos por você.
 
     ```
     $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -264,4 +264,4 @@ Saiba mais sobre o Gerenciador de Recursos do Azure lendo [Visão geral do Geren
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

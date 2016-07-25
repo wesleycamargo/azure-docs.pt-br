@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # Melhorar o desempenho ao compactar arquivos
@@ -114,15 +114,16 @@ Essas tabelas descrevem o comportamento de compactação CDN do Azure para cada 
 |----------------|-----------|------------|-----|
 |Compactado|Compactado|Compactado|CDN transcodifica entre os formatos com suporte|
 |Compactado|Não compactado|Compactado|CDN executa compactação|
-|Compactado|Não armazenado em cache|Compactado|CDN executará compactação se a origem for retornada descompactada|
-|Não compactado|Compactado|Não compactada|CDN executa descompactação|
+|Compactado|Não armazenado em cache|Compactado|O CDN executará compactação se a origem for retornada descompactada. O **Azure CDN da Verizon** passará o arquivo descompactado na primeira solicitação e, em seguida, compactará e armazenará em cache o arquivo para solicitações subsequentes. Os arquivos com o cabeçalho `Cache-Control: no-cache` nunca serão compactados. 
+|Não compactada|Compactado|Não compactada|CDN executa descompactação|
 |Não compactado|Não compactada|Não compactada| |	
-|Não compactado|Não armazenado em cache|Não compactada| |	
+|Não compactado|Não armazenado em cache|Não compactada| |
 
-## Observações
-1. Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.  
+## Compactação de CDN dos Serviços de Mídia
+
+Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.
 
 ## Consulte também
-- [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
+- [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -132,7 +132,7 @@ O [Sudoku](https://en.wikipedia.org/wiki/Sudoku) é um quebra-cabeça lógico co
 
 - As células são separadas por um espaço
 
-Agora, há uma certa forma de construir o quebra-cabeças Sudoku que não permite repetir um número na mesma coluna ou linha. Felizmente, há um exemplo no cluster do HDInsight que está construído corretamente. Ele está localizado em **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** e contém o seguinte:
+Há uma certa forma de construir o quebra-cabeças Sudoku que não permite repetir um número na mesma coluna ou linha. Há um exemplo no cluster do HDInsight que está construído corretamente. Ele está localizado em **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** e contém o seguinte:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -236,4 +236,4 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

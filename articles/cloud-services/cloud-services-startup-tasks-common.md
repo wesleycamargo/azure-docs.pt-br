@@ -28,22 +28,7 @@ Muitas das tarefas aqui usam
 
 ## Definir variáveis de ambiente antes de iniciar uma função
 
-Você pode definir variáveis de ambiente para uma função inteira adicionando o elemento [Runtime] à definição da função no arquivo de definição de serviço.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-Se você precisar de variáveis de ambiente definidas para uma tarefa específica, que não sejam compartilhadas por outras tarefas, poderá usar o elemento [Environment] dentro do elemento [Task].
+Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Environment] dentro do elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,7 +376,6 @@ A maneira mais simples de detectar se uma tarefa já foi executada é criar um a
     REM   Exit normally.
     EXIT /B 0
 
-
 ## Práticas recomendadas para tarefas
 A seguir, algumas práticas recomendadas que você deve seguir ao configurar a tarefa para sua função Web ou de trabalho.
 
@@ -503,4 +487,4 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

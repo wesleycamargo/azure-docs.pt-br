@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows-sql-server"
    ms.workload="infrastructure-services"
-   ms.date="04/17/2016"
+   ms.date="07/12/2016"
    ms.author="MikeRayMSFT"/>
 
 # Configurar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn no Azure
@@ -28,7 +28,7 @@ Este tópico exige que os grupos de disponibilidade já estejam configurados.
 
 Os tópicos relacionados incluem:
 
- - [Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+ - [Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
  
  - [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager ](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
@@ -70,13 +70,13 @@ A primeira etapa é criar o balanceador de carga. No Portal do Azure, abra o gru
 | **Grupo de recursos** | Selecione o grupo de recursos no qual os servidores SQL estão. | 
 | **Localidade** | Selecione a localização do Azure na qual os servidores SQL estão. |
 
-- Clique em **Criar**. 
+- Clique em **Criar**.
 
 O Azure cria o balanceador de carga configurado acima. O balanceador de carga pertence a uma rede, sub-rede, grupo de recursos e local específicos. Após a conclusão do Azure, verifique as configurações do balanceador de carga no Azure.
 
 Agora, configure o endereço IP do balanceador de carga.
 
-- Na folha **Configurações** do balanceador de carga, clique em **Endereço IP**. A folha **Endereço IP** mostra que se trata de um balanceador de carga particular na mesma rede virtual que seus Servidores SQL. 
+- Na folha **Configurações** do balanceador de carga, clique em **Endereço IP**. A folha **Endereço IP** mostra que se trata de um balanceador de carga particular na mesma rede virtual que seus Servidores SQL.
 
 - Defina as configurações a seguir:
 
@@ -96,7 +96,7 @@ Agora o balanceador de carga tem um endereço IP. Registre esse endereço IP. Vo
 
 A próxima etapa é criar um pool de endereços de back-end. O Azure chama o pool de endereços de back-end de *pool de back-end*. Nesse caso, o pool de back-end consiste dos endereços dos dois servidores SQL em seu grupo de disponibilidade.
 
-- No grupo de recursos, clique no balanceador de carga que você criou. 
+- No grupo de recursos, clique no balanceador de carga que você criou.
 
 - Em **Configurações**, clique em **Pools de back-end**.
 
@@ -118,7 +118,7 @@ O Azure atualiza as configurações para o pool de endereços de back-end. Agora
 
 A próxima etapa é criar uma investigação. A investigação define como o Azure verificará quais dos servidores SQL atualmente têm o ouvinte do grupo de disponibilidade. O Azure investigará o serviço com base no endereço IP em uma porta que você definirá quando criar o teste.
 
-- Na folha **Configurações** do balanceador de carga, clique em **Investigações**. 
+- Na folha **Configurações** do balanceador de carga, clique em **Investigações**.
 
 - Na folha **Investigações**, clique em **Adicionar**.
 
@@ -132,7 +132,7 @@ A próxima etapa é criar uma investigação. A investigação define como o Azu
 | **Intervalo** | *5* | 
 | **Limite não íntegro** | *2* | 
 
-- Clique em **OK**. 
+- Clique em **OK**.
 
 >[AZURE.NOTE] Verifique se a porta especificada está aberta no firewall dos servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Confira [Adicionar ou editar regra de firewall](http://technet.microsoft.com/library/cc753558.aspx) para obter mais informações.
 
@@ -142,7 +142,7 @@ O Azure cria a investigação. O Azure usará a investigação para testar qual 
 
 Definir as regras de balanceamento de carga. As regras de balanceamento de carga configuram como o balanceador de carga encaminha o tráfego para os servidores SQL. Para este balanceador de carga, você habilitará o retorno de servidor direto porque somente um dos dois servidores SQL sempre terá o recurso de ouvinte do grupo de disponibilidade de uma vez.
 
-- Na folha **Configurações** do balanceador de carga, clique em **Regras de balanceamento de carga**. 
+- Na folha **Configurações** do balanceador de carga, clique em **Regras de balanceamento de carga**.
 
 - Na folha **Regras de balanceamento de carga**, clique em **Adicionar**.
 
@@ -161,7 +161,7 @@ Definir as regras de balanceamento de carga. As regras de balanceamento de carga
 
  >[AZURE.NOTE] Talvez você precise rolar para baixo na folha para ver todas as configurações.
 
-- Clique em **OK**. 
+- Clique em **OK**.
 
 - O Azure configura a regra de balanceamento de carga. Agora o balanceador de carga está configurado para rotear o tráfego para o SQL Server que hospeda o ouvinte para o grupo de disponibilidade.
 
@@ -173,7 +173,7 @@ Neste ponto, o grupo de recursos tem um balanceador de carga que se conecta em a
 
 A próxima etapa é configurar o ouvinte no cluster e colocar o ouvinte online. Para realizar esta tarefa, faça o seguinte:
 
-1. Crie o ouvinte do grupo de disponibilidade no cluster de failover 
+1. Crie o ouvinte do grupo de disponibilidade no cluster de failover
 
 1. Coloque o ouvinte online
 
@@ -181,7 +181,7 @@ A próxima etapa é configurar o ouvinte no cluster e colocar o ouvinte online. 
 
 Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Gerenciador de Cluster de Failover e no Server Management Studio (SSMS).
 
-- Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
+- Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária.
 
 - Abra o Gerenciador de Cluster de Failover.
 
@@ -260,9 +260,9 @@ A conexão SQLCMD automaticamente se conecta a qualquer instância do SQL Server
 
 Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure usando o balanceador de carga interno:
 
-- Há suporte somente para um ouvinte de grupo de disponibilidade por serviço de nuvem porque o ouvinte é configurado ao balanceador de carga e há apenas um balanceador de carga interno. No entanto, é possível criar vários ouvintes externos. 
+- Há suporte somente para um ouvinte de grupo de disponibilidade por serviço de nuvem porque o ouvinte é configurado ao balanceador de carga e há apenas um balanceador de carga interno. No entanto, é possível criar vários ouvintes externos.
 
 - Com um balanceador de carga interno, você só pode acessar ao ouvinte de dentro da mesma rede virtual.
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o Picturepark | Microsoft Azure" 
     description="Saiba como usar o Picturepark com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Picturepark
   
@@ -31,13 +31,14 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 4.  Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Cenário")
+
 ##Habilitando a integração de aplicativos para Picturepark
   
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Picturepark.
 
 ###Para habilitar a integração de aplicativos com o Picturepark, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
 
@@ -62,13 +63,14 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 7.  No painel de resultados, selecione **Picturepark** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
+
 ##Configurando o logon único
   
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Picturepark com sua conta do AD do Azure usando federação baseada em protocolo SAML. A configuração do logon único para Picturepark exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Picturepark**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Picturepark**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configurar o logon único")
 
@@ -76,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-picturepark-tutorial/IC795059.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Picturepark**, digite a URL usando o padrão "**http://company.picturepark.com*" e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Picturepark**, digite a URL usando o padrão "**http://company.picturepark.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-picturepark-tutorial/IC795060.png "Configurar a URL do Aplicativo")
 
@@ -101,16 +103,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Clique em **Adicionar**.
     2.  Digite um nome para sua configuração.
     3.  Selecione **Definir como padrão**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Picturepark**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URI do Emissor**.
-    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Emissor Confiável**.  
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Picturepark**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URI do Emissor**.
+    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Emissor Confiável**.
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     6.  Clique em **JoinDefaultUsersGroup**.
-    7.  Para definir o atributo **Emailaddress** na caixa de texto **Declaração**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuração](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuração")
-8.  Clique em **Salvar**.
+    7.  Para definir o atributo **Emailaddress** na caixa de texto **Declaração**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuração](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuração")
+    8.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurar o logon único")
 
@@ -146,9 +148,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Picturepark, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos **Picturepark**, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Picturepark**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-picturepark-tutorial/IC795070.png "Atribuir Usuários")
 
@@ -158,4 +160,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

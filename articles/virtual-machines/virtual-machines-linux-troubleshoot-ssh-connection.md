@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solucionar problemas de conexão SSH com uma VM do Azure | Microsoft Azure"
+	pageTitle="Conexão SSH com uma VM Linux é recusada, falha ou apresenta erro | Microsoft Azure"
 	description="Solucione problemas e corrija erros de SSH, como falha de conexão SSH ou conexão SSH recusada, para uma VM do Azure com Linux."
 	keywords="conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
 	services="virtual-machines-linux"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Solucionar problemas de conexão SSH com uma VM do Azure
+# Solucionar problemas de conexão SSH com uma VM do Linux do Azure que falha, apresenta erro ou é recusada
 
-Há vários motivos pelos quais você pode obter erros de SSH (Secure Shell) ao tentar se conectar a uma VM (máquina virtual) do Azure baseada em Linux. Este artigo vai ajudar você a localizar e corrigir os problemas.
+Há vários motivos pelos quais você pode obter erros de SSH (Secure Shell), falha na conexão SSH ou recusa ao tentar se conectar a uma VM (máquina virtual) do Azure baseada em Linux. Este artigo vai ajudar você a localizar e corrigir os problemas.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
 	- Redefinir a configuração de SSH.
 
 - Verifique se há problemas de plataforma na integridade do recurso da VM.<br> Selecione **Procurar** > **Máquinas Virtuais (clássicas)** > *sua máquina virtual do Linux* > **Configurações** > **Verificar Integridade**.
-	 
+
 
 ## Recursos adicionais
 
@@ -134,4 +134,4 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
 
 - Para obter mais informações sobre como solucionar problemas de máquinas virtuais que foram criadas usando o modelo de implantação clássico, consulte [Como redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

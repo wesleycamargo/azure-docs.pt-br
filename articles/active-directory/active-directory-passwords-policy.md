@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/12/2016"
 	ms.author="curtand"/>
 
 
 # Políticas e restrições de senha do Active Directory do Azure
 
 Este artigo descreve as políticas de senha e requisitos de complexidade associados a contas de usuário armazenadas no diretório do AD do Azure.
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 
 ## Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 
@@ -38,7 +40,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Propriedade | Requisitos |
 |   ----------------------- |   ----------------------- |
 | Caracteres permitidos | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caracteres não permitidos | <ul><li>Caracteres Unicode</li><li>Espaços</li><li>espaços</li><li> **Somente senhas fortes**: não pode conter um caractere de ponto '.' imediatamente antes do símbolo ' @'</li></ul> |
+| Caracteres não permitidos | <ul><li>Caracteres Unicode</li><li>Espaços</li><li> **Somente senhas fortes**: não pode conter um caractere ponto '.' imediatamente antes do símbolo '@'</li></ul> |
 | Restrições de senha | <ul><li>Mínimo de 8 caracteres e máximo de 16 caracteres</li><li>**Somente senhas fortes**: exige 3 dos 4 requisitos a seguir:<ul><li>Caracteres minúsculos</li><li>Caracteres maiúsculos</li><li>Números (0-9)</li><li>Símbolos (consulte as restrições de senha acima)</li></ul></li></ul> |
 | Tempo de expiração da senha | <ul><li>Valor padrão: **90** dias </li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy do Módulo do Active Directory do Azure para Windows PowerShell.</li></ul> |
 | Notificação de expiração de senha | <ul><li>Valor padrão: **14** dias (antes da expiração da senha)</li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy.</li></ul> |
@@ -50,6 +52,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 
 ## Próximas etapas
 
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [Gerenciar suas senhas de qualquer lugar](active-directory-passwords.md)
 * [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
 * [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
@@ -60,4 +63,4 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

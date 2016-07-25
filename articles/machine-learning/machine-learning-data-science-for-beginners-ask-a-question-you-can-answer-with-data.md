@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Faça uma pergunta que você possa responder com dados - Ciência de Dados para Iniciantes | Microsoft Azure"
+   pageTitle="Faça uma pergunta que você possa responder com dados – formule perguntas | Microsoft Azure"
    description="Saiba como formular uma pergunta da ciência de dados no Vídeo Ciência de Dados para Iniciantes 3. Inclui uma comparação das perguntas de classificação e regressão."
    keywords="escolher uma pergunta, perguntas da ciência de dados, formular a pergunta, formular perguntas, perguntas de regressão, perguntas de classificação, pergunta inteligente"
    services="machine-learning"
@@ -17,7 +17,7 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ciência de Dados para Iniciantes - vídeo 3: Faça uma pergunta que você possa responder com dados 
+# Ciência de Dados para Iniciantes - vídeo 3: Faça uma pergunta que você possa responder com dados
 
 Saiba como formular uma pergunta da ciência de dados no Vídeo Ciência de Dados para Iniciantes 3. Esse vídeo inclui uma comparação de perguntas para os algoritmos de classificação e regressão.
 
@@ -27,7 +27,7 @@ Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lis
 
 ## Transcrição: Faça uma pergunta que você possa responder com dados
 
-Bem-vindo ao terceiro vídeo da série "Ciência de Dados para Iniciantes".
+Bem-vindo ao terceiro vídeo da série "Ciência de dados para iniciantes".
 
 Nele, você obterá algumas dicas para formular uma pergunta que possa responder com dados.
 
@@ -99,4 +99,4 @@ Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado d
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

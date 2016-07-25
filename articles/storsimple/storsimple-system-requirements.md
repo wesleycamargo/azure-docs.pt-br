@@ -26,7 +26,7 @@ Os requisitos do sistema incluem:
 
 - **Requisitos de software para clientes de armazenamento** - descreve os sistemas operacionais com suporte e quaisquer requisitos adicionais para esses sistemas operacionais.
 - **Requisitos de rede para o dispositivo StorSimple** - fornece informações sobre as portas que precisam ser abertas no firewall para permitir o tráfego iSCSI, de nuvem ou de gerenciamento.
-- **Requisitos de alta disponibilidade para o StorSimple** - descreve os requisitos de alta disponibilidade e as práticas recomendadas para o dispositivo StorSimple e o computador host. 
+- **Requisitos de alta disponibilidade para o StorSimple** - descreve os requisitos de alta disponibilidade e as práticas recomendadas para o dispositivo StorSimple e o computador host.
 
 
 ## Requisitos de software para clientes de armazenamento
@@ -87,7 +87,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço do Access Control<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
 |`https://*.backup.windowsazure.com`|Registro de dispositivos| Somente DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |Interfaces de rede habilitadas para nuvem |
-| `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
 | `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |IPs fixados pelo controlador somente |
 | `https://*.partners.extranet.microsoft.com/*` | Pacote de suporte | Interfaces de rede habilitadas para nuvem |
@@ -120,19 +120,14 @@ Isso inclui versões de software, como 1, 1.1 e 1.2. A ordem com base nas métri
 
 A Atualização 2 contém vários aprimoramentos relacionados à rede; além disso, a métrica de roteamento foi alterada. O comportamento pode ser explicado da seguinte maneira.
 
-- Um conjunto de valores predeterminados foi atribuído a interfaces de rede. 	
+- Um conjunto de valores predeterminados foi atribuído a interfaces de rede.
 
 - Considere uma tabela de exemplo mostrada abaixo, com valores atribuídos às várias interfaces de rede quando são habilitadas ou desabilitadas para a nuvem, mas com um gateway configurado. Observe que os valores atribuídos aqui são apenas exemplos.
 
 
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
@@ -280,4 +275,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

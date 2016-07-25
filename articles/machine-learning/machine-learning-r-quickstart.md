@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -198,7 +198,7 @@ Agora seu teste deve ser similar a Figura 3.
 
 ####Verificar os dados
 
-Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
+Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv ** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
 
 ![Resumo do conjunto de dados cadairydata.csv][4]
 
@@ -1296,13 +1296,13 @@ O RStudio é muito bem documentado, portanto neste apêndice fornecerei alguns l
 
 Este tutorial de programação R aborda os conceitos básicos de que você precisa para usar a linguagem R com o Studio de Aprendizado de Máquina do Azure. Se você não estiver familiarizado com R, duas introduções estão disponíveis no CRAN:
 
-- R for Beginners, por Emmanuel Paradis, é um bom ponto de partida, em http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+- R for Beginners, por Emmanuel Paradis, é um bom ponto de partida, em http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.
 
 - An Introduction to R, por W. N. Venables et. Al., explica com um pouco mais de detalhes, em http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que considero úteis:
 
-- The Art of R Programming; A Tour of Statistical Software Design, de Norman Matloff, é uma excelente introdução à programação em R.  
+- The Art of R Programming; A Tour of Statistical Software Design, de Norman Matloff, é uma excelente introdução à programação em R.
 
 - R Cookbook, de Paul Teetor, fornece uma abordagem de problemas e soluções usando R.
 
@@ -1318,7 +1318,7 @@ O livro Introductory Time Series with R, de Paul Cowpertwait e Andrew Metcalfe, 
 
 Alguns ótimos recursos na Internet:
 
-- DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o tutorial interativo de R gratuito em https://www.datacamp.com/courses/introduction-to-r  
+- DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o tutorial interativo de R gratuito em https://www.datacamp.com/courses/introduction-to-r
 
 - A quick R tutorial, por Kelly Black, da Clarkson University, http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

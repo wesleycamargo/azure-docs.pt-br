@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -155,9 +155,9 @@ A política dá suporte a três tipos de efeito: **negar**, **auditar** e **acre
 
 - Negar gera um evento no log de auditoria e causa uma falha da solicitação
 - Auditar gera um evento no log de auditoria, mas não causa falha da solicitação
-- Acrescentar adiciona o conjunto de campos definido à solicitação 
+- Acrescentar adiciona o conjunto de campos definido à solicitação
 
-Para **acrescentar**, é necessário fornecer os detalhes, conforme mostrado abaixo:
+Para **acrescentar**, você precisa fornecer os detalhes conforme mostrado abaixo:
 
     ....
     "effect": "append",
@@ -468,4 +468,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

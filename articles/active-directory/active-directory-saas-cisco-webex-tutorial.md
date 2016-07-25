@@ -4,20 +4,19 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Cisco Webex
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Cisco Webex.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Cisco Webex. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Cisco Webex
@@ -38,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Cisco Webex, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-cisco-webex-tutorial/IC700993.png "Active Directory")
 
@@ -65,13 +64,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configurando o logon único
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Cisco Webex com a própria conta do Azure AD usando a federação baseada em protocolo SAML.
-Como parte deste procedimento, será necessário criar um certificado codificado em base-64.
-Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Cisco Webex com a própria conta do Azure AD usando a federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um certificado codificado em base-64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Cisco Webex**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure AD, na página de integração do aplicativo **Cisco Webex**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-cisco-webex-tutorial/IC777617.png "Configurar logon único")
 
@@ -84,7 +81,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configurar a URL do aplicativo")
 
     1.  Na caixa de texto **URL de Logon**, digite a URL de locatário do Cisco Webex (por exemplo: *http://contoso.webex.com*).
-	2.  Na caixa de texto **URL de Resposta do Cisco Webex**, digite a **URL de AssertionConsumerService do Cisco Webex** (por exemplo: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
+    2.  Na caixa de texto **URL de Resposta do Cisco Webex**, digite a **URL de AssertionConsumerService do Cisco Webex** (por exemplo: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  Na página **Configurar logon único no Cisco Webex**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
@@ -105,20 +102,20 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     ![Configuração de SSO Federado](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Configuração de SSO Federado")
 
     1.  Na lista **Protocolo de Federação**, selecione **SAML 2.0**.
-    2.  Crie um arquivo **codificado em base-64** usando o certificado baixado.  
+    2.  Crie um arquivo **codificado em base-64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra seu certificado codificado em base-64 no bloco de notas e copie o conteúdo dele.
     4.  Clique em **Importar Metadados do SAML** e cole o certificado codificado em Base 64.
-    5.  No portal do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor para SAML (ID do IdP)**.
-    6.  No portal do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Serviço SSO do Cliente**.
+    5.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor para SAML (ID do IdP)**.
+    6.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Serviço SSO do Cliente**.
     7.  Na lista **Formato de NameID**, selecione **Endereço de Email**.
     8.  Na caixa de texto **AuthnContextClassRef**, digite **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**.
-    9.  No portal do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do Serviço SSO do Cliente**.
+    9.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout do Serviço SSO do Cliente**.
     10. Clique em **Atualizar**.
 
-9.  No portal do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+9.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, escolha a confirmação de configuração de logon único e clique em **Concluir**.
 
     ![Configurar logon único](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
@@ -141,7 +138,7 @@ Para permitir que os usuários do Azure AD façam logon no Cisco Webex, eles dev
     2.  Digite as informações de um usuário existente do Azure AD nas seguintes caixas de texto: **Nome, Sobrenome**, **Nome de usuário**, **Email**, **Senha** e **Confirmar Senha**.
     3.  Clique em **Adicionar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Cisco Webex ou APIs fornecidas pelo Cisco Webex para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Cisco Webex ou APIs fornecidas pelo Cisco Webex para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -149,9 +146,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Cisco Webex, execute as etapas a seguir:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Cisco Webex**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Cisco Webex**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "Atribuir usuários")
 
@@ -161,4 +158,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

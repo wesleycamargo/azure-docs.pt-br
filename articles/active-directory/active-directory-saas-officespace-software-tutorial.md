@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o OfficeSpace Software
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o OfficeSpace Software, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **OfficeSpace Software**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **OfficeSpace Software**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do OfficeSpace Software**, digite a URL usada pelos usuários para fazer logon em seu aplicativo OfficeSpace Software (por exemplo: "**https://company.officespacesoftware.com*")) e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do OfficeSpace Software**, digite a URL usada pelos usuários para fazer logon em seu aplicativo OfficeSpace Software (por exemplo: "*https://company.officespacesoftware.com*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurar a URL do Aplicativo
 ")
@@ -99,15 +99,16 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configuração de SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Configuração de SAML")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no OfficeSpace Software**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Provedor de Logoff**.
-    2.  No portal do Azure, na página **Configurar logon único no OfficeSpace Software**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de destino de idp cliente**.
-    3.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado do IdP do cliente**.  
+    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no OfficeSpace Software**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do provedor de logoff**.
+    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no OfficeSpace Software**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de destino de idp cliente**.
+    3.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado do IdP do cliente**.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]
+        Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     4.  Clique em **Salvar Configurações**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -122,7 +123,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao OfficeSpace Software, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **OfficeSpace Software**, clique em **Atribuir usuários**.
 
@@ -134,4 +135,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

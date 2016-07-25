@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Por que usar uma abordagem de microsserviço para construir aplicativos?
@@ -140,15 +140,16 @@ O Service Fabric fornece duas áreas amplas para ajudar você com a criação de
 
 Talvez. Em nosso caso, com o aumento do número de equipes da Microsoft recebendo instruções para criar para a nuvem por motivos comerciais, muitos delas perceberam os benefícios de usar um método de microsserviços. O Bing, por exemplo, utiliza os microsserviços em pesquisa há anos. Para outras equipes, isso era muito novo. Eles descobriram que havia problemas difíceis que precisavam ser solucionados e que estavam além das suas competências. É por isso que o Service Fabric ganhou adeptos como a tecnologia preferida para a criação de serviços.
 
-O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativos com uma abordagem de microsserviço para que você não precise passar por diversas reformulações dispendiosas. Comece pequeno, expanda quando necessário, substitua serviços, adicione serviços novos e evolua de acordo com o uso do cliente. Essa é a abordagem. Também sabemos que, na realidade, há muitos outros problemas que ainda precisam ser resolvidos para tornar os microsserviços mais acessíveis para a maioria dos desenvolvedores. Os contêineres e o modelo de programação de ator são exemplos de pequenas etapas nessa direção, e temos certeza de que outras inovações surgirão para tornar isso mais fácil.
+O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativos com uma abordagem de microsserviço para que você não precise passar por diversas reformulações dispendiosas. Comece pequeno, expanda quando necessário, substitua serviços, adicione serviços novos e evolua de acordo com o uso do cliente. Essa é a abordagem. Também sabemos que, na realidade, há muitos outros problemas que ainda precisam ser resolvidos para tornar os microsserviços mais acessíveis para a maioria dos desenvolvedores. Os contêineres e o modelo de programação de ator são exemplos de pequenas etapas nessa direção, e temos certeza de que outras inovações surgirão para tornar isso mais fácil.  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
 * Para mais informações:
     * [Visão geral da Malha do Serviço](service-fabric-overview.md)
-    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/pt-BR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

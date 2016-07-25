@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Próximas etapas
 
-Neste artigo, você aprendeu a realizar operações em massa no registro de identidade do dispositivo em um Hub IoT. Você pode continuar explorando recursos do Hub IoT e outros cenários IoT nos seguintes artigos:
+Neste artigo, você aprendeu a realizar operações em massa no registro de identidade do dispositivo em um Hub IoT. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-- [Criar um Hub IoT usando um programa](iot-hub-rm-template.md)
-- [Métricas de uso do Hub IoT](iot-hub-metrics.md)
-- [Monitoramento de operações do Hub IoT](iot-hub-operations-monitoring.md)
+- [Métricas de uso][lnk-metrics]
+- [Monitoramento de operações][lnk-monitor]
+- [Gerenciar o acesso ao Hub IoT][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

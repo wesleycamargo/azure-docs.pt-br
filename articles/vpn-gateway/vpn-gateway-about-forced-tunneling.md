@@ -140,15 +140,15 @@ As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrã
 
 	O exemplo de cmdlet a seguir adiciona uma rota padrão à tabela de roteamento criada na Etapa 1. Observe que a única rota com suporte é o prefixo de destino de "0.0.0.0/0" para o próximo salto "VPNGateway".
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Associe a tabela de roteamento às sub-redes.
 
 	Depois que uma tabela de roteamento é criada e uma rota é adicionada, use o cmdlet abaixo para adicionar ou associar a tabela de rotas a uma sub-rede de rede virtual. Os exemplos abaixo adicionam a tabela de rota "MyRouteTable" para as sub-redes Intermediária e Back-end de rede virtual de várias camadas.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Atribua um site padrão ao túnel forçado.
 
@@ -161,7 +161,7 @@ As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrã
 
 ### Para excluir uma tabela de rotas
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### Para listar uma tabela de rotas
 
@@ -173,14 +173,14 @@ As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrã
 
 ### Para remover uma rota de uma sub-rede
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Para listar a tabela de rotas associadas a uma sub-rede
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Para remover um site padrão de um gateway de VPN de VNet
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

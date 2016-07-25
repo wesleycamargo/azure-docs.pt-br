@@ -3,14 +3,15 @@
     description="Saiba como usar o InsideView com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="jeevansd"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o InsideView
@@ -36,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o InsideView, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
 
@@ -67,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **InsideView**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **InsideView**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configurar o logon único")
 
@@ -94,28 +95,28 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Adicionar um novo SAML](./media/active-directory-saas-insideview-tutorial/IC794136.png "Adicionar um novo SAML")
 
     1.  Na caixa de texto **Nome STS**, digite um nome para a sua configuração.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no InsideView**, copie o valor do **Ponto de extremidade iniciado pelo SP (Provedor de Serviços)** e cole-o na caixa de texto **Ponto de extremidade SamlP/WS-Fed Unsolicated**.
-    3.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
+    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no InsideView**, copie o valor do **Ponto de extremidade iniciado pelo provedor de serviços** e cole-o na caixa de texto **Ponto de extremidade SamlP/WS-Fed Unsolicated**.
+    3.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
         
 		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado STS**
-    5.  Na caixa de texto **Mapeamento de ID de Usuário do Crm**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-6.  Na caixa de texto **Mapeamento de Email do Crm**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Na caixa de texto **Mapeamento de Nome do Crm**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Na caixa de texto **Mapeamento de Sobrenome do Crm**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Clique em **Salvar**.
+    5.  Na caixa de texto **Mapeamento de ID de Usuário do Crm**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  Na caixa de texto **Mapeamento de Email do Crm**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Na caixa de texto **Mapeamento de Nome do Crm**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    8.  Na caixa de texto **Mapeamento de Sobrenome do Crm**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    9.  Clique em **Salvar**.
 
-8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+8.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurar o Logon Único")
 ##Configurando o provisionamento de usuários
   
 Para permitir que os usuários do AD do Azure façam logon no InsideView, eles devem ser provisionados no InsideView. No caso do InsideView, o provisionamento é uma tarefa manual.
   
-Para obter os usuários ou os contatos criados no InsideView, entre em contato com seu gerente de histórias de sucesso do cliente ou envie um email para ****support@insideview.com**
+Para obter os usuários ou os contatos criados no InsideView, contate seu gerente de sucesso do cliente ou envie um email para **support@insideview.com**
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do InsideView ou APIs fornecidas pelo InsideView para provisionar as contas de usuário do AD do Azure.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do InsideView ou APIs fornecidas pelo InsideView para provisionar as contas de usuário do AD do Azure.
 
 ##Atribuindo usuários
   
@@ -123,7 +124,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao InsideView, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **InsideView**, clique em **Atribuir usuários**.
 
@@ -135,4 +136,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

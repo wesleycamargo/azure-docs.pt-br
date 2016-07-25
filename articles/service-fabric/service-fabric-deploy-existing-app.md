@@ -25,8 +25,8 @@ Você pode executar qualquer tipo de aplicativo, como o Node.js, o Java ou os ap
 Há várias vantagens que vêm com a execução de um convidado executável em um cluster de Service Fabric:
 
 - Alta disponibilidade. Os aplicativos executados no Service Fabric são altamente disponíveis de imediato. O Service Fabric assegura uma instância de um aplicativo esteja sempre funcionando.
-- Monitoramento de integridade. O monitoramento de integridade pronto para uso do Service Fabric detecta se o aplicativo está em execução e fornece informações de diagnóstico em caso de falha.   
-- Gerenciamento do ciclo de vida do aplicativo. Além de fornecer atualizações sem tempo de inatividade, o Service Fabric também permite reverter para a versão anterior se houver um problema durante a atualização.    
+- Monitoramento de integridade. O monitoramento de integridade pronto para uso do Service Fabric detecta se o aplicativo está em execução e fornece informações de diagnóstico em caso de falha.
+- Gerenciamento do ciclo de vida do aplicativo. Além de fornecer atualizações sem tempo de inatividade, o Service Fabric também permite reverter para a versão anterior se houver um problema durante a atualização.
 - Densidade. Você pode executar vários aplicativos no cluster, o que elimina a necessidade um hardware próprio para a execução de cada aplicativo.
 
 Neste artigo, abordaremos as etapas básicas para empacotar um convidado executável e implantá-lo à Service Fabric.
@@ -52,12 +52,12 @@ Para implantar um aplicativo no Service Fabric, ele precisará seguir uma estrut
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -308,4 +308,4 @@ Neste artigo, você aprendeu como empacotar um executável convidado e implantá
 - [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 - [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

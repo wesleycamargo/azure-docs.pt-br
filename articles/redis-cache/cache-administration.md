@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Como administrar o Cache Redis do Azure
@@ -80,7 +80,7 @@ Se você reinicializar apenas um dos nós, normalmente os dados não serão perd
 
 ### Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 
-No momento, isso não é possível, mas essa funcionalidade estará disponível em breve.
+Sim, para ver as instruções do PowerShell, confira [Para reinicializar um cache Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### Que tipos de preços podem usar a funcionalidade de reinicialização?
 
@@ -116,4 +116,4 @@ As atualizações de agenda estão disponíveis apenas no tipo de preços premiu
 
 -	Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
