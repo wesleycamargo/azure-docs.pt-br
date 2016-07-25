@@ -272,7 +272,7 @@ Código | Nome | Possíveis motivos
 2005 | Tipo de arquivo sem suporte | Não há suporte para o tipo de arquivo de mídia de entrada.
 2006 | Muitos arquivos de entrada | Há mais de 10 arquivos no manifesto de entrada.
 3000 | Falha ao decodificar o arquivo de mídia | Codec de mídia sem suporte <br/>ou<br/> Arquivo de mídia corrompido <br/>ou<br/> Nenhum fluxo de áudio na mídia de entrada.
-4000 | Indexação de lotes parcialmente bem-sucedida | Alguns dos arquivos de mídia de entrada estão com falha para serem indexados. Para saber mais, consulte <a href="output_files">Arquivos de saída</a>.
+4000 | Indexação de lotes parcialmente bem-sucedida | Alguns dos arquivos de mídia de entrada estão com falha para serem indexados. Para saber mais, consulte <a href="#output_files">Arquivos de saída</a>.
 outros | Erros internos | Entre em contato com a equipe de suporte. indexer@microsoft.com
 
 
@@ -298,4 +298,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 
 [Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

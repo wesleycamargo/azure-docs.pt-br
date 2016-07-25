@@ -14,12 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 # Tutorial: Criar uma API Web personalizada protegida pelo AAD para PowerApps e Fluxos Lógicos
 
 Este tutorial mostra como criar uma API Web ASP.NET, hospedá-la nos Aplicativos Web do Azure, habilitar a autenticação AAD (por meio da autenticação fácil) e registrar a API Web no PowerApps e em Fluxos Lógicos.
+
+>[AZURE.IMPORTANT] Este tópico foi movido para powerapps.microsoft.com em [Tutorial: criar uma API Web protegida por AAD personalizada para PowerApps e fluxo](https://powerapps.microsoft.com/tutorials/customapi-web-api-tutorial/). Vá para o PowerApps a fim de obter a versão mais recente. Esse link do Azure está sendo arquivado.
 
 ## Para começar, você precisa do seguinte:
 
@@ -28,18 +30,15 @@ Este tutorial mostra como criar uma API Web ASP.NET, hospedá-la nos Aplicativos
 * Visual Studio 2013 ou superior
 
 ## Etapa 1: Criar uma API Web e implantá-la no Azure
-1. Abra o Visual Studio e crie um novo aplicativo Web do ASP.NET em C#:
-![](./media/powerapps-web-api-tutorial/newwebapp.png "Novo Aplicativo Web")
+1. Abra o Visual Studio e crie um novo aplicativo Web do ASP.NET em C#: ![](./media/powerapps-web-api-tutorial/newwebapp.png "Novo Aplicativo Web")
 
-2. Na próxima tela, selecione o modelo de API Web e **Sem Autenticação**:
-![](./media/powerapps-web-api-tutorial/noauth.png "Sem Autorização")
+2. Na próxima tela, selecione o modelo de API Web e **Sem Autenticação**: ![](./media/powerapps-web-api-tutorial/noauth.png "Sem Autorização")
 
 	>[AZURE.IMPORTANT] Certifique-se de definir a autenticação como “Sem Autenticação”.
 
 3. Quando o projeto é criado, você precisa criar a API Web para seus recursos. Neste tutorial, não entramos em detalhes sobre a criação de uma API Web.
 
-4. Em seguida, gere um arquivo do Swagger para a API Web. É possível fazer isso com facilidade abrindo o __Console do Gerenciador de Pacotes__ e instalando o __Swashbuckle__:
-![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Console do Swashbuckle")
+4. Em seguida, gere um arquivo do Swagger para a API Web. É possível fazer isso com facilidade abrindo o __Console do Gerenciador de Pacotes__ e instalando o __Swashbuckle__: ![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Console do Swashbuckle")
 
 5. Assim que for instalado e habilitado, procure os seguintes documentos do Swagger e pontos de extremidade da interface do usuário, respectivamente: **<a-URL-raiz>/swagger/docs/v1**
 
@@ -60,17 +59,17 @@ Neste tutorial, pressupomos que você saiba como criar um aplicativo AAD no Azur
 
 1. O primeiro aplicativo AAD é usado para proteger a API Web. Nomeie-o **webAPI**.
 2. O segundo aplicativo AAD é usado para proteger o registro da API personalizada e adquirir acesso delegado à API Web protegida pelo primeiro aplicativo. Nomeie-a **webAPI-customAPI**.
-3. Para **webAPI**, use a seguinte configuração:  
+3. Para **webAPI**, use a seguinte configuração:
 
-  1. URL de entrada: ***https://login.windows.net***
+  1. URL de logon: ***https://login.windows.net***
   2. URI da ID do aplicativo: ***https://\<a-URL-raiz>*** (normalmente, a URL do site implantado no Azure)
-  3. URL de resposta: ***https://\<a-URL-raiz>/.auth/login/aad/callback***  
+  3. URL de resposta: ***https://\<a-URL-raiz>/.auth/login/aad/callback***
   
 	>[AZURE.IMPORTANT] Você precisará da ID do Cliente desse aplicativo mais tarde, portanto, anote-a.
 
 4. Para **webAPI-customAPI**, use a seguinte configuração:
   
-  1. URL de logon: **https://login.windows.net**
+  1. URL de logon: ***https://login.windows.net**
   2. URI da ID do aplicativo: ***pode ser qualquer URL exclusiva***
   3. URL de resposta: ***https://msmanaged-na.consent.azure-apim.net/redirect***
   4. Adicione permissões para ter acesso delegado à API Web.
@@ -83,14 +82,14 @@ Neste tutorial, pressupomos que você saiba como criar um aplicativo AAD no Azur
 
 1. Entre no [portal do Azure](https://portal.azure.com) e vá para o aplicativo Web implantado na **Etapa 1** (neste tópico).
 2. Em **Configurações**, selecione **“Autenticação/Autorização”**.
-3. Ative a **Autenticação do Serviço de Aplicativo** e selecione **Azure Active Directory**. Na próxima folha, selecione **Expressa**.  
+3. Ative a **Autenticação do Serviço de Aplicativo** e selecione **Azure Active Directory**. Na próxima folha, selecione **Expressa**.
 4. Clique em **Selecionar Aplicativo AD Existente** e selecione o primeiro aplicativo AAD criado como parte da Etapa 2. Nesse caso, selecione **webAPI**.
 
 Isso deve configurar a autenticação AAD para o aplicativo Web.
 
 ## Etapa 4: Configurar a API Personalizada 
 
-1. Precisamos modificar nosso Swagger um pouco para inserir o objeto `securityDefintions` e a autenticação AAD usada para o aplicativo Web. Adicione as seguintes linhas de código: 
+1. Precisamos modificar nosso Swagger um pouco para inserir o objeto `securityDefintions` e a autenticação AAD usada para o aplicativo Web. Adicione as seguintes linhas de código:
 
 	```javascript
   "host": "<your-root-url>",
@@ -107,7 +106,7 @@ Isso deve configurar a autenticação AAD para o aplicativo Web.
   },
 	```
 
-2. Vá para o [portal da Web][1] do PowerApps e adicione uma API personalizada. [Use Custom APIs in Logic Flows and PowerApps](powerapps-register-custom-api.md) (Usar APIs Personalizadas em Fluxos Lógicos e PowerApps) lista as etapas.
+2. Vá para o [portal da Web][1] do PowerApps e adicione uma API personalizada. [Usar APIs personalizadas em fluxos lógicos e PowerApps](powerapps-register-custom-api.md) lista as etapas.
 
 3. Assim de carregar o Swagger, o assistente detectará automaticamente que a autenticação AAD está sendo usada para a API Web.
 
@@ -122,10 +121,10 @@ Isso deve configurar a autenticação AAD para o aplicativo Web.
 
 Para obter uma experiência mais detalhada sobre como criar PowerApps e Fluxos Lógicos, veja o seguinte:
 
-- [Connect to Office 365, Twitter, and Microsoft Translator][5] (Conectar-se ao Office 365, Twitter e Microsoft Translator)
-- [Show data from Office 365][4] (Mostrar dados do Office 365)
-- [Create an app from data][3] (Criar um aplicativo com base em dados)
-- [Get started with logic flows][2] (Introdução aos fluxos lógicos)
+- [Connect to Office 365, Twitter, and Microsoft Translator (Conectar-se ao Office 365, Twitter e Microsoft Translator)][5]
+- [Show data from Office 365 (Mostrar dados do Office 365)][4]
+- [Create an app from data (Criar um aplicativo com base em dados)][3]
+- [Get started with logic flows (Introdução aos fluxos lógicos)][2]
 
 Em caso de dúvidas ou comentários, envie um email para [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
@@ -137,4 +136,4 @@ Em caso de dúvidas ou comentários, envie um email para [customapishelp@microso
 [5]: https://powerapps.microsoft.com/tutorials/powerapps-api-functions/
 [6]: http://pwrappssamples.blob.core.windows.net/samples/webAPI.json
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

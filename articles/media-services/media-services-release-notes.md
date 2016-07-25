@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 - [Problemas conhecidos no momento](#issues)
 - [Histórico de versão da API REST](#rest_version_history)
+- [Versão de julho de 2016](#july_changes16)
 - [Versão de abril de 2016](#apr_changes16)
 - [Versão de fevereiro de 2016](#feb_changes16)
 - [Versão de janeiro de 2016](#jan_changes_16)
@@ -68,8 +69,8 @@ Vários cabeçalhos HTTP comuns não são fornecidos na API REST.|Se você desen
 Codificar um ativo com um nome de arquivo que contenha caracteres de escape (por exemplo, %20) falha com “MediaProcessor : Arquivo não encontrado.”|Nomes de arquivos que serão adicionados a um ativo e, então, codificados devem conter apenas caracteres e espaços alfanuméricos. O problema será corrigido em uma atualização futura.
 O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha.|Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se desejar que o SDK de Armazenamento do Azure liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que faz parte do SDK de Armazenamento do Azure versão 2.x. O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falhará.
 O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).|Para obter mais informações, consulte a descrição do código de status HTTP 503 no tópico [Códigos de erro dos Serviços de Mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar **Ignorar** e **Levar** (.NET) / **superior** (REST), conforme descrito [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Alterações na versão do manifesto do Smooth Streaming|Para saber mais, consulte [esta](media-services-deliver-content-overview.md#known-issues) seção.
 
 ### <a id="dotnet_issues"></a>SDK dos Serviços de Mídia para Problemas do .NET
 
@@ -80,6 +81,24 @@ Os objetos de Serviços de Mídia no SDK não podem ser serializados, e, como re
 ##<a id="rest_version_history"></a>Histórico de versão da API REST
 
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte [Referência da API REST dos Serviços de Mídia do Azure].
+
+##<a id="july_changes16"></a>Versão de julho de 2016
+
+###Atualizações do arquivo de manifesto (*.ISM) gerado por tarefas de codificação
+
+Quando uma tarefa de codificação é enviada para o Media Encoder Standard ou o Codificador de Mídia do Azure, a tarefa de codificação gera um [arquivo de manifesto de streaming](media-services-deliver-content-overview.md) (*. ISM) no ativo de saída. Com a versão mais recente do serviço, a sintaxe desse arquivo de manifesto de streaming foi atualizada.
+
+>[AZURE.NOTE]A sintaxe do arquivo de manifesto de streaming (.ism) é reservada para uso interno e está sujeita a alterações em versões futuras. Não modifique ou manipule o conteúdo do arquivo.
+
+###Um novo arquivo de manifesto de cliente (*.ISMC) é gerado no ativo de saída quando uma tarefa de codificação produz um ou mais arquivos em MP4
+
+A partir da versão mais recente do serviço, após a conclusão de uma tarefa de codificação que gera um ou mais arquivos em MP4, a saída do ativo também conterá um arquivo de manifesto de streaming (*.ismc) do cliente. O arquivo .ismc ajuda a melhorar o desempenho do streaming dinâmico.
+
+>[AZURE.NOTE]A sintaxe do arquivo de manifesto do cliente (.ismc) é reservada para uso interno e está sujeita a alterações em versões futuras. Não modifique ou manipule o conteúdo do arquivo.
+
+Para saber mais, confira [este](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) blog.
+
+Para verificar os problemas conhecidos, confira [esta](media-services-deliver-content-overview.md#known-issues) seção.
 
 ##<a id="apr_changes16"></a>Versão de abril de 2016
 
@@ -206,29 +225,29 @@ Anunciando os seguintes novos recursos:
 
 ##<a id="april_changes_15"></a>Versão de abril de 2015
 
-        ###General Media Services Updates
+ ###Atualizações gerais dos Serviços de Mídia
 
-        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
-        - Azure Media Indexer updates
-        - Support for Spanish Language
-        - New configuration xml format
+- [Anunciando o Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- Começando com a REST 2.10 dos Serviços de Mídia, canais configurados para incluir um protocolo RTMP são criados com URLs de inclusão primária e secundária. Para saber mais, confira [Configurações de inclusão de canal](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+- Atualizações do Indexador de Mídia do Azure
+- Suporte ao idioma espanhol
+- Novo formato xml de configuração
 
-        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-        ###Media Services .NET SDK Updates
+Para saber mais, confira [este blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+###Atualizações do SDK do .NET dos Serviços de Mídia
 
-        Azure Media Services .NET SDK is now version 3.2.0.0.
+O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.2.0.0.
 
-        The following are some of the customer facing updates:
+Estas são algumas das atualizações voltadas para o cliente:
 
-        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
-        - Updates related to creating custom retry policies.
-        - Bug fixes related to uploading/downloading files.
-        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+- **Alteração interruptiva**: alterados **TokenRestrictionTemplate.Issuer** e **TokenRestrictionTemplate.Audience** para ser de um tipo de cadeia de caracteres.
+- Atualizações relativas à criação personalizada de políticas de repetição.
+- Correções de bugs relativas a upload/download de arquivos.
+- A classe **MediaServicesCredentials** agora aceita os pontos de extremidade de controle de acesso primários e secundários para autenticar.
 
 
 
-        ##<a id="march_changes_15"></a>March 2015 Release
+##<a id="march_changes_15"></a>Versão de março de 2015
 
 ### Atualizações gerais dos Serviços de Mídia
 
@@ -331,7 +350,7 @@ No momento, há as duas opções a seguir para solucionar o problema.
 * Criar uma URL SAS para baixar (ou reproduzir progressivamente) o .mp4. Para obter mais informações sobre como criar um localizador SAS, consulte [Entregando Conteúdo].
 
 
-### <a id="sept_14_GA_changes"></a>Novos recursos\\cenários que fazem parte da versão do GA
+### <a id="sept_14_GA_changes"></a>Novos recursos/cenários que fazem parte da versão do GA
 
 * **Processador de Mídia do Indexador**. Para obter mais informações, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure].
 
@@ -350,7 +369,7 @@ No momento, há as duas opções a seguir para solucionar o problema.
 
 	Para obter mais informações, consulte a propriedade **CustomHostNames** no tópico [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Novos recursos\\cenários que fazem parte da versão de visualização pública
+### <a id="sept_14_preview_changes"></a>Novos recursos/cenários que fazem parte da versão de visualização pública
 
 * Visualização de Live Streaming. Para obter mais informações, consulte [Trabalhando com Live Streaming dos Serviços de Mídia do Azure].
 
@@ -416,7 +435,7 @@ Para obter mais informações, consulte [Lógica de repetição no SDK de Servi�
 * Corrigido um erro relacionado à transcodificação de MP4s em que o áudio havia sido codificado com a camada de Áudio 3 MPEG-1 (ou seja, MP3).
 
 
-##<a id="jan_feb_changes_14"></a>Versões de janeiro\\fevereiro de 2014
+##<a id="jan_feb_changes_14"></a>Versões de janeiro/fevereiro de 2014
 
 ### <a name="jan_fab_14_donnet_changes"></a>SDK do .NET dos Serviços de Mídia do Azure 3.0.0.1, 3.0.0.2 e 3.0.0.3
 
@@ -631,7 +650,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 
 <!-- Images. -->
 
-<!-- URLs. -->
+<!--- URLs. --->
 [Fórum MSDN de Serviços de Mídia do Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referência da API REST dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Detalhes dos preços dos Serviços de Mídia]: http://azure.microsoft.com/pricing/details/media-services/
@@ -667,4 +686,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

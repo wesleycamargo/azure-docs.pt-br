@@ -41,7 +41,7 @@ Este tutorial exige o seguinte:
 
 Os recursos offline do aplicativo móvel do Azure permitem que você interaja com um banco de dados local quando estiver em um cenário offline. Para usar esses recursos em seu aplicativo, você deve inicializar um [SyncContext][synccontext] para um repositório local. Referencie sua tabela pela interface [IMobileServiceSyncTable][IMobileServiceSyncTable]. O SQLite é usado como o repositório local no dispositivo.
 
-1. Instalar o [tempo de execução do SQLite para o Universal Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Instale o [tempo de execução do SQLite para a Plataforma Universal do Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. No Visual Studio, abra o gerenciador de pacotes do NuGet para o projeto de aplicativo da UWP que você concluiu no tutorial de [Criar um aplicativo Windows], procure o pacote do NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** e instale-o.
 
@@ -213,4 +213,4 @@ Os tópicos a seguir fornecem informações básicas adicionais sobre o recurso 
 [Cloud Cover: Sincronização offline em serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

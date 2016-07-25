@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Usar relatórios de integridade do sistema para solução de problemas
@@ -34,7 +34,7 @@ Os relatórios de componentes do sistema são identificados por origem, que come
 A entidade de integridade do cluster é criada automaticamente no repositório de integridade, de modo que se tudo estiver funcionando corretamente, ela não terá um relatório do sistema.
 
 ### Perda de ambiente
-**System.Federation** relata um erro quando detecta uma perda de ambiente. O relatório tem origem em nós individuais e a ID do nó é incluída no nome da propriedade. Se houver uma perda de ambiente em todo o anel do Service Fabric, geralmente podemos esperar dois eventos (ambos os lados da lacuna serão relatados). Se houver mais perdas de ambiente, haverá mais eventos.
+**System.Federation ** relata um erro quando detecta uma perda de ambiente. O relatório tem origem em nós individuais e a ID do nó é incluída no nome da propriedade. Se houver uma perda de ambiente em todo o anel do Service Fabric, geralmente podemos esperar dois eventos (ambos os lados da lacuna serão relatados). Se houver mais perdas de ambiente, haverá mais eventos.
 
 O relatório especifica o tempo limite de concessão global como o tempo de vida útil. O relatório é enviado novamente a cada metade da duração do tempo de vida útil, desde que a condição permaneça ativa. O evento é removido automaticamente quando expira, de modo que se o modo de relatório for desativado, ele ainda será removido do repositório de integridade corretamente.
 
@@ -471,6 +471,65 @@ Eventos de diagnóstico do Visual Studio 2015: falha de RunAsync em **fabric:/He
 - **SourceId**: System.Replicator
 - **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica
 
+### Operações de Nomeação lentas
+
+**System.NamingService** relata a integridade na réplica primária quando uma operação de nomenclatura demora mais do que o aceitável. Exemplo de operações de Nomeação são [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) ou [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). Mais métodos podem ser encontrados em FabricClient, por exemplo, em [métodos de gerenciamento do serviço](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) ou [métodos de gerenciamento de propriedade](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+
+> [AZURE.NOTE] O serviço de nomenclatura resolve nomes de serviço para um local no cluster e permite aos usuários gerenciar propriedades e nomes de serviço. É um serviço persistentes particionado pelo Service Fabric. Uma das partições representa o proprietário da autoridade, que contém metadados sobre todos os nomes e serviços de System Fabric. Os nomes do Service Fabric são mapeados para partições diferentes, chamadas de partições de Proprietário de Nome, assim, o serviço é extensível. Leia mais sobre o [Serviço de nomeação](service-fabric-architecture.md).
+
+Quando uma operação de nomeação leva mais tempo do que o esperado, a operação é sinalizada com um relatório de Aviso na *réplica primária da partição de serviço de nomeação que atende à operação*. Se a operação for concluída com êxito, o Aviso será limpo. Se a operação for concluída com um erro, o relatório de integridade incluirá detalhes sobre o erro.
+
+- **SourceId**: System.NamingService
+- **Propriedade**: começa com o prefixo **Duration\_** e identifica a operação lenta e o nome do Service Fabric em que a operação é aplicada. Por exemplo, se a criação de um serviço em name fabric: /MyApp/MyService levar muito tempo, a propriedade será Duration\_AOCreateService.fabric:/MyApp/MyService. AO aponta para a função da partição de nomeação para esse nome e a operação.
+- **Próximas etapas**: verifique por que a operação de nomeação falha. Cada operação pode ter causas raiz diferentes. Por exemplo, a exclusão de serviço pode estar bloqueado em um nó porque o host do aplicativo falha em um nó devido a um bug de usuário no código de serviço.
+
+A seguir é mostrada uma operação de criação de serviço. A operação demorou mais do que a duração configurada. AO tenta novamente e envia o trabalho para NO. NO concluiu a última operação com Tempo limite. Nesse caso, a mesma réplica é primária para as funções AO e NO.
+
+```powershell
+PartitionId           : 00000000-0000-0000-0000-000000001000
+ReplicaId             : 131064359253133577
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.NamingService', Property='Duration_AOCreateService.fabric:/MyApp/MyService', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 131064359308715535
+                        SentAt                : 4/29/2016 8:38:50 PM
+                        ReceivedAt            : 4/29/2016 8:39:08 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 4/29/2016 8:39:08 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_AOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064359526778775
+                        SentAt                : 4/29/2016 8:39:12 PM
+                        ReceivedAt            : 4/29/2016 8:39:38 PM
+                        TTL                   : 00:05:00
+                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_NOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064360657607311
+                        SentAt                : 4/29/2016 8:41:05 PM
+                        ReceivedAt            : 4/29/2016 8:41:08 PM
+                        TTL                   : 00:00:15
+                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+``` 
+
 ## Relatórios de integridade do sistema DeployedApplication
 **System.Hosting** é a autoridade nas entidades implantadas.
 
@@ -522,7 +581,7 @@ HealthEvents                       :
 System.Hosting relatará OK se a ativação do pacote de serviço no nó for bem-sucedida. Caso contrário, ele relata um erro.
 
 - **SourceId**: System.Hosting
-- **Propriedade**: Ativação
+- **Propriedade**: ativação
 - **Próximas etapas**: investigue o motivo pelo qual a ativação falhou.
 
 ### Ativação do pacote de códigos
@@ -602,8 +661,10 @@ HealthEvents          :
 ## Próximas etapas
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
+[Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

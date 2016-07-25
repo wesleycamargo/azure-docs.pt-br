@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Guia do desenvolvedor do Cofre da Chave do Azure
 Usando o Cofre da Chave, você poderá acessar informações confidenciais em seus aplicativos com segurança, de modo que:
 
-- As chaves e os segredos serão protegidos, sem que você precise escrever o código, e poderão ser usados facilmente de seus aplicativos.
+- As chaves e os segredos serão protegidos, sem que você precise escrever o código e será possível utilizá-los facilmente de seus aplicativos.
 - Você pode fazer com que seus clientes possuam e gerenciem suas próprias chaves e se concentrar em fornecer os principais recursos do software. Dessa forma, os aplicativos não serão responsáveis ou potencialmente responsáveis pelas chaves e segredos do locatário de seus clientes.
 - Seu aplicativo pode usar chaves para assinatura e criptografia, mas ainda manter o gerenciamento de chaves fora de seu aplicativo, de modo que a solução seja adequada a um aplicativo distribuído geograficamente.
 
@@ -64,9 +64,9 @@ Você pode, sujeito a uma autorização bem-sucedida, fazer o seguinte:
 
 Os seguintes SDKs estão disponíveis para funcionar com o Cofre da Chave:
 
-|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[Documentação do SDK do .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentação do SDK do Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Documentação do SDK do .NET](https://msdn.microsoft.com/library/mt430941.aspx)|[Documentação do SDK do Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Pacote do SDK do .NET](https://azure.microsoft.com/documentation/api/)|[Pacote do SDK do Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -84,14 +84,15 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefas para
 - [Como usar o Cofre de Chaves para o gerenciamento extensível de chaves com o SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - O Conector do SQL Server para o Cofre de Chaves do Azure permite que o SQL Server e o SQL em uma VM utilizem o serviço do Cofre de Chaves do Azure como um provedor EKM (gerenciamento extensível de chaves) para proteger suas chaves de criptografia para o vínculo de aplicativos; Transparent Data Encryption, Criptografia de Backup e Criptografia de Nível de Coluna.
 - [Como implantar certificados em VMs do Cofre de Chaves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Um aplicativo em nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado para essa VM atualmente?
 - [Como integrar o Cofre de Chaves com o Azure Disk Encryption para VMs de IaaS do Windows e do Linux](../azure-security-disk-encryption.md) - A solução de criptografia de disco é integrada ao Cofre de Chaves do Azure para ajudar a controlar e a gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, enquanto garante que todos os dados nos discos de máquina virtual serão criptografados em repouso no armazenamento do Azure.
+- [Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md) – Explica como configurar a auditoria e a rotação de chaves com o Cofre de Chaves do Azure.
 
-Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, confira os [Exemplos de modelo ARM de Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, consulte os [Exemplos de modelo ARM do Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Introdução ao Cofre de Chaves
 
 Estes artigos abordam outros cenários e serviços que usam ou se integram ao Cofre de Chaves.
 
-- A [Azure Disk Encryption](../azure-security-disk-encryption.md) aproveita o recurso padrão do setor [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
+- O [Azure Disk Encryption](../azure-security-disk-encryption.md) aproveita o recurso padrão do setor [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 
 
 ## Bibliotecas de Suporte
@@ -104,4 +105,4 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Co
 - [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 - [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

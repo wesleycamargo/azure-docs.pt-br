@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Como executar tarefas administrativas comuns no Banco de Dados SQL do Azure"
-	description="Descreve como executar tarefas administrativas comuns"
+	pageTitle="Como executar tarefas de administração, por exemplo, redefinir a senha de administrador | Microsoft Azure"
+	description="Descreve como executar tarefas administrativas comuns no banco de dados SQL. Por exemplo, redefinir a senha do administrador, conceder e remover acesso."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="redefinir senha de administrador"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# Como executar tarefas administrativas comuns no Banco de Dados SQL do Azure
+# Como executar tarefas administrativas comuns, como a redefinição de senha de administrador no Banco de Dados SQL
 Use este tópico para conhecer as etapas rápidas de concessão e remoção do acesso de um Banco de Dados SQL do Azure. Para obter informações mais completas, confira:
 
 - [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
@@ -26,9 +27,7 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-
-## Para alterar a senha de administrador de um servidor lógico
-
+## Para redefinir a senha de administrador para um servidor lógico
 
 - No [Portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, escolha o servidor na lista e clique em **Redefinir Senha**.
 
@@ -44,4 +43,4 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 ## Para criar logons adicionais para usuários com privilégios elevados no banco de dados mestre virtual
 - -Use a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e confira a seção Gerenciamento de Logons de [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

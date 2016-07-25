@@ -182,7 +182,7 @@ Você pode adicionar uma nova SKU sob sua oferta online seguindo as etapas abaix
 
 1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
 2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **SKUs**. Depois disso, clique no botão **ADICIONAR UMA SKU**. Uma nova caixa de diálogo será aberta.. Insira um identificador de SKU em minúsculas. Marque a caixa de seleção do modelo cobrança traga seu próprio (BYOL) se quiser publicar a nova SKU com o modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção para BYOL. Depois disso, clique na marca de escala na caixa de diálogo para criar uma nova SKU. Se você não optar pelo modelo de cobrança BYOL para a nova SKU, o modelo de cobrança será automaticamente definido como Por Hora para a nova SKU. Se quiser habilitar a avaliação gratuita de 30 dias para o modelo de cobrança por hora, clique na opção “Um Mês” para “Há uma avaliação gratuita disponível?”. Caso contrário, selecione "NENHUMA AVALIAÇÃO”. [Observação: a opção "Há uma avaliação gratuita disponível?” só será mostrada se você NÃO tiver selecionado BYOL na caixa de diálogo durante a criação da nova SKU].
+3. No menu do lado esquerdo, clique na guia **SKUs**. Depois disso, clique no botão **ADICIONAR UMA SKU**. Uma nova caixa de diálogo será aberta.. Insira um identificador de SKU em minúsculas. Marque a caixa de seleção do modelo cobrança traga seu próprio (BYOL) se quiser publicar a nova SKU com o modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção para BYOL. Depois disso, clique na marca de escala na caixa de diálogo para criar uma nova SKU. Se você não optar pelo modelo de cobrança BYOL para a nova SKU, o modelo de cobrança será automaticamente definido como Por Hora para a nova SKU. Se quiser habilitar a avaliação gratuita de 30 dias do modelo de Cobrança por hora, clique na opção “Um Mês” em “Há uma avaliação gratuita disponível?”. Caso contrário, selecione “NENHUMA AVALIAÇÃO”. [Observação: a opção “Há uma avaliação gratuita disponível?” só será mostrada se você NÃO tiver selecionado BYOL na caixa de diálogo durante a criação do novo SKU.]
 
     >[AZURE.IMPORTANT] A opção "Ocultar esta SKU do Marketplace porque ela sempre deverá ser comprada por meio de um modelo de solução" só deverá ser marcada como "SIM" se você tiver aprovação para publicar uma oferta de modelo de solução no Azure Marketplace. Caso contrário, essa opção sempre deverá ser marcada como "NÃO".
 
@@ -219,4 +219,4 @@ A equipe de suporte orientará você pelo processo de exclusão da oferta/SKU.
 - [Criando uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

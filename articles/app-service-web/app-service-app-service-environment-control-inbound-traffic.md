@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 
 ## Visão geral ##
-Um Ambiente do Serviço de Aplicativo sempre é criado em uma sub-rede de uma [rede virtual][virtualnetwork] regional clássica "v1". Uma nova rede virtual regional clássica "v1" e nova sub-rede podem ser definidas no momento em que um Ambiente do Serviço de Aplicativo é criado. Como alternativa, um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual regional clássica "v1" existente e sub-rede preexistente. Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados). Para obter mais detalhes sobre a criação de um ambiente de serviço de aplicativo, consulte [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
-
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2" gerenciada por ARM.
+Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual do Azure Resource Manager **ou** uma [rede virtual][virtualnetwork] de modelo de implantação clássico. Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente de Serviço de Aplicativo é criado. Como alternativa, um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual e uma sub-rede existentes. Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados). Para obter mais detalhes sobre a criação de um ambiente de serviço de aplicativo, consulte [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
 
 Um ambiente de serviço de aplicativo sempre deve ser criado em uma sub-rede, porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS é aceito apenas de endereços IP upstream específicos.
 
@@ -36,31 +34,20 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um ambiente de serviço de aplicativo:
 
-- 454: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta.
-- 455: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta.
-- 80: Porta padrão para tráfego HTTP de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
-- 443: Porta padrão para tráfego SSL de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
-- 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.
-- 10001-10020: canais de dados para FTP. Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado
-- 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
-- 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
-- 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
+- 454: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
+- 455: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
+- 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+- 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+- 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+- 10001-10020: canais de dados para FTP. Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
+- 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+- 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+- 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 
 ## Requisitos de DNS e conectividade de saída ##
-Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure no mundo, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE pode ser encontrada na seção "Conectividade de rede necessária" do artigo [Configuração de rede para a Rota Expressa](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
-Ambientes de serviço de aplicativo também exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone “Reiniciar” localizado na parte superior da folha de gerenciamento do Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
-
-A lista a seguir detalha a conectividade e os requisitos de DNS para um Ambiente do Serviço de Aplicativo:
-
--  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
--  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Pontos de extremidade do Banco de Dados SQL são resolvidos no seguinte domínio: *database.windows.net*.
--  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*.
--  Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
--  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
--  Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede contendo o Ambiente de Serviço de Aplicativo.
--  O caminho da rede de saída não pode passar por proxies corporativos internos, nem pode ser encapsulado à força em locais. Isso altera o endereço NAT eficiente de tráfego de rede de saída do Ambiente de Serviço de Aplicativo. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente do Serviço de Aplicativo causará falhas de conectividade em muitos dos pontos de extremidade listados acima. Isso resulta em tentativas de criação de Ambiente de Serviço de Aplicativo, e faz com que Ambientes de Serviços de Aplicativo anteriormente íntegros sejam marcados como não íntegros.
--  O acesso de rede de entrada a portas obrigatórias para os Ambientes do Serviço de Aplicativo deve ser permitido, como descrito neste [artigo](app-service-app-service-environment-control-inbound-traffic.md).
+Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Acionar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente de Serviço de Aplicativo no [Portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
 
 Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo. Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
@@ -121,13 +108,17 @@ Para fins de exatidão, o exemplo a seguir mostra como remover e, portanto, diss
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Considerações especiais para IP-SSL explícito ##
-Se um aplicativo for configurado com um endereço IP explícito em vez do endereço IP padrão do Ambiente do Serviço de Aplicativo, o tráfego HTTP e HTTPS fluirá para a sub-rede por um conjunto de portas diferente das portas 80 e 443.
+Se um aplicativo for configurado com um endereço IP-SSL explícito (aplicável a ASEs que só têm um VIP público) em vez de usar o endereço IP padrão do Ambiente do Serviço de Aplicativo, o tráfego HTTP e HTTPS fluirá para a sub-rede por um conjunto de portas diferente das portas 80 e 443.
 
-O par de portas individual usado para cada endereço IP-SSL pode ser encontrado clicando em "Todas as configurações --> "Endereços IP" em uma folha de interface de usuário do Ambiente do Serviço de Aplicativo. A folha "Endereços IP" mostra uma tabela de todos os endereços IP-SSL configurados explicitamente para o Ambiente do Serviço de Aplicativo, juntamente com o par de portas especial que é usado para rotear o tráfego HTTP e HTTPS associado a cada endereço IP-SSL. É esse par de portas que precisa ser usado para os parâmetros DestinationPortRange ao configurar regras em um grupo de segurança de rede.
+O par individual de portas usadas por cada endereço IP-SSL pode ser encontrado na interface do usuário pela folha UX de detalhes do Ambiente de Serviço de Aplicativo. Selecione "Todas as configurações"--> "Endereços IP". A folha "Endereços IP" mostra uma tabela de todos os endereços IP-SSL configurados explicitamente para o Ambiente de Serviço de Aplicativo, juntamente com o par de portas especial que é usado para rotear o tráfego HTTP e HTTPS associado a cada endereço IP-SSL. É esse par de portas que precisa ser usado para os parâmetros DestinationPortRange ao configurar regras em um grupo de segurança de rede.
+
+Quando um aplicativo em um ASE é configurado para usar IP-SSL, os clientes externos não verão e não precisarão se preocupar com o mapeamento de par de portas especial. O tráfego para os aplicativos fluirá normalmente para o endereço IP-SSL configurado. A conversão para o par de portas especial ocorrerá internamente de forma automática durante o segmento final do roteamento do tráfego para a sub-rede que contém o ASE.
 
 ## Introdução
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
+
+Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para obter detalhes sobre conexão segura de aplicativos a recursos de back-end de um ambiente de serviço de aplicativo, consulte [Conexão segura a recursos de back-end de um ambiente de serviço de aplicativo][SecurelyConnecttoBackend]
 
@@ -149,4 +140,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

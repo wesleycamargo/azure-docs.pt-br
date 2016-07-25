@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
@@ -37,7 +37,7 @@ O Service Fabric em si é uma camada de plataforma de aplicativo que é executad
 
  - Rapidez na implantação. A criação de instâncias da VM pode ser demorada. No Service Fabric, as VMs são implantadas somente uma vez para formar um cluster que hospeda a plataforma de aplicativo Service Fabric. Daí em diante, os pacotes de aplicativos podem ser implantados no cluster rapidamente.
  - Hospedagem de alta densidade. Nos Serviços de Nuvem, uma VM de função de trabalho hospeda uma carga de trabalho. No Service Fabric, os aplicativos são separados das VMs que as executam, o que significa que você pode implantar um grande quantidade de aplicativos em uma pequena quantidade de VMs, podendo reduzir o custo geral de implantações maiores.
- - A plataforma Service Fabric pode ser executada em qualquer lugar que tenha computadores com Windows Server ou Linux, seja do Azure ou locais. A plataforma fornece uma camada de abstração sobre a infraestrutura subjacente para que seu aplicativo possa ser executado em diferentes ambientes. 
+ - A plataforma Service Fabric pode ser executada em qualquer lugar que tenha computadores com Windows Server ou Linux, seja do Azure ou locais. A plataforma fornece uma camada de abstração sobre a infraestrutura subjacente para que seu aplicativo possa ser executado em diferentes ambientes.
  - Gerenciamento de aplicativo distribuído. O Service Fabric é uma plataforma que não apenas hospeda aplicativos distribuídos, mas também ajuda a gerenciar o ciclo de vida, independentemente do ciclo de vida da VM de hospedagem ou do computador.
 
 ## Arquitetura do aplicativo
@@ -50,7 +50,12 @@ Os aplicativos Service Fabric também podem optar por usar os mesmos serviços e
 
 ![Arquitetura do Service Fabric após migração simples][10]
 
-Neste estágio, o sistema deve continuar a trabalhar como antes. Aproveitando os recursos de serviço com estado do Service Fabric, os armazenamentos de estado externos podem ser internalizados como serviços com estado, quando for o caso. Isso é mais complicado que uma migração simples de funções de trabalho e Web para serviços sem estado do Service Fabric, pois ele requer a criação de serviços personalizados que fornecem funcionalidade equivalente ao seu aplicativo, como os serviços externos faziam antes. Os benefícios de se fazer isso incluem a remoção de dependências externas e a unificação dos modelos de implantação, gerenciamento e atualização. Uma arquitetura de exemplo resultante da internalização desses serviços poderia ter esta aparência:
+Neste estágio, o sistema deve continuar a trabalhar como antes. Aproveitando os recursos de serviço com estado do Service Fabric, os armazenamentos de estado externos podem ser internalizados como serviços com estado, quando for o caso. Isso é mais complicado que uma migração simples de funções de trabalho e Web para serviços sem estado do Service Fabric, pois ele requer a criação de serviços personalizados que fornecem funcionalidade equivalente ao seu aplicativo, como os serviços externos faziam antes. Os benefícios de se fazer isso incluem:
+
+ - Removendo dependências externas
+ - Unificar a implantação, gerenciamento e modelos de atualização.
+ 
+Uma arquitetura de exemplo resultante da internalização desses serviços poderia ter esta aparência:
 
 ![Arquitetura do Service Fabric após migração completa][11]
 
@@ -66,7 +71,7 @@ Com a comunicação direta, as camadas podem se comunicar diretamente por meio d
 
  A comunicação direta é um modelo de comunicação comum no Service Fabric. A principal diferença entre o Service Fabric e os Serviços de Nuvem é que você se conectar a uma máquina virtual, ao passo que no Service Fabric você se conecta a um serviço. Essa é uma distinção importante por duas razões:
 
- - Os serviços no Service Fabric não são associados às VMs que os hospedam. Os serviços podem mover-se pelo cluster e, na verdade, é o que se espera por vários motivos: balanceamento de recursos, failover, atualizações de aplicativos e da infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora. 
+ - Os serviços no Service Fabric não são associados às VMs que os hospedam. Os serviços podem mover-se pelo cluster e, na verdade, é o que se espera por vários motivos: balanceamento de recursos, failover, atualizações de aplicativos e da infraestrutura e restrições de posicionamento ou carga. Isso significa que o endereço da instância do serviço pode mudar a qualquer hora.
  - Uma VM no Service Fabric pode hospedar vários serviços, cada um com pontos de extremidade exclusivos.
 
 O Service Fabric fornece um mecanismo de descoberta de serviço chamado Serviço de Nomenclatura, que pode ser usado para resolver endereços de ponto de extremidade de serviços.
@@ -100,4 +105,4 @@ O caminho de migração mais simples dos Serviços de Nuvem para o Service Fabri
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

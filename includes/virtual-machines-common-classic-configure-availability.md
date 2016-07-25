@@ -18,7 +18,7 @@ Você pode usar comandos do Portal do Azure ou do Azure PowerShell para fazer is
 
 Para usar o portal do Azure:
 
-1. Se ainda não tiver feito isso, entre no portal do Azure.
+1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com).
 
 2. No menu Hub, clique em **+ Novo** e em **Máquina Virtual**.
     
@@ -48,7 +48,7 @@ Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure 
 
 No Portal do Azure, é possível adicionar máquinas virtuais clássicas existentes a um conjunto de disponibilidade existente ou criar um novo conjunto para essas máquinas. (Lembre-se de que as máquinas virtuais no mesmo conjunto de disponibilidade devem pertencer ao mesmo serviço de nuvem). As etapas são praticamente as mesmas. Como o PowerShell do Azure é possível adicionar a máquina virtual a um conjunto de disponibilidade existente.
 
-1. Se ainda não tiver feito isso, entre no Portal do Azure.
+1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com).
 
 2. No menu Hub, clique em **Máquinas Virtuais (clássicas)**.
     
@@ -66,15 +66,12 @@ No Portal do Azure, é possível adicionar máquinas virtuais clássicas existen
 
 6. Clique em **Salvar**.
 
-Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do Azure de nível de administrador e execute o comando a seguir. Para os espaços reservados (como &lt;VmCloudServiceName&gt;), substitua tudo entre aspas, incluindo os caracteres < and >, pelos nomes corretos.
+Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do Azure de nível de administrador e execute o comando a seguir. Para os espaços reservados (como &lt;VmCloudServiceName&gt;), substitua tudo entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 >[AZURE.NOTE] A máquina virtual pode precisar ser reiniciada para concluir a adição ao conjunto de disponibilidade.
 
-## Recursos adicionais
-
-[Artigos para máquinas virtuais clássicas][]
 
 <!-- LINKS -->
 [Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo.]: #createset
@@ -85,6 +82,5 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
-[Artigos para máquinas virtuais clássicas]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

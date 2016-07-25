@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/06/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
@@ -428,4 +428,4 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

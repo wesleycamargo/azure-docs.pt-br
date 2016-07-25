@@ -97,7 +97,6 @@ Crie um Active Directory do Azure e popule-o com usuários e grupos. Isso inclui
 
 - Crie o domínio inicial de domínio gerenciado do AD do Azure.
 - Realize a federação de uma instância local dos Serviços de Domínio do Active Directory com o Active Directory do Azure.
-- Usando a ferramenta **AD FS**, na seção **Serviço**, **Pontos de Extremidade**, habilite **WS-Trust 1.3** para o caminho da URL **/adfs/services/trust/13/windowstransport**.
 
 Para saber mais, veja [Integração de suas identidades locais com o Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o Azure AD usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
@@ -367,4 +366,4 @@ Para saber mais, veja [Blog de segurança do SQL Server](https://blogs.msdn.micr
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

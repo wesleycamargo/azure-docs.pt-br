@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -48,7 +48,7 @@ Verifique se você tem os itens a seguir no computador em que deseja instalar o 
 
 - **.NET Framework 4.0.**
 
- Você pode instalar o .NET Framework 4.0 [daqui](http://go.microsoft.com/fwlink/?linkid=205836).
+ Instale o .NET Framework 4.0 [daqui](http://go.microsoft.com/fwlink/?linkid=205836).
 
 - **Tipos de CLR do sistema Microsoft SQL Server 2008 R2 SP1 (x86)**
 
@@ -202,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,37 +13,65 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/08/2016"
    ms.author="chackdan"/>
 
 # Cenários de segurança do cluster do Service Fabric
 
-Um cluster do Service Fabric é um recurso que pertence a você. Para impedir o acesso não autorizado ao recurso, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este artigo fornece uma visão geral dos cenários de segurança para clusters em execução no Azure e o Windows server e as diversas tecnologias usadas para implementar esses cenários. Os cenários de segurança do cluster são:
+Um cluster do Service Fabric é um recurso que pertence a você. Para impedir o acesso não autorizado ao recurso, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este artigo fornece uma visão geral dos cenários de segurança para clusters em execução no Azure ou autônomos e as diversas tecnologias usadas para implementar esses cenários. Os cenários de segurança do cluster são:
 
 - Segurança de nó para nó
 - Segurança de cliente para nó
 - RBAC (Controle de Acesso Baseado em Função)
 
 ## Segurança de nó para nó
-Protege a comunicação entre as VMs e os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
+Protege a comunicação entre as VMs ou os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 
-![Diagrama de comunicação de nó para nó][Node-to-Node]
+	![Diagrama de comunicação de nó para nó][Node-to-Node]
 
-Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). A segurança de certificado é configurada durante a criação do cluster (seja por meio do Portal do Azure ou por meio de modelos do ARM), especificando um certificado primário e um certificado secundário opcional. Os certificados primários e secundários que você especificar devem ser diferentes do que os certificados de cliente administrador e certificados cliente somente leitura especificados para a [Segurança de cliente para nó](#client-to-node-security). Consulte [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo de ARM](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster em execução no Azure.
+Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx) para computadores do Windows Server.
+### Segurança de certificado de nó para nó
+O Service Fabric usa os certificados do servidor X.509 que você especifica como parte das configurações de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquirir ou criá-los.
+
+A segurança de certificado é configurada durante a criação do cluster por meio do Portal do Azure, de modelos do Gerenciador de recursos do Azure ou de um modelo JSON autônomo. Você pode especificar um certificado principal e um certificado secundário opcional que é usado para sobreposições de certificado. Os certificados primários e secundários que você especificar devem ser diferentes do que os certificados de cliente administrador e certificados cliente somente leitura especificados para a [Segurança de cliente para nó](#client-to-node-security).
+
+Para o Azure, leia [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster.
+
+Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando certificados X.509 ](service-fabric-windows-cluster-x509-security.md)
+
+### Segurança do Windows de nó para nó
+Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando a segurança do Windows](service-fabric-windows-cluster-windows-security.md)
 
 ## Segurança de cliente para nó
 Autentica clientes e protege a comunicação entre um cliente e nós individuais no cluster. Esse tipo de segurança autentica e protege as comunicações do cliente, o que garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do Windows ou pelas credenciais de segurança do certificado deles.
 
-![Diagrama de comunicação de cliente para nó][Client-to-Node]
+	![Diagrama de comunicação de cliente para nó][Client-to-Node]
 
-Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx). A segurança de certificado do cliente para nó é configurada durante a criação do cluster (seja por meio do Portal do Azure ou por meio de modelos do ARM), especificando um certificado de cliente administrador e/ou um certificado de cliente somente leitura. Os certificados de cliente administrador e certificados de cliente somente leitura que você especificar devem ser diferentes dos certificados primários e secundários que você especificar para a [Segurança de nó para nó](#node-to-node-security). Clientes conectando-se ao cluster usando o certificado de administrador ou o certificado primário têm acesso completo aos recursos de gerenciamento. Clientes conectando-se ao cluster usando o certificado de cliente somente leitura somente acesso de leitura aos recursos de gerenciamento. Consulte [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo de ARM](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster em execução no Azure.
+Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
-O Service Fabric usa os certificados do servidor X.509 que você especifica como parte das configurações de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquirir ou criá-los.
+### Segurança de certificado de cliente para nó
+ A segurança de certificado de cliente para nó é configurada durante a criação do cluster por meio do Portal do Azure, de modelos do Gerenciador de Recursos ou de um modelo JSON autônomo, especificando um certificado de cliente de administração e/ou um certificado de cliente do usuário. Os certificados de cliente administrador e certificados de cliente de usuário que você especificar devem ser diferentes dos certificados primários e secundários que você especifica para a [Segurança de nó para nó](#node-to-node-security).
 
-Clusters em execução no Azure também podem proteger o acesso aos pontos de extremidade de gerenciamento usando o AAD (Azure Active Directory). Consulte [Criar um cluster do Service Fabric usando o Azure Active Directory para autenticação de cliente](service-fabric-cluster-security-client-auth-with-aad.md) para obter informações sobre como criar os artefatos AAD necessários, como preenchê-los durante a criação do cluster e como se conectar a esses grupos posteriormente.
+Clientes que se conectam ao cluster usando o certificado de administrador têm acesso completo aos recursos de gerenciamento. Clientes que se conectam ao cluster usando o certificado de cliente de usuário somente leitura somente acesso de leitura aos recursos de gerenciamento. Em outras palavras, esses certificados são usados para o RBAC (controle de acesso baseado em função) descrito abaixo.
+
+Para o Azure, leia [Proteger um cluster do Service Fabric no Azure usando certificados](service-fabric-secure-azure-cluster-with-certs.md) ou [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster.
+
+Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando certificados X.509 ](service-fabric-windows-cluster-x509-security.md)
+
+### Segurança do AAD (Azure Active Directory) de cliente para nó no Azure
+Clusters em execução no Azure também podem proteger o acesso aos pontos de extremidade de gerenciamento usando o AAD (Azure Active Directory). Confira [Criar um cluster do Service Fabric usando o Azure Active Directory para autenticação de cliente](service-fabric-cluster-security-client-auth-with-aad.md) para obter informações sobre como criar os artefatos AAD necessários, como preenchê-los durante a criação do cluster e como se conectar a esses grupos posteriormente.
+
+## Recomendações de Segurança
+Para clusters do Azure, é recomendável que você use a segurança do AAD para autenticar clientes e certificados para segurança de nó para nó.
+
+Para clusters do Windows Server autônomo, é recomendável que você use a segurança do Windows com gMA (contas gerenciadas de grupo) se tiver o Windows Server 2012 R2 e o Active Directory. Caso contrário, ainda use a segurança do Windows com contas do Windows.
 
 ## RBAC (Controle de Acesso Baseado em Função)
-O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro. Clientes que se conectam a um cluster dão suporte a dois tipos de controle de acesso diferentes: administrador e usuário. Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos. As funções do cliente de administrador e usuário são especificadas no momento da criação do cluster, com o fornecimento de certificados separados para cada um. Para obter mais informações sobre as configurações de controle de acesso padrão e de como alterar as configurações padrão, consulte [Controle de acesso com base em funções para clientes](service-fabric-cluster-security-roles.md).
+O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro. Dois tipos de controle de acesso diferentes têm suporte para clientes que se conectam a um cluster: funções de Administrador e de Usuário.
+
+Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.
+
+Especifique as funções de administrador e usuário do cliente no momento da criação do cluster, fornecendo identidades separadas (certificados, AAD etc.) para cada uma. Para obter mais informações sobre as configurações de controle de acesso padrão e de como alterar as configurações padrão, confira [Controle de acesso com base em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
 
 
 ## Certificados X.509 e Service Fabric
@@ -89,4 +117,4 @@ Saiba mais sobre a segurança de aplicativo:
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

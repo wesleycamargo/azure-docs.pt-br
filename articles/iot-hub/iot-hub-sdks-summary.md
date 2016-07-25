@@ -67,6 +67,15 @@ A seguir, uma lista dos links para documentação de referência da API online p
 - [SDK do serviço IoT do Microsoft Azure para Node.js][]
 - [SDK de gateway do Microsoft Azure IoT][]
 
+## Próximas etapas
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+
 [SDKs da Microsoft Azure IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Dispositivo SDK do dispositivo IoT do Azure para C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
 [SDK do dispositivo IoT do Azure para .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
@@ -88,4 +97,9 @@ A seguir, uma lista dos links para documentação de referência da API online p
 [SDK do serviço IoT do Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.10/index.html
 [SDK de gateway do Microsoft Azure IoT]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

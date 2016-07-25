@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
@@ -67,7 +67,7 @@ Usando ferramentas de Possibilidade de Teste do Service Fabric, é possível cri
 
     ```powershell
 
-    PS > Restart-ServiceFabricNode -NodeName Node.1
+    PS > Restart-ServiceFabricNode -NodeName Node_1
 
     ```
 
@@ -97,4 +97,4 @@ Neste exemplo, definimos `QuorumLossMode` para `QuorumReplicas` para indicar que
 
 [Saiba mais sobre os cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

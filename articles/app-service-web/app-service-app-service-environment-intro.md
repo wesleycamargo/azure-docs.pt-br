@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/11/2016"
 	ms.author="stefsch"/>
 
 # Introdução ao ambiente de Serviço de Aplicativo
@@ -58,7 +58,7 @@ Para obter mais detalhes sobre a quantidade de recursos de computação disponí
 Para obter detalhes sobre os tamanhos de recursos de computação disponíveis com suporte em um determinado ambiente de serviço de aplicativo, consulte a página [Preços de serviços de aplicativo][AppServicePricing] e revise as opções disponíveis para ambientes de serviço de aplicativo na camada de preços Premium.
 
 ## Suporte a Rede Virtual ##
-Um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual “v1” clássica regional existente ou em uma nova rede virtual “v1” clássica regional ([mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um ambiente de serviço de aplicativo sempre existe em uma rede virtual regional, mais precisamente em uma sub-rede de uma rede virtual regional, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
+Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual do Azure Resource Manager **ou** uma rede virtual de modelo de implantação clássico ([mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um Ambiente de Serviço de Aplicativo sempre existe em uma rede virtual, mais precisamente em uma sub-rede de uma rede virtual, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
 
 Você pode usar [grupos de segurança de rede][NetworkSecurityGroups] para restringir a comunicação de rede de entrada à sub-rede na qual reside um ambiente de serviço de aplicativo. Isso permite que você execute aplicativos por trás de dispositivos e serviços upstream, como firewalls de aplicativo Web e provedores SaaS de rede.
 
@@ -66,11 +66,11 @@ Aplicativos frequentemente precisam acessar recursos corporativos, como bancos d
 
 Para obter mais detalhes sobre como os Ambientes do Serviço de Aplicativo funcionam com redes virtuais e redes locais, confira os artigos a seguir sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura a back-ends][SecurelyConnectingToBackends].
 
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual “v2”.
-
 ## Introdução
 
 Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo][HowToCreateAnAppServiceEnvironment]
+
+Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
@@ -108,4 +108,4 @@ Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

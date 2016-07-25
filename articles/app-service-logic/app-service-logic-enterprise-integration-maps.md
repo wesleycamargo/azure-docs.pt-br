@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral dos mapas do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure" 
+	pageTitle="Visão geral de mapas e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como usar mapas com o Enterprise Integration Pack e Aplicativos lógicos" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Saiba mais mapas e o Enterprise Integration Pack
@@ -47,15 +47,15 @@ Execute estas etapas para carregar um novo mapa que substitui um mapa existente:
 4. Selecione o arquivo de mapa que você deseja carregar usando a caixa de diálogo do seletor de arquivos e, em seguida, escolha **Abrir** no seletor de arquivo ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. Após o carregamento do mapa, você receberá um pop-up de notificação.
 
-
 ## Como excluir um mapa?
 1. Escolha o bloco **Mapas**
 2. Selecione o mapa que você deseja excluir quando a folha Mapas for aberta
 3. Selecione o link **Excluir** ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. Confirme que você realmente deseja excluir o mapa. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## Próximas etapas
+- [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 - [Saiba mais sobre contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
+- [Saiba mais sobre transformações](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como alterar ou redefinir sua senha do AD do Azure | Microsoft Azure" 
-	description="Saiba como registrar-se na redefinição de senha, como alterar e como redefinir a senha se você esquecê-la." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Como alterar ou redefinir sua senha do AD do Azure | Microsoft Azure"
+	description="Saiba como registrar-se na redefinição de senha, como alterar e como redefinir a senha se você esquecê-la."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Como atualizar sua própria senha
@@ -32,20 +32,20 @@ A maneira mais rápida de se registrar para redefinição de senha é ir para ht
  1. Navegue até http://aka.ms/ssprsetup.
  2. Insira seu nome de usuário e sua senha.
  3. Escolha uma opção de registro clicando em **configurar agora**. Nesse caso, vou demonstrar o registro do meu **telefone de autenticação**.
- 
+
     ![][011]
-   
+
  4. Selecione o código do país na lista suspensa e insira seu **telefone completo + código de área**.
- 
+
     ![][012] ![][013]
-   
+
  5. Selecione a opção **enviar SMS para mim** ou **telefonar para mim**. Neste caso, selecionarei **enviar SMS para mim**, o que enviará um código de seis dígitos para meu telefone. Aguarde até que o código chegue ao seu telefone.
- 
+
     ![][014]
- 
+
  6. Depois que o código chegar, insira-o na caixa de entrada e clique em "verificar".
  7. Quando você vir **obrigado**, está tudo pronto! Agora você pode usar o registro para redefinir sua senha a qualquer momento acessando https://passwordreset.microsoftonline.com.
- 
+
     ![][015]
 
  >[AZURE.IMPORTANT] Se o administrador permitir que você se registre em mais de uma opção, recomendamos que também registre uma opção de backup caso perca seu telefone ou o acesso a seu email.
@@ -68,7 +68,7 @@ Siga as etapas abaixo para alterar a senha de sua conta corporativa ou de estuda
  3. Clique no bloco **alterar minha senha** no lado direito da tela.
  4. Digite a sua senha antiga, digite uma nova senha e confirme.
  5. Clique em **Salvar**.
- 
+
  Encontrou algum problema durante a alteração da senha? Leia sobre [problemas comuns e suas soluções](#common-problems-and-their-solutions)
 
 ## Como redefinir a sua senha
@@ -77,16 +77,16 @@ Siga as etapas abaixo para alterar a senha de sua conta corporativa ou de estuda
 Siga as etapas abaixo para redefinir a senha de sua conta corporativa ou de estudante usando a tela de entrada de uma conta corporativa ou de estudante.
 
  >[AZURE.IMPORTANT] Esse recurso só estará disponível para você se tiver sido ativado pelo administrador. Se ele não estiver ativado, você verá uma mensagem indicando que a sua conta não está habilitada para esse recurso. Nesse caso, você pode usar o link "contate seu administrador" para entrar em contato com seu administrador e desbloquear sua conta.<br><br>Se o administrador tiver habilitado esse recurso, você precisará se inscrever primeiro para poder usá-lo. Você pode fazer isso aqui: http://aka.ms/ssprsetup
- 
+
 
  1. Na página de entrada da conta corporativa ou de estudante, clique no link “não consegue acessar sua conta?” ou vá diretamente para https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Na página "quem é você?", insira a ID da conta corporativa ou de estudante e prove que você não e um robô passando pelo captcha.
- 
+
     ![][002]
- 
+
  3. Clique no botão "próximo".
  4. Escolha uma opção para redefinir sua senha. Dependendo de como o administrador tiver configurado o sistema, você poderá ver uma ou mais das seguintes opções:
      * **Inserir o meu email alternativo** - envia um email com um código de seis dígitos para seu **email alternativo** ou **email de autenticação** (você escolhe).
@@ -96,28 +96,28 @@ Siga as etapas abaixo para redefinir a senha de sua conta corporativa ou de estu
 	 * **Responder às perguntas de segurança** - exibe suas perguntas de segurança previamente registradas para que você possa respondê-las.
 
     ![][003]
-	 
+
  5. Vamos usar a opção "enviar SMS para meu celular" como exemplo. Se você estiver usando uma opção baseada em telefone, precisará verificar o número de telefone antes de enviarmos uma mensagem. Insira seu número de telefone completo e clique em **Próximo** para verificar se ele está correto e enviar um SMS.
- 
+
     ![][004]
- 
+
  6. Quando você receber o texto, use o código de verificação no corpo da mensagem, e não o número de onde o código foi enviado. Pode levar alguns minutos para obter o texto; aproveite para tomar um café!
- 
+
     ![][009]
- 
+
  8. Insira na caixa de entrada da página o código que acabou de receber no seu telefone.
- 
+
     ![][005]
- 
+
  9. O administrador pode exigir uma segunda etapa de verificação. Nesse caso, repita a etapa 4 com uma opção diferente selecionada.
  10. Na tela "escolher uma nova senha", selecione uma nova senha, confirme sua escolha e clique em **Concluir**.
- 
+
     ![][006] ![][007]
-  
+
  11. A página de êxito significa que você está pronto! Agora você pode entrar com sua nova senha.
- 
+
     ![][008]
- 
+
 Encontrou algum problema durante a redefinição da senha? Leia sobre [problemas comuns e suas soluções](#common-problems-and-their-solutions)
 
 ## Como desbloquear sua conta
@@ -127,13 +127,13 @@ Siga as etapas abaixo para desbloquear sua conta local usando a tela de entrada 
 
 
  1. Na página de entrada da conta corporativa ou de estudante, clique no link “não consegue acessar sua conta?” ou vá diretamente para https://passwordreset.microsoftonline.com.
- 
+
     ![][001]
- 
+
  2. Na página "quem é você?", insira a ID da conta corporativa ou de estudante e prove que você não e um robô passando pelo captcha.
- 
+
     ![][002]
- 
+
  3. Clique no botão "próximo".
  4. Escolha uma opção para desbloquear sua conta. Dependendo de como o administrador tiver configurado o sistema, você poderá ver uma ou mais das seguintes opções:
      * **Inserir o meu email alternativo** - envia um email com um código de seis dígitos para seu **email alternativo** ou **email de autenticação** (você escolhe).
@@ -143,27 +143,27 @@ Siga as etapas abaixo para desbloquear sua conta local usando a tela de entrada 
 	 * **Responder às perguntas de segurança** - exibe suas perguntas de segurança previamente registradas para que você possa respondê-las.
 
     ![][003]
-	 
+
  5. Vamos usar a opção "enviar SMS para meu celular" como exemplo. Se você estiver usando uma opção baseada em telefone, precisará verificar o número de telefone antes de enviarmos uma mensagem. Insira seu número de telefone completo e clique em **Próximo** para verificar se ele está correto e enviar um SMS.
- 
+
     ![][004]
- 
+
  6. Quando você receber o texto, use o código de verificação no corpo da mensagem, e não o número de onde o código foi enviado. Pode levar alguns minutos para obter o texto; aproveite para tomar um café!
- 
+
     ![][009]
- 
+
  8. Insira na caixa de entrada da página o código que acabou de receber no seu telefone.
- 
+
     ![][005]
- 
+
  9. O administrador pode exigir uma segunda etapa de verificação. Nesse caso, repita a etapa 4 selecionando uma opção diferente.
- 
+
  11. A página de êxito significa que você está pronto! Sua conta local foi desbloqueada e você agora pode entrar novamente.
- 
+
     ![][010]
-  
+
  >[AZURE.IMPORTANT] Não deixe de atualizar todos os seus dispositivos com a senha mais recente, já que muitas vezes um aplicativo invasor com uma senha antiga (como seu cliente de email no celular) pode ser o responsável pelo bloqueio da sua conta.
- 
+
 Encontrou algum problema durante o desbloqueio da conta? Leia sobre [problemas comuns e suas soluções](#common-problems-and-their-solutions)
 
 ## Problemas comuns e suas soluções
@@ -222,6 +222,7 @@ Aqui estão alguns casos de erro comuns e suas soluções:
           </tr>
         </tbody></table>
 
+
 ## Links para documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
@@ -252,4 +253,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

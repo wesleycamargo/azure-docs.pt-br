@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
@@ -41,7 +41,7 @@ Para saber mais sobre a abordagem de microsserviços, leia o artigo [Por que usa
 ## Criar clusters de Service Fabric em qualquer lugar
 Você pode criar clusters de Service Fabric em muitos ambientes nos quais implantar seus aplicativos. Pode ser no Azure ou localmente, no Windows Server ou no Linux. Além disso, o ambiente de desenvolvimento no SDK é idêntico ao ambiente de produção, sem nenhum emulador envolvido. Em outras palavras, se ele for executado no cluster de desenvolvimento local, ele será implantado no mesmo cluster em outros ambientes.
 
-Para mais informações, leia [Implantar em qualquer lugar no Windows Server ou Linux com o Service Fabric](service-fabric-deploy-anywhere.md)
+Para obter mais informações sobre a criação de clusters de leitura no local, leia [Criar um cluster no Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou para criar um cluster do Azure [por meio do Portal do Azure](service-fabric-cluster-creation-via-portal.md).
 
 ![Plataforma Service Fabric][Image1]
 
@@ -64,7 +64,7 @@ Os recursos do ALM da Malha do Serviço permitem que os administradores de aplic
 
 A maioria dos aplicativos consiste em uma combinação de microsserviços com e sem estado e outros executáveis/tempos de execução que são implantados juntos. Tendo tipos fortes nos aplicativos e microsserviços empacotados, o Service Fabric permite a implantação de várias instâncias de aplicativo, e cada uma delas pode ser gerenciada e atualizada de maneira independente. Vale destacar que o Service Fabric é capaz de implantar *qualquer* executável ou tempo de execução e torná-lo confiável. Por exemplo, ele pode ser usado para implantar ASP.NET Core 1, node.js, Java VM, scripts ou qualquer outro item que componha seu aplicativo.
 
-Para obter mais informações sobre o gerenciamento de ciclo de vida de aplicativos, leia [Ciclo de vida de aplicativos](service-fabric-application-lifecycle.md); sobre a implantação de qualquer código, consulte [Implantar um executável convidado](service-fabric-deploy-existing-app.md)
+Para obter mais informações sobre o gerenciamento de ciclo de vida de aplicativos, leia [Ciclo de vida de aplicativos](service-fabric-application-lifecycle.md); sobre a implantação de qualquer código, confira [Implantar um executável convidado](service-fabric-deploy-existing-app.md)
 
 ## Principais recursos
 Ao usar a Malha do Serviço, você pode:
@@ -105,9 +105,9 @@ Ao usar a Malha do Serviço, você pode:
 * Para mais informações:
     * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
     * [Visão geral da terminologia](service-fabric-technical-overview.md)
-* Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric  
+* Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric
 * [Como escolher uma estrutura do modelo de programação](service-fabric-choose-framework.md) para seu serviço
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

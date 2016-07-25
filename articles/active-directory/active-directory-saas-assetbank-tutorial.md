@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do Asset Bank ao Azure AD, você precisa adiciona
 
 **Para adicionar o Asset Bank por meio da galeria, realize as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -281,4 +281,4 @@ Ao clicar no bloco Asset Bank no Painel de Acesso, você deverá ser conectado a
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

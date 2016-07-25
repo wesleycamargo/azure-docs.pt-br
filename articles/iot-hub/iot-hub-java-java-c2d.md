@@ -28,7 +28,7 @@ Esse tutorial se baseia na [Introdução ao Hub IoT]. Ele mostra como:
 
 - Do seu aplicativo de nuvem de back-end, envie mensagens da nuvem para o dispositivo em um único dispositivo por meio do Hub IoT.
 - Receber mensagens da nuvem para o dispositivo em um dispositivo.
-- Do seu aplicativo de nuvem de back-end, solicitar confirmação de entrega (*feedback*) para as mensagens enviadas a um dispositivo do Hub IoT.
+- Do seu aplicativo de nuvem de back-end, solicitar confirmação de entrega (*comentários*) para as mensagens enviadas a um dispositivo do Hub IoT.
 
 Encontre mais informações sobre as mensagens da nuvem para o dispositivo no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
@@ -37,7 +37,7 @@ No final deste tutorial, você executará dois aplicativos de console do Java:
 * **simulated-device**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu Hub IoT e recebe mensagens da nuvem para o dispositivo.
 * **send-c2d-messages**, que envia uma mensagem da nuvem ao dispositivo simulado por meio do Hub IoT e recebe sua confirmação de entrega.
 
-> [AZURE.NOTE] O Hub IoT tem suporte a SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e Javascript) nos SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, confira o [Centro de Desenvolvedores do IoT do Azure].
+> [AZURE.NOTE] O Hub IoT tem suporte a SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e Javascript) nos SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Centro de Desenvolvedores do IoT do Azure].
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -177,18 +177,11 @@ Agora você está pronto para executar os aplicativos.
 
 ## Próximas etapas
 
-Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo. Você pode continuar explorando os recursos e cenários de Hub IoT com os seguintes tutoriais:
+Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 
-- [Processar mensagens do Dispositivo para a Nuvem] mostra como processar de forma confiável a telemetria e as mensagens interativas vindas dos dispositivos.
-- [Carregando arquivos de dispositivos], descreve um padrão que faz uso das mensagens da nuvem para o dispositivo para facilitar o carregamento de arquivo dos dispositivos.
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Azure IoT Suite].
 
-Informações adicionais sobre o Hub IoT:
-
-* [Visão geral do Hub IoT]
-* [Guia do desenvolvedor do Hub IoT]
-* [Orientação sobre o Hub IoT]
-* [Plataformas e idiomas do dispositivo com suporte]
-* [Centro de Desenvolvedores do IoT do Azure]
+Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 
 
 <!-- Images -->
@@ -198,16 +191,17 @@ Informações adicionais sobre o Hub IoT:
 
 [Introdução ao Hub IoT]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Processar mensagens do Dispositivo para a Nuvem]: iot-hub-csharp-csharp-process-d2c.md
-[Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
-[Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
-[Orientação sobre o Hub IoT]: iot-hub-guidance.md
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[Plataformas e idiomas do dispositivo com suporte]: iot-hub-supported-devices.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portal do Azure]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

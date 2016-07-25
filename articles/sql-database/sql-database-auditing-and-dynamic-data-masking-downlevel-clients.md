@@ -3,7 +3,7 @@
 	description="Saiba mais sobre o suporte a clientes de versão anterior do Banco de Dados SQL e alterações ponto de extremidade IP para Auditoria."
 	services="sql-database"
 	documentationCenter=""
-	authors="nadavhelfman"
+	authors="ronitr"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nadavh;ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
 
 # Banco de Dados SQL - Suporte a clientes de versão anterior e alterações ponto de extremidade IP para Auditoria
 
@@ -72,4 +72,4 @@ O novo ponto de extremidade IP do banco de dados dependerá da região de banco 
 | Canadá Central | 13\.88.248.106 |
 | Leste do Canadá | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

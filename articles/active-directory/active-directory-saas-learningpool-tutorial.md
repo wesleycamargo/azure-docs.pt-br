@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Learningpool
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Learningpool, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Seu aplicativo Learningpool espera as declarações do SAML em um formato espec�
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Learningpool**, no menu superior, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Learningpool**, no menu superior, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
 
     ![Atributos](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Atributos")
 
@@ -106,7 +106,7 @@ Seu aplicativo Learningpool espera as declarações do SAML em um formato espec�
 
     ![Configurar o logon único](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configurar o logon único")
 
-7.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Learningpool**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Learningpool (por exemplo: *https://parliament.preview.learningpool.com/auth/shibboleth/index.php)) e clique em **Avançar**.
+7.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Learningpool**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Learningpool (por exemplo: https://parliament.preview.learningpool.com/auth/shibboleth/index.php) e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configurar a URL do Aplicativo")
 
@@ -118,7 +118,7 @@ Seu aplicativo Learningpool espera as declarações do SAML em um formato espec�
 
     >[AZURE.NOTE]O logon único deve ser habilitado pela equipe de suporte do Learningpool.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -135,7 +135,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao Learningpool, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Learningpool**, clique em **Atribuir usuários**.
 
@@ -147,4 +147,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 
@@ -100,7 +100,7 @@ Consulte [Tutorial sobre a atualização do aplicativo](service-fabric-applicati
 5. Quando novos nós são adicionados ou os nós existentes são removidos do cluster, o Service Fabric balanceia a carga automaticamente dos aplicativos em execução em todos os nós do cluster para obter o desempenho ideal.
 
 ## Remove
-1. Um *operador* pode excluir uma instância específica de um serviço em execução no cluster sem remover o aplicativo inteiro usando o método [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), o cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) ou a operação REST [**Excluir Serviço**](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
+1. Um *operador* pode excluir uma instância específica de um serviço em execução no cluster sem remover o aplicativo inteiro usando o método [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), o cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) ou a operação REST [**Excluir Serviço**](https://msdn.microsoft.com/library/azure/dn707687.aspx).
 
 2. Um *operador* também pode excluir uma instância do aplicativo e todos os seus serviços usando o método [**DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), o cmdlet [**Remove-ServiceFabricApplication** ](https://msdn.microsoft.com/library/azure/mt125914.aspx) ou a operação REST [**Excluir Aplicativo**](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
@@ -121,4 +121,4 @@ Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativo
 - [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)
 - [Exemplo do ciclo de vida de aplicativo baseado em REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

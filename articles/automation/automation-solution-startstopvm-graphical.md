@@ -12,17 +12,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Cenário de Automação do Azure — iniciando e parando máquinas virtuais
 
 Esse cenário de Automação do Azure inclui runbooks para iniciar e parar máquinas virtuais clássicas. Você pode usar esse cenário para qualquer um destes objetivos:
 
-- Usar os runbooks sem modificação em seu próprio ambiente. 
-- Modificar os runbooks para executar funcionalidade personalizada.  
-- Chamar os runbooks de outro runbook como parte de uma solução geral. 
-- Usar os runbooks como tutoriais para saber sobre os conceitos de criação do runbook. 
+- Usar os runbooks sem modificação em seu próprio ambiente.
+- Modificar os runbooks para executar funcionalidade personalizada.
+- Chamar os runbooks de outro runbook como parte de uma solução geral.
+- Usar os runbooks como tutoriais para saber sobre os conceitos de criação do runbook.
 
 > [AZURE.SELECTOR]
 - [Gráfico](automation-solution-startstopvm-graphical.md)
@@ -150,7 +150,7 @@ A etapa final no runbook é enviar a saída, se a solicitação de inicializaç�
 ## Próximas etapas
 
 - [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
-- [Runbooks filhos na Automação do Azure](automation-child-runbooks.md) 
+- [Runbooks filhos na Automação do Azure](automation-child-runbooks.md)
 - [Saída de runbook e mensagens na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

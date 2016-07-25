@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Limites da conta do Banco de Dados de Documentos aumentados por solicitação
@@ -39,19 +39,19 @@ As etapas a seguir mostram como solicitar um ajuste de cota.
 
 	![Captura de tela da inicialização da ajuda e suporte](media/documentdb-increase-limits/helpsupport.png)
 
-2. Na folha **Ajuda + suporte**, clique em **Obter suporte**.
+2. Na folha **Ajuda + Suporte**, clique em **Criar solicitação de suporte**.
 
 	![Captura de tela da criação de um chamado de suporte](media/documentdb-increase-limits/getsupport.png)
 
-3. Na folha **Nova solicitação de suporte**, clique em **Noções Básicas**. Em seguida, defina **Tipo de emissão** como **Cota**, **Assinatura** como a sua assinatura que hospeda sua conta do Banco de Dados de Documentos, **Serviço** como o **Banco de Dados de Documentos** e **Plano de suporte** como **SUPORTE de cota - Incluído**. Finalmente, clique em **Próximo**.
+3. Na folha **Nova solicitação de suporte**, clique em **Noções Básicas**. Em seguida, defina o **Tipo de emissão** como **Cota**, a **Assinatura** como sua assinatura que hospeda sua conta do Banco de Dados de Documentos, o **Tipo de cota** como o **Banco de Dados de Documentos** e o **Plano de suporte** como **SUPORTE de Cota - Incluído**. Finalmente, clique em **Próximo**.
 
 	![Captura de tela do tipo de solicitação de chamado de suporte](media/documentdb-increase-limits/supportrequest1.png)
 
-4. Na folha **Problema**, escolha uma severidade. Defina **Tipo de problema** como **Banco de Dados de Documentos** e inclua informações sobre o aumento da cota em **Detalhes**. Clique em **Próximo**.
+4. Na folha **Problema**, escolha uma gravidade e inclua as informações sobre o aumento da cota em **Detalhes**. Clique em **Avançar**.
 
 	![Captura de tela do seletor de assinatura de chamado de suporte](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Por fim, preencha suas informações de contato na folha **Informações de contato**.
+5. Por fim, preencha suas informações de contato na folha **Informações de Contato** e clique em **Criar**.
 
 	![Captura de tela do seletor de recurso de chamado de suporte](media/documentdb-increase-limits/supportrequest3.png)
 
@@ -63,4 +63,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 ##<a name="NextSteps"></a> Próximas etapas
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao IdeaScale
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o IdeaScale, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-ideascale-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **IdeaScale**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **IdeaScale**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790844.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do IdeaScale**, digite a URL usada pelos usuários para fazer logon em seu aplicativo IdeaScale (por exemplo: "**https://company.IdeaScale.com*")) e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do IdeaScale**, digite a URL usada pelos usuários para fazer logon no aplicativo IdeaScale (por exemplo: "*https://company.IdeaScale.com*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configurar a URL do Aplicativo")
 
@@ -102,12 +102,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações de Logon Único](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Configurações de Logon Único")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no IdeaScale**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP do SAML**.
+    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP do SAML**.
     2.  Copie o conteúdo do arquivo de metadados baixado e cole-o na caixa de texto **Metadados do IdP do SAML**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no IdeaScale**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Êxito de Logoff**.
+    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Êxito de Logoff**.
     4.  Clique em **Salvar Alterações**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790851.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -135,9 +135,9 @@ Para permitir que os usuários do Azure AD façam logon no IdeaScale, eles dever
     1.  Na caixa de texto **Endereços de Email**, digite o endereço de email de uma conta de AAD válida que você deseja provisionar.
     2.  Clique em **Salvar Alterações**.
 
-    >[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+    >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do IdeaScale ou as APIs fornecidas pelo IdeaScale para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do IdeaScale ou as APIs fornecidas pelo IdeaScale para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -145,7 +145,7 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao IdeaScale, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **IdeaScale**, clique em **Atribuir usuários**.
 
@@ -157,4 +157,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

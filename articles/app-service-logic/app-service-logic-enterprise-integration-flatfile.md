@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Visão geral do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure" 
-	description="Usar os recursos do Enterprise Integration Pack para habilitar cenários de integração e o processo de negócios usando o Serviço de Aplicativo do Microsoft Azure" 
+	pageTitle="Aprenda a codificar ou decodificar arquivos simples usando o Enterprise Integration Pack e Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
+	description="Use os recursos do Enterprise Integration Pack e Aplicativos Lógicos para codificar ou decodificar arquivos simples" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Integração corporativa com arquivos simples
@@ -65,4 +65,4 @@ Agora você pode testar seu conector fazendo uma solicitação ao ponto de extre
 ## Saiba mais
 - [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
-	ms.author="mikeray" />
+	ms.date="07/12/2016"
+	ms.author="MikeRayMSFT" />
 
 # Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
@@ -153,4 +153,4 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Criar cluster WSFC para grupos de disponibilidade AlwaysOn em uma VM do Azure)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

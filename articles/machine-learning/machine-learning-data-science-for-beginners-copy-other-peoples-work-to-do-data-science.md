@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copie o trabalho de outras pessoas para fazer a ciência de dados - Ciência de Dados para Iniciantes | Microsoft Azure"
+   pageTitle="Copiar o trabalho de outras pessoas para realizar a ciência de dados – exemplo de teste | Microsoft Azure"
    description="O segredo da ciência de dados: fazer com que outras pessoas trabalhem para você. Veja exemplos na Cortana Analytics Gallery, como um exemplo de algoritmo de clustering."
    keywords="exemplos de ciência de dados, exemplo de algoritmo, exemplo de experimento, exemplo de aprendizado de máquina, algoritmo de clustering"
    services="machine-learning"
@@ -94,4 +94,4 @@ Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado d
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao e-Builder
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o e-Builder, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-e-builder-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração do aplicativo **e-Builder**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **e-Builder**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurar logon único")
 
@@ -98,9 +98,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao e-Builder, execute as etapas a seguir:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **e-Builder**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **e-Builder**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Atribuir usuários")
 
@@ -110,4 +110,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

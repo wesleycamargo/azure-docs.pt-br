@@ -14,13 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Tutorial: Criar uma API Web personalizada protegida por ARM para PowerApps e Fluxos Lógicos 
 
 Este tutorial orienta você pelas etapas necessárias para registrar um arquivo do Swagger que descreve a [API do ARM][6] e conecta-se à API personalizada no PowerApps.
+
+>[AZURE.IMPORTANT] Este tópico foi movido para powerapps.microsoft.com em [Tutorial: criar uma API do ARM protegida por AAD personalizada para PowerApps e fluxos](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/). Vá para o PowerApps a fim de obter a versão mais recente. Esse link do Azure está sendo arquivado.
+
 
 ## Para começar, você precisa do seguinte:
 
@@ -37,7 +40,7 @@ Primeiro, precisamos criar um aplicativo do Azure Active Directory (AAD) que exe
 
 3. Insira um nome para seu aplicativo, selecione **aplicativo Web e/ou API Web** e selecione **Avançar**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Novo Aplicativo")
 
-4. Em **URL de Logon**, insira: **http://login.windows.net**. Em **URI da ID do Aplicativo**, insira qualquer URI exclusivo. Em seguida, selecione **Concluir**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Novo Segundo Aplicativo")
+4. Em **URL de Logon**, insira: *http://login.windows.net*. Em **URI da ID do Aplicativo**, insira qualquer URI exclusivo. Em seguida, selecione **Concluir**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Novo Segundo Aplicativo")
 
 5. Depois de criar o aplicativo AAD, vá para a guia **Configurar**. Nessa guia, podemos configurar as permissões no aplicativo.
 
@@ -87,4 +90,4 @@ Em caso de dúvidas ou comentários sobre as APIs personalizadas, envie um email
 [7]: https://manage.windowsazure.com
 [8]: http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -42,7 +42,7 @@ Todos os nós em um cluster HDInsight estão localizados em uma Rede Virtual do 
 | Ambari | 443 | HTTPS | Interface de usuário da Web do Ambari. Confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari | 443 | HTTPS | API REST do Ambari. Confira [Gerenciar clusters HDInsight usando a API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat | 443 | HTTPS | API REST do HCatalog. Confira [Usar Hive com Curl](hdinsight-hadoop-use-Pig-curl.md), [Usar Pig com Curl](hdinsight-hadoop-use-Pig-curl.md), [Usar MapReduce com Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 | 443 | ODBC | Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hdinsight-connect-excel-hive-odbc-driver). |
+| HiveServer2 | 443 | ODBC | Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hdinsight-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 | 443 | JDBC | Conecta-se ao Hive usando JDBC. Confira [Conectar-se ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md) |
 
 Veja a seguir os tipos de cluster específicos que estão disponíveis:
@@ -133,4 +133,4 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | Servidor de região | Todos os nós de trabalho | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | A porta que os clientes usam para se conectar ao ZooKeeper |
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

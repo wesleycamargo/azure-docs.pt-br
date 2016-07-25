@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/12/2016"
 	ms.author="curtand"/>
 
 
 # Definir políticas de expiração de senha no Active Directory do Azure
-> [AZURE.NOTE] Este tópico fornece conteúdo de ajuda online para serviços de nuvem, como o Microsoft Intune e o Office 365, que dependem do Active Directory do Microsoft Azure para serviços de identidade e diretório.
 
-Como administrador global de um serviço de nuvem da Microsoft, você pode usar o Módulo Active Directory do Microsoft Azure para Windows PowerShell para configurar senhas de usuário de modo que não expirem. Você também pode usar os cmdlets do Windows PowerShell para remover as configurações que nunca expiram ou para ver quais senhas de usuário são configuradas para não expirar.
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
+Como administrador global de um serviço de nuvem da Microsoft, você pode usar o Módulo Active Directory do Microsoft Azure para Windows PowerShell para configurar senhas de usuário de modo que não expirem. Você também pode usar os cmdlets do Windows PowerShell para remover as configurações que nunca expiram ou para ver quais senhas de usuário são configuradas para não expirar. Este artigo fornece ajuda para serviços de nuvem, como o Microsoft Intune e o Office 365, que dependem do Microsoft Azure Active Directory para serviços de identidade e diretório.
 
   > [AZURE.NOTE] Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para obter mais informações sobre sincronização de diretórios, consulte a lista de tópicos no [Roteiro de sincronização de diretório](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
@@ -64,4 +65,8 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0706_2016-->
+## Próximas etapas
+
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
+<!---HONumber=AcomDC_0713_2016-->

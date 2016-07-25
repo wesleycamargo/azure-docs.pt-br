@@ -182,7 +182,7 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 |----------------|-----------|---------|-----------------|-------------|
 | Pacote | Gravar | Opaco | | Pacote de firmware em formato binário.<br/>É mapeado para a API de serviço:<br/>**SystemPropertyNames.FirmwarePackage** |
 | PackageURI | Gravar | Cadeia de caracteres | 0 a 255 bytes | URI de onde o dispositivo pode baixar o pacote de firmware.<br/>É mapeado para a API de serviço: **SystemPropertyNames.FirmwarePackageUri** |
-| Atualização | Executar | | | Atualiza o firmware usando o pacote de firmware armazenado no Pacote ou usando o firmware baixado do URI a partir do pacote.<br/>É mapeado para a API de serviço:<br/>**ScheduleFirmwareUpdateAsync** |
+| Atualização | Executar | | | Atualiza o firmware usando o pacote de firmware armazenado no Pacote ou usando o firmware baixado do URI do pacote.<br/>É mapeado para a API de serviço:<br/>**ScheduleFirmwareUpdateAsync** |
 | Estado | Ler | Número inteiro | 1-3 | Status do processo de atualização de firmware:<br/>**1**: Ocioso. Isso poderia ocorrer antes do download do pacote de firmware ou após a aplicação do pacote de firmware.<br/>**2**: baixando o pacote de firmware.<br/>**3**: pacote de firmware baixado.<br/> É mapeado para a API de serviço: **SystemPropertyNames.FirmwareUpdateState** |
 | UpdateResult | Ler | Número inteiro | 0 a 6 | O resultado do download ou a atualização do firmware<br/>**0**: valor padrão.<br/>**1**: atualização do firmware bem-sucedida.<br/>**2**: não há armazenamento suficiente para o novo pacote de firmware.<br/>**3**: sem memória durante o download do pacote de firmware.<br/>**4**: conexão perdida durante o download do pacote de firmware.<br/>**5**: falha de verificação CRC para o novo pacote baixado.<br/>**6**: tipo de pacote de firmware sem suporte.<br/>**7**: URI inválido. É mapeado para a API de serviço: **SystemPropertyNames.FirmwareUpdateResult** |
 | PkgName | Ler | Cadeia de caracteres | 0 a 255 bytes | Nome descritivo do pacote de firmware referenciado pelo recurso **Pacote** <br/>É mapeado para a API do serviço:<br/>**SystemPropertyNames.FirmwarePackageName** |
@@ -192,9 +192,9 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 
 | Nome do Recurso | Operação | Tipo | Intervalo e Unidades | Descrição |
 |------------------------|------------|---------|-----------------|---------------|
-| Período Mínimo Padrão | Leitura Gravação | Número inteiro | Segundos | O período de tempo em que o dispositivo atrasa ao enviar uma atualização para uma propriedade observada. Por exemplo, dado um **DefaultMinPeriod** de cinco minutos, o dispositivo envia uma atualização para uma propriedade observada no máximo a cada cinco minutos, mesmo se o valor for alterado com mais frequência. É mapeado para a API de serviço: **SystemPropertyNames.DefaultMinPeriod** |
-| Período máximo padrão | Leitura Gravação | Número inteiro | Segundos | O período de tempo (em segundos) em que o dispositivo, independente de a propriedade observada ser alterada, envia uma atualização para o valor da propriedade. Por exemplo, dado um **DefaultMaxPeriod** de seis horas, uma propriedade observada envia uma atualização para o valor da propriedade pelo menos a cada seis horas, independente das alterações do recurso.<br/>É mapeado para a API de serviço:<br/>**SystemPropertyNames.DefaultMaxPeriod** |
-| Tempo de vida | Leitura Gravação | Número inteiro | Segundos | O tempo de vida de registro do dispositivo. Um novo registro ou uma solicitação de atualização precisa ser recebida a partir do dispositivo nesse tempo de vida, caso contrário o dispositivo será cancelado no serviço.<br/>É mapeado para a API de serviço:<br/>**SystemPropertyNames.RegistrationLifetime** |
+| Período Mínimo Padrão | Leitura Gravação | Número inteiro | Segundos | O período de tempo em que o dispositivo atrasa ao enviar uma atualização para uma propriedade observada. Por exemplo, dado um **DefaultMinPeriod** de cinco minutos, o dispositivo enviará uma atualização para uma propriedade observada no máximo a cada cinco minutos, mesmo se o valor for alterado com mais frequência. É mapeado para a API de serviço: **SystemPropertyNames.DefaultMinPeriod** |
+| Período máximo padrão | Leitura Gravação | Número inteiro | Segundos | O período de tempo (em segundos) em que o dispositivo, independente de a propriedade observada ser alterada, envia uma atualização para o valor da propriedade. Por exemplo, dado um **DefaultMaxPeriod** de seis horas, uma propriedade observada envia uma atualização para o valor da propriedade pelo menos a cada seis horas, independentemente das alterações do recurso.<br/>É mapeado para a API de serviço:<br/>**SystemPropertyNames.DefaultMaxPeriod** |
+| Tempo de vida | Leitura Gravação | Número inteiro | Segundos | O tempo de vida de registro do dispositivo. Um novo registro ou uma solicitação de atualização precisa ser recebida por meio do dispositivo no seu tempo de vida, caso contrário o dispositivo terá o registro cancelado no serviço.<br/>É mapeado para a API de serviço:<br/>**SystemPropertyNames.RegistrationLifetime** |
 
 ### Objeto de Configuração
 
@@ -203,6 +203,15 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 | Nome | Leitura Gravação | Cadeia de caracteres | | Identifica exclusivamente o nome da configuração do dispositivo para ler ou atualizar. |
 | Valor | Leitura Gravação | Cadeia de caracteres | | Identifica exclusivamente o valor da configuração para ler ou atualizar. |
 | Aplicar | Executar | | | Aplica-se à alteração da configuração no dispositivo. |
+
+## Próximas etapas
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
@@ -216,10 +225,14 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

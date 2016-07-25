@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Lynda.com
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Lynda.com, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-lynda-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Lynda.com**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Lynda.com**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configurar logon único")
 
@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-lynda-tutorial/IC777527.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Entrada do Lynda.com**, digite a URL de locatário do Lynda.com (por exemplo: **https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&target=https://shib.lynda.com/InCommon*)) e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Lynda.com**, digite a URL de locatário do Lynda.com (por exemplo: *https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&target=https://shib.lynda.com/InCommon*) e clique em **Avançar**.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-lynda-tutorial/IC781047.png "Configurar a URL do aplicativo")
 
@@ -88,7 +88,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Envie o arquivo de metadados baixado para a equipe de suporte do Lynda.com. A equipe de suporte do Lynda.com faz a configuração de logon único para você.
 
-6.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -103,7 +103,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao Lynda.com, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Lynda.com**, clique em **Atribuir usuários**.
 
@@ -115,4 +115,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

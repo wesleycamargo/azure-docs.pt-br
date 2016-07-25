@@ -111,7 +111,7 @@ Você também pode renomear e definir novas colunas:
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * Os [nomes de coluna](app-insights-analytics-reference.md#names) poderão incluir espaços ou símbolos se eles estiverem entre colchetes, desta forma: `['...']` ou `["..."]`
-* `%` é o operador de módulo normal. 
+* `%` é o operador de módulo normal.
 * `1d` (que é o dígito um e um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
 * O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. De modo que `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
 
@@ -412,7 +412,7 @@ Também removemos o limite máximo na cláusula where para obter os números cor
 
 O que nos mostra que:
 
-* 5% das sessões têm uma duração de menos de 3 minutos e 34 segundos; 
+* 5% das sessões têm uma duração de menos de 3 minutos e 34 segundos;
 * 50% das sessões duram menos de 36 minutos;
 * 5% das sessões duram mais de 7 dias
 
@@ -455,7 +455,7 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 
 ## [Let](app-insights-analytics-reference.md#let-clause): atribuir um resultado a uma variável
 
-Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as partes da expressão anterior. Os resultados não mudam:
+Use [let](./app-insights-analytics-reference.md#let-statements) para separar as partes da expressão anterior. Os resultados não mudam:
 
 ```AIQL
 
@@ -472,4 +472,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,11 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 07/07/2016 do HDInsight
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Spark, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| [Ferramentas do HDInsight para IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) | O plug-in IntelliJ IDEA para clusters HDInsight Spark agora está integrado ao Kit de ferramentas do Azure para IntelliJ. Ele dá suporte ao SDK do Azure v2.9.1, SDKs mais recentes do Java e inclui todos os recursos do Plug-in autônomo do HDInsight para IntelliJ.| Ferramentas | Spark| N/D|
+| [Ferramentas do HDInsight para Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) | O Kit de ferramentas do Azure para Eclipse agora dá suporte a clusters HDInsight Spark. Ele habilita os seguintes recursos. <ul><li>Criar e gravar um aplicativo Spark facilmente em Scala e Java com suporte à criação de primeira classe ao IntelliSense, formatação automática, verificação de erros etc.</li><li>Testar o aplicativo Spark localmente.</li><li>Enviar trabalhos ao cluster HDInsight Spark e recuperar os resultados.</li><li>Fazer logon no Azure e acessar todos os clusters Spark associados às suas assinaturas do Azure.</li><li>Navegar em todos os recursos de armazenamento associados do seu cluster HDInsight Spark.</li></ul>| Ferramentas | Spark| N/D
 
 ## Notas da versão de 06/06/2016 do HDInsight
 
@@ -34,7 +43,7 @@ Esta versão contém as atualizações a seguir.
 
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Spark, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Spark no HDInsight está disponível de forma geral | Esta versão traz melhorias de disponibilidade, escalabilidade e produtividade para o Apache Spark de software livre no HDInsight. <ul><li>A disponibilidade de SLA de 99,9% líder no setor, o que o torna adequado para cargas de trabalho corporativas exigentes.</li><li>Camada de armazenamento escalonável usando o Repositório Azure Data Lake.</li><li>Ferramentas de produtividade para todas as fases de desenvolvimento e a exploração de dados. Notebooks Jupyter com kernel Spark personalizado habilitam a exploração de dados interativa, a integração com painéis de BI como Power BI, Tableau e Qlik é boa para o compartilhamento de dados rápido e relatórios contínuos, o plug-in IntelliJ é uma opção confiável para o desenvolvimento e depuração de artefato de código de longo prazo.</li></ul>| O Barramento de | Spark| N/D|
+| Spark no HDInsight está disponível de forma geral | Esta versão traz melhorias de disponibilidade, escalabilidade e produtividade para o Apache Spark de software livre no HDInsight. <ul><li>A disponibilidade de SLA de 99,9% líder no setor, o que o torna adequado para cargas de trabalho corporativas exigentes.</li><li>Camada de armazenamento escalonável usando o Azure Data Lake Store.</li><li>Ferramentas de produtividade para todas as fases de desenvolvimento e a exploração de dados. Notebooks Jupyter com kernel Spark personalizado habilitam a exploração de dados interativa, a integração com painéis de BI como Power BI, Tableau e Qlik é boa para o compartilhamento de dados rápido e relatórios contínuos, o plug-in IntelliJ é uma opção confiável para o desenvolvimento e depuração de artefato de código de longo prazo.</li></ul>| O Barramento de | Spark| N/D|
 | Ferramentas do HDInsight para IntelliJ | Este é um plug-in IntelliJ IDEA para clusters HDInsight Spark. Ele habilita as seguintes funcionalidades.<ul><li>Criar e gravar um aplicativo Spark facilmente em Scala e Java com suporte à criação de primeira classe ao IntelliSense, formatação automática, verificação de erros etc.</li><li>Testar o aplicativo Spark localmente.</li><li>Enviar trabalhos ao cluster HDInsight Spark e recuperar os resultados.</li><li>Fazer logon no Azure e acessar todos os clusters Spark associados às suas assinaturas do Azure.</li><li>Navegar em todos os recursos de armazenamento associados do seu cluster HDInsight Spark.</li><li>Navegar em todas as informações de trabalho e histórico do seu cluster HDInsight Spark.</li><li>Depurar trabalhos do Spark remotamente do computador desktop.</li></ul>| Ferramentas | Spark| N/D
 
 ## Notas da versão de 13/05/2016 do HDInsight 3.1
@@ -1303,7 +1312,7 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 ## Notas para a versão de 07/10/2014
 
-* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host\_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de somente o nome do host. Por exemplo, em vez de retornar “**headnode0**”, você obtém o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implementados em uma rede virtual. Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
+* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host\_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de somente o nome do host. Por exemplo, ao invés de retornar "**headnode0**", você obtém o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implementados em uma rede virtual. Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
 
 * Fornecemos novas configurações de memória para a implantação padrão do cluster do HDInsight. As configurações de memória padrão anteriores não atentavam adequadamente às diretrizes referente ao número de núcleos de CPU implantados. Essas novas configurações de memória devem fornecer melhores padrões, de acordo com as recomendações da Hortonworks. Para alterá-las, consulte a documentação de referência do SDK sobre alteração da configuração de clusters. As novas configurações de memória usadas pelo cluster do HDInsight padrão com 4 núcleos de CPU (8 contêineres) são detalhadas na tabela a seguir. (Os valores usados anteriormente a essa versão também são fornecidos entre parênteses).
 
@@ -1327,7 +1336,7 @@ Para obter mais informações sobre as configurações de memória usadas pelo Y
 
 Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluster não foi configurado para acessar os serviços HTTP*”:
 
-* Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro “*O cluster <clustername> não está configurado para acessar os serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
+* Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (**Use-AzureRmHDInsightCluster** ou **Invoke-AzureRmHDInsightHiveJob**) para enviar trabalhos, essas operações poderão falhar com a mensagem de erro “*O cluster <clustername> não está configurado para acessar os serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro, como “*Não é possível se conectar ao cluster*”.
 
 * Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
@@ -1359,7 +1368,7 @@ Sobre a mensagem de erro do Azure PowerShell e do SDK do HDInsight: “*O cluste
 
 ## Observações sobre os clusters criados antes de 15/8/2014
 
-Uma mensagem de erro do Azure PowerShell ou do SDK do HDInsight, "Cluster <clustername> não está configurado para acessar serviços HTTP" (ou dependendo da operação, outras mensagens de erro, como: "Não é possível conectar ao cluster") podem ser encontradas devido à diferença entre a versão do PowerShell do Azure ou do SDK do HDInsight e aquela de um cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Essa funcionalidade não é interpretada corretamente por versões mais antigas do PowerShell do Azure ou do SDK do HDInsight, o que resulta em falhas nas operações de envio de trabalhos. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (como Use-AzureRmHDInsightCluster ou Invoke-AzureRmHDInsightHiveJob) para enviar trabalhos, essas operações podem falhar com uma das mensagens de erro descritas.
+Uma mensagem de erro do Azure PowerShell ou do SDK do HDInsight, “O cluster <clustername> não está configurado para acessar serviços HTTP” (ou dependendo da operação, outras mensagens de erro, como: “Não é possível conectar ao cluster”) podem ser encontradas devido à diferença entre a versão do PowerShell do Azure ou do SDK do HDInsight e aquela de um cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Essa funcionalidade não é interpretada corretamente por versões mais antigas do PowerShell do Azure ou do SDK do HDInsight, o que resulta em falhas nas operações de envio de trabalhos. Se você usar as APIs do SDK do HDInsight ou os cmdlets do Azure PowerShell (como Use-AzureRmHDInsightCluster ou Invoke-AzureRmHDInsightHiveJob) para enviar trabalhos, essas operações podem falhar com uma das mensagens de erro descritas.
 
 Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao SDK do HDInsight mais recente no [NuGet][nuget-link]. Você pode acessar as ferramentas do PowerShell do Azure usando o [Microsoft Web Platform Installer][webpi-link].
 
@@ -1559,7 +1568,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 
 
 ### Drivers
-O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correções de bug
@@ -1601,4 +1610,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -17,7 +17,7 @@
 	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Fazer backup de um cliente ou servidor do Microsoft Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
+# Fazer backup de um cliente ou servidor do Windows Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](backup-configure-vault.md)
@@ -27,7 +27,7 @@ Este artigo explica como fazer backup dos seus arquivos e pastas do Windows Serv
 
 ![Etapas do processo de backup](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
 
 ## Antes de começar
 Para fazer backup de um servidor ou cliente no Azure, você precisará de uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
@@ -184,6 +184,8 @@ Para concluir o backup inicial, você deve usar o agente de backup do Microsoft 
 
 O agente de backup fornece limitação de rede. A limitação controles como a largura de banda de rede é usada durante a transferência de dados. Esse controle poderá ser útil se você precisar fazer backup de dados durante o horário de expediente, mas não quiser que o processo de backup interfira em outro tráfego de Internet. A limitação aplica-se a atividades de backup e restauração.
 
+>[AZURE.NOTE] A limitação de rede não está disponível no Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ou Windows 7 (com service packs). A limitação de recurso de rede do Backup do Azure envolve a QoS (Qualidade de Serviço) no sistema operacional local. Embora o Backup do Azure possa proteger esses sistemas operacionais, a versão de QoS disponível nessas plataformas não funciona com a limitação de rede do Backup do Azure. A limitação de rede pode ser usada em todos os outros [sistemas operacionais com suporte](backup-azure-backup-faq.md#installation-amp-configuration).
+
 **Para habilitar a limitação de rede**
 
 1. No agente de backup, clique em **Alterar Propriedades**.
@@ -210,7 +212,7 @@ O agente de backup fornece limitação de rede. A limitação controles como a l
 
 3. Clique em **Fechar** para fechar o assistente. Se você fizer isso antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 
-Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
+Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console do backup.
 
 ![IR completo](./media/backup-configure-vault/ircomplete.png)
 
@@ -220,7 +222,7 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 ## Próximas etapas
 Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, confira:
 
-- Agora que você fez backup de seus arquivos e pastas, poderá [gerenciar os seus servidores e cofres](backup-azure-manage-windows-server.md).
+- Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 - Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

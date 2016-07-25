@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 
@@ -57,7 +57,9 @@ No Exchange, há duas categorias principais de protocolo. Analise e selecione a 
 
 
 ### Regras do AD FS de exemplo
-As regras a seguir podem ser usadas para bloquear o acesso de protocolo herdado no AD FS, em duas configurações comuns. Opção 1: permitir o Exchange ActiveSync e só permitir aplicativos herdados na intranet.
+As regras a seguir podem ser usadas para bloquear o acesso de protocolo herdado no AD FS, em duas configurações comuns.
+
+### Opção 1: permitir o Exchange ActiveSync e só permitir aplicativos herdados na intranet
 
 Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync será permitido, juntamente com o navegador e o tráfego de autenticação moderna. Aplicativos herdados serão bloqueados da extranet.
 
@@ -105,4 +107,4 @@ Regra 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

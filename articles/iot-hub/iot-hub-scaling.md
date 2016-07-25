@@ -54,15 +54,25 @@ Enquanto um único Hub IoT pode ser dimensionado para milhões de dispositivos, 
 
 ## Próximas etapas
 
-Para saber mais sobre o Hub IoT do Azure, siga estes links:
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-- [Introdução ao Hub IoT (Tutorial)][lnk-get-started]
-- [O que é o Hub IoT do Azure?][]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [Cotas e limites do Hub IoT]: iot-hub-devguide.md#throttling
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
+[lnk-design]: iot-hub-guidance.md
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

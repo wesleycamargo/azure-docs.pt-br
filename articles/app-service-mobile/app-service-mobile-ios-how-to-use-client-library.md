@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [App-Service-Mobile-Selector-Client-Library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Este guia ensina a executar cenários comuns usando o mais recente [SDK de Aplicativos Móveis do Azure para iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se você for novo nos Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto Xcode iOS pré-criado. Neste guia, abordaremos o SDK para iOS do lado do cliente. Para saber mais sobre o SDK .NET do lado do servidor para o back-end, consulte [Trabalhar com o Back-end do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+Este guia ensina a executar cenários comuns usando o mais recente [SDK de Aplicativos Móveis do Azure para iOS](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk). Se você for novo nos Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto Xcode iOS pré-criado. Neste guia, abordaremos o SDK para iOS do lado do cliente. Para saber mais sobre o SDK .NET do lado do servidor para o back-end, consulte [Trabalhar com o Back-end do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ## Documentação de referência
 
@@ -792,4 +792,4 @@ Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativ
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

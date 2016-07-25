@@ -34,8 +34,8 @@ Um gatilho do Hub de Eventos do Azure pode ser usado para responder a um evento 
 O arquivo *function.json* para um gatilho do Hub de Eventos do Azure especifica as seguintes propriedades:
 
 - `type`: deve ser definido como *eventHubTrigger*.
-- `name`: nome da variável usada no código de função referente à mensagem do hub de eventos. 
-- `direction`: deve ser definido como *in*. 
+- `name`: nome da variável usada no código de função referente à mensagem do hub de eventos.
+- `direction`: deve ser definido como *in*.
 - `path`: nome do hub de eventos.
 - `connection`: nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace no qual o hub de eventos reside. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do namespace, não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.
 
@@ -75,17 +75,17 @@ Usando o function.json de exemplo acima, o corpo da mensagem de evento será reg
 
 ## Associação de saída do Hub de Eventos do Azure
 
-Uma associação de saída do Evento do Azure é usada para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
+Uma associação de saída do Hub de Eventos do Azure é usada para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
 
 #### function.json para a associação de saída do Hub de Eventos
 
 O arquivo *function.json* para uma associação de saída do Hub de Eventos do Azure especifica as seguintes propriedades:
 
 - `type`: deve ser definido como *eventHub*.
-- `name`: nome da variável usada no código de função referente à mensagem do hub de eventos. 
+- `name`: nome da variável usada no código de função referente à mensagem do hub de eventos.
 - `path`: nome do hub de eventos.
 - `connection`: nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace no qual o hub de eventos reside. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do namespace, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do Hub de Eventos.
-- `direction`: deve ser definido como *out*. 
+- `direction`: deve ser definido como *out*.
 
 	    {
 	      "type": "eventHub",
@@ -134,4 +134,4 @@ O seguinte código de função de exemplo do Node.js demonstra a gravação de u
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

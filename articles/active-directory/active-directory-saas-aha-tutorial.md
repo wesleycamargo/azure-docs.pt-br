@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Aha!
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Aha!, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-aha-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Aha!**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Aha!**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-aha-tutorial/IC798947.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Aha!**, digite a URL usada pelos usuários para entrar no aplicativo Aha! (por exemplo: "**https://company.aha.io/session/new*")) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Aha!**, digite a URL usada pelos usuários para entrar no aplicativo Aha! (por exemplo: "*https://company.aha.io/session/new*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-aha-tutorial/IC798948.png "Configurar a URL do Aplicativo")
 
@@ -111,7 +111,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  Para carregar seu arquivo de metadados baixado, clique em **Procurar**.
     4.  Clique em **Atualizar**.
 
-11. No portal do AD do Azure, selecione a confirmação de configuração de logon único e, em seguida, clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -120,7 +120,7 @@ Para permitir que os usuários do AD do Azure façam logon no Aha!, eles devem s
   
 Os usuários são criados automaticamente, se necessário, durante a primeira tentativa de logon único.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Aha! ou as APIs fornecidas pelo Aha! para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Aha! ou as APIs fornecidas pelo Aha! para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -128,9 +128,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Aha!, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Aha!**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Aha!**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-aha-tutorial/IC798956.png "Atribuir Usuários")
 
@@ -140,4 +140,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

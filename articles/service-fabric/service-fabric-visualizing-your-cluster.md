@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Visualizando o cluster com o Explorador do Service Fabric
@@ -99,9 +99,9 @@ A URL completa também está disponível no painel essencial do cluster do porta
 
 ### Conectar a um cluster seguro
 
-Você pode controlar o acesso ao seu cluster do Service Fabric exigindo que os clientes apresentem um certificado para se conectarem a ele.
+Você pode controlar o acesso do cliente ao cluster do Service Fabric com [certificados](service-fabric-cluster-security.md) ou usando o [AAD (Azure Active Directory)](service-fabric-cluster-security-client-auth-with-aad.md).
 
-Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o seu navegador solicitará a apresentação de um certificado para obter acesso.
+Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, precisará apresentar um certificado de cliente ou fazer logon usando o AAD, dependendo do tipo de segurança configurado para pontos de extremidade de gerenciamento do cluster.
 
 ## Próximas etapas
 
@@ -116,4 +116,4 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

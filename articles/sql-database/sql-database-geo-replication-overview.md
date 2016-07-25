@@ -92,9 +92,9 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 
 |Command|Descrição|
 |-------|-----------|
-|[ALTER DATABASE (Banco de Dados SQL do Azure)]https://msdn.microsoft.com/pt-BR/library/mt574871.aspx)|Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados|
-|[ALTER DATABASE (Banco de Dados SQL do Azure)]https://msdn.microsoft.com/pt-BR/library/mt574871.aspx)|Usar o FAILOVER ou FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover
-|[ALTER DATABASE (Banco de Dados SQL do Azure)]https://msdn.microsoft.com/pt-BR/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER para encerrar uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado.|
+|[ALTER DATABASE (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados|
+|[ALTER DATABASE (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Usar o FAILOVER ou FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover
+|[ALTER DATABASE (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER para encerrar uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado.|
 |[sys.geo\_replication\_links (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575501.aspx)|Retorna informações sobre todos os links de replicação existentes para cada banco de dados no servidor lógico do Banco de Dados SQL.|
 |[sys.dm\_geo\_replication\_link\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575504.aspx)|Obtém a hora da última replicação, latência da última replicação e outras informações sobre o link de replicação para um determinado Banco de Dados SQL.|
 |[sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx)|Mostra o status de todas as operações de banco de dados, incluindo o status dos links de replicação.|
@@ -116,7 +116,7 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 
 |API|Descrição|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Cria, atualiza ou restaura um banco de dados primário ou secundário.|
+|[Criar ou atualizar banco de dados (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Cria, atualiza ou restaura um banco de dados primário ou secundário.|
 |[Obter, Criar ou Atualizar o Status de um Banco de Dados](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retorna o status durante uma operação de criação.|
 |[Definir o banco de dados secundário como primário r (Failover planejado)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário.|
 |[Definir o banco de dados secundário como primário r (Failover não planejado)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Para forçar um failover para o banco de dados secundário e definir o secundário como primário.|
@@ -128,10 +128,10 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 
 ## Próximas etapas
 
-- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
-- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [SQL Database automated backups (Backups automatizados do Banco de Dados SQL)](sql-database-automated-backups.md)
-- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
-- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
+- Para obter uma visão geral sobre a continuidade de negócios, veja [Visão geral da continuidade de negócios](sql-database-business-continuity.md).
+- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
+- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md).
+- Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
+- Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Excluir perfis CDN e pontos de extremidade
 
-Os últimos métodos que incluiremos excluem nosso ponto de extremidade e perfil.
+Os últimos métodos excluirão nosso ponto de extremidade e perfil.
 
 ```
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -337,4 +337,4 @@ Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://cod
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -169,7 +169,7 @@ Como o emulador de armazenamento é um ambiente emulado em execução em uma ins
 
 - A partir da versão 3.1, a conta do emulador de armazenamento oferece suporte a replicação de georedundância com acesso de leitura (RA-GRS). No emulador, todas as contas têm RA-GRS habilitado e nunca há qualquer tempo de retardo entre as réplicas primárias e secundárias. As operações Obter Estatísticas do Serviço Blob, Obter Estatísticas do Serviço Fila e Obter Estatísticas do Serviço Tabela são compatíveis com a conta secundária e sempre retornarão o valor do elemento da resposta `LastSyncTime`, como a hora atual, de acordo com o Banco de Dados SQL subjacente.
 
-	Para obter acesso programático ao secundário com o emulador de armazenamento, use a Biblioteca Cliente de Armazenamento para .NET versão 3.2 ou posterior. Consulte a [Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) para ver mais detalhes.
+	Para obter acesso programático ao secundário com o emulador de armazenamento, use a Biblioteca Cliente de Armazenamento para .NET versão 3.2 ou posterior. Confira a [Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) para ver mais detalhes.
 
 - O serviço de arquivo e os pontos de extremidade de serviço de protocolo SMB não têm suporte no momento no emulador de armazenamento.
 
@@ -203,6 +203,14 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## Notas de versão do emulador de armazenamento
 
+### Versão 4.4
+
+- A coleta de lixo do emulador de armazenamento de dados de blob agora é mais eficiente ao lidar com um grande número de blobs.
+
+- Foi corrigido um bug que fazia o contêiner ACL XML ser validado de forma ligeiramente diferente de como o serviço de armazenamento o faz.
+
+- Foi corrigido um bug que às vezes fazia com que valores máx. e mín. de DateTime fossem relatados no fuso horário incorreto.
+
 ### Versão 4.3
 
 - O emulador de armazenamento agora dá suporte à versão 2015-07-08 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
@@ -213,7 +221,7 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ### Versão 4.1
 
-- O emulador de armazenamento agora dá suporte à versão 2015-02-21 dos serviços de armazenamento dos pontos de extremidade de serviço Blob, Fila e Tabela, com exceção dos novos recursos de Blob de Anexo. 
+- O emulador de armazenamento agora dá suporte à versão 2015-02-21 dos serviços de armazenamento dos pontos de extremidade de serviço Blob, Fila e Tabela, com exceção dos novos recursos de Blob de Anexo.
 
 - O emulador de armazenamento agora retornará uma mensagem de erro significativa se você usar uma versão dos serviços de armazenamento que ainda não seja compatível com essa versão do emulador. É recomendável usar a versão mais recente do emulador. Se você encontrar um erro VersionNotSupportedByEmulator (código de status HTTP 400 - Solicitação incorreta), baixe a versão mais recente do emulador de armazenamento.
 
@@ -224,16 +232,19 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 - O emulador de armazenamento executável foi renomeado para *AzureStorageEmulator.exe*.
 
 ### Versão 3.2
+
 - O emulador de armazenamento agora dá suporte à versão 2014-02-14 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela. Os pontos de extremidade do serviço Arquivo não têm suporte no momento no emulador de armazenamento. Consulte [Controle de versão dos serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) para obter detalhes sobre a versão 2014-02-14.
 
 ### Versão 3.1
+
 - Armazenamento com redundância geográfica com acesso de leitura (RA-GRS) agora tem suporte no emulador de armazenamento. As operações Obter Estatísticas do Serviço Blob, Obter Estatísticas do Serviço Fila e Obter Estatísticas do Serviço Tabela são compatíveis com a conta secundária e sempre retornarão o valor do elemento da resposta LastSyncTime, como a hora atual, de acordo com o banco de dados SQL subjacente. Para obter acesso programático ao secundário com o emulador de armazenamento, use a Biblioteca Cliente de Armazenamento para .NET versão 3.2 ou posterior. Consulte a Referência da Biblioteca de Clientes do Armazenamento do Microsoft Azure para .NET para ver mais detalhes.
 
 ### Versão 3.0
+
 - O emulador de armazenamento do Azure não é mais fornecido no mesmo pacote que o emulador de computação.
 
 - A interface do usuário gráfica do emulador de armazenamento é substituída por uma interface de linha de comando programável por script. Para obter detalhes da interface de linha de comando consulte Referência de ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só poderá ser acessada quando o emulador de computação for instalado, clicando com o botão direito no ícone de bandeja do sistema e selecionando Mostrar IU do Emulador de Armazenamento.
 
 - A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

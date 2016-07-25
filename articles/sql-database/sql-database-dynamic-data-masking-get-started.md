@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="v-romcal"/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/01/2015"
+   ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
 # Introdução ao Mascaramento de dados dinâmicos no banco de dados SQL (Portal do Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Mascaramento de dados dinâmicos - Portal Clássico do Azure](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Visão geral
 
@@ -109,4 +109,4 @@ Confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/libr
 
 Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0713_2016-->

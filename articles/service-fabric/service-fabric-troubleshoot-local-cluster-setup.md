@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Solucionar problemas de configuração do cluster de desenvolvimento local
@@ -92,10 +92,11 @@ Geralmente, esse erro ocorre quando você tenta iniciar um processo de host de s
 
 Verifique se você não possui um projeto de serviço definido como projeto de inicialização na sua solução. Somente projetos de aplicativo da Malha do Serviço devem ser definidos como projetos de inicialização.
 
+>[AZURE.TIP] Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema de gerenciador de cluster local. Isso removerá o cluster existente e configurará um novo. Observe que todos os aplicativos implantados e os dados associados serão removidos.
 
 ## Próximas etapas
 
 - [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

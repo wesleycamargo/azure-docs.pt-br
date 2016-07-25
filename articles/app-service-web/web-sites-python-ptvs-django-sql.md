@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="07/07/2016"
 	ms.author="huguesv"/>
 
 
@@ -26,16 +26,16 @@ Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplic
 
 Aprenderemos como usar um banco de dados SQL hospedado no Azure, como configurar o aplicativo para usar um banco de dados SQL e como publicar o aplicativo Web em [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Confira o [Python Developer Center] para obter mais artigos que abrangem o desenvolvimento de Aplicativos Web do Serviço de Aplicativo do Azure com PTVS usando estruturas da Web Bottle, Flask e Django, com serviços MongoDB, Azure Table Storage, MySQL e banco de dados SQL. Embora este artigo se concentre no Serviço de Aplicativo, as etapas são semelhantes ao desenvolvimento de [Serviços de Nuvem do Azure].
+Confira o [Centro de Desenvolvedores do Python] para obter mais artigos que abrangem o desenvolvimento de Aplicativos Web do Serviço de Aplicativo do Azure com PTVS usando as estruturas da Web Bottle, Flask e Django, com serviços do Armazenamento de Tabelas do Azure, MySQL e Banco de Dados SQL. Embora este artigo se concentre no Serviço de Aplicativo, as etapas são semelhantes ao desenvolvimento de [Serviços de Nuvem do Azure].
 
 ## Pré-requisitos
 
- - Visual Studio 2013 ou 2015
+ - Visual Studio 2015
+ - [Python 2.7 de 32 bits]
  - [Ferramentas Python 2.2 para Visual Studio]
  - [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
- - [Azure Ferramentas SDK para VS 2013] ou [Azure Ferramentas SDK para VS 2015]
- - [Python 2.7 de 32 bits]
- - Django 1.6 ou anterior
+ - [Ferramentas do SDK do Azure para VS 2015]
+ - Django 1.9 ou posterior
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -47,7 +47,7 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. C
 
 1.  No Visual Studio, selecione **Arquivo**, **Novo Projeto**.
 
-1.  Os modelos de projeto dos exemplos VSIX do PTVS estão disponíveis em **Python**, **Exemplos**. Selecione **Projeto Web Django de Votações** e clique em OK para criar o projeto.
+1.  Os modelos de projeto das [Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio] estão disponíveis em **Python**, **Amostras**. Selecione **Projeto Web Django de Votações** e clique em OK para criar o projeto.
 
   	![Caixa de diálogo Novo Projeto](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
@@ -59,15 +59,9 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. C
 
   	![Caixa de diálogo Adicionar Ambiente Virtual](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
-1.  Clique com o botão direito do mouse no nó do projeto e selecione **Python**, **Banco de dados de Sincronização do Django**.
+1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**. Em seguida, selecione **Criar Superusuário do Django**.
 
-  	![Comando de banco de dados de sincronização do Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
-
-1.  Isso abrirá um Console de Gerenciamento Django. Siga os prompts para criar um usuário.
-
-    Isso criará um banco de dados sqlite na pasta do projeto.
-
-  	![Janela de Console de Gerenciamento do Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+1.  Isso abrirá um Console de Gerenciamento do Django e criará um banco de dados sqlite na pasta do projeto. Siga os prompts para criar um usuário.
 
 1.  Confirme se o aplicativo funciona pressionando <kbd>F5</kbd>.
 
@@ -97,11 +91,7 @@ Você pode criar um banco de dados seguindo estas etapas.
 
 1.  Na parte inferior do painel de navegação, clique em **NOVO**., clique em **Dados + Armazenamento** > **Banco de dados SQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
-
 1.  Configure o novo banco de dados SQL criando um novo grupo de recursos e selecione o local apropriado para o mesmo.
-
-  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  Depois de criar o banco de dados SQL, clique em **Abrir no Visual Studio** na folha do banco de dados.
 2.  Clique em **Configurar seu firewall**.
@@ -148,11 +138,9 @@ Editar a definição de `DATABASES` para usar os valores acima.
 
   	![Caixa de diálogo Instalar Pacote Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  Clique com o botão direito do mouse no nó do projeto e selecione **Python**, **Banco de dados de Sincronização do Django**.
+1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**. Em seguida, selecione **Criar Superusuário do Django**.
 
     Isso criará as tabelas de banco de dados SQL que criamos na seção anterior. Siga os prompts para criar um usuário, que não tem de corresponder ao usuário no banco de dados sqlite criado na primeira seção.
-
-  	![Janela de Console de Gerenciamento do Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Execute o aplicativo com `F5`. As votações criadas com **Criar Votações de Exemplo** e os dados enviados pela votação serão serializados no banco de dados SQL.
 
@@ -163,7 +151,7 @@ O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web Apl
 
 1.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Publicar**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
+  	![Caixa de diálogo Web Publicar](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 
 1.  Clique em **Aplicativos Web do Microsoft Azure**.
 
@@ -175,8 +163,6 @@ O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web Apl
 	-	**Grupo de recursos**
 	-	**Região**
 	-	Deixe **Servidor de banco de dados** definido como **Nenhum banco de dados**
-
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  Aceite todos os outros padrões e clique em **Publicar**.
 
@@ -202,16 +188,16 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 
 
 <!--Link references-->
-[Python Developer Center]: /develop/python/
+[Centro de Desenvolvedores do Python]: /develop/python/
 [Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Portal do Azure]: https://portal.azure.com
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure Ferramentas SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure Ferramentas SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Depuração remota no Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -220,4 +206,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Documentação do Django]: https://www.djangoproject.com/
 [Banco de Dados SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

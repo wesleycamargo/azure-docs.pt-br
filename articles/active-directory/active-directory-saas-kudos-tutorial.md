@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Kudos
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Kudos, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-kudos-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Kudos**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Kudos**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configurar logon único")
 
@@ -79,7 +79,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurar logon único](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Kudos**, digite a URL usando o padrão "*https://company.kudosnow.com*" e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Kudos**, digite a URL usando o padrão "*https://company.kudosnow.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurar a URL do Aplicativo
 ")
@@ -100,18 +100,18 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
+    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
 	2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
         >[AZURE.TIP]
         Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff**.
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff**.
 	5.  Na caixa de texto **Sua URL do Kudos**, digite o nome de sua empresa.
     6.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
@@ -147,7 +147,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao Kudos, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Kudos**, clique em **Atribuir usuários**.
 
@@ -159,7 +159,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0121_2016-->
-
-
-
+<!---HONumber=AcomDC_0713_2016-->

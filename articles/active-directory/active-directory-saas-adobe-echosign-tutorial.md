@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Adobe EchoSign
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos ao Adobe EchoSign, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-adobe-echosign-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Adobe EchoSign**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Adobe EchoSign**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Adobe EchoSign**, digite a URL usando o padrão "**https://company.echosign.com/*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Adobe EchoSign**, digite a URL usando o padrão "*https://company.echosign.com/*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-adobe-echosign-tutorial/IC789518.png "Configurar a URL do Aplicativo")
 
@@ -102,16 +102,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações do SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "Configurações do SAML")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IdP**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do IdP**.
-    4.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IdP**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Adobe EchoSign**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout do IdP**.
+    4.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
     5.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do IdP**
     6.  Clique em **Salvar Alterações**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -133,9 +133,9 @@ Para permitir que os usuários do AD do Azure façam logon no Adobe EchoSign, el
     1.  Digite o **Endereço de Email**, **Nome** e **Sobrenome** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Criar Usuário**.
 
-		>[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email que inclui um link de confirmação de conta para que ela se torne ativa.
+		>[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email que inclui um link de confirmação de conta para que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Adobe EchoSign ou as APIs fornecidas pelo Adobe EchoSign para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Adobe EchoSign ou as APIs fornecidas pelo Adobe EchoSign para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -143,9 +143,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Adobe EchoSign, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Adobe EchoSign**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Adobe EchoSign**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-adobe-echosign-tutorial/IC789526.png "Atribuir Usuários")
 
@@ -155,4 +155,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->
