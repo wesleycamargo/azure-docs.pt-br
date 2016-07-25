@@ -112,7 +112,7 @@ Se você protegeu os computadores como recursos clássicos (ou seja, a VM recupe
 	
 	1. O nome da imagem é *Servidor em processo V2 do Microsoft Azure Site Recovery*. Verifique se você selecionou *Clássico* como o modelo de implantação.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Instalar o Servidor em processo de acordo com as etapas [fornecidas aqui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server)
 	
@@ -128,7 +128,7 @@ Se você protegeu os computadores como recursos clássicos (ou seja, a VM recupe
 	
 	5. Escolha a Sub-rede específica e a Interface de Rede que será usada para conectá-la. Observação: você precisa criar sua própria [NIC](../virtual-network/virtual-networks-multiple-nics.md) (Interface de rede) e selecioná-la durante a implantação.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. Clique em OK. Isso disparará um trabalho que vai criar uma máquina virtual do tipo de implantação do Gerenciador de Recursos com a instalação do servidor em processo. É necessário executar a instalação na VM para registrar o servidor no servidor de configuração. É possível fazer isso seguindo [essas etapas](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -252,4 +252,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!-----HONumber=AcomDC_0713_2016---->
+<!------HONumber=AcomDC_0713_2016---->
