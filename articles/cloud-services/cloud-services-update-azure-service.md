@@ -121,7 +121,7 @@ Este próximo diagrama ilustra como a atualização ocorre se você estiver atua
 
 Durante uma atualização automática, o Azure Fabric Controller avalia periodicamente a integridade do serviço de nuvem a fim de determinar quando é seguro passar ao próximo UD. Essa avaliação de integridade é executada de acordo com a função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram descritos). Ela verifica se um número mínimo de instâncias de função, para cada função, atingiu um estado de terminal satisfatório.
 
-### Tempo limite de inicialização de instância de função
+### Tempo limite de inicialização de instância de função 
 O controlador de malha aguardará 30 minutos para cada instância de função atingir um estado iniciado. Se a duração do tempo limite expirar, o controlador de malha prosseguirá para a próxima instância de função.
 
 ## Reversão de uma atualização
@@ -132,7 +132,7 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a implantação:
 
 -   Quaisquer instâncias de função que ainda não foram atualizadas para a nova versão não serão atualizadas, porque essas instâncias já estão executando a versão de destino do serviço.
--   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
+-   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (\*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 

@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do e-Builder**, digite a URL usando o padrão “*https://\<nome-locatário>.e-Builder.com*” e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do e-Builder**, digite a URL usando o padrão “ *https://\<nome-locatário\>.e-Builder.com* ” e clique em **Avançar**.
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurar a URL do aplicativo")
 

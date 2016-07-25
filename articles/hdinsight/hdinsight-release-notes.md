@@ -1396,7 +1396,7 @@ Esses problemas de compatibilidade são resolvidos nas versões mais recentes do
 Essa versão contém aprimoramentos para o serviço HDInsight:
 
 * **Disponibilidade do HDP 2.1**: O HDInsight 3.1 (que contém o HDP 2.1) agora está disponível de modo geral e é a versão padrão para novos clusters.
-* **HBase - aprimoramentos do portal do Azure**: estamos tornando os clusters HBase disponíveis em modo de visualização. Você pode criar clusters HBase por meio do portal com apenas alguns cliques.
+* **HBase - aprimoramentos do portal do Azure**: estamos tornando os clusters HBase disponíveis em modo de visualização. Você pode criar clusters HBase por meio do portal com apenas alguns cliques. 
 
 Com o HBase, você pode criar uma variedade de cargas de trabalho em tempo real no HDInsight, por meio de sites interativos que funcionem com conjuntos de dados grandes para dados para o sensor de armazenamento de serviços e dados de telemetria de milhões de pontos de extremidade. A próxima etapa seria analisar os dados nessas cargas de trabalho com trabalhos do Hadoop e isso é possível no HDInsight, por meio do PowerShell do Azure e do painel de cluster do Hive.
 

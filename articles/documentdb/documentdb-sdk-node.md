@@ -47,7 +47,7 @@
 
 ###<a name="1.8.0"/>1.8.0</a>
 
- - Suporte adicionado para contas de banco de dados de várias regiões.
+  - Suporte adicionado para contas de banco de dados de várias regiões.
 
 ###<a name="1.7.0"/>1.7.0</a>
 
@@ -145,7 +145,32 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 7 de julho de 2016 |--- | [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- | [1\.5.6](#1.5.6) | 8 de março de 2016 |--- | [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |--- | [1\.5.4](#1.5.4) | 1 de fevereiro de 2016 |--- | [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- | [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- | [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- | [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- | [1\.4.0](#1.4.0) | 6 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 6 de outubro de 2015 |--- | [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- | [1\.0.3](#1.0.3) | 4 de junho 2015 |--- | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- | [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | 0.9.4-pré-lançamento | 6 de abril de 2015 | 29 de fevereiro de 2016 | 0.9.3-pré-lançamento | 14 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-pré-lançamento | 18 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.1-pré-lançamento | 22 de agosto de 2014 | 29 de fevereiro de 2016 | 0.9.0-pré-lançamento | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.9.0](#1.9.0) | 7 de julho de 2016 |---
+| [1\.8.0](#1.8.0) | 14 de junho de 2016 |---
+| [1\.7.0](#1.7.0) | 26 de abril de 2016 |---
+| [1\.6.0](#1.6.0) | 29 de março de 2016 |---
+| [1\.5.6](#1.5.6) | 8 de março de 2016 |---
+| [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |---
+| [1\.5.4](#1.5.4) | 1 de fevereiro de 2016 |---
+| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |---
+| [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |---
+| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |---
+| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |---
+| [1\.4.0](#1.4.0) | 6 de outubro de 2015 |---
+| [1\.3.0](#1.3.0) | 6 de outubro de 2015 |---
+| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |---
+| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
+| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 9 de julho de 2015 |---
+| [1\.0.3](#1.0.3) | 4 de junho 2015 |---
+| [1\.0.2](#1.0.2) | 23 de maio de 2015 |---
+| [1\.0.1](#1.0.1) | 15 de maio de 2015 |---
+| [1\.0.0](#1.0.0) | 8 de abril de 2015 |---
+| 0.9.4-pré-lançamento | 6 de abril de 2015 | 29 de fevereiro de 2016
+| 0.9.3-pré-lançamento | 14 de janeiro de 2015 | 29 de fevereiro de 2016
+| 0.9.2-pré-lançamento | 18 de dezembro de 2014 | 29 de fevereiro de 2016
+| 0.9.1-pré-lançamento | 22 de agosto de 2014 | 29 de fevereiro de 2016
+| 0.9.0-pré-lançamento | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 
 ## Perguntas frequentes

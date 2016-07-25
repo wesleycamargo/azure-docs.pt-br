@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure com o Kudos
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Kudos. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Kudos.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Kudos
@@ -64,7 +65,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Kudos com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Kudos com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64.  
+Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -98,14 +101,14 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
     1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
-    2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
+	2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
 
         >[AZURE.TIP]
         Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
     4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff**.
-    5.  Na caixa de texto **Sua URL do Kudos**, digite o nome de sua empresa.
+	5.  Na caixa de texto **Sua URL do Kudos**, digite o nome de sua empresa.
     6.  Clique em **Salvar**.
 
 9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.

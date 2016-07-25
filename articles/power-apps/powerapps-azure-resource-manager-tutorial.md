@@ -34,7 +34,7 @@ Este tutorial orienta você pelas etapas necessárias para registrar um arquivo 
 
 Primeiro, precisamos criar um aplicativo do Azure Active Directory (AAD) que executa a autenticação ao chamar o ponto de extremidade de API ARM.
 
-1. Para criar um aplicativo AAD, entre na [Assinatura do Azure][7] e vá para **Active Directory**: ![](./media/powerapps-azure-resource-manager-tutorial/azureaad.png "AAD do Azure")
+1. Para criar um aplicativo AAD, entre na [Assinatura do Azure][7] e vá para **Active Directory**: ![](./media/powerapps-azure-resource-manager-tutorial/azureaad.png "AAD do Azure")  
 
 2. Nessa página, escolha o diretório no qual você deseja criar seu aplicativo AAD. Selecione o diretório, vá para a guia **Aplicativos** e selecione **Adicionar**: ![](./media/powerapps-azure-resource-manager-tutorial/azureapplication.png "Aplicativo do Azure")
 
@@ -58,7 +58,7 @@ Primeiro, precisamos criar um aplicativo do Azure Active Directory (AAD) que exe
 
 Agora que o aplicativo AAD está configurado, vamos adicionar a API personalizada.
 
-1. Abra o [portal da Web do PowerApps][1], vá para a guia **Conexões** e selecione __Adicionar uma conexão__ no canto superior direito: ![](./media/powerapps-azure-resource-manager-tutorial/createnewconnection.png "Criar API Personalizada")
+1. Abra o [portal da Web do PowerApps][1], vá para a guia **Conexões** e selecione __Adicionar uma conexão__ no canto superior direito: ![](./media/powerapps-azure-resource-manager-tutorial/createnewconnection.png "Criar API Personalizada")  
 
 2. Selecione __Adicionar uma API Personalizada__: ![](./media/powerapps-azure-resource-manager-tutorial/connecttocustomapi.png "Criar API Personalizada")
 

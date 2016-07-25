@@ -227,7 +227,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 
 No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:
 
-* Standard\_A0 é ExtraSmall
+* Standard\_A0 é ExtraSmall 
 * Standard\_A1 é pequeno
 * Standard\_A2 é médio
 * Standard\_A3 é grande

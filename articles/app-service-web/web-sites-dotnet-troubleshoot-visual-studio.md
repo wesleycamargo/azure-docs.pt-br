@@ -521,7 +521,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 ![Criar Conta de Armazenamento](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
+3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento. 
 
 	O nome deve ser exclusivo (nenhuma outra conta de armazenamento do Azure pode ter o mesmo nome). Se o nome digitado já estiver sendo utilizado, você terá a oportunidade de alterá-lo.
 
@@ -648,7 +648,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 Você viu como o Visual Studio facilita a exibição de logs criados por um aplicativo Web do Azure. As seguintes seções fornecem links para mais recursos sobre tópicos relacionados:
 
 * Solução de problemas de aplicativo Web do Azure
-* Depuração no Visual Studio
+* Depuração no Visual Studio 
 * Depuração remota no Azure
 * Rastreando em aplicativos ASP.NET
 * Analisando logs de servidor Web

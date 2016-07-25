@@ -206,7 +206,11 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 
 | Nome do campo | Uso | Nome da API |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - | | priority | - | - | | ttl | Vida útil desta mensagem | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - |
+| priority | - | - |
+| ttl | Vida útil desta mensagem | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | - | - |
+| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### propriedades
 

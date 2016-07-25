@@ -73,7 +73,7 @@ Crie um plano de recuperação da seguinte forma:
 
 1. Clique na guia **Planos de Recuperação** > **Criar Plano de Recuperação**. Especifique um nome para o plano de recuperação, bem como uma origem e um destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação.
 
-	- Se estiver replicando da VMM para a VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão configuradas para usar a réplica do Hyper-V.
+	- Se estiver replicando da VMM para a VMM, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão configuradas para usar a réplica do Hyper-V. 
 	- Se estiver replicando da VMM para a VMM usando SAN, selecione **Tipo de Origem** > **VMM** e os servidores VMM de origem e de destino. Clique em **SAN** para ver as nuvens que estão configuradas para a replicação SAN.
 	- Se estiver replicando da VMM para o Azure, selecione **Tipo de Origem** > **VMM**. Selecione o servidor do VMM de origem e **Azure** como o destino.
 	- Se estiver replicando de um site do Hyper-V, selecione **Tipo de Origem** > **Site do Hyper-V**. Selecione o site como a origem e **Azure **como o destino.

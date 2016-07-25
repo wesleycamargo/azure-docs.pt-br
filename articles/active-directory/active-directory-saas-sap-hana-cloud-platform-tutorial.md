@@ -140,7 +140,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
         |Atributo de Asserção| Atributo de Entidade|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]A configuração dos Atributos depende de como os aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta do SAML e por qual nome (Atributo de Entidade) eles acessam esse atributo no código.
     >  

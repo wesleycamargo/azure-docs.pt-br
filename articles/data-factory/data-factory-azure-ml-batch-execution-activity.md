@@ -61,7 +61,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 ### Cenário: Experimentos usando entradas/saídas de serviço Web que se referem aos dados no armazenamento de Blob do Azure
 Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsões usando dados de um arquivo em um armazenamento de blob do Azure e armazena os resultados de previsão no armazenamento de blob. O JSON a seguir define um pipeline do Azure Data Factory com uma atividade AzureMLBatchExecution. A atividade contém o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é transmitido como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput** e o **DecisionTreeResultBlob** como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs**.
 
-> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs ** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
+> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
 
 
 	{

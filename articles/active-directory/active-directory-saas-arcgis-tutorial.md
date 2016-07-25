@@ -112,7 +112,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurar o logon único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS. No caso do ArcGIS, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no ArcGIS, eles devem ser provisionados no ArcGIS.  
+No caso do ArcGIS, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
