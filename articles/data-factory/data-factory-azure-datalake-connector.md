@@ -24,7 +24,10 @@ Você deve criar uma conta do Repositório Data Lake do Azure antes de criar um 
 >  
 > Consulte o tutorial [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para obter etapas detalhadas para criar uma fábrica de dados, serviços vinculados, conjuntos de dados e um pipeline. Use os trechos de código JSON com o Editor do Data Factory, Visual Studio ou Azure PowerShell para criar as entidades do Data Factory.
 
-O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Repositório Azure Data Lake e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+## Assistente de cópia de dados
+A maneira mais fácil de criar um pipeline que copia dados de/para o Azure Data Lake Store é usar o Assistente de cópia de dados. Consulte [Tutorial: criar um pipeline usando o Assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para uma breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+
+Os exemplos a seguir fornecem as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Azure Data Lake Store e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
 
 
 ## Exemplo: copiar dados do Blob do Azure para o Repositório Data Lake do Azure
@@ -78,7 +81,7 @@ O procedimento a seguir lista as etapas para criar um serviço vinculado do Repo
 5. (opcional) Especifique valores para parâmetros opcionais, como **accountName**, **subscriptionID** e **resourceGroupName** no JSON (ou) exclua essas propriedades do JSON.
 6. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-> [AZURE.IMPORTANT] O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Você precisará **autorizar novamente** usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Confira a seção [Serviço vinculado do repositório Azure Data Lake](#azure-data-lake-store-linked-service-properties) para obter detalhes.
+> [AZURE.IMPORTANT] O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Você precisará **autorizar novamente** usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Confira a seção [Serviço vinculado do Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) para obter detalhes.
 
 
 
@@ -405,7 +408,7 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | Propriedade | Descrição | Obrigatório |
 | :-------- | :----------- | :-------- |
 | type | A propriedade type deve ser definida como: **AzureDataLakeStore** | Sim |
-| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ela está no seguinte formato: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sim |
+| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ela está no seguinte formato: https://<Nome da conta Azure Data Lake>.azuredatalakestore.net/webhdfs/v1 | Sim |
 | authorization | Clique no botão **Autorizar** no **Editor do Data Factory** e insira as suas credenciais. Isso atribui a URL de autorização gerada automaticamente a essa propriedade. | Sim |
 | sessionId | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID de sessão é exclusiva e pode ser usada somente uma vez. Ela é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |  
 | accountName | Nome de conta do Data Lake | Não |
@@ -465,7 +468,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | fileName | O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estará no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Não |
 | partitionedBy | partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Consulte Utilizando a seção da propriedade partitionedBy abaixo para obter detalhes e exemplos. | Não |
 | formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. É necessário definir a propriedade de **type** sob o formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), Especificando [JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.| Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que não há suporte para configurações de compactação de dados em **AvroFormat** ou **OrcFormat** neste momento. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Ideal** e **Mais rápido**. Observe que não há suporte para configurações de compactação de dados em **AvroFormat** ou **OrcFormat** neste momento. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 ### Utilizando a propriedade partitionedBy
 Conforme mencionado acima, você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy**, macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -526,10 +529,10 @@ Para especificar a compactação de um conjunto de dados, use a propriedade **co
  
 Observe que a seção **compactação** tem duas propriedades:
   
-- **Tipo:** o codec de compactação, que pode ser **GZIP**, **Deflate** ou **BZIP2**.  
-- **Nível:** a taxa de compactação, que pode ser **Ideal** ou **Mais rápida**. 
-	- **Mais rápida:** a operação de compactação deve ser concluída o mais rápido possível, mesmo se o arquivo resultante não for compactado da maneira ideal. 
-	- **Ideal**: a operação de compactação deve ser concluída da maneira ideal, mesmo se a operação demorar mais tempo para ser concluída. 
+- **Tipo:** o codec de compactação, que pode ser **GZIP**, **Deflate** ou **BZIP2**.
+- **Nível:** a taxa de compactação, que pode ser **Ideal** ou **Mais rápida**.
+	- **Mais rápida:** a operação de compactação deve ser concluída o mais rápido possível, mesmo se o arquivo resultante não for compactado da maneira ideal.
+	- **Ideal**: a operação de compactação deve ser concluída da maneira ideal, mesmo se a operação demorar mais tempo para ser concluída.
 	
 	Consulte o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) para saber mais.
 
@@ -537,9 +540,9 @@ Vamos supor que o exemplo de conjunto de dados acima seja usado como a saída de
 
 Quando você especifica a propriedade de compactação em um conjunto de dados de entrada JSON, o pipeline pode ler os dados compactados da origem e, quando você especifica a propriedade em um conjunto de dados de saída JSON, a atividade de cópia pode gravar dados compactados no destino. Aqui estão alguns exemplos de cenários:
 
-- Leia os dados compactados em GZIP de um Repositório de Azure Data Lake, descompacte-os e grave os dados resultantes em um banco de dados SQL do Azure. Nesse caso, você define o conjunto de dados de entrada do Repositório do Azure Data Lake com a propriedade de compactação JSON. 
-- Leia os dados de um arquivo de texto sem formatação do Sistema de arquivos local, compacte-os usando o formato GZip e grave os dados compactados em um Repositório de Azure Data Lake. Nesse caso, você define um conjunto de dados do Repositório de Azure Data Lake com a propriedade de compactação JSON.  
-- Leia dados compactados GZIP de um Repositório de Azure Data Lake, descompacte-os, compacte-os usando BZIP2 e grave os dados resultantes em um Repositório de Azure Data Lake. Nesse caso, você define o conjunto de dados de entrada do Repositório de Azure Data Lake com o tipo de compactação definido como GZIP, e o conjunto de dados de saída com o tipo de compactação definido como BZIP2.   
+- Leia os dados compactados em GZIP de um Repositório de Azure Data Lake, descompacte-os e grave os dados resultantes em um banco de dados SQL do Azure. Nesse caso, você define o conjunto de dados de entrada do Repositório do Azure Data Lake com a propriedade de compactação JSON.
+- Leia os dados de um arquivo de texto sem formatação do Sistema de arquivos local, compacte-os usando o formato GZip e grave os dados compactados em um Repositório de Azure Data Lake. Nesse caso, você define um conjunto de dados do Repositório de Azure Data Lake com a propriedade de compactação JSON.
+- Leia dados compactados GZIP de um Repositório de Azure Data Lake, descompacte-os, compacte-os usando BZIP2 e grave os dados resultantes em um Repositório de Azure Data Lake. Nesse caso, você define o conjunto de dados de entrada do Repositório de Azure Data Lake com o tipo de compactação definido como GZIP, e o conjunto de dados de saída com o tipo de compactação definido como BZIP2.
 
 
 ## Propriedades de tipo de Atividade de Cópia do Azure Data Lake  
@@ -569,6 +572,6 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

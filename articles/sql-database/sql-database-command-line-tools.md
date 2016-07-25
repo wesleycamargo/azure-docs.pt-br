@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gerenciar o Banco de Dados SQL do Azure com o PowerShell" 
-	description="Gerenciamento do Banco de Dados SQL do Azure com o PowerShell." 
+	description="Gerenciamento de banco de dados SQL do Azure com o PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Gerenciar o Banco de Dados SQL do Azure com o PowerShell
@@ -83,18 +83,18 @@ Você pode excluir um banco de dados SQL com o comando [Remove-AzureRmSqlDatabas
 
 Também é possível excluir um servidor com o comando [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). O exemplo a seguir exclui um servidor chamado server12.
 
+
+>[AZURE.NOTE]  A operação de exclusão é assíncrona e pode levar algum tempo, então verifique se a operação foi concluída antes de executar operações adicionais que dependem de o servidor ser completamente excluído (por exemplo, criar um novo servidor com o mesmo nome).
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Se você estiver criando novamente esses recursos do SQL do Azure ou semelhantes, é possível:
-
-- Salvar como um arquivo de script do PowerShell (*. ps1)
-- Salvar como um runbook de automação do Azure, na seção Automação do Portal Clássico do Azure 
 
 ## Próximas etapas
 
-Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < and > pelos seus valores para criar um servidor, uma regra de firewall e um banco de dados:
+Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre aspas, incluindo os caracteres < e > pelos seus valores para criar um servidor, uma regra de firewall e um banco de dados:
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 
 - [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

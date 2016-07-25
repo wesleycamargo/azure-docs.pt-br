@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuindo tabelas no SQL Data Warehouse
@@ -28,6 +28,12 @@
 - [Temporário][]
 
 SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Ao dividir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual. Decidir como distribuir seus dados dentro de seu SQL Data Warehouse é um dos fatores mais importantes para alcançar um desempenho ideal. A chave para o desempenho ideal é minimizar a movimentação dos dados, e a chave para minimizar a movimentação de dados é selecionar a estratégia de distribuição correta.
+
+## Noções básicas sobre a movimentação de dados
+
+Em um sistema MPP, os dados de cada tabela são divididos em vários bancos de dados subjacentes. As consultas mais otimizadas em um sistema MPP podem simplesmente ser passadas para executar em bancos de dados distribuídos individuais sem interação entre os outros bancos de dados. Por exemplo, digamos que você tenha um banco de dados com dados de vendas que contém duas tabelas, vendas e clientes. Se você tiver uma consulta que precise unir a tabela de vendas à tabela de clientes, e dividir as tabelas de vendas e clientes pelo número de clientes, colocando cada cliente em um banco de dados separado, todas as consultas que unem vendas e clientes poderão ser resolvidas em cada banco de dados sem conhecimento dos outros bancos de dados. Por outro lado, se você dividir seus dados de vendas pelo número de pedido e seus dados de clientes pelo número de cliente, qualquer banco de dados específico não terá os dados correspondentes para cada cliente e, assim, se você quiser unir os dados de vendas aos dados de clientes, precisará obter os dados de cada cliente dos outros bancos de dados. No segundo exemplo, a movimentação de dados precisa ocorrer para mover os dados de clientes para os dados de vendas, de modo que as duas tabelas possam ser unidas.
+
+A movimentação de dados nem sempre é ruim; às vezes, ela é necessária para resolver uma consulta. Porém, quando essa etapa extra pode ser evitada, naturalmente a consulta é executada mais depressa. A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações. Muitas vezes, você precisa fazer ambos. Portanto, embora possa fazer a otimização de um cenário, como uma associação, você ainda precisará da movimentação de dados para ajudar a resolver o outro cenário, como uma agregação. O truque é descobrir o que dá menos trabalho. Na maioria dos casos, a distribuição de grandes tabelas de fatos em uma coluna unida normalmente é o método mais eficaz para reduzir a maior parte da movimentação de dados. A distribuição de dados em colunas de junção é um método muito mais comum para reduzir a movimentação de dados, em vez da distribuição de dados em colunas envolvidas em uma agregação.
 
 ## Selecionar método de distribuição
 
@@ -148,14 +154,16 @@ Quando não há colunas adequadas, considere o uso de round robin como método d
 
 ### Selecione a coluna de distribuição que irá minimizar a movimentação de dados
 
-Minimizar a movimentação de dados selecionando a coluna de distribuição correta é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse. A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações. Distribuir grandes tabelas por hash em uma coluna de junção normal é um dos métodos mais eficientes para minimizar a movimentação de dados. Além de selecionar uma coluna de junção para evitar a movimentação de dados, há também alguns critérios que devem ser atendidos para evitar a movimentação de dados. Para evitar a movimentação de dados:
+Minimizar a movimentação de dados selecionando a coluna de distribuição correta é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse. A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações. As colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` todas são candidatas à **boa** distribuição de hash. Por outro lado, colunas na cláusula `WHERE` **não** são boas para coluna de hash porque elas limitam quais distribuições participam da consulta.
 
-1. As tabelas envolvidas na junção devem ser distribuídas por hash em uma das colunas de junção.
-2. Os tipos de dados das colunas de junção devem corresponder.
+Em termos gerais, se tiver duas tabelas de fatos grande frequentemente envolvidas em uma associação, você obterá mais desempenho distribuindo ambas as tabelas em uma das colunas de junção. Se você tiver uma tabela que nunca foi unida a outra tabela de fatos grande, procure as colunas que estão frequentemente na cláusula `GROUP BY`.
+
+Há alguns critérios principais que devem ser atendidos para evitar a movimentação de dados durante uma junção:
+
+1. As tabelas envolvidas na junção devem ser distribuídas por hash em **uma** das colunas que participam da junção.
+2. Os tipos de dados das colunas de junção devem ser correspondentes entre as duas tabelas.
 3. As colunas devem ser associadas com um operador equals.
 4. O tipo de associação pode não ser `CROSS JOIN`.
-
-As colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` todas são candidatas a distribuição de hash. Por outro lado, colunas na cláusula `WHERE` **não** são boas para coluna de hash porque elas limitam quais distribuições participam da consulta. Em termos gerais, se você tiver duas tabelas de fatos grandes envolvidas frequentemente em uma junção, terá geralmente distribuição com maior frequência em uma das colunas de junção. Se você tiver uma tabela que nunca foi unida a outra tabela de fatos grande, procure as colunas que estão frequentemente na cláusula `GROUP BY`. A menos que você não consiga encontrar uma boa coluna que distribua os dados uniformemente, geralmente será bom para as suas consultas selecionar uma coluna de distribuição em vez de usar o padrão de distribuição round robin.
 
 
 ## Solucionando problemas de distorção de dados
@@ -303,4 +311,4 @@ Para saber mais sobre o design da tabela, confira os artigos [Distribuir][], [Í
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

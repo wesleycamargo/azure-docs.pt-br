@@ -62,7 +62,7 @@ Agora, execute a consulta a seguir no banco de dados **Customers** para criar a 
 		WITH IDENTITY = '<username>', 
 		SECRET = '<password>';  
 
-	O "nome de usuário" e a "senha" devem ser o nome de usuário e a senha usados para fazer logon no banco de dados Customers.
+	O "nome de usuário" e a "senha" devem ser o nome de usuário e a senha usados para fazer logon no banco de dados Customers. Atualmente não há suporte para a autenticação usando o Azure Active Directory com consultas elásticas.
 
 ### Fontes de dados externas
 Para criar uma fonte de dados externa, execute o seguinte comando no banco de dados Orders:
@@ -106,4 +106,4 @@ Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

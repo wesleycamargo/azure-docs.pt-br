@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="07/06/2016"
 	ms.author="billmath"/>
 
 # Lista de compatibilidade de federação do AD do Azure
@@ -21,33 +21,36 @@ O Azure Active Directory fornece logon único e segurança aprimorada de acesso 
 
 Para organizações que investiram em soluções de federação de terceiros, este tópico contém orientações sobre como configurar o logon único para seus usuários do Active Directory do Windows Server com os serviços do Microsoft Online usando provedores de identidade de terceiros na "Lista de compatibilidade de federação do Azure Active Directory" abaixo.
 
-A Microsoft testou essas experiências de logon único usando provedores de identidade de terceiros com base em um conjunto de casos de uso comuns com o Azure Active Directory.
 
->[AZURE.IMPORTANT] A Microsoft testou apenas a funcionalidade de federação desses cenários de logon único. A Microsoft não realizou qualquer teste de sincronização, autenticação de dois fatores etc., que são componentes desses cenários de logon único.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)O [Oxford Computer Group](http://oxfordcomputergroup.com/), um terceiro, em nome da Microsoft, testou essas experiências de logon único usando provedores de identidade de terceiros com base em um conjunto de casos de uso comuns com o Azure Active Directory.
+
+Para obter informações sobre como você pode obter o provedor de identidade do terceiro listado aqui, contate o Oxford Computer Group em [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
+
+>[AZURE.IMPORTANT] O Oxford Computer Group testou apenas a funcionalidade de federação desses cenários de logon único. O Oxford Computer Group não realizou qualquer teste de sincronização, autenticação de dois fatores, etc., que são componentes desses cenários de logon único.
 
 >O uso da Entrada com ID Alternativa ao UPN também não foi testado neste programa.
 
 
 
 - [Active Directory do Azure](#azure-active-directory)
-- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
-- [PingFederate 6.11](#pingfederate-611) 
-- [PingFederate 7.2](#pingfederate-72) 
-- [Centrify](#centrify) 
-- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
-- [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-- [CA SiteMinder 12.52](#ca-siteminder-1252) 
-- [RadiantOne CFS 3.0](#radiantone-cfs-30) 
-- [Okta](#okta) 
-- [OneLogin](#onelogin) 
-- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-- [BIG-IP com Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
-- [VMware Workspace Portal versão 2.1](#vmware-workspace-portal-version-21) 
-- [Sign&go 5.3](#signampgo-53) 
-- [IceWall Federation versão 3.0](#icewall-federation-version-30) 
-- [CA Secure Cloud](#ca-secure-cloud) 
-- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45) 
+- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
+- [PingFederate 6.11](#pingfederate-611)
+- [PingFederate 7.2](#pingfederate-72)
+- [Centrify](#centrify)
+- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
+- [SecureAuth IdP 7.2.0](#secureauth-idp-720)
+- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [RadiantOne CFS 3.0](#radiantone-cfs-30)
+- [Okta](#okta)
+- [OneLogin](#onelogin)
+- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401)
+- [BIG-IP com Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x)
+- [VMware Workspace Portal versão 2.1](#vmware-workspace-portal-version-21)
+- [Sign&go 5.3](#signampgo-53)
+- [IceWall Federation versão 3.0](#icewall-federation-version-30)
+- [CA Secure Cloud](#ca-secure-cloud)
+- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71)
+- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
 
 >[AZURE.IMPORTANT] Como esses são produtos de terceiros, a Microsoft não fornece suporte à implantação, configuração, solução de problemas, práticas recomendadas etc. problemas e questões relacionadas a esses provedores de identidade. Para obter suporte e consultar perguntas sobre esses provedores de identidade, entre em contato diretamente com os terceiros.
 
@@ -66,7 +69,7 @@ Veja a seguir a matriz de suporte de cenário para esta experiência de logon:
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 |Aplicativos modernos com ADAL, como Office 2016| Suportado|Nenhum|
 
-Para saber mais sobre como usar o Azure Active Directory com o AD FS, confira [Serviços de Federação do Active Directory (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+Para saber mais sobre como usar o Azure Active Directory com o AD FS, confira [ADFS (Serviços de Federação do Active Directory)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 Para saber mais sobre como usar o Azure Active Directory com sincronização de senha, confira [Azure AD Connect](active-directory-aadconnect.md).
 
@@ -81,7 +84,7 @@ Veja a seguir a matriz de suporte de cenário nesta experiência de logon único
 | --------- | --------- |--------- |
 | Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
 | Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Para saber mais sobre as políticas de acesso do cliente, confira [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) (Limitação do acesso aos Serviços do Office 365 com base no Local do cliente).|
+| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Para saber mais sobre as políticas de acesso do cliente, confira [Limitando o acesso aos Serviços do Office 365 baseado no Local do cliente](https://technet.microsoft.com/library/hh526961.aspx).|
 
 
 
@@ -215,11 +218,11 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |**Suporte a Contratos Kerberos | 
-| Aplicativos cliente avançados, como Lync, Assinatura do Office, CRM | Com suporte | Sem suporte para autenticação integrada do Windows | 
-| Clientes de email avançados, como o Outlook e o ActiveSync | Com suporte | Nenhum|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |*Contratos Kerberos com suporte|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
-**O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
+*O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 
 ## BIG-IP com Access Policy Manager BIG-IP ver. 11.3x – 11.6x 
 O BIG-IP com Access Policy Manager, (APM) BIG-IP ver. 11.3x – 11.6x implementa o padrão de identidade amplamente utilizado, SAML, para fornecer uma experiência de logon único e uma estrutura de troca de atributos.
@@ -261,7 +264,7 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 
-O Sign&go 5.3 oferece suporte à autenticação Kerberos por meio da configuração de um Kerberos Contract. Para obter assistência com essa configuração, entre em contato com a Ilex ou leia o guia de instalação [aqui](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf).
+O Sign&go 5.3 oferece suporte à autenticação Kerberos por meio da configuração de um Kerberos Contract. Para obter assistência com essa configuração, contate a Ilex ou leia o guia de instalação [aqui.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 
 ## IceWall Federation versão 3.0 
@@ -302,9 +305,9 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
-Para saber mais sobre o Dell One Identity Cloud Access Manager, confira [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
+Para saber mais sobre o Dell One Identity Cloud Access Manager, confira [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
 
- Para obter instruções sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Office 365, confira [Configurar usuários do Office 365.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)
+ Para obter instruções sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Office 365, confira como [configurar usuários do Office 365.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)
 
 ## AuthAnvil Single Sign On 4.5 
 O AuthAnvil Single Sign On 4.5 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
@@ -318,6 +321,6 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 
-Para saber mais, confira [Logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+Para saber mais, confira o artigo sobre o [logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

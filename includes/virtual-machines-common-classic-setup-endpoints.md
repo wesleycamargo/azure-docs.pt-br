@@ -12,7 +12,7 @@ Depois de criar um ponto de extremidade, você pode usar uma lista de controle d
 
 ## Criar um ponto de extremidade
 
-1.	Se você ainda não fez isso, entre no portal clássico do Azure.
+1.	Se você ainda não fez isso, entre no [Portal Clássico do Azure](http://manage.windowsazure.com).
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
 3.	Clique em **Pontos de Extremidade**. A página **Pontos de Extremidade** lista todos os pontos de extremidade atuais para a máquina virtual. (Este exemplo é uma VM do Windows. Uma VM do Linux por padrão mostrará um ponto de extremidade para SSH.)
 
@@ -60,4 +60,4 @@ Você pode usar regras para permitir somente o tráfego de computadores específ
 
 As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isto significa que as regras devem ser ordenadas das menos restritivas para as mais restritivas. Para obter exemplos e saber mais, consulte [O que é uma Lista de Controle de Acesso de rede?](../articles/virtual-network/virtual-networks-acl.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

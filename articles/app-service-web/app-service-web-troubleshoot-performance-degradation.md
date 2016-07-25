@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Solução de problemas: degradação de desempenho em um aplicativo Web"
-	description="Este artigo ajuda você a solucionar problemas de desempenho em seu aplicativo Web hospedado no Serviço de Aplicativo do Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+<properties pageTitle="Desempenho lento do aplicativo Web no Serviço de Aplicativo | Microsoft Azure" description="Isso ajuda a solucionar problemas de desempenho de aplicativo Web no Serviço de Aplicativo do Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="desempenho do aplicativo Web, aplicativo lento, lento aplicativo"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,14 +6,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Solução de problemas: degradação de desempenho em um aplicativo Web
+# Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 
-Este artigo ajuda você a solucionar problemas de desempenho em seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artigo ajuda você a solucionar problemas de desempenho d aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ## Sintoma
 
@@ -64,7 +56,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 -	Conjunto de trabalho de memória
 -	Solicitações
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitorar o desempenho do aplicativo Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Para obter mais informações, confira:
 
@@ -182,8 +174,8 @@ Para saber mais, consulte [AutoHeal em sites do Azure](/blog/auto-healing-window
 
 Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [Portal do Azure](https://portal.azure.com/), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![reinicie o aplicativo Web para solucionar problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -36,7 +36,9 @@ No final deste tutorial, você será capaz de detectar de forma programática:
 
 - **Idiomas** - em que idioma o texto está escrito?
 
-Observe que essa API cobra uma transação por registro de texto enviado.
+Observe que essa API cobra uma transação por documento enviado. Por exemplo, se você solicitar o sentimento de 1000 documentos em uma única chamada, ocorrerá a dedução de 1000 transações.
+
+
 
 <a name="Overview"></a>
 ## Visão geral ##
@@ -293,4 +295,6 @@ Explicações de cada parte da resposta são as seguintes:
 
 Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convém examinar o uso de uma ferramenta como o [Power BI](//powerbi.microsoft.com) para visualizar os dados e para automatizar as percepções para fornecer uma exibição em tempo real dos dados de texto.
 
-<!---HONumber=AcomDC_0706_2016-->
+Para ver como os recursos de Análise de Texto, como o sentimento, podem ser usados como parte de um bot, consulte o exemplo de [Bot Emocional](http://docs.botframework.com/pt-BR/bot-intelligence/language/#example-emotional-bot) no site da Estrutura de Bot.
+
+<!---HONumber=AcomDC_0713_2016-->

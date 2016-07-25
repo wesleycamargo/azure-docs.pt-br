@@ -207,6 +207,18 @@ Agora que você implantou um Hub IoT usando um modelo ARM com um programa em C#,
 - Leia sobre os recursos da [API REST do Provedor de Recursos do Hub IoT][lnk-rest-api].
 - Leia a [Visão geral do Gerenciador de Recursos do Azure][lnk-azure-rm-overview] para saber mais sobre os recursos do Gerenciador de Recursos do Azure.
 
+Para saber mais sobre como desenvolver para o Hub IoT, consulte o seguinte:
+
+- [Introdução ao SDK de C][lnk-c-sdk]
+- [SDKs do Hub IoT][lnk-sdks]
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
@@ -215,4 +227,12 @@ Agora que você implantou um Hub IoT usando um modelo ARM com um programa em C#,
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0601_2016-->
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

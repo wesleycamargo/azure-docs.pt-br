@@ -32,6 +32,8 @@ As predefinições personalizadas que executam as seguintes tarefas de codifica�
 - [Desabilitar desentrelaçamento automático](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Predefinições somente de áudio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenar dois ou mais arquivos de vídeo](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [Cortar vídeos com o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#crop)
+
 
 ##<a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
@@ -39,7 +41,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 - Crie um trabalho de codificação.
 - Obtenha uma referência para o Media Encoder Standard.
-- Carregar a predefinição personalizada de XML ou JSON. Você pode salvar esse XML ou JSON (por exemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) em um arquivo e usar o código a seguir para carregar o arquivo.
+- Carregar a predefinição personalizada de XML ou JSON. É possível salvar esse XML ou JSON (por exemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) em um arquivo e usar o código a seguir para carregar o arquivo.
 
 		// Load the XML (or JSON) from the local file.
 	    string configuration = File.ReadAllText(fileName);  
@@ -252,9 +254,9 @@ Ao gerar miniaturas, você não precisa sempre especificar a largura e altura da
 	
 ##<a id="thumbnails"></a>Gerar miniaturas
 
-Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
+Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
 
->[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como verdadeira se você estiver codificando um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de várias taxas de bits e definir **SceneChangeDetection** como verdadeiro, o codificador retornará um erro.
+>[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como verdadeira se você estiver codificando para um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de múltiplas taxas de bits e definir **SceneChangeDetection** como verdadeiro, o codificador retornará um erro.
 
 
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tópico.
@@ -456,9 +458,9 @@ As seguintes considerações se aplicam:
 	- Padrões: Start:{Best}
 - O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
-##<a id="trim_video"></a>Cortar um vídeo (recorte)
+##<a id="trim_video"></a>Cortar um vídeo (distorção)
 
-Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo que é capturado ou arquivado de uma transmissão. Os detalhes sobre isso estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo capturado ou arquivado em uma transmissão ao vivo. Os detalhes desse processo estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo). O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro do vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 e mais. No exemplo abaixo, estamos supondo que o vídeo de entrada tenha um carimbo de data/hora inicial igual a zero. Observe que **Fontes** deve ser colocado no início da predefinição.
  
@@ -707,7 +709,7 @@ O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existen
 
 Além de definir um arquivo de predefinição, você também precisa permitir que os Serviços de Mídia saibam qual arquivo no ativo é uma imagem de sobreposição e qual arquivo contém o vídeo de origem no qual você deseja fazer a sobreposição de imagem. O arquivo de vídeo precisa ser o arquivo **primário**.
 
-O exemplo de .NET acima define duas funções: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. A função UploadMediaFilesFromFolder carrega arquivos de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o arquivo mp4 a ser o arquivo primário no ativo. A função **EncodeWithOverlay** usa o arquivo de predefinição personalizado que foi transmitido para ele (por exemplo, a predefinição a seguir) para criar a tarefa de codificação.
+O exemplo do .NET acima define duas funções: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. A função UploadMediaFilesFromFolder carrega arquivos de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o arquivo mp4 a ser o arquivo primário no ativo. A função **EncodeWithOverlay** usa o arquivo de predefinição personalizado que foi transmitido para ele (por exemplo, a predefinição a seguir) para criar a tarefa de codificação.
 
 >[AZURE.NOTE]Limitações atuais:
 >
@@ -863,7 +865,7 @@ Por padrão, se você enviar uma entrada para o codificador que contenha apenas 
 
 Para forçar o codificador a produzir um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tiver áudio, especifique o valor de "InsertSilenceIfNoAudio".
 
-Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
+Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
 
 ###Predefinição JSON
 
@@ -883,7 +885,7 @@ Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https:
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
+##<a id="deinterlacing"></a>Desabilitar o desentrelaçamento automático
 
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
@@ -1072,7 +1074,10 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 	    }
 	  ]
 	}
-	
+
+##<a id="crop"></a>Cortar vídeos com o Codificador de Mídia Padrão
+
+Veja o tópico [Cortar vídeos com o Codificador de Mídia Padrão](media-services-crop-video.md).
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -1086,4 +1091,4 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -201,7 +201,7 @@ Uma cópia da tabela de entrada com colunas adicionais especificadas.
 **Dicas**
 
 * Use [`project`](#project-operator) em vez disso, se também quiser remover ou renomear algumas colunas.
-* Não use `extend` simplesmente para obter um nome mais curto a ser usado em uma expressão longa. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* Não use `extend` simplesmente para obter um nome mais curto a ser usado em uma expressão longa. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
 
     As colunas nativas da tabela foram indexadas. Seu novo nome define uma coluna adicional que não é indexada, assim, a consulta provavelmente terá execução mais lenta.
 
@@ -237,7 +237,7 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 Uma tabela com:
 
 * Uma coluna para cada coluna em cada uma das duas tabelas, incluindo as chaves correspondentes. As colunas do lado direito serão automaticamente renomeadas se houver conflitos de nome.
-* Uma linha para cada correspondência entre as tabelas de entrada. Uma correspondência é uma linha selecionada de uma tabela que tem o mesmo valor para todos os campos `on` que uma linha da outra tabela. 
+* Uma linha para cada correspondência entre as tabelas de entrada. Uma correspondência é uma linha selecionada de uma tabela que tem o mesmo valor para todos os campos `on` que uma linha da outra tabela.
 
 * `Kind` não especificado
 
@@ -261,7 +261,7 @@ Se houver várias linhas com os mesmos valores para esses campos, você obterá 
 
 Para obter o melhor desempenho:
 
-* Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada, antes de `join`. 
+* Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada, antes de `join`.
 * Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo (com barras verticais) da junção.
 * As colunas para a correspondência de junção devem ter o mesmo nome. Use o operador de projeto se for necessário renomear uma coluna em uma das tabelas.
 
@@ -342,7 +342,7 @@ O resultado é:
 
 **Argumentos**
 
-* *ColumnName:* no resultado, as matrizes na coluna nomeada são expandidas para várias linhas. 
+* *ColumnName:* no resultado, as matrizes na coluna nomeada são expandidas para várias linhas.
 * *ArrayExpression:* uma expressão que resulta em uma matriz. Se esse formato for usado, uma nova coluna será adicionada e a existente será preservada.
 * *Name:* um nome para a nova coluna.
 * *Typename:* converte a expressão expandida em um tipo específico
@@ -392,14 +392,14 @@ Extrai valores de uma cadeia de caracteres. Pode usar a correspondência de expr
 **Argumentos**
 
 * `T`: a tabela de entrada.
-* `kind`: 
+* `kind`:
  * `simple` (padrão): as cadeias de caracteres `Match` são cadeias de caracteres simples.
- * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como nula e a análise continua 
+ * `relaxed`: se o texto não é analisado como o tipo de uma coluna, a coluna é definida como nula e a análise continua
  * `regex`: as cadeias de caracteres `Match` são expressões regulares.
 * `Text`: uma coluna ou outra expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
 * *Match:* fazer a correspondência com a próxima parte da cadeia de caracteres e descartá-la.
 * *Column:* atribuir a próxima parte da cadeia de caracteres a esta coluna. A coluna será criada se ainda não existir.
-* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date ou double. 
+* *Type:* analisar a próxima parte da cadeia de caracteres como o tipo especificado, como int, date ou double.
 
 
 **Retorna**
@@ -510,7 +510,7 @@ Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas 
 
 * *T:* a tabela de entrada.
 * *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
-* *Expression:* expressão escalar opcional que faz referência às colunas de entrada. 
+* *Expression:* expressão escalar opcional que faz referência às colunas de entrada.
 
     É válido retornar uma nova coluna calculada com o mesmo nome que uma coluna existente na entrada.
 
@@ -562,7 +562,7 @@ Gera uma tabela de coluna única de valores. Observe que ele não tem uma entrad
 * *ColumnName:* o nome da única coluna na tabela de saída.
 * *Start:* o menor valor na saída.
 * *Stop:* o valor mais elevado que está sendo gerado na saída (ou um limite para o valor mais elevado, se *step* passar por esse valor).
-* *Step:* a diferença entre dois valores consecutivos. 
+* *Step:* a diferença entre dois valores consecutivos.
 
 Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator)).
 
@@ -615,7 +615,7 @@ Tenta agrupar registros semelhantes. Para cada grupo, o operador envia o `Patter
 **Argumentos**
 
 * *ColumnName:* a coluna a ser examinada. Deve ser do tipo cadeia de caracteres.
-* *Threshold:* um valor no intervalo {0..1}. O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno. 
+* *Threshold:* um valor no intervalo {0..1}. O padrão é 0,001. Para entradas grandes, o limite deve ser pequeno.
 
 **Retorna**
 
@@ -702,7 +702,7 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 
 * *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Veja [agregações](#aggregations).
-* *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
+* *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento.
 
 Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, o Analytics a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
 
@@ -729,20 +729,21 @@ Alias de [limit](#limit-operator)
 
 ### operador top
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Retorna os primeiros *N* registros classificados pelas colunas especificadas.
 
 
 **Sintaxe**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Argumentos**
 
 * *NumberOfRows:* o número de linhas de *T* a serem retornadas.
 * *Sort\_expression:* uma expressão de acordo com a qual as linhas devem ser classificadas. Normalmente é apenas um nome de coluna. Você pode especificar mais de um sort\_expression.
 * `asc` ou `desc` (o padrão) pode surgir para controlar se a seleção é realmente da parte "inferior" ou "superior" do intervalo.
+* Controles `nulls first` ou `nulls last` em que valores nulos são exibidos. `First` é o padrão para `asc`, `last` é o padrão para `desc`.
 
 
 **Dicas**
@@ -766,8 +767,8 @@ Produz resultados hierárquicos, onde cada nível é uma busca detalhada do nív
 **Argumentos**
 
 * N:int - número de linhas a serem retornadas ou passadas para o próximo nível. Em uma consulta com três níveis onde N é 5, 3 e 3, o número total de linhas será 45.
-* COLUMN - uma coluna a ser agrupada para agregação. 
-* AGGREGATION: uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
+* COLUMN - uma coluna a ser agrupada para agregação.
+* AGGREGATION - uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
 
 
 ### operador union
@@ -785,13 +786,13 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
 **Argumentos**
 
 * *Tabela1*, *Tabela2*...
- *  O nome de uma tabela, como `requests`, ou de uma tabela definida em uma [cláusula let](#let-clause) ou
+ *  O nome de uma tabela, como `requests`, ou de uma tabela definida em uma [cláusula let](#let-clause); ou
  *  Uma expressão de consulta, como `(requests | where success=="True")`
- *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` pode formar a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com “e”, juntamente com a tabela “exceções”.
-* `kind`: 
- * `inner`: o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
- * `outer`: o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
-* `withsource=`*ColumnName:* se especificado, a saída inclui uma coluna chamada *ColumnName* cujo valor indica qual tabela de origem contribuiu com cada linha.
+ *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` formaria a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com “e”, juntamente com a tabela “exceções”.
+* `kind`:
+ * `inner` - o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
+ * `outer` - o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
+* `withsource=`*ColumnName:* se especificado, a saída incluirá uma coluna chamada *ColumnName* cujo valor indicará qual tabela de origem contribuiu com cada linha.
 
 **Retorna**
 
@@ -853,7 +854,7 @@ As linhas em *T* para as quais o *Predicate* é `true`.
 
 Para obter o desempenho mais rápido:
 
-* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constant” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
+* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constante” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
 
     Por exemplo, prefira `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -877,7 +878,7 @@ Observe que colocamos a comparação entre duas colunas por último, pois ela n�
 
 ## Agregações
 
-As agregações são funções usadas para combinar valores em grupos criados na em [operação de resumo](#summarize-operator). Por exemplo, nesta consulta, dcount() é uma função de agregação:
+As agregações são funções usadas para combinar valores em grupos criados em [resumir operação](#summarize-operator). Por exemplo, nesta consulta, dcount() é uma função de agregação:
 
     requests | summarize dcount(name) by success
 
@@ -907,7 +908,7 @@ traces
 
 Localiza uma linha no grupo que minimiza/maximiza *ExprToMaximize* e retorna o valor de *ExprToReturn* (ou `*` para retornar a linha inteira).
 
-**Dica**: as colunas passadas são automaticamente renomeadas. Para garantir que você está usando os nomes corretos, inspecione os resultados usando `take 5` antes de canalizar os resultados para outro operador.
+**Dica**: as colunas passadas são automaticamente renomeadas. Para ter certeza de que você está usando os nomes corretos, inspecione os resultados usando `take 5` antes de canalizar os resultados para outro operador.
 
 **Exemplos**
 
@@ -1033,7 +1034,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`. 
 
 **Dica de desempenho**: use `summarize count(filter)` em vez de `where filter | summarize count()`
 
-> [AZURE.NOTE] Evite usar count() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando [sampling](app-insights-sampling.md) está em operação, o número de pontos de dados retidos no Application Insights será menor do que o número de eventos originais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
+> [AZURE.NOTE] Evite usar count() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando a [amostragem](app-insights-sampling.md) está em operação, o número de pontos de dados retidos no Application Insights é menor do que o número de eventos originais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
 
 ### countif
 
@@ -1043,7 +1044,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`.
 
 **Dica de desempenho**: use `summarize countif(filter)` em vez de `where filter | summarize count()`
 
-> [AZURE.NOTE] Evite usar countif() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando [sampling](app-insights-sampling.md) está em operação, o número de pontos de dados é menor do que o número de eventos reais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
+> [AZURE.NOTE] Evite usar countif() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando a [amostragem](app-insights-sampling.md) está em operação, o número de pontos de dados é menor que o número de eventos reais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
 
 ### dcount
 
@@ -1070,7 +1071,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset).)
 
 *Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1091,15 +1092,15 @@ Retorna uma estimativa do número de valores distintos de *Expr* de linhas no gr
 
 Retorna uma matriz `dynamic` (JSON) de todos os valores de *Expr* no grupo.
 
-* *MaxListSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é de *128*).
+* *MaxListSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é *128*).
 
 ### makeset
 
     makeset(Expression [ , MaxSetSize ] )
 
-Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* usa no grupo. (Dica: para contar apenas os valores distintos, use [`dcount`](#dcount)).
+Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* usa no grupo. (Dica: para contar apenas os valores distintos, use [`dcount`](#dcount).)
   
-*  *MaxSetSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é de *128*).
+*  *MaxSetSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é *128*).
 
 **Exemplo**
 
@@ -1208,9 +1209,9 @@ Para obter uma imagem precisa da distribuição original das latências de event
 
     customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
 
-Os resultados são os mesmos, como se tivéssemos usado `percentiles` sem formatação no conjunto original de medidas.
+Os resultados são os mesmos, como se tivéssemos usado `percentiles` sem formatação no conjunto de medidas original.
 
-> [AZURE.NOTE] Percentis ponderados não são aplicáveis a [dados de amostra](app-insights-sampling.md), em que cada linha de amostra representa uma amostra aleatória de linhas originais, em vez de uma compartimentalização. As funções de percentil simples são apropriadas para dados de amostra.
+> [AZURE.NOTE] Percentis ponderados não são aplicáveis a [dados de amostra](app-insights-sampling.md), em que cada linha de amostra representa uma amostra aleatória de linhas originais em vez de uma compartimentalização. As funções de percentil simples são apropriadas para dados de amostra.
 
 #### Erro de estimativa em percentuais
 
@@ -1218,7 +1219,7 @@ A agregação de percentis fornece um valor aproximado usando [T-Digest](https:/
 
 Alguns pontos importantes:
 
-* Os limites no erro de estimativa variam de acordo percentil solicitado. A maior precisão está nas extremidades da escala de [0 a 100], os percentuais 0 e 100 são os valores mínimo e máximo exatos da distribuição. A precisão diminui gradativamente rumo à parte central da escala. Ela atinge seu pior valor na mediana e está limitada a 1%. 
+* Os limites no erro de estimativa variam de acordo percentil solicitado. A maior precisão está nas extremidades da escala de [0 a 100], os percentuais 0 e 100 são os valores mínimo e máximo exatos da distribuição. A precisão diminui gradativamente rumo à parte central da escala. Ela atinge seu pior valor na mediana e está limitada a 1%.
 * Os limites de erro são observados na classificação, não no valor. Suponha que percentil (X, 50) retornou o valor de Xm. A estimativa garante que pelo menos 49% e, no máximo, 51% dos valores de X sejam inferiores Xm. Não há qualquer limite teórico sobre a diferença entre Xm e o valor real da mediana de X.
 
 ### stdev
@@ -1461,17 +1462,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -1502,8 +1493,8 @@ Alias `floor`.
 
 **Argumentos**
 
-* *value:* um número, uma data ou um período de tempo. 
-* *roundTo:* o "tamanho de compartimentalização". Um número, uma data ou um período de tempo que divide *value*. 
+* *value:* um número, uma data ou um período de tempo.
+* *roundTo:* o "tamanho de compartimentalização". Um número, uma data ou um período de tempo que divide *value*.
 
 **Retorna**
 
@@ -1553,8 +1544,8 @@ Um alias para [`bin()`](#bin).
 
 Um gerador de número aleatório.
 
-* `rand()`: um número real entre 0,0 e 1,0
-* `rand(n)`: um número inteiro entre 0 e n-1
+* `rand()` - um número real entre 0,0 e 1,0
+* `rand(n)` - um número inteiro entre 0 e n-1
 
 
 
@@ -1574,7 +1565,7 @@ A função da raiz quadrada.
 **Retorna**
 
 * Um número positivo, como `sqrt(x) * sqrt(x) == x`
-* `null` se o argumento for negativo ou não puder ser convertido em um valor `real`. 
+* `null` se o argumento for negativo ou não puder ser convertido em um valor `real`.
 
 
 
@@ -1896,20 +1887,26 @@ h"hello"
 Operador|Descrição|Diferencia maiúsculas de minúsculas|Exemplo verdadeiro
 ---|---|---|---
 `==`|É igual a |Sim| `"aBc" == "aBc"`
-`<>`|Diferente de|Sim| `"abc" <> "ABC"`
+`<>` `!=`|Diferente de|Sim| `"abc" <> "ABC"`
 `=~`|É igual a |Não| `"abc" =~ "ABC"`
 `!~`|Diferente de |Não| `"aBc" !~ "xyz"`
 `has`|O lado direito (RHS) é um termo completo no lado esquerdo (LHS)|Não| `"North America" has "america"`
 `!has`|RHS não é um termo completo no LHS|Não|`"North America" !has "amer"` 
+`hasprefix`|RHS é um prefixo de termo no LHS|Não|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS não é um prefixo de termo no LHS|Não|`"North America" !hasprefix "mer"`
 `contains` | RHS ocorre como uma subsequência do LHS|Não| `"FabriKam" contains "BRik"`
 `!contains`| RHS não ocorre no LHS|Não| `"Fabrikam" !contains "xyz"`
 `containscs` | RHS ocorre como uma subsequência do LHS|Sim| `"FabriKam" contains "Kam"`
 `!containscs`| RHS não ocorre no LHS|Sim| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS é uma subsequência inicial do LHS.|Não|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS não é uma subsequência inicial do LHS.|Não|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS é uma subsequência terminal do LHS.|Não|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS não é uma subsequência terminal do LHS.|Não|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contém uma correspondência para o RHS|Sim| `"Fabrikam" matches regex "b.*k"`
+`in`|Igual a qualquer um dos elementos|Sim|`"abc" in ("123", "345", "abc")`
+`!in`|Diferente de qualquer um dos elementos|Sim|`"bc" !in ("123", "345", "abc")`
 
-
-Use `has` ou `in` se você estiver testando a presença de um termo lexical completo, ou seja, um símbolo ou palavra alfanumérica delimitada por caracteres não alfanuméricos ou pelo início ou término do campo. `has` tem execução mais rápida do que `contains` ou `startswith`. A primeira dessas consultas é executada com mais rapidez:
+Use `has` ou `in` se você estiver testando a presença de um termo lexical completo, ou seja, um símbolo ou palavra alfanumérica delimitada por caracteres não alfanuméricos ou pelo início ou término do campo. `has` tem execução mais rápida do que `contains`, `startswith` ou `endswith`. A primeira dessas consultas é executada com mais rapidez:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1933,7 +1930,7 @@ Conta as ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres
 
 * *text:* uma cadeia de caracteres.
 * *search:* a cadeia de caracteres simples ou a expressão regular a ser correspondida em *text*.
-* *variante:* `"normal"|"regex"` padrão `normal`.
+* *kind:* `"normal"|"regex"` padrão `normal`.
 
 **Retorna**
 
@@ -1972,7 +1969,7 @@ Obtém uma correspondência para uma [expressão regular](#regular-expressions) 
 
 **Retorna**
 
-Se *regex* encontrar uma correspondência em *text*: a subcadeia de caracteres correspondida com base no grupo de captura indicado *captureGroup*, convertido, opcionalmente, em *typeLiteral*.
+Se *regex* encontrar uma correspondência em *text*: a subcadeia de caracteres correspondida com base no grupo de captura indicado *captureGroup*, convertida, opcionalmente, em *typeLiteral*.
 
 Se não houver correspondência, ou se a conversão do tipo falhar: `null`.
 
@@ -2042,7 +2039,7 @@ Substitua todas as correspondências de regex por outra cadeia de caracteres.
 **Argumentos**
 
 * *regex:* a [expressão regular](https://github.com/google/re2/wiki/Syntax) para pesquisar em *text*. Pode conter grupos de captura entre '('parênteses')'.
-* *rewrite:* o regex de substituição para qualquer correspondência feita por *matchingRegex*. Use `\0` para referir-se à correspondência inteira, `\1` para o primeiro grupo de captura `\2` etc. para grupos de captura subsequentes.
+* *rewrite:* o regex de substituição para qualquer correspondência feita por *matchingRegex*. Use `\0` para referir-se à correspondência inteira, `\1` para o primeiro grupo de captura, `\2` e os seguintes para grupos de captura subsequentes.
 * *text:* uma cadeia de caracteres.
 
 **Retorna**
@@ -2086,7 +2083,7 @@ Divide uma determinada cadeia de caracteres de acordo com um determinado delimit
 
 * *source*: a cadeia de caracteres de origem que será dividida de acordo com o delimitador especificado.
 * *delimiter*: o delimitador que será usado para dividir a cadeia de caracteres de origem.
-* *requestedIndex*: um índice opcional baseado em zero `int`. Se for fornecido, a matriz de cadeias de caracteres retornada conterá a subcadeia de caracteres solicitada, se ela existir.
+* *requestedIndex*: um índice opcional com base em zero `int`. Se for fornecido, a matriz de cadeias de caracteres retornada conterá a subcadeia de caracteres solicitada, se ela existir.
 
 **Retorna**
 
@@ -2129,9 +2126,9 @@ Extrai uma subcadeia de caracteres de uma cadeia de caracteres de origem forneci
 
 **Argumentos**
 
-* *source:* a cadeia de caracteres de origem por meio da qual a subcadeia de caracteres será extraída.
+* *source:* a cadeia de caracteres de origem da qual a subcadeia de caracteres será extraída.
 * *startingIndex:* a posição do caractere inicial com base em zero da subcadeia de caracteres solicitada.
-* *length:* um parâmetro opcional que pode ser usado para especificar o número solicitado de caracteres na subcadeia de caracteres.
+* *length:* um parâmetro opcional que pode ser usado para especificar o número de caracteres solicitado na subcadeia de caracteres.
 
 **Retorna**
 
@@ -2173,14 +2170,14 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 
 ![](./media/app-insights-analytics-reference/310.png)
 
-**Indexing:** índice de matrizes e objetos, assim como no JavaScript:
+**Indexing:** indexar matrizes e objetos, assim como no JavaScript:
 
     exceptions | take 1
     | extend 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Contudo, use `arraylength` e outras funções do Analytics (não use ".length")
+* Contudo, use `arraylength` e outras funções da Análise (não use ".length"!)
 
 **Casting**: em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
@@ -2192,7 +2189,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Literals**: para criar uma matriz explícita ou um objeto de recipiente de propriedades, escreva-a como uma cadeia de caracteres JSON e a converta:
+**Literals**: para criar uma matriz explícita ou um objeto de recipiente de propriedades, escreva-o como uma cadeia de caracteres JSON e o converta:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
@@ -2250,10 +2247,10 @@ Observe que o `indexer` é usado para marcar onde você deve usar um índice num
 
 Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argumento de cadeia de caracteres JSON:
 
-* `parsejson('[43, 21, 65]')`: uma matriz de números
+* `parsejson('[43, 21, 65]')` - uma matriz de números
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
-* `parsejson('21')`: um único valor de tipo dinâmico que contém um número
-* `parsejson('"21"')`: um único valor de tipo dinâmico que contém uma cadeia de caracteres
+* `parsejson('21')` - um único valor de tipo dinâmico que contém um número
+* `parsejson('"21"')` - um único valor de tipo dinâmico que contém uma cadeia de caracteres
 
 Observe que, diferentemente do JavaScript, o JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
 
@@ -2359,7 +2356,7 @@ A notação de ponto e a notação [colchetes] são equivalentes:
 **Dicas de desempenho**
 
 * Aplicar cláusulas where antes de usar `extractjson()`
-* Considere o uso de uma correspondência da expressão regular com [extract](#extract). Isso pode ser executado muito mais rápido, e será eficaz se JSON for produzido a partir de um modelo.
+* Considere a possibilidade de, em vez disso, usar uma correspondência da expressão regular com [extract](#extract). Isso pode ser executado muito mais rápido, e será eficaz se JSON for produzido a partir de um modelo.
 * Use `parsejson()` se você precisar extrair mais de um valor de JSON.
 * Considere analisar o JSON na ingestão declarando o tipo da coluna como dinâmica.
 
@@ -2414,7 +2411,7 @@ T
 
 ### range
 
-A função `range()` (não deve ser confundida com o operador `range`) gera uma matriz dinâmica que contém uma série de valores espaçados igualmente.
+A função `range()` (não deve ser confundida com o operador `range`) gera uma matriz dinâmica que contém uma série de valores distribuídos em espaços iguais.
 
 **Sintaxe**
 
@@ -2493,4 +2490,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

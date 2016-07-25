@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/11/2016" 
 	ms.author="stefsch"/>
 
 # Detalhes da configuração de rede para Ambientes de Aplicativo de Serviço com a Rota Expressa 
@@ -21,7 +21,7 @@
 ## Visão geral ##
 Os clientes podem conectar um circuito da [Rota Expressa do Azure][ExpressRoute] à infraestrutura de rede virtual, estendendo, assim, a rede local até o Azure. Um Ambiente de Serviço de Aplicativo pode ser criado em uma sub-rede dessa infraestrutura de [rede virtual][virtualnetwork]. Os aplicativos em execução no Ambiente de Serviço de Aplicativo podem então estabelecer conexões seguras com recursos de back-end acessíveis apenas pela conexão de Rota Expressa.
 
-**Observação:** um Ambiente do Serviço de Aplicativo não pode ser criado em uma rede virtual "v2". Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados).
+Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual do Azure Resource Manager **ou** uma rede virtual de modelo de implantação clássico. Com uma alteração recente feita em junho de 2016, os ASEs também podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -31,7 +31,7 @@ Há requisitos de conectividade de rede para Ambientes do Serviço de Aplicativo
 
 -  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo nas portas 80 e 443. Isso inclui os pontos de extremidade localizados na mesma região que o Ambiente do Serviço de Aplicativo, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
 -  Conectividade de rede de saída para o serviço de arquivos do Azure na porta 445.
--  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Os pontos de extremidade do banco de dados SQL são resolvidos sob este domínio: *database.windows.net*. Isso exige a abertura de acesso às portas 1433, 11000 a 11999 e 14000 a 14999. Para obter mais detalhes, veja [este artigo sobre o uso de portas do banco de dados Sql V12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Conectividade de rede de saída para pontos de extremidade de Banco de Dados SQL localizados na mesma região que o Ambiente de Serviço de Aplicativo. Os pontos de extremidade do banco de dados SQL são resolvidos neste domínio: *database.windows.net*. Isso exige a abertura de acesso às portas 1433, 11000 a 11999 e 14000 a 14999. Para obter mais detalhes, consulte [este artigo sobre o uso de portas do banco de dados SQL V12](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
 -  Conectividade de rede de saída para os pontos de extremidade do plano de gerenciamento do Azure (pontos de extremidade ASM e ARM). Inclui conectividade de saída para *management.core.windows.net* e *management.azure.com*.
 -  Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
 -  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Se esses pontos de extremidade não puderem ser resolvidos, tentativas de criação do Ambiente de Serviço de Aplicativo irão falhar, e Ambientes de Serviços de Aplicativo existentes serão marcados como não íntegros.
@@ -58,9 +58,9 @@ Se possível, é recomendável usar a seguinte configuração:
 
 O efeito combinado dessas etapas é que o nível de sub-rede UDR terá precedência sobre o encapsulamento forçado da Rota Expressa, garantindo acesso de Internet de saída do Ambiente do Serviço de Aplicativo.
 
-**IMPORTANTE:** as rotas definidas em uma UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração da Rota Expressa. O exemplo a seguir usa o intervalo de endereço 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
-
-**MUITO IMPORTANTE:** não há suporte para Ambientes do Serviço de Aplicativo com configurações da Rota Expressa que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de Rota Expressa com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento particular, o resultado final será que todos os pacotes de saída de rede da sub-rede do Ambiente do Serviço de Aplicativo serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interromperá os Ambientes do Serviço de Aplicativo. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
+> [AZURE.IMPORTANT] As rotas definidas em uma UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração da Rota Expressa. O exemplo a seguir usa o intervalo de endereço 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
+>
+>Não há suporte para Ambientes de Serviço de Aplicativo com configurações de Rota Expressa que **incorretamente cruzem anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de Rota Expressa com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento particular, o resultado final será que todos os pacotes de saída de rede da sub-rede do Ambiente do Serviço de Aplicativo serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interromperá os Ambientes do Serviço de Aplicativo. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
 
 Informações preliminares sobre as rotas definidas pelo usuário estão disponíveis nesta [visão geral][UDROverview].
 
@@ -70,7 +70,7 @@ Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão d
 
 **Pré-requisitos**
 
-1. Instale o Azure Powershell mais recente na [página Downloads do Azure][AzureDownloads] \(de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
+1. Instale o Azure Powershell mais recente na [página Downloads do Azure][AzureDownloads] (de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
 
 2. É recomendável que uma sub-rede exclusiva seja criada para uso exclusivo por um Ambiente do Serviço de Aplicativo. Isso garante que as UDRs aplicadas à sub-rede abrirão apenas tráfego de saída para o Ambiente do Serviço de Aplicativo.
 3. **Importante**: não implante o Ambiente do Serviço de Aplicativo **até** que as etapas de configuração a seguir sejam seguidas. Isso garante que a conectividade de rede de saída esteja disponível antes da tentativa de implantar um Ambiente do Serviço de Aplicativo.
@@ -116,7 +116,7 @@ Depois que as etapas acima forem confirmadas, você precisará excluir a máquin
 Prossiga então com a criação de um Ambiente do Serviço de Aplicativo.
 
 ## Introdução
-Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
@@ -140,4 +140,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Uso avançado do modelo de programação de Serviços Confiáveis
@@ -42,7 +42,7 @@ Embora `RunAsync` deva ser suficiente em quase todos os casos, os eventos abrir,
 
 Um ciclo de vida de uma réplica de serviço com estado é muito mais complexo do que uma instância de serviço sem estado. Além dos eventos abrir, fechar e anular, uma réplica de serviço com estado sofre mudanças de função durante seu ciclo de vida. Quando uma réplica de serviço com estado muda de função, o evento `OnChangeRoleAsync` é disparado:
 
-- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando o serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as coleções confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). É possível iniciar ou atualizar as tarefas em segundo plano em resposta às alterações de função, como realizar validação somente leitura, geração de relatórios ou mineração de dados em um banco de dados secundário.
+- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando a réplica de serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as Coleções Confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). A maior parte do trabalho em um serviço com estado é executado na réplica primária. Réplicas secundárias podem realizar validação somente leitura, geração de relatórios, mineração de dados ou outros trabalhos somente leitura.
 
 Em um serviço com estado, somente a réplica primária tem acesso de gravação para o estado e isso ocorre geralmente quando o serviço está executando o trabalho real. O método `RunAsync` em um serviço com estado é executado somente quando a réplica de serviço com estado é primária. O método `RunAsync` é cancelado quando a função de uma réplica primária é alterada para algo além de primário e durante os eventos fechar e anular.
 
@@ -67,4 +67,4 @@ Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigo
 
 - [Configurando serviços com o Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

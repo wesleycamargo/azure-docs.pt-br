@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/15/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
@@ -118,6 +118,8 @@ Para cenários com grandes quantidades de dados não estruturados para armazenam
 
 É importante observar que o carimbo de data/hora padrão de eventos de armazenamento de Blob no Stream Analytics é o carimbo de data/hora em que o blob foi modificado pela última vez, que é *isBlobLastModifiedUtcTime*. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, use a palavra-chave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+Observe também que as entradas formatadas em CSV **exigem** uma linha de cabeçalho para definir os campos do conjunto de dados. Os campos de linha de cabeçalho adicionais devem ser **exclusivos**.
+
 > [AZURE.NOTE] O Stream Analytics não dá suporte para a adição de conteúdo a um blob existente. O Stream Analytics só exibirá um blob uma vez e quaisquer alterações feitas depois dessa leitura não serão processadas. A melhor prática é carregar todos os dados uma vez e não adicionar nenhum evento a mais ao repositório de blobs.
 
 A tabela a seguir explica cada propriedade na guia de entrada do armazenamento de Blob com sua descrição:
@@ -211,4 +213,4 @@ Você aprendeu sobre as opções de conexão de dados no Azure para seus trabalh
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

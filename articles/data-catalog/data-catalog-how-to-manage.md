@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 
@@ -60,4 +60,4 @@ Os administradores do Catálogo de Dados são, implicitamente, coproprietários 
 ## Resumo
 O modelo de crowdsourcing do Catálogo de Dados para descoberta de ativos de dados e metadados permite que todos os usuários do Catálogo contribuam e descubram. A Edição Standard do Catálogo de Dados fornece recursos de propriedade e de gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

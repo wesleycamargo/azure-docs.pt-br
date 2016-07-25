@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 Quando um lembrete é disparado, o tempo de execução dos Reliable Actors invocará o método `ReceiveReminderAsync` no Ator. Um ator pode registrar vários lembretes, que o método `ReceiveReminderAsync` será chamado quando qualquer um desses lembretes for disparado. O ator pode usar o nome de lembrete que é passado para o método `ReceiveReminderAsync` para descobrir qual lembrete foi acionado.
 
-O tempo de execução dos Atores salva o estado do ator quando a chamada `ReceiveReminderAsync` é concluída. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada. Para especificar que o estado não precisa ser salvo após a conclusão do retorno de chamada do lembrete, o sinalizador `ActorReminderAttributes.ReadOnly` pode ser definido no parâmetro dos `attributes` quando o método `RegisterReminder` for chamado para criar o lembrete.
+O tempo de execução dos Atores salva o estado do ator quando a chamada `ReceiveReminderAsync` é concluída. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
 
 Para cancelar o registro de um lembrete, um ator chama o método `UnregisterReminder` como mostrado no exemplo abaixo.
 
@@ -125,4 +125,4 @@ Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActor
  - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

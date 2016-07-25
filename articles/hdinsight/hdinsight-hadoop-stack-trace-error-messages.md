@@ -4,7 +4,7 @@
 	keywords="rastreamento de pilha, mensagens de erro"
 	services="hdinsight"
 	documentationCenter="NA"
-	authors="cjgronlund"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
 	ms.date="03/21/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Erros de rastreamento de pilha do Hadoop no HDInsight: índice de artigos de solução de problemas
 
@@ -34,4 +34,4 @@ Use este índice de erros de rastreamento de pilha do Hadoop para solucionar pro
 * [Coletar despejos de heap no armazenamento de Blob para depurar e analisar serviços do Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Notas de versão dos componentes do Hadoop no Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

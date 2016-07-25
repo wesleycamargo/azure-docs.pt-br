@@ -14,11 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Personalizar a definição do Swagger para o PowerApps e Fluxos Lógicos
+
+>[AZURE.IMPORTANT] Este tópico foi movido para powerapps.microsoft.com em [Personalizar sua definição de Swagger para o PowerApps e fluxos](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/). Vá para o PowerApps a fim de obter a versão mais recente. Esse link do Azure está sendo arquivado.
+
 
 ## Definição de autor da API do Swagger 2.0 para sua API
 
@@ -115,4 +118,4 @@ Isso é útil em cenários onde as entradas para uma operação são dinâmicas.
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

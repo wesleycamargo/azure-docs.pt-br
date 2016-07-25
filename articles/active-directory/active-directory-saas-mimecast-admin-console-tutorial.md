@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Mimecast Admin Console
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Mimecast Admin Console, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Configurar o logon único")
 
@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Mimecast Admin Console**, digite a URL usada pelos usuários para fazer logon no seu aplicativo do Mimecast Admin Console (por exemplo, “https://webmail-uk.mimecast.com” ou “https://webmail-us.mimecast.com”) e clique em **Avançar**.
 
-    >[AZURE.NOTE]A URL de logon é específica para a região.
+    >[AZURE.NOTE] A URL de logon é específica para a região.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Configurar a URL do Aplicativo")
 
@@ -107,21 +107,21 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto **Descrição**, digite um nome para a sua configuração.
     2.  Selecione **Impor Autenticação SAML para o Mimecast Admin Console**.
     3.  Como **Provedor**, selecione **Active Directory do Azure**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **URL do Emissor**.
-    5.  No portal do Azure, na página do diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    6.  No portal do Azure, na página do diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.  
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **URL do Emissor**.
+    5.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    6.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.
 
         >[AZURE.NOTE]O valor da URL de logon e da URL de logoff para o Mimecast Admin Console são as mesmas.
 
     7.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Abra seu certificado codificado em base 64 no bloco de notas, remova a primeira linha (“*--*“) e a última linha (“*--*“), copie o conteúdo restante para a área de transferência e, então, cole-o na caixa de texto **Certificado de provedor de identidade (metadados)**.
+    8.  Abra seu certificado codificado em base 64 no bloco de notas, remova a primeira linha ("*--*") e a última linha ("*--*"), copie o conteúdo restante para a área de transferência e cole-o na caixa de texto **Certificado de Provedor de Identidade (Metadados)**.
     9.  Selecione **Permitir Logon Único**.
     10. Clique em **Salvar**.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -161,7 +161,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao Mimecast Admin Console, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Atribuir usuários**.
 
@@ -173,4 +173,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

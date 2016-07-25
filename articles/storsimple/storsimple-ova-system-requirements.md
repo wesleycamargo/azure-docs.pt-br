@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # Requisitos do sistema da StorSimple Virtual Array
@@ -93,6 +93,9 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
+> [AZURE.IMPORTANT] Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+
+
 ### Padrões de URL para regras de firewall 
 
 Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Sua matriz virtual e o serviço StorSimple Manager dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário.
@@ -101,8 +104,8 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 > [AZURE.NOTE] 
 > 
-> - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem. 
-> - Os IPs de destino devem estar configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
+> - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem.
+> - Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
 
 
 | Padrão de URL | Componente/funcionalidade |
@@ -110,7 +113,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço de Controle de Acesso<br>Barramento de Serviço do Azure|
 |`http://*.backup.windowsazure.com`|Registro de dispositivos|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |
-| `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Contas de armazenamento e monitoramento do Azure |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Pacote de suporte |
@@ -120,4 +123,4 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 -   [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

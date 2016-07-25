@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="07/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guia para criar uma imagem de máquina virtual para o Azure Marketplace
@@ -33,6 +33,8 @@ Uma oferta é um "pai" de todas as suas SKUs. Pode haver várias ofertas. Como v
 Uma SKU é o nome comercial para uma imagem de VM. Uma imagem de VM contém um disco de sistema operacional e zero ou mais discos de dados. É, essencialmente, o perfil completo de armazenamento para uma máquina virtual. É necessário um VHD por disco. Mesmo discos de dados em branco exigem a criação de um VHD.
 
 Independentemente de qual sistema operacional que você usa, adicione apenas o número mínimo de discos de dados necessários para a SKU. Os clientes não podem remover discos que fazem parte de uma imagem no momento da implantação, mas sempre podem adicionar discos durante ou após a implantação, se precisar deles.
+
+>[AZURE.IMPORTANT] **Não altere a contagem de discos em uma nova versão da imagem.** Se você precisar reconfigurar os discos de Dados da imagem, defina um novo SKU. A publicação de uma nova versão da imagem com contagens de disco diferentes terá o potencial de interromper a nova implantação com base na nova versão da imagem em caso de dimensionamento automático, implantação automática de soluções por meio de modelos do ARM e outros cenários.
 
 ### 1\.1 Adicionar uma oferta
 
@@ -511,7 +513,7 @@ Depois de criar sua oferta e SKU, você deve digitar os detalhes da imagem assoc
     ![desenho](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Próxima etapa
-Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging]. Nessa etapa do processo de publicação, você fornece o conteúdo de marketing, o preço e outras informações necessárias antes da **Etapa 3: testando sua oferta de VM em preparo**, onde pode testar vários cenários de caso de uso antes de implantar a oferta no Azure Marketplace para visibilidade pública e compra.
+Depois de concluir os detalhes do SKU, avance até o [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging]. Nessa etapa do processo de publicação, você fornece o conteúdo de marketing, o preço e outras informações necessárias antes da **Etapa 3: testando sua oferta de VM em preparo**, onde pode testar vários cenários de caso de uso antes de implantar a oferta no Azure Marketplace para visibilidade pública e compra.
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -567,4 +569,4 @@ Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de m
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

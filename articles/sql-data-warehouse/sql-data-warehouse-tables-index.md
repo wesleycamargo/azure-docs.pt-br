@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Indexando tabelas no SQL Data Warehouse
@@ -244,6 +244,16 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
 A recriação de um índice no SQL Data Warehouse é uma operação offline. Para saber mais sobre a recriação de índices, confira a seção ALTER INDEX REBUILD em [Columnstore Indexes Defragmentation][] (Desfragmentação de índices Columnstore) e o tópico da sintaxe [ALTER INDEX][].
  
 ### Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
@@ -315,6 +325,7 @@ Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [T
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporário]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -327,4 +338,4 @@ Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [T
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

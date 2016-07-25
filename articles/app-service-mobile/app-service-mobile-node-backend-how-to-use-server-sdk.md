@@ -174,11 +174,11 @@ O SDK do servidor de Node.js do azure-mobile-apps fornece mecanismos para expor 
 
 | Operação | Descrição |
 | --------- | ----------- |
-| GET /tables/\_tablename\_ | Obter todos os registros na tabela |
-| GET /tables/\_tablename\_/:id | Obter um registro específico na tabela |
-| POST /tables/\_tablename\_ | Criar um novo registro na tabela |
-| PATCH /tables/\_tablename\_/:id | Atualizar um registro existente na tabela |
-| DELETE /tables/\_tablename\_/:id | Excluir um registro na tabela |
+| GET /tables/_tablename_ | Obter todos os registros na tabela |
+| GET /tables/_tablename_/:id | Obter um registro específico na tabela |
+| POST /tables/_tablename_ | Criar um novo registro na tabela |
+| PATCH /tables/_tablename_/:id | Atualizar um registro existente na tabela |
+| DELETE /tables/_tablename_/:id | Excluir um registro na tabela |
 
 Essa API Web dá suporte a [OData] e estende o esquema da tabela para dar suporte a [à sincronização de dados offline].
 
@@ -431,7 +431,7 @@ A propriedade de acesso pode assumir um dentre três valores
 
 Se a propriedade de acesso estiver indefinida, o acesso não autenticado será permitido.
 
-### <a name="howto-tables-getidentity"></a>Como usar declarações da autenticação com as tabelas
+### <a name="howto-tables-getidentity"></a>Como usar declarações de autenticação com as tabelas
 
 É possível configurar um número de declarações que são solicitadas durante a configuração da autenticação. Normalmente, essas declarações não estão disponíveis por meio do objeto `context.user`. No entanto, elas podem ser recuperadas usando o método `context.user.getIdentity()`. O método `getIdentity()` retorna uma Promessa que resolve um objeto. O objeto é inserido pelo método de autenticação (facebook, google, twitter, microsoftaccount ou aad).
 
@@ -625,13 +625,13 @@ Provavelmente você quer apenas habilitar o suporte do Swagger em edições de d
 
 O ponto de extremidade do Swagger estará localizado em http://_yoursite_.azurewebsites.net/swagger. É possível acessar a interface do usuário do Swagger por meio do ponto de extremidade do `/swagger/ui`. Observe que o Swagger produz um erro para o ponto de extremidade /, se você exigir a autenticação em todo o seu aplicativo. Para obter melhores resultados, opte por permitir solicitações não autenticadas nas configurações de Autenticação/Autorização do Serviço de Aplicativo do Azure e controle a autenticação usando a propriedade `table.access`.
 
-Também é possível adicionar a opção do Swagger ao arquivo `azureMobile.js` se quiser o suporte do Swagger apenas durante o desenvolvimento local.
+Também será possível adicionar a opção do Swagger ao arquivo `azureMobile.js` se quiser o suporte do Swagger apenas durante o desenvolvimento local.
 
 ## <a name="push">Notificações por push
 
-Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](./notification-hubs/notification-hubs-push-notification-overview.md).
+Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-### </a><a name="send-push"></a>Como adicionar notificações por push
+### </a><a name="send-push"></a>Como enviar notificações por push
 
 O código abaixo mostra como usar o objeto de push para enviar uma notificação por push para dispositivos iOS registrados:
 
@@ -830,9 +830,9 @@ O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de 
 
 Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico. Ele é ativado automaticamente habilitando o modo de depuração ou definindo a configuração de aplicativo **MS\_DebugMode** como true no [Portal do Azure]. Os logs gerados aparecerão nos Logs de Diagnóstico no [Portal do Azure].
 
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Como trabalhar com tabelas fáceis no portal do Azure
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Como trabalhar com Tabelas Fáceis no portal do Azure
 
-Tabelas fáceis no portal do permitem que você crie e trabalhe com as tabelas certas no portal. Você ainda pode editar operações de tabela usando o editor do Visual Studio Online.
+Tabelas fáceis no portal do permitem que você crie e trabalhe com as tabelas certas no portal. Você ainda pode editar operações de tabela usando Editor de Serviço de Aplicativo.
 
 Quando você clica em **Tabelas fáceis** em suas configurações de site de back-end, você pode adicionar uma nova tabela ou modificar ou excluir uma tabela existente. Você também pode ver dados na tabela.
 
@@ -841,7 +841,7 @@ Quando você clica em **Tabelas fáceis** em suas configurações de site de bac
 Os comandos a seguir estão disponíveis na barra de comandos de uma tabela:
 
 + **Alterar permissões**: modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela. As opções são permitir acesso anônimo, exigir autenticação ou desabilitar todo o acesso à operação. Isso modifica o arquivo de código do projeto table.json.
-+ **Editar script**: o arquivo de script da tabela é aberto no editor do Visual Studio Team Services.
++ **Editar script**: o arquivo de script da tabela é aberto no Editor de Serviço de Aplicativo.
 + **Gerenciar esquema**: adicione ou exclua colunas, ou altere o índice da tabela.
 + **Limpar tabela**: trunca uma tabela existente excluindo todas as linhas de dados, mas deixando o esquema inalterado.
 + **Excluir linhas**: exclua linhas individuais de dados.
@@ -849,21 +849,21 @@ Os comandos a seguir estão disponíveis na barra de comandos de uma tabela:
 
 ###<a name="work-easy-apis"></a>Como trabalhar com APIs fáceis no portal do Azure
 
-APIs fáceis de usar permitem que você crie e trabalhe com APIs personalizadas diretamente no Portal. Você ainda pode editar scripts de API usando o editor do Visual Studio Online.
+APIs fáceis de usar permitem que você crie e trabalhe com APIs personalizadas diretamente no Portal. Você ainda pode editar scripts de API usando o Editor de Serviço de Aplicativo.
 
 Quando você clica em **APIs fáceis** em suas configurações de site de back-end, pode adicionar um novo ponto de extremidade de API personalizada ou modificar ou excluir um ponto de extremidade de API existente.
 
 ![Trabalhar com APIs fáceis](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-No portal, você pode alterar as permissões de acesso de uma determinada ação HTTP, editar o arquivo de script da API no editor do Visual Studio Team Services ou exibir os logs de streaming.
+No Portal, você pode alterar as permissões de acesso de uma determinada ação HTTP, editar o arquivo de script da API no Editor de Serviço de Aplicativo ou exibir os logs de streaming.
 
-###<a name="online-editor"></a>Como editar o código no Visual Studio Team Services
+###<a name="online-editor"></a>Como editar o código no Editor de Serviço de Aplicativo
 
-O portal do Azure permite a edição dos arquivos de script de back-end do Node.js no Visual Studio Team Services sem a necessidade de baixar o projeto no computador local. Para editar arquivos de script no editor online:
+O Portal do Azure permite a edição dos arquivos de script de back-end do Node.js no Editor de Serviço de Aplicativo sem a necessidade de baixar o projeto no computador local. Para editar arquivos de script no editor online:
 
-1. Na folha do back-end de Aplicativo Móvel, clique em **Todas as configurações** > em **Tabelas fáceis** ou **APIs fáceis**, clique em uma tabela ou API e clique em **Editar script**. O arquivo de script é aberto no editor do Visual Studio Team Services.
+1. Na folha do back-end de Aplicativo Móvel, clique em **Todas as configurações** > em **Tabelas fáceis** ou **APIs fáceis**, clique em uma tabela ou API e clique em **Editar script**. O arquivo de é aberto no Editor de Serviço de Aplicativo.
 
-	![Editor de código do Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Editor de Serviço de Aplicativo](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Faça as alterações no arquivo de código no editor online. As alterações são salvas automaticamente enquanto você digita.
 
@@ -917,4 +917,4 @@ O portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

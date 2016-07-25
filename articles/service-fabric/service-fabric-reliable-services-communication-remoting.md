@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Comunicação remota de serviço com o Reliable Services
@@ -42,7 +42,7 @@ class MyService : StatelessService, IMyService
 {
     public MyService(StatelessServiceContext context)
         : base (context)
-{
+    {
     }
 
     public Task HelloWorld()
@@ -82,4 +82,4 @@ A estrutura remota propaga exceções lançadas no serviço para o cliente. A l�
 
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

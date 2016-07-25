@@ -18,9 +18,9 @@
 
 # Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de “Mensagens” do Barramento de Serviço com um SKU Standard/Básico. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de Barramento de Serviço do tipo **Mensagens** com um SKU Standard/Básico. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criando modelos do Azure Resource Manager][].
+Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][].
 
 Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Serviço][] no GitHub.
 
@@ -31,7 +31,7 @@ Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Ser
 >-    [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
 >
->Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure][] e procure por Barramento de Serviço.
+>Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Barramento de Serviço.
 
 ## O que você implantará?
 
@@ -45,7 +45,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters`, que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
-Descreveremos cada parâmetro no modelo.
+O modelo define os parâmetros a seguir.
 
 ### serviceBusNamespaceName
 
@@ -149,9 +149,9 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
 
   [Criando modelos do Azure Resource Manager]: ../resource-group-authoring-templates.md
   [Modelo de namespace do Barramento de Serviço]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [Modelos de início rápido do Azure]: https://azure.microsoft.com/documentation/templates/
+  [Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Barramento de Serviço, preços e cobrança]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

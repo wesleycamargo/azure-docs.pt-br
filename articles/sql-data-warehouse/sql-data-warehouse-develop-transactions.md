@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/11/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transações no SQL Data Warehouse
@@ -43,10 +43,12 @@ Na tabela abaixo, foram feitas as seguintes suposições:
 | DW1200 | 9 | 60 | 540 | 36\.000.000 | 2\.160.000.000 |
 | DW1500 | 11,25 | 60 | 675 | 45\.000.000 | 2\.700.000.000 |
 | DW2000 | 15 | 60 | 900 | 60\.000.000 | 3\.600.000.000 |
+| DW3000 | 22,5 | 60 | 1\.350 | 90\.000.000 | 5\.400.000.000 |
+| DW6000 | 45 | 60 | 2\.700 | 180\.000.000 | 10\.800.000.000 |
 
 O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log.
 
-Para otimizar e minimizar a quantidade de dados gravados no log, consulte o artigo [Práticas recomendadas das transações][].
+Para otimizar e minimizar a quantidade de dados gravados no log, confira o artigo [Práticas recomendadas das transações][].
 
 > [AZURE.WARNING] O tamanho máximo de transações só pode ser obtido para tabelas distribuídas HASH ou ROUND\_ROBIN nas quais o espalhamento de dados é uniforme. Se a transação estiver gravando dados de maneira distorcida nas distribuições, provavelmente, o limite será alcançado antes do tamanho máximo de transações.
 <!--REPLICATED_TABLE-->
@@ -110,7 +112,7 @@ SELECT @xact;
 Observe que a reversão da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
 
 ## Função Error\_line()
-Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR\_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Consulte o artigo [LABEL][] para obter mais detalhes sobre esse recurso.
+Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR\_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][] para obter mais detalhes sobre esse recurso.
 
 ## Uso de THROW e RAISERROR
 THROW é a implementação mais moderna para lançar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
@@ -130,7 +132,7 @@ Elas são as seguintes:
 - Não há suporte para DDL, como `CREATE TABLE`, em uma transação definida pelo usuário
 
 ## Próximas etapas
-Para saber mais sobre a otimização das transações, consulte [Práticas recomendadas das transações][]. Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, consulte [Práticas recomendadas do SQL Data Warehouse][].
+Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações][]. Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, confira [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -145,4 +147,4 @@ Para saber mais sobre a otimização das transações, consulte [Práticas recom
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

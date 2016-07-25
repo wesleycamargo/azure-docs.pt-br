@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -30,6 +30,7 @@ Para atingir esse objetivo:
 
 Este tópico apresenta uma visão geral dos conceitos importantes de fornecimento de conteúdo.
 
+Para verificar os problemas conhecidos, confira [esta](media-services-deliver-content-overview.md#known-issues) seção.
 
 ##Empacotamento dinâmico
 
@@ -86,7 +87,7 @@ Observe que você só pode transmitir por SSL se o ponto de extremidade de strea
 
 ##Formatos de URL de streaming
 
-**Formato MPEG DASH**
+###Formato MPEG DASH
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
@@ -96,28 +97,28 @@ Exemplo
 
 
 
-**Formato Apple HTTP Live Streaming (HLS) V4**
+###Formato Apple HTTP Live Streaming (HLS) V4
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-**Formato Apple HTTP Live Streaming (HLS) V3**
+###Formato Apple HTTP Live Streaming (HLS) V3
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-**Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio**
+###Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio
 
 Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é necessário para a certificação da Apple Store para redes de celular. Nesse caso, se um cliente não tiver largura de banda suficiente ou conectada por uma conexão 2G, ele alternará para a reprodução somente áudio. Isso ajuda a manter a transmissão contínua sem buffer, mas com uma desvantagem de nenhuma exibição de vídeo. No entanto, em alguns cenários, o buffer do player pode ser preferível em relação ao somente áudio. Se desejar remover a faixa somente áudio, é possível adicionar (somente áudio = false) à URL e removê-la.
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 
-**Formato Smooth Streaming**
+###Formato Smooth Streaming
 
 {nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest
 
@@ -125,7 +126,7 @@ Exemplo:
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-**Manifesto Smooth Streaming 2.0 (manifesto legado)**
+###<a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
 
 Por padrão o formato de manifesto Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Esses clientes podem usar o formato que desabilita a r-tag:
 
@@ -133,12 +134,11 @@ Por padrão o formato de manifesto Smooth Streaming contém a marca de repetiç�
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-**HDS (apenas para licenciados do Adobe PrimeTime/Access)**
+###HDS (apenas para licenciados do Adobe PrimeTime/Access)
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
-
 
 ##Download progressivo 
 
@@ -151,7 +151,6 @@ Para baixar conteúdo progressivamente, use o tipo de localizador OnDemandOrigin
 A seguinte consideração é aplicável:
 
 - É necessário descriptografar qualquer ativo criptografado em armazenamento que você deseje transmitir do serviço de origem para download progressivo.
-
 
 ##Baixar
 
@@ -166,13 +165,38 @@ As seguintes considerações se aplicam:
 - É necessário descriptografar qualquer ativo criptografado em armazenamento que você deseje transmitir do serviço de origem para download progressivo.
 - Um download que não foi concluído em 12 horas falhará.
 
-
-
 ##Ponto de extremidade de streaming
 
 Um **Ponto de Extremidade de Transmissão** representa um serviço de transmissão que pode entregar conteúdo diretamente a um aplicativo de player do cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de streaming para lidar com necessidades crescentes de largura de banda ajustando as unidades reservadas de streaming. Você deve alocar pelo menos uma unidade reservada para aplicativos em um ambiente de produção. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
+##Problemas conhecidos
 
+### Alterações na versão do manifesto do Smooth Streaming
+
+Antes da liberação do serviço de julho de 2016, quando os Ativos produzidos pelo Codificador de Mídia Padrão, Fluxo de Trabalho Premium do Codificador de Mídia ou Codificador de Mídia do Azure herdado eram transmitidos com o Empacotamento Dinâmico, o manifesto do Smooth Streaming retornado estava em conformidade com a versão 2.0, em que as durações de fragmentos não usam as chamadas marcações de repetição (“r”). Por exemplo:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" n="0" />
+			<c d="2000" />
+			<c d="2000" />
+			<c d="2000" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Após a liberação do serviço de julho de 2016, o manifesto do Smooth Streaming gerado está em conformidade com a versão 2.2, com durações de fragmentos que usam marcações de repetição. Por exemplo:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" r="4" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Alguns dos clientes herdados do Smooth Streaming podem não dar suporte às marcações de repetição e falhar durante o carregamento do manifesto. Para atenuar esse problema, use o parâmetro de formato do manifesto herdado **(format=fmp4-v20)** (para obter mais informações, confira [esta](media-services-deliver-content-overview.md#fmp4_v20) seção) ou atualize o cliente para a versão mais recente que dá suporte a marcações de repetição.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -187,4 +211,4 @@ Um **Ponto de Extremidade de Transmissão** representa um serviço de transmiss�
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

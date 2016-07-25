@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introdução aos Reliable Actors do Service Fabric
@@ -21,7 +21,7 @@
 Os Reliable Actors são uma estrutura do aplicativo do Service Fabric baseada no padrão de [Ator Virtual](http://research.microsoft.com/pt-BR/projects/orleans/). A API dos Reliable Actors fornece um modelo de programação single-threaded fundamentado nas garantias de escalabilidade e confiabilidade fornecidas pelo Service Fabric.
 
 ## O que são Atores?
-Um ator é uma unidade isolada e independente de computação e de estado com execução single-threaded. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo computacional para sistemas simultâneos ou distribuídos por meio dos quais é possível executar, simultânea e individualmente, um grande número desses atores que, por sua vez, podem criar outros atores, comunicando-se entre si.
+Um ator é uma unidade isolada e independente de computação e de estado com execução single-threaded. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo computacional para sistemas simultâneos ou distribuídos nos quais uma grande quantidade desses atores pode ser executada de modo simultâneo e independente entre si. Os atores podem se comunicar entre si e criar outros atores.
 
 ### Quando usar os Reliable Actors
 
@@ -105,7 +105,7 @@ A classe `ActorProxy` do lado do cliente executa a resolução necessária para 
 
 O tempo de execução dos Reliable Actors fornece um modelo de acesso baseado em turno simples para acessar os métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do objeto de um ator a qualquer momento. O acesso baseado em turno simplifica consideravelmente os sistemas simultâneos, pois não há necessidade de mecanismos de sincronização para o acesso a dados. Isso também significa que os sistemas devem ser projetados com considerações especiais sobre a natureza do acesso single-threaded de cada instância de ator.
 
- - Uma única instância de ator não pode processar mais de uma solicitação por vez. Uma instância de ator poderá causar um afunilamento da taxa de transferência se tiver de manipular solicitações simultâneas. 
+ - Uma única instância de ator não pode processar mais de uma solicitação por vez. Uma instância de ator poderá causar um afunilamento da taxa de transferência se tiver de manipular solicitações simultâneas.
  - Os atores poderão causar um deadlock mútuo se houver uma solicitação circular entre dois atores enquanto uma solicitação externa é feita para um dos atores simultaneamente. O tempo de execução do ator atingirá automaticamente o tempo limite nas chamadas de ator e gerará uma exceção ao chamador para que este interrompa as possíveis situações de deadlock.
 
 ![Comunicação dos Reliable Actors][3]
@@ -158,4 +158,4 @@ O tempo de execução dos Atores fornece essas garantias de simultaneidade em si
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

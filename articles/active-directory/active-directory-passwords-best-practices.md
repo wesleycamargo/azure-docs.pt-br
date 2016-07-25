@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure" 
-	description="Práticas recomendadas de implantação e uso, documentação do usuário final de exemplo e guias de treinamento para o Gerenciamento de Senhas no Active Directory do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
+	description="Práticas recomendadas de implantação e uso, documentação do usuário final de exemplo e guias de treinamento para o Gerenciamento de Senhas no Active Directory do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 Após habilitar a redefinição de senha, a próxima etapa que você precisa tomar é fazer com que os usuários usem o serviço em sua organização. Para fazer isso, você precisará verificar se os usuários estão configurados para usar o serviço adequadamente e também se os usuários têm o treinamento necessário para ter êxito no gerenciamento de suas próprias senhas. Este artigo o guiará pelos seguintes conceitos:
 
 * [**Como configurar os usuários para o gerenciamento de senhas**](#how-to-get-users-configured-for-password-reset)
@@ -84,7 +87,7 @@ Muitos de nossos clientes maiores optam por criar uma entrada DNS de raiz, como 
 Para continuar aqui, criamos uma página simples que usa os paradigmas mais recentes de design da IU responsiva e que funcionará em todos os navegadores e dispositivos móveis.
 
   ![][007]
-  
+
 Você pode [baixar o modelo de site aqui](https://github.com/kenhoff/password-reset-page). Recomendamos a personalização do logotipo e cores segundo as necessidades de sua organização.
 
 ### Usando o registro imposto
@@ -112,12 +115,12 @@ Você pode carregar os dados de autenticação por meio do [Portal de Gerenciame
 1.	Navegue até sei diretório na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2.	Clique na guia **Usuários**.
 3.	Selecione na lista o usuário em que você está interessado.
-4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha. 
+4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
 
     ![][005]
 
 5.	Clique na guia **Informações de Trabalho**.
-6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha. 
+6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
 
     ![][006]
 
@@ -134,7 +137,7 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -153,4 +156,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

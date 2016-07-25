@@ -188,7 +188,7 @@ No momento do build, como parte dos parâmetros de build de Recomendação ou FB
 
 2.	Como alternativa, você pode selecionar *splitterStrategy* (*RandomSplitter* ou *LastEventSplitter*). *RandomSplitter* divide os dados de uso nos conjuntos de dados de teste e de treinamento com base na porcentagem de teste *randomSplitterParameters* determinada e em valores de semente aleatórios. *LastEventSplitter* divide os dados de uso nos conjuntos de dados de treinamento e de teste com base na última transação de cada usuário.
 
-Isso vai disparar um build que usa apenas um subconjunto dos dados para treinamento e o restante dos dados é usado para calcular métricas de avaliação. Após o build ser concluído, para obter a saída da avaliação, você apenas precisa chamar a [API para obter métricas de build](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console), passando as respectivas *modelId* e *buildId*.
+Isso vai disparar um build que usa apenas um subconjunto dos dados para treinamento e o restante dos dados é usado para calcular métricas de avaliação. Após o build ser concluído, para obter a saída da avaliação, você apenas precisa chamar a [API para obter métricas de build](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f), passando as respectivas *modelId* e *buildId*.
 
  A seguir está a saída JSON para a avaliação de exemplo que executamos:
 
@@ -271,4 +271,4 @@ Isso vai disparar um build que usa apenas um subconjunto dos dados para treiname
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

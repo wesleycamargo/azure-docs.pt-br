@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introdução ao monitoramento de operações
 
 O monitoramento de operações do Hub IoT permite aos usuários monitorar o status das operações no respectivo Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações e os usuários podem aceitar ter eventos de uma ou mais categorias enviados para um ponto de extremidade de seu Hub IoT para processamento. Os usuários podem monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
 
-O Hub IoT monitora quatro categorias de evento:
+O Hub IoT monitora cinco categorias de eventos:
 
 - Operações de identidade do dispositivo
 - Telemetria de dispositivo
 - Comandos da nuvem para o dispositivo
 - Conexões
+- Carregamentos de arquivos
 
 ## Como habilitar o monitoramento de operações
 
@@ -35,7 +36,7 @@ O Hub IoT monitora quatro categorias de evento:
 
     ![][1]
 
-3. Selecione as categorias de monitoramento que deseja monitorar e clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub do Evento listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT é chamado de `messages/operationsmonitoringevents`.
+3. Selecione as categorias de monitoramento que deseja monitorar e clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub de Eventos listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT é chamado de `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -143,11 +144,14 @@ A categoria de upload de arquivos rastreia erros que ocorrem no Hub IoT e são r
 
 ## Próximas etapas
 
-Depois dessa visão geral do monitoramento de operações, siga estes links para saber mais:
+Agora que você já viu uma visão geral do monitoramento de operações, consulte [Gerenciar o acesso ao Hub IoT][lnk-itpro] para obter informações adicionais sobre o gerenciamento de Hub IoT.
 
-- [Métricas de diagnóstico do Hub IoT][lnk-diagnostic-metrics]
-- [Dimensionamento do Hub IoT][lnk-scaling]
-- [Alta disponibilidade e recuperação de desastres do Hub IoT][lnk-dr]
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,4 +162,11 @@ Depois dessa visão geral do monitoramento de operações, siga estes links para
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

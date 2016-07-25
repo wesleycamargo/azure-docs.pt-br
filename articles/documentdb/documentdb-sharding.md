@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
-# Como particionar os dados no Banco de Dados de Documentos com o SDK do .NET
+# Como particionar dados usando o suporte do lado do cliente no Banco de Dados de Documentos
 
-O Banco de Dados de Documentos do Azure dá suporte para coleções que podem ser escaladas verticalmente até [grandes volumes de armazenamento e taxa de transferência](documentdb-partition-data.md). No entanto, há casos de uso em que é útil ter um controle refinado sobre o comportamento de particionamento. Para reduzir o código clichê necessário para tarefas de particionamento, adicionamos funcionalidades aos SDKs .NET, Node.js e Java que facilitam a criação de aplicativos que serão escalados verticalmente por várias coleções.
+O Banco de Dados de Documentos do Azure dá suporte para o [particionamento automático das coleções](documentdb-partition-data.md). No entanto, há casos de uso em que é útil ter um controle refinado sobre o comportamento de particionamento. Para reduzir o código clichê necessário para tarefas de particionamento, adicionamos funcionalidades aos SDKs .NET, Node.js e Java que facilitam a criação de aplicativos que serão escalados verticalmente por várias coleções.
 
 Neste artigo, vamos dar uma olhada nas classes e interfaces no SDK do .NET e como usá-los para desenvolver aplicativos particionados. Outros SDKs como Java, Node.js e Python dão suporte a métodos e a interfaces semelhantes para o particionamento no lado cliente.
 
-## Particionando com o SDK do Banco de Dados de Documentos
+## Particionamento do lado do cliente com o SDK do Banco de Dados de Documentos
 
 Antes de nos aprofundarmos mais no particionamento, vamos recapitular alguns conceitos básicos do Banco de Dados de Documentos relacionados ao particionamento. Cada conta de banco de dados do Banco de Dados de Documentos do Azure é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas podendo conter procedimentos armazenados, gatilhos, UDFs, documentos e anexos relacionados. As coleções podem ter uma partição ou podem particionar a si próprias e ter as seguintes propriedades:
 
@@ -140,7 +140,7 @@ Os exemplos são de software livre e nós o encorajamos a enviar solicitações 
 
 Sim, o Banco de Dados de Documentos dá suporte ao [particionamento do lado servidor](documentdb-partition-data.md). O Banco de Dados de Documentos também dá suporte para particionamento do lado do cliente por meio de resolvedores de partição do lado do cliente para casos de uso mais avançados.
 
-**Quando devo usar o particionamento do lado do servidor vs. do lado do cliente?** Para a maioria dos casos de uso, recomendamos usar particionamento do lado do servidor, uma vez que ele lida com as tarefas administrativas de particionar dados e rotear solicitações. No entanto, se você precisar de particionamento por intervalos ou tiver um caso de uso especializado para isolamento de desempenho entre os diferentes valores de chaves de partição, particionamento do lado do cliente pode ser a melhor abordagem.
+** Quando devo usar o particionamento do lado do servidor em relação ao particionamento do lado do cliente?** Para a maioria dos casos de uso, recomendamos usar o particionamento do lado do servidor, uma vez que ele lida com as tarefas administrativas de particionar dados e rotear solicitações. No entanto, se você precisar de particionamento por intervalos ou tiver um caso de uso especializado para isolamento de desempenho entre os diferentes valores de chaves de partição, particionamento do lado do cliente pode ser a melhor abordagem.
 
 **Como adicionar ou remover uma coleção ao meu esquema de particionamento?**
 
@@ -164,4 +164,4 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -122,7 +122,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 11. Adicione a nova unidade ao /etc/fstab:
 
-	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
+	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Isso evita que o disco incorreto seja montado em um determinado local, se o sistema operacional detectar um erro de disco durante a inicialização, e os discos de dados restantes sejam atribuídos a essas IDs de dispositivo. Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
 
 		# sudo -i blkid
 
@@ -173,4 +173,4 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

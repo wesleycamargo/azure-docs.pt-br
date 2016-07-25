@@ -38,7 +38,7 @@ Este tópico lista estas etapas.
 **Para criar Conexões Híbridas em Serviços do BizTalk**:
 
 1. Entre no [portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
+2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk.
 
 	Se não tiver um Serviço BizTalk, você poderá [Criar um Serviço BizTalk](biztalk-provision-services.md).
 3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
@@ -47,16 +47,16 @@ Este tópico lista estas etapas.
 
 	Propriedade | Descrição
 --- | ---
-Nome | O nome da Conexão Híbrida precisa ser único e não pode ser igual ao nome do Serviço do BizTalk. Você pode inserir qualquer nome, mas seja específico quanto à sua finalidade. Os exemplos incluem:<br/><br/>Pagamento*SQLServer*<br/>ListadeSuprimentos*SharepointServer*<br/>Clientes*OracleServer*
-Nome de host | Insira o nome de host totalmente qualificado, somente o nome de host ou, então, o endereço IPv4 do recurso local. Os exemplos incluem:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domínio*.corp.*suaEmpresa*.com<br/>*meuServidorSharePointHTTP*<br/>*meuServidorSharePointHTTP*.*suaEmpresa*.com<br/>10.100.10.10
-Porta | Insira o número da porta no recurso local. Por exemplo, se você estiver usando Aplicativos Web, insira a porta 80 ou 443. Se você estiver usando o SQL Server, insira a porta 1433.
+Nome | O nome da Conexão Híbrida precisa ser único e não pode ser igual ao nome do Serviço do BizTalk. Você pode inserir qualquer nome, mas seja específico quanto à sua finalidade. Os exemplos incluem:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Clientes*OracleServer*
+Nome de host | Insira o nome de host totalmente qualificado, somente o nome de host ou, então, o endereço IPv4 do recurso local. Os exemplos incluem:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*. corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Port | Insira o número da porta no recurso local. Por exemplo, se você estiver usando Aplicativos Web, insira a porta 80 ou 443. Se você estiver usando o SQL Server, insira a porta 1433.
 
 5. Clique na marca de seleção para concluir a configuração.
 
 #### Adicional
 
-- Conexões Híbridas adicionais podem ser criadas. Consulte os [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para obter o número de conexões permitidas. 
-- Cada Conexão Híbrida é criada com um par de cadeias de conexão: chaves de aplicativo que ENVIAM e chaves locais que ESCUTAM. Cada par possui uma chave primária e outra secundária. 
+- Conexões Híbridas adicionais podem ser criadas. Consulte os [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para obter o número de conexões permitidas.
+- Cada Conexão Híbrida é criada com um par de cadeias de conexão: chaves de aplicativo que ENVIAM e chaves locais que ESCUTAM. Cada par possui uma chave primária e outra secundária.
 
 
 ## <a name="LinkWebSite"></a>Conectar seus Aplicativos Web do Azure ou Aplicativos Móveis do Azure
@@ -71,11 +71,11 @@ Para conectar os Aplicativos Móveis do Azure a uma Conexão Híbrida existente,
 Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbridas no recurso local. É possível fazer o download por meio dos aplicativos Web do Azure ou por meio de seu Serviço BizTalk. Etapas dos Serviços BizTalk:
 
 1. Entre no [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
+2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk.
 3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
 4. Na barra de tarefas, selecione **Configuração Local**: ![Configuração Local][HCOnPremSetup]
-5. Selecione **Instalar e Configurar** para executar ou baixar o Gerenciador de Conexões Híbridas no sistema local. 
-6. Selecione a marca de seleção para iniciar a instalação. 
+5. Selecione **Instalar e Configurar** para executar ou baixar o Gerenciador de Conexões Híbridas no sistema local.
+6. Selecione a marca de seleção para iniciar a instalação.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -88,32 +88,32 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 --> 
 
 #### Adicional
-- Híbridas adicionais suportam recursos locais instalados nos sistemas operacionais a seguir:
+- O Gerenciador de Conexões Híbridas pode ser instalado nos seguintes sistemas operacionais:
 
-	- Windows Server 2008 R2
-	- Windows Server 2012
+	- Windows Server 2008 R2 (.NET Framework 4.5+ e Windows Management Framework 4.0+ obrigatório)
+	- Windows Server 2012 (Windows Management Framework 4.0+ obrigatório)
 	- Windows Server 2012 R2
 
 
 - Após você instalar o Gerenciador de Conexões Híbridas, ocorre o seguinte:
 
-	- A Conexão Híbrida hospedada no Azure é configurada automaticamente para utilizar a cadeia de conexão primária do aplicativo. 
+	- A Conexão Híbrida hospedada no Azure é configurada automaticamente para utilizar a cadeia de conexão primária do aplicativo.
 	- O recurso local é configurado automaticamente para utilizar a cadeia de conexão primária local.
 
 - O Gerenciador de Conexões Híbridas precisa utilizar uma cadeia de conexão local válida para autorização. Os Aplicativos Web ou Aplicativos Móveis do Azure precisam utilizar uma cadeia de conexão ao aplicativo válida para autorização.
-- Você pode dimensionar conexões híbridas instalando outra instância do Gerenciador de conexões híbridas em outro servidor. Configure o ouvinte local para usar o mesmo endereço como o primeiro ouvinte local. Nessa situação, o tráfego é distribuído aleatoriamente (round robin) entre os ouvintes ativos locais. 
+- Você pode dimensionar conexões híbridas instalando outra instância do Gerenciador de conexões híbridas em outro servidor. Configure o ouvinte local para usar o mesmo endereço como o primeiro ouvinte local. Nessa situação, o tráfego é distribuído aleatoriamente (round robin) entre os ouvintes ativos locais.
 
 
 ## <a name="ManageHybridConnection"></a>Gerenciar Conexões Híbridas
 Para gerenciar suas Conexões Híbridas, você pode:
 
-- Utilizar o portal do Azure e ir até seu Serviço do BizTalk. 
+- Utilizar o portal do Azure e ir até seu Serviço do BizTalk.
 - Usar [APIs REST](http://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 #### Copiar/regenerar as cadeias de conexão híbrida
 
 1. Entre no [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
+2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk.
 3. Selecione a guia **Conexões Híbridas**: ![Guia de Conexões Híbridas][HybridConnectionTab]
 4. Selecione a Conexão Híbrida. Na barra de tarefas, selecione **Gerenciar Conexão**: ![Gerenciar opções][HCManageConnection]
 
@@ -128,7 +128,7 @@ Para gerenciar suas Conexões Híbridas, você pode:
 
 1. Baixe os [modelos administrativos do Gerenciador de Conexões Híbridas](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Extraia os arquivos.
-3. No computador que modifica a política de grupo, faça o seguinte:  
+3. No computador que modifica a política de grupo, faça o seguinte:
 
 	- Copie os arquivos .ADMX para a pasta *%WINROOT%\\PolicyDefinitions*.
 	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-BR*.
@@ -152,4 +152,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

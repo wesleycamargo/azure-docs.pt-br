@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Panorama9
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **Panorama9**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Panorama9**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Panorama9**, digite a URL usada pelos usuários para entrar no Panorama9 (por exemplo: “*https://dashboard.panorama9.com/saml/access/3262*")) e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Panorama9**, digite a URL usada pelos usuários para entrar no Panorama9 (por exemplo: "*https://dashboard.panorama9.com/saml/access/3262*") e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configurar a URL do Aplicativo")
 
@@ -98,14 +98,14 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Configurações")
 
-    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Panorama9**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do provedor de identidade**.
-    2.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado**.  
+    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Panorama9**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do provedor de identidade**.
+    2.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado**.
 
         >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     3.  Clique em **Salvar**.
 
-9.  No portal clássico do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No portal clássico do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -149,4 +149,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

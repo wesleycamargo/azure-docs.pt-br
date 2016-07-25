@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure | Microsoft Azure"
-	description="Discute as causas comuns de problemas de inscrição do Microsoft Azure usando um cartão de crédito ou de débito."
+	pageTitle="Cartão de crédito ou débito recusado durante a inscrição | Microsoft Azure"
+	description="Discute as causas comuns de problemas de inscrição do Microsoft Azure como a recusa de um cartão de crédito ou débito."
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="cartão de crédito recusado, cartão de débito recusado, seu cartão de crédito foi recusado, não aceita o cartão de crédito"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure
-No momento, apenas cartões de crédito e débito que não sejam virtuais ou pré-pagos são aceitos como opções de pagamento válido. Os provedores de cartão de cartão de crédito e débito aceitos variam com base no seu país.
+# Meu cartão de crédito ou débito foi recusado quando tentei me inscrever no Azure
+Se o seu cartão de crédito ou débito foi recusado, pode ser que você esteja usando um cartão pré-pago ou virtual. Atualmente, aceitamos a maioria dos cartões de crédito e débito, mas não os cartões pré-pagos ou virtuais. Eles não são aceitos como opções de pagamento válidas. Os provedores de cartão de cartão de crédito e débito aceitos variam com base no seu país. Na lista suspensa para escolher um cartão de crédito, você verá somente as opções que aceitas no país selecionado.
 
-Além disso, certifique-se de que o método de pagamento está ativo e que o seu banco não está bloqueando as transações on-line devido a suas diretivas de segurança.
+Se está usando um cartão de crédito ou débito válido, verifique se o cartão está ativo e se seu banco não está bloqueando as transações online devido a suas políticas de segurança.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
@@ -40,4 +41,4 @@ Para usar a opção de pagamento por fatura, você deverá representar uma empre
 
 Para iniciar o processo de configuração de uma fatura, confira [Cobrança do Azure – como faturar](https://azure.microsoft.com/pricing/invoicing/) para obter detalhes.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

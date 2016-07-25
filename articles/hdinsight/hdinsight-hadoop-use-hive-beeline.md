@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Usar o Hive com o Hadoop no HDInsight com Beeline
@@ -23,7 +23,7 @@
 
 Neste artigo, você aprenderá a usar o SSH (Secure Shell) para se conectar a um cluster HDInsight baseado em Linux e enviar interativamente consultas Hive usando a ferramenta de linha de comando [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
 
-> [AZURE.NOTE] A Beeline usou JDBC para se conectar ao Hive. Para saber mais sobre como usar o JDBC com o Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] A Beeline usa JDBC para se conectar ao Hive. Para saber mais sobre como usar o JDBC com o Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -55,25 +55,13 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
 
 ##<a id="beeline"></a>Usar o comando Beeline
 
-1. Uma vez conectado, use o seguinte para obter o nome de host do nó de cabeçalho:
+1. Uma vez conectado, use o seguinte para iniciar a Beeline:
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    Isso vai iniciar o cliente Beeline e conectar à URL JDBC. Aqui, `localhost` é usado, pois HiveServer2 é executado em ambos os nós principais do cluster, e estamos executando Beeline diretamente no nó principal 0.
     
-    Salve o nome do host retornado, pois ele será usado mais tarde ao se conectar com HiveServer2 por meio do Beeline.
-    
-2. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
-
-        beeline
-
-2. No prompt `beeline>`, use o seguinte para se conectar ao serviço HiveServer2. Substitua __HOSTNAME__ pelo nome do host retornado anteriormente para o nó de cabeçalho:
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-        
-    Isso instrui o Beeline a se conectar à porta __10001__ no __HOSTNAME__ especificado, e que __HTTP__ é o método de transporte. A conta __admin__ é usada para autenticar a conexão.
-
-    Quando solicitado, insira a senha da conta do administrador (admin) para o cluster HDInsight. Quando a conexão for estabelecida, o prompt será alterado para o seguinte:
-    
-        jdbc:hive2://HOSTNAME:10001/>
+    Quando o comando for concluído, você chegará a um prompt `jdbc:hive2://localhost:10001/>`.
 
 3. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a ajuda. No entanto, geralmente, o `!` pode ser omitido. Por exemplo, `help` também funcionará.
 
@@ -176,13 +164,15 @@ O Beeline também pode ser usado para executar um arquivo com instruções HiveQ
     
     > [AZURE.NOTE] Ao contrário das tabelas externas, remover uma tabela interna excluirá também os dados subjacentes.
     
-3. Para salvar o arquivo, use __Ctrl__+___\_X__, insira __Y__ e, por fim, __Enter__.
+3. Para salvar o arquivo, use __Ctrl__+___X_\_, insira __Y__ e, por fim, __Enter\_\_.
 
 4. Use o seguinte para executar o arquivo usando Beeline. Substitua __HOSTNAME__ pelo nome obtido anteriormente para o nó do cabeçalho, e __PASSWORD__ pela senha da conta de administrador:
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. Para verificar se a tabela **errorLogs** foi criada, inicie o Beeline e conecte-se ao HiveServer2, então use a seguinte instrução para retornar todas as linhas de **errorLogs**:
+    > [AZURE.NOTE] O parâmetro `-i` inicia Beeline, executa as instruções no arquivo query.hql e permanece no Beeline no prompt `jdbc:hive2://localhost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f`, que retorna ao Bash depois que o arquivo foi processado.
+
+5. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
 
         SELECT * from errorLogs;
 
@@ -245,4 +235,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

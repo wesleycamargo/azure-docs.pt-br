@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
@@ -74,6 +74,7 @@ A lista a seguir contém respostas para perguntas frequentes sobre a escala do C
 -	[Quais são alguns problemas comuns de configuração incorreta no Cache Redis do Azure e nas VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[Posso usar VNets com um cache básico ou Standard?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 -	[Por que a criação de um cache Redis falha em algumas sub-redes, mas não em outras?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-	[Todos os recursos de cache funcionam ao hospedar um cache em uma rede virtual?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 
 ## Quais são alguns problemas comuns de configuração incorreta no Cache Redis do Azure e nas VNets?
@@ -96,7 +97,7 @@ Quando o Cache Redis do Azure estiver hospedado em uma VNet, as portas mostradas
 
 Há requisitos de conectividade de rede para o Cache Redis do Azure que podem não ser atendidos inicialmente em uma rede virtual. O Cache Redis do Azure requer todos os itens a seguir para funcionar corretamente quando usado em uma rede virtual.
 
--  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que a instância do Cache Redis do Azure, bem como os pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*. 
+-  Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui os pontos de extremidade localizados na mesma região que a instância do Cache Redis do Azure, bem como os pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.
 -  Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Necessária para dar suporte à funcionalidade SSL.
 -  A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Esses requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual.
 
@@ -111,6 +112,13 @@ As VNets podem ser usadas apenas com os caches Premium.
 Se você estiver implantando um Cache Redis do Azure em uma VNet ARM, o cache deverá estar em uma sub-rede dedicada que não contém nenhum outro tipo de recurso. Se for feita uma tentativa de implantar um Cache Redis do Azure em uma sub-rede VNet ARM que contém outros recursos, a implantação falhará. É necessário excluir os recursos existentes na sub-rede antes de ser possível criar um novo Cache Redis.
 
 Você pode implantar vários tipos de recursos para uma VNet clássica, contanto que tenha endereços IP suficientes disponíveis.
+
+### Todos os recursos de cache funcionam ao hospedar um cache em uma rede virtual?
+
+Quando o cache é parte de uma rede virtual, somente os clientes na rede virtual pode acessar o cache e, em função disso, os recursos de gerenciamento de cache a seguir não estão funcionando no momento.
+
+-	Console do Redis – como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, ele não pode se conectar ao seu cache.
+
 
 ## Usar a Rota Expressa com Cache Redis do Azure
 
@@ -137,7 +145,7 @@ Embora se conectar a uma instância de Cache Redis do Azure de um aplicativo loc
 
 Informações preliminares sobre as rotas definidas pelo usuário estão disponíveis nesta [visão geral](../virtual-network/virtual-networks-udr-overview.md).
 
-Para obter mais informações sobre o Rota Expressa, consulte [Visão geral técnica do Rota Expressa](../expressroute/expressroute-introduction.md).
+Para saber mais sobre a Rota Expressa, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
 
 ## Próximas etapas
 Aprenda a usar mais recursos de cache premium.
@@ -159,4 +167,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

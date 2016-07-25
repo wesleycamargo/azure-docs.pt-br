@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do Tableau Server ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no Azure AD quem tem acesso ao Tableau Server
 - Você pode habilitar os usuários a entrar automaticamente no Tableau Server (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@ Para configurar a integração do Tableau Server ao Azure AD, você precisa adic
 
 **Para adicionar o Tableau Server por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
  
 	![Active Directory][1]
 
@@ -189,7 +189,7 @@ O aplicativo Tableau Server espera que as declarações SAML estejam em um forma
 
 	b. Marque a caixa de seleção **Usar SAML para logon único**.
 
-	c. Localize o arquivo de Metadados de Federação baixado do Portal de Gerenciamento do Azure e carregue-o no **arquivo de metadados do Idp SAML**.
+	c. Localize o arquivo de Metadados de Federação baixado do portal clássico do Azure e carregue-o no **arquivo de metadados do Idp SAML**.
 
 	d. URL de retorno do Tableau Server - a URL que os usuários do Tableau Server acessarão, como http://tableau_server. O uso de http://localhost não é recomendado. O uso de uma URL com uma barra invertida (por exemplo, http://tableau_server/) não tem suporte. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Entrada** do Azure AD, conforme mostrado na etapa 3
 
@@ -341,4 +341,4 @@ Ao clicar no bloco Tableau Server no Painel de Acesso, você deverá ser conecta
 [204]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

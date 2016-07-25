@@ -99,11 +99,7 @@ No painel de controle do Aplicativo Web do Azure, adicione a extensão do Applic
 
 ## <a name="diagnosis"></a> Diagnosticar problemas de desempenho de dependência
 
-Para avaliar o desempenho de solicitações no seu servidor:
-
-![Na página de Visão Geral do seu aplicativo no Application Insights, clique no bloco de desempenho](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-Role para baixo para examinar a grade de solicitações:
+Para avaliar o desempenho de solicitações no servidor, abra a folha de desempenho e role para baixo para examinar a grade de solicitações:
 
 ![Lista de solicitações com contagens e médias](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Clique nesta linha para ver os eventos de solicitação individuais:
 
 Clique em qualquer instância de execução longa para inspecioná-la com mais detalhes.
 
-> [AZURE.NOTE] Role um pouco mais para baixo para escolher uma instância. A latência do pipeline pode significar que os dados para as instâncias superiores estão incompletos.
-
 Role para baixo até as chamadas de dependência remotas relacionadas a essa solicitação:
 
 ![Localizar as chamadas para dependências remotas, identificar duração incomum](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Parece a maior parte do tempo atendendo a solicitação foi gasto em uma chamada para um serviço local.
 
-Selecione a linha para obter mais informações:
 
+Selecione a linha para obter mais informações:
 
 ![Clique nessa dependência remota para identificar o culpado](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 Os detalhes incluem informações suficientes para diagnosticar o problema.
 
+
+Em outro caso, nenhuma chamada de dependência é longa, mas ao alternar para o modo de exibição de linha do tempo, podemos ver onde ocorreu o atraso durante nosso processamento interno:
+
+
+![Localizar as chamadas para dependências remotas, identificar duração incomum](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## Falhas
@@ -174,13 +173,13 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 
 *O sinalizador de êxito da dependência sempre mostra true ou false.*
 
-* Atualize para a versão mais recente do SDK. Se sua versão do .NET for inferior à 4.6, instale o [Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* Atualize para a versão mais recente do SDK. Se sua versão do .NET for inferior a 4.6, instale o [Status monitor](app-insights-monitor-performance-live-website-now.md).
 
 ## Próximas etapas
 
-- [Exceções](app-insights-asp-net-exception-mvc.md#selector1)
-- [Dados do usuário e da página](app-insights-asp-net-client.md#selector1)
-- [Disponibilidade](app-insights-monitor-web-app-availability.md#selector1)
+- [Exceções](app-insights-asp-net-exceptions.md)
+- [Dados do usuário e da página][client]
+- [Disponibilidade](app-insights-monitor-web-app-availability.md)
 
 
 
@@ -202,4 +201,4 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

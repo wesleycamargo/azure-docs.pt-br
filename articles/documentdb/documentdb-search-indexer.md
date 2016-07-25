@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="06/20/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
@@ -134,6 +134,8 @@ Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você p
 
 
 Verifique se o esquema do índice de destino é compatível com o esquema dos documentos JSON de origem ou com a saída da projeção de consulta personalizada.
+
+>[AZURE.NOTE] Para coleções particionadas, a chave do documento padrão é a propriedade `_rid` do Banco de Dados de Documentos, que é renomeada para `rid` na Pesquisa do Azure. Além disso, os valores `_rid` do Banco de Dados de Documentos contêm caracteres que são inválidos nas chaves de Pesquisa do Azure; portanto, os valores `_rid` são codificados na Base64.
 
 ###Figura A: Mapeamento entre tipos de dados JSON e tipos de dados da Pesquisa do Azure
 
@@ -270,8 +272,8 @@ O histórico de execução contém até as 50 execuções mais recentes, que sã
 
 Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pesquisa do Azure usando o indexador do Banco de Dados de Documentos.
 
- - Para saber mais sobre oBanco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
+ - Para saber mais sobre o Banco de Dados de Documentos do Azure, confira a [página de serviço do Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 
  - Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

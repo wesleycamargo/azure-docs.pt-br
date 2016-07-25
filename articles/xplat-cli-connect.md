@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/13/2016"
 	ms.author="danlep"/>
 
 # Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)
@@ -23,9 +23,15 @@ A CLI do Azure é um conjunto de comandos entre plataformas, de software livre, 
 
 Há duas formas de se conectar à sua assinatura da CLI do Azure:
 
-* **Entre no Azure usando uma conta corporativa ou de estudante ou uma identidade de conta da Microsoft** - use o comando `azure login` no CLI versão 0.9.10 e posteriores com qualquer tipo de identidade de conta para autenticar através do Azure Active Directory. A CLI (versão 0.9.9 e superior) também dá suporte a autenticação interativa através de um portal da Web para contas que tenham a autenticação multifator habilitada. Use também o comando `azure login` para autenticar uma entidade de serviço para um aplicativo do Azure Active Directory, que é útil para executar serviços automatizados. Depois de fazer logon com uma identidade de conta com suporte, você pode usar o modo Azure Resource Manager ou comandos do modo Gerenciamento de Serviços do Azure.
+* **Entre no Azure usando uma conta corporativa ou de estudante ou uma identidade de conta da Microsoft** – Use o comando `azure login` com qualquer tipo de identidade de conta para autenticar através do Azure Active Directory. A maioria dos clientes que cria novas implantações do Azure deveria usar esse método. Com certas contas, o comando `azure login` exige o logon de forma interativa por meio de um portal da Web.
 
-* **Baixar e usar um arquivo de configurações de publicação** - Instala um certificado no computador local que permite executar tarefas de gerenciamento durante o tempo em que a assinatura e o certificado forem válidos. Esse método só permite que você use comandos do modo Gerenciamento de Serviços do Azure.
+    Use também o comando `azure login` para autenticar uma entidade de serviço para um aplicativo do Azure Active Directory, que é útil para executar serviços automatizados.
+    
+    Depois de fazer logon com uma identidade de conta com suporte, você pode usar o modo Azure Resource Manager ou comandos de CLI do modo Gerenciamento de Serviços do Azure.
+
+* **Baixar e usar um arquivo de configurações de publicação** - Instala um certificado no computador local que permite executar tarefas de gerenciamento durante o tempo em que a assinatura e o certificado forem válidos.
+
+    Esse método só permite que você use comandos de CLI do modo Gerenciamento de Serviços do Azure.
 
 >[AZURE.NOTE] Se estiver usando uma versão da CLI do Azure anterior à versão 0.9.10, é possível usar o comando `azure login` apenas com uma conta corporativa ou de estudante; as identidades de conta da Microsoft não funcionam. No entanto, se desejar, você pode [criar uma ID corporativa ou de estudante a partir da sua ID de conta da Microsoft](virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
@@ -44,9 +50,9 @@ Fazer logon no modo interativo é fácil: digite `azure login` e siga os prompts
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
 
-Copie o código oferecido, acima, e abra um navegador em http://aka.ms/devicelogin. Digite o código; em seguida, você será solicitado a inserir o nome de usuário e a senha para a identidade que deseja usar. Quando esse processo for concluído, o shell de comando concluirá o processo de logon. Ele poderia ser semelhante ao seguinte:
+Copie o código oferecido, acima, e abra um navegador em http://aka.ms/devicelogin (ou em outra página, se for especificada). Digite o código; em seguida, você será solicitado a inserir o nome de usuário e a senha para a identidade que deseja usar. Quando esse processo for concluído, o shell de comando concluirá o processo de logon. Ele poderia ser semelhante ao seguinte:
 
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
@@ -74,11 +80,11 @@ Se essa for a primeira vez fazendo logon com essas credenciais, você será soli
 
 ## Usar o logon do Azure com uma entidade de serviço
 
-Se você criou uma entidade de serviço para um aplicativo do Active Directory e a entidade de serviço tem permissões em sua assinatura, você pode usar o comando `azure login` para autenticar a entidade de serviço. Dependendo do cenário, você pode fornecer as credenciais da entidade de serviço como parâmetros explícitos do comando `azure login` ou por meio de um script CLI ou código de aplicativo. Você também pode usar um certificado para autenticar a entidade de serviço não interativa para cenários de automação. Para obter detalhes e exemplos, confira [Autenticar uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal.md).
+Se você criou uma entidade de serviço para um aplicativo do Active Directory e a entidade de serviço tem permissões em sua assinatura, pode usar o comando `azure login` para autenticar a entidade de serviço. Dependendo do cenário, você pode fornecer as credenciais da entidade de serviço como parâmetros explícitos do comando `azure login` ou por meio de um script CLI ou código de aplicativo. Você também pode usar um certificado para autenticar a entidade de serviço não interativa para cenários de automação. Para obter detalhes e exemplos, confira [Autenticar uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Usar um arquivo de configurações de publicação
 
-Se você precisa apenas usar os comandos CLI do modo Gerenciamento de Serviços do Azure, é possível conectar usando um arquivo de configurações de publicação.
+Se você precisa apenas usar os comandos de CLI do modo Gerenciamento de Serviços do Azure (por exemplo, para implantar VMs do Azure no modelo de implantação clássico), pode se conectar usando um arquivo de configurações de publicação.
 
 * **Para baixar o arquivo de configurações de publicação** para sua conta, use o seguinte comando (disponível apenas no modo Gerenciamento de Serviço):
 
@@ -122,9 +128,9 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 
 A CLI do Azure fornece dois modos de comando para trabalhar com recursos do Azure, com vários conjuntos de comandos:
 
-* **Modo do Gerenciador de Recursos** - para trabalhar com recursos do Azure no modelo de implantação do Gerenciador de Recursos. Para definir esse modo, execute `azure config mode arm`.
+* **Modo do Gerenciador de Recursos** – para trabalhar com recursos do Azure no modelo de implantação do Gerenciador de Recursos. Para definir esse modo, execute `azure config mode arm`.
 
-* **Modo Gerenciamento de Serviços** - para trabalhar com recursos do Azure no modelo de implantação clássico. Para definir esse modo, execute `azure config mode asm`.
+* **Modo Gerenciamento de Serviços** – para trabalhar com recursos do Azure no modelo de implantação clássico. Para definir esse modo, execute `azure config mode asm`.
 
 Quando instalada inicialmente, a CLI estará no modo Gerenciamento de Serviços.
 
@@ -151,6 +157,6 @@ Se as assinaturas associadas à conta forem autenticadas apenas com o Active Dir
 
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 
-* Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurescripting).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

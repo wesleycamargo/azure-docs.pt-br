@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # O seu aplicativo do Service Fabric e as próximas etapas
@@ -49,6 +49,10 @@ O projeto de ator fornece métodos para a configuração e a obtenção do valor
 ### API Web sem monitoração de estado
 O projeto de API da Web sem monitoração de estado fornece um serviço Web básico que você pode usar para abrir o aplicativo para clientes externos. Para ter mais informações sobre como o projeto é estruturado, consulte [Serviços da API Web do Service Fabric com a auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md).
 
+### Núcleo do ASP.NET
+
+O SDK do Service Fabric fornece o mesmo conjunto de modelos de Núcleo do ASP.NET que estão disponíveis para projetos de Núcleo do ASP.NET autônomo: vazio, [API Web][aspnet-webapi] e [aplicativo Web][aspnet-webapp].
+
 ## Próximas etapas
 ### Criar um cluster do Azure
 O SDK do Service Fabric fornece um cluster local para desenvolvimento e teste. Para criar um cluster no Azure, veja [Configurando um cluster do Service Fabric no portal do Azure][create-cluster-in-portal].
@@ -70,7 +74,6 @@ O Service Fabric permite controle de versão independente e atualização de ser
 Para saber como definir um processo de integração contínuo para o aplicativo do Service Fabric, confira [Configurar a integração contínua com o Visual Studio Team Services][ci-with-vso].
 
 
-
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
@@ -79,5 +82,7 @@ Para saber como definir um processo de integração contínuo para o aplicativo 
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
+[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
+[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

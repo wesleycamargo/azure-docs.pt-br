@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral do Enterprise Integration | Serviço de Aplicativo do Microsoft Azure" 
+	pageTitle="Visão geral do Enterprise Integration | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Usar os recursos do Enterprise Integration para permitir cenários de processos e integração corporativa usando Aplicativos lógicos" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Visão geral do Enterprise Integration Pack
@@ -35,7 +35,7 @@ Em termos de arquitetura, o Enterprise Integration Pack tem base em **contas de 
 ## Como começar a usar a integração corporativa?
 Você pode criar e gerenciar aplicativos B2B usando o Enterprise Integration Pack por meio do designer de Aplicativos lógicos no **Portal do Azure**.
 
-Confira uma visão geral das etapas que necessárias para criar aplicativos no Portal do Azure: ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+Confira uma visão geral das etapas que necessárias para criar aplicativos no Portal do Azure: ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## Quais são os cenários comuns?
 
@@ -44,23 +44,21 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - EDI - Intercâmbio Eletrônico de Dados
 - EAI - Integração de Aplicativos Empresariais
 
-## Quanto custa?
-Para obter informações de preço e uma lista do que é incluído com cada camada de serviço, confira [Preços do Serviço de Aplicativo do Azure](https://azure.microsoft.com/pricing/details/app-service/).
-
 ## Para começar agora, você precisa do seguinte
 - Uma assinatura do Azure com uma conta de integração
 - Visual Studio 2015 para criar esquemas e mapas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Ferramentas de integração corporativa do Aplicativo Lógico do Microsoft Azure para Visual Studio 2015)](https://aka.ms/vsmapsandschemas)
 
 ## Saiba mais sobre:
-- [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Saiba mais sobre esquemas de integração corporativa")
-- [Mapas](./app-service-logic-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")
-- [Certificados](./app-service-logic-enterprise-integration-certificates.md "Saiba mais sobre certificados da integração corporativa")
-- [Parceiros](./app-service-logic-enterprise-integration-partners.md "Saiba mais sobre parceiros da integração corporativa")
 - [Contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
-- [Contas de integração](./app-service-logic-enterprise-integration-accounts.md "Saiba mais sobre contas de integração")
 - [Cenários B2B (Entre empresas)](./app-service-logic-enterprise-integration-b2b.md "Aprenda a criar Aplicativos lógicos com recursos de B2B")
-- [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
+- [Certificados](./app-service-logic-enterprise-integration-certificates.md "Saiba mais sobre certificados da integração corporativa")
 - [Codificação/decodificação de arquivo simples](./app-service-logic-enterprise-integration-flatfile.md "Aprenda a codificar e decodificar o conteúdo de arquivo simples")
+- [Contas de integração](./app-service-logic-enterprise-integration-accounts.md "Saiba mais sobre contas de integração")
+- [Mapas](./app-service-logic-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")
+- [Parceiros](./app-service-logic-enterprise-integration-partners.md "Saiba mais sobre parceiros da integração corporativa")
+- [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Saiba mais sobre esquemas de integração corporativa")
+- [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
+- [Transformação de XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

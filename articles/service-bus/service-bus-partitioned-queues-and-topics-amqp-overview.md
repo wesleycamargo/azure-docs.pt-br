@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="07/08/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço 
@@ -26,9 +26,11 @@ Agora, o Barramento de Serviço do Azure dá suporte ao Advanced Message Queuing
 
 A inclusão do AMQP 1.0 como um protocolo para comunicação com filas e tópicos particionados permite que você compile aplicativos interoperáveis que podem aproveitar os benefícios de maior disponibilidade, confiabilidade e taxa de transferência oferecidos por entidades particionadas do Barramento de Serviço.
 
+Para um guia de protocolo AMQP 1.0 detalhado no nível de transmissão, que explica como o Barramento de Serviço implementa e se baseia na especificação técnica AMQP OASIS, confira o [AMQP 1.0 no guia de protocolo do Barramento de Serviço do Azure e dos Hubs de Eventos](service-bus-amqp-protocol-guide.md).
+
 ## Usando o AMQP com filas particionadas
 
-As filas são úteis para situações que exigem o desacoplamento temporário, nivelamento de carga, balanceamento de carga e acoplamento flexível. Com uma fila, os editores enviam mensagens para a fila e os consumidores recebem mensagens da fila, em situações nas quais uma mensagem só pode ser recebida uma vez. Um bom exemplo disso é um sistema de inventário, no qual os terminais de ponto de vendas publicam dados em uma fila em vez de publicar diretamente no sistema de gerenciamento de inventário. Em seguida, o sistema de gerenciamento de inventário consome os dados a qualquer momento a fim de gerenciar o reabastecimento do estoque. Há muitas vantagens nisso, incluindo o sistema de gerenciamento de estoque não precisar estar sempre online. Para obter mais detalhes sobre as filas do Barramento de Serviço, consulte [Criar aplicativos que usam filas do Barramento de Serviço](service-bus-create-queues.md)
+As filas são úteis para situações que exigem o desacoplamento temporário, nivelamento de carga, balanceamento de carga e acoplamento flexível. Com uma fila, os editores enviam mensagens para a fila e os consumidores recebem mensagens da fila, em situações nas quais uma mensagem só pode ser recebida uma vez. Um bom exemplo disso é um sistema de inventário, no qual os terminais de ponto de vendas publicam dados em uma fila em vez de publicar diretamente no sistema de gerenciamento de inventário. Em seguida, o sistema de gerenciamento de inventário consome os dados a qualquer momento a fim de gerenciar o reabastecimento do estoque. Há muitas vantagens nisso, incluindo o sistema de gerenciamento de estoque não precisar estar sempre online. Para obter mais detalhes sobre as filas do Barramento de Serviço, consulte [Criar aplicativos que usam filas do Barramento de Serviço](service-bus-create-queues.md).
 
 Uma fila particionada aumenta ainda mais a disponibilidade, a confiabilidade e a taxa de transferência de aplicativos, pois essas filas são particionadas em vários agentes e repositórios de mensagens.
 
@@ -66,9 +68,9 @@ receivedMessage.Complete();
 
 ## Usar o AMQP com tópicos particionados
 
-Tópicos são conceitualmente semelhantes a filas, mas podem encaminhar uma cópia da mesma mensagem para vários assinantes. Em um tópico, os editores enviam mensagens para o tópico e os consumidores recebem as mensagens pelas *assinaturas*. No cenário de ponto de venda do sistema de estoque, os terminais publicam os dados no tópico. Em seguida, o sistema de gerenciamento de inventário recebe mensagens de uma assinatura. Além disso, um sistema de monitoramento pode receber a mesma mensagem de uma assinatura diferente. Para obter mais detalhes sobre tópicos e assinaturas do Barramento de Serviço, veja [Criar aplicativos que usam tópicos e assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md)
+Tópicos são conceitualmente semelhantes a filas, mas podem encaminhar uma cópia da mesma mensagem para várias *assinaturas*. Em um tópico, os editores enviam mensagens para o tópico e os consumidores recebem as mensagens pelas assinaturas. No cenário de ponto de venda do sistema de estoque, os terminais publicam os dados no tópico. Em seguida, o sistema de gerenciamento de inventário recebe mensagens de uma assinatura. Além disso, um sistema de monitoramento pode receber a mesma mensagem de uma assinatura diferente. Para obter mais detalhes sobre tópicos e assinaturas do Barramento de Serviço, veja [Criar aplicativos que usam tópicos e assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md).
 
-Um tópico particionado aumenta ainda mais a disponibilidade, a confiabilidade e a taxa de transferência de aplicativos, pois esses tópicos e suas assinaturas são particionados em vários agentes e repositórios de mensagens.
+Assim como as filas, os tópicos particionados aumentam ainda mais a disponibilidade, a confiabilidade e a taxa de transferência de aplicativos, pois esses tópicos e suas assinaturas são particionadas em vários agentes e repositórios de mensagens.
 
 ### Criar tópicos particionados
 
@@ -108,14 +110,15 @@ receivedMessage.Complete();
 
 ## Próximas etapas
 
-Veja as informações adicionais a seguir para saber mais sobre entidades de mensagens particionadas.
+Veja as informações adicionais a seguir para saber mais sobre entidades de mensagens particionadas e sobre AMQP.
 
 *    [Entidades de mensagens particionadas](service-bus-partitioning.md)
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Versão 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [Suporte ao AMQP 1.0 no Barramento de Serviço](service-bus-amqp-overview.md)
+*    [AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure](service-bus-amqp-protocol-guide.md)
 *    [Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Como usar os tópicos AMQP 1.0 com o Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 
 [Portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

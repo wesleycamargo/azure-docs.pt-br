@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/09/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o KnowBe4
 
-O objetivo deste tutorial é mostrar como integrar o KnowBe4 com o AD do Azure (Active Directory do Azure).<br>A integração do KnowBe4 com o AD do Azure oferece os seguintes benefícios:
+O objetivo deste tutorial é mostrar como integrar o KnowBe4 ao Azure AD (Azure Active Directory). A integração do KnowBe4 ao Azure AD proporciona os seguintes benefícios:
 
 - Você pode controlar no AD do Azure quem tem acesso ao KnowBe4
 - Você pode permitir que seus usuários façam logon automaticamente no KnowBe4 (logon único) com suas contas do AD do Azure
@@ -45,7 +45,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o KnowBe4 da galeria
 2. Configurar e testar o logon único do AD do Azure
@@ -56,27 +56,42 @@ Para configurar a integração do KnowBe4 ao AD do Azure, você precisará adici
 
 **Para adicionar o KnowBe4 da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
-4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **KnowBe4**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_01.png)<br>
-7. No painel de resultados, selecione **KnowBe4** e clique em **Concluir** para adicionar o aplicativo.<br><br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+
+	![Aplicativos][2]
+
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **KnowBe4**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_01.png)
+
+7. No painel de resultados, escolha **KnowBe4** e clique em **Concluir** para adicionar o aplicativo.
+
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o KnowBe4, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do KnowBe4 é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado do KnowBe4.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no KnowBe4.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do KnowBe4 é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do KnowBe4. Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no KnowBe4.
 
 Para configurar e testar o logon único do AD do Azure com o KnowBe4, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criando um usuário de teste do KnowBe4](#creating-a-KnowBe4-test-user)** - para ter um equivalente de Brenda Fernandes no KnowBe4 vinculado à representação dela do AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criando um usuário de teste do KnowBe4](#creating-a-KnowBe4-test-user)**: para ter um equivalente de Brenda Fernandes no KnowBe4 vinculado à representação dela no Azure AD.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -87,47 +102,69 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 
 **Para configurar o logon único do AD do Azure AD com o KnowBe4, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **KnowBe4**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do Azure, na página de integração de aplicativos do **KnowBe4**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-2. Na página **Como você deseja que os usuários façam logon no KnowBe4**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_03.png) <br>
+	![Configurar o logon único][6]
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_04.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no KnowBe4**, escolha **Logon Único do Azure AD** e clique em **Avançar**.
+
+	![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_03.png)
+
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_04.png)
 
 
-    a. Na caixa de texto da URL de Logon, digite a URL usada pelos usuários para fazer logon no seu aplicativo KnowBe4 usando o seguinte padrão: **“https://<nome da empresa>.knowbe4.com/auth/saml/aad168.ccsctp.net)”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no seu aplicativo KnowBe4 usando o seguinte padrão: **"https://<nome da empresa>.knowbe4.com/auth/saml/aad168.ccsctp.net)"**.
 
 
-4. Em **Configurar logon único no KnowBe4**, execute as etapas a seguir: <br><br>![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_05.png) <br>
+4. Na página **Configurar logon único no KnowBe4**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_05.png)
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
     b. Clique em **Próximo**.
 
 
-5. Para ter o logon único configurado para seu aplicativo, entre em contato com a [equipe de suporte do KnowBe4](mailto:support@knowbe4.com). Anexe o arquivo de certificado baixado para seu email e compartilhe as URLs de metadados (ID da Entidade, URL de Entrada de Logon Único e URL de Saída) com a equipe do KnowBe4 para configurar o logon único no lado deles.
+5. Para que o SSO seja configurado para seu aplicativo, contate a [equipe de suporte do KnowBe4](mailto:support@knowbe4.com). Anexe o arquivo de certificado baixado para seu email e compartilhe as URLs de metadados (ID da Entidade, URL de Entrada de Logon Único e URL de Saída) com a equipe do KnowBe4 para configurar o logon único no lado deles.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
+	![Logon único do AD do Azure][10]
+
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
+
+	![Logon único do AD do Azure][11]
 
 
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][20]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_09.png) <br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_09.png)
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_03.png) <br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_04.png) <br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_03.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_05.png) <br>
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_04.png)
+
+5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -135,7 +172,9 @@ O objetivo desta seção é criar um usuário de teste no Portal clássico do Az
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_06.png) <br>
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -147,9 +186,13 @@ O objetivo desta seção é criar um usuário de teste no Portal clássico do Az
 
     e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_07.png) <br>
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_08.png) <br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_07.png)
+
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_08.png)
 
     a. Anote o valor da **Nova Senha**.
 
@@ -168,25 +211,35 @@ Não há itens de ação para você nesta seção. Um novo usuário será criado
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao KnowBe4. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao KnowBe4.
+
+	![Assign User][200] 
 
 **Para atribuir Brenda Fernandes ao KnowBe4, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
 
-2. Na lista de aplicativos, selecione **KnowBe4**. <br><br>![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_50.png) <br>
+	![Atribuir usuário][201]
 
-1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
+2. Na lista de aplicativos, escolha **KnowBe4**.
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+	![Configurar o logon único](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_50.png)
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
+1. No menu na parte superior, clique em **Usuários**.
+
+	![Atribuir usuário][203]
+
+1. Na lista de usuários, selecione **Brenda Fernandes**.
+
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+
+	![Atribuir usuário][205]
 
 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Quando você clica no bloco KnowBe4 no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo KnowBe4.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando você clica no bloco KnowBe4 no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo KnowBe4.
 
 
 ## Recursos adicionais
@@ -213,4 +266,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0713_2016-->

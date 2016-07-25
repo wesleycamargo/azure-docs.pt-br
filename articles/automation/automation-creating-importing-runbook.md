@@ -80,7 +80,7 @@ Você pode usar o procedimento a seguir para importar um arquivo de script para 
 3. Clique no botão **Adicionar um runbook** e em **Importar**.
 4. Clique em **Arquivo de runbook** para selecionar o arquivo a ser importado
 2. Se o campo **Nome** estiver habilitado, você terá a opção de alterá-lo. O nome do runbook deve começar com uma letra e pode ter letras, números, sublinhados e traços.
-3. O [tipo de runbook](automation-runbook-types.md) será selecionado automaticamente, mas você pode alterar o tipo depois levar as restrições aplicáveis em consideração. 
+3. O [tipo de runbook](automation-runbook-types.md) será selecionado automaticamente, mas você pode alterar o tipo depois levar as restrições aplicáveis em consideração.
 3. O novo runbook aparecerá na lista de runbooks da Conta de Automação.
 4. Será necessário [publicar o runbook](#publishing-a-runbook) antes de executá-lo.
 
@@ -92,7 +92,7 @@ Você pode usar o cmdlet [Import-AzureRMAutomationRunbook](https://msdn.microsof
 
 Os comandos de exemplo a seguir mostram como importar um arquivo de script para um runbook.
 
-    $automationAccountName =  AutomationAccount"
+    $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
     $RGName = "ResourceGroup"
@@ -123,7 +123,7 @@ Quando você criar ou importar um novo runbook, deverá publicá-lo antes de pod
 
 Você pode usar o cmdlet [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) para publicar um runbook com o Windows PowerShell. Os comandos de exemplo a seguir mostram como publicar um runbook de exemplo.
 
-	$automationAccountName =  AutomationAccount"
+	$automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
@@ -136,4 +136,4 @@ Você pode usar o cmdlet [Publish-AzureRmAutomationRunbook](https://msdn.microso
 - Para saber mais sobre como editar runbooks do PowerShell e do Fluxo de Trabalho do PowerShell com um editor de texto, consulte [Editando runbooks textuais na Automação do Azure](automation-edit-textual-runbook.md)
 - Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="bwren" />
 
 # Agendando um runbook na Automação do Azure
@@ -24,26 +24,28 @@ Para agendar um runbook na Automação do Azure para iniciar em um horário espe
 
 Você pode criar uma nova agenda para runbooks no portal do Azure, no portal clássico ou com o Windows PowerShell. Você também tem a opção de criar uma nova agenda ao vincular um runbook a uma agenda usando o portal clássico do Azure ou o portal do Azure.
 
+>[AZURE.NOTE] Quando você associa um agendamento a um runbook, a Automação armazena as versões atuais dos módulos em sua conta e vincula-os a esse agendamento. Isso significa que, se você tivesse um módulo com versão 1.0 na sua conta quando criou um agendamento e atualizasse o módulo para a versão 2.0, o agendamento continuaria a usar a 1.0. Para usar a versão atualizada do módulo, você deve criar um novo agendamento.
+
 ### Para criar uma nova agenda no portal clássico do Azure
 
 1. No portal clássico do Azure, selecione Automação e selecione o nome de uma conta de automação.
 1. Selecione a guia **Ativos**.
 1. Clique em **Adicionar Configuração** na parte inferior da tela.
 1. Clique em **Adicionar Agenda**.
-1. Digite um **Nome** e, opcionalmente, uma **Descrição** para a nova agenda. A agenda será executada **Uma Vez**, **Por Hora** ou **Diariamente**.
+1. Digite um **Nome** e, opcionalmente, uma **Descrição** para um novo agendamento. O agendamento será executado **Uma Vez**, **Por Hora** ou **Diariamente**.
 1. Especifique uma **Hora de início** e outras opções, dependendo do tipo de agenda selecionado.
 
 ### Para criar uma nova agenda no portal do Azure
 
-1. No portal do Azure, em sua conta de automação, clique no bloco **Ativos** para abrir a folha **Ativos**.
-2. Clique no bloco **Agendas** para abrir a folha **Agendas**.
-3. Clique em **Adicionar uma agenda** na parte superior da folha.
-4. Na folha **Nova agenda**, digite um **Nome** e, opcionalmente, uma **Descrição** para a nova agenda.
-5. Selecione se a agenda será executada uma vez ou em uma agenda recorrente, selecionando **Uma vez** ou **Recorrência**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrência**, especifique uma **Hora de início** e a frequência com que deseja que o runbook seja repetido: por **hora**, **dia**, **semana** ou **mês**. Se você selecionar **semana** ou **mês** na lista suspensa, a **Opção de recorrência** aparecerá na folha e, após a seleção, a folha **Opção de recorrência** será apresentada e você poderá selecionar o dia da semana, se tiver selecionado **semana**. Se tiver selecionado **mês**, você poderá escolher por **dias da semana** ou dias específicos do mês no calendário e, por fim, se deseja executá-lo no último dia do mês ou não. Em seguida, clique em **OK**.
+1. No Portal do Azure, em sua conta de automação, clique no bloco **Ativos** para abrir a folha **Ativos**.
+2. Clique no bloco **Agendamentos** para abrir a folha **Agendamentos**.
+3. Clique em **Adicionar um agendamento** na parte superior da folha.
+4. Na folha **Novo agendamento**, digite um **Nome** e, opcionalmente, uma **Descrição** para o novo agendamento.
+5. Selecione se o agendamento será executado uma vez ou de forma recorrente selecionando **Uma vez** ou **Recorrência**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrência**, especifique uma **Hora de início** e a frequência com que deseja que o runbook seja repetido: a cada **hora**, **dia**, **semana** ou **mês**. Se você selecionar **semana** ou **mês** na lista suspensa, a **Opção de recorrência** aparecerá na folha e, após a seleção, a folha **Opção de recorrência** será apresentada e você poderá selecionar o dia da semana, se tiver selecionado **semana**. Se tiver selecionado **mês**, você poderá escolher por **dias da semana** ou dias específicos do mês no calendário e, por fim, se deseja executá-lo no último dia do mês ou não. Em seguida, clique em **OK**.
 
 ### Para criar uma nova agenda com o Windows PowerShell
 
-Você pode usar o cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) para criar uma nova agenda na Automação do Azure para runbooks clássicos ou o cmdlet [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) para runbooks no portal do Azure. Você deve especificar a hora de início para a agenda e a frequência de execução.
+Você pode usar o cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) para criar um novo agendamento na Automação do Azure para runbooks clássicos ou o cmdlet [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) para runbooks no Portal do Azure. Você deve especificar a hora de início para a agenda e a frequência de execução.
 
 Os comandos de exemplo a seguir mostram como criar uma nova agenda que é executada todos os dias às 15h30 começando em 20 de janeiro de 2015, com um cmdlet do Gerenciamento de Serviços do Azure.
 
@@ -65,9 +67,10 @@ Os comandos de exemplo a seguir mostram como criar uma agenda para o 15º e o 30
 
 Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários runbooks vinculados a ela. Se um runbook tiver parâmetros, você pode fornecer valores para eles. Você deve fornecer valores para todos os parâmetros obrigatórios e pode fornecer valores para os opcionais. Esses valores serão usados sempre que o runbook for iniciado por essa agenda. Você pode anexar o mesmo runbook a outra agenda e especificar valores de parâmetro diferentes.
 
+
 ### Para vincular uma agenda a um runbook com o portal clássico do Azure
 
-1. No portal clássico do Azure, selecione **Automação** e clique no nome de uma conta de automação.
+1. No Portal clássico do Azure, selecione **Automação** e clique no nome de uma conta de automação.
 2. Selecione a guia **Runbooks**.
 3. Clique no nome do runbook para agendar.
 4. Clique na guia **Agenda**.
@@ -76,14 +79,14 @@ Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários r
 
 ### Para vincular uma agenda a um runbook com o portal do Azure
 
-1. No portal do Azure, em sua conta de automação, clique no bloco **Runbooks** para abrir a folha **Runbooks**.
+1. No Portal do Azure, em sua conta de automação, clique no bloco **Runbooks** para abrir a folha **Runbooks**.
 2. Clique no nome do runbook para agendar.
 3. Se o runbook não estiver atualmente vinculado a uma agenda, você terá a opção de criar uma nova agenda ou vincular a uma agenda existente.
 4. Se o runbook tiver parâmetros, você poderá selecionar a opção **Modificar configurações de execução (Padrão: Azure)**, e será apresentada a folha **Parâmetros**, em que você pode inserir as informações de forma adequada.
 
 ### Para vincular uma agenda a um runbook com o Windows PowerShell
 
-Você pode usar [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular uma agenda a um runbook clássico ou o cmdlet [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) para runbooks no portal do Azure. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md) para saber mais sobre como especificar valores de parâmetro.
+Você pode usar [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular um agendamento a um runbook clássico ou o cmdlet [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) para runbooks no Portal do Azure. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md) para saber mais sobre como especificar valores de parâmetro.
 
 Os comandos de exemplo a seguir mostram como vincular uma agenda usando um cmdlet do Gerenciamento de Serviços do Azure com parâmetros.
 
@@ -119,14 +122,14 @@ Você pode desabilitar uma agenda no portal clássico do Azure da página Detalh
 
 ### Para desabilitar uma agenda no portal do Azure
 
-1. No portal do Azure, em sua conta de automação, clique no bloco **Ativos** para abrir a folha **Ativos**.
-2. Clique no bloco **Agendas** para abrir a folha **Agendas**.
+1. No Portal do Azure, em sua conta de automação, clique no bloco **Ativos** para abrir a folha **Ativos**.
+2. Clique no bloco **Agendamentos** para abrir a folha **Agendamentos**.
 2. Clique no nome de uma agenda para abrir a folha de detalhes.
 3. Altere **Habilitado** para **Não**.
 
 ### Para desabilitar uma agenda com o Windows PowerShell
 
-Você pode usar o cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) para alterar as propriedades de uma agenda existente para um runbook clássico ou o cmdlet [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) para runbooks no portal do Azure. Para desabilitar a agenda, especifique **false** para o parâmetro **IsEnabled**.
+Você pode usar o cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) para alterar as propriedades de um agendamento existente para um runbook clássico ou o cmdlet [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) para runbooks no Portal do Azure. Para desabilitar a agenda, especifique **false** para o parâmetro **IsEnabled**.
 
 Os comandos de exemplo a seguir mostram como desabilitar uma agenda usando o cmdlet do Gerenciamento de Serviços do Azure.
 
@@ -142,9 +145,10 @@ Os comandos de exemplo a seguir mostram como desabilitar uma agenda para um runb
 	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 
+
 ## Próximas etapas
 
-- Para saber mais sobre como trabalhar com agendas, confira [Agendar ativos na Automação do Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- Para começar a usar runbooks na Automação do Azure, confira [Iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md)
+- Para saber mais sobre como trabalhar com agendamentos, consulte [Agendar Ativos na Automação do Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
+- Para começar a usar runbooks na Automação do Azure, consulte [Iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

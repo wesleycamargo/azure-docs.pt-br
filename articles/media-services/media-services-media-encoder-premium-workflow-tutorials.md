@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
@@ -974,7 +974,7 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 
 [Codecs e formatos de fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 
-[Exemplos de arquivos de fluxo de trabalho](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+[Exemplos de arquivos de fluxo de trabalho](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Ferramenta do Explorador dos Serviços de Mídia do Azure](http://aka.ms/amse)
 
@@ -986,4 +986,4 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

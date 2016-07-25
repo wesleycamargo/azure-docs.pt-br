@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao AnswerHub
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o AnswerHub, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **AnswerHub**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **AnswerHub**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configurar logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do AnswerHub**, digite a URL usando o padrão "**https://company.answerhub.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do AnswerHub**, digite a URL usando o padrão "*https://company.answerhub.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configurar a URL do Aplicativo
 ")
@@ -99,25 +99,25 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configuração do SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "Configuração do SAML")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IDP**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do IDP**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **Formato do Identificador de Nome** e cole-o na caixa de texto **Formato do Identificador de Nome do IDP**.
+    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do IDP**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout do IDP**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no AnswerHub**, copie o valor da **Formato do Identificador de Nome** e cole-o na caixa de texto **Formato do Identificador de Nome do IDP**.
     4.  Clique em **Chaves e Certificados**.
 
 11. Na guia Chaves e Certificados, execute as seguintes etapas:
 
     ![Chaves e Certificados](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Chaves e Certificados")
 
-    1.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
+    1.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-		>[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP] Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     2.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Chave Pública do IDP (Formato x509)**.
     3.  Clique em **Salvar**.
 
 12. Na guia **Config. de IDP**, clique em **Salvar**.
 
-13. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+13. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -138,7 +138,7 @@ Para permitir que os usuários do AD do Azure façam logon no AnswerHub, eles de
 
 5.  Digite **Endereço de email**, **Nome de usuário** e **Senha** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas e clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do AnswerHub ou as APIs fornecidas pelo AnswerHub para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do AnswerHub ou as APIs fornecidas pelo AnswerHub para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -146,9 +146,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao AnswerHub, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **AnswerHub**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **AnswerHub**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Atribuir usuários")
 
@@ -158,4 +158,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Seus dados estão prontos para a ciência de dados? (avaliação de dados) - Ciência de Dados para Iniciantes | Microsoft Azure"
+   pageTitle="Seus dados estão prontos para a ciência de dados? Avaliação de dados | Microsoft Azure"
    description="Saiba sobre os quatro critérios para os dados estarem prontos para a ciência de dados. O vídeo Ciência de Dados para Iniciantes 2 tem exemplos concretos para ajudar na avaliação dos dados básicos."
    keywords="avaliação dos dados, dados relevantes, avaliar dados, preparar dados, critérios dos dados, dados prontos"
    services="machine-learning"
@@ -116,4 +116,4 @@ Confira os outros quatro vídeos em *Ciência de Dados para Iniciantes* do Apren
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

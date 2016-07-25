@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Cornerstone OnDemand
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Cornerstone OnDemand, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Cornerstone OnDemand**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Cornerstone OnDemand**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar Logon Único](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Habilitar Logon Único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Logon Único do AD do Microsoft Azure")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Cornerstone OnDemand**, digite a URL usando o padrão "**http://company.csod.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Cornerstone OnDemand**, digite a URL usando o padrão "*http://company.csod.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Configurar a URL do Aplicativo")
 
@@ -90,7 +90,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     2.  O valor da **URL de Logon Remoto**
     3.  O valor da **URL de Logoff Remoto**.
 
-    >[AZURE.NOTE]O Logon Único precisa ser configurado pela equipe de suporte do Cornerstone OnDemand. Assim que a configuração for concluída, você receberá uma notificação da equipe de suporte.
+    >[AZURE.NOTE] O Logon Único precisa ser configurado pela equipe de suporte do Cornerstone OnDemand. Assim que a configuração for concluída, você receberá uma notificação da equipe de suporte.
 
 6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
@@ -103,7 +103,7 @@ Para permitir que os usuários do Azure AD façam logon no Cornerstone OnDemand,
 
 1.  Envie as informações (por exemplo: Nome, Email) sobre o usuário do Azure AD que você deseja provisionar à equipe de suporte do Cornerstone OnDemand.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Cornerstone OnDemand ou APIs fornecidas pelo Cornerstone OnDemand para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Cornerstone OnDemand ou APIs fornecidas pelo Cornerstone OnDemand para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -111,9 +111,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Cornerstone OnDemand, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Cornerstone OnDemand**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Cornerstone OnDemand**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC775564.png "Atribuir usuários")
 
@@ -123,4 +123,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

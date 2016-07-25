@@ -1,7 +1,7 @@
 <properties 
     pageTitle="AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Azure" 
     description="Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -234,6 +234,8 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 
 Esta seção aborda os recursos avançados do Barramento de Serviço do Azure baseados em extensões de rascunho para AMQP atualmente sendo desenvolvidos no Comitê Técnico OASIS para AMQP. O Barramento de Serviço do Azure implementa o status mais recente desses rascunhos e adotará as alterações introduzidas quando esses rascunhos atingirem o status padrão.
 
+> [AZURE.NOTE] As operações avançadas de Mensagens do barramento de serviço têm suporte de um padrão de solicitação/resposta. Os detalhes dessas operações estão descritos no documento [AMQP 1.0 no Barramento de Serviço: operações baseadas em solicitação/resposta](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+
 ### Gerenciamento de AMQP
 
 A especificação de Gerenciamento de AMQP é a primeira das extensões de rascunho que discutiremos aqui. Essa especificação define um conjunto de gestos de protocolo em camadas sobre o protocolo AMQP que permite interações de gerenciamento com a infraestrutura de mensagens sobre AMQP. A especificação define operações genéricas como *criação*, *leitura*, *atualização* e *exclusão* para gerenciar as entidades dentro de uma infraestrutura de mensagens e um conjunto de operações de consulta.
@@ -245,7 +247,7 @@ Todos os gestos exigem uma interação de solicitação/resposta entre o cliente
 | Criar caminho de resposta de solicitação | --> attach(<br/>name={*nome do link*},<br/>handle={*identificador numérico*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma ação |
 |Criar caminho de resposta de solicitação |Nenhuma ação | <-- attach(<br/>name={*nome do link*},<br/>handle={*identificador numérico*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
 |Criar caminho de resposta de solicitação | --> attach(<br/>name={*nome do link*},<br/>handle={*identificador numérico*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |Nenhuma ação
-|Criar caminho de resposta de solicitação |Nenhuma ação | --> attach(<br/>name={*nome do link*},<br/>handle={*identificador numérico*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
+|Criar caminho de resposta de solicitação |Nenhuma ação | <-- attach(<br/>name={*nome do link*},<br/>handle={*identificador numérico*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 Tendo esse par de links em funcionamento, a implementação de solicitação/resposta é simples: uma solicitação é uma mensagem enviada a uma entidade dentro a infraestrutura de mensagens que compreende esse padrão. Nessa mensagem de solicitação, o campo *reply-to* na seção *properties* é definida como o identificador *target* para o link para o qual será fornecida a resposta. A entidade de tratamento processará a solicitação e então fornecerá a resposta pelo link cujo identificador *target* corresponda ao identificador *reply* indicado.
 
@@ -327,4 +329,4 @@ Para saber mais sobre o AMQP, confira o seguinte:
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/18/2016"
+   ms.date="07/12/2016"
    ms.author="dugill;tomfitz" />
 
 
@@ -86,7 +86,7 @@ Você começa no momento em que o usuário decide conectar a assinatura do Azure
 
 Faça duas perguntas ao usuário:
 
-1. **Nome de domínio do diretório**: o nome de domínio do Azure Active Directory associado à assinatura do Azure do usuário. A solicitação de autorização do OAuth 2.0 deve ser enviada para esse Azure AD. O usuário pode encontrar o nome de domínio do seu Azure AD navegando até o Portal do Azure e selecionando a conta no canto superior direito. Você pode fornecer instruções visuais ao usuário, como: 
+1. **Nome de domínio do diretório**: o nome de domínio do Azure Active Directory associado à assinatura do Azure do usuário. A solicitação de autorização do OAuth 2.0 deve ser enviada para esse Azure AD. O usuário pode encontrar o nome de domínio do seu Azure AD navegando até o Portal do Azure e selecionando a conta no canto superior direito. Você pode fornecer instruções visuais ao usuário, como:
 
      ![](./media/resource-manager-api-authentication/show-directory.png)
    
@@ -301,7 +301,7 @@ Os dados de solicitação do token de concessão de credencial do cliente:
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | ID do cliente do seu aplicativo
-| recurso | Identificador codificado na URL do recurso para o qual o token de acesso está sendo solicitado. Nesse caso, o identificador da API do Azure AD Graph: **https://graph.windows.net/** 
+| recurso | Identificador codificado na URL do recurso para o qual o token de acesso está sendo solicitado. Nesse caso, o identificador da API do Azure AD Graph: **https://graph.windows.net/**
 | client\_secret ou client\_assertion\_type + client\_assertion | Se seu aplicativo usa credenciais de senha, use client\_secret. Se seu aplicativo usa credenciais de certificado, use client\_assertion.
 
 Um exemplo de solicitação de token de concessão de credencial de cliente:
@@ -444,4 +444,4 @@ O método [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dush
 
 Pronto, os usuários podem agora se conectar e gerenciar suas assinaturas do Azure com seu aplicativo facilmente.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->
