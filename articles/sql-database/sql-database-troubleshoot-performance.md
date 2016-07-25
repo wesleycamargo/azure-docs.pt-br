@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Como avaliar e melhorar o desempenho do banco de dados no Banco de Dados SQL do Azure"
-	description="Descreve como avaliar e melhorar o desempenho do banco de dados"
+	pageTitle="Dicas de ajuste de desempenho de Banco de Dados SQL | Microsoft Azure"
+	description="Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="ajuste de desempenho de sql, ajuste de desempenho de banco de dados, dicas de ajuste de desempenho do sql, ajuste de desempenho de banco de dados sql"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# Como avaliar e melhorar o desempenho do banco de dados no Banco de Dados SQL do Azure
-Você pode alterar quando quiser a [camada de serviço](sql-database-service-tiers.md) de um banco de dados individual ou aumentar os eDTUs de um pool de banco de dados elástico para melhorar o desempenho, mas convém identificar primeiro as oportunidades de aprimoramento e otimização do desempenho da consulta. Índices ausentes e consultas precárias são motivos comuns de um desempenho ruim do banco de dados.
+# Dicas de ajuste de desempenho do Banco de Dados SQL
+Você pode alterar quando quiser a [camada de serviço](sql-database-service-tiers.md) de um banco de dados individual ou aumentar os eDTUs de um pool de banco de dados elástico para melhorar o desempenho, mas convém identificar primeiro as oportunidades de aprimoramento e otimização do desempenho da consulta. Índices ausentes e consultas precárias são motivos comuns de um desempenho ruim do banco de dados. Este artigo fornece orientação para ajuste de desempenho no Banco de Dados SQL.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -34,4 +35,4 @@ Você pode alterar quando quiser a [camada de serviço](sql-database-service-tie
 1.	Para bancos de dados individuais, você pode [alterar as camadas de serviço](sql-database-scale-up.md) sob demanda para melhorar o desempenho do banco de dados.
 2.	Para vários bancos de dados, considere o uso de [pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md) para escalar os recursos automaticamente.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

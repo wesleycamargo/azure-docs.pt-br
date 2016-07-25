@@ -13,20 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
 
 É possível gerenciar os serviços e aplicativos do Service Fabric do Azure por meio do Visual Studio. Depois de [configurar o ambiente de desenvolvimento](service-fabric-get-started.md),você pode usar o Visual Studio para criar aplicativos do Service Fabric, adicionar serviços, ou pacotes, registrar e implantar aplicativos no cluster de desenvolvimento local.
 
-Para gerenciar um aplicativo, no Gerenciador de Soluções, clique com o botão direito no projeto do aplicativo.
-
-![Gerenciar seu aplicativo do Service Fabric clicando com o botão direito do mouse no projeto do Aplicativo][manageservicefabric]
-
 ## Implantar o aplicativo do Service Fabric
 
-A implantação de um aplicativo combina as etapas a seguir em uma única operação.
+Por padrão, a implantação de um aplicativo combina as etapas a seguir em uma única operação:
 
 1. Criar o pacote de aplicativo
 2. Carregar o pacote de aplicativo no repositório de imagens
@@ -38,25 +34,26 @@ No Visual Studio, pressionar **F5** também implanta seu aplicativo e anexa o de
 
 ### Modo de Depuração do Aplicativo
 
-Ao depurar o serviço localmente, em algum momento talvez você queira manter os dados e os aplicativos existentes. As Ferramentas do Service Fabric para Visual Studio fornecem uma propriedade denominada **Modo de Depuração do Aplicativo**, que controla se **F5** deve desinstalar o aplicativo ou manter o aplicativo após uma sessão de depuração terminar.
+Por padrão, o Visual Studio removerá as instâncias existentes do seu tipo de aplicativo quando você interromper a depuração ou (se você implantou o aplicativo sem anexar o depurador), quando você reimplantar o aplicativo. Nesse caso, todos os dados do aplicativo serão removidos. Quando você está depurando localmente, convém manter os dados que você criou ao testar uma nova versão do aplicativo. As Ferramentas do Service Fabric para Visual Studio fornecem uma propriedade denominada **Modo de Depuração do Aplicativo**, que controla se **F5** deve desinstalar o aplicativo ou manter o aplicativo após uma sessão de depuração terminar.
 
 #### Para definir a propriedade Modo de Depuração do Aplicativo
 
 1. No menu de atalho do projeto de aplicativo, escolha **Propriedades** (ou pressione a tecla **F4**).
 2. Na janela **Propriedades**, defina a propriedade **Modo de Depuração do Aplicativo** para **Remover** ou ** Atualização Automática**.
 
-![Definir a Propriedade Modo de Depuração do Aplicativo][debugmodeproperty]
+    ![Definir a Propriedade Modo de Depuração do Aplicativo][debugmodeproperty]
 
 Definir esse valor da propriedade para **Atualização Automática** deixará o aplicativo em execução no cluster local. O próximo **F5** tratará a implantação como uma atualização usando o modo automático não monitorado para atualizar rapidamente o aplicativo para uma versão mais recente com uma cadeia de caracteres de data anexada. O processo de atualização preserva todos os dados inseridos em uma sessão de depuração anterior.
 
 ![Exemplo da nova versão do aplicativo com a data1 incluída][preservedate]
 
-Os dados são preservados, aproveitando o recurso de atualização da plataforma do Service Fabric. Para saber mais sobre a atualização de um aplicativo, consulte [Atualização de aplicativo do Service Fabric](service-fabric-application-upgrade.md)
+Os dados são preservados, aproveitando os recursos de atualização de aplicativo do Service Fabric, mas são ajustados para otimizar o desempenho em vez da segurança. Para obter mais informações sobre como atualizar aplicativos e como executar uma atualização em um ambiente real, confira [atualização de aplicativo do Service Fabric](service-fabric-application-upgrade.md).
 
-**Observação:** essa propriedade não existe antes da versão 1.1 das Ferramentas do Service Fabric para Visual Studio. Antes da versão 1.1, use a propriedade **Preservar Dados no Início** para ter o mesmo comportamento.
+>[AZURE.NOTE] Essa propriedade não existe antes da versão 1.1 das Ferramentas do Service Fabric para o Visual Studio. Antes da versão 1.1, use a propriedade **Preservar Dados no Início** para ter o mesmo comportamento.
+
 ## Adicione um serviço ao aplicativo da Malha de Serviços
 
-Você pode adicionar novos serviços de malha ao seu aplicativo para estender sua funcionalidade. Para garantir que o serviço esteja incluído no seu pacote de aplicativos, adicione o serviço usando o item de menu **Novo Serviço de Malha...**.
+Você pode adicionar novos serviços a seu aplicativo para estender sua funcionalidade. Para garantir que o serviço esteja incluído no seu pacote de aplicativos, adicione o serviço usando o item de menu **Novo Serviço de Malha...**.
 
 ![Adicionar um novo serviço de malha ao aplicativo][newservice]
 
@@ -72,14 +69,14 @@ O novo serviço será adicionado à solução e ao pacote de aplicativo existent
 
 Para implantar o aplicativo e seu serviço em um cluster, você precisa criar um pacote de aplicativos. O pacote organiza o manifesto do aplicativo, os manifestos do serviço e outros arquivos necessários em um layout específico. O Visual Studio configura e gerencia o pacote na pasta do projeto do aplicativo, no diretório 'pkg'. Clicar em **Pacote** no menu de contexto **Aplicativo** cria ou atualiza o pacote de aplicativos. Convém fazer isso se você implantar o aplicativo usando scripts personalizados de PowerShell.
 
-## Remover um aplicativo
+## Remover aplicativos e tipos de aplicativo usando o Gerenciador de Nuvem
 
-Você pode remover o provisionamento de um tipo de aplicativo do seu cluster local usando o Gerenciador do Service Fabric. O gerenciador de cluster é acessível no ponto de extremidade do gateway HTTP do cluster (normalmente 19080 ou 19007), por exemplo, http://localhost:19080/Explorer. Isso reverterá as etapas de implantação descritas acima:
-
-1. Remover as instâncias de aplicativo em execução
-2. Cancelar o registro do tipo de aplicativo
+Você pode executar operações de gerenciamento de cluster básico no Visual Studio usando o Gerenciador de Nuvem, que você pode iniciar por meio do menu **Exibir**. Por exemplo, você pode excluir aplicativos e desprovisionar tipos de aplicativos em clusters locais ou remotos.
 
 ![Remover um aplicativo](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
+>[AZURE.TIP] Para funcionalidade de gerenciamento de cluster mais avançada, confira [Visualizar o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
@@ -99,4 +96,4 @@ Você pode remover o provisionamento de um tipo de aplicativo do seu cluster loc
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 [debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

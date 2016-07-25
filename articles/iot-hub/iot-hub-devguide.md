@@ -55,15 +55,15 @@ A seguir, uma descrição dos pontos de extremidade:
     - *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de aplicativo envie mensagens confiáveis da nuvem para o dispositivo e receba confirmações de entrega ou de vencimento correspondentes. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
     - *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo.
 
-O artigo [APIs e SDKs do Hub IoT][lnk-apis-sdks] descreve as várias maneiras de acessar esses pontos de extremidade.
+O artigo [APIs e SDKs do Hub IoT][lnk-sdks] descreve as várias maneiras de acessar esses pontos de extremidade.
 
 Por fim, é importante observar que todos os pontos de extremidade do Hub IoT usam o protocolo [TLS][lnk-tls] e que nenhum ponto de extremidade é exposto em canais sem criptografia/desprotegidos.
 
 ### Como ler de pontos de extremidade compatíveis com os Hubs de Eventos. <a id="eventhubcompatible"></a>
 
-Ao usar o [SDK do Barramento de Serviço do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou os [Hubs de Eventos - Host Processador de Eventos][], você pode usar cadeias de conexão do Hub IoT com as permissões corretas e usar **mensagens/eventos** como o nome do Hub de Eventos.
+Ao usar o [SDK do Barramento de Serviço do Azure para .NET][lnk-servicebus-sdk] ou os [Hubs de Eventos - Host Processador de Eventos][lnk-eventprocessorhost], você pode usar cadeias de conexão do Hub IoT com as permissões corretas e usar **mensagens/eventos** como o nome do Hub de Eventos.
 
-Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, será necessário recuperar um ponto de extremidade compatível com os Hubs de Eventos e o nome do Hub de Evento das configurações do Hub IoT no [Portal do Azure][]\:
+Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, será necessário recuperar um ponto de extremidade compatível com os Hubs de Eventos e o nome do Hub de Evento das configurações do Hub IoT no [Portal do Azure][lnk-management-portal]\:
 
 1. Na folha do hub IoT, clique em **Configurações** > **Sistema de Mensagens**.
 2. Na seção **Configurações de dispositivo para a nuvem**, você encontrará os seguintes valores: **Ponto de extremidade compatível com o Hub de Eventos**, **Nome compatível com o Hub de Eventos** e **Partições**.
@@ -92,7 +92,7 @@ Cada Hub IoT tem um registro de identidade do dispositivo. Você pode usar esse 
 
 Em um alto nível, o registro de identidade do dispositivo é uma coleção compatível com REST de recursos de identidade do dispositivo. As seções a seguir detalham as propriedades do recurso de identidade do dispositivo e as operações que o registro habilita em identidades.
 
-> [AZURE.NOTE] Para obter mais detalhes sobre o protocolo HTTP e os SDKs que podem ser usados para interagir com o registro de identidade do dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
+> [AZURE.NOTE] Para obter mais detalhes sobre o protocolo HTTP e os SDKs que podem ser usados para interagir com o registro de identidade do dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-sdks].
 
 ### Propriedades de identidade de dispositivo <a id="deviceproperties"></a>
 
@@ -227,7 +227,7 @@ Nome de usuário (a DeviceId diferencia maiúsculas de minúsculas): `iothubname
 
 Senha (gerar SAS com o Gerenciador de Dispositivo): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
-> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure ][lnk-apis-sdks] geram tokens automaticamente durante a conexão com o serviço. Em alguns casos, os SDKs não dão suporte a todos os protocolos ou a todos os métodos de autenticação.
+> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure ][lnk-sdks] geram tokens automaticamente durante a conexão com o serviço. Em alguns casos, os SDKs não dão suporte a todos os protocolos ou a todos os métodos de autenticação.
 
 #### Considerações especiais para SASL PLAIN
 
@@ -262,7 +262,7 @@ As mensagens do Hub IoT são formadas por:
 * Um conjunto de *propriedades do aplicativo*. É um dicionário de propriedades de cadeia de caracteres que o aplicativo pode definir e acessar sem precisar desserializar o corpo da mensagem. O Hub IoT nunca modifica essas propriedades.
 * Um corpo de binário opaco.
 
-Para saber mais sobre como a mensagem é codificada em protocolos diferentes, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
+Para saber mais sobre como a mensagem é codificada em protocolos diferentes, consulte [APIs e SDKs do Hub IoT][lnk-sdks].
 
 Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
@@ -327,7 +327,7 @@ No entanto, há algumas distinções importantes entre as mensagens do dispositi
 
 Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para saber mais, confira *Partições* na [Visão geral dos Hubs de Eventos do Azure][lnk-eventhub-partitions].
 
-Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
+Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-sdks].
 
 > [AZURE.NOTE] Ao usar o HTTP para enviar mensagens do dispositivo para a nuvem, os nomes e valores de propriedade poderão conter apenas caracteres alfanuméricos ASCII e ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -397,7 +397,7 @@ Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse c
 
 Uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível**, no máximo, pelo número de vezes especificado na propriedade **contagem máxima de entrega** no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morto**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morto** após o tempo de expiração (confira [Vida útil](#ttl)).
 
-Para obter um tutorial sobre mensagens da nuvem para o dispositivo, consulte [Introdução às mensagens da nuvem para o dispositivo do Hub IoT do Azure][lnk-getstarted-c2d-tutorial]. Para obter tópicos de referência sobre como as APIs e os SDKs diferentes expõem a funcionalidade de nuvem para o dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
+Para obter um tutorial sobre mensagens da nuvem para o dispositivo, consulte [Introdução às mensagens da nuvem para o dispositivo do Hub IoT do Azure][lnk-getstarted-c2d-tutorial]. Para obter tópicos de referência sobre como as APIs e os SDKs diferentes expõem a funcionalidade de nuvem para o dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-sdks].
 
 > [AZURE.NOTE] Normalmente, as mensagens da nuvem para o dispositivo serão concluídas sempre que a perda da mensagem não afetar a lógica do aplicativo. Por exemplo, o conteúdo da mensagem foi mantido com êxito no armazenamento local ou uma operação foi executada com êxito. A mensagem também pode transportar informações temporárias, cuja perda não afeta a funcionalidade do aplicativo. Às vezes, para tarefas de longa duração, você pode concluir a mensagem do dispositivo para a nuvem depois de manter a descrição da tarefa no armazenamento local. Em seguida, você pode notificar o back-end de aplicativo com uma ou mais mensagens de dispositivo para a nuvem em vários estágios de progresso da tarefa.
 
@@ -471,7 +471,7 @@ Cada hub IoT expõe as seguintes opções de configuração para mensagens da nu
 | feedback.ttlAsIso8601 | Retenção de mensagens informativas do serviço associado. | Intervalo ISO\_8601 de até 2D (mínimo de 1 minuto). Padrão: 1 hora. |
 | feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários. | 1 a 100. Padrão: 100. |
 
-Para saber mais, consulte [Gerenciar Hubs IoT][lnk-manage].
+Para saber mais, consulte [Gerenciar Hubs IoT][lnk-portal].
 
 ### Carregamentos de arquivos <a id="fileupload"></a>
 
@@ -483,7 +483,7 @@ Em vez da corretagem mensagens por meio do próprio Hub IoT, o Hub IoT age como 
 
 Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode fazer isso por meio do [portal do Azure][lnk-management-portal] ou programaticamente por meio do [Hub IoT do Azure - APIs do provedor de recursos][lnk-resource-provider-apis]. Depois de ter associado a uma conta de armazenamento ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo inicia uma solicitação de upload de arquivos.
 
-> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure][lnk-apis-sdks] tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
+> [AZURE.NOTE] Os [SDKs do Hub IoT do Azure][lnk-sdks] tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
 
 #### Inicializar um upload de arquivo
 
@@ -532,7 +532,7 @@ Cada hub IoT expõe as seguintes opções de configuração para notificações 
 | **fileNotifications.lockDuration** | Duração de bloqueio para a fila de notificações de upload de arquivos. | 5 a 300 segundos (mínimo de cinco segundos). Padrão: 60 segundos. |
 | **fileNotifications.maxDeliveryCount** | Contagem máxima de entregas para a fila de notificação de upload de arquivos. | 1 a 100. Padrão: 100. |
 
-Para saber mais, confira [Gerenciar hubs IoT][lnk-manage].
+Para saber mais, confira [Gerenciar hubs IoT][lnk-portal].
 
 ## Cotas e limitação <a id="throttling"></a>
 
@@ -561,7 +561,7 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 
 Por exemplo, se você comprar uma única unidade S1, obterá uma restrição de 100 conexões por segundo. Isso significa que serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade do dispositivo.
 
-Para uma discussão aprofundada do comportamento de limitação do Hub IoT, confira a postagem de blog [Hub IoT throttling and you][lnk-throttle-blog] \A limitação do Hub IoT e você).
+Para uma discussão aprofundada do comportamento de limitação do Hub IoT, confira a postagem de blog [Hub IoT throttling and you][lnk-throttle-blog] (A limitação do Hub IoT e você).
 
 >[AZURE.NOTE] A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
@@ -571,21 +571,26 @@ Para uma discussão aprofundada do comportamento de limitação do Hub IoT, conf
 
 Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o seguinte para saber mais:
 
-- [Introdução aos Hubs IoT (tutorial)][lnk-get-started]
-- [Compatibilidade de plataformas de SO e hardware][lnk-compatibility]
-- [Centro de Desenvolvedores do IoT do Azure][lnk-iotdev]
-- [Projetar sua solução][lnk-guidance]
+- [Upload de arquivo de dispositivos (tutorial)][lnk-file upload]
+- [Criar um Hub IoT usando um programa][lnk-create-hub]
+- [Introdução ao SDK de C][lnk-c-sdk]
+- [SDKs do Hub IoT][lnk-sdks]
 
-[Hubs de Eventos - Host Processador de Eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-[Portal do Azure]: https://portal.azure.com
+- [Projetar sua solução][lnk-design]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+
+
+
+[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: iot-hub-tested-configurations.md
-[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -597,8 +602,6 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-guidance]: iot-hub-guidance.md
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
@@ -607,7 +610,6 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-createuse-sas]: ../storage-dotnet-shared-access-signature-part-2/
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
@@ -617,11 +619,20 @@ Agora que você viu uma visão geral do desenvolvimento para Hub IoT, consulte o
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-manage]: iot-hub-manage-through-portal.md
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
+[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

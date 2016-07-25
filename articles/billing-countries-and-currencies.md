@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
 
-Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e há suporte para várias moedas diferentes. Aqui está uma lista dos países em que você pode comprar o Azure e as moedas que você pode usar para efetuar o pagamento do Azure.
+Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e há suporte para várias moedas diferentes. Veja a seguir uma lista dos países em que você pode comprar o Azure e as moedas que pode usar para efetuar o pagamento do Azure.
 
 | País | Código de moeda |
 |---------------------------------|---------------|
@@ -171,4 +171,4 @@ Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e 
 | Zâmbia | USD |
 | Zimbábue | USD |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

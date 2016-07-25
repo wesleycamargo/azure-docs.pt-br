@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP | Microsoft Azure" 
     description="Saiba como usar a SAP HANA Cloud Platform com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
   
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurar o logon único")
 
@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurar o logon único")
 
-3.  Em outra janela do navegador da Web, faça logon na ferramenta Cockpit da SAP HANA Cloud Platform em https://account.\<landscape host>.ondemand.com/cockpit (por exemplo: **https://account.hanatrial.ondemand.com/cockpit*)).
+3.  Em outra janela do navegador da Web, faça logon na ferramenta Cockpit da SAP HANA Cloud Platform em https://account.\<landscape host>.ondemand.com/cockpit (por exemplo: *https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Clique na guia **Confiar**.
 
@@ -91,11 +91,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Clique na guia **Provedor de Serviços Local**.
     2.  Para baixar o arquivo de metadados da SAP HANA Cloud Platform, clique em **Obter Metadados**.
 
-6.  No portal do Active Directory do Azure, na página **Configurar URL do Aplicativo**, realize as etapas a seguir e clique em **Avançar**.
+6.  No portal clássico do Azure Active, na página **Configurar URL do Aplicativo**, execute as etapas a seguir e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP HANA Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo Plataforma de Nuvem HANA SAP. A URL baseia-se no seguinte padrão: *https://\<nomeAplicativo><nomeConta>.<host paisagem>.ondemand.com/<caminho\_para\_recurso\_protegido>* (por exemplo: **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP HANA Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo Plataforma de Nuvem HANA SAP. A URL baseia-se no seguinte padrão: *https://\<nomeAplicativo><nomeConta>.<host paisagem>.ondemand.com/<caminho\_para\_recurso\_protegido>* (por exemplo: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
 		>[AZURE.NOTE]Esta é a URL em seu aplicativo Plataforma de Nuvem HANA SAP que exige que o usuário seja autenticado.
 
@@ -128,7 +128,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Gerenciamento de Confiança](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Gerenciamento de Confiança")
 
-    >[AZURE.NOTE]Depois de carregar o arquivo de metadados, os valores de **URL de Logon Único**, **URL de Logoff Único** e o **Certificado de Assinatura** serão automaticamente populados.
+    >[AZURE.NOTE] Depois de carregar o arquivo de metadados, os valores de **URL de Logon Único**, **URL de Logoff Único** e o **Certificado de Assinatura** serão automaticamente populados.
 
 11. Clique na guia **Atributos**.
 
@@ -141,8 +141,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
         |Atributo de Asserção| Atributo de Entidade|
 		|-------------------|--------------------|
         |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]A configuração dos Atributos depende de como os aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta do SAML e por qual nome (Atributo de Entidade) eles acessam esse atributo no código.
     >  
@@ -150,7 +150,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     >
     >b. Os nomes e valores do **Atributo de Entidade** mostrados na captura de tela dependerão de como o aplicativo foi desenvolvido. É possível que o seu aplicativo precise de mapeamentos diferentes.
 
-13. No portal do Azure, na página do diálogo **Configurar logon único na SAP HANA Cloud Platform**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+13. No portal clássico do Azure, na página de diálogo **Configurar logon único na SAP HANA Cloud Platform**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
 
     ![Configurar o logon único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configurar o logon único")
   
@@ -158,7 +158,7 @@ Como uma etapa opcional, você pode configurar grupos com base na asserção par
 
 >[AZURE.NOTE]Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. Por exemplo, se a declaração contém o atributo “*contract=temporary*”, talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo “*TEMPORARY*”. O grupo “*TEMPORARY*” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
 >  
->Use os grupos com base em asserção se desejar atribuir em massa vários usuários para uma ou mais funções de aplicativos em sua conta da Plataforma de Nuvem HANA SAP. Se você quiser atribuir um único usuário ou um pequeno número deles a funções específicas, é recomendável atribuí-los diretamente na guia “**Autorizações**” da ferramenta cockpit da Plataforma de Nuvem HANA SAP.
+>Use os grupos com base em asserção se desejar atribuir em massa vários usuários para uma ou mais funções de aplicativos em sua conta da Plataforma de Nuvem HANA SAP. Se você quer atribuir um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia "**Autorizações**" da ferramenta Cockpit da SAP HANA Cloud Platform.
 
 ##Atribuindo uma função a um usuário
   
@@ -184,7 +184,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários à Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Atribuir usuários**.
 
@@ -196,4 +196,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

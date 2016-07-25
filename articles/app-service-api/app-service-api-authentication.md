@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Autenticação e autorização para aplicativos de API no Serviço de Aplicativo do Azure
 
@@ -28,7 +28,7 @@ O diagrama a seguir ilustra algumas características importantes da autenticaç�
 
 * Ele processa previamente as solicitações de API de entrada, o que significa que ele funciona com qualquer linguagem ou estrutura com suporte do Serviço de Aplicativo.
 * Ele oferece várias opções para a quantidade de trabalho de autenticação que você deseja realizar em seu próprio código.
-* Ele funciona para a autenticação de usuário final e de conta de serviço. 
+* Ele funciona para a autenticação de usuário final e de conta de serviço.
 * Ele dá suporte a cinco provedores de autenticação: Active Directory do Azure, Facebook, Google, Twitter e Conta da Microsoft.
 * Ele funciona da mesma forma para Aplicativos de API, Aplicativos Web e Aplicativos Móveis.
 
@@ -94,12 +94,12 @@ Para saber mais sobre como lidar com a autenticação de clientes móveis, confi
 Para saber mais sobre autenticação e autorização no Serviço de Aplicativo do Azure, consulte os seguintes recursos:
 
 * [Como expandir a autenticação/autorização do Serviço de Aplicativo](/blog/announcing-app-service-authentication-authorization/)
-* [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Inclui links para outros provedores de autenticação na parte superior da página.) 
+* [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Inclui links para outros provedores de autenticação na parte superior da página.)
 
 Para saber mais sobre o OAuth 2.0, o OpenID Connect e os Tokens da Web JSON (JWT), confira os recursos a seguir.
 
-* [Introdução ao OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Introdução ao OAuth 2.0") 
-* [Introdução ao OAuth2, OpenID Connect e JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Introdução ao OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Introdução ao OAuth 2.0")
+* [Introdução ao OAuth2, OpenID Connect e JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction)
 * [Criando e protegendo uma API RESTful para vários clientes no ASP.NET - PluralSight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
@@ -112,4 +112,4 @@ Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
 
 Este artigo explicou os recursos de autenticação e de autorização do Serviço de Aplicativo que você pode usar para aplicativos de API. O próximo tutorial da série Introdução mostra como implementar a [autenticação de usuário em Aplicativos de API do Serviço de Aplicativo](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

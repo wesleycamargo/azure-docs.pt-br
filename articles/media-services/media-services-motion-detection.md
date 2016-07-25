@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detectar movimentos com o Azure Media Analytics"
+	pageTitle="Detectar movimentos com o Azure Media Analytics | Microsoft Azure"
 	description="O MP (processador de mídia) Azure Media Motion Detector permite a identificação eficiente de seções de interesse em um vídeo longo e rotineiro."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Detectar movimentos com o Azure Media Analytics
@@ -28,29 +28,74 @@ No momento, o MP **Azure Media Motion Detector** está em versão de Visualizaç
 
 Este tópico fornece detalhes sobre o **Azure Media Motion Detector** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET
 
+
 ##Arquivos de entrada do Motion Detector
 
 Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
+
+##Configuração de tarefa (predefinição)
+
+Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração.
+
+###Parâmetros
+
+Você pode usar os seguintes parâmetros:
+
+Nome|Opções|Descrição|Padrão
+---|---|---|---
+sensitivityLevel|Cadeia de caracteres: 'low', 'medium', 'high'|Define o nível de sensibilidade para relatar os movimentos. Ajuste para ajustar a quantidade de falsos positivos.|'medium'
+frameSamplingValue|Número inteiro positivo|Define a frequência na qual o algoritmo é executado. 1 equivale a cada quadro, 2 significa a cada dois quadros e assim por diante.|1
+detectLightChange|Booliano: 'true', 'false'|Define se as mudanças leves são relatadas nos resultados|'False'
+mergeTimeThreshold|Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03|Especifica a janela de tempo entre eventos de movimento, em que dois eventos serão combinados e relatados como um.|00:00:00
+detectionZones|Uma matriz de zonas de detecção:<br/> - a zona de detecção é uma matriz de três ou mais pontos<br/> - Ponto é uma coordenada x e y de 0 a 1.|Descreve a lista de zonas de detecção em forma de polígono a ser usada.<br/>Os resultados serão informados com as zonas como uma ID, com o primeiro sendo 'id': 0|Zona única que abrange todo o quadro.
+
+###Exemplo de JSON
+
+	
+	{
+	  'version': '1.0',
+	  'options': {
+	    'sensitivityLevel': 'medium',
+	    'frameSamplingValue': 1,
+	    'detectLightChange': 'False',
+	    "mergeTimeThreshold":
+	    '00:00:02',
+	    'detectionZones': [
+	      [
+	        {'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}
+	       ],
+	      [
+	        {'x': 0.3, 'y': 0.3},
+	        {'x': 0.55, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.55},
+	        {'x': 0.8, 'y': 0.8},
+	        {'x': 0.55, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.55}
+	      ]
+	    ]
+	  }
+	}
+
 
 ##Arquivos de saída do Motion Detector
 
 Um trabalho de detecção de movimento retornará um arquivo JSON no ativo de saída, que descreve os alertas de movimento, e suas categorias, no vídeo. O arquivo conterá informações sobre a hora e a duração do movimento detectado no vídeo.
 
-Atualmente, a detecção de movimento só dá suporte à categoria de movimento genérico, conhecida como ***tipo 2*** na saída.
-
-As coordenadas X e Y e os tamanhos serão listados usando um número de ponto flutuante normalizado entre 0,0 e 1,0. Multiplique isso pela resolução de altura e largura do vídeo a fim de obter a caixa delimitadora da região do movimento detectado.
-
-Cada saída é dividida em fragmentos e subdividida em intervalos a fim de definir os dados no vídeo. As durações do fragmento não precisam ser iguais e podem abranger longas durações quando não houver qualquer detecção de movimento.
-
 A API do Motion Detector fornecerá indicadores quando houver objetos em movimento em um vídeo fixo em segundo plano (por exemplo, um vídeo de vigilância). O Motion Detector é treinado para reduzir alarmes falsos, como mudanças de iluminação e de sombra. As limitações atuais dos algoritmos incluem vídeos de visão noturna, objetos semitransparentes e objetos pequenos.
 
 ###<a id="output_elements"></a>Elementos do arquivo JSON de saída
+
+>[AZURE.NOTE]Na versão mais recente, o formato JSON de saída foi alterado e pode representar uma alteração significativa para alguns clientes.
 
 A tabela a seguir descreve os elementos do arquivo JSON de saída:
 
 Elemento|Descrição
 ---|---
-Versão|Refere-se à versão da API de Vídeo.
+Versão|Refere-se à versão da API de Vídeo. A versão atual é 2.
 Escala de tempo|"Tiques" por segundo do vídeo.
 Deslocamento|A diferença de tempo para carimbos de hora em “tiques”. Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado.
 Taxa de quadros|Quadros por segundo do vídeo.
@@ -61,98 +106,56 @@ Intervalo|O intervalo de cada entrada no evento, em "tiques".
 Eventos|Cada fragmento de evento contém o movimento detectado dentro dessa duração.
 Tipo|Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões.
 RegionID|Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras.
-Regiões|Refere-se à área no vídeo na qual você se preocupa com o movimento. Na versão atual das APIs de Vídeo, não é possível especificar uma região. Em vez disso, toda a superfície do vídeo será a área de movimento que será detectada.<br/>- A ID representa a área da região – nesta versão, existe apenas uma, a ID 0. <br/>- O retângulo representa a forma da região na qual você se preocupa com o movimento. Nesta versão, sempre será retângulo. <br/>- A região tem dimensões em X, Y, Largura e Altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, Largura e Altura sempre serão fixas em 0, 0 e 1, 1.<br/>- Fragmentos Os metadados são agrupados em segmentos diferentes chamados de fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração.
+Regiões|Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/> Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/>
+Fragmentos|Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração.
 Colchetes|Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado.
- 
+locais|Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção.
 
-##Configuração de tarefa (predefinição)
-
-Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração. No momento, não é possível definir opções na predefinição de configuração do Azure Media Motion Detector. Veja a seguir a predefinição de configuração mínima que você deve fornecer.
-
-	{"version":"1.0"}
-
-##Exemplo de vídeos e saídas do Motion Detector
-
-###Exemplo com movimento real
-
-[Exemplo com movimento real](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fd54876c6-89a5-41de-b1f4-f45b6e10a94f%2FGarage.ism%2Fmanifest)
-
-###Saída em JSON
-
-	 {
-	 "version": "1.0",
-	 "timescale": 60000,
-	 "offset": 0,
-	 "framerate": 30,
-	 "width": 1920,
-	 "height": 1080,
-	 "regions": [
-	   {
-	     "id": 0,
-	     "type": "rectangle",
-	     "x": 0,
-	     "y": 0,
-	     "width": 1,
-	     "height": 1
-	   }
-	 ],
-	 "fragments": [
-	   {
-	     "start": 0,
-	     "duration": 68510
-	   },
-	   {
-	     "start": 68510,
-	     "duration": 969999,
-	     "interval": 969999,
-	     "events": [
-	       [
-	         {
-	           "type": 2,
-	           "regionId": 0
-	         }
-	       ]
-	     ]
-	   },
-	   {
-	     "start": 1038509,
-	     "duration": 41489
-	   }
-	 ]
-	}
-
-###Exemplo com falsos positivos
-
-[Exemplo com falsos positivos (pequenas alterações):](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Ffdc6656b-1c10-4f3f-aa7c-07ba073c1615%2FLivingRoomLight.ism%2Fmanifest&tech=flash)
-
-###Saída em JSON
+Este é um exemplo de saída JSON
 
 	{
-	    "version": "1.0",
-	    "timescale": 30000,
-	    "offset": 0,
-	    "framerate": 29.97,
-	    "width": 1920,
-	    "height": 1080,
-	    "regions": [
+	  "version": 2,
+	  "timescale": 23976,
+	  "offset": 0,
+	  "framerate": 24,
+	  "width": 1280,
+	  "height": 720,
+	  "regions": [
 	    {
-	        "id": 0,
-	        "type": "rectangle",
-	        "x": 0,
-	        "y": 0,
-	        "width": 1,
-	        "height": 1
+	      "id": 0,
+	      "type": "polygon",
+	      "points": [{'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}]
 	    }
-	    ],
-	    "fragments": [
+	  ],
+	  "fragments": [
 	    {
-	        "start": 0,
-	        "duration": 320320
-	    }
-	    ]
-	}
-
-
+	      "start": 0,
+	      "duration": 226765
+	    },
+	    {
+	      "start": 226765,
+	      "duration": 47952,
+	      "interval": 999,
+	      "events": [
+	        [
+	          {
+	            "type": 2,
+	            "typeName": "motion",
+	            "locations": [
+	              {
+	                "x": 0.004184,
+	                "y": 0.007463,
+	                "width": 0.991667,
+	                "height": 0.985185
+	              }
+	            ],
+	            "regionId": 0
+	          }
+	        ],
+	
+	…
 ##Limitações
 
 - Os formatos de vídeo de entrada com suporte incluem MP4, MOV e WMV.
@@ -168,7 +171,31 @@ O programa a seguir mostra como:
 1. Criar um trabalho com uma tarefa de detecção de movimento em vídeo baseada em um arquivo de configuração que contém a predefinição de JSON a seguir.
 					
 		{
-		    "version": "1.0"
+		  'Version': '1.0',
+		  'Options': {
+		    'SensitivityLevel': 'medium',
+		    'FrameSamplingValue': 1,
+		    'DetectLightChange': 'False',
+		    "MergeTimeThreshold":
+		    '00:00:02',
+		    'DetectionZones': [
+		      [
+		        {'x': 0, 'y': 0},
+		        {'x': 0.5, 'y': 0},
+		        {'x': 0, 'y': 1}
+		       ],
+		      [
+		        {'x': 0.3, 'y': 0.3},
+		        {'x': 0.55, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.55},
+		        {'x': 0.8, 'y': 0.8},
+		        {'x': 0.55, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.55}
+		      ]
+		    ]
+		  }
 		}
 
 1. Baixar os arquivos JSON de saída.
@@ -346,9 +373,10 @@ O programa a seguir mostra como:
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Links relacionados
+[Blog do Detector de movimento dos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

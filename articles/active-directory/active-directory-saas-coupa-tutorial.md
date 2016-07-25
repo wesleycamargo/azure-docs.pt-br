@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Coupa
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Coupa, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-coupa-tutorial/IC700993.png "Active Directory")
 
@@ -78,9 +78,9 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Metadados de Coupa SP](./media/active-directory-saas-coupa-tutorial/IC791901.png "Metadados de Coupa SP")
 
-4.  Em uma janela de navegador diferente, faça logon no portal do Active Directory do Azure.
+4.  Em uma janela de navegador diferente, faça logon no portal clássico do Azure.
 
-5.  Na página de integração de aplicativos do **Coupa**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+5.  Na página de integração do aplicativo do **Coupa**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configurar o logon único")
 
@@ -92,7 +92,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-coupa-tutorial/IC791904.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Coupa (por exemplo: “*http://company.Coupa.com*”)).
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Coupa (por exemplo: “*http://company.Coupa.com*”).
     2.  Abra o arquivo de metadados do Coupa baixado e copie o **Índice/URL de AssertionConsumerService**.
     3.  Na caixa de texto **URL de Resposta do Coupa**, cole o valor de **Índice/URL de AssertionConsumerService**.
     4.  Clique em **Próximo**.
@@ -113,7 +113,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     2.  Clique em **Procurar** para carregar seu arquivo de metadados baixado do Active do Azure.
     3.  Clique em **Salvar**.
 
-11. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -139,9 +139,9 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
     1.  Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Criar**.
 
-    >[AZURE.NOTE]O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+    >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Coupa ou as APIs fornecidas pelo Coupa para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Coupa ou as APIs fornecidas pelo Coupa para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -149,9 +149,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Coupa, execute as etapas a seguir:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Coupa**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Coupa**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-coupa-tutorial/IC791911.png "Atribuir Usuários")
 
@@ -161,4 +161,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

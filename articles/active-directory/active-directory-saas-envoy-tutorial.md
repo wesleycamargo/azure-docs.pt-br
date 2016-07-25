@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Envoy
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Envoy, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-envoy-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Envoy**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos **Envoy**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Habilitar logon único](./media/active-directory-saas-envoy-tutorial/IC776778.png "Habilitar logon único")
 
@@ -102,16 +102,16 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Autenticação de SAML](./media/active-directory-saas-envoy-tutorial/IC776785.png "Autenticação de SAML")
 
-    >[AZURE.NOTE]O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo.
+    >[AZURE.NOTE] O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo.
 
-    1.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital**.  
+    1.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital**.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Envoy**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL do SAML de HTTP do Provedor de Identidade**.
+    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Envoy**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL do SAML de HTTP do Provedor de Identidade**.
     3.  Clique em **Salvar alterações**.
 
-10. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -123,7 +123,7 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Envoy, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Envoy**, clique em **Atribuir usuários**.
 
@@ -135,4 +135,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

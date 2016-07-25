@@ -68,7 +68,7 @@ O próximo script de exemplo instala uma pilha LAMP no Ubuntu (incluindo a confi
 
 ### Carregar o script
 
-Salve o script como um arquivo de texto, por exemplo *lamp\_install.sh*, e carregue-o no Armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Se o contêiner não existir, você precisará criá-lo primeiro.
+Salve o script como um arquivo de texto, por exemplo *install\_lamp.sh*, e carregue-o no Armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Se o contêiner não existir, você precisará criá-lo primeiro.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -83,7 +83,7 @@ Agora, você pode usar o próximo comando para implantar a Extensão de Script P
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-O comando anterior baixa e executa o script *lamp\_install.sh* na VM chamada *lamp-vm*.
+O comando anterior baixa e executa o script *install\_lamp.sh* na VM chamada *lamp-vm*.
 
 Como o aplicativo inclui um servidor Web, lembre-se de abrir uma porta de escuta HTTP na VM remota com o próximo comando.
 
@@ -110,4 +110,4 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

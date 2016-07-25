@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Como usar as APIs de comunicação dos Reliable Services
@@ -69,7 +69,7 @@ Em ambos os casos, você deve retornar uma coleção de ouvintes. Isso permite q
 
 Em um serviço sem estado, a substituição retorna uma coleção de ServiceInstanceListeners. Um ServiceInstanceListener contém uma função para criar um ICommunicationListener e dar um nome a ele. Para os serviços com monitoração de estado, a substituição retorna uma coleção de ServiceReplicaListeners. Esse serviço é um pouco diferente do equivalente sem estado, pois um ServiceReplicaListener tem uma opção para abrir um ICommunicationListener em réplicas secundárias. Você pode usar vários ouvintes de comunicação em um serviço, além de especificar aqueles que aceitem solicitações em réplicas secundárias e os que escutam apenas em réplicas primárias.
 
-Por exemplo, você pode ter um ServiceRemotingListener que faz chamadas RPC apenas em réplicas primárias e um ouvinte personalizado que faz solicitações de leitura em réplicas secundárias:
+Por exemplo, você pode ter um ServiceRemotingListener que faz chamadas RPC apenas em réplicas primárias e um segundo ouvinte personalizado que faz solicitações de leitura em réplicas secundárias sobre HTTP:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -77,8 +77,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     return new[]
     {
         new ServiceReplicaListener(context =>
-            new MyCustomListener(context),
-            "customReadonlyEndpoint",
+            new MyCustomHttpListener(context),
+            "HTTPReadonlyEndpoint",
             true),
 
         new ServiceReplicaListener(context =>
@@ -88,6 +88,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     };
 }
 ```
+
+> [AZURE.NOTE] Ao se criar vários ouvintes para um serviço, cada ouvinte **deve** receber um nome exclusivo.
 
 Por fim, você pode descrever os pontos de extremidade necessários para o serviço no [manifesto do serviço](service-fabric-application-model.md), na seção sobre pontos de extremidade.
 
@@ -137,7 +139,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 O Service Fabric fornece uma API que permite aos clientes e outros serviços perguntarem esse endereço pelo nome do serviço. Isso é importante porque o endereço do serviço não é estático. Os serviços são movimentados no cluster para fins de disponibilidade e balanceamento de recursos. Esse é o mecanismo que permite aos clientes resolver o endereço de escuta de um serviço.
 
-> [AZURE.NOTE] Para ver um passo a passo completo sobre como escrever um `ICommunicationListener`, consulte [Serviços da API Web do Service Fabric com auto-hospedagem de OWIN](service-fabric-reliable-services-communication-webapi.md)
+> [AZURE.NOTE] Para ver um passo a passo completo sobre como escrever um `ICommunicationListener`, confira [Serviços da API Web do Service Fabric com auto-hospedagem de OWIN](service-fabric-reliable-services-communication-webapi.md)
 
 ## Comunicando-se com um serviço
 A API dos Reliable Services fornece as bibliotecas a seguir para escrever clientes que se comunicam com serviços.
@@ -145,10 +147,10 @@ A API dos Reliable Services fornece as bibliotecas a seguir para escrever client
 ### Resolução de ponto de extremidade de serviço
 A primeira etapa para a comunicação com um serviço é resolver um endereço do ponto de extremidade da partição ou instância do serviço com o qual você deseja falar. A classe de utilitário `ServicePartitionResolver` é um primitivo básico que ajuda os clientes a determinar o ponto de extremidade de um serviço no tempo de execução. Na terminologia do Service Fabric, o processo de determinar o ponto de extremidade de um serviço é conhecido como *resolução do ponto de extremidade de serviço*.
 
-Para se conectar aos serviços dentro de um cluster, `ServicePartitionResolver` pode ser criado sem parâmetros:
+Para se conectar aos serviços em um cluster, `ServicePartitionResolver` pode ser criado usando as configurações padrão. Este é o uso recomendado na maioria das situações:
 
 ```csharp
-ServicePartitionResolver resolver = new  ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ```
 
 Para se conectar aos serviços em um cluster diferente, um `ServicePartitionResolver` pode ser criado com um conjunto de pontos de extremidade de gateway do cluster. Observe que os pontos de extremidade de gateway são apenas pontos de extremidade diferentes para se conectar ao mesmo cluster. Por exemplo:
@@ -157,13 +159,13 @@ Para se conectar aos serviços em um cluster diferente, um `ServicePartitionReso
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-Um `ServicePartitionResolver` pode receber uma função para criar um `FabricClient` para uso interno.
+Como alternativa, um `ServicePartitionResolver` pode receber uma função para criar um `FabricClient` para uso interno:
  
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
 
-O `FabricClient` é o objeto usado para se comunicar com o cluster do Service Fabric em várias operações de gerenciamento no cluster. Isso é útil quando você quiser mais controle sobre como o `ServicePartitionClient` interage com o cluster. O `FabricClient` realiza armazenamento em cache internamente e é geralmente caro de criar, portanto, é importante reutilizar instâncias do `FabricClient` tanto quanto possível.
+O `FabricClient` é o objeto usado para se comunicar com o cluster do Service Fabric em várias operações de gerenciamento no cluster. Isso é útil quando você quiser mais controle sobre como o `ServicePartitionResolver` interage com o cluster. O `FabricClient` realiza armazenamento em cache internamente e é geralmente caro de criar, portanto, é importante reutilizar instâncias do `FabricClient` tanto quanto possível.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -172,7 +174,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 Um método de resolução é então usado para recuperar o endereço de um serviço ou uma partição de serviço para serviços particionados.
 
 ```csharp
-ServicePartitionResolver resolver = new ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 
 ResolvedServicePartition partition =
     await resolver.ResolveAsync(new Uri("fabric:/MyApp/MyService"), new ServicePartitionKey(), cancellationToken);
@@ -226,10 +228,10 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 Por fim, um manipulador de exceção é responsável por determinar a ação a ser executada quando uma exceção ocorre. Exceções são categorizadas como **repetível** e **não repetível**.
 
- - Exceções **não repetíveis** simplesmente são retornadas para o chamador. 
+ - Exceções **não repetíveis** simplesmente são retornadas para o chamador.
  - Exceções **repetíveis** são categorizadas novamente em **transitória** e **não transitória**.
-  - Exceções **transitórias** são aquelas que podem ser recuperadas simplesmente sem resolver novamente o endereço do ponto de extremidade de serviço. Elas incluem problemas de rede transitórios ou respostas de erros de serviço diferentes daqueles que indicam que o endereço do ponto de extremidade de serviço não existe. 
-  - Exceções **não transitórias** são aquelas que exigem que o endereço do ponto de extremidade de serviço seja resolvido novamente. Elas incluem exceções que indicam que não foi possível alcançar o ponto de extremidade de serviço, indicando que o serviço foi movido para outro nó. 
+  - Exceções **transitórias** são aquelas que podem ser recuperadas simplesmente sem resolver novamente o endereço do ponto de extremidade de serviço. Elas incluem problemas de rede transitórios ou respostas de erros de serviço diferentes daqueles que indicam que o endereço do ponto de extremidade de serviço não existe.
+  - Exceções **não transitórias** são aquelas que exigem que o endereço do ponto de extremidade de serviço seja resolvido novamente. Elas incluem exceções que indicam que não foi possível alcançar o ponto de extremidade de serviço, indicando que o serviço foi movido para outro nó.
 
 O `TryHandleException` toma uma decisão sobre uma determinada exceção. Se ele **não souber** quais decisões devem ser tomadas sobre uma exceção, ele deverá retornar **false**. Se ele **souber** qual decisão tomar, ele deverá definir o resultado corretamente e retornar **true**.
  
@@ -282,4 +284,4 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 
  - [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -90,4 +90,4 @@ Se você tiver comprado créditos do Azure via Open de um revendedor e recebido 
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

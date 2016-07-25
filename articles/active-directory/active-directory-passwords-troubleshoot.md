@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Solução de problemas: Gerenciamento de senha do Azure AD | Microsoft Azure" 
-	description="Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Solução de problemas: Gerenciamento de senha do Azure AD | Microsoft Azure"
+	description="Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Como solucionar problemas de gerenciamento de senha
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 Se você estiver tendo problemas com o gerenciamento de senhas, estamos aqui para ajudar. A maioria dos problemas que podem ocorrer são resolvidos com algumas etapas de solução de problemas simples que você pode ler abaixo para solucionar problemas na sua implantação:
 
 * [**Informações a serem incluídas quando precisar de ajuda**](#information-to-include-when-you-need-help)
@@ -216,7 +219,7 @@ Se você encontrar um erro ao registrar um usuário para redefinição de senha,
             <td>
               <p>O usuário vê um erro que diz:</p>
               <p>
-                
+
               </p>
               <p>Erro ao processar solicitação </p>
               <p>durante a tentativa de redefinir uma senha.</p>
@@ -257,7 +260,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Sua conta não está habilitada para redefinição de senha</p>
               <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
-                
+
               </p>
               <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
@@ -284,7 +287,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Sua conta não está habilitada para redefinição de senha</p>
               <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
-                
+
               </p>
               <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
@@ -300,7 +303,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Sua conta não está habilitada para redefinição de senha</p>
               <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
-                
+
               </p>
               <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
@@ -362,7 +365,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
             <td>
               <p>O usuário vê um erro dizendo:</p>
               <p>
-                
+
               </p>
               <p>use outra opção.</p>
               <p>Você tentou verificar sua conta muitas vezes na última hora. Por motivos de segurança, você terá que aguardar 24 horas antes de tentar novamente. </p>
@@ -388,7 +391,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
             <td>
               <p>Ao tentar verificar um telefone a ser usado como método de autenticação, o usuário vê um erro dizendo:</p>
               <p>
-                
+
               </p>
               <p>número de telefone especificado incorreto.</p>
             </td>
@@ -404,7 +407,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
             <td>
               <p>O usuário vê um erro que diz:</p>
               <p>
-                
+
               </p>
               <p>Erro ao processar solicitação </p>
               <p>durante a tentativa de redefinir uma senha.</p>
@@ -444,7 +447,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>O serviço de redefinição de senha não é iniciado no local com erro 6800 no log de eventos de aplicativo do Azure AD Connect do computador.</p>
               <p>
-                
+
               </p>
               <p>Depois da integração, usuários federados ou com senha de sincronização de hash não conseguem redefinir suas senhas.</p>
             </td>
@@ -460,7 +463,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Na última etapa do processo de instalação do Azure AD Connect, você verá um erro indicando que não foi possível configurar o write-back de senha.</p>
               <p>
-                
+
               </p>
               <p>O log de eventos do aplicativo Azure AD Connect contém erro 32009 com texto "Erro ao obter token de autenticação".</p>
             </td>
@@ -484,17 +487,17 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>O log de eventos do computador do Azure AD Connect contém o erro 32002 gerado pelo PasswordResetService.</p>
               <p>
-                
+
               </p>
               <p>O erro é: "erro de conexão com o barramento de serviço; o provedor de token não pôde fornecer um token de segurança..."</p>
               <p>
-                
+
               </p>
             </td>
             <td>
               <p>A causa desse erro é que o serviço de redefinição de senha em execução no seu ambiente local não é capaz de conectar-se ao ponto de extremidade do barramento de serviço na nuvem. Esse erro normalmente é causado por uma regra de firewall bloqueando uma conexão de saída para uma determinada porta ou endereço Web.</p>
               <p>
-                
+
               </p>
               <p>Verifique se o firewall permite conexões de saída para o seguinte:</p>
               <ul>
@@ -506,7 +509,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
 										Conexões de saída para &lt;br>&lt;br></li>
               </ul>
               <p>
-                
+
               </p>
               <p>Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deve começar a funcionar novamente.</p>
             </td>
@@ -521,7 +524,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Em alguns casos raros, o serviço de write-back de senha pode falhar ao iniciar novamente quando o Azure AD Connect for iniciado novamente. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
               <p>
-                
+
               </p>
               <p>Se isso não funcionar, tente desinstalar completamente e reinstalar o Azure AD Connect.</p>
             </td>
@@ -533,14 +536,14 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
-                
+
               </p>
               <p>Além disso, durante as operações de redefinição de senha, você pode ver um erro de que o agente de gerenciamento teve acesso negado em seus logs de eventos no local.</p>
             </td>
             <td>
               <p>Se você vir esses erros no log de eventos, confirme se a conta do AD MA (que foi especificada no assistente no momento da configuração) tem as permissões necessárias para write-back de senha.</p>
               <p>
-                
+
               </p>
               <p>Observe que, depois que essa permissão é fornecida, pode levar até 1 hora para as permissões sejam repassadas através de tarefa em segundo plano sdprop no controlador de domínio. </p>
               <p>Para que a redefinição de senha funcione, a permissão deve ser marcada no descritor de segurança do objeto do usuário cuja senha esteja sendo redefinida. Até que essa permissão seja exibida no objeto do usuário, a redefinição de senha continuará a falhar com acesso negado.</p>
@@ -576,7 +579,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Os usuários privilegiados no Active Directory são protegidos com o AdminSDHolder. Confira <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> para obter mais detalhes. </p>
               <p>
-                
+
               </p>
               <p>Isso significa que os descritores de segurança desses objetos são verificados periodicamente para coincidir com o especificado no AdminSDHolder e são redefinidos se eles forem diferentes. Portanto, as permissões adicionais necessárias para o write-back de senha não aparecem para esses usuários. Isso pode resultar no não funcionamento do write-back de senha para esses usuários. Assim, não há suporte para gerenciamento de senhas para os usuários nesses grupos porque ele rompe o modelo de segurança do AD.</p>
             </td>
@@ -588,14 +591,14 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
-                
+
               </p>
               <p>Além disso, durante as operações de redefinição de senha, você verá um erro em seus logs de eventos do serviço do Azure AD Connect indicando o erro "Objeto não encontrado".</p>
             </td>
             <td>
               <p>Esse erro geralmente indica que o mecanismo de sincronização não consegue encontrar o objeto de usuário no espaço do conector AAD ou o objeto de espaço de conector AD ou MV vinculado. </p>
               <p>
-                
+
               </p>
               <p>Para solucionar esse problema, verifique se o usuário está realmente sincronizado do local para o AAD pela instância atual do Azure AD Connect e inspecione o estado dos objetos nos espaços de conector e MV. Confirme se o objeto do AD CS é conector para o objeto de MV através da regra "Microsoft.InfromADUserAccountEnabled.xxx".</p>
             </td>
@@ -607,14 +610,14 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             <td>
               <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
-                
+
               </p>
               <p>Além disso, durante as operações de redefinição de senha, você pode ver um erro em seus logs de evento do serviço do Azure AD Connect indicando o erro "Várias correspondências encontradas".</p>
             </td>
             <td>
               <p>Isso indica que o mecanismo de sincronização detectou que o objeto de MV está conectado a mais de um objeto de AD CS através de "Microsoft.InfromADUserAccountEnabled.xxx". Isso significa que o usuário tem uma conta habilitada em mais de uma floresta. </p>
               <p>
-                
+
               </p>
               <p>No momento,não há suporte para write-back de senha nesse cenário.</p>
             </td>
@@ -1416,7 +1419,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             </td>
           </tr>
         </tbody></table>
-		
+
 ## Solucionar problemas de conectividade de write-back de senha
 
 Se você estiver enfrentando interrupções de serviço com o componente de write-back de senha do Azure AD Connect, abaixo estão algumas etapas rápidas que você pode seguir para resolver esse problema:
@@ -1482,7 +1485,7 @@ Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solu
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -1498,4 +1501,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

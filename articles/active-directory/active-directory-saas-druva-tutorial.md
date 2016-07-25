@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Druva
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Druva, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-druva-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Seu aplicativo Druva espera as declarações do SAML em um formato específico, 
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Active Directory do Azure, na página de integração de aplicativos do **Druva**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Druva**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/IC795027.png "Configurar o logon único")
 
@@ -80,7 +80,7 @@ Seu aplicativo Druva espera as declarações do SAML em um formato específico, 
 
     ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/IC795088.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Druva**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Druva (por exemplo: "**https://cloud.druva.com/home/*”)) e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Druva**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Druva (por exemplo: "*https://cloud.druva.com/home/*”) e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-druva-tutorial/IC795089.png "Configurar a URL do Aplicativo")
 
@@ -98,11 +98,11 @@ Seu aplicativo Druva espera as declarações do SAML em um formato específico, 
 
     ![Configurações de Logon Único](./media/active-directory-saas-druva-tutorial/IC795092.png "Configurações de Logon Único")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Druva**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Druva**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
-    3.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Druva**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Druva**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout do Provedor de Identidade**.
+    3.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de ID**
     5.  Para abrir a página **Configurações**, clique em **Salvar**.
@@ -118,7 +118,7 @@ Seu aplicativo Druva espera as declarações do SAML em um formato específico, 
     1.  Clique em **Copiar**.
     2.  Clique em **fechar**
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/IC795095.png "Configurar o logon único")
 
@@ -161,7 +161,7 @@ Para permitir que os usuários do Azure AD façam logon no Druva, eles devem ser
     1.  Digite o endereço de email e o nome da conta de usuário válida do Active Directory do Azure, que você deseja provisionar nas caixas de texto relacionadas.
     2.  Clique em **Criar Usuário**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Druva ou as APIs fornecidas pelo Druva para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Druva ou as APIs fornecidas pelo Druva para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -169,9 +169,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Druva, execute as etapas a seguir:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Druva**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Druva**, clique em **Atribuir usuários**.
 
     ![Atribuir Usuários](./media/active-directory-saas-druva-tutorial/IC795100.png "Atribuir Usuários")
 
@@ -181,4 +181,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

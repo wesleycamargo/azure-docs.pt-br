@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure" 
-	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure"
+	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Como obter percepções operacionais com relatórios de gerenciamento de senhas
+
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+
 Esta seção descreve como você pode usar relatórios de gerenciamento de senhas do Active Directory do Azure para ver como os usuários estão usando a redefinição e alteração de senhas em sua organização.
 
 - [**Visão geral de relatórios de gerenciamento de senhas**](#overview-of-password-management-reports)
@@ -81,7 +84,7 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
 Coluna|Valores permitidos e seus significados
 ---|---
-Dados Registrados| **Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p><p>**Telefone Comercial**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
+Dados Registrados| **Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p><p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
 
 ## Exibir atividade de redefinição de senha
 
@@ -108,8 +111,8 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
 Coluna|Valores permitidos e seus significados
 ---|---
-Métodos usados|**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p>**Telefone Comercial**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
-Result|**Abandonado** – o usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou um acesso de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – o usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão Cancelar no meio do processo<p>**Administrador Contatado** – o usuário teve um problema durante a sessão que não foi possível resolver, então, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não foi capaz de redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas o write-back está desativado).<p>** Bem-sucedida** – a redefinição de senha foi bem-sucedida.
+Métodos usados|**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, email alternativo + celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
+Resultado|**Abandonado** – o usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou um acesso de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – o usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão Cancelar no meio do processo<p>**Administrador Contatado** – o usuário teve um problema durante a sessão que não foi possível resolver, então, ele clicou no link "Contate seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não foi capaz de redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas o write-back está desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida.
 Detalhes|Consulte a tabela abaixo.
 
 ### Valores permitidos para a coluna de detalhes
@@ -156,7 +159,7 @@ O usuário redefiniu a senha com êxito|Bem-sucedido
 ## Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* [**Redefinir sua própria senha**](active-directory-passwords-update-your-own-password.md): saiba mais sobre como redefinir ou alterar sua própria senha como um usuário do sistema
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -171,4 +174,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

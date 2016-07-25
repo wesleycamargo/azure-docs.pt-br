@@ -31,7 +31,8 @@ No contexto deste artigo, um aplicativo multilocatário é um aplicativo hospeda
 
 Os aplicativos multilocatários são um exemplo proeminente de um tipo de aplicativo cujos dados e cargas de trabalho podem ser particionados com facilidade. Por exemplo, com aplicativos multilocatários, dados e carga de trabalho podem ser particionados normalmente em limites de locatário já que a maioria das solicitações estão dentro dos limites de um locatário. Essa propriedade é inerente aos dados e à carga de trabalho e ela favorece os padrões de aplicativos discutidos no restante do artigo.
 
-Podemos encontrar tais aplicativos distribuídos em todo o espectro de aplicativos baseados em nuvem incluindo
+Podemos encontrar tais aplicativos distribuídos em todo o espectro de aplicativos baseados em nuvem incluindo:
+
 - aplicativos de banco de dados de ISV, fazendo a transição para a nuvem como aplicativos SaaS
 - Aplicativos SaaS compilador para a nuvem do zero
 - Usuário final/consumidor direto voltado para aplicativos
@@ -117,7 +118,7 @@ O banco de dados SQL do Azure fornece "pools de banco de dados elástico" para m
 | Facilidade de DevOps em bancos de dados | [Pools de banco de dados elástico:](sql-database-elastic-pool.md) conforme listado acima.|
 ||[Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md) fornece capacidade de consultar em bancos de dados relatórios ou análises entre locatários.|
 ||[Trabalhos elásticos:](sql-database-elastic-jobs-overview.md) fornece a capacidade de empacotar e implantar confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados.|
-||[Transações elásticas:](sql-database-elastic-scale.md) fornece a capacidade de processar alterações em vários bancos de dados de uma maneira atômica e isolada. Isso é necessário quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. |
+||[Transações elásticas:](sql-database-elastic-transactions-overview.md) fornece a capacidade de processar alterações em vários bancos de dados de uma maneira atômica e isolada. Isso é necessário quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. |
 ||[Biblioteca de cliente do banco de dados elástico:](sql-database-elastic-database-client-library.md) esse recurso permite gerenciar distribuições de dados e o mapeamento de locatários para bancos de dados. |
 ||||
 
@@ -179,4 +180,4 @@ Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](h
 
 	
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

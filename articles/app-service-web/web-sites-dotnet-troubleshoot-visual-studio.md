@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
 
@@ -266,7 +266,7 @@ Um aplicativo em ASP.NET executado em um aplicativo Web do Azure pode criar os s
 
 * **Logs de rastreamento de aplicativos**<br/>O aplicativo cria esses logs chamando métodos da classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Logs de servidor da Web**<br/> O servidor Web cria uma entrada no log para cada solicitação HTTP ao aplicativo Web.
-* **Logs de mensagens de erro detalhadas**<br/> O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (aquelas que resultam em um código de status 400 ou superior). 
+* **Logs de mensagens de erro detalhadas**<br/> O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (aquelas que resultam em um código de status 400 ou superior).
 * **Logs de rastreamento de solicitações com falha**<br/> O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
   
 Como o registro em log afeta o desempenho do aplicativo Web, o Azure oferece a possibilidade de habilitar ou desabilitar cada tipo de log conforme necessário. Para logs de aplicativo, você pode especificar que apenas os logs acima de um determinado nível de gravidade devem ser gravados. Por padrão, quando você cria um novo aplicativo Web, todo o registro em log está desabilitado.
@@ -279,7 +279,7 @@ Nesta seção, você executará as seguintes tarefas:
 
 * Adicionar instruções de rastreamento ao projeto Web que você criou na [Introdução ao Azure e ASP.NET][GetStarted].
 * Exiba os logs ao executar o projeto localmente.
-* Exiba os logs conforme eles são gerados pelo aplicativo em execução no Azure. 
+* Exiba os logs conforme eles são gerados pelo aplicativo em execução no Azure.
 
 Para saber mais sobre como criar logs de aplicativo em Trabalhos Web, confira [Como trabalhar com o armazenamento de fila do Azure utilizando o SDK de Trabalhos Web: como gravar logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). As instruções a seguir para exibir logs e controlar como eles são armazenados no Azure também se aplicam a logs de aplicativos criados por Trabalhos Web.
 
@@ -616,7 +616,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
 	![Novo nome de usuário e senha FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****Quando você fizer logon, será preciso usar o nome de usuário completo com o nome do aplicativo Web como prefixo dele. Por exemplo, se você inserir "myid" como um nome de usuário e o site é "meuexemplo", fará logon como "meuexemplo\\myid".
+	**Quando você fizer logon, será preciso usar o nome de usuário completo com o nome do aplicativo Web como prefixo dele. Por exemplo, se você inserir "myid" como um nome de usuário e o site é "meuexemplo", fará logon como "meuexemplo\\myid".
 
 5. Em uma nova janela do navegador, vá para a URL mostrada em **Nome do host FTP** ou **Nome do host FTPS** na folha **Aplicativo Web** do seu aplicativo Web.
 
@@ -728,4 +728,4 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

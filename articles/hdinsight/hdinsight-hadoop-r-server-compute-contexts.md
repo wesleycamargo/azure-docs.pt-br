@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/07/2016"
    ms.author="jeffstok"
 />
 
@@ -46,7 +46,7 @@ Atualmente, não há uma fórmula que informa qual contexto de computação usar
 2.	As análises repetidas serão mais rápidas se os dados forem locais e em XDF.
 3.	É preferível para transmitir pequenas quantidades de dados de uma fonte de dados de texto. Se a quantidade de dados for maior, converta-a para XDF antes da análise.
 4.	A sobrecarga da cópia ou transmissão dos dados para o nó de borda para análise se torna incontrolável para grandes quantidades de dados.
-5.	O Spark será mais rápido do que o Map Reduce para análises em Hadoop até que a quantidade de dados se torne grande demais e não caiba mais na memória distribuída.
+5.	Spark é mais rápido do que Map Reduce para análise no Hadoop.
 
 Com esses princípios, algumas regras gerais para selecionar um contexto de computação são:
 
@@ -61,7 +61,7 @@ Com esses princípios, algumas regras gerais para selecionar um contexto de comp
 
 ### Hadoop Map Reduce
 
-- Se a quantidade de dados a ser analisada for muito grande e o desempenho do Spark começar a apresentar queda, tente uma análise via Map Reduce.
+- Use somente se você encontrar um problema intransponível com o uso do contexto de computação do Spark, pois geralmente ele será mais lento.
 
 ## Ajuda embutida em rxSetComputeContext
 
@@ -81,4 +81,4 @@ Neste artigo, você aprendeu como criar um novo cluster do HDInsight que inclui 
 - [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de Armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

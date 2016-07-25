@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Solução de problemas detalhada da Área de Trabalho Remota | Microsoft Azure"
-	description="Etapas da solução de problemas detalhada de conexões de RDP ou Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows."
+	pageTitle="Solução de problemas detalhada: não é possível conectar à área de trabalho remota da VM | Microsoft Azure"
+	description="Solucionar erros da área de trabalho remota, onde não é possível usar a área de trabalho remota para conectar às máquinas virtuais do Windows no Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="não é possível conectar à área de trabalho remota, solucionar problemas da área de trabalho remota, a área de trabalho remota não pode conectar, erros da área de trabalho remota, solução de problemas da área de trabalho remota, problemas da área de trabalho remota"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Solução de problemas detalhada de conexões de Área de Trabalho Remota para máquinas virtuais do Azure baseadas em Windows
+# Solucionar problemas de detalhes na área de trabalho remota que não consegue conectar às VMs do Windows no Azure
 
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
 
-> [AZURE.IMPORTANT] Para eliminar os erros mais comuns da Área de Trabalho Remota, não deixe de ler [o artigo de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md) antes de continuar.
+> [AZURE.IMPORTANT] Para eliminar os erros mais comuns da Área de Trabalho Remota, leia [o artigo de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md) antes de continuar.
 
-Caso você receba uma mensagem de erro da Área de Trabalha Remota que não se assemelha a nenhuma das mensagens de erro específicas abordadas em [Guia de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md), siga estas etapas e tente descobrir por que o cliente da RDP (Área de Trabalho Remota) não consegue se conectar ao serviço RDP na VM do Azure.
+Caso você receba uma mensagem de erro da Área de Trabalho Remota que não se assemelha a nenhuma das mensagens de erro específicas abordadas no [guia de solução de problemas básicos da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md), siga estas etapas e tente descobrir por que o cliente da RDP (Área de Trabalho Remota) não consegue conectar o serviço RDP na VM do Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -38,7 +39,7 @@ Estes são os componentes envolvidos em uma conexão de RDP:
 
 Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo:
 
-- Se o endereço IP público da VM ou do serviço de nuvem que contém a VM (também chamado do endereço IP virtual [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) tiver sido alterado, talvez a RDP tenha falhado porque cache do cliente DNS ainda tem o *endereço IP antigo* registrado para o nome DNS. Libere o cache do cliente DNS e tente conectar-se novamente à VM. Ou tente conectar-se diretamente com o novo VIP.
+- Se o endereço IP público da VM ou o serviço de nuvem que contém a VM (também chamado do endereço IP virtual [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) mudou, então, a RDP falhou porque o cache do cliente DNS ainda tem o *antigo endereço IP* registrado para o nome DNS. Libere o cache do cliente DNS e tente conectar-se novamente à VM. Ou tente conectar-se diretamente com o novo VIP.
 - Se você estiver usando um aplicativo de terceiro para gerenciar suas conexões de Área de Trabalho Remota em vez de usar qualquer um dos portais do Azure, verifique se a configuração do aplicativo inclui a porta TCP atual para o tráfego da Área de Trabalho Remota. Você pode verificar essa porta para uma máquina virtual clássica no [portal do Azure](https://portal.azure.com), clicando em Configurações > Pontos de Extremidade da VM.
 
 
@@ -47,7 +48,7 @@ Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a ú
 Antes de prosseguir para a solução de problemas detalhada,
 
 - verifique o status da máquina virtual no Portal Clássico do Azure ou no Portal do Azure em busca de problemas óbvios
-- Siga as [etapas de correção rápida para erros comuns de RDP no guia de solução de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md)
+- Siga as [etapas de correção rápida para os erros comuns da RDP no guia de solução de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 
 Tente reconectar-se à VM por meio da Área de Trabalho Remota após estas etapas.
@@ -102,7 +103,7 @@ Para máquinas virtuais criadas usando o modelo de implantação clássico, veri
 
 > [AZURE.NOTE] Para máquinas virtuais criadas no Gerenciador de Recursos, vá para [Fonte 4: Grupos de segurança de rede](#nsgs).
 
-Se não houver outra máquina virtual no mesmo serviço de nuvem ou na mesma rede virtual, você poderá criar uma nova usando as etapas em [Criar uma máquina virtual que executa o Windows no Azure](virtual-machines-windows-hero-tutorial.md). Exclua a máquina virtual extra após a conclusão do teste.
+Se você não tiver outra máquina virtual no mesmo serviço de nuvem ou rede virtual, poderá criar uma nova usando as etapas em [Criar uma máquina virtual que executa o Windows no Azure](virtual-machines-windows-hero-tutorial.md). Exclua a máquina virtual extra após a conclusão do teste.
 
 Se você puder se conectar a uma máquina virtual por meio da Área de Trabalho Remota no mesmo serviço de nuvem ou rede virtual, verifique o seguinte:
 
@@ -113,7 +114,15 @@ Para verificar se o ponto de extremidade é a fonte do problema, remova o ponto 
 
 ### <a id="nsgs"></a>Fonte 4: grupos de segurança de rede
 
-Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Verifique as regras do Grupo de Segurança de Rede para verificar se o tráfego de Área de Trabalho Remota da Internet é permitido.
+Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Verifique as regras do Grupo de Segurança da Rede para assegurar que o tráfego da Área de Trabalho Remota da Internet é permitido:
+
+- No portal do Azure, selecione sua VM
+- Clique em **Todas as configurações** | **Interfaces de rede** e selecione sua interface de rede.
+- Clique em **Todas as configurações** | **Grupo de segurança da rede** e selecione o grupo de segurança da rede.
+- Clique em **Todas as configurações** | **Regras de segurança de entrada** e verifique se você tem uma regra que permite a RDP na porta TCP 3389.
+	- Se você não tiver uma regra, clique em **Adicionar** para criar uma nova regra. Digite **TCP** para o protocolo e, **3389** para o intervalo da porta de destino.
+	- Verifique se a ação está definida para **Permitir** e clique em OK para salvar a nova regra de entrada.
+
 
 Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
 
@@ -121,7 +130,7 @@ Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../vir
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Use o [pacote de diagnóstico do Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para ver se a falha ocorreu devido à própria máquina virtual do Azure. Caso você não consiga resolver o problema de **conectividade RDP a uma VM do Azure (Reinicialização Necessária)** com este pacote de diagnóstico, siga as instruções [neste artigo](virtual-machines-windows-reset-rdp.md) para redefinir o serviço da Área de Trabalho Remota na máquina virtual. Isso vai:
+Use o [pacote de diagnóstico do Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para ver se a falha ocorreu devido à própria máquina virtual do Azure. Se o pacote de diagnóstico não conseguir resolver o problema de **conectividade RDP com uma VM do Azure (Reinicialização Necessária)**, siga as instruções [neste artigo](virtual-machines-windows-reset-rdp.md) para redefinir o serviço da Área de Trabalho Remota na máquina virtual. Isso vai:
 
 - Habilitar a regra de firewall padrão do Windows de "Área de Trabalho Remota" (porta TCP 3389).
 - Habilitar conexões de Área de Trabalho Remota definindo o valor do Registro HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections como 0.
@@ -133,13 +142,13 @@ Tente estabelecer a conexão de seu computador novamente. Se você ainda não co
 - O Firewall do Windows ou outro firewall local tem uma regra de saída que está impedindo o tráfego de Área de Trabalho Remota.
 - Um software de detecção de intrusão ou monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de Área de Trabalho Remota.
 
-Para VMs criadas usando o modelo de implantação clássico, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você precisa instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Acesse [Configurar Acesso Seguro do Remote PowerShell a Máquinas Virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** no computador local.
+Para VMs criadas usando o modelo de implantação clássico, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você precisa instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Acesse [Configurar Acesso Seguro Remoto do PowerShell às Máquinas Virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para o computador local.
 
 Em seguida, instale o Azure PowerShell, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 Em seguida, abra um prompt de comando do Azure PowerShell e altere a pasta atual para o local do arquivo de script **InstallWinRMCertAzureVM.ps1**. Para executar um script do Azure PowerShell, é preciso definir a política de execução correta. Execute o comando **Get-ExecutionPolicy** para determinar o nível de política atual. Para obter informações sobre como definir o nível apropriado, consulte [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-Em seguida, preencha o nome de sua assinatura do Azure, o nome do serviço de nuvem e o nome da máquina virtual (removendo os caracteres < and >) e execute estes comandos.
+Em seguida, preencha o nome de sua assinatura do Azure, o nome do serviço de nuvem e o nome da máquina virtual (removendo os caracteres < e >), então, execute estes comandos.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -195,4 +204,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/12/2016"
 	ms.author="guybo"/>
 
 # Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral
@@ -25,7 +25,7 @@ Para aplicativos que necessitam dimensionar os recursos de computação, as oper
 
 Examine esses vídeos para saber mais sobre conjuntos de dimensionamento de VM:
 
- - [Mark Russinovich fala sobre os Conjuntos de Dimensionamento do Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+ - [Mark Russinovich fala sobre os Conjuntos de Dimensionamento do Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 
  - [Conjuntos de Dimensionamento de Máquina Virtual com Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -43,13 +43,13 @@ Nas páginas de detalhes para esses modelos, você verá um botão que vincula a
 
 Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dimensionamento de VM, basta alterar a propriedade _capacity_ e reimplantar o modelo. Essa simplicidade facilita escrever sua própria camada de dimensionamento personalizada se você quiser definir eventos de escala personalizada que não têm suporte do dimensionamento automático do Azure.
 
-Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Um exemplo disso é mostrado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
+Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Veja um exemplo disso [aqui.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
 Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## Monitoramento de seu conjunto de dimensionamento de VM
 
-Atualmente recomenda-se a utilização do [Azure Resource Explorer](https://resources.azure.com) para exibir os conjuntos de dimensionamento de VM. Os conjuntos de dimensionamento de VM são um recurso encontrado em Microsoft.Compute, de modo que nesse site, você pode vê-los expandindo os seguintes links:
+O [Portal do Azure](https://portal.azure.com) lista os conjuntos de dimensionamento e mostra as propriedades básicas, bem como as VMs no conjunto. Para obter mais detalhes você pode usar o [Gerenciador de Recursos do Azure](https://resources.azure.com) para exibir os conjuntos de dimensionamento de VM. Os conjuntos de dimensionamento de VM são um recurso encontrado em Microsoft.Compute, de modo que nesse site, você pode vê-los expandindo os seguintes links:
 
 	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
@@ -57,9 +57,9 @@ Atualmente recomenda-se a utilização do [Azure Resource Explorer](https://reso
 
 Esta seção lista alguns cenários típicos de conjunto de dimensionamento de VM. Além disso, alguns serviços do Azure de nível mais alto (como Lote, Service Fabric, Serviço de Contêiner do Azure) usarão esses cenários.
 
- - **RDP / SSH para instâncias de conjunto de escala de VM**: um conjunto de escala de VM é criado dentro de uma VNET e as VMs individuais dentro dele não são endereços IP públicos alocados. Isso é bom, pois geralmente você não quer as despesas e os custos gerais de gerenciamento de alocar endereços IP separados para todos os recursos sem estado na sua grade de computação, e você pode se conectar facilmente a essas VMs de outros recursos na sua rede virtual, incluindo aqueles que têm endereços IP públicos como balanceadores de carga ou máquinas virtuais autônomas.
+ - **RDP / SSH para instâncias de conjunto de escala de VM**: um conjunto de escala de VM é criado dentro de uma VNET e as VMs individuais dentro dele não são endereços IP públicos alocados. Isso é bom, pois geralmente você não quer as despesas e os custos gerais de gerenciamento de alocar endereços IP públicos separados para todos os recursos sem estado na sua grade de computação, e você pode se conectar facilmente a essas VMs de outros recursos na sua rede virtual, incluindo aqueles que têm endereços IP públicos como balanceadores de carga ou máquinas virtuais autônomas.
 
- - **Conectar-se a VMs usando regras de NAT**: você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir regras NAT de entrada que mapeiam uma porta no endereço IP para uma porta em uma máquina virtual no conjunto de escala de VM:
+ - **Conectar-se a VMs usando regras de NAT** -Você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir regras NAT de entrada que mapeiam uma porta no endereço IP para uma porta em uma máquina virtual no conjunto de dimensionamento de VM. Por exemplo:
  
 	Fonte | Porta de origem | Destino | Porta de destino
 	--- | --- | --- | ---
@@ -75,7 +75,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 	[Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de escala.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Balanceamento de carga round-robin para instâncias de conjunto de dimensionamento de VM** - Se desejar entregar trabalho a um cluster de VMs de computação usando uma abordagem "round-robin", você poderá configurar um balanceador de carga do Azure com regras de balanceamento de carga apropriadas. Também é possível definir investigações para verificar se o aplicativo está em execução ao executar ping de portas com um protocolo especificado, intervalo e caminho de solicitação.
+ - **Balanceamento de carga para instâncias de conjunto de dimensionamento de VM** - Se desejar entregar trabalho a um cluster de VMs de cálculo usando uma abordagem "round-robin", você poderá configurar um balanceador de carga do Azure com regras de balanceamento de carga apropriadas. É possível definir investigações para verificar se o aplicativo está em execução ao executar ping de portas com um protocolo especificado, intervalo e caminho de solicitação. O Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) também oferece suporte aos conjuntos de dimensionamento, além de cenários de balanceamento de carga mais sofisticados.
 
 	[Veja um exemplo que cria um conjunto de escalas de VM de VMs que executam o servidor Web IIS e usa um balanceador de carga para equilibrar a carga que cada VM recebe. Ele também usa o protocolo HTTP para executar ping de uma URL específica em cada VM ](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (observe o tipo de recurso Microsoft.Network/loadBalancers, bem como networkProfile e extensionProfile no virtualMachineScaleSet)
 
@@ -98,7 +98,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P.** Quantas VMs você pode ter em um conjunto de dimensionamento de VM?
 
-**A.** 100, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40 (se a propriedade _provisionamento excessivo_ estiver definida como “false”, 20 por padrão), visto que as imagens personalizadas são limitadas a uma única conta de armazenamento durante a preview.
+**A.** 100, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40 (se a propriedade _provisionamento excessivo_ estiver definida como “false”, 20 por padrão), visto que as imagens personalizadas são limitadas a uma única conta de armazenamento.
 
 **P** Que outros limites de recurso existem para conjuntos de dimensionamento de VM?
 
@@ -149,10 +149,10 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento de VM, posso impor uma sequência de execução?
 
-**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída ([por exemplo, monitorando o log de extensão](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
+**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída ([por exemplo, monitorando o log de extensão](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Encontre orientações adicionais sobre o sequenciamento de extensão nesta postagem de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sequenciamento de extensão em conjuntos de dimensionamento de VM do Azure).
 
 **P.** Os conjuntos de dimensionamento de VM funcionam com os conjuntos de disponibilidade do Azure?
 
 **A.** Sim. Um conjunto de escala de VM é um conjunto de disponibilidade implícito com 5 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="07/13/2016"
    ms.author="georgem"/>
 
 # Benefício do uso híbrido do Azure para Windows Server
@@ -39,22 +39,24 @@ Para implantar uma VM do Windows Server no Azure, você precisa primeiro criar u
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
 ```
 
-Você também pode ler mais sobre [carregar o VHD para o processo do Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+> [AZURE.NOTE] O Microsoft SQL Server, SharePoint Server e Dynamics também podem utilizar o licenciamento Software Assurance. Você ainda precisa preparar a imagem do Windows Server instalando os componentes do aplicativo e fornecendo as chaves de licença corretamente e, então, carregando a imagem do disco no Azure. Examine a documentação apropriada para executar o Sysprep com seu aplicativo, como [Considerações para Instalar o SQL Server usando o Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) ou [Criar uma Imagem de Referência do SharePoint Server 2016 (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
+
+Você também pode ler mais sobre como [carregar o VHD no processo do Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
 > [AZURE.TIP] Este artigo se concentra na implantação de VMs do Windows Server, no entanto, você também pode implantar VMs do Windows Client da mesma maneira. Nos exemplos a seguir, você deve substituir `Server` por `Client` adequadamente.
 
 ## Implantar uma VM por meio do Início Rápido do PowerShell
-Ao implantar a VM do Windows Server por meio do PowerShell, você tem um parâmetro adicional para `-LicenseType`. Quando o VHD estiver carregado no Azure, você criará uma nova VM usando o `New-AzureRmVM` e especificará o tipo de licenciamento da seguinte maneira:
+Ao implantar a VM do Windows Server por meio do PowerShell, você tem um parâmetro adicional para `-LicenseType`. Quando o VHD estiver carregado no Azure, você criará uma nova VM usando `New-AzureRmVM` e especificará o tipo de licenciamento como a seguir:
 
 ```
 New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
     -LicenseType Windows_Server
 ```
 
-Você pode [ler uma explicação mais detalhada sobre como implantar uma VM no Azure por meio do PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) abaixo ou ler um guia mais descritivo sobre as diferentes etapas para [criar uma VM do Windows usando o Resource Manager e o PowerShell](./virtual-machines-windows-ps-create.md).
+Você pode [ler uma explicação mais detalhada sobre como implantar uma VM no Azure por meio do PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) abaixo ou ler um guia mais descritivo sobre as diferentes etapas para [criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](./virtual-machines-windows-ps-create.md).
 
 ## Implantar uma VM por meio do Resource Manager
-Dentro de seus modelos do Resource Manager, um parâmetro adicional para `licenseType` pode ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Quando o VHD for carregado no Azure, edite o modelo do Resource Manager para incluir o tipo de licença como parte do provedor de computação e implantar o modelo como normal:
+Nos modelos do Gerenciador de Recursos, um parâmetro adicional para `licenseType` pode ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Quando o VHD for carregado no Azure, edite o modelo do Resource Manager para incluir o tipo de licença como parte do provedor de computação e implantar o modelo como normal:
 
 ```
 "properties": {  
@@ -65,7 +67,7 @@ Dentro de seus modelos do Resource Manager, um parâmetro adicional para `licens
 ```
  
 ## Verifique se que sua VM está utilizando o benefício de licenciamento
-Depois de implantar sua VM por meio do método de implantação do PowerShell ou do Resource Manager, verifique o tipo de licença com `Get-AzureRmVM` da seguinte maneira:
+Depois de implantar sua VM por meio do método de implantação do PowerShell ou do Gerenciador de Recursos, verifique o tipo de licença com `Get-AzureRmVM` da seguinte maneira:
  
 ```
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
@@ -89,7 +91,7 @@ LicenseType              :
  
 ## Passo a passo detalhado do PowerShell
 
-As seguintes etapas detalhadas do PowerShell mostram uma implantação completa de uma VM. Você pode ler mais contexto sobre os cmdlets reais e diferentes componentes que estão sendo criados no [Criar uma VM do Windows usando o Resource Manager e o PowerShell](./virtual-machines-windows-ps-create.md). Você passar pela criação de seu grupo de recursos, da conta de armazenamento e da rede virtual e, em seguida, definir sua VM e criá-la finalmente.
+As seguintes etapas detalhadas do PowerShell mostram uma implantação completa de uma VM. Você pode ler mais contexto sobre os cmdlets reais e os diferentes componentes sendo criados em [Criar uma VM do Windows usando o Gerenciador de recursos e o PowerShell](./virtual-machines-windows-ps-create.md). Você passar pela criação de seu grupo de recursos, da conta de armazenamento e da rede virtual e, em seguida, definir sua VM e criá-la finalmente.
  
 Primeiro, obtenha credenciais com segurança, defina um local e o nome do grupo de recursos:
 
@@ -160,8 +162,8 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 ## Próximas etapas
 
-Leia mais sobre o [Licenciamento do Benefício do uso híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Leia mais sobre o [Licenciamento do Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-Saiba mais sobre o [uso de modelos do Resource Manager](../resource-group-overview.md).
+Saiba mais sobre como [usar os modelos do Gerenciador de Recursos](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

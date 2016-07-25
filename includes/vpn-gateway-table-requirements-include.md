@@ -8,7 +8,7 @@ A tabela a seguir lista os requisitos para gateways de VPN baseados em política
 | **Método de autenticação** | Chave pré-compartilhada | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S | Chave pré-compartilhada para conectividade S2S, Certificados para conectividade P2S |
 | **Número máximo de conexões S2S** | 1 | 10 | 10 | 30 |
 | **Número máximo de conexões P2S** | Sem suporte | 128 | 128 | 128 |
-|**Suporte ao roteamento ativo (BGP)** | Sem suporte | Sem suporte | Sem suporte | Sem suporte |
+|**Suporte ao roteamento ativo (BGP)** | Sem suporte | Sem suporte | Suportado | Suportado |
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/29/2016"
+	ms.date="07/07/2016"
 	ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -63,6 +63,8 @@ Clique em **Solucionar problemas** para receber problemas comuns e estratégias 
 Clique em **Logs de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para saber mais sobre como trabalhar com logs de auditoria, confira [Exibir eventos e logs de auditoria](../azure-portal/insights-debugging-with-events.md) e [Operações de auditoria com o Resource Manager](../resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 O **Resource Health** observa seu recurso e informa se ele está executando conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
+
+>[AZURE.NOTE] A integridade de recursos atualmente não consegue relatar a integridade de instâncias de Cache Redis do Azure hospedadas em uma rede virtual. Para saber mais, confira [Todos os recursos de cache funcionam ao hospedar um cache em uma rede virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 Clique em **Nova solicitação de suporte** para abrir uma solicitação de suporte para seu cache.
 
@@ -234,7 +236,7 @@ As configurações na seção **Administração** permitem que você execute as 
 
 ### Reboot
 
-A folha **Reinicializar** permite a reinicialização de um ou mais nós de seu cache. Isso possibilita que você teste seu aplicativo para garantir a resiliência em caso de falhas.
+A folha **Reinicializar** permite a reinicialização de um ou mais nós do cache. Isso o habilita a testar o aplicativo para garantir a resiliência em caso de falhas.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -254,7 +256,7 @@ A folha **Agendar atualizações** permite designar uma janela de manutenção p
 
 ![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
 
-Para especificar uma janela de manutenção, marque os dias desejados e especifique o horário de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC.
+Para especificar uma janela de manutenção, marque os dias desejados, especifique o horário de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC.
 
 >[AZURE.IMPORTANT] O agendamento de atualizações está disponível somente para caches do nível Premium. Para obter mais informações e instruções, confira [Administração do Cache Redis do Azure - Agendar atualizações](cache-administration.md#schedule-updates).
 
@@ -396,4 +398,4 @@ Para saber mais sobre como mover os recursos de um grupo de recursos para outro,
 ## Próximas etapas
 -	Para saber mais sobre como trabalhar com os comandos do Redis, confira [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

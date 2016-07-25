@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Citrix ShareFile
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Citrix ShareFile, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Citrix ShareFile**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Citrix ShareFile**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar logon único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Habilitar logon único")
 
@@ -97,14 +97,14 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     ![Logon único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Logon único")
 
     1.  Clique em **Habilitar SAML**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **Sua ID de Entidade/Emissor de IDP**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    5.  Clique em **Alterar** ao lado do campo **Certificado X.509** e carregue o certificado baixado no portal do Azure AD. ![Configurações Básicas](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Configurações Básicas")
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **Sua ID de Entidade/Emissor de IDP**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Citrix ShareFile**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout**.
+    5.  Clique em **Alterar** ao lado do campo **Certificado X.509** e carregue o certificado baixado no portal clássico do Azure AD. ![Configurações Básicas](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Configurações Básicas")
 
 9.  Clique em **Salvar** no portal de gerenciamento do Citrix ShareFile.
 
-10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configurar logon único")
 ##Configurando o provisionamento de usuários
@@ -125,9 +125,9 @@ Para permitir que os usuários do Azure AD façam logon no Citrix ShareFile, ele
 
 4.  Clique em **Adicionar Usuário**.
 
-    >[AZURE.NOTE]O titular da conta do AAD receberá um email e clicará em um link para confirmar sua conta antes que ela se torne ativa.
+    >[AZURE.NOTE] O titular da conta do AAD receberá um email e clicará em um link para confirmar sua conta antes que ela se torne ativa.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Citrix ShareFile ou APIs fornecidas pelo Citrix ShareFile para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Citrix ShareFile ou APIs fornecidas pelo Citrix ShareFile para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -135,9 +135,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao Citrix ShareFile, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Citrix ShareFile**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Citrix ShareFile**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Atribuir usuários")
 
@@ -147,4 +147,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

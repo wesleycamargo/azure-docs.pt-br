@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Jive
@@ -33,7 +33,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o Jive, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.png "Active Directory")
 
@@ -64,7 +64,7 @@ A captura de tela a seguir mostra um exemplo de caixa de diálogo correspondente
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Jive**, clique em **Configurar provisionamento de usuário** para abrir o diálogo **Configurar Provisionamento de Usuário**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Jive**, clique em **Configurar provisionamento de usuários** para abrir o diálogo **Configurar Provisionamento de Usuários**.
 
 2.  Na página **Inserir suas credenciais do Jive para habilitar o provisionamento automático de usuário**, forneça as seguintes configurações:
 
@@ -74,7 +74,7 @@ A captura de tela a seguir mostra um exemplo de caixa de diálogo correspondente
 
     3.  Na caixa de texto **URL de Locatário do Jive**, digite a URL de locatário do Jive.
 
-        >[AZURE.NOTE]A URL de locatário do Jive é usada pela sua organização para efetuar logon no Jive. Normalmente, a URL tem o seguinte formato: **www.<organização>.jive.com**.
+        >[AZURE.NOTE] A URL de locatário do Jive é usada pela sua organização para efetuar logon no Jive. Normalmente, a URL tem o seguinte formato: **www.<organização>.jive.com**.
 
     4.  Clique em **validar** para verificar sua configuração.
 
@@ -84,4 +84,4 @@ A captura de tela a seguir mostra um exemplo de caixa de diálogo correspondente
   
 Agora, você pode criar uma conta de teste, aguardar 10 minutos e verificar se a conta foi sincronizada no Jive.com.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="02/06/2016" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -114,9 +114,13 @@ Se você codificou [métricas personalizadas][track] em seu aplicativo (chamadas
 
 ## Segmentar os dados
 
+Você pode dividir uma métrica por propriedade - por exemplo, para comparar exibições de página em clientes com sistemas operacionais diferentes.
+
 Selecione um gráfico ou uma grade, ative o agrupamento e escolha uma propriedade pela qual agrupar:
 
 ![Selecionar Agrupamento Ativo, então selecionar uma propriedade em Agrupar Por](./media/app-insights-metrics-explorer/15-segment.png)
+
+> [AZURE.NOTE] Quando você usa o agrupamento, os tipos de gráfico de Barras e de Área fornecem uma exibição empilhada. Isso é adequado quando o método de Agregação é Soma. Mas onde o tipo de agregação é Média, escolha os tipos de exibição de Linha ou Grade.
 
 Se você codificou [métricas personalizadas][track] em seu aplicativo e elas incluem valores de propriedade, você poderá selecionar a propriedade na lista.
 
@@ -224,12 +228,12 @@ A [Análise](app-insights-analytics.md) é uma maneira mais versátil de analisa
 
 *Não vejo dados no gráfico.*
 
-* Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro. 
+* Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
 
     Se quiser definir filtros diferentes em gráficos diferentes, crie-os em folhas diferentes e os salve como favoritos separados. Se desejar, você poderá fixá-los ao painel para que eles sejam exibidos lado a lado.
 
 * Se você agrupar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar “agrupar por” ou escolha uma propriedade de agrupamento diferente.
-* Haverá dados de desempenho (CPU, taxa de E/S etc.) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Esses dados não estão disponíveis para sites do Azure.
+* Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Esses dados não estão disponíveis para sites do Azure.
 
 
 
@@ -247,4 +251,4 @@ A [Análise](app-insights-analytics.md) é uma maneira mais versátil de analisa
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

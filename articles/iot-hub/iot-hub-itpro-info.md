@@ -42,14 +42,22 @@ O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também �
 
 ## Próximas etapas
 
-Este artigo contém informações específicas para os profissionais de TI e desenvolvedores para configurar seus ambientes de desenvolvimento e teste. Siga estes links para saber mais sobre o serviço do Hub IoT do Azure:
+Este artigo contém informações específicas para os profissionais de TI e desenvolvedores para configurar seus ambientes de desenvolvimento e teste. A [seção Segurança no guia do desenvolvedor do Hub IoT do Azure][lnk-devguide] fornece informações adicionais sobre os tokens e o sistema de permissão no Hub IoT.
 
-- [O que é o Hub IoT do Azure?][lnk-iothub]
-- A [seção Segurança no guia do desenvolvedor do Hub IoT do Azure][lnk-devguide] fornece informações adicionais sobre os tokens e o sistema de permissão no Hub IoT.
-- [Gerenciar o Hub IoT pelo portal do Azure][lnk-manage-portal] descreve como usar o portal do Azure para gerenciar seu hub IoT.
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

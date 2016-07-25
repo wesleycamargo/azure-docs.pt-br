@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/04/2016" 
+    ms.date="07/08/2016" 
     ms.author="hawong"/>
 
 # Casos de uso comuns do Banco de Dados de Documentos
@@ -33,7 +33,7 @@ O Banco de Dados de Documentos do Azure é um banco de dados NoSQL de finalidade
 
 - O Banco de Dados de Documentos particiona naturalmente os dados para alta disponibilidade e escalabilidade.
 - O Banco de Dados de Documentos tem armazenamento com suporte de SSD com tempos de resposta de milissegundos e baixa latência.
-- O suporte do Banco de Dados de Documentos para níveis de consistência (como deterioração restrita, de sessão e eventual) proporciona taxas baixas em relação ao custo-desempenho. 
+- O suporte do Banco de Dados de Documentos para níveis de consistência (como deterioração restrita, de sessão e eventual) proporciona taxas baixas em relação ao custo-desempenho.
 - O Banco de Dados de Documentos tem um modelo de preços flexível e amigável aos dados que mede o armazenamento e a produtividade de modo independente.
 - O modelo de produtividade reservado do Banco de Dados de Documentos permite a você pensar em termos de número de leituras/gravações em vez de CPU/memória/IOPs do hardware subjacente.
 - O design do Banco de Dados de Documentos permite ajustar a escala para grandes volumes de solicitação, na ordem de bilhões de solicitações por dia.
@@ -99,9 +99,9 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 - [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como o Halo 5 implementou o jogo social usando o Banco de Dados de Documentos do Azure.
 - [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery – um site de comunidade escalonável criado com base no Banco de Dados de Documentos do Azure.
 - [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Integrador líder oferece a empresas multinacionais informações globais em minutos com as tecnologias de nuvem flexíveis.
-- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adicionando inteligência às notícias para fornecer informações com a finalidade de engajar cidadãos. 
+- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adicionando inteligência às notícias para fornecer informações com a finalidade de engajar cidadãos.
 - [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Para obter cores consistentes em todo o mundo, grandes marcas se voltam para a SGS. E a SGS se volta para o Azure.
-- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). O líder global Telenor usa a nuvem para se mover com a velocidade de uma start-up. 
+- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). O líder global Telenor usa a nuvem para se mover com a velocidade de uma start-up.
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Saiba mais sobre parceiros e o Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure" 
+	pageTitle="Saiba mais sobre parceiros e o Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Saiba mais sobre parceiros e o Enterprise Integration Pack
@@ -53,14 +53,12 @@ Execute estas etapas para editar um parceiro que já existe em sua conta de inte
 3. No bloco **Atualizar Parceiro**, faça as alterações necessárias
 4. Se você estiver satisfeito com suas alterações, selecione o link **Salvar**, caso contrário, selecione o link **Descartar** para descartar suas alterações. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
-
 ## Como excluir um parceiro
 1. Escolha o bloco **Parceiros**
 2. Selecione o parceiro que você deseja editar quando a folha Parceiros for aberta
 3. Selecione o link **Excluir** ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
-
 ## Próximas etapas
 - [Saiba mais sobre contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

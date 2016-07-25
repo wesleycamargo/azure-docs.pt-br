@@ -23,19 +23,25 @@
 
 ## Introdução
 
+(**Observação**: a Extensão de Diagnóstico do Linux é de software livre no [Github](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic), onde as informações mais atuais sobre a extensão foram publicadas pela primeira vez. Convém dar uma olhada na [página do Github](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) primeiro.)
+
 A Extensão de Diagnóstico do Linux ajuda um usuário a monitorar as VMs Linux em execução no Microsoft Azure. Ela oferece os seguintes recursos:
 
 - Coleta e carregamento de informações de desempenho do sistema, da VM Linux para a tabela de armazenamento do usuário, incluindo informações de diagnóstico e syslog.
 - Permite que os usuários personalizem as métricas de dados que serão coletadas e carregadas.
 - Permite que os usuários carreguem arquivos de log especificados em uma tabela de armazenamento designada.
 
-Na versão 2.0, os dados incluem:
+Na versão 2.3 atual, os dados incluem:
 
 - Todos os logs Rsyslog do Linux, incluindo logs de sistema, de segurança e de aplicativos.
 - Todos os dados do sistema especificados [no site do System Center Cross Platform Solutions](https://scx.codeplex.com/wikipage?title=xplatproviders) (Soluções de Plataforma Cruzada do System Center).
 - Arquivos de log especificados pelo usuário.
 
 Essa extensão funciona com os modelos de implantação Clássico e do Resource Manager.
+
+### Versão atual da extensão e substituição de versões antigas
+
+A versão mais recente da extensão é a **2.3**, e **todas as versões antigas (2.0, 2.1 e 2.2) serão substituídas e suas publicações serão canceladas em breve**. Se você instalou a Extensão de Diagnóstico do Linux com a atualização automática de versão secundária desabilitada, é altamente recomendado que você desinstale a extensão e reinstale-a com a atualização automática de versão secundária habilitada. Em VMs clássicas (ASM), você pode conseguir isso especificando '2.*' como a versão, se você estiver instalando a extensão por meio da CLI do Azure XPLAT ou do Powershell. Em VMs ARM, você pode conseguir isso, incluindo ' "autoUpgradeMinorVersion": true' no modelo de implantação da VM. Além disso, todas as novas instalações da extensão devem ter a opção de atualização automática de versão secundária ativada.
 
 
 ## Habilitar a extensão
@@ -62,9 +68,9 @@ Observe que os métodos de configuração descritos abaixo não funcionarão par
 ## Usar o comando da CLI do Azure para habilitar a Extensão de Diagnóstico do Linux
 
 ### Cenário 1. Habilitar a extensão com o conjunto de dados padrão
-Na versão 2.0 ou posterior, os dados padrão que serão coletados incluem:
+Na versão 2.3 ou posterior, os dados padrão que serão coletados incluem:
 
-- Todas as informações de Rsyslog (incluindo os logs de sistema, segurança e aplicativo).  
+- Todas as informações de Rsyslog (incluindo os logs de sistema, segurança e aplicativo).
 - Um conjunto principal de dados base do sistema. Observe que o conjunto de dados completo está descrito no [site do System Center Cross Platform Solutions](https://scx.codeplex.com/wikipage?title=xplatproviders). Se você quiser habilitar dados extras, continue com as etapas nos Cenários 2 e 3.
 
 Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo a seguir:
@@ -116,11 +122,12 @@ Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo descrito no 
     }
 
 
-Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
+Observe que com essa configuração, todos os logs gravados no `/var/log/mysql.err` também podem ser duplicados para `/var/log/syslog` (ou `/var/log/messages` dependendo da distribuição do Linux). Se você quiser evitar esse registro duplicado, exclua o registro em log dos logs de recursos do `local6` em sua configuração de rsyslog. Depende da distribuição do Linux, mas em um sistema Ubuntu 14.04, o arquivo a ser modificado é p `/etc/rsyslog.d/50-default.conf`, e você pode substituir a linha `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. Posteriormente, isso será tratado automaticamente pela Extensão de Diagnóstico do Linux.
 
 ###   Cenário 4: Parar a coleta de todos os logs pela extensão
-Esta seção descreve como parar a coleta de logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Se quiser parar o completamente processo do agente de monitoramento, você poderá fazer isso desabilitando a extensão. O comando para desabilitar a extensão é **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
+Esta seção descreve como parar a coleta de logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Se quiser parar o completamente processo do agente de monitoramento, você poderá fazer isso desabilitando a extensão. O comando para desabilitar a extensão é **azure vm extension set --disable <vm\_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir:
 
@@ -147,6 +154,6 @@ Além disso, você pode usar as ferramentas de interface do usuário a seguir pa
 Se você tiver habilitado fileCfg ou perfCfg (conforme descrito nos Cenários 2 e 3), você poderá usar o Gerenciador de Servidores do Visual Studio e o Gerenciador de Armazenamento do Azure para exibir dados não padrão.
 
 ## Problemas conhecidos
-- Na versão 2.0 da Extensão de Diagnóstico do Linux, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
+- Na versão atual (2.3) da Extensão de Diagnóstico do Linux, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

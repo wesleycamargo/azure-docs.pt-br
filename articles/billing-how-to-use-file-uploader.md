@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure
@@ -30,7 +30,7 @@ Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 - Você não pode carregar mais de um arquivo.
 - Os arquivos não podem ser maiores que 4 MB.
 
-## Tabela das extensões de nome de arquivo
+## Tabela das extensões de nome de arquivo permitidas
 
 | 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -63,4 +63,4 @@ Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

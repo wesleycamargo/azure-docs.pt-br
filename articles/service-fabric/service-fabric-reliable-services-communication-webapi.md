@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introdução aos serviços de API Web do Service Fabric com auto-hospedagem OWIN
@@ -39,7 +39,9 @@ Comece criando um novo aplicativo do Service Fabric com um único serviço sem e
 
 ![Criar um novo aplicativo da Malha de Serviço](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
-Existe um modelo do Visual Studio para um serviço sem estado usando a API Web à sua disposição. Neste tutorial, vamos criar um projeto que resulta no que você obteria se selecionasse esse modelo. Aqui, você pode começar com a API Web do serviço sem estado e seguir com ela ou começar com um serviço sem estado vazio e criar do zero.
+Existe um modelo do Visual Studio para um serviço sem estado usando a API Web à sua disposição. Neste tutorial, vamos criar um projeto de API da Web do zero que resulta no que você obteria se você selecionasse esse modelo.
+
+Selecione um projeto de serviço sem estado em branco para aprender a criar um projeto de API Web do zero. Você também pode começar com o modelo de API Web do serviço sem estado e simplesmente acompanhá-lo.
 
 ![Criar um único serviço sem estado](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
@@ -165,7 +167,7 @@ Neste artigo, não entraremos em mais detalhes sobre o processo de host do servi
 
 Uma vez que o código do aplicativo de API Web está hospedado em seu próprio processo, como você o conecta a um servidor Web? Digite [OWIN](http://owin.org/). OWIN é simplesmente um contrato entre aplicativos web do .NET e servidores web. Normalmente, quando o ASP.NET (até o MVC 5) é usado, o aplicativo Web é rigidamente associado ao IIS por meio do System.Web. No entanto, a API Web implementa o OWIN para que você possa escrever um aplicativo Web que seja dissociado do servidor Web que o hospeda. Por isso, você pode usar um servidor Web OWIN *auto-hospedado* que pode ser iniciado em seu próprio processo. Isso se ajusta perfeitamente com o modelo de hospedagem do Service Fabric que acabamos de descrever.
 
-Neste artigo, vamos usar Katana como host OWIN para o aplicativo API Web. Katana é uma implementação de host OWIN de código aberto.
+Neste artigo, vamos usar Katana como host OWIN para o aplicativo API Web. Katana é uma implementação de host do OWIN de software livre baseada em [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) e na [API de Servidor HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) do Windows.
 
 > [AZURE.NOTE] Para saber mais sobre o Katana, acesse o [site do Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para obter uma visão geral rápida de como usar o Katana para a auto-hospedagem da API Web, confira [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 
@@ -222,7 +224,7 @@ A interface ICommunicationListener fornece três métodos para gerenciar um ouvi
 
  - *OpenAsync*. Começar a ouvir solicitações.
  - *CloseAsync*. Parar de ouvir solicitações, concluir todas as solicitações em andamento e desligar normalmente.
- - *Abort*. Cancelar tudo e parar imediatamente.
+ - *Anular*. Cancelar tudo e parar imediatamente.
 
 Para começar, adicione membros de classe privada para coisas de que o ouvinte precisa para funcionar. Eles serão inicializados por meio do construtor e usados posteriormente quando você configurar a URL de escuta.
 
@@ -645,7 +647,7 @@ Agora que você juntou todas as peças, seu projeto deve se parecer com um típi
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em **http://localhost:80/webapp/api**
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando que o servidor Web foi aberto em http://localhost:8281/.
 
 
 ![Janela Eventos de Diagnóstico do Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -685,4 +687,4 @@ Para obter mais informações sobre como criar aplicativos e instâncias de serv
 
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

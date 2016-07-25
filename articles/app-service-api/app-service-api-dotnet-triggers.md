@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2016" 
-	ms.author="guayan"/>
+	ms.author="rachelap"/>
 
 # Gatilhos de aplicativo de API do serviço de aplicativo do Azure
 
@@ -39,8 +39,8 @@ Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de AP
 
 Atualmente, há suporte para dois tipos de gatilhos:
 
-- Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado 
-- Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado 
+- Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado
+- Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado
 
 ### Gatilho de sondagem
 
@@ -342,4 +342,4 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
     }
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

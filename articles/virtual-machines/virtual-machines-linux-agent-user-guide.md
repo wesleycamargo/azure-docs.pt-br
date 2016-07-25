@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -25,9 +25,11 @@
 
 ##Introdução
 
-O Agente Linux do Azure (/usr/sbin/waagent) gerencia a interação entre uma máquina virtual e o Controlador de Malha do Azure. Ele faz o seguinte:
+O Agente Linux do Azure (/usr/sbin/waagent) gerencia a interação entre uma máquina virtual e o Controlador de Malha do Azure. Consulte também [Como atualizar o Agente Linux do Azure](virtual-machines-linux-update-agent.md) para obter informações sobre como instalar e atualizar o agente em uma VM em execução.
 
-> [AZURE.NOTE] Veja o [LEIAME](https://github.com/Azure/WALinuxAgent/blob/2.0/README) do agente Linux do Azure para obter a versão mais recente deste guia.
+O Agente Linux do Azure é responsável pelo seguinte:
+
+> [AZURE.NOTE] Confira o [LEIAME](https://github.com/Azure/WALinuxAgent/blob/master/README.md) do agente Linux do Azure para obter a versão mais recente deste guia.
 
 * **Provisionamento de imagem**
   - Criar uma conta do usuário
@@ -323,4 +325,4 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

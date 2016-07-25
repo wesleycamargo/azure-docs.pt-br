@@ -157,10 +157,19 @@ Você pode navegar até o Hub IoT que deseja excluir clicando em **Procurar** e 
 
 ## Próximas etapas
 
-Para saber mais sobre o Hub IoT do Azure, siga estes links:
+Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-- [Introdução ao Hub IoT (Tutorial)][lnk-get-started]
-- [O que é o Hub IoT do Azure?][]
+- [Gerenciamento em massa de dispositivos IoT][lnk-bulk]
+- [Métricas de uso][lnk-metrics]
+- [Monitoramento de operações][lnk-monitor]
+- [Gerenciar o acesso ao Hub IoT][lnk-itpro]
+
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
+
+- [Projetar sua solução][lnk-design]
+- [Guia do desenvolvedor][lnk-devguide]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -173,6 +182,16 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
   [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

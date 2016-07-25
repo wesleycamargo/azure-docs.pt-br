@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/11/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -132,6 +132,4 @@ VMs do Linux com suporte:
 
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
 
-A recomendação da Central de Segurança [aplicar atualizações do sistema](security-center-recommendations.md) recomenda que você implante atualizações de segurança do sistema e atualizações críticas ausentes nas VMs. Para VMs em serviços de nuvem, a recomendação **atualizar versão do sistema operacional** recomenda que o sistema operacional seja atualizado para a última versão.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

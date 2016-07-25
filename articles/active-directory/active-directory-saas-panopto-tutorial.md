@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Panopto
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Panopto, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-panopto-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Panopto**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Panopto**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configurar logon único")
 
@@ -101,16 +101,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na lista **Tipo de Provedor**, selecione **SAML20**
     2.  Na caixa de texto **Nome da Instância**, digite um nome para a instância.
     3.  Na caixa de texto **Descrição Amigável**, digite uma descrição amigável.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Panopto**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
-    5.  No portal do Azure, na página do diálogo **Configurar logon único no Panopto**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de Página de Devolução**.
-    6.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Panopto**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
+    5.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Panopto**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **URL de Página de Devolução**.
+    6.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     7.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Chave Pública**
     8.  Clique em **Salvar**. ![Salvar](./media/active-directory-saas-panopto-tutorial/IC777673.png "Salvar")
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -125,9 +125,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Panopto, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos **Panopto**, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Panopto**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-panopto-tutorial/IC777675.png "Atribuir usuários")
 
@@ -137,4 +137,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

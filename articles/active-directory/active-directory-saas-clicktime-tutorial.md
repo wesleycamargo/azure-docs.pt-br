@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao ClickTime
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o ClickTime, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clicktime-tutorial/IC700993.png "Active Directory")
 
@@ -66,11 +66,11 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários autentiquem no ClickTime com a própria conta no Azure AD usando federação baseada no protocolo SAML. Como parte deste procedimento, será necessário carregar um certificado codificado em base-64 no locatário do ClickTime. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
->[AZURE.IMPORTANT]Para poder configurar o logon único em seu locatário do ClickTime, você precisa primeiro contatar o suporte técnico do ClickTime para que esse recurso seja habilitado.
+>[AZURE.IMPORTANT] Para poder configurar o logon único em seu locatário do ClickTime, você precisa primeiro contatar o suporte técnico do ClickTime para que esse recurso seja habilitado.
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **ClickTime**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **ClickTime**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Habilitar logon único](./media/active-directory-saas-clicktime-tutorial/IC777277.png "Habilitar logon único")
 
@@ -91,15 +91,15 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     ![Configurações de Segurança](./media/active-directory-saas-clicktime-tutorial/IC777280.png "Configurações de Segurança")
 
     1.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **OneLogin**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no ClickTime**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **Ponto de Extremidade do Provedor de Identidade**.
-    3.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no ClickTime**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **Ponto de Extremidade do Provedor de Identidade**.
+    3.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra seu certificado codificado em Base 64 no **Bloco de Notas**, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
     5.  Clique em **Salvar**.
 
-7.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+7.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -123,13 +123,13 @@ Para permitir que os usuários do Azure AD façam logon no ClickTime, eles devem
     ![Pessoas](./media/active-directory-saas-clicktime-tutorial/IC777284.png "Pessoas")
 
     1.  Na caixa de texto **endereço de email**, digite o endereço de email de sua conta do Azure AD.
-    2.  Na caixa de texto **nome completo**, digite o nome de sua conta do Azure AD.  
+    2.  Na caixa de texto **nome completo**, digite o nome de sua conta do Azure AD.
 
-        >[AZURE.NOTE]Se quiser, defina propriedades adicionais do novo objeto pessoa.
+        >[AZURE.NOTE] Se quiser, defina propriedades adicionais do novo objeto pessoa.
 
     3.  Clique em **Salvar**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do ClickTime ou as APIs fornecidas pelo ClickTime para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do ClickTime ou as APIs fornecidas pelo ClickTime para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -137,9 +137,9 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 ###Para atribuir usuários ao ClickTime, execute as seguintes etapas:
 
-1.  No portal do Azure AD, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **ClickTime**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **ClickTime**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-clicktime-tutorial/IC777285.png "Atribuir usuários")
 
@@ -149,4 +149,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

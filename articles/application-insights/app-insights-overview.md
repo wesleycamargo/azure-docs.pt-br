@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -27,7 +27,7 @@ Ele funciona com aplicativos Web e autônomos em uma ampla variedade de platafor
 
 O Application Insights visa a equipe de desenvolvimento. Com ele, você pode:
 
-* [Analisar padrões de uso][knowUsers] para compreender melhor seus usuários e aprimorar continuamente o aplicativo. 
+* [Analisar padrões de uso][knowUsers] para compreender melhor seus usuários e aprimorar continuamente o aplicativo.
  * Contagens de exibição de página, usuários novos e antigos, localização geográfica, plataformas e outras estatísticas de uso principal
  * Rastreamento de caminhos de uso para avaliar o sucesso de cada recurso.
 * [Detecte, faça a triagem e diagnostique][detect] problemas de desempenho e corrija-os antes que a maioria dos usuários os perceba.
@@ -118,8 +118,6 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
  * [Solucionar problemas][qna]
  * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Bugs:
- * [Conectar-se](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Sugestões:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
@@ -158,4 +156,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

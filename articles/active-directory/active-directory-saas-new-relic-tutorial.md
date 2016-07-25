@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o New Relic
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o New Relic, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Esta descreve como permitir que os usuários se autentiquem no New Relic com a r
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **New Relic**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **New Relic**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configurar o logon único")
 
@@ -78,7 +78,7 @@ Esta descreve como permitir que os usuários se autentiquem no New Relic com a r
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do New Relic**, digite a URL usada pelos usuários para fazer logon em seu aplicativo New Relic e clique em **Avançar**.
 
-    A URL do aplicativo é a URL de locatário do New Relic (por exemplo: **https://rpm.newrelic.com*)):
+    A URL do aplicativo é a URL de locatário do New Relic (por exemplo: *https://rpm.newrelic.com*):
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configurar a URL do Aplicativo")
 
@@ -101,11 +101,11 @@ Esta descreve como permitir que os usuários se autentiquem no New Relic com a r
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
     1.  Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
-    2.  No portal do Microsoft Azure, na página **Configurar logon único no New Relic**, copie o valor da **URL do Logon Remoto** e cole-o na caixa de texto **URL de logon remoto**.
-    3.  No portal do Microsoft Azure, na página **Configurar logon único no New Relic**, copie o valor da **URL do Logoff Remoto** e cole-o na caixa de texto **URL de aterrissagem de logoff**.
+    2.  No portal clássico do Azure, na página **Configurar logon único no New Relic**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon remoto**.
+    3.  No portal clássico do Azure, na página **Configurar logon único no New Relic**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de aterrissagem de logoff**.
     4.  Clique em **Salvar minhas alterações**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -140,7 +140,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao New Relic, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **New Relic**, clique em **Atribuir usuários**.
 
@@ -152,4 +152,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

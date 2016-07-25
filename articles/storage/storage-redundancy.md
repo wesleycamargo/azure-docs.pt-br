@@ -98,7 +98,8 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 | Sul do Reino Unido 2 | Norte do Reino Unido |
 | Alemanha Central | Nordeste da Alemanha |
 | Nordeste da Alemanha | Alemanha Central |
-
+| Oeste dos EUA 2 | Centro-Oeste dos EUA |
+| Centro-Oeste dos EUA | Oeste dos EUA 2 |
 
 Para obter informações atualizadas sobre regiões com suporte do Azure, confira [Regiões do Azure](https://azure.microsoft.com/regions/).
  
@@ -116,4 +117,4 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

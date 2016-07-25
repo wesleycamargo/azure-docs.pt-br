@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure" 
+	pageTitle="Visão geral do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Usar os recursos do Enterprise Integration Pack para habilitar cenários de integração e o processo de negócios usando o Serviço de Aplicativo do Microsoft Azure" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Integração corporativa com transformações XML
@@ -34,23 +34,19 @@ Depois de carregar a transformação em sua conta de integração, você poderá
 
 ### Pré-requisitos 
 Na visualização, você precisará:
+
 -  [Criar um contêiner do Azure Functions](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Criar um contêiner do Azure Functions")
-
-
->[AZURE.TIP] Anote o nome do contêiner do Azure Functions, você precisará dele na próxima etapa.
-
-
 -  [Adicionar uma função ao contêiner do Azure Functions](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Este modelo cria uma função do azure em C# com base em webhook com recursos de transformação para uso em cenários de integração de aplicativos lógicos")
+-  Criar uma conta de integração e adicionar um mapa a ela
 
-
->[AZURE.TIP] Anote o nome da função, você precisará dele na próxima etapa.
+>[AZURE.TIP] Anote o nome do contêiner do Azure Functions e da função do Azure, pois esses dados serão necessários na próxima etapa.
 
 Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lógico:
 
-1. Crie um Aplicativo lógico e [vincule-o à sua conta de integração](./app-service-logic-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico") que contém a transformação.
-2. Adicione um gatilho **Solicitação - Quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
+1. Crie um Aplicativo Lógico e [vincule-o à sua conta de integração](./app-service-logic-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico") que contém o mapa.
+2. Adicione um gatilho **Solicitação – Quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
 3. Adicione a ação **Transformar XML** selecionando primeiro **Adicionar uma ação** ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
-4. Insira a palavra *transformação* na caixa de pesquisa para filtrar todas as ações para aquela que você deseja usar ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
+4. Insira a palavra *transformação* na caixa de pesquisa para filtrar todas as ações para encontrar aquela que você deseja usar ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
 5. Selecione a ação **Transformar XML**![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)
 6. Selecione o **CONTÊINER DE FUNÇÃO** que contém a função que você usará. Esse é o nome do contêiner do Azure Functions criado anteriormente nessas etapas.
 7. Selecione a **FUNÇÃO** que você deseja usar. Esse é o nome da Função do Azure que você criou anteriormente.
@@ -75,6 +71,7 @@ Agora você pode testar a ação de transformação fazendo uma solicitação ao
 
 ## Saiba mais
 - [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
+- [Saiba mais sobre mapas](./app-service-logic-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

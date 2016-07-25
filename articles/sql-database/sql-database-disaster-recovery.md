@@ -95,7 +95,7 @@ Para obter mais informações sobre regras de alerta de banco de dados, consulte
 
 ### Habilitar a auditoria
 
-Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de que a auditoria é obrigatória é o uso, pelos aplicativos cliente, de cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
+Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md). Além disso, para "clientes de nível inferior", confira [Suporte ao cliente de auditoria e de nível inferior](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 
 ## Próximas etapas
@@ -106,4 +106,4 @@ Se a auditoria for necessária para acessar o banco de dados, você precisará h
 - Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

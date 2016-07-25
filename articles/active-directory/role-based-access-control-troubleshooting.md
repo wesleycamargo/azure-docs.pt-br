@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Solução de problemas de controle de acesso baseado em função"
-	description="Trabalhando com diferentes tipos de recursos para o controle de acesso baseado em função."
+	pageTitle="Solução de problemas de controle de acesso baseado em função | Microsoft Azure"
+	description="Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função."
 	services="azure-portal"
 	documentationCenter="na"
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="kgremban"/>
 
 # Solução de problemas de Controle de Acesso baseado em função
@@ -22,11 +22,11 @@
 
 O [Controle de Acesso Baseado em Função](role-based-access-control-configure.md) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode ficar tranquilo, concedendo a uma certa pessoa o direito de usar exatamente o que ela precisa, e nada mais. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
-Este documento informará a você o que esperar ao usar algumas das funções no Portal do Azure. Essas três funções incluídas abrangem todos os tipos de recursos:
+Este documento informará a você o que esperar ao usar algumas das funções no Portal do Azure. Estas três funções abrangem todos os tipos de recurso:
 
-- Proprietário  
-- Colaborador  
-- Leitor  
+- Proprietário
+- Colaborador
+- Leitor
 
 Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
 
@@ -59,17 +59,17 @@ Como resultado, se você conceder a alguém acesso somente ao aplicativo Web, mu
 
 Esses itens exigem acesso de **gravação** ao **plano do Serviço de Aplicativo** que corresponde ao seu site:
 
-- Exibindo o tipo de preço do aplicativo Web (Grátis ou Standard)  
-- Configuração de escala (número instâncias, tamanho da máquina virtual, configurações de escalonamento automático)  
-- Cotas (armazenamento, largura de banda, CPU)  
+- Exibindo o tipo de preço do aplicativo Web (Grátis ou Standard)
+- Configuração de escala (número instâncias, tamanho da máquina virtual, configurações de escalonamento automático)
+- Cotas (armazenamento, largura de banda, CPU)
 
 Esses itens exigem acesso de **gravação** a todo o **Grupo de recursos** que contém o seu site:
 
-- Associações e certificados SSL (Isso ocorre porque certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
-- Regras de alerta  
-- Configurações de autoescala  
-- Componentes do Application insights  
-- Testes da Web  
+- Associações e certificados SSL (Isso ocorre porque certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)
+- Regras de alerta
+- Configurações de autoescala
+- Componentes do Application insights
+- Testes da Web
 
 ## Cargas de trabalho da máquina virtual
 
@@ -79,16 +79,16 @@ As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, con
 
 Estes itens exigem acesso de **gravação** à **Máquina virtual**:
 
-- Pontos de extremidade  
-- Endereços IP  
-- Discos  
-- Extensões  
+- Pontos de extremidade
+- Endereços IP
+- Discos
+- Extensões
 
 Eles exigem acesso de **gravação** à **Máquina virtual** e ao **Grupo de recursos** (juntamente com o Nome de domínio) que está em:
 
-- Conjunto de disponibilidade  
-- Conjunto de balanceamento de carga  
-- Regras de alerta  
+- Conjunto de disponibilidade
+- Conjunto de balanceamento de carga
+- Regras de alerta
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
@@ -98,4 +98,4 @@ Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao se
 - [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 - [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

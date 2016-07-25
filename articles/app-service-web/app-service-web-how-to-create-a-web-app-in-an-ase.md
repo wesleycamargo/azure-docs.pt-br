@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo
@@ -30,7 +30,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
 
 ## Criar um aplicativo Web
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**.
 
 	![][1]
 
@@ -44,7 +44,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
 
 4. Selecione ou crie um plano do Serviço de Aplicativo.
 
-	Os *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web. Quando você seleciona os preços, o preço cobrado é aplicado a um plano do serviço de aplicativo em vez de aplicado aos aplicativos individuais. Para aumentar o número de instâncias de um aplicativo Web, você aumenta as instâncias do seu plano de Serviço de Aplicativo e isso afeta todos os aplicativos Web nesse plano. Alguns recursos, como slots de site ou integração de VNET, também têm restrições de quantidade dentro do plano. Para saber mais, consulte [Visão geral de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	Os *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web. Normalmente, quando você seleciona os preços, o preço cobrado é aplicado a um plano do serviço de aplicativo em vez de aplicado aos aplicativos individuais. Em um ASE você paga pelas instâncias de computação alocadas para o ASE em vez do que foi listado com o ASP. Para aumentar o número de instâncias de um aplicativo Web, você aumenta as instâncias do seu plano de Serviço de Aplicativo e isso afeta todos os aplicativos Web nesse plano. Alguns recursos, como slots de site ou integração de VNET, também têm restrições de quantidade dentro do plano. Para saber mais, consulte [Visão geral de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 	Você pode identificar os planos do Serviço de Aplicativo no ASE examinando o local indicado abaixo do nome do plano.
 
@@ -54,15 +54,9 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
 
 5. Insira o nome do aplicativo Web e clique em **Criar**.
 
-	O nome de seu aplicativo Web precisa ser exclusivo em todo o Serviço de Aplicativo do Azure. Isso significa que, se você quiser criar um aplicativo Web chamado "meuaplicativoweb", então atualmente não pode existir nenhum outro aplicativo Web chamado "meuaplicativoweb" no Serviço de Aplicativo do Azure.
-
-	A URL de um aplicativo Web em um ASE é:
-
-	[*nomedosite*].[*nome do seu ambiente de Serviço de Aplicativo*].p.azurewebsites.net
-
-	em vez de
-
-	[*nomedosite*]. azurewebsites.net
+	Se seu ASE usar um VIP Externo, a URL de um aplicativo em um ASE será: [*nomedosite*].[*nome do seu Ambiente do Serviço de Aplicativo*].p.azurewebsites.net em vez de [*nomedosite*].azurewebsites.net
+	
+	Se o seu ASE usar um VIP Interno, a URL de um aplicativo no ASE será: [*nomedosite*].[*subdomínio especificado durante a criação do ASE*] depois de selecionar o ASP durante a criação do ASE, você verá o subdomínio de atualização abaixo do **Nome**
 
 ## <a name="createplan"></a>Criar um plano do Serviço de Aplicativo
 
@@ -118,4 +112,4 @@ Depois de criar seu aplicativo Web e o plano do Serviço de Aplicativo, será um
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

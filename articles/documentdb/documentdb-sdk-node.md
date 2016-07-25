@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/07/2016" 
 	ms.author="andrl"/>
 
 # SDK do Banco de Dados de Documentos
@@ -37,6 +37,14 @@
 
 ##Notas de versão
 
+###<a name="1.9.0"/>1.9.0</a>
+
+- Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o Banco de Dados de Documentos tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Banco de Dados de Documentos agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Este tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
+
+- O Banco de Dados de Documentos agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para denotar a contagem de repetições limitadas e o tempo cumulativo que a solicitação aguardou entre as tentativas.
+
+- A classe RetryOptions foi adicionada, expondo a propriedade RetryOptions na classe ConnectionPolicy, que pode ser usada para substituir algumas das opções de repetição padrão.
+
 ###<a name="1.8.0"/>1.8.0</a>
 
   - Suporte adicionado para contas de banco de dados de várias regiões.
@@ -47,7 +55,7 @@
 
 ###<a name="1.6.0"/>1.6.0</a>
 
-- [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md).
+- [Coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md) implementados.
 
 ###<a name="1.5.6"/>1.5.6</a>
 
@@ -59,11 +67,11 @@
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para fins do Banco de Dados de Documentos. Use um agente dedicado para todas as solicitações da biblioteca.
+- Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para os fins do Banco de Dados de Documentos. Use um agente dedicado para todas as solicitações da biblioteca.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
-- Corrige o problema [nº 81](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em ids de mídia.
+- Corrige o problema [nº 81](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em IDs de mídia.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
@@ -93,7 +101,7 @@
 ### <a name="1.2.1"/>1.2.1</a>
 
 - Implementa o roteamento com base em ID.
-- Corrige o problema [nº 49](https://github.com/Azure/azure-documentdb-node/issues/49) -propriedade atual está em conflito com o método current().
+- Corrige o problema [nº 49](https://github.com/Azure/azure-documentdb-node/issues/49) - a propriedade atual está em conflito com o método atual().
 
 ### <a name="1.2.0"/>1.2.0</a>
 
@@ -107,7 +115,7 @@
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Problema [nº 40](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e promessa de SDK.
+- Problema [nº 40](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e SDK de promessa.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -137,31 +145,32 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
-| [1\.5.6](#1.5.6) | 08 de março de 2016 |--- 
-| [1\.5.5](#1.5.5) | 02 de fevereiro de 2016 |--- 
-| [1\.5.4](#1.5.4) | 01 de fevereiro de 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 de outubro de 2015 |--- 
-| [1\.3.0](#1.3.0) | 06 de outubro de 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 de agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- 
-| [1\.0.3](#1.0.3) | 04 de junho de 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |--- 
-| 0.9.4-prerelease | 06 de abril de 2015 | 29 de fevereiro de 2016 
-| 0.9.3-prerelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
-| 0.9.2-prerelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 
-| 0.9.1-prerelease | 22 de agosto de 2014 | 29 de fevereiro de 2016 
-| 0.9.0-prerelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.9.0](#1.9.0) | 7 de julho de 2016 |---
+| [1\.8.0](#1.8.0) | 14 de junho de 2016 |---
+| [1\.7.0](#1.7.0) | 26 de abril de 2016 |---
+| [1\.6.0](#1.6.0) | 29 de março de 2016 |---
+| [1\.5.6](#1.5.6) | 8 de março de 2016 |---
+| [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |---
+| [1\.5.4](#1.5.4) | 1 de fevereiro de 2016 |---
+| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |---
+| [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |---
+| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |---
+| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |---
+| [1\.4.0](#1.4.0) | 6 de outubro de 2015 |---
+| [1\.3.0](#1.3.0) | 6 de outubro de 2015 |---
+| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |---
+| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
+| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 9 de julho de 2015 |---
+| [1\.0.3](#1.0.3) | 4 de junho 2015 |---
+| [1\.0.2](#1.0.2) | 23 de maio de 2015 |---
+| [1\.0.1](#1.0.1) | 15 de maio de 2015 |---
+| [1\.0.0](#1.0.0) | 8 de abril de 2015 |---
+| 0.9.4-pré-lançamento | 6 de abril de 2015 | 29 de fevereiro de 2016
+| 0.9.3-pré-lançamento | 14 de janeiro de 2015 | 29 de fevereiro de 2016
+| 0.9.2-pré-lançamento | 18 de dezembro de 2014 | 29 de fevereiro de 2016
+| 0.9.1-pré-lançamento | 22 de agosto de 2014 | 29 de fevereiro de 2016
+| 0.9.0-pré-lançamento | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 
 ## Perguntas frequentes
@@ -171,4 +180,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

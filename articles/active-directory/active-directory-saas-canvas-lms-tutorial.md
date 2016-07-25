@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Canvas LMS
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Canvas, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-canvas-lms-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, na página de integração de aplicativos do **Canvas**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do ITRP, na página de integração do aplicativo **Canvas**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-canvas-lms-tutorial/IC771709.png "Configurar o logon único")
 
@@ -98,19 +98,19 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Integração Atual](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Integração Atual")
 
-    1.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
-    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.  
+    1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor de **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP**.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logout**.
+    4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Canvas**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
+    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     6.  Na lista **Atributo de Logon**, selecione **NameID**.
     7.  Na lista **Formato de Identificador**, selecione **emailAddress**.
     8.  Clique em **Salvar Configurações de Autenticação**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -143,7 +143,7 @@ Para permitir que os usuários do AD do Azure façam logon no Canvas, eles devem
     4.  Selecione **Enviar email ao usuário sobre a criação desta conta**.
     5.  Clique em **Adicionar Usuário**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Canvas ou as APIs fornecidas pelo Canvas para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Canvas ou as APIs fornecidas pelo Canvas para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
 
@@ -151,9 +151,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao Canvas, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Canvas**, clique em **Atribuir usuários**.
+2.  Na página de integração do aplicativo **Canvas**, clique em **Atribuir usuários**.
 
     ![Atribuindo usuários](./media/active-directory-saas-canvas-lms-tutorial/IC775998.png "Atribuindo usuários")
 
@@ -163,4 +163,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

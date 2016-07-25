@@ -79,7 +79,7 @@ Atualmente, a maior VM na série DS é a STANDARD\_DS14, que pode fornecer até 
 
 Para obter informações mais atualizadas sobre IOPS e produtividade (largura de banda) máximos para as VMs das séries DS, DSv2 e GS, confira [Tamanhos de VMs Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Tamanhos de VMs Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
-Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, consulte a tabela na seção [Metas de desempenho e escalabilidade ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage) deste artigo.
+Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, confira a tabela na seção [Metas de desempenho e escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets) deste artigo.
 
 ## Metas de desempenho e escalabilidade do Armazenamento Premium
 
@@ -351,7 +351,7 @@ Ao usar o Armazenamento Premium, as seguintes considerações de cobrança se ap
 - Instantâneos de Armazenamento Premium
 - Transferências de dados de saída
 
-**Tamanho de disco / blob de Armazenamento Premium**: a cobrança para um disco/blob de Armazenamento Premium depende do tamanho provisionado do disco/blob. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima de Disco de Armazenamento Premium, conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage). Todos os objetos armazenados em uma conta de armazenamento Premium será mapeado para um dos tamanhos provisionados com suporte e cobrado de acordo. Desta forma, evite usar a conta de armazenamento Premium para armazenar blobs pequenos. A cobrança por qualquer disco/blob provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
+**Tamanho de disco / blob de Armazenamento Premium**: a cobrança para um disco/blob de Armazenamento Premium depende do tamanho provisionado do disco/blob. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima de Disco de Armazenamento Premium, conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#premium-storage-scalability-and-performance-targets). Todos os objetos armazenados em uma conta de armazenamento Premium será mapeado para um dos tamanhos provisionados com suporte e cobrado de acordo. Desta forma, evite usar a conta de armazenamento Premium para armazenar blobs pequenos. A cobrança por qualquer disco/blob provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
 
 **Instantâneos de Armazenamento Premium**: os instantâneos no Armazenamento Premium são cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
@@ -562,4 +562,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

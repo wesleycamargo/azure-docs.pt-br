@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao RunMyProcess | Microsoft Azure" 
     description="Saiba como usar o RunMyProcess com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o RunMyProcess
   
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o RunMyProcess, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-runmyprocess-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **RunMyProcess**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **RunMyProcess**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-runmyprocess-tutorial/IC789617.png "Configurar o logon único")
 
@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-runmyprocess-tutorial/IC789622.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do RunMyProcess**, digite a URL usando o padrão "**http://company.runmyprocess.com*" e clique em **Avançar**.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do RunMyProcess**, digite a URL usando o padrão "*http://company.runmyprocess.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configurar a URL do Aplicativo")
 
@@ -97,17 +97,17 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![SSO](./media/active-directory-saas-runmyprocess-tutorial/IC789626.png "SSO")
 
     1.  Para **Método**, selecione **SSO com Samlv2**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no RunMyProcess**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **Redirecionamento de SSO**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no RunMyProcess**, copie o valor da **URL de Serviço de Logoff Único** e cole-o na caixa de texto **Redirecionamento de logoff**.
+    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no RunMyProcess**, copie o valor da **URL de SSO do SAML** e cole-o na caixa de texto **Redirecionamento de SSO**.
+    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no RunMyProcess**, copie o valor da **URL de Serviço de Saída Única** e cole-o na caixa de texto **Redirecionamento de logoff**.
     4.  Na caixa de texto **Formato da ID de Nome**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
-    5.  Crie um arquivo **codificado em base-64** usando o certificado baixado.  
+    5.  Crie um arquivo **codificado em base-64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
     7.  Clique em **Salvar**.
 
-9.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-runmyprocess-tutorial/IC789627.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -139,7 +139,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao RunMyProcess, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **RunMyProcess**, clique em **Atribuir usuários**.
 
@@ -151,4 +151,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

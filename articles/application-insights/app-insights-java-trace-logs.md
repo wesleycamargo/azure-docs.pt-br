@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Explore os logs de rastreamento de Java no Application Insights
@@ -136,9 +136,9 @@ Os appenders Application Insights podem ser referenciados por qualquer agente co
 
 ## Explorar seus rastreamentos no portal do Application Insights
 
-Agora que você configurou o projeto para enviar os rastreamentos para Application Insights, você pode exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa de diagnóstico][diagnostic].
+Agora que você configurou o projeto para enviar os rastreamentos para Application Insights, você pode exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa][diagnostic].
 
-![No portal do Application Insights, abra a Pesquisa de diagnóstico](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![No portal do Application Insights, abra a Pesquisa](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Próximas etapas
 
@@ -151,4 +151,4 @@ Agora que você configurou o projeto para enviar os rastreamentos para Applicati
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Solução de problemas: aplicativo Web indisponível devido a HTTP 502/503"
-	description="Este artigo ajuda você a solucionar erros de HTTP 502/503 no seu aplicativo Web hospedado no Serviço de Aplicativo do Azure."
+	pageTitle="Corrigir os erros 502 Gateway Incorreto e 503 Serviço Indisponíveis | Microsoft Azure"
+	description="Solucionar problemas dos erros ";502 Gateway Incorreto"; e ";503 Serviço Indisponível"; no seu aplicativo Web hospedado no Serviço de Aplicativo do Azure."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="502 Gateway Incorreto, 503 Serviço Indisponível, erro 503, erro 502"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Solução de problemas: aplicativo Web indisponível devido a HTTP 502/503
+# Solucionar problemas de erros HTTP de "502 Gateway Incorreto" e "503 Serviço Indisponível" em seus Aplicativos Web do Azure
 
-Este artigo ajuda você a solucionar erros de HTTP 502/503 no seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+"502 Gateway Incorreto" e "503 Serviço Indisponível" são os erros comuns em seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda você a solucionar esses erros.
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ## Sintoma
 
-Quando você navega até o aplicativo Web, ele retorna um HTTP “502 Gateway Incorreto” ou um HTTP “503 Serviço indisponível”.
+Quando você navega até o aplicativo Web, ele retorna um erro de HTTP “502 Gateway Incorreto” ou um “503 Serviço Indisponível”.
 
 ## Causa
 
@@ -35,7 +36,7 @@ Esse problema geralmente é causado por questões no nível de aplicativo, como:
 -	aplicativo usando muita memória/CPU
 -	aplicativo falhando devido a uma exceção.
 
-## Etapas para solucionar problemas
+## Etapas de solução de problemas para resolver erros de "502 Gateway Incorreto" e "503 Serviço Indisponível"
 
 A solução de problemas pode ser dividida em três tarefas distintas, em ordem sequencial:
 
@@ -64,7 +65,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 -	Conjunto de trabalho de memória
 -	Solicitações
 
-![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![monitorar aplicativo Web para solucionar problemas de erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Para obter mais informações, confira:
 
@@ -134,8 +135,8 @@ Para saber mais, consulte [AutoHeal em sites do Azure](/blog/auto-healing-window
 
 Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [Portal do Azure](https://portal.azure.com/), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
 
- ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![reiniciar o aplicativo para solucionar os erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

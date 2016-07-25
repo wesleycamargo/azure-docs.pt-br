@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o ScreenSteps
@@ -37,7 +37,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos com o ScreenSteps, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **ScreenSteps**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **ScreenSteps**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configurar logon único")
 
@@ -110,12 +110,12 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Ponto de extremidade de autenticação remota](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Ponto de extremidade de autenticação remota")
 
-    1.  No portal do Azure AD, na página **Configurar logon único no ScreenSteps**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon Remoto**.
-    2.  No portal do Azure AD, na página **Configurar logon único no ScreenSteps**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    1.  No portal clássico do Azure, na página **Configurar logon único no ScreenSteps**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon Remoto**.
+    2.  No portal clássico do Azure, na página **Configurar logon único no ScreenSteps**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
     3.  Clique em **Escolher um arquivo** e carregue o certificado baixado.
     4.  Clique em **Atualizar**.
 
-11. No portal do AD do Azure, selecione a confirmação de configuração de logon único e, em seguida, clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-screensteps-tutorial/IC778542.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
@@ -140,7 +140,7 @@ Para permitir que os usuários do Azure AD façam logon no **ScreenSteps**, eles
 
 5.  Na lista **Função de Usuário**, selecione uma função para o usuário.
 
-6.  Na seção Função de Usuário, digite o “**Nome**, **Sobrenome**, **Email**, **Logon**, **Senha** e **Configuração da Senha**” de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+6.  Na seção Função de Usuário, digite o "**Nome**,** Sobrenome**, **Email**, **Logon**, **Senha** e **Configuração da Senha**" de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
 
     ![Novo usuário](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Novo usuário")
 
@@ -156,7 +156,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ###Para atribuir usuários ao ScreenSteps, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **ScreenSteps**, clique em **Atribuir usuários**.
 
@@ -168,4 +168,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->
