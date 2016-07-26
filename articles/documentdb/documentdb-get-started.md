@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Bem-vindo ao tutorial do NoSQL para o SDK do .NET do Banco de Dados de Documentos! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos de Banco de Dados de Documentos.
+Bem-vindo ao tutorial do NoSQL para o SDK do .NET do Banco de Dados de Documentos do Azure! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos de Banco de Dados de Documentos.
 
 Abordaremos:
 
@@ -98,7 +98,7 @@ Em seguida, vá para o [Portal do Azure](https://portal.azure.com) para recupera
 
 No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos da Etapa 1.
 
-Clique ícone **chaves** na barra **Essentials**. Copie o URI e substitua *<your endpoint URI>* pelo URI copiado em seu programa. Copie a chave primária e substitua *<your key>* pela chave copiada em seu programa.
+Clique ícone **chaves** na barra **Essentials**. Copie o URI e substitua *<seu URI de ponto de extremidade>* pelo URI copiado em seu programa. Copie a chave primária e substitua *<sua chave>* pela chave copiada em seu programa.
 
 ![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em C#. Mostra uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
@@ -116,7 +116,7 @@ Abaixo do método **Main**, adicione esta nova tarefa assíncrona denominada **G
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-Adicione o código a seguir para executar a tarefa assíncrona a partir do seu método **Main**. O método **Main** irá capturar as exceções e escrevê-las no console.
+Adicione o código a seguir para executar a tarefa assíncrona a partir do seu método **Main**. O método **Main** capturará as exceções e as gravará no console.
 
 	static void Main(string[] args)
 	{
@@ -595,7 +595,7 @@ Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console 
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 - Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
--   Uma [conta de Banco de Dados de Documentos][documentdb-create-account].
+-   Uma [conta do Banco de Dados de Documentos][documentdb-create-account].
 -   A solução [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponível no GitHub.
 
 Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar Pacote de Restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
@@ -612,4 +612,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

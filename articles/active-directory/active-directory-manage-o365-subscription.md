@@ -18,15 +18,7 @@
 
 # Gerenciar o diretório para sua assinatura do Office 365 no Azure
 
-Este artigo descreve como gerenciar um diretório criado para uma assinatura do Office 365 usando o portal clássico do Azure. Você deve ser o Administrador de Serviços ou coadministrador de uma assinatura do Azure para entrar no portal clássico do Azure. Se você ainda não tem uma assinatura do Azure:
-
-1. Você pode se inscrever usando a conta corporativa ou de estudante que usa para entrar no Office 365.
-
-![Caixa de entrada do endereço de email](./media/active-directory-manage-o365-subscription/AAD_O365_01.png)
-
-Você será avisado de que não foi encontrada uma assinatura correspondente para o Azure. Se você clicar em **Inscrever-se no Azure**, as informações relevantes da conta do Office 365 serão pré-populadas no formulário de inscrição. A mesma conta é atribuída à função de Administrador de Serviços por padrão.
-
-![Link para inscrever-se para uma assinatura do Azure](./media/active-directory-manage-o365-subscription/AAD_O365_02.png)
+Este artigo descreve como gerenciar um diretório criado para uma assinatura do Office 365 usando o portal clássico do Azure. Você deve ser o Administrador de Serviços ou coadministrador de uma assinatura do Azure para entrar no portal clássico do Azure. Se ainda não tiver uma assinatura do Azure, você poderá se inscrever em uma [avaliação gratuita de 30 dias](https://azure.microsoft.com/trial/get-started-active-directory/) hoje mesmo e implantar sua primeira solução de nuvem em menos de cinco minutos, usando este link. Use a conta corporativa ou de estudante que usa para entrar no Office 365.
 
 Depois de concluir a assinatura do Azure, você pode entrar no portal clássico do Azure e acessar serviços do Azure. Clique na extensão do Active Directory para gerenciar o mesmo diretório que autentica os usuários do Office 365.
 
@@ -49,7 +41,7 @@ Para que Carlos Lima gerencie os dois diretórios enquanto está conectado ao Az
 > [AZURE.NOTE]
 Essas etapas só podem ser realizadas quando o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível. Uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório inicial (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada e da qual a empresa ou escola é proprietária).
 
-1.	Entrar no [portal clássico do Azure](https://manage.windowsazure.com) como msmith@hotmail.com.
+1.	Entre no [portal clássico do Azure](https://manage.windowsazure.com) como msmith@hotmail.com.
 2.	Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
 3.	Clique em Usar diretório existente e marque a caixa de seleção **Estou pronto para sair agora**.
 4.	Entre no portal clássico do Azure como administrador global de Contoso.onmicrosoft.com (por exemplo, msmith@contoso.com).
@@ -69,4 +61,4 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 ## Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->
