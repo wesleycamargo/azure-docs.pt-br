@@ -184,7 +184,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
 
 1.  Crie uma nova conta de automação. Mantenha-a na mesma área geográfica/região na qual o dispositivo de nuvem do StorSimple e as contas de armazenamento foram criadas.
 
-2.  Clique em **Novo** > **Serviços de Aplicativos** & gt; **Automação** > **Runbook** > **Da Galeria** para importar todos os runbooks para a conta de automação.
+2.  Clique em **Novo** > **Serviços de Aplicativos** &gt; **Automação** > **Runbook** > **Da Galeria** para importar todos os runbooks para a conta de automação.
 
 	![](./media/storsimple-dr-using-asr/image3.png)
 
@@ -403,4 +403,4 @@ O planejamento de capacidade é composto de, pelo menos, dois processos importan
 
 Ao usar o Azure Site Recovery, você poderá criar um plano de recuperação de desastre automatizado completo para um servidor de arquivos de VM com compartilhamentos de arquivos hospedados no armazenamento do StorSimple. Você poderá iniciar o failover em segundos e de qualquer lugar, caso haja uma interrupção, e fazer o aplicativo funcionar em alguns minutos.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
