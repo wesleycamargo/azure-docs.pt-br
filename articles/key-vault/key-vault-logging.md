@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Logs do Cofre da Chave do Azure #
@@ -33,6 +33,8 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 >[AZURE.NOTE]  Este tutorial não inclui instruções sobre como criar cofres da chave, chaves ou segredos. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 >
 >No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure.
+
+Os logs que você coleta podem ser visualizados usando o Log analytics do Operations Management Suite. Para saber mais, confira [Solução Cofre de Chaves do Azure (Visualização) no Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
@@ -116,7 +118,7 @@ Os logs do cofre da chave são armazenados no contêiner **insights-logs-auditev
 
 A saída será parecida com esta:
 
-**Uri do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Nome**
@@ -127,7 +129,7 @@ A saída será parecida com esta:
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
 Como você pode ver nessa saída, os blobs seguem uma convenção de nomenclatura: **resourceId=<ID de recurso do ARM>/y=<ano>/m=<mês>/d=<dia do mês>/h=<hora>/m=<minuto>/filename.json**
@@ -221,7 +223,7 @@ A tabela a seguir lista os nomes e as descrições de campo.
 
 Os valores do campo **operationName** estão no formato ObjectVerb. Por exemplo:
 
-- Todas as operações do cofre de chave têm o formato 'Vault`<action>`', como `VaultGet` e `VaultCreate`.
+- Todas as operações do cofre de chaves têm o formato 'Vault`<action>`', como `VaultGet` e `VaultCreate`.
 
 - Todas as operações da chave têm o formato 'Key`<action>`', como `KeySign` e `KeyList`.
 
@@ -264,12 +266,12 @@ A tabela a seguir lista o operationName e o comando da API REST correspondente.
 
 ## <a id="next"></a>Próximas etapas ##
 
-Para obter um tutorial que usa o Cofre de Chave do Azure em um aplicativo Web, confira [Usar o Cofre de Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
+Para obter um tutorial que usa o Cofre de Chaves do Azure em um aplicativo Web, confira [Usar o Cofre de Chaves do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chave do Azure, confira [Cmdlets do Cofre de Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chaves do Azure, confira [Cmdlets do Cofre de Chaves do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Para obter um tutorial sobre a rotação de chaves e o log de auditoria com o Cofre de Chaves do Azure, confira [Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

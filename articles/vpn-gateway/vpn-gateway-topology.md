@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologias de conexão de Gateway de VPN do Azure
+# Conexões do Gateway de VPN do Azure
 
 Este artigo mostra as topologias de conexão de gateway de VPN de linha de base. Você pode usar os elementos gráficos e as descrições para ajudar a selecionar a topologia de configuração adequada a seus requisitos. Embora este artigo percorra as topologias de linha de base principais, é possível criar topologias mais complexas usando os diagramas como uma diretriz.
 
 Cada topologia contém uma tabela que lista o modelo de implantação para o qual a topologia está disponível e as ferramentas de implantação que você pode usar para configurar cada topologia e será vinculado diretamente a um artigo, caso disponível. Atualizamos as tabelas com frequência, à medida que novos artigos e ferramentas de implantação se tornam disponíveis para uso.
 
-Para obter mais informações sobre gateways de VPN, confira [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
-
-
+As instruções que você usará para criar o gateway de VPN dependem do modelo de implantação que usou para criar a rede virtual. Por exemplo, se tiver criado a rede virtual usando o modelo de implantação clássico, você usará as diretrizes e instruções do modelo de implantação clássico para criar e configurar o gateway de VPN. Você não pode criar um gateway de VPN do Gerenciador de Recursos para uma rede virtual do modelo de implantação clássico. Confira [Noções básicas sobre o Gerenciador de Recursos e modelos de implantação clássicos](../resource-manager-deployment-model.md) para obter mais informações sobre modelos de implantação.
 
 ## Site a Site e Vários Sites
 
@@ -104,4 +102,4 @@ Convém familiarizar-se com os itens dos artigos [Sobre gateways de VPN](vpn-gat
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

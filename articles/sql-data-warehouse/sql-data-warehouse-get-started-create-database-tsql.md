@@ -31,7 +31,7 @@ Antes de começar, verifique se cumpriu os pré-requisitos a seguir.
 
 - **Conta do Azure**: consulte [Avaliação Gratuita do Azure][] ou [Créditos do Azure no MSDN][] para criar uma conta.
 - **Azure SQL Server V12**: consulte [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure][] ou [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell][].
-- **Nome do grupo de recursos**: use o mesmo Grupo de Recursos que o Azure SQL Server V12, ou confira [grupos de recursos][] para criar um novo grupo de recursos.
+- **Nome do grupo de recursos**: use o mesmo Grupo de Recursos do Azure SQL Server V12 ou consulte [grupos de recursos][] para criar um novo grupo de recursos.
 - **Visual Studio com SQL Server Data Tools**: para obter instruções de instalação, confira [Instalação do Visual Studio e do SSDT][].
 
 > [AZURE.NOTE] A criação de um novo SQL Data Warehouse pode resultar em um novo serviço faturável. Confira [Preços do SQL Data Warehouse][] para obter mais detalhes sobre preços.
@@ -67,7 +67,7 @@ Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amo
 [carregar dados de amostra]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[grupos de recursos]: ../azure-portal/resource-group-portal.md
+[grupos de recursos]: ../resource-group-template-deploy-portal.md
 [Instalação do Visual Studio e do SSDT]: ./sql-data-warehouse-install-visual-studio.md
 
 
@@ -80,4 +80,4 @@ Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amo
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

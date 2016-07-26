@@ -201,10 +201,10 @@ Nesta seção, você criará um aplicativo do console do Node.js que simula um d
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo. Substitua **{nomedoseuhubiot}** pelo nome do hub IoT e **{chavedoseudispositivo}** pelo valor da chave do dispositivo gerado na seção *Criar uma identidade do dispositivo*:
+5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo. Substitua **{youriothostname}** pelo nome do hub IoT que você criou na seção *Criar um Hub IoT* e **{yourdevicekey}** pelo valor de chave de dispositivo que gerou na seção *Criar uma identidade de dispositivo*:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -312,4 +312,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

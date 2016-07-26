@@ -88,13 +88,17 @@ Outras soluções VPN de software devem funcionar com nosso gateway, contanto qu
 
 Há suporte para os seguintes sistemas operacionais:
 
-- Windows 7 (somente versão de 64 bits)
+- Windows 7 (32 bits e 64 bits)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (somente 64 bits)
 
-- Windows 8 (somente versão de 64 bits)
+- Windows 8 (32 bits e 64 bits)
 
-- Windows Server 2012
+- Windows 8.1 (32 bits e 64 bits)
+
+- Windows Server 2012 (somente 64 bits)
+
+- Windows Server 2012 R2 (somente 64 bits)
 
 - Windows 10
 
@@ -279,4 +283,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

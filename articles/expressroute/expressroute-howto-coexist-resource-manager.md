@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Configurar as conexões coexistentes Site a Site e de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
@@ -34,7 +34,7 @@ Poder configurar a VPN site a site e a Rota Expressa tem várias vantagens. Voc�
 ## Limites e limitações
 
 - **O roteamento em trânsito não tem suporte:** não é possível fazer o roteamento (via Azure) entre sua rede local conectada via VPN Site a Site e sua rede local conectada via Rota Expressa.
-- **O túnel forçado não pode ser habilitado no gateway de VPN Site a Site:** você só pode “forçar” todo o tráfego direcionado para a Internet de volta para sua rede local por meio da Rota Expressa. 
+- **O túnel forçado não pode ser habilitado no gateway de VPN Site a Site:** você só pode “forçar” todo o tráfego direcionado para a Internet de volta para sua rede local por meio da Rota Expressa.
 - **Somente gateways padrão ou de alto desempenho:** você deve usar um gateway padrão ou de alto desempenho para o gateway da Rota Expressa e o gateway de VPN Site a Site. Confira [SKUs de gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre SKUs de gateway.
 - **Somente gateway de VPN baseado em rota:** você deve usar um gateway de VPN baseado em rota. Consulte [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) para obter informações sobre o gateway de VPN baseado em rota.
 - **Requisito de rota estática:** se sua rede local estiver conectada à VPN Site a Site e a uma Rota Expressa, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN Site a Site para a Internet pública.
@@ -143,7 +143,7 @@ Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via Ro
 
 >[AZURE.NOTE] Quando você exclui o gateway existente, suas instalações locais perdem a conexão à sua rede virtual enquanto você está trabalhando nessa configuração.
 
-1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
+1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções.
 
 2. Exclua o gateway de Rota Expressa ou gateway de VPN Site a Site existente.
 
@@ -169,7 +169,7 @@ Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via Ro
 ## Para adicionar a configuração de ponto a site ao gateway de VPN
 Você pode seguir as etapas abaixo para adicionar a configuração de Ponto a Site ao gateway de VPN em uma configuração de coexistência.
 
-1. Adicione o pool de endereços do Cliente VPN. 
+1. Adicione o pool de endereços do Cliente VPN.
 
 		$azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
 		Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
@@ -194,4 +194,4 @@ Para saber mais sobre a VPN de Ponto a Site, confira [Configurar uma conexão de
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

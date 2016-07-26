@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Obtenha percepções de dados da Central de Segurança do Azure com o Power BI
@@ -107,7 +107,7 @@ Conecte os [Serviços do Pacote de Conteúdo do Power BI](https://msit.powerbi.c
 
 	![Painel de Gerenciamento de Políticas](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Próximas etapas
+## Consulte também
 Neste documento, você aprendeu a usar o Power BI na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 - [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar a adoção da Central de Segurança do Azure.
@@ -116,4 +116,4 @@ Neste documento, você aprendeu a usar o Power BI na Central de Segurança do Az
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

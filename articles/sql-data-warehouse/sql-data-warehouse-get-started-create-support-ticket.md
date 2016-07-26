@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/29/2016"
+   ms.date="07/18/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
 # Como criar um tíquete de suporte para o SQL Data Warehouse
@@ -31,10 +31,14 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
 3. Na folha Ajuda + Suporte, clique em **Criar solicitação de suporte**.
 
     ![Nova solicitação de suporte](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    
+    <a name="request-quota-change"></a>
 
 4. Selecione o **Tipo de Solicitação**.
 
     ![Tipo de solicitação](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    
+    >[AZURE.NOTE]  Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma **Cota de DTU** de 45.000. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota criando um tíquete de suporte e selecionando *Cota* como o tipo de solicitação. Para calcular suas necessidades de DTU, você precisa saber que cada 100 [DWU][] do SQL Data Warehouse consome 750 DTU. Portanto, a cota padrão de 45.000 permitirá que você crie até um DW6000 (45.000/750) ou vários bancos de dados menores com menos DWU. Se, por exemplo, você quiser hospedar dois DW6000s em um SQL Server, deverá solicitar uma cota DTU de 90.000. Você pode exibir o consumo atual de DTU na folha do SQL Server no portal. Os bancos de dados em pausa e retomados contam como a cota de DTU.
 
 5. Selecione a **Assinatura** que hospeda o banco de dados com o problema que você está relatando.
 
@@ -44,17 +48,15 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
 
     ![Recurso](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Selecione seu **Plano de suporte**.
+7. Selecione seu [Plano de suporte do Azure][].
 
-    - O suporte **relacionado ao gerenciamento de assinaturas e cobrança** está disponível em todos os níveis de suporte.
-    - O suporte de **conserto** é fornecido pelo suporte Developer, Standard, Pro Direct ou Premier. Os problemas de **conserto** são os enfrentados pelos clientes durante o uso do Azure onde há uma expectativa razoável de que a Microsoft causou o problema.
-    - O **aconselhamento de desenvolvedores** e **serviços de consultoria** estão disponíveis nos níveis de suporte Professional Direct e Premier.
+    - O suporte do **gerenciamento de assinaturas, cobrança e cotas ** está disponível em todos os níveis de suporte.
+    - O suporte do **conserto** é fornecido por meio do suporte do [Desenvolvedor][], [Standard][], [Professional Direct][] ou [Premier][]. As questões que exigem reparos são problemas vivenciados pelo cliente ao usar o Azure, em que se espera que o problema tenha sido causado pela Microsoft.
+    - O **aconselhamento de desenvolvedores** e os **serviços de consultoria** estão disponíveis nos níveis de suporte [Professional Direct][] e [Premier][].
     
-    Consulte os [planos de suporte do Azure][] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc. Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes de suporte do Azure].
+    Se tiver um plano de suporte Premier, você também poderá relatar problemas relacionados ao SQL Data Warehouse no [Portal online Microsoft Premier][]. Consulte os [planos de suporte do Azure][Azure support plan] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc. Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes do suporte do Azure][].
 
     ![Plano de suporte](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-
-    Se tiver um plano de suporte Premier, você também poderá relatar problemas relacionados ao SQL Data Warehouse no [Portal online Microsoft Premier][].
 
 8. Selecione o **Tipo de Problema** e a **Categoria**.
 
@@ -79,14 +81,26 @@ Depois que você enviar a solicitação de suporte, a equipe de suporte do Azure
 
 ## Outros recursos
 
-Além disso, você pode conectar a comunidade do SQL Data Warehouse no [Stack Overflow][] ou no [Fórum MSDN do SQL Data Warehouse][].
+Além disso, você pode conectar a comunidade do SQL Data Warehouse no [Stack Overflow][] ou no [Fórum MSDN do Azure SQL Data Warehouse][].
 
-<!-- External links -->
+<!--Image references--> 
+
+<!--Article references--> 
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
+<!--MSDN references--> 
+
+<!--Other web references--> 
 [Portal do Azure]: https://portal.azure.com/
-[planos de suporte do Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[Perguntas frequentes de suporte do Azure]: https://azure.microsoft.com/support/faq/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Plano de suporte do Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Desenvolvedor]: https://azure.microsoft.com/support/plans/developer/
+[Standard]: https://azure.microsoft.com/support/plans/standard/
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
+[Premier]: https://azure.microsoft.com/support/plans/premier/
+[Perguntas frequentes do suporte do Azure]: https://azure.microsoft.com/support/faq/
 [Portal online Microsoft Premier]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Fórum MSDN do SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Fórum MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

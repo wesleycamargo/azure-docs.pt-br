@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Proteger VMs no Azure com o Backup do Azure | Microsoft Azure"
+	pageTitle="Introdução: proteger VMs no Azure com o Backup do Azure | Microsoft Azure"
 	description="Proteja VMs do Azure com o serviço Backup do Azure. O tutorial explica como criar um cofre, registrar VMs, criar uma política e proteger VMs no Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Introdução: Fazendo backup de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Fazer backup das VMs ARM](backup-azure-vms-first-look-arm.md)
+- [Fazer backup de VMs do Gerenciador de Recursos](backup-azure-vms-first-look-arm.md)
 - [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
 
-Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure no Azure. Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
+Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure em um cofre de backup do Azure. Este artigo descreve o modelo clássico ou o modelo de implantação do Service Manager para fazer backup de máquinas virtuais. Se você estiver interessado em fazer backup de uma VM em um cofre de Serviços de Recuperação que pertence a um Grupo de Recursos, confira a outra guia - Fazer backup de VMs do Gerenciador de Recursos. Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
 
 - Você criou uma VM em sua assinatura do Azure.
 - A VM tem conectividade com os endereços IP públicos do Azure. Para saber mais, veja [Conectividade de rede](./backup-azure-vms-prepare.md#network-connectivity).
@@ -213,4 +213,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->
