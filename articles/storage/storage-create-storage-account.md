@@ -79,7 +79,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, consulte [Uso do portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para obter mais informações sobre os grupos de recursos, consulte [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
 9. Selecione a região geográfica para sua conta de armazenamento. Consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em qual região.
 
@@ -157,4 +157,4 @@ Para obter mais informações, consulte a [Documentação da Máquina Virtual do
 - [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

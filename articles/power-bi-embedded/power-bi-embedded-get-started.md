@@ -54,7 +54,7 @@ A **Folha de Criação** contém as informações necessárias para chamar as AP
 <a name="view-access-keys"/>
 ## Exibir chaves de acesso da API do Power BI
 
-Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para obter mais informações sobre **tokens do aplicativo**, consulte [Como funciona o fluxo de tokens de aplicativo](power-bi-embedded-app-token-flow.md).
+Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens de aplicativo**, confira [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,9 +98,7 @@ Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o prim
 
 ## Consulte também
 - [Introdução a exemplos](power-bi-embedded-get-started-sample.md)
-- [O que é o Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

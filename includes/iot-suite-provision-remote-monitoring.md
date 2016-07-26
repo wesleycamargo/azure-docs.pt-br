@@ -1,8 +1,6 @@
-## Provisionamento de uma solução pré-configurada de monitoramento remoto
+## Provisionar a solução
 
 1.  Faça logon em [azureiotsuite.com][lnk-azureiotsuite] usando as credenciais de sua conta do Azure e clique em **+** para criar uma nova solução.
-
-    > [AZURE.NOTE] Se você estiver tendo problemas com as permissões necessárias para provisionar uma solução, dê uma olhada em [Permissões no site azureiotsuite.com][lnk-permissions] para obter orientação.
 
 2.  Clique em **Selecionar** no bloco **Monitoramento remoto**.
 
@@ -26,10 +24,9 @@
 
 Há detalhes que você esperaria ver e que não estão listados para sua solução? Envie sugestões de recursos no [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

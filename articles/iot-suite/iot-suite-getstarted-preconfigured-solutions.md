@@ -21,9 +21,11 @@
 
 ## Introdução
 
-As [soluções pré-configuradas][lnk-preconfigured-solutions] do Pacote do Azure IoT combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT.
+As [soluções pré-configuradas][lnk-preconfigured-solutions] do Pacote do Azure IoT combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *monitoramento remoto* conecta-se seus dispositivos e os monitora. Isso o habilita a analisar o fluxo de dados de dispositivos e melhorar os resultados de negócios fazendo com que os processos respondam automaticamente a esse fluxo de dados.
 
-Este tutorial mostra como provisionar a solução pré-configurada de *monitoramento remoto*. Ele também explica os recursos básicos da solução pré-configurada de monitoramento remoto.
+Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Ele também explica os recursos básicos da solução pré-configurada de monitoramento remoto. Você pode acessar muitos desses recursos por meio do painel de solução que é implantado junto com a solução pré-configurada:
+
+![Painel de solução pré-configurada de monitoramento remoto][img-dashboard]
 
 Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
@@ -31,17 +33,17 @@ Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Exibir o painel de solução de monitoramento remoto
+## Exibir o painel de solução
 
 O painel de solução permite que você gerencie a solução implantada. Por exemplo, você pode exibir telemetria, adicionar dispositivos e configurar regras.
 
 1.  Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, clique em **Iniciar** para abrir o portal de solução de monitoramento remoto em uma nova guia.
 
-    ![][img-launch-solution]
+    ![Iniciar a solução pré-configurada][img-launch-solution]
 
 2.  Por padrão, o portal de solução mostra o *painel de solução*. Você pode selecionar outros modos de exibição usando o menu à esquerda.
 
-    ![][img-dashboard]
+    ![Painel de solução pré-configurada de monitoramento remoto][img-dashboard]
 
 O painel exibe as seguintes informações:
 
@@ -49,19 +51,19 @@ O painel exibe as seguintes informações:
 - O painel **Histórico de Telemetria** plota telemetria de umidade e temperatura de um dispositivo selecionado em tempo quase real e exibe dados de agregação, como umidade média, mínima e máxima.
 - O painel **Histórico de Alarme** mostra eventos recentes de alarme quando um valor de telemetria excedeu um limite. Você pode definir seus próprios alarmes além dos exemplos criados pela solução pré-configurada.
 
-## A lista de dispositivos de solução é exibida
+## Exibir a lista de dispositivos
 
 A lista de dispositivos mostra todos os dispositivos registrados na solução. Você exibe e edita os metadados de dispositivo, adiciona ou remove dispositivos e envia comandos para dispositivos.
 
 1.  Clique em **Dispositivos** no menu à esquerda para mostrar a *lista de dispositivos* dessa solução.
 
-    ![][img-devicelist]
+    ![Lista de dispositivos no painel][img-devicelist]
 
 2.  A lista de dispositivos mostra que há quatro dispositivos simulados criados pelo processo de provisionamento.
 
 3.  Clique em um dispositivo na lista de dispositivos para exibir os respectivos detalhes.
 
-    ![][img-devicedetails]
+    ![Detalhes do dispositivo no painel][img-devicedetails]
 
 O painel **Detalhes do Dispositivo** contém três seções:
 
@@ -75,7 +77,7 @@ O painel de detalhes do dispositivo mostra todos os comandos aos quais determina
 
 1.  Clique em **Comandos** no painel de detalhes do dispositivo selecionado.
 
-    ![][img-devicecommands]
+    ![Comandos de dispositivo no painel][img-devicecommands]
 
 2.  Selecione **PingDevice** na lista de comandos.
 
@@ -83,21 +85,25 @@ O painel de detalhes do dispositivo mostra todos os comandos aos quais determina
 
 4.  Você pode ver o status do comando no histórico de comandos.
 
-    ![][img-pingcommand]
+    ![Status do comando no painel][img-pingcommand]
 
 A solução rastreia o status de cada comando enviado. Inicialmente, o resultado é **Pendente**. Quando o dispositivo relata que executou o comando, o resultado é definido como **Sucesso**.
 
 ## Adicionar um novo dispositivo simulado
 
+Ao implantar a solução pré-configurada, você provisiona automaticamente os quatro dispositivos de exemplo que pode ver na lista de dispositivos. Esses dispositivos são *dispositivos simulados* em execução em um Trabalho Web do Azure. Com os dispositivos simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar dispositivos físicos reais. Se você quiser conectar um dispositivo real à solução, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connecting-devices].
+
+As etapas a seguir mostram como adicionar um novo dispositivo simulado à solução:
+
 1.  Navegue de volta para a lista de dispositivos.
 
 2.  Clique em **+ Adicionar um Dispositivo** no canto inferior esquerdo para adicionar um novo dispositivo.
 
-    ![][img-adddevice]
+    ![Adicionar um dispositivo à solução pré-configurada][img-adddevice]
 
 3.  Clique em **Adicionar Novo** no bloco **Dispositivo Simulado**.
 
-    ![][img-addnew]
+    ![Definir novos detalhes do dispositivo no painel][img-addnew]
     
     Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connecting-devices].
 
@@ -105,33 +111,35 @@ A solução rastreia o status de cada comando enviado. Inicialmente, o resultado
 
 5.  Clique em **Criar**.
 
-    ![][img-definedevice]
+    ![Salvar um novo dispositivo][img-definedevice]
 
 6. Na etapa 3 de **Adicionar um dispositivo simulado**, clique em **Concluído** para retornar à lista de dispositivos.
 
 7. Você pode exibir o dispositivo **Executando** na lista de dispositivos.
 
-    ![][img-runningnew]
+    ![Exibir novo dispositivo na lista de dispositivos][img-runningnew]
 
 8. Você também pode exibir a telemetria simulada do novo dispositivo no painel:
 
-    ![][img-runningnew-2]
+    ![Exibir telemetria do novo dispositivo][img-runningnew-2]
 
 ## Editar os metadados do dispositivo
+
+Quando o dispositivo se conecta à solução pela primeira vez, ele envia os metadados à solução. Quando você edita os metadados de dispositivo por meio do painel de solução, ele envia os novos valores de metadados ao dispositivo e armazena os novos valores no banco de dados do Banco de Dados de Documentos da solução. Para saber mais, confira [Registro de identidade do dispositivo e o Banco de Dados de Documentos][lnk-devicemetadata].
 
 1.  Navegue de volta para a lista de dispositivos.
 
 2.  Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Editar** para editar as **Propriedades do Dispositivo**:
 
-    ![][img-editdevice]
+    ![Editar metadados de dispositivo][img-editdevice]
 
 3. Role para baixo e altere os valores de latitude e longitude. Em seguida, clique em **Salvar alterações do registro de dispositivo**.
 
-    ![][img-editdevice2]
+    ![Editar metadados de dispositivo][img-editdevice2]
 
 4. Navegue de volta para o painel. O local do dispositivo foi alterado no mapa:
 
-    ![][img-editdevice3]
+    ![Editar metadados de dispositivo][img-editdevice3]
 
 ## Adicionar uma regra para o novo dispositivo
 
@@ -143,41 +151,51 @@ Não existem regras para o novo dispositivo recém-adicionado. Nesta seção, vo
 
 3. Crie uma regra que usa **Temperature** como o campo de dados e **AlarmTemp** como a saída quando a temperatura excede 47 graus:
 
-    ![][img-adddevicerule]
+    ![Adicionar uma regra de dispositivo][img-adddevicerule]
 
 4. Clique em **Salvar e Exibir Regras** para salvar suas alterações.
 
 5.  Clique em **Comandos** no painel de detalhes do novo dispositivo.
 
-    ![][img-adddevicerule2]
+    ![Adicionar uma regra de dispositivo][img-adddevicerule2]
 
 6.  Selecione **ChangeSetPointTemp** na lista de comandos e defina **SetPointTemp** como 45. Em seguida, clique em** Enviar Comando**:
 
-    ![][img-adddevicerule3]
+    ![Adicionar uma regra de dispositivo][img-adddevicerule3]
 
 7.  Navegue de volta para o painel da solução. Após um curto período, você verá uma nova entrada no painel **Histórico de Alarme** quando a temperatura relatada pelo seu novo dispositivo exceder o limite de 47 graus:
 
-    ![][img-adddevicerule4]
+    ![Adicionar uma regra de dispositivo][img-adddevicerule4]
 
 8. Você pode revisar e editar todas as regras na página **Regras** do painel:
 
-    ![][img-rules]
+    ![Listar regras de dispositivo][img-rules]
 
 9. Você pode revisar e editar todas as ações que podem ser realizadas em resposta a uma regra na página **Ações** do painel:
 
-    ![][img-actions]
+    ![Listar ações de dispositivo][img-actions]
 
-> [AZURE.NOTE] É possível definir ações que podem enviar uma mensagem de email ou SMS em resposta a uma regra ou se integrar com um sistema de linha de negócios por meio de um [Aplicativo Lógico][lnk-logic-apps].
+> [AZURE.NOTE] É possível definir ações que podem enviar uma mensagem de email ou SMS em resposta a uma regra ou se integrar com um sistema de linha de negócios por meio de um [Aplicativo Lógico][lnk-logic-apps]. Para obter mais informações, confira [Conectar o Aplicativo Lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite][lnk-logicapptutorial].
+
+## Outros recursos
+
+Usando o portal de solução, é possível pesquisar dispositivos com características específicas, como um número de modelo:
+
+![Pesquisar um dispositivo][img-search]
+
+Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá removê-lo:
+
+![Desabilitar e remover um dispositivo][img-disable]
 
 ## Nos bastidores
 
 Ao implantar uma solução pré-configurada, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal][lnk-portal] do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para sua solução pré-configurada:
 
-![][img-portal]
+![Solução pré-configurada no portal do Azure][img-portal]
 
 Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos. A captura de tela acima mostra as configurações para o Hub IoT usadas na solução pré-configurada.
 
-Você também pode exibir o código-fonte para a solução pré-configurada. O código-fonte da solução pré-configurada de monitoramento remoto está em [azure-iot-remote-monitoring][lnk-rmgithub]\:
+Você também pode exibir o código-fonte para a solução pré-configurada. O código-fonte da solução pré-configurada de monitoramento remoto está no repositório do GitHub [azure-iot-remote-monitoring][lnk-rmgithub]\:
 
 - A pasta **DeviceAdministration** contém o código-fonte para o painel.
 - A pasta **Simulator** contém o código-fonte do dispositivo simulado.
@@ -185,7 +203,7 @@ Você também pode exibir o código-fonte para a solução pré-configurada. O c
 
 Ao terminar, você poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Isso permitirá excluir facilmente todos os recursos que foram provisionados quando você criou a solução pré-configurada.
 
-> [AZURE.NOTE] Para garantir que você excluirá tudo relacionado à solução pré-configurada, exclua-a de m.[azureiotsuite.com][lnk-azureiotsuite] e não simplesmente exclua o grupo de recursos no portal.
+> [AZURE.NOTE] Para garantir que você excluirá tudo relacionado à solução pré-configurada, exclua-a no site [azureiotsuite.com][lnk-azureiotsuite] e não simplesmente exclua o grupo de recursos no portal.
 
 ## Próximas etapas
 
@@ -215,6 +233,8 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
+[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
+[img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -222,10 +242,10 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: iot-suite-faq.md
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

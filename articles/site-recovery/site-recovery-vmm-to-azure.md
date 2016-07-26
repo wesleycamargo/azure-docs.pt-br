@@ -50,10 +50,10 @@ Este artigo fornece todas as informações de que você precisa para replicar m�
 
 ## Vantagens de negócios
 
-- A Recuperação de Site oferece proteção externa para as cargas de trabalho e os aplicativos executados em VMs do Hyper-V. 
-- O portal de Recuperação de Serviços oferece um único local para configurar, gerenciar e monitorar a replicação, o failover e a recuperação. 
-- Você pode executar facilmente failovers de sua infraestrutura local para o Azure e failback (restauração) do Azure para servidores host do Hyper-V no site local. 
-- Você pode configurar planos de recuperação com vários computadores para que as cargas de trabalho do aplicativo em camadas façam failover juntas. 
+- A Recuperação de Site oferece proteção externa para as cargas de trabalho e os aplicativos executados em VMs do Hyper-V.
+- O portal de Recuperação de Serviços oferece um único local para configurar, gerenciar e monitorar a replicação, o failover e a recuperação.
+- Você pode executar facilmente failovers de sua infraestrutura local para o Azure e failback (restauração) do Azure para servidores host do Hyper-V no site local.
+- Você pode configurar planos de recuperação com vários computadores para que as cargas de trabalho do aplicativo em camadas façam failover juntas.
 
 
 ## Arquitetura de cenário
@@ -87,7 +87,7 @@ Veja o que você precisa ter no local
 --- | ---
 **VMM**| Um ou mais servidores VMM em execução no System Center 2012 R2. Cada servidor do VMM deve ter uma ou mais nuvens configuradas. Uma nuvem deve conter:<br/><br/> um ou mais grupos de hosts do VMM.<br/><br/> Um ou mais servidores host ou clusters do Hyper-V em cada grupo de hosts.<br/><br/>[Saiba mais](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html) sobre a configuração de nuvens do VMM.
 **Hyper-V** | Os servidores host do Hyper-V devem estar executando pelo menos o Windows Server 2012 R2 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/> Um servidor Hyper-V deve conter uma ou mais VMs.<br/><br/> Um servidor host ou um cluster do Hyper-V ou cluster que inclua VMs que você deseja replicar deve ser gerenciado em uma nuvem do VMM.<br/><br/>Os servidores do Hyper-V devem estar conectados à Internet, diretamente ou por meio de um proxy.<br/><br/>Os servidores do Hyper-V devem ter as correções mencionadas no artigo [2961977](https://support.microsoft.com/kb/2961977) instaladas.<br/><br/>Os servidores host do Hyper-V precisam de acesso à Internet para a replicação de dados no Azure. 
-**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o Provedor do Azure Site Recovery no servidor do VMM e no agente dos Serviços de Recuperação em hosts do Hyper-V. O Provedor e o agente precisarão se conectar ao Azure pela Internet diretamente ou por meio de um proxy. Observe que o proxy baseado em HTTPS não tem suporte. O servidor proxy no servidor do VMM e nos hosts do Hyper-V devem permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor do VMM, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir que os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permitir que os intervalos de endereços IP para a região do Azure da sua assinatura, e para o Oeste dos EUA.<br/><br/>Além disso, o servidor proxy no servidor do VMM precisará de acesso ao https://www.msftncsi.com/ncsi.txt
+**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o Provedor do Azure Site Recovery no servidor do VMM e no agente dos Serviços de Recuperação em hosts do Hyper-V. O Provedor e o agente precisarão se conectar ao Azure pela Internet diretamente ou por meio de um proxy. Observe que o proxy baseado em HTTPS não tem suporte. O servidor proxy no servidor do VMM e nos hosts do Hyper-V devem permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>Se você tiver regras de firewall baseadas no endereço IP no servidor do VMM, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permita os intervalos de endereços IP para a região do Azure de sua assinatura e para o Oeste dos EUA.<br/><br/>Além disso, o servidor proxy no servidor do VMM precisará de acesso ao https://www.msftncsi.com/ncsi.txt
 
 
 ## Pré-requisitos de computadores protegidos
@@ -95,16 +95,16 @@ Veja o que você precisa ter no local
 
 **Pré-requisito** | **Detalhes**
 --- | ---
-**VMs protegidas** | Antes de fazer failover de uma VM, será necessário certificar-se de que o nome que será atribuído à VM do Azure seja compatível com os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Você pode modificar o nome depois de habilitar a replicação para a VM. <br/><br/> A capacidade de disco individual em computadores protegidos não deve ser superior a 1023 GB Uma VM pode ter até 64 discos (portanto, até 64 TB). <br/><br/> Não há suporte para clusters de convidado de disco de compartilhado.<br/><br/> Não há suporte à inicialização UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface).<br/><br/> Se a VM de origem tiver um agrupamento NIC, ele será convertido em uma única NIC após o failover para o Azure.<br/><br/>A proteção de VMs que executam o Linux com um endereço IP estático não tem suporte.
+**VMs protegidas** | Antes de fazer o failover de uma VM, será necessário verificar se o nome atribuído à VM do Azure é compatível com os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Você pode modificar o nome depois de habilitar a replicação para a VM. <br/><br/> A capacidade do disco individual nos computadores protegidos não deve ser maior que 1023 GB. Uma VM pode ter até 64 discos (portanto, até 64 TB).<br/><br/> Não há suporte para os clusters de convidado de disco compartilhados.<br/><br/> Não há suporte para a inicialização UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface).<br/><br/> Se a VM de origem tiver um agrupamento NIC, ele será convertido em uma única NIC após o failover para o Azure.<br/><br/>Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
 
 ## Preparar para a implantação
 
 Para se preparar para a implantação, você precisará:
 
-1. [Configurar uma rede do Azure](#set-up-an-azure-network), na qual as VMs do Azure 
-2. estarão localizadas após o failover. 
-2. [Configurar uma conta de armazenamento do Azure](#set-up-an-azure-storage-account) para os dados replicados.
-4. [Preparar o servidor do VMM](#prepare-the-vmm-server) para a implantação da Recuperação de Site. 
+1. [Configurar uma rede do Azure](#set-up-an-azure-network), na qual as VMs do Azure
+2. estarão localizadas após o failover.
+2. [Configure uma conta de armazenamento do Azure](#set-up-an-azure-storage-account) para os dados replicados.
+4. [Prepare o servidor do VMM](#prepare-the-vmm-server) para a implantação da Recuperação de Site.
 5. [Prepare-se para o mapeamento de rede](#prepare-for-network-mapping). Configure as redes de modo que você possa configurar o mapeamento de rede durante a implantação da Recuperação de Site.
 
 ### Configurar uma rede do Azure
@@ -112,20 +112,20 @@ Para se preparar para a implantação, você precisará:
 Você precisa de uma rede do Azure para que as VMs do Azure criadas após o failover sejam conectadas a ela.
 
 - A rede deve estar na mesma região do que a que será implantada no cofre dos Serviços de Recuperação.
-- Dependendo do modelo de recurso que deseja usar para failover de máquinas virtuais do Azure, você irá configurar a rede do Azure no [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+- Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará a rede do Azure no [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - É recomendável configurar uma rede antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
 
 
 ### Configurar uma conta de armazenamento do Azure
 
 - Você precisará de uma conta de armazenamento padrão do Azure para armazenar os dados replicados para o Azure. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação.
-- Dependendo do modelo de recurso que deseja usar para failover de máquinas virtuais do Azure, você irá configurar uma conta no [modo ARM](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
+- Dependendo do modelo de recurso que deseja usar para as VMs do Azure com failvoer, você configurará uma conta no [modo ARM](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
 - É recomendável que você configure uma conta antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
 
 ### Preparar o servidor do VMM
 
-- Certifique-se de que o servidor do VMM seja compatível com o [pré-requisitos](#on-premises-prerequisites).
-- Durante a implantação da Recuperação de Site, você pode especificar que todas as nuvens em um servidor do VMM deverão estar disponíveis no portal do Azure. Se você só quiser que nuvens específicas apareçam no portal, poderá habilitar essa configuração na nuvem no console de administrador do VMM. 
+- Verifique se o servidor do VMM é compatível com os [pré-requisitos](#on-premises-prerequisites).
+- Durante a implantação da Recuperação de Site, você pode especificar que todas as nuvens em um servidor do VMM deverão estar disponíveis no portal do Azure. Se você só quiser que nuvens específicas apareçam no portal, poderá habilitar essa configuração na nuvem no console de administrador do VMM.
 
 
 ### Preparar para mapeamento de rede
@@ -145,13 +145,13 @@ Você precisará configurar o mapeamento de rede durante a implantação da Recu
 ## Criar um cofre dos Serviços de Recuperação
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** > **Gerenciamento** > **Serviços de Recuperação**. Como alternativa, você pode clicar em **Procurar** > cofres do **Serviços de Recuperação** > **Adicionar**.
+2. Clique em **Novo** > **Gerenciamento** > **Serviços de Recuperação**. Como alternativa, você pode clicar em **Procurar** > cofres dos **Serviços de Recuperação** > **Adicionar**.
 
 	![Novo cofre](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
-4. [Crie um novo grupo de recursos](../resource-group-portal.md#create-resource-group) ou selecione um existente. Especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
-4. Se você deseja acessar rapidamente o cofre, clique o painel **Fixar no painel** e clique em **Criar cofre**.
+4. [Criar um novo grupo de recursos](../resource-group-template-deploy-portal.md) ou selecione um existente. Especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. Se você quiser acessar rapidamente o cofre pelo Painel, clique em **Fixar no painel** e clique em **Criar cofre**.
 
 	![Novo cofre](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
 
@@ -172,11 +172,11 @@ Inicie a Introdução ao escolher como deseja implantar a Recuperação de Site.
 Selecione o que você deseja replicar e para onde deseja replicar.
 
 1. Na folha **Cofres dos Serviços de Recuperação**, selecione seu cofre e clique em **Configurações**.
-2. Em **Introdução**, clique em **Recuperação de Site** > **Etapa 1: Preparar a infraestrutura** > **Objetivo de proteção**.
+2. Em **Introdução**, clique em **Recuperação de Site** > **Etapa 1: Preparar a Infraestrutura** > **Objetivo de proteção**.
 
 	![Escolher metas](./media/site-recovery-vmm-to-azure/choose-goals.png)
 
-3. Em **Objetivo de proteção**, selecione **Para o Azure** e selecione **Sim, com o Hyper-V**. Selecione **Sim** para confirmar que você está usando o VMM para gerenciar hosts do Hyper-V e o site de recuperação. Em seguida, clique em **OK**.
+3. Em **Objetivo de proteção**, selecione **Para o Azure** e **Sim, com o Hyper-V**. Selecione **Sim** para confirmar que você está usando o VMM para gerenciar os hosts do Hyper-V e o site de recuperação. Em seguida, clique em **OK**.
 
 	![Escolher metas](./media/site-recovery-vmm-to-azure/choose-goals2.png)
 
@@ -186,17 +186,17 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 
 Instale o Provedor do Azure Site Recovery no servidor do VMM e registre o servidor no cofre. Instalar o agente dos Serviços de Recuperação do Azure em hosts do Hyper-V
 
-1. Clique em **Etapa 2: Preparar a infraestrutura** > **Origem**. 
+1. Clique em **Etapa 2: Preparar a Infraestrutura** > **Origem**.
 
 	![Configurar origem](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor do VMM.
+2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor VMM.
 
 	![Configurar origem](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. Na folha **Adicionar Servidor**, verifique se **Servidor do System Center VMM** aparece em **Tipo de servidor** e se o servidor do VMM atende [aos pré-requisitos e aos requisitos de URL](#on-premises-prerequisites).
+3. Na folha **Adicionar Servidor**, verifique se o **Servidor do System Center VMM** aparece em **Tipo de servidor** e se o servidor do VMM atende aos [ pré-requisitos e aos requisitos de URL](#on-premises-prerequisites).
 4. Baixe o arquivo de instalação do Provedor do Azure Site Recovery.
-5. Baixe a chave do registro. Você precisará dela quando executar a instalação. A chave é válida por 5 dias após ser gerada. 
+5. Baixe a chave do registro. Você precisará dela quando executar a instalação. A chave é válida por 5 dias após ser gerada.
 
 	![Configurar origem](./media/site-recovery-vmm-to-azure/set-source3.png)
 
@@ -212,18 +212,18 @@ Instale o Provedor do Azure Site Recovery no servidor do VMM e registre o servid
 	![Local de instalação](./media/site-recovery-vmm-to-azure/provider2.png)
 
 4. Quando a instalação terminar, clique em **Registrar** para registrar o servidor do VMM no cofre.
-5. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor do VMM se conectará à Recuperação de Site pela Internet.
+5. Em **Conexão da Internet**, especifique como o Provedor em execução no servidor do VMM conectará a Recuperação de Site pela Internet.
 
-	- Se você quiser que o Provedor se conecte diretamente, escolha **Conectar diretamente sem um proxy**.
-	- Se você quiser conectar-se com o proxy que está configurado atualmente no servidor, escolha **Conectar-se com as configurações de proxy existentes**.
+	- Se você quiser que o Provedor conecte diretamente, selecione **Conectar diretamente sem um proxy**.
+	- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Conectar com as configurações existentes do proxy**.
 	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado, escolha **Conectar com as configurações personalizadas do proxy**.
 	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
-	- Se você estiver usando um proxy, já deverá ter concedido as URLs descritas em [pré-requisitos](#on-premises-prerequisites).
+	- Se você estiver usando um proxy, já deverá ter permitido as URLs descritas em [pré-requisitos](#on-premises-prerequisites).
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Em **Configurações**, expanda **Segurança** > **Executar como Contas** e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
 	![internet](./media/site-recovery-vmm-to-azure/provider3.png)
 
-6. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave do cofre. Especifique a assinatura do Azure Site Recovery e o nome do cofre.
+6. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre. Especifique a assinatura do Azure Site Recovery e o nome do cofre.
 
 	![Registros do servidor](./media/site-recovery-vmm-to-azure/provider4.png)
 
@@ -232,7 +232,7 @@ Instale o Provedor do Azure Site Recovery no servidor do VMM e registre o servid
 	![Registros do servidor](./media/site-recovery-vmm-to-azure/provider5.png)
 
 8. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-13. Habilite **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM. Clique em **Registrar** para concluir o processo.
+13. Habilite **Sincronizar metadados de nuvem**, se você deseja sincronizar os metadados de todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM. Clique em **Registrar** para concluir o processo.
 
 	![Registros do servidor](./media/site-recovery-vmm-to-azure/provider6.png)
 
@@ -259,18 +259,18 @@ O Provedor do Azure Site Recovery pode ser instalado da linha de comando. Esse m
 
 Em que:
 
-- **/Credentials**: parâmetro obrigatório que especifica onde o arquivo da chave de registro está localizado.  
+- **/Credentials**: parâmetro obrigatório que especifica onde o arquivo da chave do registro está localizado.
 - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
-- - **/EncryptionEnabled**: parâmetro opcional quando você estiver replicando VMs do Hyper-V em nuvens do VMM para o Azure. Especifique se deseja criptografar as máquinas virtuais no Azure (com criptografia em repouso). Verifique se o nome do arquivo tem uma extensão **.pfx**. A criptografia está desativado por padrão.
+- - **/EncryptionEnabled**: parâmetro opcional quando você está replicando as VMs do Hyper-V nas nuvens do VMM para o Azure. Especifique se deseja criptografar as máquinas virtuais no Azure (com criptografia em repouso). Verifique se o nome do arquivo tem uma extensão **.pfx**. A criptografia está desativado por padrão.
 - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
 - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
-- **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
-- **/proxyPassword**: parâmetro opcional que especifica a senha para autenticação com o servidor proxy (se o proxy exigir autenticação).
+- **/proxyUsername**: parâmetro opcional que especifica o nome de usuário do proxy (se o proxy exige autenticação).
+- **/proxyPassword**: parâmetro opcional que especifica a senha para se autenticar no servidor proxy (se o proxy exige autenticação).
 
 
 ### Instalar o Agente de Serviços de Recuperação do Azure em hosts do Hyper-V
 
-1. Depois de configurar o Provedor, será necessário baixar o arquivo de instalação do agente de Serviços de Recuperação do Azure. Execute a instalação em cada servidor do Hyper-V na nuvem do VMM. 
+1. Depois de configurar o Provedor, será necessário baixar o arquivo de instalação do agente de Serviços de Recuperação do Azure. Execute a instalação em cada servidor do Hyper-V na nuvem do VMM.
 
 	![Sites do Hyper-V](./media/site-recovery-vmm-to-azure/hyperv-agent1.png)
 
@@ -278,8 +278,8 @@ Em que:
 
 	![Agente de Serviços de Recuperação de Pré-requisitos](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
 
-3. Na página **Configurações de Instalação**, aceite ou modifique o local de instalação e o local do cache. Você pode configurar o cache em uma unidade que tenha pelo menos 5 GB de armazenamento disponível, mas é recomendável uma unidade de cache com 600 GB ou mais de espaço livre. Em seguida, clique em **Instalar**.
-4. Quando a instalação terminar, clique em **Fechar** botão para concluir.
+3. Na página **Configurações da Instalação**, aceite ou modifique o local de instalação e o local do cache. Você pode configurar o cache em uma unidade que tenha pelo menos 5 GB de armazenamento disponível, mas é recomendável uma unidade de cache com 600 GB ou mais de espaço livre. Em seguida, clique em **Instalar**.
+4. Quando a instalação terminar, clique no botão **Fechar** para concluir.
 	
 	![Registrar o Agente MARS](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
 
@@ -295,7 +295,7 @@ O agente dos Serviços de Recuperação em execução em hosts do Hyper-V precis
 
 1. Abra o snap-in MMC do Backup do Microsoft Azure no host do Hyper-V. Por padrão, um atalho para o Backup do Microsoft Azure está disponível na área de trabalho ou C:\\Arquivos de Programas\\Microsoft Azure Recovery Services Agent\\bin\\wabadmin.
 2. No snap-in, clique em **Alterar Propriedades**.
-3. Na guia **Configuração de Proxy**, especifique as informações do servidor proxy.
+3. Na guia **Configuração do Proxy**, especifique as informações do servidor proxy.
 
 	![Registrar o Agente MARS](./media/site-recovery-vmm-to-azure/mars-proxy.png)
 
@@ -312,7 +312,7 @@ Especifique a conta de armazenamento do Azure a ser usada para a replicação e 
 
 	![Armazenamento](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
-4.	Se você não tiver criado uma conta de armazenamento e se deseja criar uma usando o ARM, clique em **+Conta de armazenamento** para fazer isso de forma embutida. Na folha **Criar conta de armazenamento**, especifique um nome de conta, um tipo, uma assinatura e um local. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
+4.	Se você não criou uma conta de armazenamento e se deseja criar uma usando o ARM, clique em **+Conta de armazenamento** para fazer isso de forma alinhada. Na folha **Criar conta de armazenamento**, especifique um nome de conta, tipo, assinatura e local. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
 	![Armazenamento](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
@@ -321,7 +321,7 @@ Especifique a conta de armazenamento do Azure a ser usada para a replicação e 
 	- Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso no portal do Azure. [Saiba mais](../storage/storage-create-storage-account-classic-portal.md)
 	- Se você estiver usando uma conta de armazenamento premium para os dados replicados, precisará configurar uma conta de armazenamento padrão adicional para armazenar os logs de replicação que capturam as alterações contínuas nos dados locais.
 
-4.	Se você não tiver criado uma rede do Azure e se quiser criar uma usando o ARM, clique em **+Rede** para fazer isso de forma embutida. Na folha **Criar rede virtual**, especifique um nome de rede, um intervalo de endereços, detalhes de sub-rede, uma assinatura e um local. A rede deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
+4.	Se você não criou uma rede do Azure e se deseja criar uma usando o ARM, clique em **+Rede** para fazer isso de forma alinhada. Na folha **Criar rede virtual**, especifique um nome de rede, intervalo de endereços, detalhes da sub-rede, assinatura e local. A rede deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
 	![Rede](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
 
@@ -329,7 +329,7 @@ Especifique a conta de armazenamento do Azure a ser usada para a replicação e 
 
 ### Configurar o mapeamento de rede
 
-- [Leia](#prepare-for-network-mapping) uma rápida visão geral sobre o que o mapeamento de rede faz. [Leia isto](site-recovery-network-mapping.md)) para obter uma explicação mais detalhada.
+- [Leia](#prepare-for-network-mapping) uma rápida visão geral sobre o que o mapeamento de rede faz. [Leia isto](site-recovery-network-mapping.md)) para obter uma explicação mais profunda.
 - Verifique se as máquinas virtuais no servidor do VMM estão conectadas a uma rede VM e se você criou pelo menos uma rede virtual do Azure. Observe que várias redes VM podem ser mapeadas para uma única rede do Azure.
 
 Configure o mapeamento da seguinte maneira:
@@ -340,14 +340,14 @@ Configure o mapeamento da seguinte maneira:
 
 2. Em **Adicionar mapeamento de rede**, selecione o servidor do VMM de origem e **Azure** como o destino.
 3. Verifique a assinatura e o modelo de implantação após o failover.
-4. Em **Rede de origem**, selecione a rede de VMs locais de origem que você deseja mapear da lista associada ao servidor do VMM. 
+4. Em **Rede de origem**, selecione a rede de VMs locais de origem que você deseja mapear na lista associada ao servidor do VMM.
 5. Em **Rede de destino**, selecione a rede do Azure na qual as VMs do Azure de réplica estarão localizadas quando rotacionadas. Em seguida, clique em **OK**.
 
 	![Mapeamento de rede](./media/site-recovery-vmm-to-azure/network-mapping2.png)
 
 Veja o que acontece quando começa o mapeamento de rede:
 
-- As VMs existentes na rede de VMs de origem serão conectadas à rede de destino quando o mapeamento começar. As novas VMs conectadas à rede de VMs de origem serão conectadas à rede do Azure mapeada quando a replicação ocorrer. 
+- As VMs existentes na rede de VMs de origem serão conectadas à rede de destino quando o mapeamento começar. As novas VMs conectadas à rede de VMs de origem serão conectadas à rede do Azure mapeada quando a replicação ocorrer.
 - Se você modificar um mapeamento de rede existente, as máquinas virtuais de réplica serão conectadas usando as novas configurações.
 - Se a rede de destino tiver várias sub-redes, e uma dessas sub-redes tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada à sub-rede de destino após o failover.
 - Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
@@ -357,20 +357,20 @@ Veja o que acontece quando começa o mapeamento de rede:
 ## Etapa 4: Definir as configurações da replicação
 
 
-1. Para criar uma nova política de replicação, clique em **Preparar infraestrutura** > **Configurações de Replicação** > **+Criar e associar**.
+1. Para criar uma nova política de replicação, clique em **Preparar a Infraestrutura** > **Configurações de Replicação** > **+Criar e associar**.
 
 	![Rede](./media/site-recovery-vmm-to-azure/gs-replication.png)
 
-2. Na **política Criar e associar**, especifique um nome de política.
+2. Em **Criar e associar política**, especifique um nome da política.
 3. Em **Frequência de cópia**, especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 4. Em **Retenção do ponto de recuperação**, especifique, em horas, qual será a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
-6. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
-3. Em **Hora de início para replicação inicial**, especifique quando a replicação inicial deve começar. A replicação ocorre pela largura de banda da Internet, pois talvez você queira agendá-la fora dos horários de pico.
+6. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a 12 horas) serão criados os pontos de recuperação que incluem instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
+3. Em **Hora de início para replicação inicial**, especifique quando começar a replicação inicial. A replicação ocorre pela largura de banda da Internet, pois talvez você queira agendá-la fora dos horários de pico.
 5. Em **Criptografar os dados armazenados no Azure**, especifique se os dados em repouso serão criptografados no armazenamento do Azure. Em seguida, clique em **OK**.
 
 	![Política de replicação](./media/site-recovery-vmm-to-azure/gs-replication2.png)
 
-6. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM. Clique em **OK**. Você pode associar Nuvens do VMM adicionais (e as VMs nelas) a essa política de replicação em **Configurações** > **Replicação** > nome da política > **Associar Nuvem do VMM**.
+6. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM. Clique em **OK**. Você pode associar as Nuvens do VMM adicionais (e as VMs nelas) a essa política de replicação em**Configurações** > **Replicação** > nome da política > **Associar Nuvem do VMM**.
 
 	![Política de replicação](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -381,9 +381,9 @@ Agora que você tem a infraestrutura básica configurada, pode pensar sobre o pl
 A Recuperação de Site fornece um planejador de capacidade para ajudar você a alocar os recursos certos para seu ambiente de origem, para os componentes da recuperação de site, para a rede e para o armazenamento. Você pode executar o planejador no modo rápido para estimativas baseadas em um número médio de VMs, de discos e de armazenamento, ou no modo detalhado, no qual você vai inserir números no nível de carga de trabalho. Antes de começar, será necessário:
 
 - Reunir informações sobre seu ambiente de replicação, inclusive VMs, discos por VMs e armazenamento por disco.
-- Estimar a taxa de alteração (variação) diária de dados replicados. Você pode usar o [Planejador de capacidade para réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para ajudá-lo a fazer isso.
+- Estimar a taxa de alteração (variação) diária de dados replicados. Você pode usar o [Planejador de capacidade para a Réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para ajudá-lo a fazer isso.
 
-1.	Clique em **Baixar** para baixar a ferramenta e então a execute. [Leia o artigo](site-recovery-capacity-planner.md) que acompanha a ferramenta.
+1.	Clique em **Baixar** para baixar a ferramenta, então, executá-la. [Leia o artigo](site-recovery-capacity-planner.md) que acompanha a ferramenta.
 2.	Quando terminar, selecione **Sim** em **Você executou o Planejador de Capacidade**?
 
 	![Planejamento da capacidade](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
@@ -399,7 +399,7 @@ Você pode usar a ferramenta de planejador de capacidade para calcular a largura
 
 1. Abra o snap-in MMC do Backup do Microsoft Azure no servidor host do Hyper-V. Por padrão, um atalho para o Backup do Microsoft Azure está disponível na área de trabalho ou C:\\Arquivos de Programas\\Microsoft Azure Recovery Services Agent\\bin\\wabadmin.
 2. No snap-in, clique em **Alterar Propriedades**.
-3. Na guia **Limitação**, selecione **Habilitar limitação de uso de largura de banda da Internet para operações de backup** e defina os limites do horário comercial e não comercial. Os intervalos válidos são de 512 Kbps a 102 Mbps por segundo.
+3. Na guia **Limitação**, selecione **Habilitar limitação de uso da largura de banda da Internet para as operações de backup** e defina os limites dos horários comercial e não comercial. Os intervalos válidos são de 512 Kbps a 102 Mbps por segundo.
 
 	![Limitar a largura de banda](./media/site-recovery-vmm-to-azure/throttle2.png)
 
@@ -409,7 +409,7 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
     $tue = [System.DayOfWeek]::Tuesday
     Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
 
-**Set-OBMachineSetting - NoThrottle** indica que nenhuma limitação é necessária.
+**Set-OBMachineSetting -NoThrottle** indica que nenhuma limitação é necessária.
 
 
 #### Influência da largura de banda de rede
@@ -418,15 +418,15 @@ O valor do registro **UploadThreadsPerVM** controla o número de threads usados 
 
 1. No registro, navegue até **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication**.
 	
-	- Modifique o valor **UploadThreadsPerVM** (ou crie a chave caso ela não exista) para controlar os threads usados para a replicação de disco. 
-	- Modifique o valor **DownloadThreadsPerVM** (ou crie a chave caso ela não exista) para controlar os threads usados para o tráfego de failback do Azure. 
-2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor. 
+	- Modifique o valor **UploadThreadsPerVM** (ou crie a chave caso ela não exista) para controlar os threads usados para a replicação do disco.
+	- Modifique o valor **DownloadThreadsPerVM** (ou crie a chave caso ela não exista) para controlar os threads usados para o tráfego de failback do Azure.
+2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor.
 
 ## Etapa 6: Habilitar a replicação
 
 Agora habilite a replicação da seguinte maneira:
 
-1. Clique em **Etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
+1. Clique em **Etapa 2: replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication1.png)
 
@@ -434,17 +434,17 @@ Agora habilite a replicação da seguinte maneira:
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication-source.png)
 
-3. Em **Destino**, selecione a assinatura, o modelo de implantação pós-failover e a conta de armazenamento que você está usando para os dados replicados.
+3. Em **Destino**, selecione a assinatura, modelo de implantação pós-failover e conta de armazenamento que você está usando para os dados replicados.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
 
-4. Selecione a conta de armazenamento que você deseja usar. Se quiser usar uma conta de armazenamento diferente da que você tem, poderá [criar uma](#set-up-an-azure-storage-account). Para criar uma conta de armazenamento usando o modelo ARM, clique em **Criar novo**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md). Em seguida, clique em **OK**.
-5. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede para todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede por computador do Azure. Se quiser usar uma rede diferente da que você tem, poderá [criar uma](#set-up-an-azure-network). Para criar uma rede usando o modelo ARM, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, fará isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
-6. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, clique e selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
+4. Selecione a conta de armazenamento que você deseja usar. Se você quiser usar uma conta de armazenamento diferente da que tem, poderá [criar uma](#set-up-an-azure-storage-account). Para criar uma conta de armazenamento usando o modelo ARM, clique em **Criar nova**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md). Em seguida, clique em **OK**.
+5. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. Selecione **Configurar agora para os computadores selecionados** para aplicar a configuração de rede em todos os computadores selecionados para a proteção. Selecione **Configurar mais tarde** para selecionar a rede por computador do Azure. Se você quiser usar uma rede diferente da que tem, poderá [criar uma](#set-up-an-azure-network). Para criar uma rede usando o modelo ARM, clique em **Criar nova**. Se quiser criar uma rede usando o modelo clássico, poderá fazer isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
+6. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, clique e selecione cada computador que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication5.png)
 
-5. Em **Propriedades** > **Configurar propriedades**, selecione o sistema operacional para as VMs selecionadas e o disco do sistema operacional. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
+5. Em **Propriedades** > **Configurar propriedades**, selecione o sistema operacional para as VMs selecionadas e o disco do SO. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication6.png)
 
@@ -453,33 +453,33 @@ Agora habilite a replicação da seguinte maneira:
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
+Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho **Finalizar Proteção** ser executado, o computador estará pronto para o failover.
 
 ### Exibir e gerenciar as propriedades da VM
 
-É recomendável que você verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure deve estar em conformidade com os [Requisitos de máquinas virtuais do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+É recomendável que você verifique as propriedades do computador de origem. Lembre-se que o nome da VM do Azure deve estar em conformidade com os [Requisitos das máquinas virtuais do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Clique em **Configurações** > **Itens Protegidos** > **Itens Replicados** > e selecione o computador para ver seus detalhes.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 
-2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
+2. Em **Propriedades**, você pode exibir as informações de replicação e failover para a VM.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/test-failover2.png)
 
-3. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho de destino. Modifique o nome para que ele fique em conformidade com os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements), se for necessário. Você também pode exibir e modificar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
+3. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho do destino. Modifique o nome para que ele fique em conformidade com os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements), se for necessário. Você também pode exibir e modificar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
 
 	- Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover falhará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
 	- O número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino, como a seguir:
 
 		- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 		- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-		- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
+		- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
 		- Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-azure/test-failover4.png)
 
-5.	Em **Discos**, você pode ver o sistema operacional e os discos de dados na VM que serão replicados.
+5.	Em **Discos**, você pode ver o sistema operacional e os discos de dados na VM que será replicada.
 
 
 
@@ -490,23 +490,23 @@ Para testar a implantação, você pode executar um failover de teste para uma �
 
 ### Preparar para failover
 
-- Para executar um failover de teste, é recomendável que você crie uma nova rede do Azure que esteja isolada da rede de produção do Azure (esse é o comportamento padrão quando você cria uma nova rede no Azure). [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução de failovers de teste.
-- Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789). 
-- Para testar totalmente a implantação, você precisará de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
+- Para executar um failover de teste, é recomendável que você crie uma nova rede do Azure que esteja isolada da rede de produção do Azure (esse é o comportamento padrão quando você cria uma nova rede no Azure). [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução dos failovers de teste.
+- Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
+- Para testar totalmente a implantação, você precisará de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre o failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 - Se você quiser executar um failover não planejado em vez de um teste de failover, observe o seguinte:
 
-	- Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo. 
+	- Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo.
 	- Quando você executa um failover não planejado, ele interrompe a replicação de dados de computadores primários para que qualquer delta de dados não seja transferido após o início de um failover não planejado. Além disso se você executar um failover não planejado em um plano de recuperação, ele será executado até ser concluído, mesmo se ocorrer um erro.
 
 ### Preparar para conectar VMs do Azure após o failover
 
 Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faça o seguinte:
 
-**Na máquina local antes do failover**:
+**No computador local antes do failover**:
 
-- Para acesso pela Internet, habiliote o RDP, certifique-se de que as regras de TCP e UDP sejam adicionadas para o **Público** e verifique se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para todos os perfis.
-- Para acesso por meio de uma conexão site a site, habilite o RDP na máquina e verifique se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para as redes **Domínio** e **Particular**.
-- Instale o [Agente de VM do Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) no computador local.
+- Para o acesso pela Internet, habilite o RDP, verifique se as regras de TCP e UDP estão adicionadas para o **Público** e se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para todos os perfis.
+- Para o acesso por meio de uma conexão site a site, habilite o RDP no computador e verifique se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para as redes **Domínio** e **Particular**.
+- Instale o [Agente da VM do Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) no computador local.
 - Certifique-se de que a política de SAN do sistema operacional esteja definida como OnlineAll. [Saiba mais](https://support.microsoft.com/kb/3031135)
 - Desative o serviço IPSec antes de executar o failover.
 
@@ -518,7 +518,7 @@ Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faç
 
 Se você quiser acessar uma VM do Azure que esteja executando o Linux após o failover usando um cliente do Secure Shell (ssh), faça o seguinte:
 
-**Na máquina local antes do failover**:
+**No computador local antes do failover**:
 
 - Verifique se o serviço Secure Shell na VM do Azure está definido para iniciar automaticamente na inicialização do sistema.
 - Verifique se as regras de firewall permitem uma conexão SSH com ele.
@@ -535,7 +535,7 @@ Se você quiser acessar uma VM do Azure que esteja executando o Linux após o fa
 Para executar o failover de teste, faça o seguinte:
 
 1. Para fazer failover em uma única VM, em **Configurações** > **Itens Replicados**, clique na VM > **+Failover de Teste**.
-2. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
+2. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
 
 3. Em **Failover de Teste**, selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
 4. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** em **Configurações** > **Trabalhos da Recuperação de Site**.
@@ -550,8 +550,8 @@ Para executar o failover de teste, faça o seguinte:
 	
 	> [AZURE.NOTE] Se um failover de teste continuar por mais de duas semanas, ele será concluído à força.
 
-6. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
-7. Se você tiver se [preparado para conexões após o failover](#prepare-to-connect-to-Azure-VMs-after-failover), deverá ser capaz de se conectar à VM do Azure.
+6. Após a conclusão do failover, você também deverá ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
+7. Se você se [preparou para as conexões após o failover](#prepare-to-connect-to-Azure-VMs-after-failover), você deverá ser capaz de conectar a VM do Azure.
 
 
 ## Monitorar a implantação
@@ -562,12 +562,12 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 	![Conceitos básicos](./media/site-recovery-vmm-to-azure/essentials.png)
 
-2. No bloco **Integridade**, você pode monitorar os servidores de site (servidores do VMM ou do configuração) que estejam enfrentando o problema, além dos eventos gerados pela Recuperação de Site nas últimas 24 horas.
+2. No bloco **Integridade**, você pode monitorar os servidores de site (servidores do VMM ou de configuração) com problemas, além dos eventos gerados pela Recuperação de Site nas últimas 24 horas.
 3. Você pode gerenciar e monitorar a replicação nos blocos **Itens Replicados**, **Planos de Recuperação** e **Trabalhos de Recuperação de Site**. Você pode analisar detalhadamente os trabalhos em **Configurações** -> **Trabalhos** -> **Trabalhos de Recuperação de Site**.
 
 
 ## Próximas etapas
 
-Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
+Depois da implantação estar configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

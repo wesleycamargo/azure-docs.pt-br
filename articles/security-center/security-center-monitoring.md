@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"virtual
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -21,25 +21,22 @@ Este documento o ajuda a usar recursos de monitoramento na Central de segurança
 
 > [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
 
-## O que é a Central de Segurança do Azure?
-A Central de Segurança o ajuda a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança
-
 ##O que é o monitoramento de integridade de segurança?
 Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
 
 ##Monitoramento de integridade da segurança
-Depois de habilitar [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar possíveis vulnerabilidades. As informações sobre a configuração de rede estão disponíveis imediatamente, mas pode levar uma hora ou mais para obter informações disponíveis sobre a configuração da máquina virtual, como o status de atualização de segurança e a configuração do sistema operacional. Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade de Segurança do Recurso**. Você também pode exibir uma lista desses problemas na folha **Recomendações**.
+Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades. As informações sobre a configuração de rede estão disponíveis imediatamente, mas pode levar uma hora ou mais para obter informações disponíveis sobre a configuração da máquina virtual, como o status de atualização de segurança e a configuração do sistema operacional. Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da Segurança do Recurso**. Você também pode exibir uma lista desses problemas na folha **Recomendações**.
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
-No bloco **Integridade da segurança de recursos**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver vários problemas com gravidade média e alta que exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
+No bloco **Integridade da segurança do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver vários problemas com gravidade média e alta que exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
 
 ![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
-Se a Central de segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM com ausência de atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
+Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
 ###Monitorar máquinas virtuais
-Quando você clicar em **Máquinas virtuais** no bloco **Integridade de segurança de recursos**, a folha **Máquinas virtuais** será aberta com mais detalhes sobre as etapas de prevenção e integração, bem como uma lista de todas as VMs monitoradas pela Central de segurança, conforme mostrado abaixo.
+Quando você clicar em **Máquinas virtuais** no bloco **Integridade da segurança do recurso**, a folha **Máquinas virtuais** será aberta com mais detalhes sobre as etapas de prevenção e integração, bem como uma lista de todas as VMs monitoradas pela Central de Segurança, como mostrado abaixo.
 
 ![Atualização de sistema ausente por VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
@@ -50,7 +47,7 @@ Quando você clicar em **Máquinas virtuais** no bloco **Integridade de seguran�
 Em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre a etapa recomendada para resolver esse problema. As seções abaixo abordarão essas áreas em mais detalhes.
 
 ####Etapas para inclusão
-Esta seção mostra o número total de VMs que foram inicializadas para coleta de dados e seu status atual. Depois que todas as VMs tiverem a coleta de dados inicializada, elas estarão prontas para receber políticas de segurança da Central de Segurança. Quando você clica nessa entrada, a folha **Inicializando coleta de dados** é aberta e você poderá ver o nome das VMs e o status atual da coleta de dados, na coluna **STATUS DA INSTALAÇÃO**, conforme mostrado abaixo.
+Esta seção mostra o número total de VMs que foram inicializadas para coleta de dados e seu status atual. Depois que todas as VMs tiverem a coleta de dados inicializada, elas estarão prontas para receber políticas de segurança da Central de Segurança. Quando você clica nessa entrada, a folha **Inicializando a coleta de dados** é aberta e você poderá ver o nome das VMs e o status atual da coleta de dados na coluna **STATUS DA INSTALAÇÃO**, como mostrado abaixo.
 
 ![Status da inicialização](./media/security-center-monitoring/security-center-monitoring-fig3-new.png)
 
@@ -60,23 +57,25 @@ Esta seção tem um conjunto de recomendações para cada VM monitorada pela Cen
 
 ![Recomendações de VM](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
-Cada recomendação tem um conjunto de ações que podem ser executadas assim que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta. Ela lista as VMs que têm correções ausentes e a gravidade da atualização ausente, conforme mostrado abaixo.
+> [AZURE.NOTE] Apenas as VMs com pelo menos um ponto de extremidade público são mostradas na folha Integridade da Rede na lista Topologia da rede.
+
+Cada recomendação tem um conjunto de ações que podem ser executadas assim que você clica nela. Por exemplo, se você clicar em **Atualizações do sistema ausentes**, a folha **Atualizações do sistema ausentes** será aberta. Ela lista as VMs que têm correções ausentes e a gravidade da atualização ausente, conforme mostrado abaixo.
 
 ![Atualizações de sistema ausentes](./media/security-center-monitoring/security-center-monitoring-fig5-new.png)
 
-A folha **Atualizações de sistema ausentes** mostrará uma tabela com as seguintes informações:
+A folha **Atualizações do sistema ausentes** mostrará uma tabela com as seguintes informações:
 
-- **MÁQUINA VIRTUAL**: o nome da máquina virtual com atualizações ausentes.
-- **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que estão ausentes.
-- **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez se a VM tinha atualizações.
+- **MÁQUINA VIRTUAL**: o nome da máquina virtual sem as atualizações.
+- **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que faltam.
+- **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez se a VM teve atualizações.
 - **ESTADO**: o estado atual da recomendação:
 	- **Aberta**: a recomendação ainda não foi resolvida
-	- **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; não é exigido que você realize nenhuma ação
-	- **Resolvida**: A recomendação já foi concluída (quando o problema for resolvido, a entrada será esmaecida).
+	- **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; nenhuma ação é requerida
+	- **Resolvida**: a recomendação já foi concluída (quando o problema foi resolvido, a entrada fica acinzentada).
 - **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
-	- **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança de rede) e ela requer atenção
+	- **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança da rede) e ela requer atenção
 	- **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade
-	- **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
+	- **Baixa**: uma vulnerabilidade deve ser endereçada, mas não exige uma atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
 
 Para exibir os detalhes da recomendação, clique no nome da VM. Uma nova folha dessa VM será aberta com a lista de atualizações, conforme mostrado abaixo.
 
@@ -106,12 +105,12 @@ Você precisará seguir as etapas na recomendação para atualizar a versão do 
 
 ![Detalhes do Serviço de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver a uma explicação mais detalhada sobre essa recomendação, clique em Atualizar **Versão do sistema operacional**, na coluna **DESCRIÇÃO**. A folha **Atualizar versão do sistema operacional (Visualização)** será aberta com mais detalhes.
+Para ver a uma explicação mais detalhada sobre essa recomendação, clique em Atualizar **versão do SO**, na coluna **DESCRIÇÃO**. A folha **Atualizar versão do SO (Visualização)** será aberta com mais detalhes.
 
 ![Recomendações dos Serviços de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
 
 ### Monitorar redes virtuais
-Quando você clicar em **Rede** no bloco **Integridade de segurança de recursos**, a folha **Rede** será aberta com mais detalhes, como mostrado abaixo:
+Quando você clicar em **Rede** no bloco **Integridade da Segurança do Recurso**, a folha **Rede** será aberta com mais detalhes, como mostrado abaixo:
 
 ![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -164,7 +163,7 @@ Nessa exibição da topologia, o primeiro nível tem as [Redes Virtuais](../virt
 A parte inferior dessa folha tem as recomendações para essa VM, semelhante ao que está descrito acima. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração/controle de segurança necessário.
 
 ###Monitorar recursos do SQL
-Quando você clicar em **SQL** no bloco **Integridade de segurança dos recursos**, a folha SQL será aberta com recomendações para os problemas, como auditoria e criptografia de dados transparente não habilitada. Ela também contém recomendações para o estado de integridade geral do banco de dados.
+Quando você clicar em **SQL** no bloco **Integridade da Segurança do Recursos**, a folha SQL será aberta com recomendações para os problemas, como a auditoria e a criptografia de dados transparente não habilitadas. Ela também contém recomendações para o estado de integridade geral do banco de dados.
 
 ![Integridade de recursos do SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -180,14 +179,14 @@ A folha **Habilitar Auditoria nos bancos de dados SQL** contém as seguintes inf
 - O estado atual
 - A gravidade do problema
 
-Quando você clicar no banco de dados para endereçar essa recomendação, a folha **Auditoria e Detecção de ameaças** será aberta, conforme mostrado abaixo.
+Quando você clicar no banco de dados para endereçar essa recomendação, a folha **Auditoria e Detecção de ameaças** será aberta, como mostrado abaixo.
 
 ![Integridade de recursos do SQL](./media/security-center-monitoring/security-center-monitoring-fig17-new.png)
 
 Para habilitar a auditoria, basta selecionar **ATIVAR** na opção **Auditoria** e clicar em **Salvar**.
 
 ###Monitorar aplicativos
-Se sua carga de trabalho do Azure tiver aplicativos localizados nas [VMs do gerenciador de recursos](../resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança potenciais e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção das etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
+Se sua carga de trabalho do Azure tiver aplicativos localizados nas [VMs do gerenciador de recursos](../resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança em potencial e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção das etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
 
 ![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -195,17 +194,17 @@ Como fez com as outras recomendações, você pode clicar nela para ver mais det
 
 ![Aplicativos](./media/security-center-monitoring/security-center-monitoring-fig19-new.png)
 
-A folha **Aplicativos Web Não Seguros** terá uma lista de todas as VMs que contêm aplicativos que não são considerados seguros. A lista mostra o nome da VM, o estado atual do problema e a gravidade do problema. Se você clicar nesse aplicativo Web, a folha **Adicionar um Firewall do Aplicativo Web** será aberta com as opções para instalar um WAF (firewall do aplicativo Web) de terceiros, conforme mostrado abaixo.
+A folha **Aplicativos Web Não Seguros** terá uma lista de todas as VMs que contêm aplicativos que não são considerados seguros. A lista mostra o nome da VM, o estado atual do problema e a gravidade do problema. Se você clicar nesse aplicativo Web, a folha **Adicionar um Firewall do Aplicativo Web** será aberta com opções para instalar um WAF (firewall do aplicativo Web) de terceiros, como mostrado abaixo.
 
 ![Adicionar WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
-## Próximas etapas
+## Consulte também
 Neste documento, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 - [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
+- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

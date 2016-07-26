@@ -40,15 +40,15 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
     ![Criar banco de dados](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Servidor**: recomendamos que você selecione seu servidor primeiro. Você pode selecionar um servidor existente ou [criar um novo](./sql-data-warehouse-get-started-new-server.md). 
+	- **Servidor**: recomendamos que você selecione seu servidor primeiro. Você pode selecionar um servidor existente ou [criar um novo](./sql-data-warehouse-get-started-new-server.md).
 
 	- **Nome do banco de dados**: o nome que será usado para referenciar o SQL Data Warehouse. Esse nome tem que ser exclusivo do servidor.
 	
-    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, consulte nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, consulte nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços](https://azure.microsoft.com/pt-BR/pricing/details/sql-data-warehouse/).
 
     - **Assinatura**: selecione a assinatura na qual esse SQL Data Warehouse será cobrado.
 
-    - **Grupo de recurso**: grupos de recurso são contêineres projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Saiba mais sobre [grupos de recursos](../azure-portal/resource-group-portal.md).
+    - **Grupo de recurso**: grupos de recurso são contêineres projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Saiba mais sobre [grupos de recursos](../resource-group-overview.md).
 
     - **Selecionar fonte**: clique em **Selecionar fonte** > **Exemplo**. Como há apenas um banco de dados de exemplo disponível no momento, quando você seleciona Exemplo, o Azure preenche automaticamente a opção **Selecionar exemplo** com AdventureWorksDW.
 
@@ -68,4 +68,4 @@ Para carregar dados no SQL Data Warehouse, veja a [visão geral de carregamento]
 
 Se você estiver tentando migrar um banco de dados existente para o SQL Data Warehouse, confira a [Visão geral de migração](./sql-data-warehouse-overview-migrate.md) ou use o [Utilitário de migração](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

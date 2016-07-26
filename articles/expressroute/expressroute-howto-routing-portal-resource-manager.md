@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar o roteamento de um circuito da Rota Expressa
@@ -113,8 +113,8 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 2. Configure o emparelhamento público do Azure para o circuito. Verifique se você tem os seguintes itens antes de continuar com as próximas etapas:
 
-	- Uma sub-rede /30 para o link principal. 
-	- Uma sub-rede /30 para o link secundário. 
+	- Uma sub-rede /30 para o link principal.
+	- Uma sub-rede /30 para o link secundário.
 	- Todos os endereços IP usados para configurar o emparelhamento devem ser endereços IPv4 públicos válidos.
 	- Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
 	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
@@ -237,4 +237,4 @@ A próxima etapa será [Vincular uma Rede Virtual a um circuito da Rota Expressa
 
 -  Para saber mais sobre redes virtuais, confira [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/14/2016"
 	ms.author="wesmc"/>
 
 # Como enviar notificações por push para Android com Hubs de Notificação do Azure
@@ -158,7 +158,7 @@ Agora, o hub de notificação está configurado para funcionar com o Firebase Cl
 		public class NotificationSettings {
 		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
-		    public static String HubListenConnectionString = "<Your default listen connection string>";
+		    public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
 		}
 
 2. Usando as etapas acima, adicione outra classe nova denominada `MyInstanceIDService`. Essa será nossa implementação do serviço de escuta de ID da Instância.
@@ -462,6 +462,8 @@ Você pode testar o recebimento das notificações por push no aplicativo envian
 
 ## (Opcional) Enviar notificações por push diretamente do aplicativo
 
+>[AZURE.IMPORTANT] Este exemplo de envio de notificações do aplicativo cliente é fornecido somente para fins de aprendizado. Como o exemplo exigirá a presença da `DefaultFullSharedAccessSignature` no aplicativo cliente, ele expõe seu hub de notificação ao risco de um usuário obter acesso para enviar notificações não autorizadas aos seus clientes.
+
 Normalmente, você enviaria notificações usando um servidor back-end. Em alguns casos, talvez você queira ser capaz de enviar notificações por push diretamente do aplicativo cliente. Esta seção explica como enviar as notificações a partir do cliente usando a [API REST do Hub de Notificação do Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
 1. Na Exibição de Projeto do Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra o arquivo de layout `activity_main.xml` e clique na guia **Texto** para atualizar o conteúdo de texto do arquivo. Atualize-o com o código abaixo, que adiciona novos controles `Button` e `EditText` para enviar as mensagens de notificação por push ao hub de notificação. Adicione este código à parte inferior imediatamente antes de `</RelativeLayout>`.
@@ -494,7 +496,7 @@ Normalmente, você enviaria notificações usando um servidor back-end. Em algun
 
 	Atualize `HubFullAccess` com a cadeia de conexão **DefaultFullSharedAccessSignature** para o hub. Essa cadeia de conexão pode ser copiada do [Portal do Azure] clicando em **Políticas de Acesso** na folha **Configurações** do hub de notificação.
 
-		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
 
 4. No arquivo `MainActivity.java`, adicione as instruções `import` a seguir acima da classe `MainActivity`.
 
@@ -725,9 +727,9 @@ Para saber mais sobre os Hubs de Notificação, consulte nossas [Diretrizes dos 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
+[Diretrizes dos Hubs de Notificação]: notification-hubs-push-notification-overview.md
 [Usar os Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-android-notify-users.md
 [Usar Hubs de Notificação para enviar as notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->
