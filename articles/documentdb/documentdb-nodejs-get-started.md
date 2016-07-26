@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Bem-vindo ao tutorial do Node.js para o SDK do Node.js do Banco de Dados de Documentos! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Banco de Dados de Documentos, incluindo um banco de dados do Nó.
+Bem-vindo ao tutorial do Node.js para o SDK do Node.js do Banco de Dados de Documentos do Azure! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Banco de Dados de Documentos, incluindo um banco de dados do Nó.
 
 Abordaremos:
 
@@ -621,4 +621,4 @@ Em seguida, no arquivo ```config.js```, atualize os valores config.endpoint e co
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

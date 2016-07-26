@@ -168,6 +168,8 @@ Você pode testar o recebimento de notificações no aplicativo enviando notific
 
 ## (Opcional) Enviar notificações por push do aplicativo
 
+>[AZURE.IMPORTANT] Este exemplo de envio de notificações do aplicativo cliente é fornecido somente para fins de aprendizado. Como o exemplo exigirá a presença da `DefaultFullSharedAccessSignature` no aplicativo cliente, ele expõe seu hub de notificação ao risco de um usuário obter acesso para enviar notificações não autorizadas aos seus clientes.
+
 Se você quer enviar notificações por push de dentro de um aplicativo, esta seção fornece um exemplo de como fazer isso usando a interface REST.
 
 1. No Xcode, abra `Main.storyboard` e adicione os seguintes componentes da interface do usuário da biblioteca de objetos para permitir que o usuário envie notificações por push no aplicativo:
@@ -323,7 +325,7 @@ Se você quer enviar notificações por push de dentro de um aplicativo, esta se
 		}
 
 
-8. Ctrl+arraste do botão **Enviar Notificação** para `ViewController.m` para adicionar uma ação chamada **SendNotificationMessage** ao evento **Touch Down**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
+8. Ctrl+arraste do botão **Enviar Notificação** para `ViewController.m` a fim de adicionar uma ação chamada **SendNotificationMessage** ao evento **Touch Down**. Atualize o método com o código a seguir para enviar a notificação usando a API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -506,4 +508,4 @@ Para obter informações gerais sobre os Hubs de Notificação, confira [Diretri
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

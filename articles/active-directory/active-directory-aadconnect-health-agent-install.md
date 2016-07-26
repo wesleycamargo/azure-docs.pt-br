@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -27,8 +27,8 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 | Requisito | Descrição|
 | ----------- | ---------- |
 |AD Premium do Azure| O Azure AD Connect Health é um recurso do Azure AD Premium e requer o Azure AD Premium. </br></br>Para saber mais, confira [Introdução ao Azure AD Premium](active-directory-get-started-premium.md) </br>Para iniciar uma avaliação gratuita de 30 dias, confira [Iniciar uma avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/)|
-|Você deve ser um administrador global do Azure AD para começar a usar o Azure AD Connect Health|Por padrão, somente os administradores globais podem instalar e configurar os agentes de integridade para começar, acessar o portal e realizar operações no Azure AD Connect Health. Para obter informações adicionais, confira [Administrando seu diretório no AD do Azure](active-directory-administer.md). <br><br> Usando o Controle de Acesso com Base em Funções, você pode permitir acesso ao Azure AD Connect Health para outros usuários em sua organização. Para saber mais, confira [Controle de Acesso com Base em Funções para Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Importante:** a conta que você usará ao instalar os agentes deve ser uma conta do trabalho ou da escola e não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-|O agente do Azure AD Connect Health é instalado em cada servidor de destino| O Azure AD Connect Health requer que um agente esteja instalado nos servidores de destino para fornecer os dados que serão exibidos no portal. </br></br>Por exemplo, para obter dados sobre sua infraestrutura do AD FS no local, o agente deverá ser instalado nos servidores do AD FS, nos servidores Proxy do AD FS e nos servidores Proxy de Aplicativo Web. </br></br>**Importante:** a conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante e não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](sign-up-organization.md)|
+|Você deve ser um administrador global do Azure AD para começar a usar o Azure AD Connect Health|Por padrão, somente os administradores globais podem instalar e configurar os agentes de integridade para começar, acessar o portal e realizar operações no Azure AD Connect Health. Para obter informações adicionais, confira [Administrando seu diretório no AD do Azure](active-directory-administer.md). <br><br> Usando o Controle de Acesso com Base em Funções, você pode permitir acesso ao Azure AD Connect Health para outros usuários em sua organização. Para saber mais, confira [Controle de Acesso com Base em Função para o Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Importante:** a conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante e não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](sign-up-organization.md)
+|O agente do Azure AD Connect Health é instalado em cada servidor de destino| O Azure AD Connect Health requer que um agente esteja instalado nos servidores de destino para fornecer os dados que serão exibidos no portal. </br></br>Por exemplo, para obter dados sobre sua infraestrutura do AD FS local, o agente deve ser instalado nos servidores do AD FS, nos servidores Proxy do AD FS e nos servidores de Proxy de Aplicativo Web. Da mesma forma, para obter dados da infraestrutura do AD DS local, o agente deve ser instalado nos controladores de domínio. </br></br>**Importante:** a conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante e não pode ser uma conta da Microsoft. Para obter mais informações, consulte [Inscrever-se no Azure como uma organização](sign-up-organization.md)|
 |Conectividade de saída para os pontos de extremidade de serviço do Azure|Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health listados a seguir. Se você bloquear a conectividade de saída verifique se os recursos a seguir foram adicionados à lista de permissões: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Portas de firewall no servidor que executa o agente.| O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.</br></br><li>Porta TCP/UDP 443</li><li>Porta TCP/UDP 5671</li>
 |Permita os sites a seguir se a segurança reforçada do IE estiver habilitada|Os sites a seguir precisarão ser permitidos se a Segurança Aprimorada do IE estiver habilitada no servidor no qual o agente será instalado.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo:https://sts.contoso.com</li>
@@ -155,7 +155,34 @@ O comando usa os seguintes parâmetros:
 
 Quando for solicitado a realizar a autenticação, você deverá usar a mesma conta de administrador global (como admin@domain.onmicrosoft.com) que foi usada para configurar o Azure AD Connect.
 
+## Instalando o Agente do Azure AD Connect Health para AD DS
+Para iniciar a instalação do agente, clique duas vezes no arquivo .exe que você baixou. Na primeira tela, clique em instalar.
 
+![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
+
+Depois que a instalação for concluída, clique em Configurar agora.
+
+![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
+
+Isso iniciará um prompt de comando, seguido pelo PowerShell que executará Register-AzureADConnectHealthADDSAgent. Você será solicitado a entrar no Azure. Vá em frente e entre.
+
+![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
+
+
+Depois de entrar, o PowerShell continuará. Depois de concluir feche o PowerShell e a configuração está concluída.
+
+Nesse ponto, os serviços devem ser iniciados automaticamente e o agente estará agora monitorando e coletando dados. A captura de tela abaixo é um exemplo da saída. Lembre-se de que você verá avisos na janela do PowerShell caso não atenda a todos os pré-requisitos descritos nas seções anteriores. Não se esqueça de concluir os requisitos [aqui](active-directory-aadconnect-health-agent-install.md#requirements) antes de instalar o agente.
+
+![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+
+Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte:
+
+- Serviço do Insights do AD DS do Azure AD Connect Health
+- Serviço de Monitoramento do AD DS do Azure AD Connect Health
+
+Esses dois serviços não serão iniciados até que a configuração seja concluída.
+
+![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 ## Configurar agentes do Azure AD Connect Health para usar HTTP Proxy
 Você pode configurar agentes do Azure AD Connect Health para trabalhar com um HTTP Proxy.
@@ -215,6 +242,7 @@ O parâmetro de função usa os seguintes valores:
 
 - ADFS
 - Sincronizar
+- ADICIONA
 
 Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhados. Use o seguinte exemplo:
 
@@ -230,7 +258,8 @@ Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhado
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
+* [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

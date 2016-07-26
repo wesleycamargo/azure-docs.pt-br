@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="07/14/2016"
 	ms.author="billmath"/>
 
 # Usando o Azure AD Connect Health para sincronização
-A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect com o Azure AD Connect Health. Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md).
+A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health. Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health para sincronização](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -64,7 +64,8 @@ Esse recurso oferece uma tendência gráfica do número de alterações que est�
 * [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
+* [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

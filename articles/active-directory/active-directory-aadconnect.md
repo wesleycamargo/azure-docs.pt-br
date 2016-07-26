@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/27/2016"
+	ms.date="07/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -22,7 +22,7 @@ O Azure AD Connect integrará seus diretórios locais com o Azure Active Directo
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [O Azure AD Connect é a melhor maneira de conectar seu diretório local ao Azure AD e ao Office 365. Esse é um ótimo momento para atualizar para o Azure AD Connect do Microsoft Azure Active Directory Sync (DirSync) ou do Azure AD Sync, pois essas ferramentas foram preteridas e chegarão ao fim do suporte em 13 de abril de 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -138,6 +138,7 @@ se seu servidor ADFS não tiver sido configurado para atualizar automaticamente 
 
 Tópico |  
 --------- | ---------
+Todos os artigos do AD FS | [Azure AD Connect e federação](active-directory-aadconnectfed-whatis.md)
 Configurar o ADFS com subdomínios | [Suporte a Vários Domínios para Federação com o Azure AD](active-directory-aadconnect-multiple-domains.md)
 Gerenciar o farm do AD FS | [Gerenciamento do AD FS e personalização com o Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Atualização manual dos certificados de federação | [Renovando certificados de federação para o Office 365 e AD do Azure](active-directory-aadconnect-o365-certs.md)
@@ -161,4 +162,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

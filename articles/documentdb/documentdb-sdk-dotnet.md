@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/20/2016" 
 	ms.author="rnagpal"/>
 
 # SDK do Banco de Dados de Documentos
@@ -36,6 +36,23 @@
 
 ## Notas de versão
 
+### <a name="1.9.1"/>[1\.9.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.1)
+  - Adição de suporte a SELECT VALUE para consultas paralelas, consultas TOP entre partições e consultas ORDER BY entre partições.
+  - Desempenho aprimorado das consultas TOP e ORDER BY entre partições.
+  - Atualização de uma mensagem de erro para esclarecer que, se você receber System.NotSupportedException não tratado ao executar consultas nas coleções particionadas, deverá desmarcar a opção "Preferir 32 bits" na janela de propriedades do seu projeto, na guia Compilar, para evitar o erro.
+  - Correção das referências ausentes para DocumentDB.Spatial.Sql.dll e Microsoft.Azure.Documents.ServiceInterop.dll, que são obrigatórios ao fazer referência a um projeto do Banco de Dados de Documentos com uma referência para o pacote Nuget do Banco de Dados de Documentos.
+  - Correção da capacidade de usar parâmetros de diferentes tipos ao usar funções definidas pelo usuário no LINQ.
+
+
+### <a name="1.9.0"/>[1\.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
+  - Alteração do modo de conexão padrão do cliente .NET com o ConnectionMode.Direct para aprimorar o desempenho usando a conectividade Direct com TCP. Substituição da propriedade ConnectionPolicy.ConnectionProtocol e adição de um valor DirectHttps à enumeração ConnectionMode.
+  - Correção de um bug para contas globalmente replicadas em que chamadas Upsert estavam sendo direcionadas para locais de leitura em vez de locais de gravação.
+  - Adição de métodos à interface IDocumentClient que estavam ausentes, incluindo: método UpsertAttachmentAsync, que usa mediaStream e opções como parâmetros, método CreateAttachmentAsync, que usa opções como um parâmetro, e o método CreateOfferQuery, que usa querySpec como um parâmetro.
+  - Retirada do selo de classes públicas que são expostas na interface IDocumentClient.
+  - Adição de suporte a consultas paralelas de coleções particionadas.
+  - Adição de suporte a Order By entre partições para coleções particionadas.
+  
+
 ### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Suporte adicionado para contas de banco de dados de várias regiões.
   - Suporte adicionado para repetição de solicitações limitadas. O usuário pode personalizar o número de repetições e o tempo máximo de espera configurando a propriedade ConnectionPolicy.RetryOptions.
@@ -54,7 +71,7 @@
   - Correção de um bug no pacote do Nuget do SDK do .NET para empacotamento como parte de uma solução do Serviço de Nuvem do Azure.
   
 ### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
-  - [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
+  - Implementação de [Coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md).
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[Corrigido]** Consultas no ponto de extremidade do Banco de Dados de Documentos geram: 'System.Net.Http.HttpRequestException: erro ao copiar o conteúdo para um fluxo.
@@ -64,7 +81,7 @@
     - Operador Take para habilitar o comportamento de SELECT TOP no LINQ
     - Operador CompareTo para habilitar comparações de intervalo de cadeia de caracteres
     - Operadores condicionais (?) e de união (??)
-  - **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Corrigido]** ArgumentOutOfRangeException ao combinar a projeção do Modelo com o Where-In na consulta LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corrigido]** Se Select não for a última expressão, o Provedor LINQ presumiu que não havia projeção e produziu SELECT * incorretamente. [Nº 58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -78,7 +95,7 @@
  - **[Obsoleto]** UriFactory.CreateCollection--> agora deve usar UriFactory.CreateDocumentCollection
  
 ### <a name="1.4.1"/>[1\.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
- - **[Corrigido]** Problemas de localização ao usar informações de cultura em outro idioma que não o inglês, como nl-NL, etc. 
+ - **[Corrigido]** Problemas de localização ao usar informações de cultura em outro idioma que não o inglês, como nl-NL, etc.
  
 ### <a name="1.4.0"/>[1\.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
   - Roteamento baseado em ID
@@ -102,10 +119,10 @@
   - **[Corrigido]**: consulta SQL incorreta gerada usando a expressão LINQ [Nº 38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="1.2.0"/>[1\.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
-- Dependência de Newtonsoft.Json v5.0.7 
+- Dependência de Newtonsoft.Json v5.0.7
 - Alterações para dar suporte a Order By
   - Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
-  - IndexingPolicy para dar suporte a Order By 
+  - IndexingPolicy para dar suporte a Order By
   
 		**NB: Possible breaking change** 
   
@@ -141,25 +158,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
  
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junho de 2016 |---
-| [1\.7.1](#1.7.1) | 06 de maio de 2016 |---
-| [1\.7.0](#1.7.0) | 26 de abril de 2016 |---
-| [1\.6.3](#1.6.3) | April 08, 2016 |---
-| [1\.6.2](#1.6.2) | 29 de março de 2016 |---
-| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |---
-| [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |---
-| [1\.5.1](#1.5.1) | 23 de novembro de 2015 |---
-| [1\.5.0](#1.5.0) | 05 de outubro de 2015 |---
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de julho de 2015 |---
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |---
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
-| [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016
-| [0\.9.2-prelease](#0.9.x-preview) | janeiro de 2015 | 29 de fevereiro de 2016
-| [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016
-| [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.9.1](#1.9.1) | 20 de julho de 2016 |--- | [1\.9.0](#1.9.0) | 9 de julho de 2016 |--- | [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- | [1\.7.1](#1.7.1) | 6 de maio de 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- | [1\.6.3](#1.6.3) | 8 de abril de 2016 |--- | [1\.6.2](#1.6.2) | 29 de março de 2016 |--- | [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--- | [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--- | [1\.5.1](#1.5.1) | 23 de novembro de 2015 |--- | [1\.5.0](#1.5.0) | 5 de outubro de 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- | [1\.3.0](#1.3.0) | 5 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 6 de julho de 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016 | [0\.9.2-prelease](#0.9.x-preview) | Janeiro de 2015 | 29 de fevereiro de 2016 | [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016 | [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -168,4 +167,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
@@ -21,11 +21,10 @@ Este documento ajuda você a usar recursos da Central de Segurança do Azure par
 
 > [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
 
-## O que é a Central de Segurança do Azure?
- A Central de Segurança ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
-
 ## O que são alertas de segurança?
-A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e de antimalware e firewalls integrados para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança, incluindo alertas de soluções de parceiro integradas, é mostrada na Central de Segurança, junto com as informações que você precisa investigar rapidamente e recomendações sobre como corrigir um ataque.
+A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque.
+
+> [AZURE.NOTE] Para saber mais sobre como funciona os recursos de detecção da Central de Segurança, leia [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
 
 Os pesquisadores de segurança da Microsoft estão constantemente analisando ameaças emergentes em todo o mundo, incluindo novos padrões de ataque e tendências vistos em seus produtos de consumidor e empresariais e serviços online. Como resultado, a Central de Segurança pode atualizar seus algoritmos de detecção à medida que novas vulnerabilidades e explorações são descobertas, ajudando os clientes a acompanhar o ritmo das ameaças em constante evolução. Os exemplos de alguns dos tipos de ameaças que pode detectar a Central de Segurança incluem:
 
@@ -52,7 +51,7 @@ Na parte inferior dessa folha estão os detalhes de cada alerta. Para classifica
 - **Contagem**: uma lista de todos os alertas desse tipo específico que foram detectados em um dia específico.
 - **Detectado por**: o serviço responsável por disparar o alerta.
 - **Data**: a data na qual o evento ocorreu.
-- **Estado**: o estado atual desse alerta. Há três tipos de estado:
+- **Estado**: o estado atual desse alerta. Há dois tipos de estado:
     - **Ativo**: o alerta de segurança foi detectado.
     - **Descartado**: o alerta de segurança foi fechado pelo usuário. Esse status costuma ser usado para alertas que foram investigados, mas que foram atenuados ou considerados como não sendo ataques reais
 
@@ -73,7 +72,7 @@ Selecione um alerta de segurança para saber mais sobre o evento que disparou o 
 
 ![Responder aos alertas de segurança na Central de Segurança do Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig7.png)
 
-Nesse caso, os alertas disparados referem-se à atividade suspeita do protocolo RDP (Protocolo de Área de Trabalho Remota). A primeira coluna mostra quais recursos foram atacados; a segunda mostra o horário de detecção desse ataque; a terceira mostra o estado do alerta; e a quarta mostra gravidade do ataque. Depois de revisar essas informações, clique no recurso atacado. Uma nova folha será aberta com mais sugestões sobre o que fazer em seguida, conforme mostra o exemplo a seguir.
+Nesse caso, os alertas disparados referem-se à atividade suspeita do protocolo RDP (Protocolo de Área de Trabalho Remota). A primeira coluna mostra quais recursos foram atacados; a segunda mostra o horário de detecção desse ataque; a terceira mostra o estado do alerta; e a quarta mostra gravidade do ataque. Depois de revisar essas informações, clique no recurso que foi atacado e uma nova folha será aberta.
 
 ![Sugestões sobre o que fazer com relação aos alertas de segurança na Central de Segurança do Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8-1.png)
 
@@ -81,13 +80,43 @@ No campo **Alerta** dessa folha, você encontrará mais detalhes sobre esse even
 
 > [AZURE.NOTE] A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista negra usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
+## Alertas de segurança por tipo
+As mesmas etapas que foram usadas para acessar o alerta de atividade suspeita RDP podem ser usadas para acessar outros tipos de alertas. Veja alguns exemplos de alertas que você pode ver nos alertas da Central de Segurança:
 
-## Próximas etapas
+**Possível injeção de SQL** Injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que construa instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executará todas as consultas sintaticamente válidas que receber.
+
+![Alerta de injeção de SQL](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig9.png)
+
+Esse alerta fornece informações que permitem a identificação do recurso atacado, o tempo de detecção, o estado do ataque e também fornece um link para outras etapas de investigação.
+
+**Tráfego de saída suspeito detectado**
+
+Os dispositivos de rede podem ser descobertos e analisados da mesma forma que outros tipos de sistemas. Os invasores normalmente começam com verificação de porta/varredura de porta. No exemplo a seguir, há um tráfego suspeito de SSH de uma VM, que pode estar executando um ataque de força bruta SSH ou de varredura de porta contra um recurso externo.
+
+![Alerta de tráfego de saída suspeito](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-10.png)
+
+Esse alerta fornece informações que permitem a identificação do recurso usado para iniciar esse ataque, a máquina comprometida, o tempo de detecção, o protocolo e a porta usada. Essa folha também fornece uma lista de etapas de correção que podem ser usadas para atenuar esse problema.
+
+**Comunicação de rede com uma máquina mal-intencionada**
+ 
+Aproveitando os feeds de inteligência de ameaças da Microsoft, a Central de Segurança do Azure pode detectar máquinas comprometidas que estão se comunicando com endereços IP mal-intencionados, em muitos casos, um centro de comando e controle. Nesse caso a Central de Segurança do Azure detectou que a comunicação foi feita usando o malware Pony Loader (também conhecido como [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
+
+![Alerta de comunicação de rede com uma máquina mal-intencionada](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-11.png)
+
+Esse alerta fornece informações que permitem a identificação do recurso usado para iniciar esse ataque, o recurso atacado, o IP da vítima, o IP do invasor e o tempo de detecção.
+
+> [AZURE.NOTE] Endereços IP ativos foram removidos nesta captura de tela por fins de privacidade.
+
+
+## Consulte também
+
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
+- [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
+- [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
+- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

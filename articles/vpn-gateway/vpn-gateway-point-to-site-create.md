@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão VPN ponto a site em uma rede virtual usando o portal clássico
@@ -25,7 +25,7 @@
 
 Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. A conexão Ponto a Site é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
-As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, confira as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).)
+As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
 
 Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede virtual criada usando o **modelo clássico de implantação** (Gerenciamento de Serviços) e o portal clássico. Quando tivermos as etapas para o portal do Azure, vamos vincular ao artigo desta página.
 
@@ -209,4 +209,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar um
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

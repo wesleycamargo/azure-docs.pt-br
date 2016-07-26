@@ -50,7 +50,7 @@ O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamad
 		StatusCode     : OK
 
 
-Se a conexão não é restaurada após a primeira reinicialização, execute o mesmo comando novamente para reiniciar a segunda instância VM (o novo gateway ativo). Se as duas reinicializações são solicitadas back-to-back, haverá um período um pouco mais longo durante o qual as duas instâncias VM (ativas e em espera) estão sendo reinicializadas. Essa situação causará um intervalo maior na conectividade VPN, exigindo até 2 a 4 minutos para que as VMs concluam as reinicializações.
+Se a conexão não é restaurada após a primeira reinicialização, execute o mesmo comando novamente para reiniciar a segunda instância VM (o novo gateway ativo). Se as duas reinicializações são solicitadas uma após a outra, haverá um período um pouco mais longo durante o qual as duas instâncias da VM (ativas e em espera) estão sendo reinicializadas. Essa situação causará um intervalo maior na conectividade VPN, exigindo até 2 a 4 minutos para que as VMs concluam as reinicializações.
 
 Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre locais, abra um tíquete de suporte do Portal Clássico do Azure para entrar em contato com o Suporte do Microsoft Azure.
 
@@ -58,4 +58,4 @@ Após duas reinicializações, se você ainda estiver tendo problemas de conecti
 	
 Consulte a [Referência do PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) para obter mais informações sobre esse cmdlet.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

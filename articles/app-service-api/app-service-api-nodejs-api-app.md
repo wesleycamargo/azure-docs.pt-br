@@ -193,7 +193,7 @@ Nesta seção, use o portal do Azure para criar um novo Aplicativo de API no Azu
 
 6. Na lista suspensa **Grupo de Recursos**, clique em **Novo** e, em **Nome do novo grupo de recursos**, insira "NodejsAPIAppGroup" ou outro nome, se preferir.
 
-	Um [grupo de recursos](../azure-portal/resource-group-portal.md) é uma coleção de recursos do Azure, como aplicativos de API, bancos de dados e VMs. Para este tutorial, é melhor criar um novo grupo de recursos porque isso facilitará a exclusão de todos os recursos do Azure criados para o tutorial em uma única etapa.
+	Um [grupo de recursos](../resource-group-overview.md) é uma coleção de recursos do Azure, como aplicativos de API, bancos de dados e VMs. Para este tutorial, é melhor criar um novo grupo de recursos porque isso facilitará a exclusão de todos os recursos do Azure criados para o tutorial em uma única etapa.
 
 4. Clique em **Plano do Serviço de Aplicativo/Local** e clique em **Criar Novo**.
 
@@ -312,4 +312,4 @@ Agora que você tem o fornecimento contínuo conectado, pode fazer alterações 
 
 Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usando o Node.js. O próximo tutorial mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -75,7 +75,7 @@ Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se n
 
 1. Selecione um **Grupo de Recursos** ou crie um novo.
 
-	Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure][ResourceGroups].
+	Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager][ResourceGroups].
 
 	![Configurar o grupo de recursos para o aplicativo Web][ConfigResourceGroup]
 
@@ -153,7 +153,7 @@ Para obter mais informações sobre o desenvolvimento de aplicativos Web do Word
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Portal do Azure]: https://portal.azure.com/
@@ -180,4 +180,4 @@ Para obter mais informações sobre o desenvolvimento de aplicativos Web do Word
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS no Azure 
+# Implantação do AD FS no Azure 
 
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo. Há várias vantagens na implantação do AD FS no Azure. Algumas delas são listadas abaixo:
 
@@ -259,11 +259,9 @@ Em geral, você precisa das regras a seguir para proteger com eficiência sua su
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	Permitir a comunicação HTTPS para a rede de perímetro | Entrada |
 |DenyAllFromDMZ| Esta regra bloqueará todo o tráfego da rede de perímetro para a sub-rede interna. A regra AllowHTTPSFromDMZ já se encarrega de garantir que a comunicação HTTPS seja transmitida, e qualquer outro item é bloqueado por essa regra | Entrada |
-|AllowHTTPSToDMZ| Essa regra possibilitará que a comunicação HTTPS da rede de perímetro seja permitida | Saída |
-|DenyDMZAll| Todo o outro tráfego de rede para a rede de perímetro, exceto HTTPS, será bloqueado por essa regra | Saída |
 |DenyInternetOutbound| Sem acesso à Internet | Saída |
 
-![Regras de acesso INT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![Regras de acesso INT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[comentário]: <> (![Regras de acesso INT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comentário]: <> (![Regras de acesso INT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Proteger a sub-rede de perímetro**
 
@@ -271,19 +269,18 @@ Em geral, você precisa das regras a seguir para proteger com eficiência sua su
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Permitir HTTPS de rede virtual | Entrada |
 |AllowHTTPSInternet| Permitir HTTPS da Internet para a rede de perímetro | Entrada|
-|DenyingressexceptHTTPS|	Bloquear tudo que não seja HTTPS da Internet | Entrada |
-|AllowOutToADFS| Permitir HTTPS para sub-rede interna | Saída |
-|AllowHTTPSToInternet| Permitir HTTPS para Internet | Saída |
+|DenyingressexceptHTTPS| Bloquear tudo que não seja HTTPS da Internet | Entrada |
 |DenyOutToInternet|	Tudo para a Internet é bloqueado, exceto HTTPS | Saída |
 
-![Regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![Regras de acesso EXT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[comentário]: <> (![Regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comentário]: <> (![Regras de acesso EXT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] Se a autenticação de certificado de usuário do cliente (autenticação do clientTLS usando certificados de usuário X509) for necessária, o AD FS exigirá que a porta TCP 49443 seja habilitada para acesso de entrada.
 
 ###10\. Testar a entrada do AD FS
 
 A maneira mais fácil é testar o AD FS usando a página IdpInitiatedSignon.aspx. Para fazer isso, é necessário habilitar IdpInitiatedSignOn nas propriedades do AD FS. Siga as etapas abaixo para verificar a instalação do AD FS
 1.	Execute o cmdlet abaixo no servidor do AD FS, usando o PowerShell, para defini-lo como habilitado. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2.	De qualquer acesso de computador externo https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx
+2.	De qualquer computador externo, acesse https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx
 3.	Você deve ver a página do AD FS como indicado abaixo:
 
 ![Testar página de logon](./media/active-directory-aadconnect-azure-adfs/test1.png)
@@ -306,4 +303,4 @@ Quando você entrar com êxito, ele lhe fornecerá uma mensagem de êxito, confo
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Configurar e gerenciar o AD FS usando o Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

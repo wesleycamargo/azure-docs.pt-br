@@ -464,4 +464,4 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

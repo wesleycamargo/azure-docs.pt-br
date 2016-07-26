@@ -13,14 +13,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Próximas etapas
 
-O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Ele permite que o aplicativo back-end receba telemetria em escala de seus dispositivos, encaminhe esses dados para um processador de eventos de fluxo e também envie comandos da nuvem para o dispositivo para dispositivos específicos. Você pode usar o Hub IoT para implementar seu próprio back-end de solução. Além disso, o Hub IoT inclui um registro de identidade do dispositivo usado para provisionar dispositivos, suas credenciais de segurança e os direitos de conexão ao hub. Para saber mais sobre o Hub IoT, confira [O que é o Hub IoT?][lnk-iot-hub].
+O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Ele permite que o aplicativo back-end receba telemetria em escala de seus dispositivos, roteie esses dados para um processador de eventos de fluxo, receba carregamentos de arquivos de dispositivos e também envie comandos de nuvem para dispositivo a dispositivos específicos. Você pode usar o Hub IoT para implementar seu próprio back-end de solução. Além disso, o Hub IoT inclui um registro de identidade do dispositivo usado para provisionar dispositivos, suas credenciais de segurança e os direitos de conexão ao hub. Para saber mais sobre o Hub IoT, confira [O que é o Hub IoT?][lnk-iot-hub].
 
 Para saber como o Hub IoT do Azure permite o gerenciamento de dispositivo IoT baseado em padrões para que você possa gerenciar, configurar e atualizar os dispositivos remotamente, confira [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-device-management].
 
@@ -37,4 +37,4 @@ Você também pode se interessar pelo [Azure IoT Suite][lnk-iot-suite], que é u
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
@@ -120,8 +120,8 @@ Por exemplo, se você configurar um logotipo de faixa padrão, mas nenhuma ilust
 
 Imagine a seguinte configuração:
 
-- Um logotipo de faixa padrão e um texto de página de entrada em inglês 
-- Um Texto de Página de entrada específico do idioma alemão 
+- Um logotipo de faixa padrão e um texto de página de entrada em inglês
+- Um Texto de Página de entrada específico do idioma alemão
 
 Se sua preferência de idioma for o alemão, você obterá o logotipo de faixa padrão com o texto em alemão.
 
@@ -177,8 +177,8 @@ Pode demorar até uma hora para que a nova alteração feita à identidade visua
 
 **Para verificar se sua identidade visual foi aplicada:**
 
-1. Abra uma sessão de navegador InPrivate ou Incognito. 
-2. Visite https://outlook.com/contoso.com, substituindo contoso.com pelo domínio personalizado. 
+1. Abra uma sessão de navegador InPrivate ou Incognito.
+2. Visite https://outlook.com/contoso.com, substituindo contoso.com pelo domínio personalizado.
 
 Isso também funciona com domínios que se parecem com contoso.onmicrosoft.com.
 
@@ -219,4 +219,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

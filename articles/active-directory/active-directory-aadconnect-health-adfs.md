@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # Usando o Azure AD Connect Health com o AD FS
-A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health.
+A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
 
 ## Alertas do AD FS
 A seção de Alertas do Azure AD Connect Health fornece a lista de alertas ativos. Cada alerta inclui informações relevantes, etapas de resolução e links para documentação relacionada. Ao selecionar um alerta ativo ou resolvido, você verá uma nova folha com informações adicionais, bem como etapas a que serem seguidas para resolver o alerta e links para documentação adicional. Você também pode exibir dados históricos sobre alertas que foram resolvidas no passado.
@@ -110,7 +110,8 @@ O relatório fornece o seguinte:
 * [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
+* [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

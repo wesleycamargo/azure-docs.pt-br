@@ -161,7 +161,7 @@ Nesta seção, demonstraremos os seguintes cenários usando o portal do Azure:
 
 8. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-9. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Usando do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+9. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para obter mais informações sobre os grupos de recursos, consulte [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
 10. Selecione a região de sua conta de armazenamento.
 
@@ -340,4 +340,4 @@ Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Az
 
 [Navegue e explore suas contas de armazenamento](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
