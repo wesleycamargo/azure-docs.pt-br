@@ -1462,7 +1462,17 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
+| - | Subtrair |
+| * | Multiplicar |
+| / | Dividir |
+| % | Módulo |
+||
+|`<` |Menor 
+|`<=`|Menor ou Igual a 
+|`>` |Maior 
+|`>=`|Maior ou Igual a 
+|`<>`|Diferente de 
+|`!=`|Diferente de
 
 
 ### abs
@@ -2490,4 +2500,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
