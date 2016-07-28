@@ -87,7 +87,7 @@ o runbook falha com o erro "Não é possível associar o parâmetro ``<Parameter
 **Motivo do erro:**
 se o runbook for um Fluxo de Trabalho do PowerShell, ele armazenará objetos complexos em um formato desserializado para que o estado do runbook persista se o fluxo de trabalho for suspenso.
 
-**Dicas de solução de problemas:**
+**Dicas de solução de problemas:**  
 qualquer uma das três seguintes soluções corrigirá o problema:
 
 1. Se você estiver direcionando objetos complexos de um cmdlet para outro, encapsule os cmdlets em um InlineScript.
