@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="billmath"/>
 
 # Lista de compatibilidade de federação do AD do Azure
@@ -36,6 +36,7 @@ Para obter informações sobre como você pode obter o provedor de identidade do
 - [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
 - [PingFederate 6.11](#pingfederate-611)
 - [PingFederate 7.2](#pingfederate-72)
+- [PingFederate 8.x](#pingfederate-8.x)
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
@@ -83,7 +84,7 @@ Veja a seguir a matriz de suporte de cenário nesta experiência de logon único
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
 | Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação integrada do Windows|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Para saber mais sobre as políticas de acesso do cliente, confira [Limitando o acesso aos Serviços do Office 365 baseado no Local do cliente](https://technet.microsoft.com/library/hh526961.aspx).|
 
 
@@ -116,6 +117,20 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 Para obter instruções do PingFederate sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, clique [aqui.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+
+## PingFederate 8.x 
+O PingFederate 8 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+
+A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+
+
+| Cliente |Suporte |Exceções|
+| --------- | --------- |--------- |
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
+| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+
+Para obter instruções do PingFederate sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, clique [aqui.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
 
 ## Centrify 
 O Centrify ajuda a fornecer uma experiência de logon único federado para o Office 365, sem a necessidade de hospedar um servidor de federação local.
@@ -219,7 +234,7 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
 | Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |*Contratos Kerberos com suporte|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 *O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
@@ -246,8 +261,8 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a autenticação integrada do Windows.|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 Para saber mais sobre o VMware Workspace Portal versão 2.1, baixe o pdf [aqui.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
@@ -274,8 +289,8 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a autenticação integrada do Windows.|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 Para saber mais sobre a IceWall Federation, veja [aqui](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) e [aqui.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
@@ -288,8 +303,8 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a autenticação integrada do Windows.|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 Para saber mais sobre o CA Secure Cloud, confira [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
@@ -316,11 +331,11 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a autenticação integrada do Windows.|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a autenticação integrada do Windows.|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 
 Para saber mais, confira o artigo sobre o [logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -44,7 +44,7 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
 Por enquanto, os serviços que dão suporte à transferência para um novo grupo de recursos e uma nova assinatura são:
 
 - Gerenciamento da API
-- Aplicativos do Serviço de Aplicativo - veja [Limitações do Serviço de Aplicativo](#app-service-limitations)
+- Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
 - Automação
 - Batch
 - CDN
@@ -272,4 +272,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

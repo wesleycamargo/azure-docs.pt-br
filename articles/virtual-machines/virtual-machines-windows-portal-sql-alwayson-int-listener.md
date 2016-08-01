@@ -252,7 +252,7 @@ Para testar a conexão:
 
 1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão de **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 A conexão SQLCMD automaticamente se conecta a qualquer instância do SQL Server que hospeda a réplica primária.
 
@@ -265,4 +265,4 @@ Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure u
 - Com um balanceador de carga interno, você só pode acessar ao ouvinte de dentro da mesma rede virtual.
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

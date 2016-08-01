@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do Fuse com o Azure AD, você precisará adiciona
 
 **Para adicionar o Fuse por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -137,7 +137,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     b. Copie a **URL do Emissor**, a **URL do Serviço de Logon Único** e a **URL do Serviço de Saída Única**.
 
    
-5. Para obter o SSO configurado para seu aplicativo, contate a equipe de suporte do Fuse pelo endereço ****support@fusion-universal.com**, anexe o arquivo de certificado baixado e inclua a **URL do Emissor**, a **URL do Serviço de Logon Único** e a **URL do Serviço de Saída Única**.
+5. Para obter o SSO configurado para seu aplicativo, contate a equipe de suporte do Fuse via **support@fusion-universal.com**, anexe o arquivo de certificado baixado e inclua a **URL do Emissor**, a **URL do Serviço de Logon Único** e a **URL do Serviço de Saída Única**.
 
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
@@ -170,11 +170,11 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_05.png)
 
@@ -184,7 +184,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_06.png)
 
@@ -198,11 +198,11 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     e. Clique em **Próximo**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_07.png)
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_08.png)
 
@@ -227,7 +227,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao Fuse, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -278,4 +278,4 @@ Ao clicar no bloco do Fuse no Painel de Acesso, você deverá ser conectado auto
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

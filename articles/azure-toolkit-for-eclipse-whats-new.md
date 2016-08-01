@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -34,7 +34,7 @@ O Kit de Ferramentas do Azure para Eclipse, versão de junho de 2016, inclui os 
 * **Suporte para os JDKs do Java mais recentes**. Agora há suporte para as versões mais recentes de JDKs do Java pelo Kit de Ferramentas do Azure para Eclipse.
 * **Suporte para o SDK do Azure v2.9.1**. A versão mais recente do SDK do Azure agora é o pré-requisito mínimo para o Kit de Ferramentas do Azure para Eclipse.
 * **Exemplos Integrados**. O Kit de Ferramentas do Azure para Eclipse agora apresenta vários aplicativos de exemplo para ajudar os desenvolvedores a começar.
-* **Integração de Ferramentas HDInsight**. As Ferramentas de HDInsight do Azure agora estão incluídas no Kit de Ferramentas do Azure para Eclipse.
+* **Integração de Ferramentas HDInsight**. As Ferramentas de HDInsight do Azure agora estão incluídas no Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Plug-in das Ferramentas do HDInsight para Eclipse].
 * **Depuração remota de aplicativos Web do Java**. O Kit de Ferramentas do Azure para Eclipse agora dá suporte a depuração remota de aplicativos Web do Java no Serviço de Aplicativo do Azure.
 * **Suporte para a versão Luna do Eclipse.** A nova versão mínima exigida pelo IDE do Eclipse é a Luna.
 
@@ -347,6 +347,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Implantações de grande porte]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Propriedades de pontos de extremidade]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [Propriedades de variáveis do ambiente]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
+[Plug-in das Ferramentas do HDInsight para Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [Como usar o descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
 [Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
@@ -371,4 +372,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

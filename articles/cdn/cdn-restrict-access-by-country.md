@@ -2,7 +2,7 @@
 	pageTitle="CDN - restringir o acesso ao seu conteúdo por país"
 	description="Quando um usuário solicita o conteúdo, por padrão, o conteúdo é apresentado, independentemente de onde o usuário fez essa solicitação. Em alguns casos, você talvez queira restringir o acesso ao seu conteúdo por país. Este tópico explica como usar o recurso **Filtragem de País** para configurar o serviço para permitir ou bloquear o acesso por país."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
 
 #Restringir o acesso ao seu conteúdo por país
@@ -22,7 +22,7 @@
 
 Quando um usuário solicita o conteúdo, por padrão, o conteúdo é apresentado, independentemente de onde o usuário fez essa solicitação. Em alguns casos, você talvez queira restringir o acesso ao seu conteúdo por país. Este tópico explica como usar o recurso **Filtragem de País** para configurar o serviço para permitir ou bloquear o acesso por país.
 
->[AZURE.NOTE]Depois que a configuração estiver configurada, ela será aplicada a todos os pontos de extremidade da **CDN do Azure da Verizon** em sua assinatura.
+>[AZURE.NOTE] Depois que a configuração estiver configurada, ela será aplicada a todos os pontos de extremidade da **CDN do Azure da Verizon** neste perfil de CDN do Azure.
 
 Para obter informações sobre as considerações que se aplicam à configuração desse tipo de restrições, consulte a seção [Considerações](cdn-restrict-access-by-country.md#considerations) no final do tópico.
 
@@ -67,4 +67,4 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 - A configuração de filtragem de país associada com o caminho relativo será aplicada recursivamente para esse caminho.
 - Apenas uma regra pode ser aplicada no mesmo caminho relativo (você não pode criar vários filtros de país que apontam para o mesmo caminho relativo). No entanto, uma pasta pode ter vários filtros de país. Isso é devido à natureza recursiva de filtros de país. Em outras palavras, uma subpasta de uma pasta configurada anteriormente pode ter um filtro de país diferente atribuído.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

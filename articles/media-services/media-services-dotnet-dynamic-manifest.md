@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="07/18/2016"
 	ms.author="juliako;cenkdin"/>
 
 
@@ -148,4 +148,4 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

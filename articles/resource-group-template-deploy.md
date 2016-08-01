@@ -23,6 +23,7 @@
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -33,8 +34,8 @@ Este tópico explica como usar o Azure PowerShell com modelos do Resource Manage
 
 > [AZURE.TIP] Para obter ajuda com a depuração de erros durante a implantação, consulte:
 >
-> - [Exibir operações de implantação com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para saber mais sobre como obter informações que o ajudarão a solucionar o erro
-> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver problemas comuns de implantação
+> - [Exibir operações de implantação com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para saber sobre como obter informações que o ajudarão a solucionar o erro
+> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
 
 Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
 
@@ -83,11 +84,11 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
              *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. Antes de executar a implantação, você pode validar as configurações da implantação. O cmdlet **Test-AzureRmResourceGroupDeployment** permite encontrar problemas antes de criar os recursos reais. O exemplo a seguir mostra como validar uma implantação.
+4. Antes de executar a implantação, você pode validar as configurações da implantação. O cmdlet **Test-AzureRmResourceGroupDeployment** permite encontrar os problemas antes de criar os recursos reais. O exemplo a seguir mostra como validar uma implantação.
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Para criar uma nova implantação para seu grupo de recursos, execute o comando **New-AzureRmResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para executar uma implantação completa, defina **Mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
+5. Para criar uma nova implantação para seu grupo de recursos, execute o comando **New-AzureRmResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário. Caso o parâmetro **Mode** não esteja especificado, o valor padrão **Incremental** será usado. Para executar uma implantação completa, defina **Mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
 
      Para implantar um modelo local, use o parâmetro **TemplateFile**:
 
@@ -125,13 +126,13 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
         Mode              : Incremental
         ...
 
-     Se o modelo incluir um parâmetro com um nome que corresponde a um dos parâmetros incluídos no comando para implantar o modelo (como incluir um parâmetro chamado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), será solicitado que você forneça um valor para um parâmetro com **FromTemplate** pós-fixado (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
+     Se o modelo incluir um parâmetro com um nome que corresponde a um dos parâmetros no comando para implantar o modelo (como incluir um parâmetro denominado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), será solicitado que você forneça um valor para um parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
 
-6. Se você quiser registrar informações adicionais sobre a implantação que podem ajudar a solucionar possíveis erros de implantação, use o parâmetro **DeploymentDebugLogLevel**. Você pode especificar que o conteúdo da solicitação, o conteúdo da resposta ou ambos sejam registrados com a operação de implantação.
+6. Se você quiser registrar informações adicionais sobre a implantação que podem ajudar a solucionar quaisquer erros de implantação, use o parâmetro **DeploymentDebugLogLevel**. Você pode especificar que o conteúdo da solicitação, o conteúdo da resposta ou ambos sejam registrados com a operação de implantação.
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     Para saber mais sobre como usar este conteúdo da depuração para solucionar problemas de implantação, consulte [Solução de problemas de implantações de grupo de recursos com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     Para obter mais informações sobre como usar este conteúdo de depuração para solucionar os problemas da implantação, consulte [Solucionando problemas de implantações do grupo de recursos com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
 ## Implantar o modelo do armazenamento com um token SAS
 
@@ -155,7 +156,7 @@ As etapas a seguir configuram uma conta de armazenamento para os modelos:
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Criar um novo contêiner. A permissão é definida como **Desativada**, o que significa que o contêiner está acessível apenas para o proprietário.
+4. Criar um novo contêiner. A permissão é definida para **Desativada**, o que significa que o contêiner está acessível apenas para o proprietário.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -179,14 +180,14 @@ Para implantar um modelo privado em uma conta de armazenamento, recupere um toke
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
-Para obter um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Próximas etapas
-- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para definir parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
+- Para ver um exemplo de como implantar recursos por meio da biblioteca de clientes .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
-- Para obter detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+- Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Solução de problemas do Azure SQL Data Warehouse
@@ -50,14 +50,15 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 
 | Problema | Resolução |
 | :----------------------------------| :---------------------------------------------- |
-| Investigação da utilização de espaço | Confira [Tamanhos da tabela][] para entender a utilização do espaço do sistema.|
-| Ajuda com o gerenciamento de tabelas | Confira o artigo [Visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas. Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela][Data types], [Distribuição de uma tabela][Distribute], [Indexação de uma tabela][Index], [Particionamento de uma tabela][Partition], [Manutenção das estatísticas da tabela][Statistics] e [Tabelas temporárias][Temporary].|
+| Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Produtividade do Banco de Dados permitida de 45.000. | Reduza o [DWU][] do banco de dados que você está tentando criar ou [solicite um aumento de cota][].|
+| Investigação da utilização de espaço | Confira [Tamanhos da tabela][] para entender a utilização do espaço de seu sistema.|
+| Ajuda com o gerenciamento de tabelas | Confira o artigo [Visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas. Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela][Data types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Particionando uma tabela][Partition], [Mantendo as estatísticas da tabela][Statistics] e [Tabelas temporárias][Temporary].|
 
 ## Polybase
 
 | Problema | Resolução |
 | :----------------------------------| :---------------------------------------------- |
-| Erro UTF-8 | No momento, o PolyBase somente dá suporte ao carregamento de arquivos de dados codificados em UTF-8. Confira [Solução alternativa para o requisito de PolyBase UTF-8][] para obter orientação sobre como contornar essa limitação.|
+| Erro UTF-8 | No momento, o PolyBase somente dá suporte ao carregamento de arquivos de dados codificados em UTF-8. Confira [Solução alternativa para o requisito de PolyBase UTF-8][] para obter diretrizes sobre como contornar essa limitação.|
 | Falha no carregamento devido a linhas grandes | Atualmente, o suporte para linhas grandes não está disponível para o Polybase. Isso significa que, se a tabela contiver VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), as Tabelas externas não poderão ser usadas para carregar seus dados. Só há suporte no momento para carregamentos de linhas grandes por meio do Azure Data Factory (com BCP), Stream Analytics do Azure, SSIS, BCP ou a classe .NET SQLBulkCopy. O suporte do PolyBase para linhas grandes será adicionado em uma versão futura.|
 | Falha de carregamento bcp de tabela com o tipo de dados MAX | Há um problema conhecido que exige o posicionamento de VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX) no final da tabela em alguns cenários. Tente mover as colunas MAX para o final da tabela.|
 
@@ -67,10 +68,11 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 | :----------------------------------| :---------------------------------------------- |
 | Recursos do Banco de Dados SQL sem suporte | Confira [Recursos de tabela sem suporte][].|
 | Tipos de dados do Banco de Dados SQL sem suporte | Confira [Tipos de dados sem suporte][].|
-| Limitações de DELETE e UPDATE | Confira [Soluções alternativas de UPDATE][], [Soluções alternativas de DELETE][] e [Como usar CTAS para contornar a sintaxe UPDATE e DELETE sem suporte][]. |
-| Não há suporte para a instrução MERGE | Confira [Soluções alternativas para MERGE][].|
-| Limitações de procedimento armazenado | Confira [Limitações de procedimento armazenado][] para entender algumas das limitações de procedimentos armazenados.|
-| UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs. Confira [CREATE FUNCTION][] a fim de conhecer a sintaxe para a qual oferecemos suporte. |
+| Limitações de DELETE e UPDATE | Confira [Substituição da junção ANSI para instruções UPDATE][], [Substituição de junção ANSI para instruções DELETE][] e [Usando o CTAS para resolver as sintaxes DELETE e UPDATE sem suporte][]. |
+| Não há suporte para a instrução MERGE | Confira [Substituir instruções MERGE][].|
+| Limitações de procedimento armazenado | Confira [Limitações de procedimentos armazenados][] para entender algumas dessas limitações.|
+| UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs. Confira [CREATE FUNCTION][] para ver a sintaxe para a qual damos suporte. |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Próximas etapas
 
@@ -91,6 +93,8 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Visão geral de segurança]: ./sql-data-warehouse-overview-manage-security.md
 [Criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Dimensionando seu SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[solicite um aumento de cota]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Aprendendo a monitorar suas consultas]: ./sql-data-warehouse-manage-monitor.md
 [instruções de provisionamento]: ./sql-data-warehouse-get-started-provision.md
 [Configurar o acesso ao servidor de firewall para o IP do cliente]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
@@ -109,11 +113,11 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Baixa qualidade do índice columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Recriar índices a fim de melhorar a qualidade do segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Gerenciamento de carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
-[Como usar CTAS para contornar a sintaxe UPDATE e DELETE sem suporte]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
-[Soluções alternativas de UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[Soluções alternativas de DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[Soluções alternativas para MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitações de procedimento armazenado]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Usando o CTAS para resolver as sintaxes DELETE e UPDATE sem suporte]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[Substituição da junção ANSI para instruções UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[Substituição de junção ANSI para instruções DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[Substituir instruções MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[Limitações de procedimentos armazenados]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Autenticação do Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Solução alternativa para o requisito de PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

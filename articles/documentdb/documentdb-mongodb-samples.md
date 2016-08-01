@@ -20,7 +20,7 @@
 # Exemplos de suporte de protocolo do Banco de Dados de Documentos para MongoDB
 Para usar estes exemplos, você deve:
 
-- [Criar](documentdb-create-mongodb-account.md) uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
+- [Criar](documentdb-create-mongodb-account.md) uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB.
 - Recuperar as informações de [cadeia de conexão](documentdb-connect-mongodb-account.md) da sua conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
 ## Começar com uma amostra de aplicativo de lista de tarefas do ASP.NET MVC
@@ -175,4 +175,4 @@ Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao M
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

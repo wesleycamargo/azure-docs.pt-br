@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/06/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Diretrizes de monitoramento e diagnóstico
@@ -252,7 +252,7 @@ Os dados de instrumentação devem ser agregados para gerar uma imagem do desemp
 
 - Calcular o número total de solicitações de usuários durante determinado período e determinar a taxa de êxito e falha dessas solicitações.
 - Combinar os tempos de resposta de solicitações de usuários para gerar uma exibição geral dos tempos de resposta do sistema.
-- Analisar o progresso das solicitações de usuários para decompor o tempo de resposta geral de determinada solicitação nos tempos de resposta dos itens de trabalho individuais da solicitação.  
+- Analisar o progresso das solicitações de usuários para decompor o tempo de resposta geral de determinada solicitação nos tempos de resposta dos itens de trabalho individuais da solicitação.
 - Determinar a disponibilidade geral do sistema como um percentual de tempo de atividade para qualquer período específico.
 - Analisar a disponibilidade de tempo percentual dos componentes e serviços individuais do sistema. Isso pode envolver a análise de logs gerados por serviços terceirizados.
 
@@ -423,7 +423,7 @@ Todos os dados de monitoramento devem receber o carimbo de data/hora da mesma ma
 ### Informações a serem incluídas nos dados de instrumentação
 Considere os seguintes pontos ao decidir quais dados de instrumentação você precisa coletar:
 
-- As informações capturadas por eventos de rastreamento devem ser legíveis por pessoas e máquinas. Adote esquemas bem definidos para essas informações para facilitar o processamento automatizado de dados de log entre sistemas e dar consistência às operações e à equipe de engenharia que lê os logs. Inclua informações de ambiente, como o ambiente de implantação, a máquina na qual o processo está sendo executado, os detalhes do processo e a pilha de chamadas.  
+- As informações capturadas por eventos de rastreamento devem ser legíveis por pessoas e máquinas. Adote esquemas bem definidos para essas informações para facilitar o processamento automatizado de dados de log entre sistemas e dar consistência às operações e à equipe de engenharia que lê os logs. Inclua informações de ambiente, como o ambiente de implantação, a máquina na qual o processo está sendo executado, os detalhes do processo e a pilha de chamadas.
 - Habilite perfis somente quando necessário, pois eles podem impor uma sobrecarga significativa no sistema. A criação de perfis usando instrumentação registra um evento (como uma chamada de método) toda vez que ele ocorre, enquanto a amostragem registra apenas eventos selecionados. A seleção pode ser baseada em tempo (uma vez a cada *n* segundos), ou em frequência (uma vez a cada *n* solicitações). Se os eventos ocorrerem com muita frequência, a criação de perfis por instrumentação pode causar uma carga muito grande e ela mesma acabar afetando o desempenho geral. Nesse caso, a abordagem de amostragem pode ser preferível. No entanto, se a frequência de eventos for baixa, a amostragem poderá perdê-los. Nesse caso, a instrumentação pode ser a melhor abordagem.
 - Forneça contexto suficiente para permitir que o desenvolvedor ou administrador determine a origem de cada solicitação. Isso pode incluir alguma forma de ID da atividade que identifica uma instância específica de uma solicitação. Ele também pode incluir informações que podem ser usadas para correlacionar essa atividade com o trabalho computacional executado e os recursos usados. Observe que esse trabalho pode atravessar limites de processos e máquinas. Para a medição, o contexto também deve incluir (direta ou indiretamente por meio de outras informações correlacionadas) uma referência ao cliente que originou a solicitação. Esse contexto fornece informações valiosas sobre o estado do aplicativo no momento em que os dados de monitoramento foram capturados.
 - Registre todas as solicitações e os locais ou regiões de onde essas solicitações foram feitas. Essas informações podem ajudar a determinar se há pontos problemáticos específicos do local. Essas informações também podem ser úteis para determinar se é necessário reparticionar um aplicativo ou os dados que ele usa.
@@ -473,7 +473,7 @@ Para serviços e aplicativos do Azure, o Diagnóstico do Azure fornece uma poss�
 - Logs de eventos do Windows
 - Contadores de desempenho
 - Despejos de memória
-- Logs de infraestrutura do Diagnóstico do Azure  
+- Logs de infraestrutura do Diagnóstico do Azure
 - Logs de erros personalizados
 - .NET EventSource
 - ETW baseado em manifesto
@@ -664,4 +664,4 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 - [Receber notificações de alerta](./azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
 # Configurando Reliable Actors--ReliableDictionaryActorStateProvider
@@ -29,7 +29,7 @@ Também há definições globais que afetam a configuração de ReliableDictiona
 
 A configuração global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. Observe que as alterações no manifesto do cluster afetam todos os serviços que usam ReliableDictionaryActorStateProvider e os serviços com estado confiáveis.
 
-O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e os serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest do powershell.
+O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e os serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### Nomes da configuração
 
@@ -53,9 +53,9 @@ O manifesto do cluster é um arquivo XML individual que contém definições e c
 ```
 
 ### Comentários
-O agente tem um pool de memória global alocado da memória kernel não paginada que está disponível para todos os serviços confiáveis em um nó para armazenar em cache os dados de estado antes de eles serem gravados no log dedicado associado à réplica de serviço confiável. O tamanho do pool é controlado pelas configurações WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica o tamanho inicial desse pool de memória e o menor tamanho para o qual o pool de memória pode ser reduzido. WriteBufferMemoryPoolMaximumInKB é o maior tamanho que o pool de memória pode atingir. Cada réplica do serviço confiável que é aberta pode aumentar o tamanho do pool de memória em uma quantidade determinada pelo sistema até WriteBufferMemoryPoolMaximumInKB. Se o pool de memória exigir mais memória do que está disponível, as solicitações por memória serão atrasadas até que a memória esteja disponível. Portanto, se o pool de memória do buffer de gravação for muito pequeno para uma determinada configuração, o desempenho poderá ser afetado.
+O agente tem um pool de memória global alocado da memória kernel não paginada que está disponível para todos os serviços confiáveis em um nó para armazenar em cache os dados de estado antes de eles serem gravados no log dedicado associado à réplica de serviço confiável. O tamanho do pool é controlado pelas configurações WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica o tamanho inicial desse pool de memória e o menor tamanho para o qual o pool de memória pode ser reduzido. WriteBufferMemoryPoolMaximumInKB é o maior tamanho que o pool de memória pode atingir. Cada réplica do serviço confiável que é aberta pode aumentar o tamanho do pool de memória em uma quantidade determinada pelo sistema até WriteBufferMemoryPoolMaximumInKB. Se houver mais demanda de memória do pool do que está disponível, as solicitações de memória serão atrasadas até haver memória disponível. Portanto, se o pool de memória do buffer de gravação for muito pequeno para uma determinada configuração, o desempenho poderá ser afetado.
 
-As configurações SharedLogId e SharedLogPath sempre são usadas juntas para definir o GUID e o local para o log compartilhado padrão de todos os nós no cluster. O log compartilhado padrão é usado para todos os serviços confiáveis que não especificam as configurações em settings.xml para o serviço específico. Para melhor desempenho, os arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado reduza a contenção.
+As configurações SharedLogId e SharedLogPath sempre são usadas juntas para definir o GUID e o local para o log compartilhado padrão de todos os nós no cluster. O log compartilhado padrão é usado para todos os serviços confiáveis que não especificam as configurações em settings.xml para o serviço específico. Para melhor desempenho, os arquivos de log compartilhados devem ser colocados em discos usados exclusivamente para o arquivo de log compartilhado para reduzir a contenção.
 
 SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós. SharedLogId e SharedLogPath não precisam ser especificados para que SharedLogSizeInMB seja especificado.
 
@@ -75,7 +75,7 @@ As configurações do replicador servem para configurar o replicador que será r
 
 |Nome|Unidade|Valor padrão|Comentários|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Segundos|0,05|Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta.||
+|BatchAcknowledgementInterval|Segundos|0,015|Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta.||
 |ReplicatorEndpoint|N/D|Nenhum parâmetro padrão obrigatório|Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Veja [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto de extremidade no manifesto do serviço. |
 |MaxReplicationMessageSize|Bytes|50 MB|Tamanho máximo de dados de replicação que podem ser transmitidos em uma única mensagem.|
 |MaxPrimaryReplicationQueueSize|Número de operações|8192|Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2.|
@@ -120,4 +120,4 @@ A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que p
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esses valores precisem ser alterados somente em casos raros.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

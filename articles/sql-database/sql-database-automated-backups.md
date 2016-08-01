@@ -28,7 +28,7 @@ O Banco de Dados SQL do Microsoft Azure fornece até 200% de seu armazenamento m
 
 ## Detalhes de backup automático
 
-Todos os bancos de dados Basic, Standard e Premium são protegidos por backups automáticos. Os backups completos são feitos a cada semana, os backups diferenciais a cada dia e os backups de log a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente, isso é concluído em 30 minutos, mas pode demorar mais. Se um banco de dados já for grande, por exemplo, se for criado como o resultado de uma cópia ou de uma restauração de banco de dados de um banco de dados grande, então o primeiro backup completo poderá demorar mais para ser concluído. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato dos backups completos e diferenciais é determinado pelo sistema para balancear a carga total.
+Todos os bancos de dados Basic, Standard e Premium são protegidos por backups automáticos. Os backups de banco de dados completos são realizados toda semana, os backups de banco de dados diferenciais são realizados por hora e os backups do log de transação são realizados a cada 5 minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente, isso é concluído em 30 minutos, mas pode demorar mais. Se um banco de dados já for grande, por exemplo, se for criado como o resultado de uma cópia ou de uma restauração de banco de dados de um banco de dados grande, então o primeiro backup completo poderá demorar mais para ser concluído. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato dos backups completos e diferenciais é determinado pelo sistema para balancear a carga total.
 
 ## Redundância geográfica
 
@@ -48,7 +48,7 @@ Você também pode usar os [backups automatizados do Banco de Dados SQL](sql-dat
 
 ## O que acontece com o período de retenção do meu ponto de restauração quando faço downgrade/atualização pela camada de serviço?
 
-Após o downgrade para um nível de desempenho inferior, o período de retenção do ponto de restauração é imediatamente truncado para o período de retenção do nível desempenho do banco de dados atual. Se a camada de serviço for atualizada, o período de retenção começará a ser estendido somente depois que o banco de dados for atualizado. Por exemplo, se for feito downgrade de um banco de dados, de P1 para S3, o período de retenção mudará de 35 dias para 35 dias imediatamente; todos os pontos de restauração antes de 35 dias não estarão mais disponíveis. Posteriormente, se ele for atualizado para P1 novamente, o período de retenção iniciará a partir de 35 dias e começará a ser construído até 35 dias.
+Após o downgrade para um nível de desempenho inferior, o período de retenção do ponto de restauração é imediatamente truncado para o período de retenção do nível desempenho do banco de dados atual. Se a camada de serviço for atualizada, o período de retenção começará a ser estendido somente depois que o banco de dados for atualizado. Por exemplo, se for feito downgrade de um banco de dados para Básico, o período de retenção mudará de 35 dias para 7 dias imediatamente. Todos os pontos de restauração antes de 35 dias não estarão mais disponíveis. Posteriormente, se ele for atualizado para Standard ou Premium, o período de retenção começará em 7 dias e iniciará o acúmulo até 35 dias.
 
 ## De quanto tempo é o período de retenção para um banco de dados descartado? 
 O período de retenção é determinado pela camada de serviço do banco de dados enquanto ele existiu ou pelo número de dias que o banco de existe, o que for menor.
@@ -62,4 +62,4 @@ O período de retenção é determinado pela camada de serviço do banco de dado
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 - Para obter uma visão geral sobre a continuidade de negócios, consulte [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

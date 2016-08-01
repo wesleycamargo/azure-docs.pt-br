@@ -13,12 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/21/2016"
+   ms.date="07/19/2016"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## SO convidado - julho 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-084 | [3169991] | Atualização de segurança cumulativa do Internet Explorer | 4\.34, 3.41, 2.53 | 12 de julho de 2016 |
+| MS16-087 | [3170005] | Atualização de Segurança para Spooler de Impressão da Microsoft | 4\.34, 3.41, 2.53 | 12 de julho de 2016 |
+| MS16-090 | [3171481] | Atualização de segurança para drivers do modo Kernel | 4\.34, 3.41, 2.53 | 12 de julho de 2016 |
+| MS16-091 | [3170048] | Atualização de Segurança do .NET Framework | 4\.34, 3.41, 2.53 | 12 de julho de 2016 |
+| MS16-092 | [3171910] | Atualização de Segurança para Windows Kernel | 4\.34, 3.41 | 12 de julho de 2016 |
+| MS16-094 | [3177404] | Atualização de Segurança da Inicialização Segura | 4\.34, 3.41 | 12 de julho de 2016 |
+| | [3162835] | Atualização de DST e do fuso horário de verão de junho de 2016 para Windows | 4\.34, 3.41, 2.53 | 12 de julho de 2016 |
+| | [3156417] | Atualização cumulativa de maio de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.53 | 12 de julho de 2016 |
+| | [3161608] | Atualização cumulativa de junho de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.53 | 12 de julho de 2016 |
+| | [3161609] | Atualização cumulativa de junho de 2016 para o Windows Server 2012 | 3\.41 | 12 de julho de 2016 |
+| | [3161606] | Atualização cumulativa de junho de 2016 para Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.34 | 12 de julho de 2016 |
+| | [3139923] | A reparação do Windows installer (MSI) não funciona quando o pacote MSI é instalado em um compartilhamento HTTP no Windows | 4\.34 | 12 de julho de 2016 |
 
 ## SO convidado de junho 
 
@@ -318,6 +335,21 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
 
+[3169991]: http://support.microsoft.com/kb/3169991
+[3170005]: http://support.microsoft.com/kb/3170005
+[3170050]: http://support.microsoft.com/kb/3170050
+[3171481]: http://support.microsoft.com/kb/3171481
+[3170048]: http://support.microsoft.com/kb/3170048
+[3171910]: http://support.microsoft.com/kb/3171910
+[3177404]: http://support.microsoft.com/kb/3177404
+[3162835]: http://support.microsoft.com/kb/3162835
+[3156417]: http://support.microsoft.com/kb/3156417
+[3161608]: http://support.microsoft.com/kb/3161608
+[3161609]: http://support.microsoft.com/kb/3161609
+[3161606]: http://support.microsoft.com/kb/3161606
+[3139923]: http://support.microsoft.com/kb/3139923
+
+
 [3141780]: http://support.microsoft.com/kb/3141780
 [3155527]: http://support.microsoft.com/kb/3155527
 [3163649]: http://support.microsoft.com/kb/3163649
@@ -544,4 +576,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

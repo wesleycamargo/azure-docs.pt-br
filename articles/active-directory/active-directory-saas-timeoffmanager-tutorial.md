@@ -4,19 +4,20 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/03/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TimeOffManager
   
-O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do TimeOffManager
@@ -72,7 +73,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **TimeOffManager**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração do aplicativo **TimeOffManager**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configurar o logon único")
 
@@ -80,7 +81,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, a **URL de Resposta do TimeOffManager**, digite a URL de AssertionConsumerService do TimeOffManager (por exemplo: "*Exemplo:https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*") e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Resposta do TimeOffManager**, digite a URL de AssertionConsumerService do TimeOffManager (por exemplo: "**Exemplo: https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurar a URL do Aplicativo")
 
@@ -102,7 +103,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurações de logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Configurações de logon único")
 
-    a. Crie um arquivo **codificado em base 64** usando o certificado baixado.
+    a. Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
 
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -121,7 +122,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
     
     h. Clique em **Salvar Alterações**.
 
-8.  No portal clássico do Azure, na página **Configurar logon único no TimeOffManager**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+8.  No portal clássico do Azure, na página de diálogo **Configurar logon único no TimeOffManager**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configurar o logon único")
 
@@ -151,7 +152,9 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager. O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você. Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
+Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager.  
+O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você.  
+Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
 
 >[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do TimeOffManager ou as APIs fornecidas pelo TimeOffManager para provisionar as contas de usuário do AAD.
 
@@ -173,4 +176,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

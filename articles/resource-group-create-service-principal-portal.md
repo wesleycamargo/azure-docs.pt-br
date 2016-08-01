@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos
@@ -24,16 +24,13 @@
 - [Portal](resource-group-create-service-principal-portal.md)
 
 
-Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modificar recursos, é necessário configurar um aplicativo do Active Directory e atribuir as permissões necessárias para o mesmo. Este tópico mostra como executar essas etapas no portal. Atualmente, você deve usar o portal clássico para criar um novo aplicativo do Active Directory e, em seguida, alternar para o portal do Azure para atribuir uma função ao aplicativo.
+Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Active Directory (AD) e atribuir as permissões necessárias a ele. Este tópico mostra como executar essas etapas no portal. Atualmente, você deve usar o portal clássico para criar um novo aplicativo do Active Directory e, em seguida, alternar para o portal do Azure para atribuir uma função ao aplicativo.
 
-Você tem duas opções de autenticação para seu aplicativo do Active Directory:
+> [AZURE.NOTE] Você pode achar mais fácil configurar seu aplicativo do AD e a entidade de serviço por meio do [PowerShell](resource-group-authenticate-service-principal.md) ou da [CLI do Azure](resource-group-authenticate-service-principal-cli.md), especialmente se quiser usar um certificado para a autenticação. Este tópico não mostra como usar um certificado.
 
-1. Criar uma chave de autenticação e a id do aplicativo e fornecer as credenciais quando o aplicativo é executado. Use esta opção para processos automatizados executados sem interação do usuário.
-2. Permitir que um usuário faça logon no Azure através do seu aplicativo e, em seguida, usar essas credenciais para acessar recursos em nome do usuário. Use esta opção para aplicativos que são executados por um usuário.
+Para ter uma explicação dos conceitos do Active Directory, consulte [Objetos do Aplicativo e da Entidade de Serviço](./active-directory/active-directory-application-objects.md). Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de autenticação do Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Para obter uma explicação dos conceitos do Active Directory, consulte [Objetos de Aplicativo e de Entidade de Serviço](./active-directory/active-directory-application-objects.md). Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de autenticação do Azure AD](./active-directory/active-directory-authentication-scenarios.md).
-
-Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar recursos, confira [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
+Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Criar um aplicativo do Active Directory
 
@@ -47,7 +44,7 @@ Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para ger
 
      ![escolher o diretório](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-    Se você precisar localizar o diretório de sua assinatura, selecione **Configurações** e procure pelo nome do diretório.
+    Se você precisar localizar o diretório de sua assinatura, selecione **Configurações** e procure o nome do diretório.
    
      ![encontrar diretório padrão](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
@@ -67,11 +64,11 @@ Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para ger
 
      ![novo aplicativo](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Forneça um nome para o aplicativo e selecione o tipo de aplicativo que você deseja criar. Para este tutorial, crie um **APLICATIVO WEB E/OU API WEB** e clique no botão Avançar. Se você selecionar **APLICATIVO CLIENTE NATIVO**, o restante das etapas deste artigo não corresponderá à sua experiência.
+6. Forneça um nome para o aplicativo e selecione o tipo de aplicativo que você deseja criar. Para este tutorial, crie um **APLICATIVO WEB E/OU API DA WEB** e clique no botão Avançar. Se você selecionar **APLICATIVO CLIENTE NATIVO**, o restante das etapas deste artigo não corresponderá à sua experiência.
 
      ![nomear aplicativo](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Preencha as propriedades de seu aplicativo. Para **URL DE LOGON**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo.
+7. Preencha as propriedades de seu aplicativo. Para a **URL DE LOGON**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo.
 
      ![propriedades do aplicativo](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -89,7 +86,7 @@ Ao fazer logon por meio de programação, você precisa da id para seu aplicativ
   
      ![ID do cliente](./media/resource-group-create-service-principal-portal/client-id.png)
 
-3. Se o aplicativo for executado com suas próprias credenciais, role para baixo até a seção **Chaves** e selecione por quanto tempo você gostaria que a senha seja válida.
+3. Se o aplicativo for executado com suas próprias credenciais, role para baixo até a seção **Chaves** e selecione por quanto tempo você deseja que a senha seja válida.
 
      ![chaves](./media/resource-group-create-service-principal-portal/create-key.png)
 
@@ -103,7 +100,7 @@ Ao fazer logon por meio de programação, você precisa da id para seu aplicativ
 
 ## Obter a id do locatário
 
-Ao fazer logon por meio de programação, você precisa passar a id de locatário com a solicitação de autenticação. Para aplicativos Web e aplicativos de API Web, você pode recuperar a ID de locatário selecionando **Exibir pontos de extremidade** na parte inferior da tela e recuperando a id, conforme mostrado abaixo.
+Ao fazer logon por meio de programação, você precisa passar a id de locatário com a solicitação de autenticação. Para os Aplicativos Web e Aplicativos de API Web, você pode recuperar a ID do locatário selecionando **Exibir pontos de extremidade** na parte inferior da tela e recuperando a ID, como mostrado abaixo.
 
    ![ID do locatário](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
@@ -125,7 +122,7 @@ Se o aplicativo acessa recursos em nome do usuário conectado, você deve conced
 
       ![selecionar aplicativo](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Na lista suspensa para permissões delegadas, selecione **Acessar Gerenciamento de Serviços do Azure**.
+3. Na lista suspensa das permissões delegadas, selecione **Acessar o Gerenciamento de Serviços do Azure como organização**.
 
       ![selecionar permissão](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -140,6 +137,8 @@ Se for permitido que os usuários de outros Active Directories do Azure deem con
 ## Atribuir aplicativo à função
 
 Se seu aplicativo for executado com suas próprias credenciais, você deve atribuir o aplicativo a uma função. Você deve decidir qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [RBAC: funções internas](./active-directory/role-based-access-built-in-roles.md).
+
+Para atribuir uma função, você deve ter o acesso `Microsoft.Authorization/*/Write` que é concedido por meio da função [Proprietário](./active-directory/role-based-access-built-in-roles.md#owner) ou [Administrador de Acesso do Usuário](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas de níveis inferiores do escopo (por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver).
 
@@ -171,22 +170,39 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 Para saber mais sobre como atribuir usuários e aplicativos a funções usando o portal, confira [Gerenciar o acesso usando o Portal de Gerenciamento do Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## Obter o token de acesso no código
+## Aplicativos de exemplo
 
-Seu aplicativo do Active Directory agora está configurado para acessar recursos. Em seu aplicativo, forneça as credenciais e receba um token de acesso. Você pode usar esse token de acesso para solicitações para acessar recursos.
+Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de serviço.
 
-Você está pronto para fazer logon por meio de programação em seu aplicativo.
+**.NET**
 
-- Para obter exemplos do .NET, consulte [SDK do Azure Resource Manager para .NET](resource-manager-net-sdk.md).
-- Para obter exemplos do Java, consulte [SDK do Azure Resource Manager para Java](resource-manager-java-sdk.md).
-- Para obter exemplos de Python, consulte [Autenticação de Gerenciamento de Recursos para Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
-- Para obter exemplos REST, consulte [APIs REST do Gerenciador de Recursos](resource-manager-rest-api.md).
+- [Implantar uma VM Habilitada para SSH com um Modelo com .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Gerenciar recursos e grupos de recursos do Azure com .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
-Para obter etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar recursos, confira [Guia do desenvolvedor para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
+**Java**
+
+- [Introdução aos Recursos - Implantar Usando o Modelo do Azure Resource Manager - em Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Introdução aos Recursos - Gerenciar o Grupo de Recursos - em Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+
+**Python**
+
+- [Implantar uma VM Habilitada para SSH com um Modelo no Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Gerenciando o Recurso e Grupos de Recursos do Azure com o Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+
+**Node.js**
+
+- [Implantar uma VM Habilitada para SSH com um Modelo no Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Gerenciar recursos e grupos de recursos do Azure com Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+
+**Ruby**
+
+- [Implantar uma VM Habilitada para SSH com um Modelo no Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Gerenciando o Recurso e Grupos de Recursos do Azure com Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 ## Próximas etapas
 
 - Para aprender a especificar políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 - Para obter uma demonstração em vídeo dessas etapas, confira [Habilitando o gerenciamento programático de um Recurso do Azure Resource com o Active Directory do Azure](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/26/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Benefitsolver
@@ -85,6 +85,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto **URL de Entrada**, digite **http://azure.benefitsolver.com**.
     2.  Na caixa de texto **URL de Resposta**, digite **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
+
     3.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Benefitsolver**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
@@ -145,4 +146,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

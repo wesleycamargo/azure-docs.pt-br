@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/15/2016" 
 	ms.author="stefsch"/>
 
 # Documentação do Ambiente de Serviço de Aplicativo
@@ -35,7 +35,8 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 * [O que é um Ambiente do Serviço de Aplicativo?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Criando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Criando Aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Configurando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Criando e usando um Balanceador de Carga Interno com Ambientes do Serviço de Aplicativo](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [Configurando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-configure-an-app-service-environment.md)
 * [Dimensionando aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Arquitetura e Segurança de Rede](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
@@ -59,4 +60,4 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

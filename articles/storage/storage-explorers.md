@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciadores do Armazenamento do Azure | Microsoft Azure"
-	description="Uma lista de Gerenciadores do Armazenamento que permite exibir/interagir com os dados do Armazenamento do Azure."
+	pageTitle="Ferramentas de Cliente do Armazenamento do Azure | Microsoft Azure"
+	description="Uma lista de ferramentas que permite exibir/interagir com os dados do Armazenamento do Azure."
 	services="storage"
 	documentationCenter=""
 	authors="micurd"
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="micurd"/>
 
-# Pesquisadores de armazenamento do Azure
+# Ferramentas de Cliente do Armazenamento do Azure
 
-Com frequência, os usuários do Armazenamento do Azure querem poder exibir os dados em um “gerenciador” – uma ferramenta que serve para mostrar os dados em uma conta de armazenamento.
+Com frequência, os usuários do Armazenamento do Azure desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente do Armazenamento do Azure. Nas tabelas abaixo, listamos várias ferramentas que permitem que você faça isso. Colocamos um “X” em cada bloco caso a ferramenta forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas são gratuitas ou não. “Avaliação” indica que há uma avaliação gratuita, mas o produto completo não é gratuito. “S/N” indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
 
-Nas tabelas abaixo, listamos cada gerenciador do Armazenamento do Azure e colocamos um “X” em cada bloco caso ele forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se o gerenciador é gratuito ou não. “Avaliação” indica que há uma avaliação gratuita, mas o produto completo não é gratuito. “S/N” indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.
+Fornecemos somente um instantâneo das ferramentas de cliente do Armazenamento do Azure disponíveis. Essas ferramentas poderão continuar a evoluir e expandir sua funcionalidade. Se houver correções ou atualizações, deixe um comentário para nos contar. O mesmo é verdadeiro se você conhecer ferramentas que deveriam estar aqui – ficaríamos felizes de adicioná-las.
 
-Fornecemos somente um instantâneo dos Gerenciadores do Armazenamento do Azure disponíveis. Essas ferramentas poderão continuar a evoluir e expandir sua funcionalidade. Se houver correções ou atualizações, deixe um comentário para nos contar. O mesmo é verdadeiro se você conhecer ferramentas que deveriam estar aqui – ficaríamos felizes de adicioná-las.
-
-**Gerenciadores do Armazenamento do Microsoft Azure**
+**Ferramentas de Cliente do Armazenamento do Microsoft Azure**
 
 <table>
   <tr>
-    <th rowspan="2">Gerenciador de Armazenamento do Azure</th>
+    <th rowspan="2">Ferramenta de Cliente do Armazenamento do Azure</th>
     <th rowspan="2">Blob de blocos</th>
     <th rowspan="2">Blob de páginas</th>
     <th rowspan="2">Acrescentar blob</th>
@@ -65,7 +63,7 @@ Fornecemos somente um instantâneo dos Gerenciadores do Armazenamento do Azure d
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
+    <td>X</td>
     <td>S</td>
     <td></td>
     <td>X</td>
@@ -88,13 +86,13 @@ Fornecemos somente um instantâneo dos Gerenciadores do Armazenamento do Azure d
   </tr>
 </table>
 
-**Gerenciadores do Armazenamento do Azure de terceiros**
+**Ferramentas de Cliente de terceiros do Armazenamento do Azure**
 
-Nós não verificamos a funcionalidade ou qualidade declarada pelos gerenciadores de terceiros a seguir e sua listagem não implica o endosso da Microsoft.
+Nós não verificamos a funcionalidade nem a qualidade declarada pelas ferramentas de terceiros indicadas a seguir e sua listagem não implica o endosso da Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Gerenciador de Armazenamento do Azure</th>
+    <th rowspan="2">Ferramenta de Cliente do Armazenamento do Azure</th>
     <th rowspan="2">Blob de blocos</th>
     <th rowspan="2">Blob de páginas</th>
     <th rowspan="2">Acrescentar blob</th>
@@ -252,4 +250,4 @@ Nós não verificamos a funcionalidade ou qualidade declarada pelos gerenciadore
   </tr>
 </table>
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

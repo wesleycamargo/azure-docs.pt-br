@@ -27,7 +27,7 @@ Um cluster do Service Fabric é um recurso que pertence a você. Para impedir o 
 ## Segurança de nó para nó
 Protege a comunicação entre as VMs ou os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 
-	![Diagrama de comunicação de nó para nó][Node-to-Node]
+![Diagrama de comunicação de nó para nó][Node-to-Node]
 
 Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx) para computadores do Windows Server.
 ### Segurança de certificado de nó para nó
@@ -117,4 +117,4 @@ Saiba mais sobre a segurança de aplicativo:
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

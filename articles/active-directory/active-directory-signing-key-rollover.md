@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/18/2016"
 	ms.author="gsacavdm"/>
 
 # Substituição de chave de assinatura no Azure Active Directory
 
 Este tópico aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure AD (Azure Active Directory) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo para tratar a substituição de chave, se necessário.
 
-> [AZURE.IMPORTANT] A próxima substituição de chave de assinatura está agendada para 15 de agosto de 2016 e **não** afetará aplicativos cliente, aplicativos adicionados da galeria (incluindo Personalizados), aplicativos publicados por meio de proxy de aplicativo ou aplicativos em locatários B2C.
+> [AZURE.IMPORTANT] A próxima substituição de chave de assinatura está agendada para 15 de agosto de 2016 e **não** afetará os aplicativos adicionados da Galeria de Aplicativos do Azure AD (incluindo os Personalizados), os aplicativos locais publicados por meio do proxy de aplicativo, os aplicativos nos locatários do Azure AD B2C, os aplicativos integrados com o ACS ou o ADFS.
 
 ## Visão geral das chaves de assinatura no Azure AD
 
@@ -34,17 +34,36 @@ Sempre há mais de uma chave pública válida disponível no documento de descob
 
 Como o seu aplicativo lida com a substituição de chave depende de variáveis como o tipo de aplicativo ou que protocolo de identidade e biblioteca foi usado. As seções a seguir avaliam se os tipos mais comuns de aplicativos são afetados pela substituição de chave e fornecem diretrizes sobre como atualizar o aplicativo para dar suporte à substituição automática ou à atualização manual da chave.
 
-* [Aplicativos/APIs Web usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication](#owin)
+* [Aplicativos cliente nativos que acessam recursos](#nativeclient)
+* [Aplicativos/APIs Web que acessam recursos](#webclient)
+* [Aplicativos/APIs Web que protegem recursos e criam usando os Serviços de Aplicativo do Azure](#appservices)
+* [Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Aplicativos/APIs Web usando .NET Core OpenID Connect ou o middleware JwtBearerAuthentication](#owincore)
-* [Aplicativos/APIs Web usando o módulo passport-azure-ad do Node.js](#passport)
-* [Aplicativos/APIs Web criados com o Visual Studio 2015](#vs2015)
-* [Aplicativos Web criados com o Visual Studio 2013](#vs2013)
-* [APIs Web criadas com o Visual Studio 2013](#vs2013_webapi)
-* [Aplicativos Web criados com o Visual Studio 2012](#vs2012)
-* [Aplicativos Web criados com o Visual Studio 2010, 2008 ou usando o Windows Identity Foundation](#vs2010)
-* [Aplicativos/APIs Web usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte](#other)
+* [Aplicativos/APIs Web que protegem recursos usando o módulo passport-azure-ad do Node.js](#passport)
+* [Aplicativos/APIs Web que protegem recursos e que foram criados com o Visual Studio 2015](#vs2015)
+* [Aplicativos/APIs Web que protegem recursos e que foram criados com o Visual Studio 2013](#vs2013)
+* [APIs Web que protegem recursos e que foram criados com o Visual Studio 2013](#vs2013_webapi)
+* [Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2012](#vs2012)
+* [Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2010, 2008 ou usando o Windows Identity Foundation](#vs2010)
+* [Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte](#other)
 
-### <a name="owin"></a> Aplicativos/APIs Web usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication
+### <a name="nativeclient"></a>Aplicativos cliente nativos que acessam recursos
+
+Aplicativos que só acessam recursos (ou seja, Microsoft Graph, KeyVault, API do Outlook e outras APIs Microsoft), geralmente só obtêm um token e o passam para o proprietário do recurso. Já que eles não estão protegendo recursos, não inspecionam o token e, portanto, não é necessário garantir que ele esteja adequadamente assinado.
+
+Os aplicativos cliente nativos, tanto da área de trabalho como móveis, entram nessa categoria e, portanto, não são afetados pela substituição.
+
+### <a name="webclient"></a>Aplicativos/APIs Web que acessam recursos
+
+Aplicativos que só acessam recursos (ou seja, Microsoft Graph, KeyVault, API do Outlook e outras APIs Microsoft), geralmente só obtêm um token e o passam para o proprietário do recurso. Já que eles não estão protegendo recursos, não inspecionam o token e, portanto, não é necessário garantir que ele esteja adequadamente assinado.
+
+Os aplicativos Web e as APIs Web que estão usando o fluxo somente para aplicativo (credenciais de cliente/certificado de cliente), entram nessa categoria e, portanto, não são afetados pela substituição.
+
+### <a name="appservices"></a>Aplicativos/APIs Web que protegem recursos e criam usando os Serviços de Aplicativo do Azure
+
+A funcionalidade de Autenticação/Autorização (EasyAuth) dos Serviços de Aplicativo do Azure já tem a lógica necessária para tratar a substituição de chave automaticamente.
+
+### <a name="owin"></a>Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication
 
 Se seu aplicativo estiver usando o .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
@@ -72,7 +91,7 @@ app.UseWsFederationAuthentication(
 	 });
 ```
 
-### <a name="owincore"></a> Aplicativos/APIs Web usando .NET Core OWIN OpenID Connect ou o middleware JwtBearerAuthentication
+### <a name="owincore"></a>Aplicativos/APIs Web usando .NET Core OpenID Connect ou o middleware JwtBearerAuthentication
 
 Se seu aplicativo estiver usando o .NET Core OWIN OpenID Connect ou o middleware JwtBearerAuthentication, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
@@ -93,7 +112,7 @@ app.UseJwtBearerAuthentication(
  	});
 ```
 
-### <a name="passport"></a> Aplicativos/APIs Web usando o módulo passport-ad do Node.js
+### <a name="passport"></a>Aplicativos/APIs Web que protegem recursos usando o módulo passport-azure-ad do Node.js
 
 Se seu aplicativo estiver usando o módulo passport-ad do Node.js, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
@@ -107,17 +126,17 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a> Aplicativos/APIs Web criados com o Visual Studio 2015
+### <a name="vs2015"></a>Aplicativos/APIs Web que protegem recursos e que foram criados com o Visual Studio 2015
 
 Se seu aplicativo tiver sido criado usando um modelo de aplicativo Web no Visual Studio 2015 e se você tiver selecionado **Contas Corporativas ou de Estudante** no menu **Alterar Autenticação**, ele já terá a lógica necessária para tratar da substituição de chave automaticamente. Essa lógica, incorporada ao middleware OWIN OpenID Connect, recupera e armazena em cache as chaves de documento de descoberta OpenID Connect e as atualiza periodicamente.
 
-Se você tiver adicionado a autenticação à sua solução manualmente, talvez seu aplicativo não tenha a lógica de substituição de chave necessária. Você precisará escrevê-la por conta própria ou seguir as etapas em [Aplicativos/APIs Web usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte](#other).
+Se você tiver adicionado a autenticação à sua solução manualmente, talvez seu aplicativo não tenha a lógica de substituição de chave necessária. Você precisará escrevê-la por conta própria ou seguir as etapas em [Aplicativos/APIs Web que usam quaisquer outras bibliotecas ou que implementam manualmente qualquer um dos protocolos com suporte](#other).
 
-### <a name="vs2013"></a> Aplicativos Web criados com o Visual Studio 2013
+### <a name="vs2013"></a>Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2013
 
 Se seu aplicativo foi criado usando um modelo de aplicativo Web no Visual Studio 2013 e você selecionou **Contas Organizacionais** no menu **Alterar Autenticação**, ele já tem a lógica necessária para tratar da substituição de chave automaticamente. Essa lógica armazena o identificador exclusivo da sua organização e as informações de chave de autenticação em duas tabelas de banco de dados associadas ao projeto. Você pode encontrar a cadeia de conexão para o banco de dados no arquivo Web.config do projeto.
 
-Se você tiver adicionado a autenticação à sua solução manualmente, talvez seu aplicativo não tenha a lógica de substituição de chave necessária. Você precisará escrevê-la por conta própria ou seguir as etapas em [Aplicativos/APIs Web usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte](#other).
+Se você tiver adicionado a autenticação à sua solução manualmente, talvez seu aplicativo não tenha a lógica de substituição de chave necessária. Você precisará escrevê-la por conta própria ou seguir as etapas em [Aplicativos/APIs Web que usam quaisquer outras bibliotecas ou que implementam manualmente qualquer um dos protocolos com suporte](#other).
 
 As etapas a seguir o ajudarão a verificar se a lógica está funcionando corretamente em seu aplicativo.
 
@@ -129,11 +148,11 @@ As etapas a seguir o ajudarão a verificar se a lógica está funcionando corret
 6. Compile e execute o aplicativo. Depois de entrar na sua conta, você poderá interromper o aplicativo.
 7. Volte para o **Gerenciador de Servidores** e examine os valores das tabelas **IssuingAuthorityKeys** e **Locatários**. Você notará que eles foram repopulados automaticamente com as informações apropriadas do documento de metadados federados.
 
-### <a name="vs2013"></a> APIs Web criadas usando o Visual Studio 2013
+### <a name="vs2013"></a>APIs Web que protegem recursos e que foram criados com o Visual Studio 2013
 
-Se você criou um aplicativo de API Web usando um modelo de aplicativo de API Web no Visual Studio 2013 e selecionou **Contas Organizacionais** no menu **Alterar Autenticação**, já tem a lógica necessária no seu aplicativo. Se você configurou a autenticação manualmente, siga as instruções abaixo para saber como configurar sua API Web para atualizar as informações de chave automaticamente.
+Se você tiver criado um aplicativo de API Web usando um modelo de aplicativo de API Web no Visual Studio 2013 e selecionou **Contas Organizacionais** no menu **Alterar Autenticação**, já terá a lógica necessária no seu aplicativo. Se você configurou a autenticação manualmente, siga as instruções abaixo para saber como configurar sua API Web para atualizar as informações de chave automaticamente.
 
-O trecho de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para persistir a chave e validar futuros tokens do Azure AD, seja em um banco de dados, em um arquivo de configuração ou em outro lugar.
+O trecho de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para persistir a chave e validar futuros tokens do Azure AD, seja em um banco de dados, em um arquivo de configuração ou em outro lugar.
 
 ```
 using System;
@@ -223,14 +242,14 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a> Aplicativos Web criados com o Visual Studio 2012
+### <a name="vs2012"></a>Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2012
 
 Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a Ferramenta de Identidade e Acesso para configurar seu aplicativo. Também é provável que você esteja usando o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável por manter informações sobre os provedores de identidade confiável (Azure AD) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações fundamentais armazenadas em um arquivo Web.config baixando o documento de metadados federados mais recente associado ao seu diretório, verificando se a configuração está desatualizada em relação ao documento mais recente e atualizando o aplicativo para usar a nova chave conforme necessário.
 
 Se você criou seu aplicativo usando um dos exemplos de código ou documentação passo a passo fornecidos pela Microsoft, a lógica de substituição de chave já estará incluída no seu projeto. Você notará que o código a seguir já existe em seu projeto. Se seu aplicativo não tiver essa lógica, siga as etapas abaixo para adicioná-la e verificar se ela está funcionando corretamente.
 
-1. No **Gerenciador de Soluções**, adicione uma referência ao assembly **System.IdentityModel** para o projeto apropriado.
-2. Abra o arquivo **Global.asax.cs** e adicione o seguinte com o uso de políticas:
+1. No **Gerenciador de Soluções**, adicione uma referência ao assembly **System.IdentityModel** ao projeto apropriado.
+2. Abra o arquivo **Global.asax.cs** e adicione o seguinte usando diretivas:
 ```
 using System.Configuration;
 using System.IdentityModel.Tokens;
@@ -272,7 +291,7 @@ Siga as etapas abaixo para verificar se a lógica de substituição de chave est
 3. Crie o aplicativo e o execute. Se você consegue completar o processo de logon, seu aplicativo está atualizando a chave com êxito baixando as informações necessárias do documento de metadados federados do diretório. Se você estiver tendo problemas ao se conectar, verifique se as alterações em seu aplicativo estão corretas lendo o tópico [Adicionando logon ao seu aplicativo Web usando o Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o seguinte exemplo de código: [Aplicativo de nuvem multilocatário do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 
-### <a name="vs2010"></a> Aplicativos da Web criados com o Visual Studio 2008 ou 2010 e a versão 1.0 do Windows Identity Foundation (WIF) para .NET 3.5
+### <a name="vs2010"></a>Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 para .NET 3.5
 
 Se você criou um aplicativo no WIF v 1.0, nenhum mecanismo foi fornecido para atualizar automaticamente a configuração do seu aplicativo e usar uma nova chave. A maneira mais fácil de atualizar a chave é usar a ferramenta FedUtil incluída no SDK do WIF, que pode recuperar o documento de metadados mais recente e atualizar sua configuração. Essas instruções estão incluídas abaixo. Como alternativa, você pode fazer o seguinte:
 
@@ -280,12 +299,12 @@ Se você criou um aplicativo no WIF v 1.0, nenhum mecanismo foi fornecido para a
 - Atualize seu aplicativo para .NET 4.5, que inclui a versão mais recente do WIF localizado no namespace System. Você pode usar o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx) para executar as atualizações automáticas da configuração do aplicativo.
 
 
-1. Verifique se você tem o SDK do WIF v 1.0 instalado na máquina de desenvolvimento para o Visual Studio 2008 ou 2010. Você pode [baixá-lo aqui](https://www.microsoft.com/pt-BR/download/details.aspx?id=4451) se ainda não estiver instalado.
+1. Verifique se você tem o SDK do WIF v 1.0 instalado na máquina de desenvolvimento para o Visual Studio 2008 ou 2010. Você pode [baixá-lo daqui](https://www.microsoft.com/pt-BR/download/details.aspx?id=4451) se ainda não estiver instalado.
 2. No Visual Studio, abra a solução, clique com o botão direito do mouse no projeto aplicável e selecione **Atualizar metadados federados**. Se essa opção não estiver disponível, o FedUtil e/ou o WIF v 1.0 SDK não foram instalados.
-3. No prompt, selecione **Atualizar** para começar a atualizar os metadados federados. Se você tiver acesso ao ambiente de servidor onde o aplicativo está hospedado, você pode opcionalmente usar o [Agendador de atualização automática de metadados](https://msdn.microsoft.com/library/ee517272.aspx) do FedUtil.
+3. No aviso, selecione **Atualizar** para começar a atualizar os metadados federados. Se você tiver acesso ao ambiente de servidor onde o aplicativo está hospedado, você pode opcionalmente usar o [agendador de atualização automática de metadados](https://msdn.microsoft.com/library/ee517272.aspx) do FedUtil.
 4. Clique em **Concluir** para concluir o processo de atualização.
 
-### <a name="other"></a> Aplicativos/APIs Web usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte.
+### <a name="other"></a>Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte
 
 Se você estiver usando alguma outra biblioteca ou se tiver implementado manualmente qualquer um dos protocolos com suporte, precisará examinar a biblioteca ou a implementação para garantir que a chave esteja sendo recuperada do documento de descoberta OpenID Connect ou do documento de metadados de federação. Uma maneira de verificar isso é fazer uma pesquisa no seu código ou no código da biblioteca de quaisquer chamadas para o documento de descoberta OpenID ou para o documento de metadados de federação.
 
@@ -328,4 +347,8 @@ Para recuperar manualmente a chave mais recente do documento de metadados de fed
 
 Você acabou de criar o certificado X509 que é usado como a chave pública do Azure AD. Usando os detalhes do certificado, como sua impressão digital e data de validade, você pode verificar manual ou programaticamente se o certificado e a impressão digital usados atualmente pelo aplicativo são válidos.
 
-<!---HONumber=AcomDC_0706_2016-->
+## Como testar o aplicativo para determinar se ele será afetado
+
+Você pode validar se o aplicativo oferece suporte à substituição automática da chave baixando os scripts e seguindo as instruções [neste repositório GitHub.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+
+<!---HONumber=AcomDC_0720_2016-->

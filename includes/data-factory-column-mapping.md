@@ -3,14 +3,14 @@ O mapeamento de coluna pode ser usado para definir como colunas especificadas na
 
 O mapeamento de coluna oferece suporte para os seguintes cenários:
 
-1.	Todas as colunas na "estrutura" da tabela de origem são mapeadas para todas as colunas na "estrutura" da tabela de coletor.
-2.	Um subconjunto das colunas na "estrutura" da tabela de origem é mapeado para todas as colunas na "estrutura" da tabela de coletor.
+- Todas as colunas na "estrutura" da tabela de origem são mapeadas para todas as colunas na "estrutura" da tabela de coletor.
+- Um subconjunto das colunas na "estrutura" da tabela de origem é mapeado para todas as colunas na "estrutura" da tabela de coletor.
 
 A seguir há condições de erro que geram exceções:
 
-1.	Menos colunas ou mais colunas na "estrutura" da tabela de coletor do que o especificado no mapeamento.
-2.	Mapeamento duplicado.
-3.	O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
+- Menos colunas ou mais colunas na "estrutura" da tabela de coletor do que o especificado no mapeamento.
+- Mapeamento duplicado.
+- O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
 ## Exemplos de mapeamento de coluna
 > [AZURE.NOTE] Os exemplos a seguir são para o Azure SQL e os Blobs do Azure, mas são aplicáveis a qualquer repositório de dados com suporte a conjuntos de dados retangulares. Você precisará ajustar o conjunto de dados e as definições de serviço vinculado nos exemplos abaixo para apontar para dados na fonte de dados relevante.
@@ -149,4 +149,4 @@ Nesse caso, os resultados da consulta primeiro são mapeados para colunas especi
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

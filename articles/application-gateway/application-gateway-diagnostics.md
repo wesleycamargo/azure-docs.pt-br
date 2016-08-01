@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/11/2016"
+   ms.date="07/14/2016"
    ms.author="amitsriva" />
 
 #Log de diagnóstico do Application Gateway
 
-Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar problemas de Application Gateways. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blob do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
+Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar problemas de Application Gateways. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
 - **Logs de auditoria:** você pode usar os [Logs de Auditoria do Azure](../azure-portal/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal de visualização do Azure.
 - **Logs de acesso:** você pode usar esse log para exibir o padrão de acesso do Application Gateway e analisar informações importantes, incluindo o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno, os bytes de entrada e de saída. O log de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do Application Gateway. A instância do Application Gateway pode ser identificada pela propriedade “instanceId”.
@@ -30,11 +30,9 @@ Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar pr
 ##Habilitar o registro em log
 O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar o log de acesso e de desempenho para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
 
-1. Observe a ID do Recurso da conta de armazenamento onde os dados de log serão armazenados. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Todas as contas de armazenamento da assinatura podem ser usadas. Você pode usar o portal de visualização para encontrar essas informações.
-![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Observe a ID do Recurso da conta de armazenamento onde os dados de log serão armazenados. Isso deve ter a seguinte forma: /subscriptions/<subscriptionId>/resourceGroups/<nome do grupo de recursos>/providers/Microsoft.Storage/storageAccounts/<nome da conta de armazenamento>. Todas as contas de armazenamento da assinatura podem ser usadas. Você pode usar o portal de visualização para encontrar essas informações. ![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Observe a ID do Recurso do Application Gateway para o qual o log deve ser habilitado. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Você pode usar o portal de visualização para encontrar essas informações.
-![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Observe a ID do Recurso do Application Gateway para o qual o log deve ser habilitado. Isso deve ter a seguinte forma: /subscriptions/<subscriptionId>/resourceGroups/<nome do grupo de recursos>/providers/Microsoft.Network/applicationGateways/<nome do application gateway>. Você pode usar o portal de visualização para encontrar essas informações. ![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Habilite o log de diagnóstico usando o cmdlet do powershell a seguir.
 
@@ -98,14 +96,17 @@ Você pode exibir e analisar dados do log de auditoria usando qualquer um dos se
 - **Ferramentas do azure:** recupere informações dos logs de auditoria por meio do Azure PowerShell, a CLI (Interface de Linha de Comando) do Azure, a API REST do Azure ou o portal de visualização do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md).
 - **Power BI:** se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), você poderá testá-lo gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que você pode usar como estão ou personalizar.
 
-## Exibir e analisar o log de eventos e de contador 
-Você precisa se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e contador. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
+## Exibir e analisar o log de acesso e desempenho 
+O Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) pode coletar os arquivos de contador e de log de eventos da sua conta de armazenamento de Blobs e inclui visualizações e recursos avançados de pesquisa para analisar os logs.
+
+Você também pode se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de desempenho e acesso. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
 
 >[AZURE.TIP] Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C# , você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no Github.
 
 ## Próximas etapas
 
+- Visualizar o contador e logs de eventos com o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 - Postagem de blog [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Postagem de blog [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,7 +19,7 @@
 
 # Como gerenciar uma conta do Banco de Dados de Documentos
 
-Saiba como definir a consistência global e gerenciar várias regiões para disponibilidade global de dados. Além disso, saiba como trabalhar com chaves e excluir uma conta no Portal do Azure.
+Saiba como definir a consistência global e gerenciar várias regiões para disponibilidade global de dados no Banco de Dados de Documentos do Azure. Além disso, saiba como trabalhar com chaves e excluir uma conta no Portal do Azure.
 
 ## <a id="consistency"></a>Gerenciar as configurações de consistência do Banco de Dados de Documentos
 
@@ -86,10 +86,9 @@ Ele também inclui chaves somente leitura para fornecer aos usuários o acesso s
 
 ### Exibir e copiar uma chave de acesso no Portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos. 
+1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
 2. Na barra **Fundamentos** da folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
-3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
-  ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
+3. Na folha **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar. ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar chaves de acesso
 
@@ -143,7 +142,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
-[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

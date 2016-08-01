@@ -107,28 +107,28 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 
 	Você também pode fazer o seguinte na guia **Diagnósticos**:
 	
-		- Use *Test Connection** section to an on-premises data source using the gateway.
-		- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
-		- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
+	- Use a seção **Testar Conexão** para uma fonte de dados local usando o gateway.
+	- Clique em **Exibir Logs** para ver o log de Gateway de Gerenciamento de Dados em uma janela do Visualizador de Eventos.
+	- Clique em **Enviar Logs** para carregar um arquivo zip com logs dos últimos sete dias para a Microsoft a fim de facilitar a solução de problemas.
 10. No Portal do Azure, clique em **OK** na folha **Configurar** e na folha **Novo gateway de dados**.
 6. Você deve consultar **adftutorialgateway** em **Gateways de Dados** no modo de exibição de árvore à esquerda. Se você clicar nisso, você verá o JSON associado.
 	
 
 ## Criar serviços vinculados 
-Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados local do SQL Server e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure à Data Factory. Você criará um pipeline posteriormente neste passo a passo que copia dados do banco de dados SQL Server local para o armazenamento de blob do Azure.
+Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedService** e **SqlServerLinkedService**. O **SqlServerLinkedService** vincula um banco de dados local SQL Server e o serviço vinculado **AzureStorageLinkedService** vincula um repositório de blob do Azure ao Data Factory. Você criará um pipeline posteriormente neste passo a passo que copia dados do banco de dados SQL Server local para o armazenamento de blob do Azure.
 
 #### Adicionar um serviço vinculado a um banco de dados SQL Server local
 1.	No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **SQL Server**.
 
 	![Serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
 3.	No **Editor JSON**, faça o seguinte:
-	1. Em **gatewayName**, especifique **adftutorialgateway**.	
+	1. Em **gatewayName**, especifique **adftutorialgateway**.
 	2. Se você está usando a Autenticação do Windows:
-		1. Em **connectionString**: 
+		1. Em **connectionString**:
 			1. Defina **Integrated Security** como **true**.
-			2. Especifique o banco de dados **nome do servidor** e **nome do banco de dados**. 
-			2. Remova a **ID de usuário** e **Senha**. 
-		3. Especifique o nome de usuário e senha para as propriedades **userName** e **password**.  
+			2. Especifique o banco de dados **nome do servidor** e **nome do banco de dados**.
+			2. Remova a **ID de usuário** e **Senha**.
+		3. Especifique o nome de usuário e senha para as propriedades **userName** e **password**.
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -138,7 +138,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
         		}
 
 	4. Se você estiver usando a autenticação SQL:
-		1. Especifique o **nome do servidor**, o **nome do banco de dados**, a **ID de usuário** e a **Senha** do banco de dados na **connectionString**.       
+		1. Especifique o **nome do servidor**, o **nome do banco de dados**, a **ID de usuário** e a **Senha** do banco de dados na **connectionString**.
 		2. Remova as duas últimas propriedades JSON - **userName** e **password** - do JSON.
 		3. Remova a **, (vírgula)** à direita no final da linha que especifica o valor da propriedade **gatewayName**.
 
@@ -147,7 +147,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
 	
-		As credenciais serão **criptografadas** usando um certificado que o serviço Data Factory detém. Como alternativa, se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados, confira [Set credentials securely](#set-credentials-and-security) (Definir credenciais com segurança).
+		As credenciais serão **criptografadas** usando um certificado que o serviço Data Factory detém. Como alternativa, se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados, confira [Set credentials securely (Definir credenciais com segurança)](#set-credentials-and-security).
     
 2.	Clique em **Implantar** na barra de comandos para implantar o serviço vinculado do SQL Server.
 
@@ -255,7 +255,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 	Observe o seguinte:
 	
 	- **tipo** é definido como **AzureBlob**.
-	- O **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou este serviço vinculado na Etapa 2).
+	- O **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
 	- **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Você precisa apenas criar o contêiner **adftutorial**.
 	- A **disponibilidade** é definida como **por hora** (**frequência** definida como **hora** e **intervalo** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
@@ -289,7 +289,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 	![Bloco Criar e implantar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	Clique em **Novo pipeline** na barra de comandos. Se você não puder ver o botão, clique em **... (reticências)** para expandir a barra de comandos.
-2.	Substitua o JSON no painel direito pelo texto a seguir:   
+2.	Substitua o JSON no painel direito pelo texto a seguir:
 
 
 		{
@@ -340,7 +340,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformação**, o **SqlSource** é especificado como o **tipo de origem** e o **BlobSink** é especificado como o **tipo de coletor**.
-	- A consulta SQL **selecionar * de emp** é especificada para** a **propriedade** sqlReaderQuery de SqlSource**.
+	- A consulta SQL **selecionar* de emp** é especificada para** a **propriedade** sqlReaderQuery de SqlSource**.
 
 	Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -417,6 +417,6 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 ## Próximas etapas
 
 - Confira o artigo [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway de Gerenciamento de Dados) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados.
-- Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um armazenamento de dados de origem para um armazenamento de dados de coletor em geral.
+- Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um repositório de dados de origem para um repositório de dados de coletor em geral.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

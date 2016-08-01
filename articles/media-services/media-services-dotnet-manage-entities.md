@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -28,16 +28,16 @@
 
 Este tópico mostra como realizar as seguintes tarefas de gerenciamento de serviços de mídia:
 
-- Obter uma referência de ativo 
-- Obter uma referência de trabalho 
-- Listar todos os ativos 
-- Listar trabalhos e ativos 
-- Listar todas as políticas de acesso 
+- Obter uma referência de ativo
+- Obter uma referência de trabalho
+- Listar todos os ativos
+- Listar trabalhos e ativos
+- Listar todas as políticas de acesso
 - Listar todos os localizadores
 - Enumerar através de grandes coleções de entidades
-- Excluir um ativo 
-- Excluir um trabalho 
-- Excluir uma política de acesso 
+- Excluir um ativo
+- Excluir um trabalho
+- Excluir uma política de acesso
 
 ##Pré-requisitos 
 
@@ -381,4 +381,4 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

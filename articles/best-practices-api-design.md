@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Diretrizes de design de API
@@ -103,7 +103,8 @@ Em sistemas mais complexos pode haver muito mais tipos de entidade, e pode ser t
 Outro ponto a considerar é que todas as solicitações da Web impõem uma carga ao servidor Web; quanto maior o número de solicitações, maior será a carga. Você deve tentar definir seus recursos para evitar APIs da Web "verborrágicas", que expõem um grande número de recursos pequenos. Uma API desse tipo pode exigir que um aplicativo cliente envie várias solicitações para localizar todos os dados que ele necessita. Pode ser benéfico desnormalizar dados e combinar informações relacionadas em recursos maiores, que podem ser recuperados por meio de uma única solicitação. No entanto, você precisa equilibrar essa abordagem em relação à sobrecarga causada pela coleta de dados que podem, frequentemente, não ser solicitados pelo cliente. Recuperar objetos grandes pode aumentar a latência de uma solicitação e incorre em custos de largura de banda adicional, o que traz pouca vantagem se os dados adicionais não são usados com frequência.
 
 Evite introduzir as dependências entre a API da Web na estrutura, tipo ou local das fontes de dados subjacentes. Por exemplo, se seus dados estão localizados em um banco de dados relacional, a API da Web não precisa expor cada tabela como uma coleção de recursos. Considere a API da Web como uma abstração do banco de dados e, se necessário, introduza uma camada de mapeamento entre o banco de dados e a API da Web. Desse modo, se a implementação ou o design do banco de dados for alterado (por exemplo, você deixa de usar um banco de dados relacional que contém uma coleção de tabelas normalizadas e passa a usar um sistema de armazenamento NoSQL desnormalizado, como um banco de dados de documentos), aplicativos cliente serão protegidos contra essas alterações.
-> [AZURE.TIP] A fonte de dados que serve de base para uma API da Web não precisa ser um armazenamento de dados; pode ser outro serviço ou aplicativo de linha de negócios, ou até mesmo um aplicativo herdado em execução local, dentro de uma organização.
+
+> [AZURE.TIP]A fonte de dados que serve de base para uma API da Web não precisa ser um armazenamento de dados; pode ser outro serviço ou aplicativo de linha de negócios, ou até mesmo um aplicativo herdado em execução local, dentro de uma organização.
 
 Por fim, pode não ser possível mapear toda operação implementada por uma API da Web para um recurso específico. Você pode tratar desses cenários _sem recursos_ por meio de solicitações HTTP GET, que invocam uma funcionalidade e retornam os resultados como uma mensagem de resposta HTTP. Uma API da Web que implementa operações simples estilo calculadora, como adicionar e subtrair, pode fornecer URIs que exponham essas operações como pseudorrecursos, além de utilizar a cadeia de consulta para especificar os parâmetros necessários. Por exemplo, uma solicitação GET para o URI _/add?operand1=99&operand2=1_ pode retornar uma mensagem de resposta com o corpo contendo o valor 100, enquanto a solicitação GET para o URI _/subtract?operand1=50&operand2=20_ pode retornar uma mensagem de resposta com o corpo contendo o valor 30. No entanto, use essas formas de URIs apenas com moderação.
 
@@ -355,7 +356,7 @@ Accept: application/json
 ...
 ```
 
-O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (_Customer_), o URI do cliente (\__http://adventure-works.com/customers/3_), como obter os detalhes desse cliente (_GET_), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (_text/xml_ e _application/json_). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
+O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (_Customer_), o URI do cliente (\_http://adventure-works.com/customers/3_, como obter os detalhes desse cliente (_GET_), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (_text/xml_ e _application/json_). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -391,7 +392,7 @@ O controle de versão permite que uma API da Web indique os recursos e as funç�
 
 Essa é a abordagem mais simples e pode ser aceitável para algumas APIs internas. Grandes alterações poderiam ser representadas como novos recursos ou novos links. Adicionar conteúdo aos recursos existentes não deve representar uma alteração significativa, já que aplicativos cliente que não esperavam ver esse conteúdo vão simplesmente ignorá-lo.
 
-Por exemplo, uma solicitação para o URI \__http://adventure-works.com/customers/3_ deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
+Por exemplo, uma solicitação para o URI \_http://adventure-works.com/customers/3_ deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -436,7 +437,7 @@ Esse mecanismo de controle de versão é muito simples, mas depende do servidor 
 
 ### Controle de versão de cadeia de consulta
 
-Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como \__http://adventure-works.com/customers/3?version=2_. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
+Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como \_http://adventure-works.com/customers/3?version=2_. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
 
 Essa abordagem tem a vantagem de semântica que o mesmo recurso é sempre recuperado do mesmo URI, mas para isso, é necessário que o código que processa a solicitação analise a cadeia de consulta e envie de volta a resposta HTTP apropriada. Essa abordagem também tem as mesmas complicações para implementar HATEOAS como o mecanismo de controle de versão do URI.
 
@@ -519,4 +520,4 @@ Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versã
 - O [Guia RESTful](http://restcookbook.com/) contém uma introdução à criação de APIs RESTful.
 - A [Lista de Verificação de API](https://mathieu.fenniak.net/the-api-checklist/) da Web contém uma lista útil de itens a serem considerados ao projetar e implementar uma API da Web.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

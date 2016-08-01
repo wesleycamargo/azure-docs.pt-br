@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Analisar dados no Repositório Data Lake usando o Power BI
@@ -125,4 +125,4 @@ Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outra
 
 * [Analisar dados no Repositório Data Lake usando o Análise Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,16 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ciência de Dados para Iniciantes - vídeo 5: Copie o trabalho de outras pessoas para fazer a ciência de dados
+# Copiar o trabalho de outras pessoas para fazer a ciência de dados
+
+## Vídeo 5: Série de ciência de dados para iniciantes
 
 Um dos segredos da ciência de dados fazer com que outras pessoas trabalhem para você. Encontre um exemplo de algoritmo de clustering para usar para o seu próprio teste.
 
 Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
+
+## Outros vídeos nesta série
+
+*Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
+
+  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+  * Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+  * Vídeo 5: Copie o trabalho de outras pessoas para fazer a ciência de dados
 
 ## Transcrição: copie o trabalho de outras pessoas para fazer a ciência de dados
 
@@ -43,11 +55,11 @@ Você pode encontrar a galeria em [aka.ms/CortanaIntelligenceGallery](http://aka
 
 ![Galeria do Cortana Intelligence](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
 
-Se clicar em **Experimentos** na parte superior, você verá vários dos experimentos mais recentes e populares na galeria. Você pode pesquisar o restante do experimentos clicando em **Pesquisar Tudo** na parte superior da tela, e pode inserir termos de pesquisa e escolher filtros de pesquisa.
+Se clicar em **Experimentos** na parte superior, você verá vários dos experimentos mais recentes e populares na galeria. Você pode pesquisar o restante do experimentos clicando em **Procurar Tudo** na parte superior da tela e, assim, pode inserir termos de pesquisa e escolher filtros de pesquisa.
 
 ## Localizar e usar um exemplo de clustering
 
-Por exemplo, digamos que você queira ver um exemplo de como o clustering funciona. Assim, você pesquisa experimentos de **"clustering"**.
+Por exemplo, digamos que você queira ver um exemplo de funcionamento do clustering. Assim, você pesquisa experimentos de **"clustering"**.
 
 ![Pesquisar experimentos de clustering](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
@@ -71,7 +83,7 @@ Agora tenho um ponto de partida. Posso trocar seus dados pelos meus próprios e 
 
 ## Encontre experimentos que demonstram técnicas de aprendizado de máquina
 
-Há outros testes na [Galeria do Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) que foram oferecidos especificamente para fornecer exemplos com instruções para iniciantes na ciência de dados. Por exemplo, há um experimento na galeria que demonstra como lidar com valores ausentes ([Métodos para lidar com valores ausentes](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Ele o orienta quanto a 15 maneiras diferentes de substituir valores vazios e aborda os benefícios de cada método e quando usá-lo.
+Há outros experimentos na [Galeria do Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) que foram oferecidos especificamente para fornecer exemplos com instruções para iniciantes na ciência de dados. Por exemplo, há um experimento na galeria que demonstra como lidar com valores ausentes ([Métodos para lidar com valores ausentes](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Ele o orienta quanto a 15 maneiras diferentes de substituir valores vazios e aborda os benefícios de cada método e quando usá-lo.
 
 ![Experimento de galeria aberto no Estúdio de Aprendizado de Máquina](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
@@ -79,19 +91,10 @@ A [Galeria do Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) é
 
 Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado de Máquina do Microsoft Azure.
 
-## Outros vídeos nesta série
-
-*Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
-
-  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vídeo 5: Copie o trabalho de outras pessoas para fazer a ciência de dados
 
 ## Próximas etapas
 
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

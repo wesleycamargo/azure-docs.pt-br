@@ -148,12 +148,12 @@ Agora que `oidlib-sample` está em execução com êxito, vamos editar alguns po
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-O valor `User.ReadBasic.All` em `oidc_scopes` permite que você leia o perfil básico de todos os usuários no diretório. É possível saber mais sobre todos os escopos disponíveis em [Escopos de permissão do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
+O valor `User.Read` em `oidc_scopes` permite que você leia o perfil básico do usuário conectado. É possível saber mais sobre todos os escopos disponíveis em [Escopos de permissão do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 Se você quer explicações sobre `openid` ou `offline_access` como escopos no OpenID Connect, confira [Protocolos v2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -196,4 +196,4 @@ Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Prot
 
 É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

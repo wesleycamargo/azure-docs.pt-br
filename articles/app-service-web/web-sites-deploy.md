@@ -37,7 +37,7 @@ Como você não precisa se preocupar com a estrutura do servidor Web ou do aplic
 
 Populares ferramentas de desenvolvimento da Web oferecem suporte a um ou mais desses processos de implantação. Embora sua ferramenta escolhida determine os processos de implantação que podem ser aproveitados, a funcionalidade real do DevOps à sua disposição depende da combinação do processo de implantação e de ferramentas específicas escolhidas por você. Por exemplo, se você executar a Implantação da Web do [Visual Studio com o SDK do Azure](#vspros), apesar de não contar com a automação do Kudu, você obtém a restauração do pacote e a automação do MSBuild no Visual Studio.
 
->[AZURE.NOTE] Na verdade, esses processos de implantação não [provisionam os recursos do Azure](../azure-portal/resource-group-portal.md) de que seu aplicativo pode precisar. No entanto, a maioria dos artigos de instruções vinculados mostra como provisionar o aplicativo E implantar seu código no aplicativo, de ponta a ponta. Você também pode encontrar outras opções para o provisionamento de recursos do Azure na seção [Automatizar a implantação usando as ferramentas de linha de comando](#automate).
+>[AZURE.NOTE] Na verdade, esses processos de implantação não [provisionam os recursos do Azure](../resource-group-template-deploy-portal.md) dos quais seu aplicativo pode precisar. No entanto, a maioria dos artigos de instruções vinculados mostra como provisionar o aplicativo E implantar seu código no aplicativo, de ponta a ponta. Você também pode encontrar outras opções para o provisionamento de recursos do Azure na seção [Automatizar a implantação usando as ferramentas de linha de comando](#automate).
      
 ## <a name="ftp"></a>Implantar via FTP copiando arquivos manualmente para o Azure
 Se estiver acostumado a copiar manualmente o conteúdo da Web para um servidor Web, você poderá usar um utilitário [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar arquivos, como o Windows Explorer ou o [FileZilla](https://filezilla-project.org/).
@@ -234,4 +234,4 @@ Para saber mais sobre como usar o Controle de Acesso Baseado em Função do Azur
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"/>
 
 # Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL
@@ -46,4 +46,4 @@ Use as ferramentas de banco de dados elástico para executar ações como
 * Gerenciar bancos de dados em um modelo de locatário único ou um modelo de multilocatário usando a [biblioteca de cliente de dimensionamento elástico](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

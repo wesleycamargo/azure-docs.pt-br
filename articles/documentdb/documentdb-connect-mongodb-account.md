@@ -19,7 +19,7 @@
 
 # Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
-Saiba como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB usando o formato de URI da cadeia de conexão padrão do MongoDB.
+Saiba como se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o formato de URI da cadeia de conexão padrão do MongoDB.
 
 ## Obter informações sobre a cadeia de conexão da conta
 
@@ -84,4 +84,4 @@ Como já mencionado, todas as contas do Banco de Dados de Documentos exigem aute
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

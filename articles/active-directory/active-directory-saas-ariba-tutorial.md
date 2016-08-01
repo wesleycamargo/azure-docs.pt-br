@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do Ariba ao AD do Azure, você precisará adicion
 
 **Para adicionar o Ariba da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -122,7 +122,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 	![Configurar o logon único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_04.png)
 
 
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no seu aplicativo Ariba usando o seguinte padrão: **“https://<companyname>.sourcing.ariba.com"** ou **"https://<CompanyName>.supplier.ariba.com”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no aplicativo Ariba usando o seguinte padrão: **"https://<nome\_da\_empresa>.sourcing.ariba.com"** ou **"https://<Nome\_da\_Empresa>.supplier.ariba.com”**.
 
     b. Clique em **Próximo**.
 
@@ -169,11 +169,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_05.png)
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     c. Clique em **Próximo**.
 
-6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_06.png)
 
@@ -197,11 +197,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     e. Clique em **Próximo**.
 
-7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_07.png)
 
-8. Na página do diálogo **Obter senha temporária**, realize as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_08.png)
 
@@ -278,4 +278,4 @@ Ao clicar no bloco do Ariba no Painel de Acesso, você deverá ser conectado aut
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

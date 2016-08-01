@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="07/19/2016"
    ms.author="seanmck"/>
 
 # Gerenciar parâmetros do aplicativo para vários ambientes
@@ -61,9 +61,9 @@ O atributo DefaultValue especifica o valor a ser usado na ausência de um parâm
 
 ### Definições de configuração de serviço por ambiente
 
-O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares chave-valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
+O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares de chave e valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
 
-Suponha que você tem a seguinte configuração no arquivo Config\\Settings.xml para o serviço `Stateful1`:
+Suponha que você tenha a seguinte configuração no arquivo Config\\Settings.xml para o serviço `Stateful1`:
 
 
     <Section Name="MyConfigSection">
@@ -134,4 +134,4 @@ Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

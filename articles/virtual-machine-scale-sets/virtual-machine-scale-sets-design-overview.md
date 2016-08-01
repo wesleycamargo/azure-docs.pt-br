@@ -25,7 +25,7 @@ Este tópico discute considerações de design para Conjuntos de Escala de Máqu
 
 ## Armazenamento
 
-Um conjunto de escala usa contas de armazenamento para armazenar os discos do sistema operacional das VMs no conjunto. É recomendável usar uma taxa de 20 VMs ou menos por conta de armazenamento. Também recomendamos distribuir as iniciais dos nomes de conta de armazenamento pelo alfabeto. Isso ajuda a espalhar a carga entre diferentes sistemas internos. No modelo a seguir, por exemplo, usamos a função do Modelo ARM uniqueString para gerar hashes de prefixo que serão acrescentados ao início dos nomes de conta de armazenamento: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
+Um conjunto de escala usa contas de armazenamento para armazenar os discos do sistema operacional das VMs no conjunto. É recomendável usar uma taxa de 20 VMs ou menos por conta de armazenamento. Também recomendamos distribuir as iniciais dos nomes de conta de armazenamento pelo alfabeto. Isso ajuda a espalhar a carga entre diferentes sistemas internos. No modelo a seguir, por exemplo, usamos a função uniqueString do Modelo ARM para gerar hashes de prefixo que são acrescentados ao início dos nomes de conta de armazenamento: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
 
 ## Provisionamento em excesso
@@ -38,10 +38,10 @@ Se desativar o provisionamento em excesso, você poderá acabar com uma taxa mai
 
 
 ## Limites
-Um conjunto de dimensionamento compilado em uma imagem personalizada (criada por você) deve criar todos os vhds de disco do SO em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento compilado em uma imagem personalizada é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
+Um conjunto de escala criado com base em uma imagem personalizada (criada por você) deve criar todos os VHDs de disco do sistema operacional em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento compilado em uma imagem personalizada é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
 
 Um conjunto de dimensionamento criado em uma imagem da plataforma é limitado a 100 VMs (recomendamos 5 contas de armazenamento para esse dimensionamento).
 
 Para ter mais VMs que esses limites permitem, você precisará implantar vários conjuntos de dimensionamento. [Para obter um exemplo de como fazer isso, consulte este modelo.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

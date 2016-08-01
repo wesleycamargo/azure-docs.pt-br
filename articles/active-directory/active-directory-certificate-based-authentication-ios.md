@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/15/2016" 
     ms.author="markvi" />
 
 
@@ -96,7 +96,8 @@ Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD F
 ### Suporte aos clientes do Exchange ActiveSync 
 
 
-Há suporte para determinados aplicativos do Exchange ActiveSync no iOS 9 ou superior. Para determinar se seu aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo. Para esse cenário, a autenticação federada com um certificado de cliente não tem suporte.
+Há suporte para determinados aplicativos do Exchange ActiveSync no iOS 9 ou superior. Para determinar se seu aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo.
+
 
 
 ## Introdução 
@@ -270,4 +271,4 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

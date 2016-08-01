@@ -188,13 +188,15 @@ Falsificação: um invasor pode extrair o material de chave de criptografia de u
 
 **Negação de serviço**: o dispositivo pode ser desativado ou alterado para um modo em que a comunicação não é possível (o que é intencional em muitas máquinas industriais).
 
-**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente. Elevação de Privilégio: um dispositivo que faz a função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
+**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente
+
+**Elevação de Privilégio**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
 **Negação de serviço**: o dispositivo pode ser alterado para um estado em que a comunicação não é possível.
 
 **Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente.
  
-**Violação/falsificação/repúdio**: se não protegido (que raramente é o caso com controles remotos do consumidor), um invasor pode manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
+**Violação/falsificação/repúdio**: se não protegido (que raramente é o caso com controles remotos do consumidor), um invasor poderá manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
 
 #### Comunicação
 
@@ -212,7 +214,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Negação de serviço**: os dispositivos restritos geralmente estão sob ameaça DoS quando escutam ativamente as conexões de entrada ou datagramas não solicitadas em uma rede, porque um invasor pode abrir várias conexões em paralelo e não atendê-las ou atendê-las muito lentamente ou o dispositivo pode ser inundado com o tráfego não solicitado. Em ambos os casos, o dispositivo efetivamente pode ficar inoperante na rede.
 
-**Falsificação, Divulgação não autorizada de informação**: os dispositivos restritos e de finalidade especial geralmente têm recursos de segurança de um-para-todos como proteção de PIN ou senha ou dependem inteiramente da rede, o que significa que eles concedem acesso às informações quando um dispositivo está na mesma rede e essa rede geralmente é protegida apenas por uma chave compartilhada. Isso significa que quando o segredo compartilhado para o dispositivo ou rede é divulgado, é possível controlar o dispositivo ou observar os dados emitidos do dispositivo.
+**Falsificação, Divulgação não autorizada de informação**: os dispositivos restritos e de finalidade especial geralmente têm recursos de segurança de um-para-todos como proteção de PIN ou senha ou dependem inteiramente da rede, o que significa que eles concederão acesso às informações quando um dispositivo estiver na mesma rede e essa rede geralmente estará protegida apenas por uma chave compartilhada. Isso significa que quando o segredo compartilhado para o dispositivo ou rede é divulgado, é possível controlar o dispositivo ou observar os dados emitidos do dispositivo.
 
 **Falsificação**: um invasor pode interceptar ou parcialmente substituir a difusão e falsificar o originador (intermediário)
 
@@ -250,4 +252,4 @@ Consulte os seguintes artigos para obter informações adicionais:
 - [Microsoft Azure IoT reference architecture (Arquitetura de referência da IoT do Microsoft Azure)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

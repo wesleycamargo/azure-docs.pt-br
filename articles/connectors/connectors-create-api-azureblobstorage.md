@@ -14,220 +14,318 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="07/18/2016"
    ms.author="mandia"/>
 
 # Introdução ao conector de armazenamento de blobs do Azure
-Conecte-se a um Blob do Azure para gerenciar arquivos em um contêiner de blob, criando os arquivos, excluindo os arquivos e muito mais. O conector do armazenamento de blobs do Azure pode ser usado em:
+O armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados. Execute várias ações, como carregar, atualizar, obter e excluir blobs no armazenamento de blobs do Azure.
 
-- Aplicativos lógicos 
+- Compile seu fluxo de trabalho ao carregar novos projetos ou ao obter os arquivos que foram atualizados recentemente.
+- Use as ações para obter metadados do arquivo, excluir um arquivo, copiar arquivos e muito mais. Por exemplo, quando uma ferramenta é atualizada em um site do Azure (um gatilho), então, atualize um arquivo no armazenamento de blobs (uma ação).
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+Este tópico mostra como usar o conector de armazenamento de blobs em um aplicativo lógico e também lista as ações.
 
-Com o armazenamento de blobs do Azure, você pode:
+>[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
 
-- Criar seu fluxo de negócios com base nos dados obtidos do blob. 
-- Usar as ações que permitem que você crie um arquivo, obter seu conteúdo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode procurar por "urgente" em um arquivo no seu blob e enviar todos os arquivos com "urgente" em um email usando o Office 365. 
+Comece [criando um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.INCLUDE [Para começar, você precisa do seguinte:](../../includes/connectors-create-api-azureblobstorage.md)]
 
-## Gatilhos e ações
-O blob do Azure inclui as ações a seguir. Não há gatilhos.
 
-| Gatilhos | Ações|
-| --- | --- |
-| Nenhum. | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair arquivo morto para a pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li></ul> |
+## Conectar o armazenamento de blobs do Azure
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
+Para que o aplicativo lógico possa acessar qualquer serviço, primeiro, você cria uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para conectar o Dropbox, você primeiro cria uma conexão do *Dropbox*. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual está conectando-se. Assim, no exemplo do Dropbox, insira suas credenciais do Dropbox para criar a conexão com o Dropbox.
 
-## Criar uma conexão com o blob do Azure
+Quando você adiciona esse conector a seus aplicativos lógicos, cria uma conexão com a conta de armazenamento de blobs. Na primeira vez em que você adicionar esse conector, as informações de conexão serão solicitadas:
 
->[AZURE.INCLUDE [Etapas para criar uma conexão para o Armazenamento de Blobs do Azure](../../includes/connectors-create-api-azureblobstorage.md)]
+![](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-Depois de criar a conexão, insira as propriedades do blob, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
 
->[AZURE.TIP] Você pode usar essa mesma conexão de blob em outros aplicativos lógicos.
+#### Criar a conexão
+
+1. Insira os detalhes da conta de armazenamento. As propriedades com um asterisco são obrigatórias.
+
+	| Propriedade | Detalhes |
+|---|---|
+| Nome da Conexão * | Digite um nome para a conexão. |
+| Nome da Conta de Armazenamento do Azure * | Digite o nome da conta de armazenamento. O nome da conta de armazenamento é exibido nas propriedades de armazenamento no portal do Azure. |
+| Chave de Acesso da Conta de Armazenamento do Azure * | Insira a chave da conta de armazenamento. As chaves de acesso são exibidas nas propriedades de armazenamento no portal do Azure. |
+
+	Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar seus dados. Uma vez concluída, os detalhes da conexão se parecerão com estes:
+
+	![Etapa de criação da conexão de blobs do Azure](./media/connectors-create-api-azureblobstorage/sample-connection.png)
+
+2. Selecione **Criar**.
+
  
+## Usar um gatilho
 
-## Referência da API REST do Swagger
-Aplica-se à versão: 1.0.
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, incluindo um gatilho Recorrência, um gatilho HTTP Webhook, gatilhos disponíveis com outros conectores e mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
 
-### Criar arquivo
-Carrega um arquivo no Armazenamento de Blobs do Azure. ```POST: /datasets/default/files```
+## Usar uma ação
+	
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico.
 
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|folderPath|string|sim|query| nenhum |Caminho da pasta para carregar o arquivo no Armazenamento de Blobs do Azure|
-|name|string|sim|query|nenhum |Nome do arquivo a ser criado no Armazenamento de Blobs do Azure|
-|corpo|string(binary) |sim|corpo|nenhum|Conteúdo do arquivo a ser carregado no Armazenamento de Blobs do Azure|
+1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **Adicionar uma condição** ou uma das opções **Mais**.
 
-#### Resposta
+	![](./media/connectors-create-api-azureblobstorage/add-action.png)
+
+2. Escolha **Adicionar uma ação**.
+
+3. Na caixa de texto, digite "blob" para obter uma lista de todas as ações disponíveis.
+
+	![](./media/connectors-create-api-azureblobstorage/actions.png)
+
+4. Em nosso exemplo, escolha **AzureBlob - Obter metadados do arquivo usando o caminho**. Se já existir uma conexão, então, selecione **...** Botão (Mostrar Seletor) para selecionar um arquivo.
+
+	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+
+	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-azureblobstorage.md#create-the-connection) neste tópico descreve estas propriedades.
+
+	> [AZURE.NOTE] Neste exemplo, obtemos os metadados de um arquivo. Para ver os metadados, adicione outra ação que cria um novo arquivo usando outro conector. Por exemplo, adicione uma ação do OneDrive que cria um novo arquivo de "teste" com base nos metadados.
+
+5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) é uma excelente ferramenta para gerenciar várias contas de armazenamento.
+
+## Detalhes técnicos
+
+## Ações
+
+|Ação|Descrição|
+|--- | ---|
+|[Obter metadados do arquivo](connectors-create-api-azureblobstorage.md#get-file-metadata)|Esta operação obtém os metadados do arquivo usando a id do arquivo.|
+|[Atualizar arquivo](connectors-create-api-azureblobstorage.md#update-file)|Esta operação atualiza um arquivo.|
+|[Excluir arquivo](connectors-create-api-azureblobstorage.md#delete-file)|Esta operação exclui um arquivo.|
+|[Obter metadados do arquivo usando o caminho](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|Esta operação obtém os metadados do arquivo usando o caminho.|
+|[Obter o conteúdo do arquivo usando o caminho](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|Esta operação obtém o conteúdo do arquivo usando o caminho.|
+|[Obter conteúdo do arquivo](connectors-create-api-azureblobstorage.md#get-file-content)|Esta operação obtém o conteúdo do arquivo usando a id.|
+|[Criar arquivo](connectors-create-api-azureblobstorage.md#create-file)|Esta operação carrega um arquivo.|
+|[Copiar arquivo](connectors-create-api-azureblobstorage.md#copy-file)|Essa operação copia um arquivo para o Armazenamento de Blobs do Azure.|
+|[Extrair o arquivo morto para a pasta](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|Essa operação extrai um arquivo para uma pasta (exemplo: .zip).|
+
+### Detalhes da ação
+
+Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
+
+#### Obter metadados do arquivo
+Esta operação obtém os metadados do arquivo usando a id do arquivo.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Selecionar um arquivo|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|cadeia de caracteres|
+
+
+#### Atualizar arquivo
+Esta operação atualiza um arquivo.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Selecionar um arquivo|
+|body*|Conteúdo do arquivo|Conteúdo do arquivo para atualizar|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Excluir arquivo
+Esta operação exclui um arquivo.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Selecionar um arquivo|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+Nenhum.
+
+
+#### Obter metadados do arquivo usando o caminho
+Esta operação obtém os metadados do arquivo usando o caminho.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|path*|Caminho do arquivo|Selecionar um arquivo|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|cadeia de caracteres|
+
+
+#### Obter o conteúdo do arquivo usando o caminho
+Esta operação obtém o conteúdo do arquivo usando o caminho.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|path*|Caminho do arquivo|Selecionar um arquivo|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+Nenhum.
+
+
+#### Obter conteúdo do arquivo
+Esta operação obtém o conteúdo do arquivo usando a id.
+
+|Nome da Propriedade| Tipo de Dados|Descrição|
+| ---|---|---|
+|id*|string|Selecionar um arquivo|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+Nenhum.
+
+
+#### Criar arquivo
+Esta operação carrega um arquivo.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|folderPath*|Caminho da pasta|Selecionar uma pasta|
+|name*|Nome do arquivo|Nome do arquivo para carregar|
+|body*|Conteúdo do arquivo|Conteúdo do arquivo para carregar|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados | 
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Copiar arquivo
+Essa operação copia um arquivo para o Armazenamento de Blobs do Azure.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|source*|Url da origem|Especificar a Url para o arquivo de origem|
+|destination*|Caminho do arquivo de destino|Especificar o caminho do arquivo de destino, incluindo o nome do arquivo de destino|
+|substituir|Substituir?|Um arquivo de destino existente deve ser substituído (true/false)? |
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+#### Extrair o arquivo morto para a pasta
+Essa operação extrai um arquivo para uma pasta (exemplo: .zip).
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|source*|Caminho do arquivo de origem|Selecionar um arquivo|
+|destination*|Caminho da pasta de destino|Selecionar o conteúdo para extrair|
+|substituir|Substituir?|Um arquivo de destino existente deve ser substituído (true/false)?|
+
+Um asterisco (*) significa que a propriedade é obrigatória.
+
+##### Detalhes da Saída
+BlobMetadata
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+## Respostas HTTP
+
+Ao fazer chamadas para diferentes ações, você pode obter certas respostas. A tabela a seguir descreve as respostas e suas descrições:
+
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
-
-### Copiar arquivo
-Copia um arquivo para o Armazenamento de Blobs do Azure. ```POST: /datasets/default/copyFile```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|fonte|string|sim|query|nenhum |URL para o arquivo de origem|
-|destino|string|sim|query| nenhum|Caminho do arquivo de destino no Armazenamento de Blobs do Azure, incluindo o nome do arquivo de destino|
-|substituir|booleano|não|query|nenhum |Substitui o arquivo de destino se estiver definido como "true"|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-### Excluir arquivo
-Exclui um arquivo do Armazenamento de Blobs do Azure. ```DELETE: /datasets/default/files/{id}```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser excluído do Armazenamento de Blobs do Azure|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-### Extrair o arquivo morto para a pasta
-Extrai um arquivo do arquivo morto para uma pasta no Armazenamento de Blobs do Azure (exemplo: .zip). ```POST: /datasets/default/ExtractFolderV2```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|fonte|string|sim|query| nenhum|Caminho para o arquivo morto|
-|destino|string|sim|query|nenhum |Caminho no Armazenamento de Blobs do Azure para extrair o conteúdo do arquivo morto|
-|substituir|booleano|não|query|nenhum |Substitui os arquivos de destino se estiver definido como "true"|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
 |padrão|Falha na Operação.|
-
-
-### Obter conteúdo do arquivo
-Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando a id. ```GET: /datasets/default/files/{id}/content```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|path|string|sim|query|nenhum |Caminho exclusivo para o arquivo no Armazenamento de Blobs do Azure|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-
-### Obter Metadados do Arquivo
-Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando a id do arquivo. ```GET: /datasets/default/files/{id}```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-### Obter metadados do arquivo usando o caminho
-Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando o caminho. ```GET: /datasets/default/GetFileByPath```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|path|string|sim|query|nenhum|Caminho exclusivo para o arquivo no Armazenamento de Blobs do Azure|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-### Atualizar arquivo
-Atualiza um arquivo no Armazenamento de Blobs do Azure. ```PUT: /datasets/default/files/{id}```
-
-| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser atualizado no Armazenamento de Blobs do Azure|
-|corpo|string(binary) |sim|corpo|nenhum |Conteúdo do arquivo a ser atualizado no Armazenamento de Blobs do Azure|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-## Definições de objeto
-
-#### DataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados | Obrigatório|
-|---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
-
-#### TabularDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
-
-#### BlobDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-
-
-#### BlobMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|ID|string|não|
-|Nome|string|não|
-|DisplayName|string|não|
-|Caminho|string|não|
-|LastModified|string|não|
-|Tamanho|inteiro|não|
-|MediaType|string|não|
-|IsFolder|booleano|não|
-|ETag|string|não|
-|FileLocator|string|não|
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

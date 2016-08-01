@@ -26,8 +26,8 @@ O guia de solução de problemas a seguir o ajudará a entender as causas raiz d
 Em geral, você deve sempre verificar o seguinte:
 
 1. Certifique-se de que você passou por todas as etapas necessárias para a integração, conforme descrito nos nossos [tutoriais de Introdução](mobile-engagement-windows-store-dotnet-get-started.md)
-2. Você está usando a versão mais recente dos SDKs da plataforma. 
-3. Teste em um dispositivo real e um emulador porque alguns problemas são específicos somente do emulador. 
+2. Você está usando a versão mais recente dos SDKs da plataforma.
+3. Teste em um dispositivo real e um emulador porque alguns problemas são específicos somente do emulador.
 4. Você não está atingindo nenhum dos limites/restrições do Mobile Engagement documentados [aqui](../azure-subscription-service-limits.md)
 5. Se você não consegue se conectar ao back-end de serviço do Mobile Engagement ou estiver vendo que os dados não estão sendo carregados de modo contínuo, certifique-se de que não há nenhum incidente de serviço contínuo verificando [aqui](https://azure.microsoft.com/status/)
 
@@ -38,7 +38,7 @@ A guia Monitor mostra os dispositivos conectados à sua plataforma Mobile Engage
 
 Se você não está vendo seu dispositivo na guia Monitor então provavelmente há um problema de integração do SDK. Algumas etapas comuns a serem seguidas para solucionar problemas são as seguintes:
 
-1. Certifique-se de que você está usando a cadeia de conexão correta no aplicativo móvel e a mesma é da seção de chaves do SDK e não a seção de chaves de API. A cadeia de conexão conecta seu aplicativo móvel à instância do aplicativo Mobile Engagement no qual você verá seu dispositivo na guia Monitor. 
+1. Certifique-se de que você esteja usando a cadeia de conexão correta no aplicativo móvel e que ela seja da seção de chaves do SDK e não da seção de chaves de API. A cadeia de conexão conecta seu aplicativo móvel à instância do aplicativo Mobile Engagement no qual você verá seu dispositivo na guia Monitor.
 2. Para a plataforma Windows - se a sua página substituir o método `OnNavigatedTo`, lembre-se de chamar `base.OnNavigatedTo(e)`.
 3. Se você estiver integrando Mobile Engagement em um aplicativo móvel existente, você também pode garantir que você não está esquecendo de nenhuma etapa, observando as etapas de integração avançada [aqui](mobile-engagement-windows-store-integrate-engagement.md)
 4. Certifique-se de que você está enviando a pelo menos uma tela/atividade, substituindo a página com EngagementActivity dependendo da plataforma que você está trabalhando conforme descrito nos [tutoriais de Introdução](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -63,34 +63,34 @@ A criação de segmento não é em tempo real no momento. Ela é calculada ao me
 
 ### Minhas mensagens de push não estão sendo entregues 
 
-1. Tente enviar notificações para um dispositivo de teste primeiro para garantir que todos os componentes - aplicativo móvel, SDK e o serviço estão corretamente conectados e são capazes de enviar notificações por push. 
-2. Sempre envie 'notificação de fora do aplicativo' mais simples primeiro por meio de uma campanha que não está agendada e nem tem qualquer critério público especificado. Novamente, isso é para provar que a conectividade de notificação está funcionando corretamente. 
-3. Se você estiver tendo problemas na entrega de notificações no aplicativo, então também é uma boa primeira etapa tentar enviar uma notificação de fora do aplicativo pela primeira vez. 
+1. Tente enviar notificações para um dispositivo de teste primeiro para garantir que todos os componentes - aplicativo móvel, SDK e o serviço estão corretamente conectados e são capazes de enviar notificações por push.
+2. Sempre envie 'notificação de fora do aplicativo' mais simples primeiro por meio de uma campanha que não está agendada e nem tem qualquer critério público especificado. Novamente, isso é para provar que a conectividade de notificação está funcionando corretamente.
+3. Se você estiver tendo problemas na entrega de notificações no aplicativo, então também é uma boa primeira etapa tentar enviar uma notificação de fora do aplicativo pela primeira vez.
 4. Certifique-se de que o 'Native Push' está configurado corretamente para seu aplicativo móvel. Dependendo da plataforma isso envolverá chaves (Android, Windows) ou certificados (iOS). Consulte [Interface do usuário - Configurações](mobile-engagement-user-interface-settings.md)
-5. As notificações fora do aplicativo também podem ser bloqueadas pelo usuário através do SO móvel então certifique-se que esse não é o caso. 
-6. Certifique-se de que você não está definindo a opção *Ignorar Público, push será enviada aos usuários por meio da API* na seção **Campanha** de uma campanha de Reach porque isso garantirá que as notificações por push só podem ser enviadas por meio de APIs. 
+5. As notificações fora do aplicativo também podem ser bloqueadas pelo usuário através do SO móvel então certifique-se que esse não é o caso.
+6. Certifique-se de que você não está definindo a opção *Ignorar Público, push será enviada aos usuários por meio da API* na seção **Campanha** de uma campanha de Reach porque isso garantirá que as notificações por push só podem ser enviadas por meio de APIs.
 7. Certifique-se de que você está testando sua campanha de push com ambos os dispositivos conectados via rede de operadora de telefone e WIFI para eliminar a conexão de rede como uma possível fonte de problemas.
-8. Certifique-se de que a data/hora do sistema no seu dispositivo/emulador é correta porque qualquer dispositivo fora de sincronia também irá interferir com capacidade do Serviço de Notificação por Push para entregar notificações. 
+8. Certifique-se de que a data/hora do sistema no seu dispositivo/emulador é correta porque qualquer dispositivo fora de sincronia também irá interferir com capacidade do Serviço de Notificação por Push para entregar notificações.
 
 Abaixo estão mais instruções de solução de problemas relacionados à plataforma:
 
-1. **iOS** 
+1. **iOS**
 
-	- Verifique se os certificados são válidos e não expirados para notificações por Push do iOS. 
-	- Certifique-se de que você está configurando corretamente um certificado de *Produção* em seu aplicativo Mobile Engagement. 
+	- Verifique se os certificados são válidos e não expirados para notificações por Push do iOS.
+	- Certifique-se de que você está configurando corretamente um certificado de *Produção* em seu aplicativo Mobile Engagement.
 	- Certifique-se de que você esteja testando em um *dispositivo real, físico.* O simulador de iOS não pode processar mensagens por push.
 	- Certifique-se de que o Identificador de pacote está configurado corretamente no aplicativo móvel. Veja as instruções [aqui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 	- Durante o teste, use a distribuição "Ad Hoc" em seu perfil de provisionamento móvel. Você não poderá receber uma notificação se seu aplicativo for compilado usando "Depurar"
 
 2. **Android**
 
-	- Certifique-se de que você especificou o número correto de Projeto no arquivo Androidmanifest.xml do aplicativo móvel que é seguido pelo caractere \\n. 
+	- Certifique-se de que você especificou o número correto de Projeto no arquivo Androidmanifest.xml do aplicativo móvel que é seguido pelo caractere \\n.
 	
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Certifique-se de que não há permissões ausentes ou configuradas incorretamente no arquivo de Manifesto do Android
-	- Certifique-se de que o número do Projeto que você está adicionando ao seu aplicativo cliente é da mesma conta em que você obteve a Chave de Servidor GCM. Qualquer incompatibilidade entre os dois impedirá o envio dos pushes. 
-	- Se você estiver recebendo notificações do sistema, mas não no aplicativo, então examine a seção [Especificar um ícone para notificações](mobile-engagement-android-get-started.md) já que você provavelmente não está especificando o ícone correto no arquivo de manifesto do Android. 
+	- Certifique-se de que o número do Projeto que você está adicionando ao seu aplicativo cliente é da mesma conta em que você obteve a Chave de Servidor GCM. Qualquer incompatibilidade entre os dois impedirá o envio dos pushes.
+	- Se você estiver recebendo notificações do sistema, mas não no aplicativo, então examine a seção [Especificar um ícone para notificações](mobile-engagement-android-get-started.md) já que você provavelmente não está especificando o ícone correto no arquivo de manifesto do Android.
 	- Se você estiver enviando uma notificação BigPicture, certifique-se de que, se você tiver servidores de imagens externas, eles precisam ser capazes de suportar HTTP "GET" e "HEAD".
 
 3. **Windows**
@@ -110,9 +110,9 @@ Isso costuma acontecer durante o teste e se você estiver usando emuladores ou a
 
 Se você não puder resolver o problema por conta própria, você pode:
 
-1. Pesquise pelo seu problema nos threads existentes no fórum StackOverflow e no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/windows/pt-BR/home?forum=azuremobileengagement) e, se não entrá-lo, faça uma pergunta nesses fóruns. 
+1. Pesquise pelo seu problema nos threads existentes no fórum StackOverflow e no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/windows/pt-BR/home?forum=azuremobileengagement) e, se não entrá-lo, faça uma pergunta nesses fóruns.
 2. Se você encontrar um recurso ausente, então adicione/vote para a solicitação no nosso [Fórum UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
-3. Se você tiver o Suporte da Microsoft abra um incidente de suporte fornecendo os seguintes detalhes: 
+3. Se você tiver o Suporte da Microsoft abra um incidente de suporte fornecendo os seguintes detalhes:
 	- ID de assinatura do Azure
 	- Plataforma (por exemplo, iOS, Android, etc.)
 	- ID do Aplicativo
@@ -121,4 +121,4 @@ Se você não puder resolver o problema por conta própria, você pode:
 	- Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
 	- Detalhes do erro com a mensagem de erro e cenário exatos
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0720_2016-->

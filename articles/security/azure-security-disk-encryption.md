@@ -34,9 +34,9 @@ A Criptografia de Disco do Azure é um novo recurso que lhe permite criptografar
 A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente:
 
 - Habilitar a criptografia na nova VM IaaS criada usando chaves de criptografia e VHD previamente criptografado
-- Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure 
-- Ativar a criptografia em VMs IaaS existentes já em execução no Azure 
-- Desabilitar a criptografia em VMs IaaS do Windows  
+- Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure
+- Ativar a criptografia em VMs IaaS existentes já em execução no Azure
+- Desabilitar a criptografia em VMs IaaS do Windows
 
 A solução dá suporte aos seguintes itens para VMs IaaS quando habilitada no Microsoft Azure:
 
@@ -91,7 +91,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 A criptografia de disco do Azure para VMs IaaS para solução Windows e Linux inclui a extensão de criptografia de disco para Windows, a extensão de criptografia de disco para Linux, os cmdlets de criptografia de disco do PowerShell, os cmdlets CLI de criptografia de disco e os modelos de Gerenciador de Recursos do Azure de criptografia de disco. Há suporte para a solução de criptografia de disco do Azure em VMs IaaS executando o Windows ou o sistema operacional Linux. Para obter mais detalhes sobre os sistemas operacionais com suporte, consulte a seção de pré-requisitos abaixo.
 
-**Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
+**Observação:** não são cobradas taxas para criptografar discos de VM com o Azure Disk Encryption.
 
 ### Proposta de valor
 
@@ -195,9 +195,9 @@ O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: clien
 
 **Observação:** se a sua política de segurança limitar o acesso das VMs do Azure à Internet, você poderá resolver o URI acima ao qual você precisa de conectividade e configurar uma regra específica para permitir a conectividade de saída para o IPs.
 
-- Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [Azure PowerShell versão 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e acima
+- Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [Azure PowerShell versão 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e superiores
 
-**Observação:**não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se você estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, confira o artigo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0).
+**Observação:** não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se você estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, confira o artigo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0).
 
 - Para executar qualquer um dos comandos do Azure CLI e associá-lo a sua assinatura do Azure, você primeiro deve instalar a versão do Azure CLI:
 
@@ -679,13 +679,14 @@ Use o comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) 
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint
     modprobe vfat >/dev/null 2>&1
+    modprobe ntfs >/dev/null 2>&1
     sleep 2
     OPENED=0
-    for SFS in /sys/block/sd*; do
-        DEV=`basename $SFS`
-        F=$SFS/${DEV}1/dev
+    cd /sys/block
+    for DEV in sd*; do
         echo "> Trying device: $DEV ..." >&2
-        mount /dev/${DEV}1 $MountPoint -t vfat -r >/dev/null
+        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null||
+        mount -t ntfs -r /dev/${DEV}1 $MountPoint >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
                 cat $MountPoint/$KeyFileName
                 umount $MountPoint 2>/dev/null
@@ -709,11 +710,19 @@ Use o comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) 
 
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
-3\. Se você estiver editando o *azure\_crypt\_key.sh* no Windows e o copiou no Linux, não se esqueça de executar *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4. Execute *update-initramfs -u -k all* para atualizar o initramfs para que o keyscript tenha efeito.
+3\. Se você estiver editando o *azure\_crypt\_key.sh* no Windows e o copiou no Linux, não se esqueça de executar *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4. Edite */etc/initramfs-tools/modules* acrescentando linha:
+
+    vfat
+    ntfs
+    nls_cp437
+    nls_utf8
+    nls_iso8859-1
+
+5\. Execute *update-initramfs -u -k all* para atualizar o initramfs para que o keyscript tenha efeito.
 
 ##### openSUSE 13.2.
 
-1\.Edite o /etc/dracut.conf add\_drivers+="vfat nls\_cp437 nls\_iso8859-1"
+1\. Edite o /etc/dracut.conf add\_drivers+="vfat ntfs nls\_cp437 nls\_iso8859-1"
 
 2\. Comente essas linhas ao final do arquivo “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -737,9 +746,11 @@ Use o comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) 
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
        echo "> Trying device:$SFS..." >&2
-       mount ${SFS}1 $MountPoint -t vfat -r >&2
+       mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+       mount ${SFS}1 $MountPoint -t ntfs -r >&2
        if [ -f $MountPoint/$KeyFileName ]; then
           echo "> keyfile got..." >&2
           luksfile=$MountPoint/$KeyFileName
@@ -750,7 +761,7 @@ Use o comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) 
 5\. Execute o “dracut –f -v” para atualizar o initrd
 
 ##### CentOS 7
-1\.Edite o /etc/dracut.conf add\_drivers+=" vfat nls\_cp437 nls\_iso8859-1"
+1\. Edite o /etc/dracut.conf add\_drivers+=" vfat ntfs nls\_cp437 nls\_iso8859-1"
 
 2\. Comente essas linhas ao final do arquivo “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -775,9 +786,11 @@ Use o comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) 
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
     echo "> Trying device:$SFS..." >&2
-    mount ${SFS}1 $MountPoint -t vfat -r >&2
+    mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+    mount ${SFS}1 $MountPoint -t ntfs -r >&2
     if [ -f $MountPoint/$KeyFileName ]; then
         echo "> keyfile got..." >&2
         luksfile=$MountPoint/$KeyFileName
@@ -845,4 +858,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

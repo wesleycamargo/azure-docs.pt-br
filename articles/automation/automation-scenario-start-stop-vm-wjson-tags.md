@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Cenário de Automação do Azure: usando marcas formatadas JSON para criar um agendamento para inicialização e desligamento de VM do Azure
@@ -29,6 +29,7 @@ Quando a marcação Agendamento for aplicada a um grupo de recursos, ele será a
 
 Essencialmente, esse cenário usa uma cadeia de caracteres JSON com um formato especificado e adicioná-a como um valor de uma marcação chamada Agendamento. Em seguida, um runbook lista todos os grupos de recursos e máquinas virtuais e identifica os agendamentos para cada VM com base nos cenários listados acima, percorrendo essas VMs com agendamentos anexados e avalia a ação que deve ser tomada, a qual pode ser interrompida, desligada ou ignorada.
 
+Esses runbooks são autenticados usando a [Conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
 ## Obtendo o cenário
 
@@ -57,7 +58,7 @@ Siga estas etapas para habilitar o agendamento para o runbook Test-ResourceSched
 2. Na folha **Test-ResourceSchedule**, clique no bloco **Agendamentos**.
 3. Na folha **Agendamentos**, clique em **Adicionar um agendamento**.
 4. Na folha **Agendamento**, selecione **Vincular um agendamento ao seu runbook** e na folha **Agendamento**, selecione **Criar um novo agendamento**.
-5.  Na folha **Novo Agendamento**, digite o nome deste agendamento. Por exemplo, HourlyExecution.
+5.  Na folha **Novo agendamento**, digite o nome deste agendamento. Por exemplo, HourlyExecution.
 6. Para o agendamento **Iniciar** agendamento, defina a hora de início para um incremento de hora arredondada.
 7. Selecione **Recorrência** e **Ocorrer novamente a cada** e selecione o intervalo de **1 hora**.
 8. Verifique se **Definir expiração** está definido como **Não** e clique em **Criar** para salvar sua nova agenda.
@@ -201,9 +202,10 @@ Você pode exibir os detalhes do trabalho do runbook **Test-ResourceSchedule** n
 
 ## Próximas etapas
 
--  Para começar a usar os runbooks de fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
--  Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
--  Para saber mais sobre o recurso de suporte a scripts do PowerShell, consulte [Suporte a scripts nativos do PowerShell na Automação do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+-  Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+-  Para saber mais sobre o recurso de suporte a scripts do PowerShell, veja [Native PowerShell script support in Azure Automation (Suporte a scripts nativos do PowerShell na Automação do Azure)](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 -  Para saber mais sobre o registro em log de runbook e de saída, consulte [Saída e mensagens de runbook na Automação do Azure](automation-runbook-output-and-messages.md)
+-  Para saber mais sobre uma Conta Executar como do Azure, e como autenticar seus runbooks usando essa conta, consulte [Autenticar Runbooks com a Conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

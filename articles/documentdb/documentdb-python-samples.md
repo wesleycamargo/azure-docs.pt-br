@@ -26,9 +26,9 @@
 - [Exemplos do Python](documentdb-python-samples.md)
 - [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Banco de Dados de Documentos estão incluídas no repositório GitHub [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples). Esse artigo fornece:
+Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Banco de Dados de Documentos do Azure estão incluídas no repositório GitHub [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples). Esse artigo fornece:
 
-- Links para as tarefas em cada um dos arquivos do projeto de exemplo do Node.js. 
+- Links para as tarefas em cada um dos arquivos do projeto de exemplo do Node.js.
 - Links para o conteúdo de referência da API relacionada.
 
 **Pré-requisitos**
@@ -36,7 +36,7 @@ Soluções de exemplo que executam operações CRUD e outras operações comuns 
 1. Você precisa de uma conta do Azure para usar esses exemplos do Python:
     - Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
    - É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
-2. Também é necessário ter o [SDK do Python](documentdb-sdk-python.md). 
+2. Também é necessário ter o [SDK do Python](documentdb-sdk-python.md).
 
     > [AZURE.NOTE] Cada exemplo é independente, eles se configuram e fazem a limpeza sozinhos. Assim, as amostras emitem várias chamadas para [document\_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Cada vez que isso é feito, sua assinatura será cobrada por 1 hora de uso por nível de desempenho da coleção que está sendo criada.
 
@@ -65,4 +65,4 @@ Tarefa | Referência de API
 [Alterar o nível de desempenho de uma coleção](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) | [document\_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection)
 [Excluir uma coleção](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) | [document\_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

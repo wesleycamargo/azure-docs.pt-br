@@ -23,14 +23,15 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](../resource-group-overview.md) para gerenciar seus recursos do Azure. Para saber mais sobre a implantação de recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
+Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](../resource-group-overview.md) para gerenciar seus recursos do Azure. Para saber mais sobre a implantação de recursos por meio do portal, consulte [Implantar recursos com os modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
 
-Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para ver o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para obter o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 <a id="access-control-for-azure-dashboards" />
 ## Personalizar o painel para monitorar recursos
@@ -39,12 +40,12 @@ O portal fornece um painel que você pode usar para monitorar e gerenciar seus r
 
 ![painel Transações da Web](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] A melhor maneira de aprender a trabalhar com painéis é assistir ao vídeo [Build Custom Dashboards in the Microsoft Azure Portal (Criar painéis personalizados no Portal do Microsoft Azure)](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
+> [AZURE.TIP] A melhor maneira de aprender a trabalhar com painéis é assistir ao vídeo [Criar Painéis Personalizados no Portal do Microsoft Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
 
 ### Compartilhamento de painéis do Azure e controle de acesso
-Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. O [Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-configure.md) do Azure controla o acesso às informações exibidas pelos blocos no portal. Todos os painéis publicados são implementados como recursos do Azure. Do ponto de vista do controle de acesso, os painéis não são diferentes de uma máquina virtual ou de uma conta de armazenamento.
+Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. O [Controle de Acesso Baseado em Funções](../active-directory/role-based-access-control-configure.md) do Azure controla o acesso às informações exibidas pelos blocos no portal. Todos os painéis publicados são implementados como recursos do Azure. Do ponto de vista do controle de acesso, os painéis não são diferentes de uma máquina virtual ou de uma conta de armazenamento.
 
-Aqui está um exemplo. Digamos que você tenha uma assinatura do Azure e vários membros de sua equipe tenham recebido atribuições para as funções de **proprietário**, **colaborador** ou **leitor** da assinatura. Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura. Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los. Os usuários com acesso de leitor podem fazer edições locais em um painel publicado (por exemplo, ao solucionar um problema), mas não podem publicar essas alterações no servidor. Eles terão a opção de fazer uma cópia privada do painel para uso pessoal.
+Aqui está um exemplo. Digamos que você tenha uma assinatura do Azure e vários membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura. Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura. Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los. Os usuários com acesso de leitor podem fazer edições locais em um painel publicado (por exemplo, ao solucionar um problema), mas não podem publicar essas alterações no servidor. Eles terão a opção de fazer uma cópia privada do painel para uso pessoal.
 
 Blocos individuais no painel impõem seus próprios requisitos de controle de acesso com base nos recursos que exibem. Portanto, você pode criar um painel que é compartilhado amplamente e ainda proteger os dados em blocos individuais.
 
@@ -72,7 +73,7 @@ Blocos individuais no painel impõem seus próprios requisitos de controle de ac
 
     ![arrastar bloco](./media/resource-group-portal/drag-tile.png)
 
-6. Após você selecionar **Concluído** na parte superior do portal, a nova exibição se tornará parte da folha.
+6. Após você selecionar **Concluído** na parte superior do portal, a nova exibição fará parte da folha.
 
     ![mostrar bloco](./media/resource-group-portal/show-lens.png)
 
@@ -96,7 +97,7 @@ Você pode aplicar marcas a recursos e grupos de recursos para organizar seus at
 
 ## Exibir sua assinatura e custos
 
-Você pode exibir informações sobre sua assinatura e os custos acumulados para todos os recursos. Selecione **Assinaturas** e a assinatura que deseja ver. Talvez você só tenha uma assinatura para selecionar.
+Você pode exibir informações sobre sua assinatura e os custos acumulados para todos os recursos. Selecione **Assinaturas** e a assinatura que você deseja ver. Talvez você só tenha uma assinatura para selecionar.
 
 ![assinatura](./media/resource-group-portal/select-subscription.png)
 
@@ -116,7 +117,7 @@ Depois de configurar o grupo de recursos, convém exibir o modelo do Resource Ma
 
 2. Você pode se familiarizar com a sintaxe do modelo analisando o JSON (JavaScript Object Notation) que representa sua solução.
 
-Para obter diretrizes passo a passo, veja [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](../resource-manager-export-template.md).
+Para obter diretrizes passo a passo, consulte [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](../resource-manager-export-template.md).
 
 ## Excluir grupo de recursos ou recursos
 
@@ -127,8 +128,8 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 
 ## Próximas etapas
 
-- Para ver os logs de auditoria, confira [Operações de auditoria com o Resource Manager](../resource-group-audit.md).
-- Para solucionar erros de implantação, confira [Exibir operações de implantação com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
+- Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](../resource-group-audit.md).
+- Para solucionar os erros de implantação, consulte [Solução de problemas das implantações dos grupos de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Para implantar recursos por meio do portal, consulte [Implantar recursos com os modelos do Resource Manager e o portal do Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

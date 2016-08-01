@@ -18,7 +18,7 @@
 	ms.author="mimig"/>
 
 # Saiba mais sobre provisionamento de armazenamento e desempenho previsível no Banco de Dados de Documentos
-O Banco de Dados de Documentos é um serviço de banco de dados NoSQL orientado a documentos, escalonável e totalmente gerenciado para documentos JSON. Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software ou monitorar banco de dados. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para a melhor fornecer disponibilidade, desempenho e proteção aos dados do cliente.
+O Banco de Dados de Documentos do Azure é um serviço de banco de dados NoSQL orientado a documentos, escalonável e totalmente gerenciado para documentos JSON. Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software ou monitorar banco de dados. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para a melhor fornecer disponibilidade, desempenho e proteção aos dados do cliente.
 
 Você pode começar a usar o Banco de Dados de Documentos [criando um banco de dados](documentdb-create-account.md) pelo [Portal do Azure](https://portal.azure.com/). O Banco de Dados de Documentos é oferecido em unidades de armazenamento com suporte de SSD (unidade de estado sólido) e taxa de transferência. Essas unidades são provisionadas criando coleções de banco de dados em uma conta de banco de dados. Cada coleção com produtividade reservada. Se os requisitos de taxa de transferência do seu aplicativo forem alterados, você os altera dinamicamente definindo o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
@@ -60,7 +60,7 @@ Há vários fatores que afetam as unidades de solicitação consumidas para uma 
 - Tamanho do documento. À medida que os tamanhos de documento aumentam, as unidades consumidas para ler ou gravar os dados também aumentam.
 - Contagem de propriedades. Pressupondo a indexação padrão de todas as propriedades, as unidades consumidas para gravar um documento aumentarão conforme a contagem de propriedades aumentar.
 - Consistência de dados. Ao serem usados níveis de consistência de dados Strong ou Bounded Staleness, unidades adicionais serão consumidas para ler documentos.
-- Propriedades indexadas. Uma política de indexação em cada coleção determina quais propriedades são indexadas por padrão. Você pode reduzir o consumo de unidades de solicitação limitando o número de propriedades indexadas. 
+- Propriedades indexadas. Uma política de indexação em cada coleção determina quais propriedades são indexadas por padrão. Você pode reduzir o consumo de unidades de solicitação limitando o número de propriedades indexadas.
 - Indexação de documentos. Por padrão, cada documento é indexado automaticamente. Você consumirá menos unidades de solicitação se optar por não indexar alguns de seus documentos.
 
 Para saber mais, confira [DocumentDB request units](documentdb-request-units.md) (Unidades de solicitação de Banco de Dados de Documentos).
@@ -132,4 +132,4 @@ Para obter instruções sobre como monitorar os níveis de desempenho no Portal 
 Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

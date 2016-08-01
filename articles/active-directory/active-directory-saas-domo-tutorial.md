@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Para configurar a integração do Domo ao Azure AD, você precisará adicionar o
 
 **Para adicionar o Domo da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -100,19 +100,44 @@ Para configurar e testar o logon único do Azure AD com o Domo, você precisará
 
 O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo Domo.
 
+O aplicativo Domo espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar o valor dos atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 
+![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png)
 
 **Para configurar o logon único do Azure AD com o Domo, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **Domo**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+
+1. No Portal clássico do Azure, na página de integração do aplicativo **Domo**, no menu superior, clique em **Atributos**.
+
+	![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_general_80.png)
+
+
+1. Na caixa de diálogo **Atributos de token SAML**, para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
+
+	| Nome do atributo | Valor do atributo |
+	| --- | --- |    
+	| name | user.displayname |
+	| email | user.mail |
+
+	a. Clique em **adicionar atributo de usuário** para abrir o diálogo **Adicionar Atributo de Usuário**.
+
+	![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_general_81.png)
+
+	b. Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para essa linha.
+
+    c. Na lista **Valor do Atributo**, selecione o valor do atributo mostrado para essa linha.
+
+    d. Clique em **Concluído**.
+
+2. No portal clássico do Azure, na página de integração do aplicativo **Domo**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
 	![Configurar o logon único][6]
 
-2. Na página **Como você deseja que os usuários façam logon no Domo**, selecione **Logon único do Azure AD** e clique em **Avançar**.
+3. Na página **Como você deseja que os usuários façam logon no Domo**, selecione **Logon único do Azure AD** e clique em **Avançar**.
 
 	![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png)
 
-3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+4. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png)
 
@@ -121,7 +146,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     b. Clique em **Próximo**.
 
-4. Na página **Configurar logon único no Domo**, execute as seguintes etapas:
+5. Na página **Configurar logon único no Domo**, execute as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-domo-tutorial/tutorial_domo_05.png)
 
@@ -130,14 +155,14 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     b. Clique em **Próximo**.
 
 
-5. Para configurar o SSO para o seu aplicativo, entre em contato com a equipe de suporte do Domo pelo email [support@domo.com](mailto: support@domo.com), anexe o certificado baixado e forneça a eles a **URL do Emissor**, a **URL de SSO SAML** e a **URL de Saída**.
+6. Para configurar o SSO para o seu aplicativo, entre em contato com a equipe de suporte do Domo pelo email [support@domo.com](mailto: support@domo.com), anexe o certificado baixado e forneça a eles a **URL do Emissor**, a **URL de SSO SAML** e a **URL de Saída**.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+7. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
 	![Logon único do AD do Azure][10]
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.
+8. Na página **Confirmação de logon único**, clique em **Concluir**.
 
 	![Logon único do AD do Azure][11]
 
@@ -165,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-domo-tutorial/create_aaduser_04.png)
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-domo-tutorial/create_aaduser_05.png)
 
@@ -193,7 +218,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-domo-tutorial/create_aaduser_07.png)
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-domo-tutorial/create_aaduser_08.png)
 
@@ -220,7 +245,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao Domo, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -232,7 +257,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 	![Atribuir usuário][203]
 
-1. Na lista de usuários, selecione **Brenda Fernandes**.
+1. Na lista Usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -269,4 +294,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-domo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-domo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

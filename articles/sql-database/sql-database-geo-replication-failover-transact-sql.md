@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/27/2016"
+    ms.date="07/19/2016"
     ms.author="carlrab"/>
 
 # Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o Transact-SQL
@@ -102,4 +102,4 @@ Use as etapas a seguir para iniciar um failover não planejado.
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

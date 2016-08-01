@@ -18,7 +18,7 @@
    
 # Desenvolvendo com contas do Banco de Dados de Documentos em várias regiões
 
-Para aproveitar a [distribuição global](documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenada de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Banco de Dados de Documentos, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
+Para aproveitar a [distribuição global](documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenada de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Banco de Dados de Documentos do Azure, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
 
 Essa lista de preferências é especificada ao inicializar uma conexão usando os SDKs do cliente do Banco de Dados de Documentos. Os SDKs aceitam um parâmetro opcional "PreferredLocations", que é uma lista ordenada de regiões do Azure.
 
@@ -143,4 +143,4 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -22,7 +22,7 @@ Este artigo contém uma visão geral dos Guias de Início Rápido da solução d
 
 ## Demonstração de WingTipTickets e laboratório prático
 
-Os arquivos de demonstração e laboratório práticos de [WingTipTickets de Banco de Dados do SQL Azure](https://github.com/microsoft/wingtiptickets) incluem um laboratório prático que demonstra um Banco de Dados SQL e um aplicativo de exemplo baseado na Pesquisa do Azure, usado para vender ingressos para concertos
+Os arquivos de demonstração e laboratório prático de [WingTipTickets de Banco de Dados do SQL Azure](https://github.com/microsoft/wingtiptickets) incluem um laboratório prático que demonstra um Banco de Dados SQL do Azure e um aplicativo de exemplo baseado na Pesquisa do Azure usado para vender ingressos para concertos.
 
 ## Coletar e monitorar dados de uso de recursos em vários pools
 
@@ -36,7 +36,7 @@ Este Guia de Início Rápido da Solução fornece uma solução para um cenário
 
 [Painel personalizado do pool elástico para Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) no repositório de exemplos do SQL Server no GitHub fornece um aplicativo Web de monitoramento e gerador de carga em conjunto com a documentação sobre o que ele faz e como usá-lo.
 
-## Criando um Banco de Dados SQL usando o Entity Framework e desenvolvimento Code First
+## Criando um Banco de Dados SQL do Azure usando o Entity Framework e desenvolvimento Code First
 
 Este vídeo e exemplo fornece uma introdução ao desenvolvimento Code First visando a um novo banco de dados. O cenário inclui como meta um banco de dados que não existe e será criado pelo Code First, ou um banco de dados vazio ao qual o Code First adicionará novas tabelas. O Code First permite que você defina seu modelo usando classes C# ou VB.Net. Outras configurações podem ser opcionalmente definidas usando atributos em classes e propriedades ou usando uma API fluente. Confira [Code First para um novo banco de dados](https://msdn.microsoft.com/data/jj193542.aspx).
 
@@ -52,8 +52,12 @@ Este exemplo mostra as alterações em um aplicativo do Entity Framework necess�
 
 Este exemplo é um aplicativo Web multilocatário, chamado Surveys, que permite aos usuários criar pesquisas online. O exemplo demonstra algumas preocupações importantes com o gerenciamento de identidades de usuário em um aplicativo multilocatário, incluindo a inscrição, a autenticação, a autorização e as funções de aplicativo. Para executar este exemplo, confira [Como executar o aplicativo de exemplo Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
 
+## Aplicativo de demonstração Contoso Clinic
+
+Este exemplo demonstra os recursos de segurança do BD SQL do Azure (V12). Para executar este exemplo, consulte [Aplicativo de demonstração Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
+
 ## Próximas etapas
 
 [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

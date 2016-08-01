@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -27,12 +27,12 @@
 
 Você pode se conectar ao SQL Data Warehouse usando qualquer um dos seguintes protocolos de aplicativo:
 
-- ADO.NET
-- ODBC
-- PHP
-- JDBC 
+- [ADO.NET][]
+- [ODBC][]
+- [PHP][]
+- [JDBC][]
 
-A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para ajudar na configuração da sua cadeia de conexão. Basta navegar para o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão de banco de dados*.
+A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para ajudar na configuração da sua cadeia de conexão. Basta navegar para o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão do banco de dados*.
 
 ## Exemplo de cadeia de conexão ADO.NET
 
@@ -60,15 +60,19 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Próximas etapas
 
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio] (Consultar com o Visual Studio)[].
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Query with Visual Studio][] \(Consultar com o Visual Studio).
 
 <!--Image references-->
 
 <!--Azure.com references-->
-
-
+ [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+ 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

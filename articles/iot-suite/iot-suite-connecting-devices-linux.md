@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Criar e executar um cliente C de exemplo Linux
 
-Os procedimentos a seguir mostram como criar um aplicativo cliente simples que se comunica com a solução pré-configurada de monitoramento remoto usando um programa C criado e executado em um dispositivo com Ubuntu Linux. Para concluir essas etapas, você precisa de um dispositivo em execução na versão 15.04 ou 15.10 do Ubuntu. Antes de continuar, instale os pacotes de pré-requisitos no seu dispositivo Ubuntu usando o seguinte comando:
+Os procedimentos a seguir mostram como criar um aplicativo cliente simples, escrito em C, compilado e executado no Ubuntu Linux, que se comunica com a solução pré-configurada de monitoramento remoto. Para concluir essas etapas, você precisa de um dispositivo em execução na versão 15.04 ou 15.10 do Ubuntu. Antes de continuar, instale os pacotes de pré-requisitos no seu dispositivo Ubuntu usando o seguinte comando:
 
 ```
 sudo apt-get install cmake gcc g++
@@ -32,7 +32,7 @@ sudo apt-get install cmake gcc g++
 
 ## Instalar as bibliotecas de cliente no dispositivo
 
-As bibliotecas de cliente do Hub IoT do Azure estão disponíveis como um pacote que você pode instalar em seu dispositivo Ubuntu usando o comando **apt-get**. Conclua as seguintes etapas para instalar o pacote que contém os arquivos de biblioteca e cabeçalho no seu computador Ubuntu:
+As bibliotecas de cliente do Hub IoT do Azure estão disponíveis como um pacote que você pode instalar em seu dispositivo Ubuntu usando o comando **apt-get**. Conclua as seguintes etapas para instalar o pacote que contém os arquivos de biblioteca e cabeçalho do cliente Hub IoT no seu computador Ubuntu:
 
 1. Adicione o repositório AzureIoT ao computador:
 
@@ -49,7 +49,7 @@ As bibliotecas de cliente do Hub IoT do Azure estão disponíveis como um pacote
 
 ## Adicionar código para especificar o comportamento do dispositivo
 
-No computador Ubuntu, crie uma pasta chamada **remote\_monitoring**. Na pasta **remote\_monitoring** crie quatro arquivos: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** e **CMakeLists.txt**.
+No computador Ubuntu, crie uma pasta chamada **remote\_monitoring**. Na pasta **remote\_monitoring**, crie quatro arquivos: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** e **CMakeLists.txt**.
 
 As bibliotecas de cliente do serializador do Hub IoT usam um modelo para especificar o formato das mensagens que o dispositivo envia ao Hub IoT e os comandos do Hub IoT aos quais o dispositivo responde.
 
@@ -65,7 +65,7 @@ As bibliotecas de cliente do serializador do Hub IoT usam um modelo para especif
     #include "azure_c_shared_utility/platform.h"
     ```
 
-2. Adicione as declarações de variável a seguir após as instruções `#include`. Substitua os valores do espaço reservado [ID do Dispositivo] e [Chave do Dispositivo] pelos valores do seu dispositivo no painel da solução de monitoramento remoto. Use o nome de host do Hub IoT no painel para substituir [IoTHub Name]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [Nome do HubIoT] por contoso:
+2. Adicione as declarações de variável a seguir após as instruções `#include`. Substitua os valores do espaço reservado [ID do Dispositivo] e [Chave do Dispositivo] pelos valores do seu dispositivo no painel da solução de monitoramento remoto. Use o nome de host do Hub IoT no painel para substituir [IoTHub Name]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [Nome do HubIoT] por **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -200,7 +200,7 @@ Adicione as funções a serem executadas quando o dispositivo receber um comando
     }
     ```
 
-4. Adicione a função a seguir para se conectar ao Hub IoT, enviar e receber mensagens e se desconectar do hub. Observe como o dispositivo envia metadados sobre si mesmo, incluindo os comandos com os quais é compatível, ao Hub IoT assim que se conecta; isso permite que a solução atualize o status do dispositivo para **Em execução** no painel:
+4. Adicione a função a seguir para se conectar ao Hub IoT, enviar e receber mensagens e se desconectar do hub. Observe como o dispositivo envia metadados sobre si mesmo, incluindo os comandos com os quais é compatível, ao Hub IoT assim que se conecta — isso permite que a solução atualize o status do dispositivo para **Em execução** no painel:
 
     ```
     void remote_monitoring_run(void)
@@ -385,7 +385,7 @@ int main(void)
 
 ## Usar CMake para criar o aplicativo cliente
 
-As etapas a seguir descrevem como você pode usar CMake para criar o aplicativo cliente.
+As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo cliente.
 
 1. Em um editor de texto, abra o arquivo **CMakeLists.txt** na pasta **remote\_monitoring**.
 
@@ -439,6 +439,4 @@ As etapas a seguir descrevem como você pode usar CMake para criar o aplicativo 
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-setup-linux]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

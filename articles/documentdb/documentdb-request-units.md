@@ -202,7 +202,7 @@ Se você tiver mais de um cliente operando cumulativamente acima da taxa de soli
 
 ##Próximas etapas
 
-Para saber mais sobre a taxa de transferência reservada com o Banco de Dados de Documentos do Azure, explore estes recursos:
+Para saber mais sobre a produtividade reservada com os bancos de dados do Banco de Dados de Documentos do Azure, explore estes recursos:
  
 - [Definição de preços no Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Gerenciando a capacidade no Banco de Dados de Documentos](documentdb-manage.md)
@@ -220,4 +220,4 @@ Para começar com os testes de desempenho e escala com o Banco de Dados de Docum
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -128,7 +128,7 @@ Se você for um administrador do Azure e estiver conectado ao Portal de Gerencia
 
 **Para testar como uma conta de usuário diferente:**
 
-1. Clique no menu de usuário no canto superior direito do portal do Azure ou no painel de acesso e selecione “**Sair**”. Isso o desconectará do AD do Azure.
+1. Clique no menu de usuário no canto superior direito do portal do Azure ou no painel de acesso e selecione "**Sair**". Isso o desconectará do AD do Azure.
 
 2. Vá para o painel de acesso em **http://myapps.microsoft.com**.
 
@@ -146,13 +146,13 @@ Quando um usuário clica em um bloco do aplicativo para um aplicativo do Office 
 
 ### Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
 
-São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como “*Logon único do AD do Azure*”. Um usuário só verá esses aplicativos se tiver acesso explicitamente concedido ao aplicativo pelo administrador.
+São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único do Azure AD*". Um usuário só verá esses aplicativos se tiver acesso explicitamente concedido ao aplicativo pelo administrador.
 
 Quando um usuário clica em um bloco do aplicativo para um desses aplicativos, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
 ### SSO baseado em senha sem provisionamento de identidade
 
-São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como “*Logon único baseado em senha*”. <br> Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
+São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*". <br> Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
 
 Quando um usuário clica em um bloco do aplicativo pela primeira vez para um desses aplicativos, ele é solicitado a instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome, que pode exigir a reinicialização do navegador da Web. Quando ele é retornado ao painel de acesso e clica novamente no bloco do aplicativo, será solicitado a ele um nome de usuário e uma senha para o aplicativo. Depois que o nome de usuário e a senha são inseridos, essas credenciais são armazenadas com segurança no AD do Azure e vinculadas à sua conta no AD do Azure, e o painel de acesso conectará automaticamente o usuário ao aplicativo usando essas credenciais.
 
@@ -162,7 +162,7 @@ Se as credenciais de um usuário forem alteradas no aplicativo de terceiros de d
 
 ### SSO baseado em senha com provisionamento de identidade
 
-São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como “*Logon único baseado em senha*”, além de provisionamento de identidade.
+São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*", além de provisionamento de identidade.
 
 Quando um usuário clica em um bloco do aplicativo pela primeira vez para um desses aplicativos, ele é solicitado a instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome, que pode exigir a reinicialização do navegador da Web. Quando ele é retornado ao painel de acesso e clica novamente no bloco do aplicativo, é solicitado a ele um nome de usuário e uma senha para o aplicativo.
 
@@ -185,4 +185,4 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

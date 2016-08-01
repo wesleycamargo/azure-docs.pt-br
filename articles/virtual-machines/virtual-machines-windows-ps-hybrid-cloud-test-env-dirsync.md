@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste
@@ -80,7 +80,7 @@ Esta é a configuração atual.
 
 No portal do Azure, inicie o computador DC2, se necessário.
 
-Primeiro, crie uma máquina virtual do Azure para o DS1 com estes comandos, no prompt de comando do Azure PowerShell no seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
+Primeiro, crie uma máquina virtual do Azure para o DS1 com estes comandos, no prompt de comando do Azure PowerShell no seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < e >.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
@@ -140,7 +140,7 @@ Quando você executa cada comando **New-ADUser** do Windows PowerShell, você se
 
 Em seguida, instale e configure a ferramenta Azure AD Connect no DS1.
 
-1.	Abra o Internet Explorer e digite **https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione Enter.
+1.	Abra o Internet Explorer e digite **https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione ENTER.
 2.	Execute o programa de instalação do Microsoft Azure AD Connect.
 3.	Na área de trabalho, clique duas vezes em **Azure AD Connect**.
 4.	Na **Página Inicial**, selecione **Concordo com os termos de licença e aviso de privacidade** e clique em **Continuar**.
@@ -177,6 +177,6 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
 ## Próxima etapa
 
-- Implante essa carga de trabalho [em produção](http://technet.microsoft.com/library/dn635310.aspx).
+- Implantar essa carga de trabalho [em produção](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
@@ -41,7 +41,7 @@ Há cinco fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar RRAS1.
 3.	Criar a rede virtual entre locais do Azure.
 4.	Criar a conexão VPN site a site.
-5.	Configurar o DC2. 
+5.	Configurar o DC2.
 
 Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para ter uma conta gratuita em [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -77,7 +77,7 @@ Primeiro, instale o sistema operacional no RRAS1.
 
 Em seguida, configure as propriedades de TCP/IP do RRAS1. Você precisará de uma configuração de endereço IP público, incluindo um endereço, máscara de sub-rede (ou prefixo) e o gateway padrão e os servidores DNS do seu provedor de serviços de Internet (ISP). Você precisará do endereço IP público para a Fase 3.
 
-Use estes comandos em um prompt de comando com nível de administrador do Windows PowerShell no RRAS1. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >. Você pode obter os nomes atuais dos adaptadores de rede na exibição do comando **Get-NetAdapter**.
+Use estes comandos em um prompt de comando com nível de administrador do Windows PowerShell no RRAS1. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < e >. Você pode obter os nomes atuais dos adaptadores de rede na exibição do comando **Get-NetAdapter**.
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
 	$internetAdapterName="<Name of the adapter attached to the Internet>"
@@ -118,7 +118,7 @@ Obtenha o nome da sua assinatura usando o comando a seguir.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure. Use a mesma assinatura que você usou para compilar a configuração básica. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina sua assinatura do Azure. Use a mesma assinatura que você usou para compilar a configuração básica. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -223,7 +223,7 @@ Aguarde alguns minutos para a conexão entre o RRAS1 e gateway de VPN do Azure s
 
 Depois, configure o RRAS1 para suporte a tráfego convertido para locais na Internet. No RRAS1:
 
-1.	Na tela inicial, digite **rras** e clique em **Roteamento e Acesso Remoto**. 
+1.	Na tela inicial, digite **rras** e clique em **Roteamento e Acesso Remoto**.
 2.	Na árvore de console, abra o nome do servidor e clique em **IPv4**.
 3.	Clique com o botão direito em **Geral** e clique em **Novo Protocolo de Roteamento**.
 4.	Clique em **NAT** e, em seguida, clique em **OK**.
@@ -309,7 +309,7 @@ Observe que você será solicitado a fornecer a senha de CORP\\User1 e uma senha
 
 Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você deve configurar a rede virtual TestVNET para usar esse servidor DNS.
 
-1.	No painel esquerdo do Portal do Azure, clique no ícone das redes virtuais e depois em **TestVNET**.
+1.	No painel esquerdo do portal do Azure, clique no ícone das redes virtuais e em **TestVNET**.
 2.	Na guia **Configurações**, clique em **Servidores DNS**.
 3.	Em **Servidor DNS primário**, digite **192.168.0.4** para substituir 10.0.0.4.
 4.	Clique em Salvar.
@@ -329,4 +329,4 @@ Seu ambiente de nuvem híbrida agora está pronto para testes.
 
 - Configure um [farm de intranet do SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), um [aplicativo LOB baseado na Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou um [servidor DirSync (Sincronização de Diretório) do Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) neste ambiente.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

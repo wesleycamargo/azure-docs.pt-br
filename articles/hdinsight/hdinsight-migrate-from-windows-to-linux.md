@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 #Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
@@ -22,7 +22,7 @@ Embora o HDInsight baseado em Windows seja uma maneira fácil de usar o Hadoop n
 
 Este documento fornece detalhes sobre as diferenças entre o HDInsight no Windows e no Linux, bem como instruções sobre como migrar cargas de trabalho existentes para um cluster baseado em Linux.
 
-> [AZURE.NOTE] O Ubuntu 12.04.05 LTS é a distribuição do Linux usada para clusters do HDInsight baseados em Linux.
+> [AZURE.NOTE] Os clusters HDInsight usam Ubuntu LTS (suporte de longo prazo) como o sistema operacional para os nós no cluster. Os clusters HDInsight 3.3 e 3.4 usam o Ubuntu 14.0.4 LTS; versões anteriores do HDInsight usavam Ubuntu 12.04.05 LTS.
 
 ## Tarefas de migração
 
@@ -254,4 +254,4 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 
 -   [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

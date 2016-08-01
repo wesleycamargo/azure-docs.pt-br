@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
@@ -117,7 +117,9 @@ Para remover o acesso a usuários, grupos e aplicativos, use:
 ## Criar função personalizada
 Para criar uma função personalizada, use o comando `New-AzureRmRoleDefinition`.
 
-O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual* que concede acesso a todas as operações de leitura dos provedores de recurso *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
+Quando você cria uma função personalizada no PowerShell, precisa começar com uma das [funções internas](role-based-access-built-in-roles.md). Edite os atributos e adicione quaisquer Ações, não Ações ou escopos que você deseja, em seguida, salve as alterações como uma nova função.
+
+O exemplo a seguir inicia com a função *Colaborador da Máquina Virtual* e utiliza-a para criar uma função personalizada denominada *Operador da Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
@@ -154,4 +156,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Consulte também
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="07/20/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -21,8 +21,13 @@
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure.
 
 
+## E se dúvida não foi respondida aqui?
 
+Se sua pergunta não estiver listada aqui, fale conosco e nós o ajudaremos a encontrar uma resposta.
 
+-	Você pode postar uma pergunta no [tópico de discussão](#comments) no final do FAQ e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade sobre este artigo.
+-	Você pode postar uma pergunta sobre o [Fórum do MSDN do Cache do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade.
+-	Você pode enviar um email para nós em [comentários externos sobre o Cache do Azure](mailto:azurecache@microsoft.com).
 
 ## Perguntas frequentes sobre planejamento
 
@@ -157,7 +162,7 @@ Não há nenhum emulador local para o Cache Redis do Azure, mas é possível exe
 	    }
 
 
-Se desejar, será possível configurar um arquivo [redis.conf](http://redis.io/topics/config) para corresponder mais de perto às [configurações de cache padrão](cache-configure.md#default-redis-server-configuration) do Cache Redis do Azure online.
+Se desejar, será possível configurar um arquivo [redis.conf](http://redis.io/topics/config) para corresponder melhor às [configurações de cache padrão](cache-configure.md#default-redis-server-configuration) do Cache Redis do Azure online.
 
 <a name="cache-commands"></a>
 ### Como posso executar comandos do Redis?
@@ -178,7 +183,7 @@ Você pode usar qualquer um dos comandos listados em [Comandos do Redis](http://
 
 O Cache Redis do Microsoft Azure baseia-se no popular software livre Cache Redis e pode ser acessado por uma ampla variedade de [clientes Redis](http://redis.io/clients) que estão disponíveis para várias linguagens de programação. Cada cliente tem sua própria API, que faz chamadas para a instância de cache Redis usando [comandos do Redis](http://redis.io/commands).
 
-Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN; em vez disso, cada cliente mantém sua própria documentação de referência. Além de documentação de referência, há vários tutoriais mostrando como começar a usar o Cache Redis do Azure usando diferentes linguagens e clientes de cache. Para acessar esses tutoriais, consulte [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e clique na linguagem desejada do seletor de linguagens na parte superior do artigo.
+Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN; em vez disso, cada cliente mantém sua própria documentação de referência. Além de documentação de referência, há vários tutoriais mostrando como começar a usar o Cache Redis do Azure usando diferentes linguagens e clientes de cache. Para acessar esses tutoriais, consulte [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e clique no linguagem desejada do seletor de linguagens na parte superior do artigo.
 
 
 ## Perguntas frequentes sobre segurança
@@ -261,7 +266,7 @@ Como definir essa configuração:
 
 -	No ASP.NET, use a [configuração "minIoThreads"][] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir isso por meio de programação (veja abaixo) do seu método Application\_Start em global.asax.cs.
 
-> **Observação importante:** o valor especificado nesse elemento de configuração é uma configuração *por núcleo*. Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
+> **Observação importante:** o valor especificado nesse elemento de configuração é uma configuração *por núcleo*. Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja de 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
 
 -	Fora do ASP.NET, use a API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
@@ -280,7 +285,7 @@ Habilitar a GC do servidor pode otimizar o cliente e proporcionar melhor desempe
 
 ## Perguntas frequentes sobre monitoramento e solução de problemas
 
-As Perguntas frequentes nesta seção tratam de dúvidas comuns sobre monitoramento e solução de problemas. Para obter mais informações sobre como monitorar e solucionar problemas de suas instâncias do Cache Redis do Azure, consulte [Como monitorar o Cache Redis do Azure](cache-how-to-monitor.md) e [Como solucionar problemas do Cache Redis do Azure](cache-how-to-troubleshoot.md).
+As Perguntas frequentes nesta seção tratam de dúvidas comuns sobre monitoramento e solução de problemas. Para saber mais sobre como monitorar e solucionar problemas de suas instâncias do Cache Redis do Azure, consulte [Como monitorar o Cache Redis do Azure](cache-how-to-monitor.md) e [Como solucionar problemas do Cache Redis do Azure](cache-how-to-troubleshoot.md).
 
 -	[Como monitorar a integridade e o desempenho do meu cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 -	[As configurações da minha conta de armazenamento de diagnóstico de cache foram alteradas, o que aconteceu?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
@@ -291,16 +296,16 @@ As Perguntas frequentes nesta seção tratam de dúvidas comuns sobre monitorame
 <a name="cache-monitor"></a>
 ### Como monitorar a integridade e o desempenho do meu cache?
 
-As instâncias do Cache Redis do Microsoft Azure podem ser monitoradas no [Portal do Azure](https://portal.azure.com). Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Para obter mais informações, veja [Monitorar o Cache Redis do Azure](cache-how-to-monitor.md).
+As instâncias do Cache Redis do Microsoft Azure podem ser monitoradas no [Portal do Azure](https://portal.azure.com). Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Para saber mais, veja [Monitorar o Cache Redis do Azure](cache-how-to-monitor.md).
 
 A seção **Suporte + solução de problemas** da folha **Configurações** do Cache Redis também contém várias ferramentas para monitorar e solucionar problemas de seus caches.
 
 -	**Solucionar problemas** fornece informações sobre problemas comuns e estratégias para resolvê-los.
 -	**Logs de auditoria** fornece informações sobre as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos.
--	O **Resource Health** observa seu recurso e informa se ele está executando conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
+-	O **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 -	**Nova solicitação de suporte** fornece opções para abrir uma solicitação de suporte para seu cache.
 
-Essas ferramentas permitem monitorar a integridade de suas instâncias de Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache. Para obter mais informações, consulte a seção [Suporte e solução de problemas de configuração](cache-configure.md#support-amp-troubleshooting-settings).
+Essas ferramentas permitem monitorar a integridade de suas instâncias de Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache. Para saber mais, veja a seção [Suporte e solução de problemas de configuração](cache-configure.md#support-amp-troubleshooting-settings).
 
 ### As configurações da minha conta de armazenamento de diagnóstico de cache foram alteradas, o que aconteceu?
 
@@ -314,7 +319,9 @@ Caches na mesma região e assinatura compartilham as mesmas configurações de a
 <a name="cache-timeouts"></a>
 ### Por que vejo tempos limite?
 
-Tempos limite ocorrem no cliente que você usa para se comunicar com o Redis. Na maior parte dos casos, o servidor Redis não atinge o tempo limite. Quando um comando é enviado ao servidor Redis, o comando é colocado na fila e o servidor Redis, eventualmente, seleciona o comando e o executa. No entanto, o cliente pode atingir o tempo limite durante este processo e, se ele faz isso, uma exceção é gerada no lado que realiza a chamada. Para obter mais informações sobre como solucionar problemas de tempo limite, consulte [Solução de problemas do lado do cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) e [Exceções de tempo limite do StackExchange.Redis] (Solução de problemas do lado do cliente](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Tempos limite ocorrem no cliente que você usa para se comunicar com o Redis. Na maior parte dos casos, o servidor Redis não atinge o tempo limite. Quando um comando é enviado ao servidor Redis, o comando é colocado na fila e o servidor Redis, eventualmente, seleciona o comando e o executa. No entanto, o cliente pode atingir o tempo limite durante este processo e, se ele faz isso, uma exceção é gerada no lado que realiza a chamada. Para saber mais sobre como solucionar problemas de tempo limite, consulte [Solução de problemas do lado do cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) e [Exceções de tempo limite do StackExchange.Redis] \(Solução de problemas do lado do cliente](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+
+'<-- Loc Comment: Broken link: [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(Client side troubleshooting]" should be removed. -->'
 
 <a name="cache-disconnect"></a>
 ### Por que meu cliente foi desconectado do cache?
@@ -344,7 +351,7 @@ A seguir estão alguns motivos comuns para uma desconexão de cache.
 
 ### Qual oferta de Cache do Azure é a correta para mim?
 
->[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. A nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](cache-migrate-to-redis.md).
 
 ### Cache Redis do Azure
 O Cache Redis do Azure está disponível em tamanhos de 53 GB e tem SLA de disponibilidade de 99,9%. A nova [camada premium](cache-premium-tier-intro.md) oferece tamanhos de até 530 GB e suporte para clustering, VNET e persistência, com um SLA de 99,9%.
@@ -369,4 +376,4 @@ Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como
 
 [configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

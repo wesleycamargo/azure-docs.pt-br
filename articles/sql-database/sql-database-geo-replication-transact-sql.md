@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.workload="sqldb-bcdr"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o Transact-SQL
@@ -163,6 +163,23 @@ Use as etapas a seguir para monitorar uma parceria de Replicação Geográfica.
 
 9. Clique em **Execute** para executar a consulta.
 
+## Atualizar um secundário não legível para legível
+
+Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis. Se você estiver usando secundários não legíveis atualmente e desejar atualizá-los para serem legíveis, será possível usar as etapas simples a seguir para cada secundário.
+
+> [AZURE.IMPORTANT] Não há nenhum método de autoatendimento de atualização in-loco de um secundário não legível para legível. Se você remover seu único secundário, o banco de dados primário permanecerá desprotegido até que o novo secundário esteja totalmente sincronizado. Se o SLA do seu aplicativo exigir que o primário esteja protegido sempre, você deverá considerar criar um secundário paralelo em um servidor diferente antes de aplicar as etapas de atualização acima. Observe que cada primário pode ter até quatro bancos de dados secundários.
+
+
+1. Primeiro, conecte o servidor *secundário* e remova o banco de dados secundário não legível:
+        
+        DROP DATABASE <MyNonReadableSecondaryDB>;
+
+2. Agora se conecte ao servidor *primário* e adicione um novo secundário legível
+
+        ALTER DATABASE <MyDB>
+            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
+
+
 
 
 ## Próximas etapas
@@ -170,4 +187,4 @@ Use as etapas a seguir para monitorar uma parceria de Replicação Geográfica.
 - Para saber mais sobre a Replicação Geográfica Ativa, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

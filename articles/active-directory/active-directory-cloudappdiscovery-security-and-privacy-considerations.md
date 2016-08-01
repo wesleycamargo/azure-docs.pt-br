@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="msStevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 # Considerações de privacidade e segurança no Cloud App Discovery
@@ -139,7 +139,7 @@ Antes de ativar a inspeção profunda, é altamente recomendável que você comu
 ### Problemas conhecidos e desvantagens
 Há alguns casos em que a interceptação do TLS pode afetar a experiência do usuário final:
 
-- Certificados de EV (Validação Estendida) renderizam a barra de endereços do navegador da Web em verde para indicar visualmente que você está visitando um site da Web confiável. A inspeção TLS não pode duplicar a EV no certificado que emite ao cliente, de modo que os sites da Web que usam certificados de EV funcionarão normalmente, mas a barra de endereços não será exibida em verde.  
+- Certificados de EV (Validação Estendida) renderizam a barra de endereços do navegador da Web em verde para indicar visualmente que você está visitando um site da Web confiável. A inspeção TLS não pode duplicar a EV no certificado que emite ao cliente, de modo que os sites da Web que usam certificados de EV funcionarão normalmente, mas a barra de endereços não será exibida em verde.
 
 - A anexação da chave pública (também conhecida como anexação de certificado) foi desenvolvida para ajudar a proteger os usuários contra ataques man-in-the-middle e autoridades de certificado invasoras. Quando o certificado raiz para um site anexado não corresponde a uma das autoridades de certificação conhecidas, o navegador rejeita a conexão com um erro. Como a intercepção de TLS é, na verdade, um intermediário, essas conexões falharão.
 
@@ -180,4 +180,4 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

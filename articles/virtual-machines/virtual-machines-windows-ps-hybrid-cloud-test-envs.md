@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="04/01/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Ambientes de teste de nuvem híbrida do Azure
@@ -50,4 +50,4 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 - Saiba mais sobre as [diretrizes de implementação](virtual-machines-linux-infrastructure-service-guidelines.md) para projetar uma implantação personalizada de desenvolvimento/teste ou de produção nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
