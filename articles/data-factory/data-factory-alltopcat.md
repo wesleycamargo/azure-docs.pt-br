@@ -134,7 +134,7 @@ Este tópico lista cada tópico que se aplica diretamente ao serviço do data fa
 | [Monitorar e gerenciar pipelines do Azure Data Factory](data-factory-monitor-manage-pipelines.md) | Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou. |
 
 
-## .
+## SDK
 
 
 | Title | Descrição |
@@ -165,4 +165,4 @@ Este tópico lista cada tópico que se aplica diretamente ao serviço do data fa
 
 - Gráfico do Roteiro de Aprendizagem: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

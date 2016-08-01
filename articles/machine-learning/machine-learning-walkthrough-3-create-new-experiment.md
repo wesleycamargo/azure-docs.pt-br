@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye"/>
 
 
@@ -39,7 +39,7 @@ A próxima etapa neste passo a passo é criar um novo teste no Estúdio de Apren
 	> [AZURE.TIP] É uma boa prática preencher**Resumo**e**Descrição** para o experimento no painel **Propriedades**. Essas propriedades lhe dão a chance de documentar o experimento para que qualquer pessoa que olhe para ele mais tarde compreenda as suas metas e a metodologia.
 
 3.	Na paleta do módulo à esquerda das telas de teste, expanda **Conjuntos de dados salvos**.
-4.	Localize o conjunto de dados que você criou em**Meus Conjuntos de Dados**e arraste-o para a tela. Você também pode localizar o conjunto de dados inserindo o nome na caixa **Pesquisar** acima da paleta.  
+4.	Localize o conjunto de dados que você criou em**Meus Conjuntos de Dados**e arraste-o para a tela. Você também pode localizar o conjunto de dados inserindo o nome na caixa **Pesquisar** acima da paleta.
 
 ##Preparar os dados
 É possível exibir as 100 primeiras linhas dos dados, e algumas informações estatísticas de todo o conjunto de dados, clicando na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecionando **Visualizar**.
@@ -52,7 +52,7 @@ Para usar [Editar Metadados][edit-metadata], você deve determinar quais colunas
 
 1.	Na paleta de módulo, digite "metadados" na caixa **Pesquisar**. Você verá o [Editor de Metadados][edit-metadata] na lista de módulos.
 2.	Clique e arraste o módulo [Editar Metadados][edit-metadata] nas telas e solte-o abaixo do conjunto de dados que adicionamos anteriormente.
-3.	Conecte o conjunto de dados a [Editar Metadados][edit-metadata]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] (o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
+3.	Conecte o conjunto de dados a [Editar Metadados][edit-metadata]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] \(o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
 
     O teste deve se parecer como o seguinte:
 
@@ -63,10 +63,9 @@ Para usar [Editar Metadados][edit-metadata], você deve determinar quais colunas
     > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Editar Metadados][edit-metadata] e digite o comentário "Adicionar títulos de coluna". Clique em qualquer lugar na tela para fechar a caixa de texto. Clique na seta para baixo no módulo para exibir o comentário.
 
 4.	Selecione [Editar Metadados][edit-metadata] e, no painel **Propriedades** à direita da tela, clique em **Iniciar seletor de colunas**.
-5.	Na caixa de diálogo **Selecionar colunas**, configure o campo **Começar com** para "Todas as colunas".
-6.	A linha abaixo **Começar com** permite incluir ou excluir colunas específicas para [Editar Metadados][edit-metadata] modificar. Como queremos modificar *todas* as colunas, exclua essa linha clicando no sinal de menos ("-") à direita da linha. A caixa de diálogo deve ter esta aparência: ![Seletor de coluna com todas as colunas selecionadas][4]
+5.	Na caixa de diálogo **Selecionar colunas**, selecione todas as linhas em **Colunas Disponíveis** e clique em > para movê-las para **Colunas Selecionadas**. A caixa de diálogo deve ter esta aparência: ![Seletor de coluna com todas as colunas selecionadas][4]
 7.	Clique na marca de seleção **OK**.
-8.	Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:  
+8.	Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:
 
 		  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 
@@ -83,8 +82,8 @@ Para isso, usamos o módulo [Dividir Dados][split].
 
 1.	Localize o módulo [Dividir Dados][split], arraste-o nas telas e conecte-o ao último módulo [Editar Metadados][edit-metadata].
 2.	Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo de [Dividir Dados][split], e a outra metade sairá por outra porta. Você pode ajustar isso, bem como o parâmetro **Semente aleatória**, para alterar a divisão entre dados de treinamento e teste. Para este exemplo, deixaremos como está.
-	> [AZURE.TIP] A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à esquerda. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
-3. Clique duas vezes no módulo [Dividir Dados][split] e insira o comentário, "Dividir dados de treinamento/teste em 50%". 
+	> [AZURE.TIP] A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à esquerda. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.
+3. Clique duas vezes no módulo [Dividir Dados][split] e insira o comentário, "Dividir dados de treinamento/teste em 50%".
 
 Podemos usar as saídas do módulo [Dividir Dados][split], entretanto, da forma como desejarmos, mas vamos escolher usar a saída à esquerda para dados de treinamento e a saída à direita para dados de teste.
 
@@ -107,7 +106,7 @@ Precisamos fazer essa mesma operação de replicação para cada saída do módu
 
 1.	Clique com o botão direito do mouse no módulo [Executar script R][execute-r-script] e selecione **Copiar**.
 2.	Clique com o botão direito do mouse nas telas de teste e selecione **Colar**.
-3.	Conecte a primeira porta de entrada do módulo [Executar script R][execute-r-script] à porta de saída à direita do módulo [Dividir Dados][split].  
+3.	Conecte a primeira porta de entrada do módulo [Executar script R][execute-r-script] à porta de saída à direita do módulo [Dividir Dados][split].
 
 > [AZURE.TIP] A cópia do módulo Executar script R contém o mesmo script que o módulo original. Quando você copia e cola um módulo nas telas, a cópia mantém todas as propriedades do original.
 
@@ -131,4 +130,4 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

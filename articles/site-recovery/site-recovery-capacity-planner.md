@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Planejar a capacidade de proteger máquinas virtuais e o servidor físico no Azure Site Recovery
@@ -133,4 +133,4 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
 
 	![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

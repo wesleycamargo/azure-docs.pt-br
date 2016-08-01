@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="07/19/2016" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
@@ -34,8 +34,8 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um ambiente de serviço de aplicativo:
 
-- 454: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
-- 455: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de ambientes de serviço de aplicativo. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
+- 454: **porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
+- 455: **porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL. Não bloqueie o tráfego para essa porta. Essa porta é sempre associada ao VIP público de um ASE.
 - 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
@@ -140,4 +140,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

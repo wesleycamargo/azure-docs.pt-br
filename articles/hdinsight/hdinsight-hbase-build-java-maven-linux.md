@@ -22,7 +22,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster HDInsight baseado em Linux.
 
-> [AZURE.NOTE] As etapas neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para saber mais sobre como usar um cluster HDInsight baseado em Windows, veja [Usar o Maven para criar aplicativos Java que usam o HBase com HDInsight baseado em Linux](hdinsight-hbase-build-java-maven.md)
+> [AZURE.NOTE] As etapas neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para saber mais sobre como usar um cluster HDInsight baseado em Windows, veja [Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Windows](hdinsight-hbase-build-java-maven.md)
 
 ##Requisitos
 
@@ -390,4 +390,4 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

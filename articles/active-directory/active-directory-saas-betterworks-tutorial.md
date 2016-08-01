@@ -248,7 +248,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes no BetterWorks.
 
-Trabalhe com a equipe de suporte do BetterWorks via < mailto:support@betterworks.com> para adicionar os usuários na plataforma BetterWorks.
+Trabalhe com a equipe de suporte do BetterWorks via <mailto:support@betterworks.com> para adicionar os usuários na plataforma BetterWorks.
 
 
 ### Atribuição do usuário de teste do AD do Azure
@@ -311,4 +311,4 @@ Ao clicar no bloco BetterWorks no Painel de Acesso, você fará logon automatica
 [204]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

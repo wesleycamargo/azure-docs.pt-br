@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Adicione uma única tarefa de codificação para o trabalho. 
+- Adicione uma única tarefa de codificação para o trabalho.
 - Especifique o ativo de entrada a ser codificado.
 - Crie um ativo de saída que conterá o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
@@ -382,4 +382,4 @@ As seguintes considerações se aplicam:
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

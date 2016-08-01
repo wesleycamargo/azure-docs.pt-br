@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/06/2016"
 	ms.author="garye;raymondl"/>
 
 # Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web
+
+>[AZURE.NOTE] Este tópico descreve técnicas aplicáveis a um serviço Web clássico.
 
 Uma vez você desenvolveu o modelo de previsão e o implantou como um serviço Web do Azure usando o Estúdio de Aprendizado de Máquina ou usando ferramentas como R ou Python, você pode acessar o modelo operacionalizado usando uma API REST.
 
@@ -56,7 +58,7 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 
 	![URI da solicitação][image4]
 
-3. Vá para o [portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web ML Request-Response Service do Azure** e clique em **Criar**.
+3. Vá para o [portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web do Serviço de Solicitação-Resposta do AM do Azure** e clique em **Criar**.
 
 	- Dê um nome exclusivo ao seu aplicativo Web. A URL do aplicativo Web será esse nome seguido de `.azurewebsites.net.` Por exemplo, `http://carprediction.azurewebsites.net.`
 
@@ -125,4 +127,4 @@ Para saber mais sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

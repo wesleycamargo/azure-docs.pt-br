@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Ambiente de teste de configuração básica
@@ -66,7 +66,7 @@ Obtenha o nome da sua assinatura usando o comando a seguir.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina sua assinatura do Azure. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -75,7 +75,7 @@ Depois crie um novo grupo de recursos para seu laboratório de teste Configuraç
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
-Crie seu novo grupo de recursos com estes comandos. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Crie seu novo grupo de recursos com estes comandos. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$rgName="<resource group name>"
 	$locName="<location name, such as West US>"
@@ -92,7 +92,7 @@ Crie uma nova conta de armazenamento para o novo ambiente de teste com estes com
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Em seguida, crie a Rede Virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base e proteja-a com um grupo de segurança de rede.
+Em seguida, crie a rede virtual TestLab que hospedará a sub-rede Corpnet da configuração de base e proteja-a com um grupo de segurança de rede.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
@@ -135,7 +135,7 @@ Em primeiro lugar, preencha o nome do grupo de recursos, o local do Azure, o nom
 
 Em seguida, conecte-se à máquina virtual DC1.
 
-1.	No portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique na máquina virtual **DC1**.  
+1.	No portal do Azure, clique em **Máquinas Virtuais** e, em seguida, clique na máquina virtual **DC1**.
 2.	No painel **DC1**, clique em **Conectar**.
 3.	Quando solicitado, abra o arquivo DC1.rdp baixado.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
@@ -333,4 +333,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

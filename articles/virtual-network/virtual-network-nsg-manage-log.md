@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="07/14/2016"
    ms.author="telmos" />
 
 #Análise de logs para NSGs (grupos de segurança de rede)
 
-Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de NSGs. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blob do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
+Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de NSGs. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
 - **Logs de auditoria:** você pode usar os [Logs de Auditoria do Azure](../azure-portal/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal de visualização do Azure.
 - **Logs de eventos:** você pode usar esse log para exibir quais regras de NSGs são aplicadas às máquinas virtuais e às funções de instância com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
@@ -30,7 +30,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 ##Habilitar o registro em log
 O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar os logs de eventos e de contador para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
 
-1.  Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um grupo de segurança de rede existente, [crie um NSG](virtual-networks-create-nsg-arm-ps.md) antes de continuar.
+1.  Entre no [Portal do Azure](https://portal.azure.com). Se você ainda não tiver um grupo de segurança de rede existente, [crie um NSG](virtual-networks-create-nsg-arm-ps.md) antes de continuar.
 
 2.  No portal de visualização, clique em **Navegar** >> **Grupos de segurança de rede**.
 
@@ -41,7 +41,7 @@ O log de auditoria é sempre habilitado automaticamente para todos os recursos d
 	![Portal de visualização - configurações de grupos de segurança de rede](./media/virtual-network-nsg-manage-log/portal-enable2.png)
 
 4. Na folha **Configurações**, clique em **Diagnóstico** e, em seguida, no painel **Diagnóstico**, ao lado de **Status**, clique em **Ativado**
-5. Na folha **Configurações**, clique em **Conta de Armazenamento** e selecione uma conta de armazenamento existente ou crie uma nova.  
+5. Na folha **Configurações**, clique em **Conta de Armazenamento** e selecione uma conta de armazenamento existente ou crie uma nova.
 
 >[AZURE.INFORMATION] Os logs de auditoria não exigem uma conta de armazenamento separada. O uso do armazenamento para logs de eventos e regras gerarão encargos de serviço.
 
@@ -105,13 +105,17 @@ Você pode exibir e analisar dados do log de auditoria usando qualquer um dos se
 - **Power BI:** se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), você poderá testá-lo gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que você pode usar como estão ou personalizar.
 
 ## Exibir e analisar o log de eventos e de contador
-Você precisa se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e contador. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
+
+O [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) do Azure pode coletar o contador e log de eventos de arquivos da sua conta de armazenamento de Blobs e inclui visualizações e recursos avançados de pesquisa para analisar os logs.
+
+Você também pode se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e contador. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
 
 >[AZURE.TIP] Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C# , você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no Github.
 
 ## Próximas etapas
 
+- Visualizar o contador e logs de eventos com o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 - Postagem de blog [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Postagem de blog [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -108,7 +108,7 @@ A [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) per
 
 Você deve usar a Replicação Geográfica Ativa caso seu aplicativo atenda aos seguintes critérios:
 
-1. Ele é de crítico. Ele tem um SLA vinculado com RTO e RPO agressivos. A perda de dados e a disponibilidade resultarão em responsabilidade financeira.
+1. Ele é de crítico. A perda de dados e a disponibilidade resultarão em responsabilidade financeira.
 2. A taxa de alteração de dados é alta (por exemplo, transações por minuto ou segundos). O RPO de 1 h associado à proteção padrão provavelmente resultará em perda de dados inaceitável.
 3. O custo associado ao uso da replicação geográfica é significativamente menor do que a responsabilidade financeira potencial e as perdas associadas do negócio.
 
@@ -126,4 +126,4 @@ Para estratégias de recuperação detalhadas ao usar um pool elástico, confira
 - Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre como usar backups automatizados de arquivamento, veja [Cópia de banco de dados](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

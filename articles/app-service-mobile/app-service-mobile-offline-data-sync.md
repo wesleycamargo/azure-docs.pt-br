@@ -38,6 +38,7 @@ Os tutoriais a seguir mostram como adicionar sincronização offline para os cli
 * [iOS: Habilitar a sincronização offline]
 * [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]
+* [Xamarin.Forms: habilitar a sincronização offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: Habilitar a sincronização offline]
 
 ## O que é uma tabela de sincronização?
@@ -104,4 +105,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Habilitar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

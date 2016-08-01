@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Compilar e executar a solução de exemplo do C no mbed
+## Criar e executar a solução de exemplo do C
 
 As instruções a seguir descrevem as etapas para conectar um dispositivo [Freescale FRDM-K64F habilitado para mbed][lnk-mbed-home] para a solução de monitoramento remoto.
 
-### Conecte o dispositivo ao computador e à rede
+### Conectar o dispositivo mbed ao computador desktop e à rede
 
 1. Conecte o dispositivo mbed à sua rede usando um cabo Ethernet. Essa etapa é necessária porque o aplicativo de exemplo requer acesso à internet.
 
@@ -36,7 +36,7 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
 
 ### Crie um projeto mbed e importe o código de exemplo
 
-1. No navegador da Web, vá até o [site de desenvolvedor](https://developer.mbed.org/) mbed.org. Se você ainda não se inscreveu, verá uma opção para criar uma nova conta (ele é gratuito). Caso contrário, faça logon com suas credenciais de conta. Em seguida, clique em **Compilador** no canto superior direito da página. Isso deve levá-lo até a interface de gerenciamento do espaço de trabalho.
+1. No navegador da Web, vá até o [site de desenvolvedor](https://developer.mbed.org/) mbed.org. Caso ainda não tenha se inscrito, você verá uma opção para criar uma nova conta (é gratuita). Caso contrário, faça logon com suas credenciais de conta. Em seguida, clique em **Compilador** no canto superior direito da página. Essa ação exibe a interface do *Espaço de trabalho*.
 
 2. Verifique se a plataforma de hardware que você está usando é exibida no canto superior direito da janela ou clique no ícone no canto superior direito para selecionar a plataforma de hardware.
 
@@ -48,7 +48,7 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
 
     ![][7]
 
-5. Você pode ver na janela do compilador mbed que a importação desse projeto importou várias bibliotecas. Algumas são fornecidas e mantidas pela equipe do Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), enquanto outras são bibliotecas de terceiros disponíveis no catálogo de bibliotecas mbed.
+5. Você pode ver na janela do compilador mbed que a importação desse projeto também importa várias bibliotecas. Algumas são fornecidas e mantidas pela equipe do Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), enquanto outras são bibliotecas de terceiros disponíveis no catálogo de bibliotecas mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Substitua [Device Id] e [Device Key] pelos dados do dispositivo para permitir que o programa de exemplo se conecte ao seu hub IoT. Use o Nome de host do Hub IoT para substituir os espaços reservados [Nome do Hub IoT] e [Sufixo do Hub IoT, ou seja, azure-devices.net]. Por exemplo, se seu nome de host do Hub IoT for contoso.azure-devices.net, Contoso será o **hubName** e tudo depois dele será o **hubSuffix**:
+7. Substitua [Device Id] e [Device Key] pelos dados do dispositivo para permitir que o programa de exemplo se conecte ao seu hub IoT. Use o Nome de host do Hub IoT para substituir os espaços reservados [Nome do Hub IoT] e [Sufixo do Hub IoT, ou seja, azure-devices.net]. Por exemplo, se seu nome de host do Hub IoT for **contoso.azure-devices.net**, **contoso** será o **hubName** e tudo depois dele será o **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
@@ -78,7 +78,7 @@ Se você estiver interessado em como funciona o programa, esta seção descreve 
 
 #### Definindo o modelo
 
-Este exemplo usa a biblioteca do [serializador][lnk-serializer] para definir um modelo que especifica as mensagens que o dispositivo pode enviar para o Hub IoT e receber do Hub IoT. Neste exemplo, o namespace **Contoso** define um modelo **Therrmostat**, que especifica os dados de telemetria **Temperature**, **ExternalTemperature** e **Humidity** junto com metadados, como a id do dispositivo, as propriedades do dispositivo e os comandos aos quais o dispositivo responde:
+Este exemplo usa a biblioteca do [serializador][lnk-serializer] para definir um modelo que especifica as mensagens que o dispositivo pode enviar ao Hub IoT e receber do Hub IoT. Neste exemplo, o namespace **Contoso** define um modelo **Therrmostat** que especifica os dados de telemetria **Temperature**, **ExternalTemperature** e **Humidity** com metadados, como a id do dispositivo, as propriedades do dispositivo e os comandos aos quais o dispositivo responde:
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -177,7 +177,7 @@ Para referência, veja um exemplo de mensagem de **Telemetria** enviada ao Hub I
 {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
 ```
 
-Para referência, veja um exemplo de **comando** recebido do Hub IoT:
+Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
 
 ```
 {
@@ -195,7 +195,7 @@ Para referência, veja um exemplo de **comando** recebido do Hub IoT:
 
 2. Se o build for bem-sucedido, o site do compilador mbed gerará um arquivo .bin com o nome do seu projeto e o baixa para o computador local. Copie o arquivo .bin para o dispositivo. Salvar o arquivo .bin no dispositivo faz com que o dispositivo reinicie e execute o programa contido no arquivo .bin. Você pode reiniciar manualmente o programa a qualquer momento pressionando o botão de reinicialização no dispositivo mbed.
 
-3. Conecte-se ao dispositivo usando um aplicativo de cliente SSH, como o PuTTY. Você pode determinar qual porta serial o dispositivo usa verificando o Gerenciador de Dispositivos do Windows.
+3. Conecte-se ao dispositivo usando um aplicativo de cliente SSH, como o PuTTY. Você pode determinar a porta serial que o dispositivo usa verificando o Gerenciador de Dispositivos do Windows.
 
     ![][11]
 
@@ -220,4 +220,4 @@ Para referência, veja um exemplo de **comando** recebido do Hub IoT:
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

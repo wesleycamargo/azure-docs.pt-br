@@ -19,5 +19,6 @@
 |Sudeste da Austrália|Leste da Austrália |
 |Leste do Canadá |Canadá Central |
 |Canadá Central |Leste do Canadá |
+|Oeste dos EUA 2 |Centro-Oeste dos EUA |
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

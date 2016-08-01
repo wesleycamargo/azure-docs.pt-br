@@ -19,10 +19,10 @@
 
 # Cotas padrão para o Banco de Dados de Documentos
 
-A tabela a seguir descreve as cotas padrão para recursos do Banco de Dados de Documentos.
+A tabela a seguir descreve as cotas padrão para recursos de banco de dados do Banco de Dados de Documentos do Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

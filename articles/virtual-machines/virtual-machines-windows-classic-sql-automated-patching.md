@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Clássico)
@@ -24,7 +24,7 @@
 
 A aplicação de patch automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure que executa o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, isso garante que as atualizações do sistema e qualquer reinicialização associada ocorrerão no melhor momento possível para o banco de dados. A aplicação de patch automatizada depende da [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 Para exibir a versão do Resource Manager deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](virtual-machines-windows-sql-automated-patching.md).
 
 ## Pré-requisitos
@@ -61,13 +61,16 @@ A tabela a seguir descreve as opções que podem ser configuradas para Aplicaç�
 |**Categoria de patch**|Importante|A categoria de atualizações para baixar e instalar.|
 
 ## Configuração no Portal
+Você pode usar o Portal do Azure para configurar o a Aplicação de Patch Automatizado durante o provisionamento ou para VMs existentes.
 
-Use o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a Aplicação de Patch Automatizada quando criar uma nova Máquina Virtual do SQL Server no modelo de implantação clássico.
+### Novas VMs
+Use o Portal do Azure para configurar a Aplicação de Patch Automatizada quando criar uma nova Máquina Virtual do SQL Server no modelo de implantação clássico.
 
 A captura de tela do portal do Azure a seguir mostra essas opções em **CONFIGURAÇÃO OPCIONAL** | **PATCHING AUTOMATIZADO DO SQL**.
 
 ![Aplicação de Patch Automática do SQL no Portal do Azure](./media/virtual-machines-windows-classic-sql-automated-patching/IC778484.jpg)
 
+### VMs existentes
 Para as máquinas virtuais existentes do SQL Server 2012 ou 2014, selecione as configurações de **Aplicação de patch automática** na seção **Configuração** das propriedades da máquina virtual. Na janela de **Aplicação de patch automatizada**, você pode habilitar o recurso, definir o agendamento de manutenção e a hora de início e escolher a duração da janela de manutenção. Isso é mostrado na captura de tela a seguir.
 
 ![Configuração de Aplicação de Patch Automatizada no Portal do Azure](./media/virtual-machines-windows-classic-sql-automated-patching/IC792132.jpg)
@@ -103,4 +106,4 @@ Para obter informações sobre outras tarefas de automação disponíveis, consu
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

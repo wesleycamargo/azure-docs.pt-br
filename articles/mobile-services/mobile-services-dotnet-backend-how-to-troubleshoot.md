@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor="mollybos"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016" 
+	ms.date="07/13/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solucionar problemas de back-end .NET dos Serviços Móveis
@@ -36,7 +36,7 @@ Desenvolver com Serviços Móveis geralmente é uma tarefa fácil e sem problema
 
 Ao desenvolver aplicativos com os Serviços Móveis, você geralmente obtém vantagem com o SDK cliente dos Serviços Móveis para a plataforma que você está usando (Windows Store, iOS, Android, etc.). Entretanto, algumas vezes é útil verificar o nível de HTTP e observar as chamadas brutas que ocorrem na rede. Essa abordagem é particularmente útil para depurar problemas de conectividade e de serialização. Com o back-end .NET dos Serviços Móveis, você pode usar essa abordagem em combinação com a depuração remota e local do Visual Studio (veja mais sobre isso na seção seguinte), para ter uma ideia completa do caminho que uma chamada HTTP percorre antes de chamar seu código de serviço.
 
-Você pode usar qualquer depurador HTTP para enviar e inspecionar tráfego HTTP. [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta popular muito usada para essa finalidade. Para facilitar a vida dos desenvolvedores, os Serviços Móveis trazem um depurador HTTP baseado na Web (também conhecido como “cliente de teste”) junto com seu serviço móvel, reduzindo a necessidade de ferramentas externas. Ao hospedar seu serviço móvel localmente, ele estará disponível em um URI similar a [http://localhost:59233](http://localhost:59233), e ao hospedar na nuvem, o URI será na forma [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). As etapas a seguir funcionam da mesma maneira, independentemente de onde o serviço está hospedado:
+Você pode usar qualquer depurador HTTP para enviar e inspecionar tráfego HTTP. [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta popular muito usada para essa finalidade. Para facilitar a vida dos desenvolvedores, os Serviços Móveis trazem um depurador HTTP baseado na Web (também conhecido como “cliente de teste”) junto com seu serviço móvel, reduzindo a necessidade de ferramentas externas. Ao hospedar seu serviço móvel localmente, ele estará disponível em um URI como `http://localhost:59233` e ao hospedar na nuvem, o URI do formulário `http://todo-list.azure-mobile.net`. As etapas a seguir funcionam da mesma maneira, independentemente de onde o serviço está hospedado:
 
 1. Inicie com um projeto de servidor dos Serviços Móveis no **Visual Studio 2013 Update 2** ou posterior. Caso não tenha um em mãos, você pode criar um selecionando **Arquivo**, **Novo**, **Projeto** e, em seguida, selecionando o nó **Nuvem** e o modelo **Serviços Móveis do Microsoft Azure**.
 2. Pressione **F5**, o que compilará e executará o projeto. Na página inicial, selecione **Experimentar**.
@@ -74,7 +74,7 @@ Um dos principais recursos de back-end .NET é a capacidade de depurar o código
 
     ![Configurar carregamento de símbolo][SymbolLoading]
 
-3. Selecione o nó **Símbolos** à esquerda e adicione uma referência ao servidor [SymbolSource] usando o URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Os símbolos para o back-end do .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
+3. Selecione o nó **Símbolos** à esquerda e adicione uma referência ao servidor [SymbolSource] usando o URI `http://srv.symbolsource.org/pdb/Public`. Os símbolos para o back-end do .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
 
     ![Configurar servidor de símbolo][SymbolServer]
 
@@ -162,6 +162,6 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 
 
 <!-- Links -->
-[SymbolSource]: http://symbolsource.org
+[SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

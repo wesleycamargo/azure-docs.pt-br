@@ -18,7 +18,7 @@
 
 # Incremente sua conta de Banco de Dados de Documentos
 
-Siga estas etapas para tirar proveito da maior taxa de transferência para a sua conta S1 de Banco de Dados de Documentos. Com pouco ou nenhum custo adicional, você pode aumentar a produtividade da sua conta S1 existente de 250 [RU/s](documentdb-request-units.md) para 400 RU/s ou mais!
+Siga estas etapas para aproveitar o aumento da produtividade da sua conta S1 no Banco de Dados de Documentos do Azure. Com pouco ou nenhum custo adicional, você pode aumentar a produtividade da sua conta S1 existente de 250 [RU/s](documentdb-request-units.md) para 400 RU/s ou mais!
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
@@ -51,4 +51,4 @@ Para obter mais informações sobre as alterações relacionadas às taxas de tr
 
 Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para criar uma coleção particionada, confira [Criar uma coleção](documentdb-create-collection.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

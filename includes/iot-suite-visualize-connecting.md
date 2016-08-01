@@ -14,7 +14,7 @@ O painel da solução de monitoramento remoto permite que você exiba a telemetr
 
 ## Enviar um comando para o dispositivo
 
-O painel da solução de monitoramento remoto permite solicitar que o Hub IoT envie comandos para seus dispositivos. Por exemplo, na solução de monitoramento remoto, você pode enviar um comando para definir a temperatura interna de um dispositivo.
+O painel da solução de monitoramento remoto permite que você envie comandos para seus dispositivos através do Hub IoT. Por exemplo, na solução de monitoramento remoto, você pode enviar um comando para definir a temperatura interna de um dispositivo.
 
 1. No painel da solução de monitoramento remoto, clique em **Dispositivos** no painel esquerdo para navegar até a **Lista de dispositivos**.
 
@@ -41,6 +41,5 @@ O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve a
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

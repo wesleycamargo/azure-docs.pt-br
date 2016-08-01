@@ -19,7 +19,7 @@
 
 # Introdução à criação de um balanceador de carga interno usando o PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássica](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -38,7 +38,7 @@ Este artigo abordará a sequência de tarefas individuais que precisam ser reali
 
 Os itens a seguir devem ser configurados antes da criação de um balanceador de carga interno:
 
-- Configuração do IP de front-end - vai configurar o endereço IP privado para tráfego de rede de entrada 
+- Configuração do IP de front-end - vai configurar o endereço IP privado para tráfego de rede de entrada
 
 - Pool de endereços de back-end - vai configurar as interfaces de rede que receberão o tráfego com balanceamento de carga proveniente do pool de IPs de front-end
 
@@ -62,7 +62,7 @@ Certifique-se de ter a versão de produção mais recente do módulo do Azure pa
 
 ### Etapa 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -70,7 +70,7 @@ Certifique-se de ter a versão de produção mais recente do módulo do Azure pa
 
 Verificar as assinaturas da conta
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 Você deverá se autenticar com suas credenciais.<BR>
 
@@ -79,7 +79,7 @@ Você deverá se autenticar com suas credenciais.<BR>
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Criar grupo de recursos para o balanceador de carga
 
@@ -87,9 +87,9 @@ Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um balanceador de carga usarão o mesmo grupo de recursos.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um balanceador de carga usarão o mesmo grupo de recursos.
 
 No exemplo anterior, criamos um grupo de recursos denominado "NRP-RG" e o local "Oeste dos EUA".
 
@@ -189,7 +189,7 @@ Nesta etapa, estamos criando uma segunda interface de rede, atribuindo o mesmo p
 O resultado mostrará o seguinte:
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Saída esperada:
 
@@ -267,13 +267,13 @@ Carregue a interface de rede já criada em uma variável. O nome da variável us
 
 Altere a configuração de back-end na interface de rede.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Etapa 5 
 
 Salve o objeto de interface de rede.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Depois que uma interface de rede é adicionada ao pool de back-end do balanceador de carga, ela começa a receber tráfego de rede com base nas regras de balanceamento de carga para esse recurso de balanceador de carga.
 
@@ -316,4 +316,4 @@ Use o comando Remove-AzureRmLoadBalancer para excluir um balanceador de carga cr
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

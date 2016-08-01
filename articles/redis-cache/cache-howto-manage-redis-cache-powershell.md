@@ -812,9 +812,9 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 
 - [Documentação de cmdlet do Cache Redis do Azure no MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Cmdlets do Gerenciador de Recursos do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkID=394765): saiba usar os cmdlets no módulo AzureResourceManager.
-- [Usando Grupos de recursos para gerenciar seus recursos do Azure](../azure-portal/resource-group-portal.md): saiba como criar e gerenciar grupos de recursos no Portal do Azure.
+- [Usando Grupos de recursos para gerenciar seus recursos do Azure](../resource-group-template-deploy-portal.md): saiba como criar e gerenciar grupos de recursos no Portal do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

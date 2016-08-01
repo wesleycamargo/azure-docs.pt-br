@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capturar uma VM do Linux para usar como um modelo | Microsoft Azure"
-	description="Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure baseada no Linux criada com o modelo de implantação do Gerenciador de Recursos do Azure."
+	description="Saiba como capturar e generalizar uma imagem de uma VM (máquina virtual) do Azure baseada no Linux criada com o modelo de implantação do Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,17 +14,21 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/19/2016"
 	ms.author="danlep"/>
 
 
 # Como capturar uma máquina virtual Linux para ser usada como um modelo do Gerenciador de Recursos
 
-Este artigo mostra como usar a CLI do Azure (Interface de Linha de Comando) do Azure para capturar uma máquina virtual do Azure que executa o Linux para poder usá-la como um modelo do Azure Resource Manager para criar outras máquinas virtuais. Esse modelo especifica o disco do SO e os discos de dados anexados à máquina virtual. Ele não inclui os recursos da rede virtual que você precisará para criar uma VM do Gerenciador de Recursos do Azure, portanto, na maioria dos casos você precisará defini-los separadamente antes de criar outra máquina virtual que usa o modelo.
+Use a CLI (Interface de Linha de Comando) do Azure para capturar e generalizar uma máquina virtual do Azure que executa o Linux para que você possa usá-la como um modelo do Azure Resource Manager para criar outras máquinas virtuais. Esse modelo especifica o disco do SO e os discos de dados anexados à máquina virtual. Ele não inclui os recursos da rede virtual que você precisará para criar uma VM do Gerenciador de Recursos do Azure, portanto, na maioria dos casos você precisará defini-los separadamente antes de criar outra máquina virtual que usa o modelo.
+
+>[AZURE.TIP]Se estiver interessado em criar uma imagem de VM do Linux personalizada e carregá-la no Azure para que você possa criar VMs com base na imagem, veja [Upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md) (Carregar e criar uma VM com base em uma imagem de disco personalizada).
 
 ## Antes de começar
 
 Estas etapas pressupõem que você já criou uma máquina virtual do Azure no modelo de implantação do Gerenciador de Recursos do Azure e configurou o sistema operacional, inclusive anexou quaisquer discos de dados e fez outras personalizações, como a instalação de aplicativos. Você pode fazer isso de diversas maneiras, inclusive por meio da CLI do Azure. Se você ainda não fez isso, confira estas instruções para usar a CLI do Azure no modo do Gerenciador de Recursos do Azure:
+
+- [Criar uma VM do Linux no Azure usando a CLI](virtual-machines-linux-quick-create-cli.md)
 
 - [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md)
 
@@ -32,7 +36,7 @@ Por exemplo, você pode criar um grupo de recursos denominado *MyResourceGroup* 
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-Depois da VM ser provisionada e estar em execução, você poderá anexar e montar um disco de dados. Consulte as instruções [aqui](virtual-machines-linux-add-disk.md).
+Depois que a VM for provisionada e estiver em execução, você poderá [anexar e montar um disco de dados](virtual-machines-linux-add-disk.md).
 
 
 ## Capturar a VM
@@ -46,13 +50,13 @@ Depois da VM ser provisionada e estar em execução, você poderá anexar e mont
 	Esse comando tentará limpar o sistema e torná-lo adequado para reprovisionamento. Essa operação realiza as seguintes tarefas:
 
 	- Remove as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
-	- Limpa a configuração de servidor de nomes em /etc/resolv.conf
+	- Limpa a configuração de servidor de nomes em /etc/resolvconf
 	- Remove a senha do usuário `root` de /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração)
 	- Remove concessões de cliente DHCP em cache
 	- Reinicia o nome de host para localdomain.localdomain
 	- Exclui a última conta de usuário provisionada (obtida em /var/lib/waagent) e os dados associados.
 
-	>[AZURE.NOTE] O desprovisionamento exclui arquivos e dados em um esforço para "generalizar" a imagem. Execute o comando apenas em uma VM que você pretende capturar como uma imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
+	>[AZURE.NOTE] O desprovisionamento exclui arquivos e dados em um esforço para generalizar a imagem. Execute o comando apenas em uma VM que você pretende capturar como uma imagem. Ele não garante que a imagem esteja sem nenhuma informação confidencial ou seja adequada para redistribuição a terceiros.
 
 3. Digite **y** para continuar. Você pode adicionar o parâmetro **-force** para evitar essa etapa de confirmação.
 
@@ -76,18 +80,18 @@ Depois da VM ser provisionada e estar em execução, você poderá anexar e mont
 
 9. Agora, capture a imagem e um modelo de arquivo local com o seguinte comando:
 
-	`azure vm capture <your-resource-group-name>  <your-virtual-machine-name> <your-vhd-name-prefix> -t <your-template-file-name.json>`
+	`azure vm capture <your-resource-group-name>  <your-virtual-machine-name> <your-vhd-name-prefix> -t <path-to-your-template-file-name.json>`
 
-	Este comando cria uma imagem generalizada do sistema operacional usando o prefixo do nome do VHD especificado para os discos da VM. Os arquivos de imagem VHD são criados por padrão na mesma conta de armazenamento da VM original usada. A opção **-t** cria um modelo de arquivo JSON local você pode usar para criar uma nova VM a partir da imagem.
+	Este comando cria uma imagem generalizada do sistema operacional usando o prefixo do nome do VHD especificado para os discos da VM. Os arquivos de imagem VHD são criados por padrão na mesma conta de armazenamento da VM original usada. (Os VHDs de todas as novas VMs criadas com base na imagem serão armazenados na mesma conta.) A opção **-t** cria um modelo de arquivo JSON local você pode usar para criar uma nova VM a partir da imagem.
 
->[AZURE.TIP] Para encontrar o local de uma imagem, abra o modelo de arquivo JSON. Em **storageProfile**, encontre o **uri** da **imagem** localizado no contêiner do **sistema**. Por exemplo, o uri da imagem de disco do sistema operacional é semelhante a `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+>[AZURE.TIP] Para encontrar o local de uma imagem, abra o modelo de arquivo JSON. Em **storageProfile**, encontre o **uri** da **imagem** localizado no contêiner do **sistema**. Por exemplo, o uri da imagem de disco do sistema operacional é semelhante a `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Implantar uma nova VM a partir da imagem capturada
 Agora, use a imagem com um modelo para criar uma nova VM do Linux. Essas etapas mostram como usar a CLI do Azure e o modelo de arquivo JSON criado com o comando `azure vm capture` para criar a VM em uma nova rede virtual.
 
 ### Criar recursos da rede
 
-Para usar o modelo, primeiro é necessário configurar uma rede virtual e uma NIC para sua nova VM. Recomendamos que você crie um novo grupo de recursos para esses recursos. Execute comandos semelhantes aos seguintes, substituindo os nomes dos seus recursos e um local apropriado do Azure ("centralus" nesses comandos):
+Para usar o modelo, primeiro é necessário configurar uma rede virtual e uma NIC para sua nova VM. Recomendamos criar um novo grupo de recursos para esses recursos na localização em que a imagem de VM está armazenada. Execute comandos semelhantes aos seguintes, substituindo os nomes dos seus recursos e um local apropriado do Azure ("centralus" nesses comandos):
 
 	azure group create <your-new-resource-group-name> -l "centralus"
 
@@ -112,7 +116,7 @@ A **ID** na saída é uma cadeia de caracteres semelhante a esta.
 ### Criar uma nova implantação
 Agora, execute o seguinte comando para criar sua VM a partir da imagem capturada da VM e do arquivo de modelo JSON salvo.
 
-	azure group deployment create <your-new-resource-group-name> <your-new-deployment-name> -f <your-template-file-name.json>
+	azure group deployment create <your-new-resource-group-name> <your-new-deployment-name> -f <path-to-your-template-file-name.json>
 
 Você precisará fornecer um novo nome da VM, nome de usuário administrador, senha e a ID da NIC criada anteriormente.
 
@@ -175,7 +179,7 @@ Se você quiser a rede configurada automaticamente ao criar uma VM a partir da i
 
 ## Usar o comando azure vm create
 
-Geralmente, você desejará usar um modelo do Gerenciador de Recursos para criar uma VM a partir da imagem. No entanto, você pode criar a VM _de modo forçado_ usando o comando **azure vm create** com o parâmetro **-Q** (**--image-urn**). Você também passará o parâmetro **-d** (**--os-disk-vhd**) para especificar a localização do arquivo. vhd do SO para a nova VM. Ele deve estar no contêiner de vhds da conta de armazenamento na qual o arquivo VHD da imagem está armazenado. O comando copiará o VHD para a nova VM automaticamente para o contêiner de vhds.
+Geralmente, você desejará usar um modelo do Gerenciador de Recursos para criar uma VM a partir da imagem. No entanto, você pode criar a VM _de modo forçado_ usando o comando **azure vm create** com o parâmetro **-Q** (**--image-urn**). Você também passará o parâmetro **-d** (**--os-disk-vhd**) para especificar a localização do arquivo .vhd do sistema operacional para a nova VM. Ele deve estar no contêiner de vhds da conta de armazenamento na qual o arquivo VHD da imagem está armazenado. O comando copiará o VHD para a nova VM automaticamente para o contêiner de vhds.
 
 Faça o seguinte antes de executar o **azure vm create** com a imagem:
 
@@ -194,4 +198,4 @@ Para obter opções adicionais de comando, execute `azure help vm create`.
 
 Para gerenciar suas VMs com a CLI, consulte as tarefas em [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

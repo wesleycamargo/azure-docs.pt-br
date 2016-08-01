@@ -22,4 +22,6 @@ O Serviço de Aplicativo do Azure está em conformidade com os padrões essencia
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+O Serviço de Aplicativo do Azure usa a mesma solução Antimalware usada pelos Serviços de Nuvem do Azure e pelas máquinas virtuais. Para saber mais sobre isso, consulte nossa [documentação antimalware](../azure-security-antimalware.md)
+
+<!---HONumber=AcomDC_0720_2016-->

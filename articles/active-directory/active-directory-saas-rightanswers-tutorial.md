@@ -74,7 +74,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Configurar o logon único")
 
-3.  Na página **Definir Configurações do Aplicativo**, na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo RightAnswers (por exemplo: **https://fortify.rightanswers.com/portal/ss/*) e clique em **Avançar**.
+3.  Na página **Definir Configurações do Aplicativo**, na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo RightAnswers (por exemplo: *https://fortify.rightanswers.com/portal/ss/*) e clique em **Avançar**.
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Definir configurações de aplicativo")
 
@@ -115,4 +115,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

@@ -19,7 +19,7 @@
 
 # Notificações sobre recursos novos ou alterados do Banco de Dados de Documentos usando Aplicativos Lógicos
 
-Este artigo surgiu de uma pergunta que eu vi publicada em um dos fóruns da comunidade do Banco de Dados de Documentos. A pergunta foi **O Banco de Dados de Documentos oferece suporte a notificações sobre recursos modificados**?
+Este artigo surgiu de uma pergunta que eu vi publicada em um dos fóruns da comunidade do Banco de Dados de Documentos do Azure. A pergunta foi **O Banco de Dados de Documentos oferece suporte a notificações sobre recursos modificados**?
 
 Trabalhei com o BizTalk Server por muitos anos e esse é um cenário muito comum ao usar o [Adaptador LOB do WCF](https://msdn.microsoft.com/library/bb798128.aspx). Portanto, decidi verificar se eu poderia duplicar essa funcionalidade no Banco de Dados de Documentos para documentos novos e/ou modificados.
 
@@ -1156,4 +1156,4 @@ Baixe e use o código do Aplicativo Lógico fornecido no [Github](https://github
 
 Para saber mais sobre o Banco de Dados de Documentos, visite o [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Remover os servidores e desabilitar a proteção
@@ -44,12 +44,12 @@ No servidor VMM que você deseja remover:
 1. Cancelar o registro do servidor VMM no portal do Azure.
 2. No servidor VMM, baixe o script de limpeza.
 3. Abra o PowerShell com a opção Executar como Administrador para alterar a política de execução para o escopo padrão (LocalMachine).
-4. Siga as instruções no script. 
+4. Siga as instruções no script.
 
 Nos servidores VMM com nuvens combinadas com as nuvens no servidor que você está removendo:
 
 1. Execute o script de limpeza e execute as etapas 2 a 4.
-2. Especifique a ID do VMM para o servidor VMM que teve o registro cancelado. 
+2. Especifique a ID do VMM para o servidor VMM que teve o registro cancelado.
 3. Esse script removerá as informações de registro do servidor VMM e as informações de combinação em nuvem.
 
 
@@ -59,7 +59,7 @@ Quando o Azure Site Recovery é implantado para proteger as máquinas virtuais l
 
 1. Desabilite a proteção para máquinas virtuais localizadas no servidor Hyper-V.
 2. Na guia **Servidores**, no portal do Azure Site Recovery, selecione o servidor > Excluir. O servidor não precisa estar conectado ao Azure para fazer isso.
-3. Execute o script a seguir para limpar as configurações no servidor e cancelar o registro do cofre. 
+3. Execute o script a seguir para limpar as configurações no servidor e cancelar o registro do cofre.
 
 	    pushd .
 	    try
@@ -220,4 +220,4 @@ Se você quiser interromper a proteção de uma máquina virtual VMware ou de um
 	
 		![Opções de remoção](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

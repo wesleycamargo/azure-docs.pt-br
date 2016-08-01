@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye" />
 
 
@@ -40,10 +40,17 @@ O Aprendizado de Máquina do Azure tem dois tipos de serviços:
 Para obter mais informações sobre os serviços Web de Aprendizado de Máquina, confira a seção [Implantar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtenha uma chave de autorização de Aprendizado de Máquina do Azure ##
-Você pode obter uma chave de API do serviço Web de um serviço Web de Aprendizado de Máquina. Você pode obtê-la no Estúdio de Aprendizado de Máquina no Portal do Azure.
+
+Quando você implanta seu experimento, as chaves de API são geradas para o serviço Web. Onde você recupera as chaves depende de como o experimento foi implantado — como um novo serviço Web ou um serviço Web clássico.
+
+## Serviço Web Clássico ##
+
+ Você pode recuperar uma chave no Estúdio de Aprendizado de Máquina ou portal do Azure.
+
 ### Estúdio de Aprendizado de Máquina ###
+
 1. No Estúdio de Aprendizado de Máquina, clique em **SERVIÇOS WEB** à esquerda.
-2. Clique em um serviço Web. A "chave de API" está na guia **PAINEL**.
+2. Clique em um serviço Web. A **chave de API** está na guia **PAINEL**.
 
 ### Portal do Azure ###
 
@@ -53,24 +60,36 @@ Você pode obter uma chave de API do serviço Web de um serviço Web de Aprendiz
 4. Clique em um serviço Web.
 5. Clique em um ponto de extremidade. A “CHAVE DE API” está mais abaixo na parte inferior direita.
 
+
+## Novo serviço Web 
+
+Para recuperar a chave de API, para um novo serviço Web de Aprendizado de Máquina, você deve entrar no portal dos [Serviços Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/quickstart).
+
+1. No portal de Serviços Web de Aprendizado de Máquina do Azure, clique em **SERVIÇOS Web** no menu superior.
+2. Clique no serviço Web para o qual deseja recuperar a chave.
+3. No menu superior, clique em **Consumir**.
+4. Copie e salve a **Chave Primária**.
+
 ## <a id="connect"></a>Conectar-se a um serviço Web de Aprendizado de Máquina
 
 Você pode se conectar a um serviço Web de Aprendizado de Máquina usando qualquer linguagem de programação que dá suporte à resposta e solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de Ajuda do serviço Web de Aprendizado de Máquina.
 
-### Para exibir uma página de ajuda de API do serviço Web de Aprendizado de Máquina ###
-Uma página de ajuda de API do Aprendizado de Máquina é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md).
+**Ajuda da API do Aprendizado de Máquina** Uma ajuda de API do Aprendizado de Máquina é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md). A ajuda da API do Aprendizado de Máquina contém detalhes sobre um serviço Web de previsão.
 
+**Para exibir a ajuda da API do Aprendizado de Máquina para um serviço Web clássico** No Estúdio de Aprendizado de Máquina:
 
-**Para exibir uma página de ajuda da API de Aprendizado de Máquina** no Estúdio de Aprendizado de Máquina:
+1. Clique em **SERVIÇOS WEB**.
+2. Clique em um serviço Web.
+3. Clique em **Página de ajuda da API** - **SOLICITAÇÃO/RESPOSTA** ou **EXECUÇÃO EM LOTES**
 
-1. Escolha **SERVIÇOS WEB**.
-2. Escolha um serviço Web.
-3. Escolha a **página de Ajuda da API** - **SOLICITAÇÃO/RESPOSTA** ou **EXECUÇÃO EM LOTES**.
+**Para exibir a Ajuda da API do Aprendizado de Máquina para um novo serviço Web** No Portal dos Serviços Web de Aprendizado de Máquina do Azure:
 
+1. Clique em **SERVIÇOS WEB** no menu superior.
+2. Clique no serviço Web para o qual deseja recuperar a chave.
 
-**Página de ajuda da API de Aprendizado de Máquina** A página de ajuda da API de Aprendizado de Máquina contém detalhes sobre um serviço Web de previsão.
+Clique em **Consumir** para obter os URIs dos serviços de Solicitação-Resposta e Execução em Lotes, bem como o código de exemplo em C#, R e Python.
 
-
+Clique em **API do Swagger** para obter a documentação baseada no Swagger para as APIs chamadas dos URIs fornecidos.
 
 ### Exemplo de C# ###
 
@@ -87,7 +106,7 @@ Para se conectar a um serviço Web de Aprendizado de Máquina, o pacote Nuget **
 **Para executar o exemplo de código**
 
 1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Get an Azure Machine Learning authorization key** (Obter uma chave de autorização de Aprendizado de Máquina do Azure) acima.
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Aprendizado de Máquina do Azure**.
 3. Atribua serviceUri com o URI de solicitação.
 
 
@@ -98,8 +117,8 @@ Para se conectar a um serviço Web de Aprendizado de Máquina, use a biblioteca 
 
 **Para executar o exemplo de código**
 
-1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Get an Azure Machine Learning authorization key** (Obter uma chave de autorização de Aprendizado de Máquina do Azure) acima.
-3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
+1. Implante o experimento "Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2", parte da coleção de exemplos de Aprendizado de Máquina.
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Aprendizado de Máquina do Azure**.
+3. Atribua serviceUri com o URI de solicitação.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

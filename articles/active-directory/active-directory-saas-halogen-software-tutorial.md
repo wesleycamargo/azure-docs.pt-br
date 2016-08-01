@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo desse tutorial é mostrar como integrar o Halogen Software ao Azure A
 
 A integração do Halogen Software ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar, no Azure AD, quem tem acesso ao Halogen Software 
+- Você pode controlar, no Azure AD, quem tem acesso ao Halogen Software
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Halogen Software (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
@@ -43,7 +43,7 @@ Para configurar a integração do Azure AD com o Halogen Software, você precisa
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
@@ -51,7 +51,7 @@ O objetivo deste tutorial é permitir que você teste o logon único do Azure AD
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o Halogen Software por meio da galeria 
+1. Adicionar o Halogen Software por meio da galeria
 2. Configurar e testar o logon único do Azure AD
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do Halogen Software com o Azure AD, você precisa
 
 **Para adicionar o Halogen Software por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -321,4 +321,4 @@ Quando clica no bloco Halogen Software no Painel de Acesso, você deve fazer log
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

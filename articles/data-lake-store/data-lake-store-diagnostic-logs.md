@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Acessando os logs de diagnóstico do Azure Data Lake Store
@@ -50,7 +50,14 @@ Depois de habilitar as configurações de diagnóstico, você poderá observar o
 
 ## Veja os logs de diagnóstico em sua conta do Data Lake Store
 
-1. Da folha **Configurações** da sua conta do Data Lake Store, clique em **Logs de Diagnóstico**.
+Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
+
+* Na exibição de configurações da conta do Data Lake Store
+* Na conta de Armazenamento do Azure onde os dados são armazenados
+
+### Usando a exibição de configurações do Data Lake Store
+
+1. Na folha **Configurações** da sua conta do Data Lake Store, clique em **Logs de Diagnóstico**.
 
 	![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Exibir os logs de diagnóstico")
 
@@ -58,7 +65,24 @@ Depois de habilitar as configurações de diagnóstico, você poderá observar o
 	* Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Store.
 	* Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Store. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
 
-3. Clique no link **Baixar** em cada entrada de log para baixar os logs.
+3. Clique no link **Download** em cada entrada de log para baixar os logs.
+
+### Na conta de Armazenamento do Azure que contém dados de log
+
+1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Store para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
+
+	![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir os logs de diagnóstico")
+
+	* O contêiner **insights-logs-audit** contém os logs de auditoria.
+	* O contêiner **insights-logs-requests** contém os logs de solicitação.
+
+2. Dentro desses contêineres, os logs são armazenados na estrutura a seguir.
+
+	![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Exibir os logs de diagnóstico")
+
+	Por exemplo, o caminho completo para um log de auditoria poderia ser `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	De modo semelhante, o caminho completo para um log de solicitação poderia ser `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Compreenda a estrutura dos dados de log
 
@@ -66,7 +90,7 @@ Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, exam
 
 ### Logs de solicitação
 
-Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto-raiz chamado **registros**, que contém uma matriz de objetos do log.
+Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto raiz chamado **records** que contém uma matriz de objetos do log.
 
 	{
 	"records": 
@@ -157,9 +181,15 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 |------------|--------|------------------------------------------|
 | StreamName | Cadeia de caracteres | O caminho em que a operação foi executada |
 
+
+## Exemplos para processar os dados do log
+
+O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+
+
 ## Consulte também
 
 - [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

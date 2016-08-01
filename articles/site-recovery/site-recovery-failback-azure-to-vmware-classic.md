@@ -3,8 +3,8 @@
    description="Saiba mais sobre como realizar o failback no site local após o failover de VMs do VMware e de servidores físicos no Azure." 
    services="site-recovery" 
    documentationCenter="" 
-   authors="rayne-wiselman" 
-   manager="jwhit" 
+   authors="ruturaj" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.workload="required" 
    ms.date="01/11/2015"
-   ms.author="raynew"/>
+   ms.author="ruturajd"/>
 
 # Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 
@@ -77,7 +77,7 @@ Se você realizou o failover de uma VM do VMware, poderá realizar o failback pa
 - Você precisará de um ambiente VMware para realizar failbacks de VMs do VMware e servidores físicos. Não há suporte para a realização de failback para um servidor físico.
 - Para realizar o failback você deve ter criado uma rede do Azure durante a configuração inicial da proteção. O failback precisa de uma conexão VPN ou de Rota Expressa da rede do Azure onde estão as VMs do Azure para o site local.
 - Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das VMs nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-- Se houver instantâneos em uma VM, a nova proteção falhará. Você pode excluir os instantâneos ou os discos. 
+- Se houver instantâneos em uma VM, a nova proteção falhará. Você pode excluir os instantâneos ou os discos.
 - Antes de realizar failback, será necessário criar diversos componentes:
 	- **Crie um servidor de processos no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
 	- **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento criado no local tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
@@ -120,8 +120,8 @@ Para configurar o servidor de gerenciamento executando o servidor de destino mes
 
 #### Instalar o CentOS 6.6
 
-1.	Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia, escolha Português (Brasil) como idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes e clique em **Sim**, descartando quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor. Na caixa de diálogo **Sistema de Edição**, escolha **Conectar automaticamente** e adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário e uma senha raiz para acessar o servidor de gerenciamento. 
-2.	Quando receber uma solicitação pelo tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **Tipo FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
+1.	Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia, escolha Português (Brasil) como idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes e clique em **Sim**, descartando quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor. Na caixa de diálogo **Sistema de Edição**, escolha **Conectar automaticamente** e adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário e uma senha raiz para acessar o servidor de gerenciamento.
+2.	Quando receber uma solicitação do tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **Tipo FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
 3.	Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso será exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alteração no disco** para aplicar as alterações à partição.
 4.	Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
 5.	Após a conclusão da instalação, clique em **Reiniciar**.
@@ -131,7 +131,7 @@ Para configurar o servidor de gerenciamento executando o servidor de destino mes
 
 1. Após a instalação, recupere as IDs de SCSI de cada disco SCSI na VM. Para fazer isso, desligue a VM do servidor de gerenciamento; nas propriedades da VM no VMware, clique com o botão direito do mouse na entrada da VM > **Editar Configurações** > **Opções**.
 2. Escolha **Avançado** > **Item geral** e clique em **Parâmetros de Configuração**. Essa opção será desativada quando a máquina estiver em execução. Para torná-la ativa, a máquina deve ser desligada.
-3. Se a linha **disk.EnableUUID** existir, defina seu valor como **True** (diferencia maiúsculas de minúsculas). Se já estiver definida como True, cancele e teste o comando SCSI dentro do sistema operacional convidado após a inicialização. 
+3. Se a linha **disk.EnableUUID** existir, defina seu valor como **True** (diferencia maiúsculas de minúsculas). Se já estiver definida como True, cancele e teste o comando SCSI dentro do sistema operacional convidado após a inicialização.
 4.	Se a linha não existir, clique em **Adicionar Linha** e adicione-a com o valor **True**. Não use aspas duplas.
 
 #### Instalar pacotes adicionais
@@ -143,18 +143,18 @@ Será necessário baixar e instalar alguns pacotes adicionais.
 3.	Se as máquinas de origem que você está protegendo estiverem executando o sistema de arquivos Linux wit Reiser ou XFS no dispositivo de inicialização ou raiz, baixe e instale outros pacotes da seguinte maneira:
 
 	- # cd /usr/local
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
-	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-	- # wget [http://mirror.centos.org/centos/6.6/os/x86\_64/Packages/xfsprogs-3.1.1-16.el6.x86\_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
+	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
 	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações personalizadas
 
 Faça o seguinte para aplicar as alterações personalizadas após a conclusão das etapas pós-instalação e após a instalação dos pacotes:
 
-1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar –zxvf <file name>**
-2.	Execute este comando para dar permissões: **# chmod 755 ./ApplyCustomChanges.sh**
+1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar -zxvf <nome do arquivo>**
+2.	Execute esse comando para conceder permissões: **# chmod 755 ./ApplyCustomChanges.sh**
 3.	Execute o script: **# ./ApplyCustomChanges.sh**. Você só deve executar o script uma vez. Reinicie o servidor após a execução bem-sucedida do script.
 
 
@@ -162,7 +162,7 @@ Faça o seguinte para aplicar as alterações personalizadas após a conclusão 
 
 ### Proteja novamente as VMs do Azure
 
-1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failover e clique em **Proteger novamente**.
+1.	No Portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failover e clique em **Proteger novamente**.
 2.	Em **Servidor de Destino Mestre** e **Servidor de Processo**, escolha o servidor de destino mestre local e o servidor de processo da VM do Azure.
 3.	Escolha a conta configurada por você para se conectar à VM.
 4.	Escolha a versão de failback do grupo de proteção. Por exemplo, se a VM for protegida no PG1, será necessário selecionar PG1\_Failback.
@@ -186,7 +186,7 @@ Após a nova proteção, a VM é transferida para a versão de failback de seu g
 
 Após a conclusão do failback, seus dados voltarão ao site local, mas não estarão protegidos. Para iniciar a replicação no Azure novamente, faça o seguinte:
 
-1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failback e clique em **Proteger novamente**. 
+1.	No portal da Recuperação de Site > guia **Máquinas**, escolha a VM que passou por failback e clique em **Proteger novamente**.
 2.	Depois de verificar se a replicação para o Azure está funcionando conforme o esperado, você pode excluir, no Azure, as VMs do Azure (que não estão em execução no momento) que passaram por failback.
 
 
@@ -204,4 +204,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016--->

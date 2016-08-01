@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="glenga"/>
 
 # Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
@@ -97,7 +97,7 @@ Para habilitar recursos individuais, você deve chamar os métodos de extensão 
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Observe que `MapApiControllers` mapeia apenas controladores com o atributo `[MobileAppController]`.
+Observe que `MapApiControllers` mapeia apenas controladores com o atributo `[MobileAppController]`. Para mapear outros controladores, use o método [MapHttpAttributeRoutes].
 
 Muitos dos métodos de extensão de recurso estão disponíveis por meio de pacotes NuGet adicionais que você pode incluir, que são descritos na seção a seguir.
 
@@ -134,7 +134,7 @@ Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos m�
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Cria um controlador que fornece dados para os navegadores da Web herdados do seu Aplicativo Móvel. Adicione à configuração chamando o método de extensão **MapLegacyCrossDomainController**.
 
-- [Microsoft.Azure.Mobile.Server.Login] dá suporte de visualização para a autenticação personalizada por meio do método AppServiceLoginHandler.CreateToken(). Esse é um método estático e não precisa ser habilitado na configuração.
+- [Microsoft.Azure.Mobile.Server.Login] dá suporte à autenticação personalizada por meio do método AppServiceLoginHandler.CreateToken(). Esse é um método estático e não precisa ser habilitado na configuração.
 
 ## <a name="publish-server-project"></a>Como publicar o projeto do servidor
 
@@ -160,7 +160,7 @@ Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Vi
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-##<a name="define-table-controller"></a> Como: definir um controlador de tabela
+##<a name="define-table-controller"></a> Como definir um controlador de tabela
 
 Um controlador de tabela fornece acesso aos dados de entidade em um armazenamento de dados com base em tabela, como o armazenamento de Banco de dados SQL ou da tabela do Azure. Controladores de tabela herdam da classe genérica **TableController**, em que o tipo genérico é uma entidade no modelo que representa o esquema da tabela, da seguinte maneira:
 
@@ -190,7 +190,7 @@ Certifique-se de que PageSize seja igual ou maior do que o tamanho que será sol
 
 ## Como definir um controlador da API personalizada
 
-O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. Você pode registrar um controlador da API específico do dispositivo móvel usando o atributo [MobileAppController]. Esse atributo registra a rota e também configura o serializador JSON dos Aplicativos Móveis.
+O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. Você pode registrar um controlador da API específico do dispositivo móvel usando o atributo [MobileAppController]. Esse atributo registra a rota, configura o serializador JSON dos Aplicativos Móveis e ativa a o [verificação de versão de cliente](app-service-mobile-client-and-server-versioning.md).
 
 1. No Visual Studio, clique com o botão direito do mouse na pasta Controladores, clique em **Adicionar** > **Controlador**, selecione **Controlador da API Web 2 &mdash; Vazio** e clique em **Adicionar**.
 
@@ -250,6 +250,8 @@ Você pode optar por fornecer seu próprio sistema de logon, caso não queria us
 Será necessário fornecer sua própria lógica para determinar se um usuário deve estar conectado. Por exemplo, você pode comparar com senhas com sal e hash aplicados em um banco de dados. No exemplo abaixo, o método `isValidAssertion()` é responsável por essas verificações e é definido em outro lugar.
 
 A autenticação personalizada é exposta criando um novo ApiController e expondo ações de registro e logon, como a mostrada abaixo. O cliente pode tentar fazer logon coletando as informações relevantes do usuário e enviando um POST HTTPS para a API com as informações do usuário no corpo. Depois que o servidor valida a asserção, um token pode ser emitido usando o método `AppServiceLoginHandler.CreateToken()`.
+
+Observe que essa ApiController **não deve** usar o atributo `[MobileAppController]`, pois causará falha nas solicitações de logon do cliente. O atributo `[MobileAppController]` requer o cabeçalho de solicitação [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) e esse cabeçalho **não** é enviado pelo SDK do cliente para rotas de logon.
 
 Um exemplo de ação de logon poderia ser:
 
@@ -477,5 +479,6 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

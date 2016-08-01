@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -354,7 +354,7 @@ Quando você executar esse comando, substitua *contosokey* pelo mesmo valor espe
 
 Você será solicitado a conectar seus cartões de admin do Universo de segurança.
 
-Quando o comando for concluído, você verá **Resultado: SUCCESS** e a cópia da sua chave com permissões reduzidas estará no arquivo chamado key\_xferacId\_<contosokey>.
+Quando o comando for concluído, você verá **Result: SUCCESS** e a cópia da sua chave com permissões reduzidas estará no arquivo chamado key\_xferacId\_<contosokey>.
 
 ###Etapa 4.2: Inspecione a nova cópia da chave
 
@@ -431,4 +431,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

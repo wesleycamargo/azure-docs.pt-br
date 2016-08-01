@@ -64,11 +64,11 @@ Primeiro, você exportará o *sample.log* e a *hivesampletable* para o banco de 
 
 Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL para executar o tutorial usando o Portal do Azure e um modelo de ARM. Se você preferir usar o Azure PowerShell, confira o [Apêndice A](#appendix-a---a-powershell-sample).
 
-1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.         
+1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    O modelo do ARM está localizado em um contêiner de blobs público, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    O modelo do ARM está localizado em um contêiner de blobs público, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     O modelo de ARM chama um pacote bacpac para implantar os esquemas de tabela no banco de dados SQL. O pacote bacpac também está localizado em um contêiner de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
     
@@ -84,7 +84,7 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
 
     Os seguintes valores estão codificados na seção de variáveis:
     
-    |Nome da conta de armazenamento padrão|<CluterName>repositório|
+    |Nome da conta de armazenamento padrão|<NomeDoCluster>store|
     |----------------------------|-----------------|
     |Nome do servidor de banco de dados SQL do Azure.|<ClusterName>dbserver|
     |Nome do banco de dados SQL do Azure|<ClusterName>db|
@@ -93,7 +93,7 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
     
 3\. Clique em **OK** para salvar os parâmetros.
 
-4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e clique em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
+4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e depois em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
 
 5\. Clique em **Termos legais** e em **Criar**.
 
@@ -101,7 +101,7 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
 
 Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft SQL Server
 
-- **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. 
+- **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started].
 
     > [AZURE.NOTE] Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
@@ -117,7 +117,7 @@ Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft S
 
         * Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
 
-    * Para criar um cluster do HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
+    * Para criar um cluster HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
 
     > [AZURE.NOTE] O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
 
@@ -131,6 +131,12 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 | [SSH](hdinsight-use-sqoop-mac-linux.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [SDK .NET para Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) | &nbsp; | ✔ | Linux ou Windows | Windows (por enquanto) |
 | [PowerShell do Azure](hdinsight-hadoop-use-sqoop-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
+
+##Limitações
+
+* Exportação em massa — com HDInsight baseado em Linux, o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure, atualmente, não permite inserções em massa.
+
+* Envio em lote — com HDInsight baseado em Linux, ao usar o comutador `-batch` na execução de inserções, Sqoop executará várias inserções em vez de operações de inserção em lotes.
 
 ##Próximas etapas
 
@@ -149,7 +155,7 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 1. Conecte-se ao Azure.
 2. Crie um grupo de recursos do Azure. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
-3. Crie um servidor de Banco de Dados SQL do Azure, um banco de dados SQL do Azure e duas tabelas. 
+3. Crie um servidor de Banco de Dados SQL do Azure, um banco de dados SQL do Azure e duas tabelas.
 
 	Se, em vez disso, você usar o SQL Server, use as seguintes instruções para criar as tabelas:
 	
@@ -199,7 +205,7 @@ O exemplo do PowerShell executa as seguintes etapas:
 	> [AZURE.NOTE] Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
 	>
 	> * **Configuração ponto a site da rede virtual do Azure**: uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-	> * **Azure HDInsight 3.1**: confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
+	> * **Azure HDInsight 3.1**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
 	> * **SQL Server 2014**: configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual
 
 7. Exporte uma tabela do Hive para o banco de dados SQL do Azure.
@@ -623,4 +629,4 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

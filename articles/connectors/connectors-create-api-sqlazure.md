@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Adicionar o conector do SQL Azure os seus Aplicativos Lógicos | Microsoft Azure"
-    description="Visão geral do Conector do SQL Azure com os parâmetros da API REST"
+    pageTitle="Adicionar o conector do Banco de Dados SQL em Aplicativos Lógicos | Microsoft Azure"
+    description="Visão geral do conector do Banco de Dados SQL do Azure com parâmetros da API REST"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -14,216 +14,239 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/19/2016"
+   ms.date="07/18/2016"
    ms.author="mandia"/>
 
 
-# Introdução ao conector do SQL Azure
-Conecte-se ao Banco de Dados SQL do Azure para gerenciar suas tabelas e linhas, como ao inserir linhas, obter tabelas e muito mais.
+# Introdução ao conector do Banco de Dados SQL
+Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas. Veja também:
 
-O Conector do Banco de Dados SQL do Azure pode ser usado em:
+- Compile o fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
+- Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação).
 
-- Aplicativos lógicos (discutidos neste tópico)
-- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
+Este tópico mostra como usar o conector do Banco de Dados SQL em um aplicativo lógico e também lista as ações.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão de disponibilidade geral de Aplicativos Lógicos.
 
-Com o Banco de Dados SQL do Azure, você pode:
+Para saber mais sobre Aplicativos Lógicos, confira [criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-- Compile seu fluxo de negócios baseado nos dados obtidos do Banco de Dados SQL do Azure. 
-- Use as ações para obter uma linha, insira uma linha e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter uma linha de dados do Banco de Dados SQL do Azure e, em seguida, adicionar esses dados ao Excel. 
+>[AZURE.INCLUDE [Para começar, você precisa do seguinte:](../../includes/connectors-create-api-sqlazure.md)]
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Conectar-se ao Banco de Dados SQL do Azure
 
+Para que o aplicativo lógico possa acessar qualquer serviço, primeiramente, você cria uma *conexão* com o serviço. Uma conexão estabelece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Banco de Dados SQL, você cria uma *conexão* do Banco de Dados SQL. Para criar uma conexão, insira as credenciais que normalmente usa para acessar o serviço ao qual você está se conectando. Desse modo, no Banco de Dados SQL, insira suas credenciais do Banco de Dados SQL para criar a conexão.
 
-## Gatilhos e ações
-O SQL inclui as seguintes ações. Não há nenhum gatilho.
+Ao adicionar esse conector aos aplicativos lógicos, você cria a conexão com o Banco de Dados SQL. Na primeira vez que você adiciona esse conector, as informações de conexão são solicitadas:
 
-Gatilhos | Ações
---- | ---
-Nenhum | <ul><li>Obter linha</li><li>Obter linhas</li><li>Inserir linha</li><li>Excluir linha</li><li>Obter tabelas</li><li>Atualizar linha</li></ul>
+![](./media/connectors-create-api-sqlazure/connection-details.png)
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
+#### Criar a conexão
 
-## Criar a conexão com o SQL
+1. Insira os detalhes do Banco de Dados SQL. As propriedades com um asterisco são obrigatórias.
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o SQL](../../includes/connectors-create-api-sqlazure.md)]
-
-
-Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
-
->[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
-
-## Referência da API REST do Swagger
-Aplica-se à versão: 1.0.
-
-### Obter linha 
-Recupera uma única linha de uma tabela SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Nome da tabela SQL|
-|ID|string|sim|path|nenhum|O identificador exclusivo da linha a ser recuperado|
-
-#### Resposta
-|Nome|Descrição|
+	| Propriedade | Detalhes |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+| Conectar-se Usando Gateway | Deixe desmarcada. Essa propriedade é usada na conexão com um SQL Server local. |
+| Nome da Conexão * | Digite um nome para a conexão. | 
+| Nome do SQL Server * | Insira o nome do servidor; que é algo como *servername.database.windows.net*. O nome do servidor é exibido nas propriedades do Banco de Dados SQL no portal do Azure e também na cadeia de conexão. | 
+| Nome do Banco de Dados SQL * | Insira o nome que você deu a seu Banco de Dados SQL. Ele está listado nas propriedades do Banco de Dados SQL na cadeia de conexão: Initial Catalog=*nomedoseubancodedadossql*. | 
+| Nome de Usuário * | Insira o nome de usuário que você criou quando o Banco de Dados SQL foi criado. Ele está listado nas propriedades do Banco de Dados SQL no portal do Azure. | 
+| Senha * | Insira a senha que você criou quando o Banco de Dados SQL foi criado. | 
+
+	Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar dados do SQL. Uma vez concluída, os detalhes da conexão se parecerão com estes:
+
+	![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png)
+
+2. Selecione **Criar**.
+
+## Usar um gatilho
+
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, incluindo um gatilho Recorrência, um gatilho HTTP Webhook, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
+
+## Usar uma ação
+	
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico.
+
+1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **Adicionar uma condição** ou uma das opções **Mais**.
+
+	![](./media/connectors-create-api-sqlazure/add-action.png)
+
+2. Escolha **Adicionar uma ação**.
+
+3. Na caixa de texto, digite "sql" para obter uma lista de todas as ações disponíveis.
+
+	![](./media/connectors-create-api-sqlazure/sql-1.png)
+
+4. Em nosso exemplo, escolha **SQL Server - Obter linha**. Se uma conexão já existir, escolha o **Nome da tabela** na lista suspensa e insira a **ID da Linha** que deseja retornar.
+
+	![](./media/connectors-create-api-sqlazure/sample-table.png)
+
+	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve essas propriedades.
+
+	> [AZURE.NOTE] Nesse exemplo, retornamos uma linha de uma tabela. Para ver os dados nessa linha, adicione outra ação que cria um arquivo usando os campos da tabela. Por exemplo, adicione uma ação do OneDrive que usa os campos FirstName e LastName para criar um novo arquivo na conta de armazenamento de nuvem.
+
+5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
 
-### Obter linhas 
-Recupera linhas de uma tabela SQL. ```GET: /datasets/default/tables/{table}/items```
+## Detalhes técnicos
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Nome da tabela SQL|
-|$skip|inteiro|não|query|nenhum|Número de entradas a serem ignoradas (padrão = 0)|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas a serem recuperadas (padrão = 256)|
-|$filter|string|não|query|nenhum|Uma consulta de filtro ODATA para restringir o número de entradas|
-|$orderby|string|não|query|nenhum|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+## Ações
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do Banco de Dados SQL inclui as ações a seguir.
 
-#### Resposta
-|Nome|Descrição|
+|Ação|Descrição|
+|--- | ---|
+|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Executa um procedimento armazenado no SQL|
+|[GetRow](connectors-create-api-sqlazure.md#get-row)|Recupera uma única linha de uma tabela SQL|
+|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Recupera linhas de uma tabela SQL|
+|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Insere uma nova linha em uma tabela SQL|
+|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Exclui uma linha de uma tabela SQL|
+|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Recupera as tabelas de um banco de dados SQL|
+|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Atualiza uma linha existente em uma tabela SQL|
+
+### Detalhes da ação
+
+Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
+
+
+#### Executar procedimento armazenado
+Executa um procedimento armazenado no SQL.
+
+| Nome da Propriedade| Nome de exibição |Descrição|
+| ---|---|---|
+|procedure * | Nome do procedimento | O nome do procedimento armazenado que você deseja executar |
+|parameters * | Parâmetros de entrada | Os parâmetros são dinâmicos e se baseiam no procedimento armazenado escolhido. <br/><br/> Por exemplo, se você estiver usando o banco de dados de exemplo Adventure Works, escolha o procedimento armazenado *ufnGetCustomerInformation*. O parâmetro de entrada **ID do Cliente** é exibido. Insira "6" ou uma das outas IDs de cliente. |
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída
+ProcedureResult: carrega o resultado da execução do procedimento armazenado
+
+| Nome da Propriedade | Tipo de Dados | Descrição |
+|---|---|---|
+|OutputParameters|objeto|Valores do parâmetro de saída |
+|ReturnCode|inteiro|Código de retorno de um procedimento |
+|ResultSets|objeto| Conjuntos de resultados|
+
+
+#### Obter linha 
+Recupera uma única linha de uma tabela SQL.
+
+| Nome da Propriedade| Nome de exibição |Descrição|
+| ---|---|---|
+|table * | Nome da tabela |Nome da tabela SQL|
+|id * | Id da linha |O identificador exclusivo da linha a ser recuperado|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída
+Item
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|ItemInternalId|string|
 
 
-### Inserir linha 
-Insere uma nova linha em uma tabela SQL. ```POST: /datasets/default/tables/{table}/items```
+#### Obter linhas 
+Recupera linhas de uma tabela SQL.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Nome da tabela SQL|
-|item|ItemInternalId: cadeia de caracteres|sim|corpo|nenhum|Linha para inserir na tabela especificada no SQL|
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Nome da tabela|Nome da tabela SQL|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir o número de entradas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
 
-#### Resposta
-|Nome|Descrição|
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída
+ItemsList
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|value|array|
 
 
-### Excluir linha 
-Exclui uma linha de uma tabela SQL. ```DELETE: /datasets/default/tables/{table}/items/{id}```
+#### Inserir linha 
+Insere uma nova linha em uma tabela SQL.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Nome da tabela SQL|
-|ID|string|sim|path|nenhum|Identificador exclusivo da linha a ser excluída|
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Nome da tabela|Nome da tabela SQL|
+|item*|Linha|Linha para inserir na tabela especificada no SQL|
 
-#### Resposta
-|Nome|Descrição|
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída
+Item
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|ItemInternalId|string|
 
 
-### Obter tabelas 
-Recupera as tabelas de um banco de dados SQL. ```GET: /datasets/default/tables```
+#### Excluir linha 
+Exclui uma linha de uma tabela SQL.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Nome da tabela|Nome da tabela SQL|
+|id*|Id da linha|Identificador exclusivo da linha a ser excluída|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída
+Nenhum.
+
+#### Obter tabelas 
+Recupera tabelas de um banco de dados SQL.
 
 Não existem parâmetros para esta chamada.
 
-#### Resposta
+##### Detalhes da saída 
+TablesList
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+#### Atualizar linha 
+Atualiza uma linha existente em uma tabela SQL.
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Nome da tabela|Nome da tabela SQL|
+|id*|Id da linha|Identificador exclusivo da linha a ser atualizada|
+|item*|Linha|Linhas com valores atualizados|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da saída  
+Item
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ItemInternalId|string|
+
+
+### Respostas HTTP
+
+Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:
+
 |Nome|Descrição|
 |---|---|
 |200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
 |padrão|Falha na Operação.|
-
-
-### Atualizar linha 
-Atualiza uma linha existente em uma tabela SQL. ```PATCH: /datasets/default/tables/{table}/items/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Nome da tabela SQL|
-|ID|string|sim|path|nenhum|Identificador exclusivo da linha a ser atualizada|
-|item|ItemInternalId: cadeia de caracteres|sim|corpo|nenhum|Linhas com valores atualizados|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-## Definições de objeto
-
-#### DataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados | Obrigatório |
-|---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
-
-#### TabularDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados | Obrigatório |
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
-
-#### BlobDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-
-#### TableMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|name|string|não|
-|título|string|não|
-|x-ms-permission|string|não|
-|schema|não definido|não|
-
-#### DataSetsList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|value|array|não|
-
-#### DataSet
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
-
-#### Tabela
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
-
-#### Item
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|ItemInternalId|string|não|
-
-#### ItemsList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|value|array|não|
-
-#### TablesList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório |
-|---|---|---|
-|value|array|não|
 
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis em Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

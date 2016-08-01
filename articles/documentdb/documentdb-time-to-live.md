@@ -21,7 +21,7 @@
 
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
 
-Com a “vida útil” ou TTL, o Banco de Dados de Documentos do Microsoft Azure fornece a capacidade de limpar documentos automaticamente do sistema após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Banco de Dados de Documentos removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
+Com a "vida útil" ou TTL, o Banco de Dados de Documentos do Microsoft Azure fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Banco de Dados de Documentos removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
 
 A vida útil no Banco de Dados de Documentos usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ele usa o campo \_ts, encontrado em todos os documentos. O campo \_ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo \_ts é atualizado sempre que um documento é modificado.
 
@@ -36,7 +36,7 @@ O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de 
   
   * Se estiverem presentes e o valor for um número (“n”), os documentos expirarão em “n” segundos após a última modificação
 
- 2.  TTL dos documentos: 
+ 2.  TTL dos documentos:
   * A propriedade será aplicável somente se houver uma DefaultTTL para a coleção pai.
   
   * Substitui o valor de DefaultTTL da coleção pai.
@@ -157,4 +157,4 @@ Sim. A coleção deve ter uma [política de indexação definida](documentdb-ind
 
 Para saber mais sobre o Banco de Dados de Documentos do Azure, consulte a página de [*documentação*](https://azure.microsoft.com/documentation/services/documentdb/) do serviço.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

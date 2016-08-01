@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Restaurar um Azure SQL Data Warehouse (PowerShell)
@@ -28,9 +28,7 @@ Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando
 
 ## Antes de começar
 
-### Verifique a capacidade de DTU do Banco de Dados SQL. 
-
-Cada SQL Data Warehouse é hospedado por um servidor lógico SQL Server. Esse servidor lógico tem um limite de capacidade medido em DTUs. Antes de restaurar um SQL Data Warehouse, é importante verificar se o servidor lógico SQL Server que hospeda seu banco de dados tem capacidade DTU suficiente para o banco de dados que está sendo restaurado. Confira esta postagem no blog para saber mais sobre [como exibir e aumentar a cota de DTU][].
+**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][].
 
 ### Instalar o PowerShell
 
@@ -157,6 +155,7 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 
 <!--Article references-->
 [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: sql-database-business-continuity.md
+[Solicitar uma alteração de cota de DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [Como instalar e configurar o Azure PowerShell]: powershell-install-configure.md
 [Visão geral]: ./sql-data-warehouse-restore-database-overview.md
@@ -168,11 +167,8 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
-<!--Blog references-->
-[como exibir e aumentar a cota de DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
-
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

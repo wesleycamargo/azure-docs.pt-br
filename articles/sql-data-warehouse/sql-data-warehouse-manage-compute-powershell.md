@@ -47,7 +47,7 @@ Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação]
 
 Introdução:
 
-1. Abra o PowerShell do Azure. 
+1. Abra o PowerShell do Azure.
 2. No prompt do PowerShell, execute estes comandos para entrar no Azure Resource Manager e selecione sua assinatura.
 
     ```PowerShell
@@ -125,6 +125,7 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
+[Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

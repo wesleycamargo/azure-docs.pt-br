@@ -36,7 +36,7 @@ No portal do Azure, o Azure Site Recovery fornece alguns recursos novos:
 - No portal do Azure, os serviços Backup do Azure e Azure Site Recovery são combinados em um único cofre de Serviços de Recuperação para que você possa configurar e gerenciar a continuidade dos negócios e a recuperação de desastres (BCDR) em um único local. Um painel unificado permite monitorar e gerenciar operações em seus sites locais e de nuvem pública do Azure.
 - Agora, os usuários com assinaturas do Azure provisionadas pelo programa CSP (Provedor de Soluções na Nuvem) podem gerenciar as operações de Recuperação de Site no portal do Azure.
 - A Recuperação de Site no portal do Azure pode replicar máquinas para contas de armazenamento do ARM. No failover, a Recuperação de Site cria VMs baseadas no ARM no Azure.
-- A Recuperação de Site continua a dar suporte à replicação para as contas de armazenamento clássico e fazer failover de VMs usando o modelo clássico. 
+- A Recuperação de Site continua a dar suporte à replicação para as contas de armazenamento clássico e fazer failover de VMs usando o modelo clássico.
 
 
 Depois de ler este artigo, publique quaisquer comentários na parte inferior dos comentários do Disqus. Faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -53,10 +53,10 @@ Este artigo fornece todas as informações de que você precisa para replicar VM
 
 ## Vantagens de negócios
 
-- Fornece failover fora do local (Azure) para cargas de trabalho e aplicativos executados em máquinas virtuais do Hyper-V. 
+- Fornece failover fora do local (Azure) para cargas de trabalho e aplicativos executados em máquinas virtuais do Hyper-V.
 - Réplicas das VMs do Hyper-V usando o Azure Site Recovery sem a necessidade de um servidor do VMM.
 - Fornece um único console dos Serviços de Recuperação para uma instalação simples e para o gerenciamento de replicação, failover e processos de recuperação.
-- Permite a você executar facilmente failovers de sua infraestrutura local para o Azure e failback (restauração) do Azure para site local. 
+- Permite a você executar facilmente failovers de sua infraestrutura local para o Azure e failback (restauração) do Azure para site local.
 - Você pode configurar planos de recuperação com vários computadores para que as cargas de trabalho do aplicativo em camadas façam failover juntas.
 
 ## Arquitetura de cenário
@@ -88,20 +88,20 @@ Veja o que será necessário no local.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **Hyper-V**| Um ou mais servidores locais executando o Windows Server 2012 R2 com a função de Hyper-V e as atualizações mais recentes.<br/><br/>O servidor Hyper-V deve conter uma ou mais máquinas virtuais.<br/><br/>Servidores Hyper-V devem estar conectados à Internet, diretamente ou por meio de um proxy.<br/><br/>Servidores Hyper-V devem ter correções mencionadas no [KB2961977](https://support.microsoft.com/pt-BR/kb/2961977 "KB2961977") instalado.
-**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o provedor do Azure Site Recovery. A instalação do Provedor também instalará o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V executando máquinas virtuais que deseja proteger. Todos os servidores Hyper-V em um cofre de Recuperação de Site devem ter as mesmas versões do Provedor e do agente.<br/><br/>O Provedor precisará se conectar ao Azure Site Recovery pela Internet. O tráfego pode ser enviado diretamente ou por meio de um proxy. Observe que o proxy com base em HTTPS não é suportado. O servidor proxy deve permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir que os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permitir que os intervalos de endereços IP para a região do Azure da sua assinatura, e para o Oeste dos EUA.
+**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o provedor do Azure Site Recovery. A instalação do Provedor também instalará o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V executando máquinas virtuais que deseja proteger. Todos os servidores Hyper-V em um cofre de Recuperação de Site devem ter as mesmas versões do Provedor e do agente.<br/><br/>O Provedor precisará se conectar ao Azure Site Recovery pela Internet. O tráfego pode ser enviado diretamente ou por meio de um proxy. Observe que o proxy com base em HTTPS não é suportado. O servidor proxy deve permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA.
 
 ## Pré-requisitos de computadores protegidos
 
 
 **Pré-requisito** | **Detalhes**
 --- | ---
-**VMs protegidas** | Antes de fazer failover de uma VM, será necessário certificar-se de que o nome que será atribuído à VM do Azure seja compatível com os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Você pode modificar o nome depois de habilitar a replicação para a VM.<br/><br/> A capacidade de disco individual em computadores protegidos não deve ser superior a 1023 GB. Uma VM pode ter até 64 discos (portanto, até 64 TB). <br/><br/> Não há suporte para clusters de convidado de disco de compartilhado.<br/><br/> Se a VM de origem tiver um agrupamento NIC, ele será convertido em uma única NIC após o failover para o Azure.<br/><br/>A proteção de VMs que executam o Linux com um endereço IP estático não tem suporte.
+**VMs protegidas** | Antes de fazer failover de uma VM, será necessário verificar se o nome que será atribuído à VM do Azure é compatível com os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Você pode modificar o nome depois de habilitar a replicação para a VM.<br/><br/> A capacidade de disco individual em computadores protegidos não deve ser superior a 1023 GB. Uma VM pode ter até 64 discos (portanto, até 64 TB).<br/><br/> Não há suporte para clusters de convidado de disco de compartilhado.<br/><br/> Se a VM de origem tiver um agrupamento NIC, ele será convertido em uma única NIC após o failover para o Azure.<br/><br/>Não há suporte para a proteção de VMs que executam o Linux com um endereço IP estático.
 
 ## Preparar para a implantação
 
 Para se preparar para a implantação, você precisará:
 
-1. [Configure uma rede do Azure](#set-up-an-azure-network), na qual as VMs do Azure estarão localizadas quando criadas após o failover. 
+1. [Configure uma rede do Azure](#set-up-an-azure-network) na qual as VMs do Azure estarão localizadas quando criadas após o failover.
 2. [Configure uma conta de armazenamento do Azure](#set-up-an-azure-storage-account) para os dados replicados.
 3. [Prepare os hosts do Hyper-V](#prepare-the-hyper-v-hosts) para garantir que eles possam acessar as URLs necessárias.
 
@@ -110,7 +110,7 @@ Para se preparar para a implantação, você precisará:
 Configure uma rede do Azure. Você precisará dela para que as VMs do Azure criadas após o failover sejam conectadas à rede.
 
 - A rede deve estar na mesma região do que a que será implantada no cofre dos Serviços de Recuperação.
-- Dependendo do modelo de recurso que você deseja usar para VMs do Azure com failover, você configurará a rede do Azure no [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+- Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará a rede do Azure no [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - É recomendável configurar uma rede antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
 
 
@@ -122,7 +122,7 @@ Configure uma rede do Azure. Você precisará dela para que as VMs do Azure cria
 
 ### Preparar os hosts do Hyper-V
 
-- Certifique-se de que os hosts do Hyper-V sejam compatíveis com os [pré-requisitos](#on-premises-prerequisites).
+- Verifique se os hosts do Hyper-V são compatíveis com os [pré-requisitos](#on-premises-prerequisites).
 
 ### Criar um cofre dos Serviços de Recuperação
 
@@ -132,7 +132,7 @@ Configure uma rede do Azure. Você precisará dela para que as VMs do Azure cria
 	![Novo cofre](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
-4. [Crie um novo grupo de recursos](../resource-group-portal.md#create-resource-group) ou selecione um existente e especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Crie um novo grupo de recursos](../resource-group-template-deploy-portal.md) ou selecione um existente e especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. Se você deseja acessar rapidamente o cofre pelo Painel, clique em **Fixar no painel** e clique em **Criar cofre**.
 
 	![Novo cofre](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png)
@@ -154,7 +154,7 @@ Inicie a Introdução ao escolher como deseja implantar a Recuperação de Site.
 Selecione o que você deseja replicar e para onde deseja replicar.
 
 1. Na folha **Cofres dos Serviços de Recuperação**, selecione seu cofre e clique em **Configurações**.
-2. Em **Configurações** > **Introdução**, clique em **Recuperação de Site** > **Etapa 1: Preparar a Infraestrutura** > **Objetivo de proteção**.
+2. Em **Configurações** > **Introdução**, clique em **Recuperação de Site** > **Etapa 1: Preparar a Infraestrutura** > **Meta de proteção**.
 
 	![Escolher metas](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 
@@ -168,7 +168,7 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação do Azure em hosts do Hyper-V e registre os hosts no cofre.
 
 
-1. Clique em **Etapa 2: Preparar a Infraestrutura** > **Origem**. Para adicionar um novo site do Hyper-V como um contêiner para seus hosts ou clusters do Hyper-V, clique em **+ Site Hyper-V**. 
+1. Clique em **Etapa 2: Preparar a Infraestrutura** > **Origem**. Para adicionar um novo site do Hyper-V como um contêiner para seus hosts ou clusters do Hyper-V, clique em **+ Site Hyper-V**.
 
 	![Configurar origem](./media/site-recovery-hyper-v-site-to-azure/set-source1.png)
 
@@ -189,18 +189,18 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 
 1. Execute o de arquivo de instalação do Provedor.
 2. Em **Microsoft Update**, você pode aceitar as atualizações para que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
-3. Em **Instalação**, aceite ou modifique o local de instalação padrão do Provedor e clique em **Instalar**.
+3. Em **Instalação**, aceite ou modifique a localização de instalação padrão do Provedor e clique em **Instalar**.
 3. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
 4. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
 
-	- Se você quiser que o Provedor se conecte diretamente, escolha **Conectar diretamente sem um proxy**.
-	- Se você quiser conectar-se com o proxy que está configurado atualmente no servidor, escolha **Conectar-se com as configurações de proxy existentes**.
-	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, escolha **Conectar com as configurações personalizadas do proxy**.
+	- Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
+	- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
+	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Connect with custom proxy settings (Conectar com as configurações personalizadas do proxy)**.
 	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
-	- Se você estiver usando um proxy, verifique se as URLs descrito no [pré-requisitos](#on-premises-prerequisites) são permitidas através dele.
+	- Se você estiver usando um proxy, verifique se as URLs descritas nos [pré-requisitos](#on-premises-prerequisites) são permitidas através dele.
 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider5.png)
 
@@ -224,9 +224,9 @@ O Provedor e o agente do Azure Site Recovery também podem ser instalados usando
 
 			C:\ASR> setupdr.exe /i
 
-4. Execute estes comandos para registrar o servidor no cofre: CD C:\\Program Files\\Microsoft Azure Site Recovery Provider\\ C:\\Program Files\\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r /Friendlyname <friendly name of the server> /Credenciais <path of the credentials file> Local:
+4. Execute estes comandos para registrar o servidor no cofre: CD C:\\Program Files\\Microsoft Azure Site Recovery Provider\\ C:\\Program Files\\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r /Friendlyname <nome amigável do servidor> /Credenciais <caminho do arquivo de credenciais> em que:
 
-- **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
+- **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado
 - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
 - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
 - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
@@ -314,9 +314,9 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
 #### Influência da largura de banda de rede
 
 1. No Registro, navegue até **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication**.
-	- Para influenciar o tráfego de largura de banda em um disco de replicação, modifique o valor de **UploadThreadsPerVM** ou crie a chave caso ela não exista. 
-	- Para influenciar a largura de banda para o tráfego de failback do Azure, modifique o valor **DownloadThreadsPerVM**. 
-2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor. 
+	- Para influenciar o tráfego de largura de banda em um disco de replicação, modifique o valor de **UploadThreadsPerVM** ou crie a chave caso ela não exista.
+	- Para influenciar a largura de banda para o tráfego de failback do Azure, modifique o valor **DownloadThreadsPerVM**.
+2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor.
 
 ## Etapa 6: Habilitar a replicação
 
@@ -366,7 +366,7 @@ Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Conf
 
 		- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 		- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-		- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
+		- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
 		- Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede.
 
 	![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)
@@ -382,11 +382,11 @@ Para testar a implantação, você pode executar um failover de teste para uma �
 ### Preparar para failover de teste
 
 - Para executar um failover de teste, é recomendável que você crie uma nova rede do Azure que esteja isolada da rede de produção do Azure (esse é o comportamento padrão quando você cria uma nova rede no Azure). [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução de failovers de teste.
-- Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789). 
+- Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 - Para testar totalmente a implantação, você precisará de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 - Se você quiser executar um failover não planejado em vez de um teste de failover, observe o seguinte:
 
-	- Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo. 
+	- Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo.
 	- Quando você executa um failover não planejado, ele interrompe a replicação de dados de computadores primários para que qualquer delta de dados não seja transferido após o início de um failover não planejado. Além disso se você executar um failover não planejado em um plano de recuperação, ele será executado até ser concluído, mesmo se ocorrer um erro.
 	
 ### Preparar para conectar VMs do Azure após o failover
@@ -468,4 +468,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

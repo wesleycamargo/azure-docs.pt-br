@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill" />
 
 # Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
@@ -31,8 +31,8 @@ Envio de chamadas em lote para um serviço remoto é uma estratégia conhecida p
 Neste documento, queremos examinar as vária estratégias e cenários de envio em lote do Banco de Dados SQL. Embora essas estratégias também sejam importantes para aplicativos locais que usam o SQL Server, há vários motivos para destacar o uso do envio em lote para o Banco de Dados SQL:
 
 - Há potencialmente maior latência de rede no acesso ao Banco de Dados SQL, especialmente se você estiver acessando o Banco de Dados SQL fora do mesmo datacenter do Microsoft Azure.
-- As características multilocatário do Banco de Dados SQL significam que a eficiência da camada de acesso a dados correlaciona com a escalabilidade geral do banco de dados. O Banco de Dados SQL deve impedir que qualquer locatário/usuário monopolize os recursos do banco de dados em detrimento de outros locatários. Em resposta ao uso em excesso das cotas predefinidas, o Banco de Dados SQL pode reduzir a produtividade ou responder com exceções de limitação. As eficiências, como o envio em lote, permitem que você execute mais trabalhos no Banco de Dados SQL antes de alcançar esses limites. 
-- O envio em lote também é eficaz para arquiteturas que usam vários bancos de dados (fragmentação). A eficiência da sua interação com cada unidade de banco de dados ainda é um fator fundamental em sua escalabilidade total. 
+- As características multilocatário do Banco de Dados SQL significam que a eficiência da camada de acesso a dados correlaciona com a escalabilidade geral do banco de dados. O Banco de Dados SQL deve impedir que qualquer locatário/usuário monopolize os recursos do banco de dados em detrimento de outros locatários. Em resposta ao uso em excesso das cotas predefinidas, o Banco de Dados SQL pode reduzir a produtividade ou responder com exceções de limitação. As eficiências, como o envio em lote, permitem que você execute mais trabalhos no Banco de Dados SQL antes de alcançar esses limites.
+- O envio em lote também é eficaz para arquiteturas que usam vários bancos de dados (fragmentação). A eficiência da sua interação com cada unidade de banco de dados ainda é um fator fundamental em sua escalabilidade total.
 
 Um dos benefícios de usar o Banco de Dados SQL é que você não precisa gerenciar os servidores que hospedam o banco de dados. No entanto, essa infraestrutura gerenciada também significa que você precisa pensar de forma diferente sobre a otimizações do banco de dados. Você não pode mais procurar melhorar a infraestrutura de hardware ou de rede do banco de dados. O Microsoft Azure controla esses ambientes. A principal área que você pode controlar é como seu aplicativo interage com o Banco de Dados SQL. O envio em lote é uma dessas otimizações.
 
@@ -594,7 +594,7 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 - Para operações de atualização e exclusão, use parâmetros com valor de tabela com a lógica de procedimento armazenado que determina a operação correta em cada linha no parâmetro de tabela.
 - Diretrizes para o tamanho do lote:
 	- Use os maiores tamanhos de lote adequados aos seus requisitos de aplicativo e de negócios.
-	- Equilibre o ganho de desempenho de lotes grandes com os riscos de falhas catastróficas ou temporárias. Qual é a consequência de repetições ou perda de dados no lote? 
+	- Equilibre o ganho de desempenho de lotes grandes com os riscos de falhas catastróficas ou temporárias. Qual é a consequência de repetições ou perda de dados no lote?
 	- Teste o maior lote para verificar se o Banco de Dados SQL não irá rejeitá-lo.
 	- Crie definições de configuração que controlam o envio em lote, como o tamanho do lote ou o período de armazenamento em buffer. Essas configurações fornecem flexibilidade. Você pode alterar o comportamento do lote em produção sem reimplantar o serviço de nuvem.
 - Evite a execução paralela de lotes que operam em uma única tabela em um banco de dados. Se você optar por dividir um único lote entre vários threads de trabalho, execute testes para determinar o número ideal de threads. Após um limite não especificado, uma quantidade maior de threads diminuirá o desempenho em vez de aumentá-lo.
@@ -604,4 +604,4 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 
 Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

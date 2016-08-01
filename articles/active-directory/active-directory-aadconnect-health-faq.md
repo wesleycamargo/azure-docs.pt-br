@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -35,7 +35,7 @@ Você pode alternar entre diferentes diretórios do Azure AD selecionando o Nome
 
 **P: Qual é o impacto da instalação do agente do Azure AD Connect Health sobre servidores individuais?**
 
-O impacto da instalação do agente de integridade de identidade Microsoft nos servidores ADFS é mínimo em relação à CPU, memória consumo de largura de banda e armazenamento.
+O impacto da instalação do agente de integridade de identidade Microsoft nos controladores de domínio ou servidores ADFS é mínimo em relação à CPU, armazenamento e largura de banda de rede de consumo de memória.
 
 Os números a seguir são uma aproximação.
 
@@ -70,6 +70,13 @@ Se precisar configurar um proxy durante o registro do Agente, você precisa modi
 Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não é suportado.
 
 
+**P: quais versões do AD DS são compatíveis com o Azure AD Connect Health para AD DS?**
+
+O monitoramento do AD DS tem suporte enquanto instalado nas seguintes versões de sistema operacional:
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## Perguntas de operações
 
@@ -104,6 +111,7 @@ Quando você remove um agente de um servidor, o servidor não é automaticamente
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md)
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
+* [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

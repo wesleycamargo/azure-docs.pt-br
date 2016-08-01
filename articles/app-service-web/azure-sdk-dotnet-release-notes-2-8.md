@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
  
 # SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
@@ -64,8 +64,8 @@ O SDK 2.8 requer a versão 1.0 dos cmdlets do Azure PowerShell. Todas as outras 
 
 Os seguintes problemas conhecidos serão abordados na versão seguinte.
 
-- O Serviço de Aplicativo relacionado aos gestos do Gerenciador de Servidores e Nuvem para ambientes de não produção (como clientes do Azure China ou Azure Stack) não funciona. Para os clientes nessas áreas afetadas, baixar o perfil de publicação do portal do Azure habilitará a capacidade de publicação. Uma versão futura irá reparar gestos como “Anexar Depurador” e “Exibir Logs de Streaming” para clientes do Azure China e Azure Stack. 
-- Os clientes poderão ver erros durante a criação do Serviço de Aplicativo quando a instância do App Insights à qual eles estão implementando estiver em uma região que não seja o Leste dos EUA. Nesses cenários, criar um Serviço de Aplicativo no portal e baixar o perfil de publicação habilitará cenários de publicação. 
+- O Serviço de Aplicativo relacionado aos gestos do Gerenciador de Servidores e Nuvem para ambientes de não produção (como clientes do Azure China ou Azure Stack) não funciona. Para os clientes nessas áreas afetadas, baixar o perfil de publicação do portal do Azure habilitará a capacidade de publicação. Uma versão futura irá reparar gestos como “Anexar Depurador” e “Exibir Logs de Streaming” para clientes do Azure China e Azure Stack.
+- Os clientes poderão ver erros durante a criação do Serviço de Aplicativo quando a instância do App Insights à qual eles estão implementando estiver em uma região que não seja o Leste dos EUA. Nesses cenários, criar um Serviço de Aplicativo no portal e baixar o perfil de publicação habilitará cenários de publicação.
 
 ###Ferramentas do Azure HDInsight
 
@@ -80,9 +80,9 @@ Para saber mais, confira [SDK 2.8 do Azure para Visual Studio 2013 e Visual Stud
 
 ### Problemas conhecidos do Visual Studio 2013 e do Visual Studio 2015
  
-1. Os WebJobs disparados são publicados em slots aparecerão, causarão falha e não farão o agendamento, mas enviarão o WebJob por push para o Azure. Os clientes que precisarem de um trabalho agendado poderão usar o Portal do Azure para configurar o agendamento do trabalho Web. 
-2. Os clientes do Python podem enfrentar problemas de depuração. A equipe de serviço está criando uma correção para isso, mas se os clientes forem afetados, informe à Microsoft nos fóruns ou nas seções de comentários do blog de comunicado ou das notas de versão. 
-3. Os clientes em determinadas regiões (por exemplo, Sul da Índia) devem passar por erros de provisionamento do Serviço de Aplicativo. Isso é consistente com o portal, e os clientes que tiverem esse problema podem usar o portal do Azure para solicitar acesso a fim de publicar nessas regiões geográficas. Depois que eles solicitarem o acesso a essas regiões usando o portal do Azure, o provisionamento deve funcionar. 
+1. Os WebJobs disparados são publicados em slots aparecerão, causarão falha e não farão o agendamento, mas enviarão o WebJob por push para o Azure. Os clientes que precisarem de um trabalho agendado poderão usar o Portal do Azure para configurar o agendamento do trabalho Web.
+2. Os clientes do Python podem enfrentar problemas de depuração. A equipe de serviço está criando uma correção para isso, mas se os clientes forem afetados, informe à Microsoft nos fóruns ou nas seções de comentários do blog de comunicado ou das notas de versão.
+3. Os clientes em determinadas regiões (por exemplo, Sul da Índia) devem passar por erros de provisionamento do Serviço de Aplicativo. Isso é consistente com o portal, e os clientes que tiverem esse problema podem usar o portal do Azure para solicitar acesso a fim de publicar nessas regiões geográficas. Depois que eles solicitarem o acesso a essas regiões usando o portal do Azure, o provisionamento deve funcionar.
 
 ##SDK do Azure para .NET 2.8.2
 
@@ -103,4 +103,4 @@ Para obter outras atualizações, confira a [postagem de comunicado do SDK do Az
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->
