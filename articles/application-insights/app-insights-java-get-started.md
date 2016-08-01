@@ -412,4 +412,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
