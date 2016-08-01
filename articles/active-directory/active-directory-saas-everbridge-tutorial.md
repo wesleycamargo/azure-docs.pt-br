@@ -226,7 +226,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 ### Criar um usuário de teste Everbridge
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Everbridge. Trabalhe com a equipe de suporte do Everbridge via < mailto:support@everbridge.com> para adicionar os usuários na plataforma Everbridge.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Everbridge. Trabalhe com a equipe de suporte do Everbridge via <mailto:support@everbridge.com> para adicionar os usuários na plataforma Everbridge.
 
 
 ### Atribuição do usuário de teste do AD do Azure
@@ -289,4 +289,4 @@ Quando você clica no bloco Everbridge no Painel de Acesso, você deve ser conec
 [204]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0720_2016--->

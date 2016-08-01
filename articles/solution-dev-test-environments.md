@@ -67,7 +67,7 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **hostingPlanName**: *TestApp1DevPlan*
  - **siteLocation**: *EUA Central*
  - **serverName**: *testapp1devsrv*
- - **serverLocation**: * EUA Central*
+ - **serverLocation**: *EUA Central*
  - **administratorLogin**: *testapp1Admin*
  - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1devdb*

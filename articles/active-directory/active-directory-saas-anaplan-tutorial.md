@@ -223,7 +223,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 ### Criar um usuário de teste Anaplan
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan. Trabalhe com a equipe de suporte da Anaplan via < mailto:support@anaplan.com> para adicionar os usuários na plataforma Anaplan.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan. Trabalhe com a equipe de suporte da Anaplan via <mailto:support@anaplan.com> para adicionar os usuários na plataforma Anaplan.
 
 
 ### Atribuição do usuário de teste do AD do Azure
@@ -286,4 +286,4 @@ Ao clicar no bloco do Anaplan no Painel de Acesso, você deverá ser conectado a
 [204]: ./media/active-directory-saas-anaplan-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-anaplan-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0720_2016--->

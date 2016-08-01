@@ -479,7 +479,9 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 ## API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
-> [AZURE.NOTE] `__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+> [AZURE.NOTE] `__` (double-underscore) é um alias para `getContext().getCollection()`.
+> <br/>
+> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
 As funções permitidas incluem:
 <ul>

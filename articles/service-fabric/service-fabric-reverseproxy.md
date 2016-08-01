@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. No caso de tráfego HTTPS, terminação SSL ocorre no proxy inverso. Solicitações que são encaminhadas pelo proxy inverso para serviços no cluster são por http.
- - ** FQDN de Gateway| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **FQDN de Gateway| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
  - **Porta:** a porta que foi especificada para o proxy inverso. Por exemplo, 19008.
  - **ServiceInstanceName:** esse é o nome da instância de serviço implantado totalmente qualificado do serviço que você está tentando acessar do esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você deve usar *myapp/myservice*.
  - **Caminho de sufixo:** esse é o caminho de URL real para o serviço que você deseja se conectar. Por exemplo, *myapi/values/add/3*

@@ -23,6 +23,8 @@
 
 ## Visão geral
 Dimensionamento automático é o processo de alocar dinamicamente os recursos exigidos por um aplicativo para atender às necessidades de desempenho e atender a SLAs (contratos de nível de serviço), minimizando simultaneamente os custos de tempo de execução. Conforme o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado. Conforme a demanda diminui, os recursos podem ser desalocados para minimizar os custos e, ao mesmo tempo, manter o desempenho adequado e atender aos SLAs. O Dimensionamento Automático aproveita a elasticidade de ambientes hospedados na nuvem ao mesmo tempo em que alivia a sobrecarga de gerenciamento. Ele faz isso reduzindo a necessidade de um operador ter que monitorar o desempenho de um sistema continuamente e tomar decisões sobre como adicionar ou remover recursos.
+<br\>
+
 >[AZURE.NOTE] O dimensionamento automático aplica-se a todos os recursos usados por um aplicativo, não apenas aos recursos de computação. Por exemplo, se o sistema usa filas de mensagens para enviar e receber informações, ele pode criar filas adicionais conforme é dimensionado.
 
 ## Tipos de dimensionamento

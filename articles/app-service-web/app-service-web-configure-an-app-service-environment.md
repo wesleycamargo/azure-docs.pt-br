@@ -137,7 +137,7 @@ Na folha do ASE, há uma seção **Configurações** que contém vários recurso
 
 ![Folha Configurações e propriedades][4]
 
-**Configurações** > **Endereços IP**: ao criar um aplicativo de IP SSL (protocolo SSL) em seu ASE, você precisará de um endereço IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
+**Configurações** > **Endereços IP**: ao criar um aplicativo de IP SSL (protocolo SSL) em seu ASE, você precisará de um endereço IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] \(na seção Conexões SSL). O preço adicional é o preço do IP SSL.
 
 **Configurações** > **Pool de front-ends**/**Pools de Trabalho**: cada uma dessas folhas do pool de recursos só mostra as informações daquele pool de recursos, além de fornecer controles para o dimensionamento completo do pool de recursos.
 

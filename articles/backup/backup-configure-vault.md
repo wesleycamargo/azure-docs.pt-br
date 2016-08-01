@@ -17,7 +17,7 @@
 	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Fazer backup de um cliente ou servidor do Windows Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
+# Fazer backup de um cliente ou servidor do Microsoft Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](backup-configure-vault.md)
