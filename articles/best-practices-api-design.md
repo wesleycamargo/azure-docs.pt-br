@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Diretrizes de design de API
@@ -355,7 +355,7 @@ Accept: application/json
 ...
 ```
 
-O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (_Customer_), o URI do cliente (\__http://adventure-works.com/customers/3_), como obter os detalhes desse cliente (_GET_), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (_text/xml_ e _application/json_). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
+O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (_Customer_), o URI do cliente (\_http://adventure-works.com/customers/3_, como obter os detalhes desse cliente (_GET_), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (_text/xml_ e _application/json_). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -391,7 +391,7 @@ O controle de versão permite que uma API da Web indique os recursos e as funç�
 
 Essa é a abordagem mais simples e pode ser aceitável para algumas APIs internas. Grandes alterações poderiam ser representadas como novos recursos ou novos links. Adicionar conteúdo aos recursos existentes não deve representar uma alteração significativa, já que aplicativos cliente que não esperavam ver esse conteúdo vão simplesmente ignorá-lo.
 
-Por exemplo, uma solicitação para o URI \__http://adventure-works.com/customers/3_ deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
+Por exemplo, uma solicitação para o URI \_http://adventure-works.com/customers/3_ deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -436,7 +436,7 @@ Esse mecanismo de controle de versão é muito simples, mas depende do servidor 
 
 ### Controle de versão de cadeia de consulta
 
-Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como \__http://adventure-works.com/customers/3?version=2_. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
+Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como \_http://adventure-works.com/customers/3?version=2_. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
 
 Essa abordagem tem a vantagem de semântica que o mesmo recurso é sempre recuperado do mesmo URI, mas para isso, é necessário que o código que processa a solicitação analise a cadeia de consulta e envie de volta a resposta HTTP apropriada. Essa abordagem também tem as mesmas complicações para implementar HATEOAS como o mecanismo de controle de versão do URI.
 
@@ -519,4 +519,4 @@ Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versã
 - O [Guia RESTful](http://restcookbook.com/) contém uma introdução à criação de APIs RESTful.
 - A [Lista de Verificação de API](https://mathieu.fenniak.net/the-api-checklist/) da Web contém uma lista útil de itens a serem considerados ao projetar e implementar uma API da Web.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

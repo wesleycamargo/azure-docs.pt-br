@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
 
@@ -43,7 +43,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 -  [Etapa 1: concluir a configuração de interface do usuário da Web local e registrar seu dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [Etapa 2: concluir a configuração obrigatória do dispositivo](#step-2-complete-the-required-device-setup)
 -  [Etapa 3: adicionar um volume](#step-3-add-a-volume)
--  [Etapa 4: montar, inicializar e formatar um volume](#step-4-mount-initialize-and-format-a-volume)  
+-  [Etapa 4: montar, inicializar e formatar um volume](#step-4-mount-initialize-and-format-a-volume)
 
 ## Etapa 1: concluir a configuração de interface do usuário da Web local e registrar seu dispositivo 
 
@@ -87,16 +87,13 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     3. Especifique se deseja que este dispositivo seja ingressado no domínio. Se o dispositivo é um servidor iSCSI, ingressar no domínio é opcional. Se optar por não ingressar o servidor iSCSI em um domínio, clique em **Aplicar**, aguarde até que as configurações sejam aplicadas e vá para a próxima etapa.
 
-        Se você quiser adicionar o dispositivo a um domínio. Insira um **Nome de domínio** (mostrado abaixo).
+        Se você quiser adicionar o dispositivo a um domínio. Insira um **Nome de domínio** e clique em **Aplicar**.
 
-    4. Clique em **Aplicar**.
+        > [AZURE.NOTE] Se estiver ingressando em seu servidor iSCSI em um domínio, certifique-se de que sua matriz virtual esteja em sua própria unidade organizacional (UO) do Microsoft Azure Active Directory e que não haja objetos de política de grupo (GPO) aplicados a ele.
 
     5. Uma caixa de diálogo aparecerá. Insira suas credenciais de domínio no formato especificado. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). As credenciais de domínio serão verificadas. Você verá uma mensagem de erro se as credenciais estiverem incorretas.
 
         ![credenciais](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
-        
-	   	> [AZURE.NOTE] Se estiver ingressando em seu servidor iSCSI em um domínio, certifique-se de que sua matriz virtual esteja em sua própria unidade organizacional (UO) do Microsoft Azure Active Directory e que não haja objetos de política de grupo (GPO) aplicados a ele.
-	   
 
     6. Clique em **Aplicar**. Isso aplicará e validará as configurações do dispositivo.
  
@@ -106,7 +103,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     Na página **Proxy Web**:
 
-    1. Forneça a **URL do proxy Web** neste formato: *http://host-IPendereço* ou *FDQN:Número da porta*. Observe que não há suporte para URLs HTTPS.
+    1. Forneça a **URL do proxy Web** neste formato: *endereço http://host-IP* ou *FDQN:Número da porta*. Observe que não há suporte para URLs HTTPS.
 
     2. Especifique **Autenticação** como **Básica** ou **Nenhuma**.
 
@@ -120,19 +117,19 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     Na página **Configurações de hora**:
 
-    1. Na lista suspensa, selecione o **Fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
+    1. Na lista suspensa, selecione o **Fuso horário** com base na localização geográfica em que o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
 
     2. Especifique um **Servidor NTP primário** para seu dispositivo ou aceite o valor padrão de time.windows.com. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
 
-    3. Opcionalmente, especifique um **Servidor NTP secundário** para seu dispositivo.
+    3. Opcionalmente, especifique um **Servidor NTP secundário** para o dispositivo.
 
     4. Clique em **Aplicar**. Isso validará e aplicará as configurações de hora definidas.
 
 9. Defina as configurações de nuvem para seu dispositivo. Nesta etapa, você concluirá a configuração de dispositivo local e, em seguida, registrará o dispositivo com o serviço StorSimple Manager.
 
-    1. Insira a **Chave de registro do serviço** obtida na **Etapa 2: Obter a chave de registro do serviço** em [Implantar o StorSimple Virtual Array – preparar o portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Insira a **Chave de registro do serviço** obtida na **Etapa 2: Obter a chave de registro do serviço** em [Implantar o StorSimple Virtual Array – Preparar o portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
+    2. Se este não for o primeiro dispositivo que você está registrando nesse serviço, será necessário fornecer a **Chave de criptografia de dados do serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, veja [Obter a chave de criptografia de dados do serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) na interface do usuário da Web local.
 
     3. Clique em **Registrar**. Isso reiniciará o dispositivo. Talvez seja necessário aguardar de 2 a 3 minutos até que o dispositivo seja registrado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
 
@@ -154,11 +151,11 @@ Execute as etapas a seguir no portal clássico do Azure para concluir a configur
 
 #### Para concluir a configuração mínima do dispositivo
 
-1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo apareceria como **Ativo**. Clique na seta ao lado do nome do dispositivo e clique em **Início Rápido**.
+1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo aparecerá como **Ativo**. Clique na seta ao lado do nome do dispositivo e clique em **Início Rápido**.
 
     ![Página Dispositivos](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
-2. Clique em **concluir a instalação do dispositivo** para iniciar o assistente Configurar dispositivo.
+2. Clique em **Concluir a instalação do dispositivo** para iniciar o assistente Configurar dispositivo.
 
     ![Assistente Configurar dispositivo](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
@@ -190,13 +187,13 @@ Execute as etapas a seguir no portal clássico do Azure para criar um volume.
 
     2. Forneça uma descrição para o volume. A descrição ajudará a identificar os proprietários de volume.
 
-    3. Selecione um tipo de uso para o volume. O tipo de uso pode ser **Volume em camadas** ou **Volume fixado localmente.** (**Volume em camadas** é o padrão). Para as cargas de trabalho que exijam garantias locais, latências baixas e um melhor desempenho, selecione **Volume** **fixado localmente**. Para todos os outros dados, selecione **Volume** **em camadas**.
+    3. Selecione um tipo de uso para o volume. O tipo de uso pode ser **Volume em camadas** ou **Volume fixo localmente.** (**Volume em camadas** é o padrão.) Para as cargas de trabalho que exigem garantias locais, latências baixas e um melhor desempenho, selecione **Volume** **fixo localmente**. Para todos os outros dados, selecione **Volume** **em camadas**.
 
         Um volume fixado localmente é provisionado estaticamente e garante que os dados primários no volume permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Se você criar um volume fixado localmente, o dispositivo verificará o espaço disponível nas camadas locais para provisionar um volume do tamanho solicitado. Criar um volume fixado localmente pode exigir a perda de dados existentes do dispositivo para a nuvem e o tempo necessário para criar o volume pode ser longo. O tempo total depende do tamanho do volume provisionado, da largura de banda disponível e dos dados no dispositivo.
 
         Um volume em camadas, por outro lado, é provisionado dinamicamente e pode ser criado bem rapidamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada de local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seria usado na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que, se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas (porque 10% não estarão disponíveis).
 
-    4. Especifique a capacidade provisionada para o seu volume. Observe que a capacidade especificada deve ser menor do que a capacidade disponível. Se você estiver criando um volume em camadas, o tamanho deve ser entre 500 GB e 20 TB. Para um volume fixado localmente, especifique um tamanho de volume entre 50 GB e 2 TB. Use a capacidade disponível como um guia para o provisionamento de um volume. Se a capacidade local disponível é 0 GB, você não terá permissão para provisionar um volume fixado localmente ou em camadas.
+    4. Especifique a capacidade provisionada para o seu volume. Observe que a capacidade especificada deve ser menor do que a capacidade disponível. Se você estiver criando um volume em camadas, o tamanho deverá estar entre 500 GB e 5 TB. Para um volume fixo localmente, especifique um tamanho de volume entre 50 e 500 GB. Use a capacidade disponível como um guia para o provisionamento de um volume. Se a capacidade local disponível é 0 GB, você não terá permissão para provisionar um volume fixado localmente ou em camadas.
 
         ![Configurações básicas](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
@@ -206,7 +203,7 @@ Execute as etapas a seguir no portal clássico do Azure para criar um volume.
 
     1. Dê um **Nome** para o seu ACR.
 
-    2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN (nome qualificado) do host Windows. Se você não tiver o IQN, acesse o [Apêndice A: Obter o IQN de um host do Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. Em **Nome do Iniciador iSCSI**, forneça o iSCSI IQN (nome qualificado) do host Windows. Se você não tiver o IQN, vá para o [Apêndice A: Obter o IQN de um host do Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume**. O backup padrão criará uma política que é executa às 22:30 todos os dias (hora do dispositivo) e cria um instantâneo de nuvem desse volume.
 
@@ -242,7 +239,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 
     ![destinos descobertos](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Selecione um dispositivo de destino e clique em **Conectar**. Após o dispositivo ter sido conectado, o status deverá mudar para **Conectado**. (Para saber mais sobre como usar o iniciador Microsoft iSCSI, veja [Instalação e configuração do Iniciador Microsoft iSCSI][1]).
+5. Selecione um dispositivo de destino e clique em **Conectar**. Após o dispositivo ter sido conectado, o status deverá mudar para **Conectado**. (Para obter mais informações sobre como usar o iniciador Microsoft iSCSI, veja [Installing and Configuring Microsoft iSCSI Initiator][1] [Instalando e configurando o iniciador Microsoft iSCSI]).
 
     ![selecionar dispositivo de destino](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -284,7 +281,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 
 ## Próximas etapas
 
-Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Saiba como usar a interface do usuário da Web local para [administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Apêndice A: obter o IQN de um host do Windows Server
 
@@ -303,4 +300,4 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

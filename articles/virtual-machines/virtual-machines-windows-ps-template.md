@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
@@ -27,7 +27,7 @@ Deve levar cerca de 20 minutos para executar as etapas neste artigo.
 
 ## Etapa 1: Criar o arquivo do modelo
 
-Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/). O exemplo usado neste artigo é semelhante ao modelo descrito em [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/) (Implantar uma VM do Windows simples no Oeste dos EUA).
+Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
 1. Abra seu editor de texto favorito e copie essas informações do JSON em um novo arquivo chamado *VirtualMachineTemplate.json*:
 
@@ -195,7 +195,7 @@ Você pode criar seu próprio modelo usando as informações encontradas em [Cri
           ]
         }
         
-    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) (Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure).
+    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).
     
 2. Salvar o arquivo de modelo.
 
@@ -216,7 +216,7 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
           }
         }
 
-4. Salve o arquivo de parâmetros.
+2. Salve o arquivo de parâmetros.
 
 ## Etapa 3: Instalar o Azure PowerShell
 
@@ -228,9 +228,9 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 
 1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser criados.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
-2. Substitua o valor **$locName** por um local na lista, por exemplo, **EUA Central**. Crie a variável.
+2. Substitua o valor **$locName** por uma localização na lista, por exemplo, **EUA Central**. Crie a variável.
 
         $locName = "location name"
         
@@ -247,15 +247,15 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Etapa 7: Criar os recursos com o modelo e os parâmetros
+### Etapa 5: Criar os recursos com o modelo e os parâmetros
 
-1. Substitua o valor **$deployName** pelo nome da implantação. Substitua o valor de **$templatePath** pelo caminho e nome do arquivo do modelo. Substitua o valor de **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis. 
+1. Substitua o valor **$deployName** pelo nome da implantação. Substitua o valor de **$templatePath** pelo caminho e nome do arquivo do modelo. Substitua o valor de **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis.
 
         $deployName="deployment name"
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Implante o modelo.
+2. Implante o modelo.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
@@ -282,6 +282,6 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 ## Próximas etapas
 
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
+- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,6 +23,7 @@
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -32,8 +33,8 @@ Este tópico explica como usar a CLI do Azure com modelos do Resource Manager pa
 
 > [AZURE.TIP] Para obter ajuda com a depuração de erros durante a implantação, consulte:
 >
-> - [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md) para saber mais sobre como obter informações que o ajudarão a solucionar o erro
-> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver problemas comuns de implantação
+> - [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md) para saber sobre como obter informações que o ajudarão a solucionar o erro
+> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
 
 Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
 
@@ -117,7 +118,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Se você quiser registrar informações adicionais sobre a implantação que podem ajudar a solucionar possíveis erros de implantação, use o parâmetro **debug-setting**. Você pode especificar que o conteúdo da solicitação, o conteúdo da resposta ou ambos sejam registrados com a operação de implantação.
+6. Se você quiser registrar informações adicionais sobre a implantação que podem ajudar a solucionar quaisquer erros de implantação, use o parâmetro **debug-setting**. Você pode especificar que o conteúdo da solicitação, o conteúdo da resposta ou ambos sejam registrados com a operação de implantação.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
@@ -165,14 +166,14 @@ Para implantar um modelo privado em uma conta de armazenamento, recupere um toke
 
         azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
 
-Para obter um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Próximas etapas
-- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para definir parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
+- Para ver um exemplo de como implantar recursos por meio da biblioteca de clientes .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
-- Para obter detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+- Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

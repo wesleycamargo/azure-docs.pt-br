@@ -87,8 +87,8 @@ Erros 502 também podem ser indicadores frequentes de que a investigação de in
 | Limite não íntegro | 3 | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
 
 ###Solução
-- Verifique se um site padrão está configurado e está escutando em 127.0.0.1. 
-- Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta. 
+- Verifique se um site padrão está configurado e está escutando em 127.0.0.1.
+- Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
 - A chamada para http://127.0.0.1:port deve retornar um código de resultado HTTP 200. Ele deve ser retornado dentro do período de tempo limite de 30 segundos.
 - Verifique se a porta configurada está aberta e se não há regras de firewall ou Grupos de Segurança de Rede do Azure que bloqueiam o tráfego de entrada ou de saída na porta configurada.
 - Se VMs clássicas do Azure ou o Serviço de Nuvem forem usados com FQDN ou IP Público, verifique se o [ponto de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) correspondente está aberto.
@@ -112,10 +112,10 @@ Investigações de integridade personalizadas oferecem flexibilidade adicional p
 
 
 ###Solução
-Valide se a Investigação de Integridade Personalizada está configurada corretamente conforme a tabela abaixo. Além das etapas de solução de problemas acima, também verifique os itens a seguir.
+Valide se a Investigação de Integridade Personalizada está configurada corretamente conforme a tabela acima. Além das etapas de solução de problemas acima, também verifique os itens a seguir.
 
 - Verifique se o Protocolo está definido apenas como HTTP. Atualmente, não há suporte a HTTPS.
-- Verifique se a investigação foi especificada corretamente, conforme o [guia](application-gateway-create-probe-ps.md). 
+- Verifique se a investigação foi especificada corretamente, conforme o [guia](application-gateway-create-probe-ps.md).
 - Se o Application Gateway estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
 - Verifique se uma chamada a http://\<host>:<porta><caminho> retorna um código de resultado HTTP 200.
 - Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
@@ -134,4 +134,4 @@ O Application Gateway permite aos usuários definir essa configuração por meio
 
 Se as etapas acima não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

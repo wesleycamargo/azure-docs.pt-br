@@ -54,8 +54,8 @@ Você pode consultar as métricas de StreamingEndPoint a seguir.
 - **ResultCode** obtém o código de resultado.
 - **RequestCount** obtém o número de solicitações.
 - **BytesSent** obtém os bytes enviados.
-- **BytesSent** obtém a latência do servidor.
-- **BytesSent** obtém a hora da solicitação de ponta a ponta.
+- **ServerLatency** obtém a latência do servidor.
+- **EndToEndLatency** obtém a hora da solicitação de ponta a ponta.
 
 ###Exemplo de resultado de consulta de ponto de extremidade de streaming
 
@@ -235,4 +235,4 @@ Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2016"
+    ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite
@@ -105,7 +105,11 @@ Para convidados do Windows:
 1. Verifique se o serviço iaasvmprovider está habilitado e tem um tipo de inicialização automática.
 2. Se essa não for a configuração, habilite o serviço para determinar se o próximo backup é bem-sucedido.
 
-Se a extensão de backup ainda não conseguir ser atualizada ou carregada, você poderá forçar a extensão VMSnapshot ser recarregada instalando a extensão. A próxima tentativa de backup recarregará a extensão.
+Para convidados com Linux:
+
+A versão mais recente do VMSnapshot Linux (extensão usada pelo backup) é a 1.0.91.0
+
+Se a extensão de backup ainda não conseguir ser atualizada ou carregada, você poderá forçar a extensão VMSnapshot ser recarregada desinstalando a extensão. A próxima tentativa de backup recarregará a extensão.
 
 ### Para desinstalar a extensão
 
@@ -132,4 +136,4 @@ As condições a seguir podem causar a falha da tarefa do instantâneo:
 | A VM está em execução com alto uso de CPU ou memória. | Se a VM estiver em execução com alta utilização de CPU (mais de 90%) ou alto uso de memória, a tarefa do instantâneo será enfieirada e postergada e, eventualmente, atingirá o tempo limite. Nessa situação, tente o backup sob demanda. |
 |A VM não pode obter o endereço do host/malha do DHCP.|O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se a VM não puder obter o endereço do host/malha da resposta DHCP 245, ela não poderá baixar ou executar qualquer extensão. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

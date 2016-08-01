@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/15/2016"
 	ms.author="ashwink"/>
 
 # Práticas recomendadas para dimensionamento automático do Azure Insights
@@ -75,7 +75,7 @@ Vamos ilustrá-lo com um exemplo para que entender o comportamento melhor.
 - Aumentar o número de instâncias por contagem de 1 quando a contagem de mensagem de Fila de Armazenamento > = 50
 - Reduzir o número de instâncias por contagem 1 de contagem de mensagem de Fila de Armazenamento > = 10
 
-Suponha que há 2 instâncias para começar. Em seguida, suponha que as mensagens continuam chegando e ao examinar a fila de armazenamento, a contagem total de leituras de 50. Você pode pressupor que o dimensionamento automático deve iniciar uma ação de escala horizontal. No entanto, observe que ainda é 50/2 = 25 mensagens por instância. Portanto, a escala horizontal não ocorrerá. Para a primeira escala horizontal acontecer, a contagem total de mensagens na fila de armazenamento deve ser de 100. Em seguida, suponha que a contagem total de mensagens chegue a 100. Uma terceira instância é adicionada devido a uma ação de escala horizontal. A ação de escala horizontal próxima não ocorrerá até que a contagem total de mensagens na fila atinja 300. Vamos examinar a ação de redução horizontal. Suponha que o número de instâncias seja 3. A primeira ação de escala horizontal acontece quando o total de mensagens na fila atingir 30, tornando-o 30/3 = 10 mensagens por instância, que é o limite de escala horizontal.
+Suponha que há 2 instâncias para começar. Em seguida, suponha que as mensagens continuam chegando e ao examinar a fila de armazenamento, a contagem total de leituras de 50. Você pode pressupor que o dimensionamento automático deve iniciar uma ação de escala horizontal. No entanto, observe que ainda é 50/2 = 25 mensagens por instância. Portanto, a escala horizontal não ocorrerá. Para a primeira escala horizontal acontecer, a contagem total de mensagens na fila de armazenamento deve ser de 100. Em seguida, suponha que a contagem total de mensagens chegue a 100. Uma terceira instância é adicionada devido a uma ação de escala horizontal. A ação de escala horizontal a seguir não ocorrerá até que a contagem total de mensagens na fila atinja 150. Vamos examinar a ação de redução horizontal. Suponha que o número de instâncias seja 3. A primeira ação de escala horizontal acontece quando o total de mensagens na fila atingir 30, tornando-o 30/3 = 10 mensagens por instância, que é o limite de escala horizontal.
 
 ### Considerações sobre dimensionamento quando vários perfis são configurados em uma configuração de dimensionamento automático
 
@@ -126,4 +126,4 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 - As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 - As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala. Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

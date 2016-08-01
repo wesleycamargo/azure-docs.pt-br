@@ -145,7 +145,7 @@ Se você tiver apenas um único servidor VMM, será possível replicar VMs em ho
 	![Novo cofre](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
-4. [Crie um novo grupo de recursos](../resource-group-portal.md#create-resource-group) ou selecione um existente e especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Crie um novo grupo de recursos](../resource-group-template-deploy-portal.md) ou selecione um existente e especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. Se você deseja acessar rapidamente o cofre pelo Painel, clique em **Fixar no painel** > **Criar cofre**.
 
 	![Novo cofre](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
@@ -483,4 +483,4 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

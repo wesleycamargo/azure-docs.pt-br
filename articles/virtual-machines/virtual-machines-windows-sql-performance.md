@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
@@ -54,7 +54,7 @@ Para aplicativos sensíveis ao desempenho, recomenda-se o uso dos seguintes [tam
 
 ## Orientação de armazenamento
 
-As VMs da série DS (junto com as séries DSv2 e GS) dão suporte ao [Armazenamento Premium](../storage/storage-premium-storage.md). O Armazenamento Premium é recomendado para todas as cargas de trabalho de produção.
+As VMs da série DS (junto com as séries DSv2 e GS) dão suporte ao [Armazenamento Premium](../storage/storage-premium-storage.md). O Armazenamento Premium é recomendado para todas as cargas de trabalho de produção.
 
 > [AZURE.WARNING] O Armazenamento Standard tem largura de banda e latências variáveis e só é recomendado para cargas de trabalho de desenvolvimento e teste. As cargas de trabalho de produção devem usar o Armazenamento Premium.
 
@@ -148,4 +148,4 @@ Para conferir as práticas recomendadas de segurança, consulte [Considerações
 
 Revise outros tópicos sobre máquina virtual do SQL Server em [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

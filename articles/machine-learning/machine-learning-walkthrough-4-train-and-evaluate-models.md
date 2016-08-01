@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -60,7 +60,7 @@ Esta parte do teste se parece um pouco com o seguinte:
 
 Em seguida, configuramos o modelo SVM.
 
-Primeiro, uma pequena explicação sobre o SVM. Árvores de decisão aumentadas funcionam bem com recursos de qualquer tipo. No entanto, como o módulo SVM gera um classificador linear, o modelo que ele gera apresenta o melhor erro de teste quando todos os recursos numéricos possuem a mesma escala. Então, para converter todos os recursos numéricos para a mesma escala, vamos usar uma transformação de "Tanh" (com o módulo [Normalizar Dados][normalize-data]), que transformará nossos números no intervalo [0,1] \(recursos de cadeia de caracteres são convertidos pelo módulo SVM para recursos categóricos e, em seguida, para recursos binários 0/1, portanto, não precisamos transformar manualmente os recursos de cadeia de caracteres). Também não desejamos transformar a coluna Risco de Crédito (coluna 21) – ela é numérica, mas esse é o valor que estamos treinando para o modelo prever, portanto, precisamos deixá-la intacta.
+Primeiro, uma pequena explicação sobre o SVM. Árvores de decisão aumentadas funcionam bem com recursos de qualquer tipo. No entanto, como o módulo SVM gera um classificador linear, o modelo que ele gera apresenta o melhor erro de teste quando todos os recursos numéricos possuem a mesma escala. Então, para converter todos os recursos numéricos para a mesma escala, vamos usar uma transformação de "Tanh" (com o módulo [Normalizar Dados][normalize-data]), que transformará nossos números no intervalo [0,1] (recursos de cadeia de caracteres são convertidos pelo módulo SVM para recursos categóricos e, em seguida, para recursos binários 0/1, portanto, não precisamos transformar manualmente os recursos de cadeia de caracteres). Também não desejamos transformar a coluna Risco de Crédito (coluna 21) – ela é numérica, mas esse é o valor que estamos treinando para o modelo prever, portanto, precisamos deixá-la intacta.
 
 Para configurar o modelo SVM, faça o seguinte:
 
@@ -69,11 +69,11 @@ Para configurar o modelo SVM, faça o seguinte:
 3.	Conecte a saída do módulo SVM à porta de entrada esquerda ("Modelo não treinado") do módulo [Treinar Modelo][train-model].
 4.	Localize o módulo [Normalizar dados][normalize-data] e arraste-o para a tela.
 5.	Conecte a entrada desse módulo para a saída à esquerda do módulo [Executar Script R][execute-r-script] esquerdo (observe que a porta de saída de um módulo pode ser conectada a mais de um outro módulo).
-6.	Conecte a porta de saída esquerda ("Conjunto de dados transformado") do módulo [Normalizar Dados][normalize-data] à porta de entrada direita ("Conjunto de dados") do módulo [Treinar Modelo][train-model].
+6.	Conecte a porta de saída esquerda ("Conjunto de dados transformado") do módulo [Normalizar Dados][normalize-data] à porta de entrada direita ("Conjunto de dados") do segundo módulo [Treinar Modelo][train-model].
 7.	No painel **Propriedades** do módulo [Normalizar Dados][normalize-data], selecione **Tanh** para o parâmetro **Método de transformação**.
 8.	Clique no **Seletor de coluna de inicialização**, selecione “Sem colunas” para **Começar Com**, selecione **Incluir** na primeira lista suspensa, selecione **tipo de coluna** na segunda lista suspensa e selecione **Numérico** na terceira lista suspensa. Isso especifica que todas as colunas numéricas (e somente as numéricas) serão transformadas.
-9.	Clique no sinal de adição (+) à direita desta linha - isso cria uma nova linha de listas suspensas. Selecione **Excluir** na primeira lista suspensa, selecione **nomes de colunas** na segunda lista suspensa e insira "Risco de crédito" no campo de texto (ou selecione **índices de coluna** e insira "21"). Isso especifica que a coluna Risco de crédito deve ser ignorada (precisamos fazer isso porque essa coluna é numérica e, caso contrário, seria transformada).
-10.	Clique em **OK**.  
+9.	Clique no sinal de adição (+) à direita desta linha - isso cria uma nova linha de listas suspensas. Selecione **Excluir** na primeira lista suspensa, selecione **nomes de colunas** na segunda lista suspensa, clique no próximo campo de texto e selecione "Risco de crédito" da lista de colunas. Isso especifica que a coluna Risco de crédito deve ser ignorada (precisamos fazer isso porque essa coluna é numérica e, caso contrário, seria transformada).
+10.	Clique em **OK**.
 
 
 Agora o módulo [Normalizar dados][normalize-data] está definido para executar uma transformação Tanh em todas as colunas numéricas, exceto para a coluna Risco de crédito.
@@ -94,13 +94,13 @@ Usaremos os dados de teste que foram separados pelo módulo [Dividir Dados][spli
 4.	Copie e cole o módulo [Modelo de pontuação][score-model] para criar uma segunda cópia ou arraste um novo módulo para as telas.
 5.	Conecte a porta de entrada esquerda desse módulo ao modelo SVM (ou seja, conecte à porta de saída do módulo [Treinar modelo][train-model] que está conectado ao módulo [Máquina vetor de suporte de duas classes][two-class-support-vector-machine]).
 6.	Para o modelo SVM, precisamos fazer a mesma transformação nos dados do teste que fizemos nos dados de treinamento. Portanto, copie e cole o módulo [Normalizar dados][normalize-data] para criar uma segunda cópia e conectá-la à saída esquerda do módulo [Executar Script R][execute-r-script] direito.
-7.	Conecte a porta de entrada direita do módulo [Modelo de pontuação][score-model] à saída esquerda do módulo [Normalizar dados][normalize-data].  
+7.	Conecte a porta de entrada direita do módulo [Modelo de pontuação][score-model] à saída esquerda do módulo [Normalizar dados][normalize-data].
 
 Para avaliar os dois resultados de pontuação usaremos o módulo [Avaliar modelo][evaluate-model].
 
 1.	Localize o módulo [Avaliar modelo][evaluate-model] e arraste-o para as telas.
 2.	Conecte a porta de entrada esquerda à porta de saída do módulo [Modelo de pontuação][score-model] associado ao modelo de árvore de decisão aumentada.
-3.	Conecte a porta de entrada direita ao outro módulo de [Modelo de pontuação][score-model].  
+3.	Conecte a porta de entrada direita ao outro módulo de [Modelo de pontuação][score-model].
 
 Clique no botão **EXECUTAR** abaixo das telas para executar o teste. Isso pode levar alguns minutos. Você verá um indicador girando em cada módulo para indicar que está em execução e, depois, uma marca de seleção verde quando o módulo for concluído. Quando todos os modelos tiverem uma marca de seleção, a execução do teste estará concluída.
 
@@ -143,4 +143,4 @@ Ao examinar esses valores, você pode decidir qual modelo está mais próximo de
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

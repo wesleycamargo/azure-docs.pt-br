@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/14/2016"
    ms.author="masashin"/>
 
 # Diretrizes de particionamento de dados
@@ -102,7 +102,7 @@ Outro cenário típico dessa estratégia de particionamento é maximizar a segur
 
 O particionamento vertical também pode reduzir a quantidade de acesso simultâneo necessário aos dados.
 
-> O particionamento vertical funciona no nível da entidade em um repositório de dados, parcialmente normalizando uma entidade para dividi-la de um item _amplo_ em um conjunto de itens _restritos_. Ele é ideal para repositórios de dados orientados a colunas, como o HBase e Cassandra. Se for improvável que os dados em uma coleção de colunas serão alterados, você também poderá considerar o uso de repositórios de colunas no SQL Server.
+> O particionamento vertical funciona no nível da entidade em um repositório de dados, parcialmente normalizando uma entidade para dividi-la de um item _amplo_ em um conjunto de itens _restritos_. Ele é ideal para repositórios de dados orientados a colunas, como o HBase e Cassandra. Se for improvável que os dados em uma coleção de colunas serão alterados, você também poderá considerar o uso de repositórios de colunas no SQL Server.
 
 ### Particionamento funcional
 
@@ -346,7 +346,7 @@ Essa estrutura ajuda a distribuir a carga entre agentes e repositórios de mensa
 
 O Barramento de Serviço atribui uma mensagem a um fragmento da seguinte maneira:
 
-- Se a mensagem pertencer a uma sessão, todas as mensagens com o mesmo valor para a propriedade \_ SessionId\_ são enviadas para o mesmo fragmento.
+- Se a mensagem pertencer a uma sessão, todas as mensagens com o mesmo valor para a propriedade _SessionId_ são enviadas para o mesmo fragmento.
 - Se a mensagem não pertencer a uma sessão, mas o remetente tiver especificado um valor para a propriedade _PartitionKey_, todas as mensagens com o mesmo valor de _PartitionKey_ serão enviadas para o mesmo fragmento.
 
 	> [AZURE.NOTE] Se as propriedades _SessionId_ e _PartitionKey_ forem especificadas, elas deverão ser definidas com o mesmo valor ou a mensagem será rejeitada.
@@ -391,12 +391,12 @@ _Figura 9. Implementando a fragmentação usando um banco de dados do Banco de D
 
 Considere os seguintes pontos ao decidir como particionar dados com um banco de dados do Banco de Dados de Documentos:
 
-- **Os recursos disponíveis para um banco de dados do Banco de Dados de Documentos estão sujeitos às limitações de cota da conta do Banco de Dados de Documentos**. Cada banco de dados pode conter um número de coleções (lembrando que há um limite) e cada coleção é associada a um nível de desempenho que rege o limite de taxa da RU (produtividade reservada) para essa coleção. Para obter mais informações, visite a página [Limites e cotas do Banco de Dados de Documentos] no site da Microsoft.
+- **Os recursos disponíveis para um banco de dados do Banco de Dados de Documentos estão sujeitos às limitações de cota da conta do Banco de Dados de Documentos**. Cada banco de dados pode conter um número de coleções (lembrando que há um limite) e cada coleção é associada a um nível de desempenho que rege o limite de taxa da RU (produtividade reservada) para essa coleção. Para saber mais, visite a página [Limites e cotas do Banco de Dados de Documentos] no site da Microsoft.
 - **Cada documento deve ter um atributo que pode ser usado para identificar exclusivamente o documento dentro da coleção na qual ele é mantido**. Esse atributo é diferente da chave de fragmento, que define qual coleção mantém o documento. Uma coleção pode conter um grande número de documentos. Teoricamente, ela é limitada apenas pelo tamanho máximo da ID do documento. A ID do documento pode ter até 255 caracteres.
 - **Todas as operações em um documento são realizadas dentro do contexto de uma transação. As transações nos bancos de dados do Banco de Dados de Documentos estão no escopo da coleção em que o documento está contido.** Se uma operação falhar, o trabalho realizado será revertido. Quando um documento está sujeito a uma operação, todas as alterações feitas estão sujeitas ao isolamento no nível do instantâneo. Esse mecanismo garante que se, por exemplo, houver uma falha em uma solicitação para a criação de um novo documento, outro usuário que estiver consultando o banco de dados simultaneamente não verá um documento parcial que será então removido.
 - **As consultas do Banco de Dados de Documentos também estão dentro do escopo do nível da coleção**. Uma única consulta pode recuperar dados somente de uma coleção. Se precisar recuperar dados de várias coleções, você deverá consultar cada coleção individualmente e mesclar os resultados no código do aplicativo.
 - **Os bancos de dados do Banco de Dados de Documentos dão suporte aos itens programáveis que podem ser armazenados em uma coleção com os documentos**. Isso inclui procedimentos armazenados, funções definidas pelo usuário e gatilhos (escritos em JavaScript). Esses itens podem acessar qualquer documento na mesma coleção. Além disso, esses itens são executados dentro do escopo da transação de ambiente (no caso de um gatilho que é acionado como resultado de uma operação de criação, exclusão ou substituição executada em um documento) ou por iniciar uma nova transação (no caso de um procedimento armazenado executado como resultado de uma solicitação de cliente explícita). Se o código em um item programável lançar uma exceção, a transação será revertida. Você pode usar procedimentos armazenados e gatilhos para manter a integridade e a consistência entre documentos, mas esses documentos devem fazer parte da mesma coleção.
-- **As coleções que você pretende manter nos bancos de dados em uma conta do Banco de Dados de Documentos não deve ter a probabilidade de exceder os limites de produtividade definidos pelos níveis de desempenho das coleções**. Esses limites são descritos na página [Manage DocumentDB capacity needs] (Gerenciar necessidades de capacidade do Banco de Dados de Documentos) no site da Microsoft. Se você prevê que esses limites serão atingidos, considere dividir as coleções em bancos de dados em diferentes contas do Banco de Dados de Documentos para reduzir a carga por coleção.
+- **As coleções que você pretende manter nos bancos de dados em uma conta do Banco de Dados de Documentos não têm a probabilidade de exceder os limites de taxa de transferência definidos pelos níveis de desempenho das coleções**. Esses limites são descritos na página [Gerenciar necessidades de capacidade do Banco de Dados de Documentos] no site da Microsoft. Se você prevê que esses limites serão atingidos, considere dividir as coleções em bancos de dados em diferentes contas do Banco de Dados de Documentos para reduzir a carga por coleção.
 
 ## Estratégias de particionamento para a Pesquisa do Azure
 
@@ -410,7 +410,7 @@ Você será cobrado por cada SU alocada ao seu serviço. Conforme o volume de co
 
 Cada partição pode conter um máximo de 15 milhões de documentos ou ocupar 300 GB de espaço de armazenamento (o que for menor). Você pode criar até 50 índices. O desempenho do serviço varia e depende da complexidade dos documentos, dos índices disponíveis e dos efeitos da latência de rede. Em média, uma única réplica (1 SU) deve ser capaz de manipular 15 QPS (consultas por segundo), embora seja recomendável avaliar o desempenho com seus próprios dados para obter uma medida mais precisa da taxa de transferência. Para saber mais, confira a página [Limites de serviço na Pesquisa do Azure] no site da Microsoft.
 
-> [AZURE.NOTE] Você pode armazenar um conjunto limitado de tipos de dados em documentos pesquisáveis, incluindo cadeias de caracteres, boolianos, dados numéricos, dados de data/hora e alguns dados geográficos. Para obter mais detalhes, visite a página [Supported data types (Azure Search)] (Tipos de dados com suporte [Pesquisa do Azure]) no site da Microsoft.
+> [AZURE.NOTE] Você pode armazenar um conjunto limitado de tipos de dados em documentos pesquisáveis, incluindo cadeias de caracteres, boolianos, dados numéricos, dados de data/hora e alguns dados geográficos. Para obter mais detalhes, visite a página [Supported data types (Azure Search)] no site da Microsoft.
 
 Você tem controle limitado sobre como a Pesquisa do Azure particiona os dados para cada instância do serviço. No entanto, em um ambiente global, é possível melhorar o desempenho e reduzir ainda mais a latência e contenção pelo particionamento do próprio serviço usando qualquer uma das seguintes estratégias:
 
@@ -424,7 +424,7 @@ Essa abordagem é mais adequada quando há uma variação regional significativa
 
 ## Estratégias de particionamento para o Cache Redis do Azure
 
-O Cache Redis do Azure fornece um serviço de cache compartilhado na nuvem que se baseia no repositório de dados de chave/valor do Redis. Como o nome sugere, o Cache Redis do Azure serve como uma solução de cache. Use-o apenas para dados manter dados transitórios, e não como um repositório de dados permanentes. Os aplicativos que utilizam o Cache Redis do Azure devem poder continuar funcionando se o cache ficar indisponível. O Cache Redis do Azure permite a replicação primária/secundária para fornecer alta disponibilidade, mas atualmente limita o tamanho máximo do cache para 53 GB. Se você precisar de mais espaço, é necessário criar caches adicionais. Para obter mais informações, visite a página [Cache Redis do Azure] no site da Microsoft.
+O Cache Redis do Azure fornece um serviço de cache compartilhado na nuvem que se baseia no repositório de dados de chave/valor do Redis. Como o nome sugere, o Cache Redis do Azure serve como uma solução de cache. Use-o apenas para dados manter dados transitórios, e não como um repositório de dados permanentes. Os aplicativos que utilizam o Cache Redis do Azure devem poder continuar funcionando se o cache ficar indisponível. O Cache Redis do Azure permite a replicação primária/secundária para fornecer alta disponibilidade, mas atualmente limita o tamanho máximo do cache para 53 GB. Se você precisar de mais espaço, é necessário criar caches adicionais. Para saber mais, visite a página [Cache Redis do Azure] no site da Microsoft.
 
 O particionamento de um repositório de dados do Redis envolve a divisão dos dados entre instâncias do serviço do Redis. Cada instância constitui uma única partição. O Cache Redis do Azure abstrai os serviços do Redis por trás de uma fachada e não os expõe diretamente. A maneira mais simples de implementar o particionamento é criar várias instâncias do Cache Redis do Azure e distribuir os dados entre eles.
 
@@ -436,9 +436,9 @@ Os aplicativos cliente simplesmente enviam solicitações para qualquer um dos s
 
 Esse modelo é implementado usando o clustering do Redis e é descrito mais detalhadamente na página [tutorial de cluster do Redis] no site do Redis. O clustering do Redis é transparente para os aplicativos cliente. Outros servidores do Redis podem ser adicionados ao cluster (e os dados podem ser particionados novamente) sem a necessidade de reconfigurar os clientes.
 
-> [AZURE.IMPORTANT] Atualmente, o Cache Redis do Azure não dá suporte ao clustering do Redis. Se desejar implementar essa abordagem com o Azure, será necessário implementar seus próprios servidores do Redis instalando o Redis em um conjunto de máquinas virtuais do Azure e configurando-as manualmente. A página [Running Redis on a CentOS Linux VM in Azure] (Executando o Redis em uma VM Linux do CentOS no Azure), no site da Microsoft, explica um exemplo que mostra como criar e configurar um nó do Redis em execução como uma VM do Azure.
+> [AZURE.IMPORTANT] Atualmente, o Cache Redis do Azure não dá suporte ao clustering do Redis. Se desejar implementar essa abordagem com o Azure, será necessário implementar seus próprios servidores do Redis instalando o Redis em um conjunto de máquinas virtuais do Azure e configurando-as manualmente. A página [Running Redis on a CentOS Linux VM in Azure], no site da Microsoft, explica um exemplo que mostra como criar e configurar um nó do Redis em execução como uma VM do Azure.
 
-A página [Partitioning: how to split data among multiple Redis instances] (Particionamento: como dividir dados entre várias instâncias do Redis), no site do Redis, fornece mais informações sobre a implementação do particionamento com o Redis. Ao ler o restante desta seção, pressupomos que você esteja implementando o particionamento do lado do cliente ou assistido por proxy.
+A página [Partitioning: how to split data among multiple Redis instances], no site do Redis, fornece mais informações sobre a implementação do particionamento com o Redis. Ao ler o restante desta seção, pressupomos que você esteja implementando o particionamento do lado do cliente ou assistido por proxy.
 
 Considere os seguintes pontos ao decidir como particionar dados com o Cache Redis do Azure:
 
@@ -449,7 +449,7 @@ Considere os seguintes pontos ao decidir como particionar dados com o Cache Redi
     - Conjuntos (ordenados e não ordenados)
     - Hashes (que podem agrupar campos relacionados, como os itens que representam os campos em um objeto)
 
-- Os tipos de agregação permitem associar vários valores relacionados com a mesma chave. Uma chave do Redis identifica uma lista, um conjunto ou um hash em vez de itens de dados que ela contém. Esses tipos estão disponíveis com o Cache Redis do Azure e são descritos na página [Data types] (Tipos de dados) no site do Redis. Por exemplo, em uma parte de um sistema de comércio eletrônico que rastreia os pedidos que são feitos pelos clientes, os detalhes de cada cliente podem ser armazenados em um hash do Redis que é digitado usando a ID do cliente. Cada hash pode manter uma coleção de IDs de pedido do cliente. Um conjunto separado do Redis pode manter os pedidos, novamente estruturados como hashes, e digitados com o uso da ID de pedido. A Figura 10 mostra essa estrutura. Observe que o Redis não implementa nenhuma forma de integridade referencial; portanto, é responsabilidade do desenvolvedor manter os relacionamentos entre clientes e pedidos.
+- Os tipos de agregação permitem associar vários valores relacionados com a mesma chave. Uma chave do Redis identifica uma lista, um conjunto ou um hash em vez de itens de dados que ela contém. Esses tipos estão disponíveis com o Cache Redis do Azure e são descritos na página [Data types] no site do Redis. Por exemplo, em uma parte de um sistema de comércio eletrônico que rastreia os pedidos que são feitos pelos clientes, os detalhes de cada cliente podem ser armazenados em um hash do Redis que é digitado usando a ID do cliente. Cada hash pode manter uma coleção de IDs de pedido do cliente. Um conjunto separado do Redis pode manter os pedidos, novamente estruturados como hashes, e digitados com o uso da ID de pedido. A Figura 10 mostra essa estrutura. Observe que o Redis não implementa nenhuma forma de integridade referencial; portanto, é responsabilidade do desenvolvedor manter os relacionamentos entre clientes e pedidos.
 
 ![Estrutura recomendada no armazenamento do Redis para registrar pedidos de clientes e seus detalhes](media/best-practices-data-partitioning/RedisCustomersandOrders.png)
 
@@ -464,7 +464,7 @@ _Figura 10. Estrutura recomendada no armazenamento do Redis para registrar pedid
 
 - Como os lotes e as transações do Redis não abrangem várias conexões, todos os dados afetados por um lote ou uma transação devem ser mantidos no mesmo banco de dados (fragmento).
 
-	> [AZURE.NOTE] Uma sequência de operações em uma transação do Redis não é necessariamente atômica. Os comandos que compõem uma transação são verificados e enfileirados antes de serem executados. Se ocorrer um erro durante essa fase, a fila inteira será descartada. No entanto, depois que a transação tiver sido enviada com êxito, os comandos na fila serão executados na sequência. Se algum comando falhar, somente a execução desse comando será interrompida. Todos os comandos anteriores e subsequentes na fila são executados. Para obter mais informações, visite a página [Transactions] (Transações) no site do Redis.
+	> [AZURE.NOTE] Uma sequência de operações em uma transação do Redis não é necessariamente atômica. Os comandos que compõem uma transação são verificados e enfileirados antes de serem executados. Se ocorrer um erro durante essa fase, a fila inteira será descartada. No entanto, depois que a transação tiver sido enviada com êxito, os comandos na fila serão executados na sequência. Se algum comando falhar, somente a execução desse comando será interrompida. Todos os comandos anteriores e subsequentes na fila são executados. Para saber mais, visite a página [Transactions] no site do Redis.
 
 - O Redis permite um número limitado de operações atômicas. As únicas operações desse tipo que permitem vários valores e chaves são MGET e MSET. As operações MGET retornam uma coleção de valores para uma lista de chaves especificada e as operações MSET armazenam uma coleção de valores para uma lista de chaves especificada. Se precisar usar essas operações, os pares de chave/valor referenciados pelos comandos MSET e MGET devem ser armazenados no mesmo banco de dados.
 
@@ -501,36 +501,36 @@ Para manter um pouco de disponibilidade, é possível marcar o fragmento origina
 
 A execução da migração online é mais complexa, mas causa menos interrupção para os usuários já que os dados permanecem disponíveis durante todo o procedimento. O processo é semelhante aquele usado pela migração offline, com a exceção de que o fragmento original não está marcado como offline (etapa 1). Dependendo da granularidade do processo de migração (por exemplo, se é feito item por item ou fragmento por fragmento), o código de acesso a dados nos aplicativos cliente pode ter que manipular os dados de leitura e gravação que são mantidos em dois locais (no fragmento original e no novo fragmento).
 
-Para obter um exemplo de uma solução que dá suporte à migração online, consulte o artigo [Dimensionamento usando a ferramenta de divisão/mesclagem do Banco de Dados Elástico] no site da Microsoft.
+Para obter um exemplo de uma solução que permite a migração online, confira o artigo [Dimensionamento usando a ferramenta de divisão/mesclagem do Banco de Dados Elástico] no site da Microsoft.
 
 ## Diretrizes e padrões relacionados
 
 Ao considerar estratégias para implementar a consistência de dados, os seguintes padrões também podem ser relevantes para o cenário:
 
-- A página [Data Consistency Primer] (Prévia de consistência de dados), no site da Microsoft, descreve estratégias para manter a consistência em um ambiente distribuído como a nuvem.
-- A página [Data partitioning guidance] (Diretrizes de particionamento de dados), no site da Microsoft, fornece uma visão geral da criação de partições para atender a vários critérios em uma solução distribuída.
+- A página [Data Consistency Primer], no site da Microsoft, descreve estratégias para manter a consistência em um ambiente distribuído como a nuvem.
+- A página [Data partitioning guidance], no site da Microsoft, fornece uma visão geral da criação de partições para atender a vários critérios em uma solução distribuída.
 - O [padrão de fragmentação], conforme descrito no site da Microsoft, resume algumas estratégias comuns para a fragmentação de dados.
 - O [padrão da tabela de índice], conforme descrito no site da Microsoft, ilustra como criar índices secundários sobre os dados. Um aplicativo pode recuperar dados rapidamente com essa abordagem, usando consultas que não referenciam a chave primária de uma coleção.
-- O [padrão de exibição materializada], conforme descrito no site da Microsoft, descreve como gerar exibições pré-populadas que resumem os dados para dar suporte a operações de consulta rápidas. Essa abordagem poderá ser útil em um armazenamento de dados particionado se as partições que contêm os dados sendo resumidos forem distribuídas em vários locais.
+- O [padrão de exibição materializada], conforme descrito no site da Microsoft, descreve como gerar exibições pré-populadas que resumem os dados para permitir operações de consulta rápidas. Essa abordagem poderá ser útil em um armazenamento de dados particionado se as partições que contêm os dados sendo resumidos forem distribuídas em vários locais.
 - O artigo [Using Azure Content Delivery Network], no site da Microsoft, fornece instruções adicionais sobre como configurar e usar a Rede de Distribuição de Conteúdo com o Azure.
 
 ## Mais informações
 
-- A página [What is Azure SQL Database?] (O que é o Banco de Dados SQL do Azure?), no site da Microsoft, fornece a documentação detalhada que descreve como criar e usar os bancos de dados SQL.
+- A página [O que é o Banco de Dados SQL do Azure?], no site da Microsoft, fornece documentação detalhada que descreve como criar e usar bancos de dados SQL.
 - A página [Visão geral dos recursos do Banco de Dados Elástico], no site da Microsoft, fornece uma introdução abrangente ao Banco de Dados Elástico.
 - A página [Dimensionamento usando a ferramenta de divisão/mesclagem do Banco de Dados Elástico], no site da Microsoft, contém informações sobre como usar o serviço de divisão/mesclagem para gerenciar fragmentos do Banco de Dados Elástico.
 - A página [Metas de desempenho e escalabilidade do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx), no site da Microsoft, documenta os limites atuais de tamanho e taxa de transferência do Armazenamento do Azure.
-- A página [Performing entity group transactions] (Executando transações do grupo de entidades), no site da Microsoft, fornece informações detalhadas sobre como implementar operações transacionais nas entidades que são armazenadas no armazenamento de tabelas do Azure.
-- O artigo [Guia de design de tabela de armazenamento do Azure], no site da Microsoft, contém informações detalhadas sobre como particionar dados no armazenamento de tabelas do Azure.
+- A página [Performing entity group transactions], no site da Microsoft, fornece informações detalhadas sobre como implementar operações transacionais nas entidades que são armazenadas no armazenamento de tabelas do Azure.
+- O artigo [Guia de Design de tabela de armazenamento do Azure], no site da Microsoft, contém informações detalhadas sobre como particionar dados no armazenamento de tabelas do Azure.
 - A página [Using Azure Content Delivery Network], no site da Microsoft, descreve como replicar os dados que são mantidos no armazenamento de blobs do Azure usando a Rede de Distribuição de Conteúdo do Azure.
 - A página [Manage DocumentDB capacity needs] (Gerenciar necessidades de capacidade do Banco de Dados de Documentos), no site da Microsoft, contém informações sobre como os bancos de dados do Banco de Dados de Documentos do Azure alocam recursos.
 - A página [O que é a Pesquisa do Azure?], no site da Microsoft, fornece uma descrição completa dos recursos que estão disponíveis com a Pesquisa do Azure.
 - A página [Limites de serviço na Pesquisa do Azure], no site da Microsoft, contém informações sobre a capacidade de cada instância da Pesquisa do Azure.
-- A página [Supported data types (Azure Search)] (Tipos de dados com suporte [Pesquisa do Azure]), no site da Microsoft, resume os tipos de dados que podem ser usados em documentos e índices pesquisáveis.
+- A página [Supported data types (Azure Search)], no site da Microsoft, resume os tipos de dados que podem ser usados em documentos e índices pesquisáveis.
 - A página [Cache Redis do Azure], no site da Microsoft, fornece uma introdução ao Cache Redis do Azure.
-- A página [Partitioning: how to split data among multiple Redis instances] (Particionamento: como dividir dados entre várias instâncias do Redis), no site do Redis, fornece informações sobre como implementar o particionamento com o Redis.
-- A página [Running Redis on a CentOS Linux VM in Azure] (Executando o Redis em uma VM Linux do CentOS no Azure), no site da Microsoft, explica um exemplo que mostra como criar e configurar um nó do Redis em execução como uma VM do Azure.
-- A página [Data types] (Tipos de dados), no site do Redis, descreve os tipos de dados disponíveis com o Redis e o Cache Redis do Azure.
+- A página [Partitioning: how to split data among multiple Redis instances], no site do Redis, fornece informações sobre como implementar o particionamento com o Redis.
+- A página [Running Redis on a CentOS Linux VM in Azure], no site da Microsoft, explica um exemplo que mostra como criar e configurar um nó do Redis em execução como uma VM do Azure.
+- A página [Data types], no site do Redis, descreve os tipos de dados disponíveis com o Redis e o Cache Redis do Azure.
 
 [Cache Redis do Azure]: http://azure.microsoft.com/services/cache/
 [Metas de desempenho e escalabilidade do Armazenamento do Azure]: storage/storage-scalability-targets.md
@@ -545,6 +545,7 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [padrão da tabela de índice]: http://aka.ms/Index-Table-Pattern
 [Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
+[Gerenciar necessidades de capacidade do Banco de Dados de Documentos]: documentdb/documentdb-manage.md
 [padrão de exibição materializada]: http://aka.ms/Materialized-View-Pattern
 [Consulta de vários fragmentos]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
@@ -561,7 +562,6 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [Supported data types (Azure Search)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions
 [O que é a Pesquisa do Azure?]: search/search-what-is-azure-search.md
-[What is Azure SQL Database?]: sql-database/sql-database-technical-overview.md
 [O que é o Banco de Dados SQL do Azure?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

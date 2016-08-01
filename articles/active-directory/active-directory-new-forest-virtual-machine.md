@@ -2,10 +2,10 @@
 	pageTitle="Instalar uma floresta do Active Directory em uma rede virtual do Azure | Microsoft Azure"
 	description="Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure."
 	services="active-directory, virtual-network"
-    keywords="máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure"
+    keywords="máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure "
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 
@@ -136,4 +136,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

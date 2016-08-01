@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/18/2016" 
 	ms.author="naziml"/>
 
 # Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## Visão geral
 Se você instalou as ferramentas do Azure para Microsoft Visual Studio, pode exibir dados de blob, de fila e de tabela de suas contas de armazenamento do Azure. O nó de armazenamento do Azure no Gerenciador de Servidores mostra os dados que estão em sua conta do emulador de armazenamento local e outras contas de armazenamento do Azure.
 
 Para exibir o Gerenciador de Servidores no Visual Studio, na barra de menus, escolha **Exibir**, **Gerenciador de Servidores**. O nó de armazenamento mostra todas as contas de armazenamento que existem em cada assinatura/certificado do Azure ao qual você está conectado. Se sua conta de armazenamento não aparecer, você pode adicioná-la seguindo as instruções [mais adiante neste tópico](#add-storage-accounts-by-using-server-explorer).
@@ -308,10 +311,10 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 - No Gerenciador de Servidores, abra o menu de atalho para o nome da conta e, em seguida, escolha **Excluir**. Se você excluir uma conta de armazenamento, qualquer informação de chave salva para essa conta também é removida.
 
-    >[AZURE.NOTE] Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.NOTE] Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Próximas etapas
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

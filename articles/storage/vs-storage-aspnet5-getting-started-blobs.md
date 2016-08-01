@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (ASP.NET 5)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ##Visão geral
 
@@ -126,7 +128,7 @@ Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêin
         }
     } while (token != null);
 
-Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte a [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para obter mais informações.
+Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para obter mais informações.
 
 ##Baixar um blob
 Para baixar um blob, obtenha primeiro uma referência ao blob e depois chame o método **DownloadToStreamAsync**. O exemplo a seguir usa o método **DownloadToStreamAsync** para transferir o conteúdo do blob para um objeto de fluxo que pode então ser salvo como um arquivo local.
@@ -140,7 +142,7 @@ Para baixar um blob, obtenha primeiro uma referência ao blob e depois chame o m
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Existem outras maneiras de salvar blobs como arquivos. Consulte a [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) para obter mais informações.
+Existem outras maneiras de salvar blobs como arquivos. Consulte [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) para obter mais informações.
 
 ##Excluir um blob
 Para excluir um blob, obtenha primeiro uma referência ao blob e depois chame o método **DeleteAsync** nele.
@@ -155,4 +157,4 @@ Para excluir um blob, obtenha primeiro uma referência ao blob e depois chame o 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

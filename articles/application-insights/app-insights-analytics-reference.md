@@ -26,7 +26,7 @@
 **Let e set** [let](#let-clause) | [set](#set-clause)
 
 
-**Consultas e operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Consultas e operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Agregações** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -46,7 +46,7 @@
 
 ### cláusula Let
 
-**Let de tabela - nomeando uma tabela**
+**Let tabular - nomeando uma tabela**
 
     let recentReqs = requests | where timestamp > ago(3d); 
     recentReqs | count
@@ -65,7 +65,7 @@
     let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
-Uma cláusula let associa um [nome](#names) a um resultado de tabela, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
+Uma cláusula let associa um [nome](#names) a um resultado tabular, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
 
 **Sintaxe**
 
@@ -99,7 +99,7 @@ Self-join:
 
 ### Cláusula Set
 
-A cláusula set define uma opção para a duração da consulta. As opções de consulta controlam como uma consulta será executada e como retornará resultados. Elas podem ser sinalizadores boolianos (desativado por padrão) ou ter algum valor inteiro. Uma consulta pode conter zero, uma ou mais instruções set. As instruções Set afetam somente as instruções de expressão de tabela que as rastreiam na ordem do programa.
+A cláusula set define uma opção para a duração da consulta. As opções de consulta controlam como uma consulta será executada e como retornará resultados. Elas podem ser sinalizadores boolianos (desativado por padrão) ou ter algum valor inteiro. Uma consulta pode conter zero, uma ou mais instruções set. As instruções Set afetam somente as instruções de expressão tabular que as rastreiam na ordem do programa.
 
     set OptionName [= OptionValue] ; query
 
@@ -163,7 +163,7 @@ O operador `count` retorna o número de registros (linhas) no conjunto de regist
 
 **Argumentos**
 
-* *T*: os dados de tabela cujos registros serão contados.
+* *T*: os dados tabulares cujos registros serão contados.
 
 **Retorna**
 
@@ -174,6 +174,227 @@ Essa função retorna uma tabela com um único registro e uma coluna do tipo `lo
 ```AIQL
 requests | count
 ```
+
+### operador evaluate
+
+`evaluate` é um mecanismo de extensão que permite que algoritmos especializados sejam anexados a consultas.
+
+`evaluate` deve ser o último operador no pipeline de consulta (exceto para uma possível `render`). Ele não pode aparecer no corpo da função.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+O AutoCluster encontra padrões comuns de atributos discretos (dimensões) nos dados e reduzirá os resultados da consulta original (se ela tiver 100 ou 100 mil linhas) para um número pequeno de padrões. O AutoCluster foi desenvolvido para ajudar a analisar falhas (por exemplo, exceções, panes) mas potencialmente pode funcionar em qualquer conjunto de dados filtrado.
+
+**Sintaxe**
+
+    T | evaluate autocluster( arguments )
+
+**Retorna**
+
+O AutoCluster retorna um conjunto (geralmente pequeno) de padrões que capturam as partes dos dados com valores comuns compartilhados entre vários atributos discretos. Cada padrão é representado por uma linha nos resultados.
+
+As duas primeiras colunas são a contagem e o percentual de linhas da consulta original capturadas pelo padrão. As colunas restantes são da consulta original e seu valor é um valor específico da coluna ou '*', que significa valores de variáveis.
+
+Observe que os padrões não são separados: eles podem ser sobrepostos e geralmente não abrangem todas as linhas originais. Nem todas as linhas podem ficar em qualquer padrão.
+
+**Dicas**
+
+* Use `where` e `project` no pipe de entrada para reduzir os dados apenas aos em que você está interessado.
+* Quando você encontrar uma linha interessante, talvez queira se aprofundar ainda mais adicionando seus valores específicos ao filtro `where`.
+
+**Argumentos (todos opcionais)**
+
+* `output=all | values | minimal`
+
+    O formato dos resultados. As colunas Count e Percent sempre aparecem nos resultados.
+
+ * `all` - todas as colunas de entrada são de saída
+ * `values` - filtra colunas que só tenham '*' nos resultados
+ * `minimal` -também filtra as colunas idênticas para todas as linhas na consulta original.
+
+
+* `min_percent=`*double* (padrão: 1)
+
+    A cobertura de percentual mínimo das linhas geradas.
+
+    Exemplo: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (padrão: 25)
+
+    O número de sementes determina o número de pontos de pesquisa local inicial do algoritmo. Em alguns casos, dependendo da estrutura dos dados, o aumento do número de sementes aumenta o número (ou a qualidade) dos resultados por meio de um espaço de pesquisa maior em uma consulta mais lenta. O argumento num\_seeds tem menos resultados em ambas as direções e,portanto, reduzi-lo para menos de cinco atingirá melhorias de desempenho imperceptíveis e aumentá-lo para mais de 50 raramente gerará padrões adicionais.
+
+    Exemplo: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (padrão: 0,5)
+
+    Oferece algum controle sobre o equilíbrio entre genéricos (alta cobertura) e informativos (muitos valores compartilhados). O aumento de size\_weight normalmente reduz o número de padrões, e cada padrão tende a cobrir um percentual maior. A redução de size\_weight geralmente produz padrões mais específicos com mais valores compartilhados e uma cobertura de percentual menor. A fórmula por trás disso é uma média geométrica ponderada entre a pontuação genérica normalizada e a pontuação informativa com size\_weight e 1-size\_weight como os pesos.
+
+    Exemplo: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column\_name*
+
+    Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'); o uso comum de uma coluna de peso é levar em consideração a amostragem de conta ou segmentação/agregação dos dados já incorporados a cada linha.
+
+    Exemplo: `T | evaluate autocluster("weight_column=sample_Count")`
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+A cesta encontra todos os padrões frequentes de atributos discretos (dimensões) nos dados e retornará todos os padrões frequentes que passaram do limite de frequência na consulta original. A cesta certamente encontrará todos os padrões frequentes nos dados, mas o tempo de execução polinomial não é garantido. O tempo de execução da consulta é linear no número de linhas, mas em alguns casos pode ser exponencial no número de colunas (dimensões). A cesta se baseia no algoritmo Apriori, originalmente desenvolvido para mineração de dados de análise da cesta.
+
+**Retorna**
+
+Todos os padrões que aparecem em mais do que uma fração especificada (padrão de 0,05) dos eventos.
+
+**Argumentos (todos opcionais)**
+
+
+* `threshold=` *0,015<double<1* (padrão: 0,05)
+
+    Define a proporção mínima de linhas a ser considerado como frequente (os padrões com uma proporção menor não serão retornados).
+
+    Exemplo: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column\_name*
+
+    Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'); o uso comum de uma coluna de peso é levar em consideração a amostragem de conta ou segmentação/agregação dos dados já incorporados a cada linha.
+
+    Exemplo: T | evaluate basket("weight\_column=sample\_Count")
+
+
+* `max_dims=` *1<int* (padrão: 5)
+
+    Define o número máximo de dimensões não correlacionadas por cesta, limitado por padrão para diminuir o tempo de execução de consulta.
+
+
+* `output=minimize` | `all`
+
+    O formato dos resultados. As colunas Count e Percent sempre aparecem nos resultados.
+
+ * `minimize` - filtra colunas que só tenham '*' nos resultados.
+ * `all` - todas as colunas de entrada são de saída.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+Diffpatterns compara dois conjuntos de dados da mesma estrutura e localiza os padrões de atributos discretos (dimensões) que caracterizam as diferenças entre os dois conjuntos de dados. Diffpatterns foi desenvolvido para ajudar a analisar falhas (por exemplo, ao comparar falhas a não falhas em um determinado período de tempo), mas pode encontrar diferenças entre quaisquer dois conjuntos de dados da mesma estrutura.
+
+**Sintaxe**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Retorna**
+
+Diffpatterns retorna um conjunto de padrões (geralmente pequeno) que capturam diferentes partes dos dados em conjuntos de dois (ou seja, um padrão que captura um percentual alto das linhas no primeiro conjunto de dados e um percentual baixo das linhas do segundo conjunto). Cada padrão é representado por uma linha nos resultados.
+
+As quatro primeiras colunas são a contagem e o percentual de linhas da consulta original capturadas pelo padrão em cada conjunto, a quinta coluna é a diferença (em pontos absolutos de percentual) entre os dois conjuntos. As colunas restantes são da consulta original e seu valor é um valor específico da coluna ou *, que significa valores de variáveis.
+
+Observe que os padrões não são diferentes: eles podem ser sobrepostos e geralmente não abrangem todas as linhas originais. Nem todas as linhas podem ficar em qualquer padrão.
+
+**Dicas**
+
+* Use where e project no pipe de entrada para reduzir os dados apenas aos em que você está interessado.
+
+* Quando você encontrar uma linha interessante, talvez queira se aprofundar ainda mais adicionando seus valores específicos ao filtro where.
+
+**Argumentos**
+
+* `split=` *nome da coluna* (obrigatório)
+
+    A coluna deve ter exatamente dois valores. Se necessário, crie uma coluna deste tipo:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/> `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Informa ao algoritmo para procurar apenas os padrões que tenham um percentual mais alto no conjunto de dados de destino, o destino deve ser um dos dois valores da coluna de divisão.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0,015<double<1* (padrão: 0,05)
+
+    Define a diferença mínima padrão (proporção) entre os dois conjuntos.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    O formato dos resultados. As colunas Count e Percent sempre aparecem nos resultados.
+
+ * `minimize` - filtra colunas que só tenham '*' nos resultados
+ * `all` - todas as colunas de entrada são de saída
+
+* `weight_column=` *column\_name*
+
+    Considera cada linha na entrada de acordo com o peso especificado (por padrão, cada linha tem um peso '1'). Um uso comum de uma coluna de peso é para amostragem de conta ou agregação/segmentação de dados já incorporados a cada linha.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+Extractcolumns é usado para enriquecer uma tabela com várias colunas simples dinamicamente extraídas de colunas (semi)estruturadas com base em seu tipo. No momento, oferece suporte somente a colunas json, serialização dinâmica e de cadeia de caracteres de jsons.
+
+
+* `max_columns=` *int* (padrão: 10)
+
+    O número de novas colunas adicionadas é dinâmico e pode ser muito grande (na verdade, é o número de chaves diferentes em todos os registros json) e, portanto, devemos limitá-lo. As novas colunas são classificadas em ordem decrescente com base na sua frequência e até max\_columns são adicionadas à tabela.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=`*double* (padrão: 10,0)
+
+    Outra maneira de limitar novas colunas ignorando colunas cuja frequência seja menor do que min\_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (padrão: true)
+
+    Se true, o nome da coluna complexa será adicionado como um prefixo aos nomes de colunas extraídos.
+
+
+* `prefix_delimiter=` *string* (padrão: "\_")
+
+    Se add\_prefix=true, esse parâmetro definirá o delimitador que será usado para concatenar os nomes das novas colunas.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/> `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (padrão: false)
+
+    Se true, as colunas (json) originais serão mantidas na tabela de saída.
+
+
+* `output=query | table`
+
+    O formato dos resultados.
+
+ * `table` - a saída é a mesma tabela como recebida menos as colunas de entrada especificadas mais novas colunas que foram extraídas de colunas de entrada.
+ * `query` -a saída é uma cadeia de caracteres que representa a consulta que você faria para obter o resultado como tabela.
+
 
 
 
@@ -227,8 +448,8 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 
 **Argumentos**
 
-* *Tabela1*: o “lado esquerdo” da junção.
-* *Tabela2*: o “lado direito” da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
+* *Tabela1*: o ‘lado esquerdo’ da junção.
+* *Tabela2*: o ‘lado direito’ da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
 * *CommonColumn*: uma coluna que tem o mesmo nome nas duas tabelas.
 * *Variante*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
 
@@ -843,7 +1064,7 @@ Filtra uma tabela para o subconjunto de linhas que satisfazem a um predicado.
 
 **Argumentos**
 
-* *T:* a entrada de tabela cujos registros devem ser filtrados.
+* *T:* a entrada tabulares cujos registros devem ser filtrados.
 * *Predicate:* uma [expressão](#boolean) `boolean` nas colunas de *T*. É avaliado para cada linha em *T*.
 
 **Retorna**
@@ -1052,7 +1273,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`.
 
 Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset)).
 
-*Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
+*Accuracy*, se for especificado, controlará o equilíbrio entre velocidade e precisão.
 
  * `0` = o cálculo menos preciso e mais rápido.
  * `1`, que é o padrão, equilibra a precisão e o tempo de cálculo; cerca de 0,8% de erro.
@@ -1071,9 +1292,9 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset).)
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
 
-*Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
+*Accuracy*, se for especificado, controlará o equilíbrio entre velocidade e precisão.
 
  * `0` = o cálculo menos preciso e mais rápido.
  * `1`, que é o padrão, equilibra a precisão e o tempo de cálculo; cerca de 0,8% de erro.
@@ -1462,17 +1683,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor 
-|`<=`|Menor ou Igual a 
-|`>` |Maior 
-|`>=`|Maior ou Igual a 
-|`<>`|Diferente de 
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -2500,4 +2711,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

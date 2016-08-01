@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de blob e aos serviços conectados do Visual Studio (ASP.NET)
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## Visão geral
 
-Este artigo descreve como começar a usar o armazenamento de Blobs do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. O artigo mostra como criar contêineres de blob e executar outras tarefas comuns, como carregar, listar, baixar e excluir blobs. Os exemplos são escritos em C# e usam a [Biblioteca do Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Este artigo descreve como começar a usar o armazenamento de Blobs do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. O artigo mostra como criar contêineres de blob e executar outras tarefas comuns, como carregar, listar, baixar e excluir blobs. Os exemplos são escritos em C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
  - Para obter mais informações sobre como usar o Armazenamento de Blobs do Azure, consulte [Introdução ao Armazenamento de Blobs do Azure usando .NET](storage-dotnet-how-to-use-blobs.md).
  - Para obter mais informações sobre projetos ASP.NET, consulte [ASP.NET](http://www.asp.net).
@@ -227,4 +229,4 @@ Como o exemplo de método chama um método assíncrono, ele deve ser precedido p
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

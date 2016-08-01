@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Solicitação de aumento dos limites da conta do Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba como solicitar um ajuste aos limites do Banco de Dados de Documentos, como o número de coleções permitidas, procedimentos armazenados e cláusulas de consulta."
+	pageTitle="Solicitação de aumento de cotas da conta do Banco de Dados de Documentos | Microsoft Azure"
+	description="Saiba como solicitar um ajuste para cotas de banco de dados do Banco de Dados de Documentos, como armazenamento de documento e produtividade por coleção."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # Limites da conta do Banco de Dados de Documentos aumentados por solicitação
 
-O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) tem um conjunto de limites padrão e imposições de cota. Diversas cotas podem ser ajustadas entrando em contato com o suporte do Azure. Este artigo mostra como solicitar um aumento de limite de conta.
+O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) tem um conjunto de cotas padrão que pode ser ajustado contatando o suporte do Azure. Este artigo mostra como solicitar um aumento de cota.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
--	Quais cotas de conta do Banco de Dados de Documentos podem ser ajustadas entrando em contato com o suporte do Azure?
+-	Quais cotas de banco de dados do Banco de Dados de Documentos podem ser ajustadas contatando o suporte do Azure?
 -	Como posso solicitar um ajuste de cota de conta do Banco de Dados de Documentos?
 
 ##<a id="Quotas"></a>Cotas da conta do Banco de Dados de Documentos.
@@ -63,4 +63,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 ##<a name="NextSteps"></a> Próximas etapas
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -161,7 +161,7 @@ O elemento `Name` é usado para especificar o nome do diretório no pacote de ap
 ```
 O elemento SetupEntrypoint é usado para especificar qualquer executável ou arquivo em lotes que deve ser executado antes da inicialização do código do serviço. Trata-se de um elemento opcional, de modo que ele não precisará ser incluído se não houver necessidade de inicialização/configuração. O SetupEntrypoint é executado toda vez que o serviço é reiniciado.
 
-Há apenas um SetupEntrypoint, de modo que os scripts de instalação/configuração precisam ser reunidos em um único arquivo em lotes se a instalação/configuração do aplicativo exigir vários scripts. Assim como o elemento SetupEntryPoint, SetupEntrypoint pode executar qualquer tipo de arquivo: arquivos executáveis, arquivos em lotes e cmdlets do PowerShell. No exemplo anterior, o SetupEntrypoint baseia-se em um arquivo em lotes, LaunchConfig.cmd, que está localizado no subdiretório `scripts` do diretório de código (supondo que o elemento WorkingFolder esteja definido para código).
+Há apenas um SetupEntrypoint, de modo que os scripts de instalação/configuração precisam ser reunidos em um único arquivo em lotes se a instalação/configuração do aplicativo exigir vários scripts. SetupEntrypoint pode executar qualquer tipo de arquivo: arquivos executáveis, arquivos em lotes e cmdlets do PowerShell. No exemplo anterior, o SetupEntrypoint baseia-se em um arquivo em lotes, LaunchConfig.cmd, que está localizado no subdiretório `scripts` do diretório de código (supondo que o elemento WorkingFolder esteja definido para código).
 
 ### Entrypoint
 
@@ -308,4 +308,4 @@ Neste artigo, você aprendeu como empacotar um executável convidado e implantá
 - [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 - [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

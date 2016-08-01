@@ -36,6 +36,7 @@ Figura 1 – Diagrama do par da região do Azure
 | América do Norte | Centro-Norte dos EUA | Centro-Sul dos Estados Unidos |
 | América do Norte | Leste dos EUA | Oeste dos EUA |
 | América do Norte | Leste dos EUA 2 | Centro dos EUA |
+|América do Norte | Oeste dos EUA 2 | Centro-Oeste dos EUA |
 | Europa | Norte da Europa | Europa Ocidental |
 | Ásia | Sudeste da Ásia | Ásia Oriental |
 | China | China Oriental | Norte da China |
@@ -45,6 +46,7 @@ Figura 1 – Diagrama do par da região do Azure
 | Governo dos EUA | Gov do Iowa nos EUA | Gov da Virgínia nos EUA |
 | Índia | Índia Central | Sul da Índia |
 | Canadá | Canadá Central | Leste do Canadá |
+
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 
@@ -86,4 +88,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

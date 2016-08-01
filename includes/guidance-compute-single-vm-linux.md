@@ -8,13 +8,13 @@ Não recomendamos usar uma única VM para cargas de trabalho de produção, pois
 
 O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a própria VM. Há elementos de computação, de rede e de armazenamento.
 
-![IaaS: VM única](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **Grupo de recursos.** Um [_grupo de recursos_][resource-manager-overview] é um contêiner que armazena os recursos relacionados. Crie um grupo de recursos para armazenar os recursos desta VM.
+- **Grupo de recursos.** Um [grupo de recursos][resource-manager-overview] é um contêiner que armazena os recursos relacionados. Crie um grupo de recursos para armazenar os recursos desta VM.
 
 - **VM**. Você pode provisionar uma VM de uma lista de imagens publicadas ou de um arquivo VHD que você carrega no Armazenamento de Blobs do Azure.
 
-- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar. O disco do sistema operacional é `/dev/sda1`
+- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [Armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar. O disco do sistema operacional é `/dev/sda1`
 
 - **Disco temporário.** A VM é criada com um disco temporário. Esse disco é armazenado em uma unidade física no computador host. Ele _não_ é salvo no armazenamento do Azure e poderá desaparecer durante as reinicializações e outros eventos de ciclo de vida da VM. Use esse disco somente para dados temporários, como arquivos de paginação ou de permuta. O disco temporário é `/dev/sdb1` e é montado em `/mnt/resource` ou `/mnt`.
 
@@ -34,7 +34,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ### Recomendações de VM
 
-- Recomendamos as séries DS e GS, a menos que você tenha uma carga de trabalho especializada, como computação de alto desempenho. Para obter detalhes, veja [Tamanhos das máquinas virtuais][virtual-machine-sizes]. Ao mover uma carga de trabalho existente para o Azure, comece com o tamanho da VM que mais se aproxima de seus servidores locais. Em seguida, meça o desempenho da carga de trabalho real com relação à CPU, memória e IOPS de disco e ajuste o tamanho, se necessário. Além disso, se você precisar de várias NICs, esteja ciente do limite de NIC para cada tamanho.  
+- Recomendamos as séries DS e GS, a menos que você tenha uma carga de trabalho especializada, como computação de alto desempenho. Para obter detalhes, veja [Tamanhos das máquinas virtuais][virtual-machine-sizes]. Ao mover uma carga de trabalho existente para o Azure, comece com o tamanho da VM que mais se aproxima de seus servidores locais. Em seguida, meça o desempenho da carga de trabalho real com relação à CPU, memória e IOPS de disco e ajuste o tamanho, se necessário. Além disso, se você precisar de várias NICs, esteja ciente do limite de NIC para cada tamanho.
 
 - Quando você provisiona a VM e outros recursos, é necessário especificar um local. Em geral, escolha um local mais próximo de seus usuários internos ou de seus clientes. No entanto, nem todos os tamanhos de VM estão disponíveis em todas as localizações. Para obter detalhes, veja [Serviços por região][services-by-region]. Para listar os tamanhos de VM disponíveis em determinada localização, execute o seguinte comando da CLI do Azure:
 
@@ -46,7 +46,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ### Recomendações de disco e de armazenamento
 
-- Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência (por exemplo, a taxa de transferência de dados) também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência). 
+- Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência (por exemplo, a taxa de transferência de dados) também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência).
 
 - Adicione um ou mais discos de dados. Quando você cria um novo VHD, ele não está formatado. Faça logon na VM para formatar o disco. Os discos de dados serão exibidos como `/dev/sdc`, `/dev/sdd` e assim por diante. Você pode executar `lsblk` para listar os dispositivos de bloco, incluindo os discos. Para usar um disco de dados, crie uma nova partição e o sistema de arquivos e, em seguida, monte o disco. Por exemplo:
 
@@ -70,12 +70,11 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - Para obter o melhor desempenho, crie uma conta de armazenamento separada para armazenar logs de diagnóstico. Uma conta LRS (armazenamento com redundância local) padrão é suficiente para os logs de diagnóstico.
 
-
 ### Recomendações de rede
 
 - Esse endereço IP público pode ser dinâmico ou estático. O padrão é dinâmico.
 
-    - Reserve um [endereço IP estático][static-ip] se precisar de um endereço IP fixo que não mudará – por exemplo, se você precisar criar um registro A no DNS ou se precisar do endereço IP para colocar na lista branca.
+    - Reserve um [endereço IP estático][static-ip] se precisar de um endereço IP fixo que não mudará – por exemplo, se você precisar criar um registro A no DNS ou se precisar do endereço IP para colocar na lista de permissões.
 
     - Você também pode criar um FQDN (nome de domínio totalmente qualificado) para o endereço IP. Em seguida, é possível registrar um [registro CNAME][cname-record] no DNS que aponta para o FQDN. Para obter mais informações, veja [Criar um nome de domínio totalmente qualificado no portal do Azure][fqdn].
 
@@ -85,7 +84,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Considerações sobre escalabilidade
 
-- Você pode escalar ou reduzir uma VM verticalmente [alterando o tamanho da VM][vm-resize]. 
+- Você pode escalar ou reduzir uma VM verticalmente [alterando o tamanho da VM][vm-resize].
 
 - Para escalar horizontalmente, coloque duas ou mais VMs em um conjunto de disponibilidade atrás de um balanceador de carga. Para obter mais informações, veja [Running multiple VMs on Azure][multi-vm] (Executando várias VMs no Azure).
 
@@ -101,9 +100,9 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Considerações sobre capacidade de gerenciamento
 
-- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilham o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
+- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
 
-- **SSH**. Antes de criar uma VM do Linux, gere um par de chaves pública-privada do RSA de 2048 bits. Use o arquivo de chave pública ao criar a VM. Para obter mais informações, veja [Como usar SSH com Linux e Mac no Azure][ssh-linux].
+- **ssh**. Antes de criar uma VM do Linux, gere um par de chaves pública-privada do RSA de 2048 bits. Use o arquivo de chave pública ao criar a VM. Para obter mais informações, veja [Como usar SSH com Linux e Mac no Azure][ssh-linux].
 
 - **Diagnóstico da VM.** Habilite o monitoramento e diagnóstico, incluindo métricas de integridade básicas, logs de infraestrutura de diagnóstico e [diagnóstico de inicialização][boot-diagnostics]. O diagnóstico de inicialização poderá ajudar a diagnosticar uma falha de inicialização se sua VM entrar em um estado não inicializável. Para obter mais informações, veja [Habilitar monitoramento e diagnóstico][enable-monitoring].
 
@@ -127,8 +126,6 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
   Para evitar a exclusão acidental, use um [bloqueio de recurso][resource-lock] para bloquear o grupo de recursos inteiro ou bloquear recursos individuais, como a VM.
 
-
-
 ## Considerações de segurança
 
 - Automatize as atualizações do sistema operacional usando a extensão de VM [OSPatching]. Instale essa extensão ao provisionar a VM. Você pode especificar a frequência de instalação dos patches e se haverá necessidade de reinicialização após a aplicação de patch.
@@ -141,7 +138,9 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - Considere o uso do [Azure Disk Encryption][disk-encryption] se você precisar criptografar os discos do sistema operacional e de dados.
 
-## Script de implantação de exemplo
+## Componentes da solução
+
+<!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
 O seguinte script Bash executa os comandos da [CLI do Azure][azure-cli] para implantar uma única instância VM e os recursos de rede e armazenamento relacionados, como mostra o diagrama anterior.
 
@@ -317,13 +316,13 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/pt-BR/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/pt-BR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
@@ -342,19 +341,20 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[reboot-logs]: https://azure.microsoft.com/pt-BR/blog/viewing-vm-reboot-logs/
+[Resize-VHD]: https://technet.microsoft.com/pt-BR/library/hh848535.aspx
+[Resize virtual machines]: https://azure.microsoft.com/pt-BR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/pt-BR/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/pt-BR/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitetura geral de uma VM do Azure"
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

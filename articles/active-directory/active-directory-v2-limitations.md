@@ -56,10 +56,33 @@ Da mesma forma, os aplicativos registrados no novo Portal de Registro de Aplicat
 
 Aplicativos que são registrados no novo Portal de Registro de Aplicativo são atualmente restritos a um conjunto limitado de valores redirect\_uri. O redirect\_uri para serviços e aplicativos Web deve começar com o esquema ou `https`, enquanto o redirect\_uri para todas as outras plataformas deve usar o valor embutido em código de `urn:ietf:oauth:2.0:oob`.
 
+## Restrições em URIs de redirecionamento
+Para aplicativos Web, todos os valores de redirect\_uri devem compartilhar um único domínio DNS. Por exemplo, não é possível registrar um aplicativo Web que tenha redirect\_uris:
+
+`https://login-east.contoso.com` `https://login-west.contoso.com`
+
+O sistema de registro compara o nome DNS completo do redirect\_uri existente ao nome DNS do redirect\_uri que você está adicionando. Se o nome DNS completo do redirect\_uri novo não corresponder exatamente ao nome DNS do redirect\_uri existente, ou se o nome completo do DNS do redirect\_uri novo não for um subdomínio do redirect\_uri existente, a solicitação para adicionar falhará. Por exemplo, se o aplicativo tiver redirect\_uri:
+
+`https://login.contoso.com`
+
+Então será possível adicionar:
+
+`https://login.contoso.com/new`
+
+que corresponda exatamente ao nome DNS ou:
+
+`https://new.login.contoso.com`
+
+que é um subdomínio DNS de login.contoso.com. Se você quiser ter um aplicativo com login-east.contoso.com e login-west.contoso.com como redirect\_uris, deverá adicionar o seguinte redirect\_uris na ordem:
+
+`https://contoso.com` `https://login-east.contoso.com` `https://login-west.contoso.com`
+
+Os dois últimos podem ser adicionados porque eles são subdomínios do primeiro redirect\_uri, contoso.com. Essa limitação será removida em uma versão futura.
+
 Para saber como registrar um aplicativo no novo Portal de Registro de Aplicativo, consulte [este artigo](active-directory-v2-app-registration.md).
 
 ## Restrições quanto a serviços e APIs
-O ponto de extremidade da v2.0 atualmente dá suporte à entrada para qualquer aplicativo registrado no novo Portal de Registro de Aplicativo, desde que ele se enquadre na lista de [fluxos de autenticação com suporte](active-directory-v2-flows.md). No entanto, esses aplicativos só poderão adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 emitirá somente access\_tokens para:
+Atualmente, o ponto de extremidade da v2.0 dá suporte à entrada para qualquer aplicativo registrado no novo Portal de Registro de Aplicativo, desde que ele se enquadre na lista de [fluxos de autenticação com suporte](active-directory-v2-flows.md). No entanto, esses aplicativos só poderão adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 emitirá somente access\_tokens para:
 
 - O aplicativo que solicitou o token. Um aplicativo pode adquirir um access\_token para si mesmo, se o aplicativo lógico é constituído de várias camadas ou componentes diferentes. Para ver esse cenário em ação, confira nossos tutoriais de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 - As APIs REST do Outlook Mail, Calendar e Contacts, que estão localizadas em https://outlook.office.com. Para saber como escrever um aplicativo que acessa essas APIs, consulte estes tutoriais de [Introdução ao Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -73,7 +96,7 @@ Para ajudá-lo a experimentar itens, fornecemos uma versão experimental da Bibl
 Se deseja usar o ponto de extremidade da v2.0 em um aplicativo de produção, você tem as seguintes opções:
 
 - Se está criando um aplicativo Web, você pode usar com segurança nosso middleware do servidor disponível para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in NodeJS Passport. Exemplos de código que usam esses middlewares também estão disponíveis na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
-- Para outras plataformas e aplicativos móveis e nativos, você também pode fazer a integração com o ponto de extremidade da v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect da v2.0 [foram documentados explicitamente](active-directory-v2-protocols.md) para ajudá-lo a executar essa integração.
+- Para outras plataformas e aplicativos móveis e nativos, você também pode fazer a integração com o ponto de extremidade da v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect da v2.0 [foram explicitamente documentados](active-directory-v2-protocols.md) para ajudar você a executar essa integração.
 - Finalmente, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade da v2.0. O protocolo da v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade dessas bibliotecas varia por linguagem e plataforma, e os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista de implementações populares. Abaixo estão listados os exemplos e as bibliotecas de clientes de software livre que foram testados com o ponto de extremidade da v2.0.
 
   - [Servidor de Identidade Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
@@ -98,4 +121,4 @@ Há um conjunto de recursos de desenvolvedor disponíveis no serviço do Active 
 - Declarações de grupo para usuários do Azure AD
 - Funções de aplicativo e declarações de função
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

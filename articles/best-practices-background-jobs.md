@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Diretrizes de trabalhos em segundo plano
@@ -320,4 +320,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

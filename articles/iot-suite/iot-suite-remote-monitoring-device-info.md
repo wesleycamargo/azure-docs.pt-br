@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="get-started-article"
+ ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="06/20/2016"
@@ -91,7 +91,7 @@ Você pode usar o portal da solução para remover um dispositivo da sua soluç�
 
 ## Processamento de mensagens de informações de dispositivo
 
-As mensagens de informação de dispositivo enviadas por um dispositivo são diferentes das mensagens de telemetria porque incluem informações como as propriedades do dispositivo, os comandos a que um dispositivo pode responder e qualquer histórico de comandos. O Hub IoT em si não tem conhecimento dos metadados contidos em uma mensagem de informações de dispositivo e processa a mensagem da mesma forma que processa todas as mensagens de dispositivo para a nuvem. Na solução de monitoramento remoto, um trabalho do [Stream Analytics do Azure][lnk-stream-analytics] \(ASA) lê as mensagens do Hub IoT. O trabalho de análise do fluxo **DeviceInfo** filtra mensagens que contêm **"ObjectType": "DeviceInfo"** e as encaminha para a instância de host **EventProcessorHost** executada em um trabalho Web. A lógica na instância **EventProcessorHost** usa a id do dispositivo para localizar o registro do Banco de Dados de Documentos para o dispositivo específico e atualiza o registro. O registro do dispositivo agora inclui informações como as propriedades do dispositivo, os comandos e o histórico de comandos.
+As mensagens de informação de dispositivo enviadas por um dispositivo são diferentes das mensagens de telemetria porque incluem informações como as propriedades do dispositivo, os comandos a que um dispositivo pode responder e qualquer histórico de comandos. O Hub IoT em si não tem conhecimento dos metadados contidos em uma mensagem de informações de dispositivo e processa a mensagem da mesma forma que processa todas as mensagens de dispositivo para a nuvem. Na solução de monitoramento remoto, um trabalho do [Stream Analytics do Azure][lnk-stream-analytics] (ASA) lê as mensagens do Hub IoT. O trabalho de análise do fluxo **DeviceInfo** filtra mensagens que contêm **"ObjectType": "DeviceInfo"** e as encaminha para a instância de host **EventProcessorHost** executada em um trabalho Web. A lógica na instância **EventProcessorHost** usa a id do dispositivo para localizar o registro do Banco de Dados de Documentos para o dispositivo específico e atualiza o registro. O registro do dispositivo agora inclui informações como as propriedades do dispositivo, os comandos e o histórico de comandos.
 
 > [AZURE.NOTE] Uma mensagem de informações de dispositivo é uma mensagem padrão do dispositivo para a nuvem. A solução faz distinção entre as mensagens de informações de dispositivo e as mensagens de telemetria por meio de consultas ASA.
 
@@ -279,4 +279,4 @@ Leia mais sobre como personalizar as soluções pré-configuradas em [Personaliz
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

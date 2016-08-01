@@ -8,13 +8,13 @@ Não recomendamos usar uma única VM para cargas de trabalho de produção, pois
 
 O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a própria VM. Há elementos de computação, de rede e de armazenamento.
 
-![IaaS: VM única](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **Grupo de recursos.** Um [_grupo de recursos_][resource-manager-overview] é um contêiner que armazena os recursos relacionados. Crie um grupo de recursos para armazenar os recursos desta VM.
+- **Grupo de recursos.** Um [grupo de recursos][resource-manager-overview] é um contêiner que armazena os recursos relacionados. Crie um grupo de recursos para armazenar os recursos desta VM.
 
 - **VM**. Você pode provisionar uma VM de uma lista de imagens publicadas ou de um arquivo VHD que você carrega no Armazenamento de Blobs do Azure.
 
-- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar.
+- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [Armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar.
 
 - **Disco temporário.** A VM é criada com um disco temporário (a unidade `D:` no Windows). Esse disco é armazenado em uma unidade física no computador host. Ele _não_ é salvo no armazenamento do Azure e poderá desaparecer durante as reinicializações e outros eventos de ciclo de vida da VM. Use esse disco somente para dados temporários, como arquivos de paginação ou de permuta.
 
@@ -60,7 +60,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - Esse endereço IP público pode ser dinâmico ou estático. O padrão é dinâmico.
 
-    - Reserve um [endereço IP estático][static-ip] se precisar de um endereço IP fixo que não mudará – por exemplo, se você precisar criar um registro A no DNS ou se precisar do endereço IP para colocar na lista branca.
+    - Reserve um [endereço IP estático][static-ip] se precisar de um endereço IP fixo que não mudará – por exemplo, se você precisar criar um registro A no DNS ou se precisar do endereço IP para colocar na lista de permissões.
 
     - Você também pode criar um FQDN (nome de domínio totalmente qualificado) para o endereço IP. Em seguida, é possível registrar um [registro CNAME][cname-record] no DNS que aponta para o FQDN. Para obter mais informações, veja [Criar um nome de domínio totalmente qualificado no portal do Azure][fqdn].
 
@@ -86,7 +86,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Considerações sobre capacidade de gerenciamento
 
-- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilham o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
+- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
 
 - **Diagnóstico da VM.** Habilite o monitoramento e diagnóstico, incluindo métricas de integridade básicas, logs de infraestrutura de diagnóstico e [diagnóstico de inicialização][boot-diagnostics]. O diagnóstico de inicialização poderá ajudar a diagnosticar uma falha de inicialização se sua VM entrar em um estado não inicializável. Para obter mais informações, veja [Habilitar monitoramento e diagnóstico][enable-monitoring]. Use a extensão [Coleção de Logs do Azure][log-collector] para coletar logs da plataforma Azure e carregá-los no Armazenamento do Azure.
 
@@ -109,8 +109,6 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 - **Excluindo uma VM.** Se você excluir uma VM, os VHDs não serão excluídos. Isso significa que você poderá excluir com segurança a VM sem perda de dados. No entanto, você ainda será cobrado pelo armazenamento. Para excluir o VHD, exclua o arquivo do [armazenamento de blobs][blob-storage].
 
   Para evitar a exclusão acidental, use um [bloqueio de recurso][resource-lock] para bloquear o grupo de recursos inteiro ou bloquear recursos individuais, como a VM.
-
-
 
 ## Considerações de segurança
 
@@ -137,7 +135,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - Considere o uso do [Azure Disk Encryption][disk-encryption] se você precisar criptografar os discos do sistema operacional e de dados.
 
-## Script de implantação de exemplo
+## Componentes da solução
 
 O seguinte script em lotes do Windows executa os comandos da [CLI do Azure][azure-cli] para implantar uma única instância VM e os recursos de rede e armazenamento relacionados, como mostra o diagrama anterior.
 
@@ -253,6 +251,7 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
   --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
+
 ## Próximas etapas
 
 Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário implantar duas ou mais instâncias em um Conjunto de Disponibilidade. Para obter mais informações, veja [Running multiple Windows VMs on Azure][multi-vm] (Executando várias VMs Windows no Azure).
@@ -300,5 +299,6 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/pt-BR/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitetura geral de uma VM do Azure"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

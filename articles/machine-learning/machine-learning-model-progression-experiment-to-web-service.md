@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -21,11 +21,11 @@
 
 Um ***experimento*** é uma tela no Estúdio de Aprendizado de Máquina do Azure que permite desenvolver, executar, testar e iterar enquanto você cria um modelo de análise preditiva interativamente. Há uma grande variedade de módulos disponíveis que você pode usar para transferir dados para seu experimento, manipular os dados, treinar um modelo usando algoritmos de aprendizado de máquina, pontuar o modelo, avaliar os resultados e os valores finais de saída.
 
-Quando estiver satisfeito com seu experimento, você poderá implantá-lo como um ***serviço Web do Azure*** para que os usuários possam enviá-lo novos dados e receber resultados.
+Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***Serviço Web clássico do Azure*** ou ***Novo serviço Web do Azure***para que os usuários possam enviá-lo novos dados e receber resultados.
 
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Aprendizado de Máquina evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
->[AZURE.NOTE] Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão com R, consulte a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>[AZURE.NOTE] Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão clássico com R, consulte a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 
 Embora o Estúdio de Aprendizado de Máquina do Azure seja projetado principalmente para ajudar você a desenvolver e implantar um *modelo de análise preditiva*, é possível usar o Estúdio para desenvolver um experimento que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um experimento de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o teste não está treinando ou pontuando um modelo de aprendizado de máquina. Embora não seja o uso normal do Estúdio, o incluiremos na discussão abaixo para que possamos dar uma explicação completa de como funciona o Estúdio.
 
@@ -61,16 +61,16 @@ O teste de treinamento não é descartado neste processo de conversão. Quando o
 
 ### O serviço Web
 
-Quando já estiver satisfeito com seu experimento preditivo, clique em **Implantar Serviço Web** para tornar seu modelo operacional, implantando-o como um ***Serviço Web do Azure***. Os usuários podem agora enviar dados para seu modelo usando a API REST do serviço Web e receber os resultados de volta. Para obter mais informações sobre como fazer isso, veja [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
+Quando estiver satisfeito que seu teste preditivo está pronto, você pode implantar o serviço como um serviço web clássico ou um novo serviço web com base no Azure Resource Manager. Para colocar em operação seu modelo implantando-o como um *serviço Web clássico*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]**. Para implantar como *novo serviço Web*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [novo]**. Os usuários podem agora enviar dados para seu modelo usando a API REST do serviço Web e receber os resultados de volta. Para obter mais informações sobre como fazer isso, veja [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
 Após a implantação do serviço Web, o experimento preditivo e o serviço Web permanecerão conectados, e você poderá se movimentar entre eles:
 
-|***Nesta página...***|***clique aqui...***|***para abrir esta página...***|
+| ***Nesta página...*** | ***clique aqui...*** | ***para abrir esta página...*** |
 | ------------------- | --------------- | ---------------------- |
 |tela de experimento do Estúdio|**Vá para o serviço Web**|configuração de serviço Web no Estúdio|
 |configuração de serviço Web no Estúdio|**Exibir mais recente**|tela de experimento do Estúdio|
-|configuração de serviço Web no Estúdio|**Gerenciar pontos de extremidade...**|gerenciamento de ponto de extremidade no Portal Clássico do Azure|
-|gerenciamento de ponto de extremidade no Portal Clássico do Azure|**Editar no Estúdio**|tela de experimento do Estúdio|
+|configuração do serviço Web no Studio (apenas serviço Web clássico)|**Gerenciar pontos de extremidade...**|gerenciamento de ponto de extremidade no Portal Clássico do Azure|
+|gerenciamento de ponto de extremidade no Portal Clássico do Azure (apenas serviço Web clássico)|**Editar no Estúdio**|tela de experimento do Estúdio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -86,7 +86,7 @@ Depois que você tiver iterado no experimento e estiver satisfeito com ele:
 
 2.  Clique em **Executar**
 
-3.  Clique em **Implantar Serviço Web**
+3. Clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [novo]** dependendo do ambiente no qual você deseja implantar.
 
 Seu serviço Web está agora implantado e você pode acessá-lo e gerenciá-lo como um serviço Web preditivo.
 
@@ -106,8 +106,10 @@ Se o experimento treinar e pontuar um modelo preditivo, os botões do serviço W
 |Experimento de treinamento|**Configurar Serviço Web**|Fornece duas opções|
 |&nbsp;|- **Atualizar teste preditivo**|Atualiza o teste preditivo associado com as alterações feitas no teste de treinamento|
 |&nbsp;|- **Treinando novamente o serviço Web**|Converte o teste de treinamento em um teste de novo treinamento (veja a seção “Atualizando” abaixo)|
-|&nbsp;|- *ou* - **Implantar serviço Web**|Se você tiver configurado o teste de novo treinamento para implantação, ele será implantado como um serviço Web|
-|Teste preditivo|**Implantar Serviço Web**|Implanta o teste preditivo como um serviço Web|
+|&nbsp;|-*ou*- **Implantar Serviço Web [clássico]** |Se você tiver configurado o teste de novo treinamento para implantação, ele será implantado como um serviço Web clássico|
+|&nbsp;|-*ou*- **Implantar Serviço Web [novo]** |Se você tiver configurado o teste de novo treinamento para implantação, ele será implantado como um novo serviço Web|
+|Teste preditivo|**Implantar Serviço Web [clássico]** |Implanta o teste preditivo como um serviço Web clássico|
+|Teste preditivo|**Implantar Serviço Web [novo]** |Implanta o teste preditivo como um novo serviço Web|
 
 **O experimento *não* contém um modelo preditivo**
 
@@ -116,7 +118,8 @@ Se o teste não treinar nem pontuar um modelo preditivo, os botões do serviço 
 |**Tipo de experimento**|**Botão**|**O que ele faz**|
 | -------------------- | -------- | -------------- |
 |Experimento em desenvolvimento|**Configurar Serviço Web**|Prepara o experimento para implantação como um Serviço Web|
-|Experimento preparado para implantação|**Implantar Serviço Web**|Implanta o experimento como um serviço Web, abre a página de configuração do serviço Web|
+|Experimento preparado para implantação|***Implantar Serviço Web [clássico]**|Implanta o experimento como um serviço Web, abre a página de configuração do serviço Web clássico|
+|&nbsp;|-*ou*- **Implantar Serviço Web [novo]**| Implantar como um novo serviço Web|
 
 ## Atualização de seu serviço Web
 
@@ -126,9 +129,9 @@ Depende do que você precisa atualizar:
 
 **Para alterar a entrada ou saída, ou para modificar como o serviço Web manipula dados**
 
-Se você não estiver alterando o modelo, mas estiver apenas alterando como o serviço Web manipula os dados, poderá editar o experimento preditivo e clicar em **Implantar Serviço Web** novamente. O serviço Web será parado, o experimento preditivo atualizado será implantado e o serviço Web será iniciado novamente.
+Se você não estiver alterando o modelo, mas estiver apenas alterando como o serviço Web manipula os dados, poderá editar o teste preditivo e clicar em **Implantar Serviço Web** e selecionar **Implantar serviço Web [clássico]** ou **Implantar serviço Web [novo]** novamente. O serviço Web será parado, o experimento preditivo atualizado será implantado e o serviço Web será iniciado novamente.
 
-Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Adicione então um módulo **Selecionar Colunas no Conjunto de Dados** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clicar em **Implantar Serviço Web** novamente, o serviço Web será atualizado.
+Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Então adicione um módulo de **Colunas de Projeto** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clica em **Implantar Serviço Web** e seleciona **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [novo]** novamente, o serviço Web é atualizado.
 
 **Você quer treinar novamente o modelo com novos dados**
 
@@ -160,4 +163,4 @@ Para obter exemplos do processo inteiro, consulte:
 
 -   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

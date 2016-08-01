@@ -227,7 +227,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 
 No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:
 
-* Standard\_A0 é ExtraSmall 
+* Standard\_A0 é ExtraSmall
 * Standard\_A1 é pequeno
 * Standard\_A2 é médio
 * Standard\_A3 é grande
@@ -239,4 +239,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

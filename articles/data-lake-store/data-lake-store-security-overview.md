@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Segurança no Armazenamento do Azure Data Lake
@@ -43,11 +43,14 @@ Atualmente, toda assinatura do Azure pode ser associada um Azure Active Director
 
 ## Autenticação e controle de acessos
 
-Assim que um usuário é autenticado pelo AAD para acessar o Repositório Azure Data Lake, os controles de autorização acessam as permissões para o Repositório Data Lake. O Repositório Data Lake separa a autorização para as atividades relacionadas aos dados e à conta da seguinte maneira. Gerenciamento da conta a partir do gerenciamento de dados [controle de acesso baseado em funções] (../active-directory/role-based access control-what-is.md) (RBAC) fornecido pelo Azure para o gerenciamento da conta e oferece suporte ao POSIX ACL para acessar os dados no repositório.
+Assim que um usuário é autenticado pelo AAD para acessar o Repositório Azure Data Lake, os controles de autorização acessam as permissões para o Repositório Data Lake. O Data Lake Store separa autorização das atividades relacionadas à conta e relacionadas a dados da maneira que se segue.
+
+* RBAC ([Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)) fornecido pelo Azure para gerenciamento de contas
+* ACL POSIX para acessar dados no repositório.
 
 ### Usando o RBAC para o gerenciamento da conta
 
-Há quatro funções básicas definidas por padrão. Elas permitem operações diferentes em uma conta do Repositório Data Lake através do portal, cmdlets do PowerShell e APIs REST. As funções **Proprietário** e **Colaborador** permitem várias funções de administração na conta. Para os usuários que só interagem com os dados, você pode adicioná-los à função **Leitor**.
+Há quatro funções básicas definidas por padrão. Elas permitem operações diferentes em uma conta do Repositório Data Lake através do portal, cmdlets do PowerShell e APIs REST. As funções **Proprietário** e **Colaborador** permitem várias funções de administração na conta. Para os usuários que interagem somente com dados, você pode adicioná-los à função **Leitor**.
 
 ![Funções RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
 
@@ -61,13 +64,13 @@ Observe que embora a finalidade de atribuir essas funções seja para o gerencia
 | Colaborador | Tudo, exceto adicionar e remover as funções. | Controlado pela ACL | O Colaborador pode gerenciar outros aspectos de uma conta, como criar/gerenciar alertas, implantar etc. Um Colaborador não pode adicionar nem remover as funções. |
 | Administrador de acesso do usuário | Adicionar e remover funções | Controlado pela ACL | Administrador de acesso do usuário permite gerenciar o acesso do usuário às contas. |
 
-Para obter instruções, consulte [Atribuir usuários ou grupos de segurança às contas do Repositório Azure Data Lake](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
+Para obter instruções, confira [Atribuir usuários ou grupos de segurança às contas do Azure Data Lake Store.](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### Usando ACLs para as operações nos sistemas de arquivos
 
-O Repositório Azure Data Lake é um sistema de arquivos hierárquico, como o HDFS, e dá suporte às [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) -permitindo ler (r), gravar (w) e executar (x) os direitos de acesso aos recursos concedidos para o proprietário, possuindo um grupo e outros usuários/grupos. Na Visualização Pública do Repositório Data Lake (versão atual), as ACLs estão habilitadas somente na pasta-raiz, que significa que as ACLs aplicadas na pasta-raiz também são aplicáveis a todas as pastas/arquivos filhos também. Nas futuras versões, você poderá definir as ACLs em qualquer arquivo ou pasta.
+O Azure Data Lake Store é um sistema de arquivos hierárquico, como o HDFS, compatível com [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), que permite ler (r), gravar (w) e executar (x) os direitos de acesso aos recursos concedidos para o proprietário, grupo proprietário e outros usuários/grupos. Na Visualização Pública do Repositório Data Lake (versão atual), as ACLs estão habilitadas somente na pasta-raiz, que significa que as ACLs aplicadas na pasta-raiz também são aplicáveis a todas as pastas/arquivos filhos também. Nas futuras versões, você poderá definir as ACLs em qualquer arquivo ou pasta.
 
-É recomendável definir as ACLs para muitos usuários usando [grupos de segurança](../active-directory/active-directory-accessmanagement-manage-groups.md). Agrupe os usuários em um grupo de segurança, em seguida, atribua as ACLs do arquivo e da pasta a esse grupo de segurança. Isso é útil ao fornecer um acesso personalizado, pois há um limite no qual você pode adicionar apenas um máximo de nove entradas como parte do acesso personalizado. Consulte [Atribuir usuários ou grupo de segurança como ACLs ao sistema de arquivos do Repositório Azure Data Lake](data-lake-store-secure-data.md#filepermissions) para obter mais informações sobre como proteger os dados armazenados no Repositório Data Lake usando grupos de segurança do AAD.
+É recomendável definir as ACLs para muitos usuários usando [grupos de segurança](../active-directory/active-directory-accessmanagement-manage-groups.md). Agrupe os usuários em um grupo de segurança, em seguida, atribua as ACLs do arquivo e da pasta a esse grupo de segurança. Isso é útil ao fornecer um acesso personalizado, pois há um limite no qual você pode adicionar apenas um máximo de nove entradas como parte do acesso personalizado. Confira [Atribuir usuários ou grupo de segurança como ACLs ao sistema de arquivos do Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions) para obter mais informações sobre como proteger os dados armazenados no Data Lake Store usando grupos de segurança do AAD.
 
 ![Listar acesso padrão e personalizado](./media/data-lake-store-security-overview/adl.acl.2.png "Listar acesso padrão e personalizado")
 
@@ -104,13 +107,13 @@ Você pode habilitar as trilhas de auditoria de acesso aos dados no portal do Az
 
 ![Logs de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Logs de diagnóstico")
 
-Depois de habilitar as configurações de diagnóstico, você pode observar os logs na guia **Logs de Diagnóstico**.
+Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico**.
 
 ## Resumo
 
 Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que seja segura e fácil de usar. O Repositório Azure Data Lake foi projetado para endereçar esses requisitos com o gerenciamento da identidade e a autenticação através da integração do Azure Active Direction, das ACLs baseadas na autorização, isolamento da rede, criptografia do dados em trânsito e repouso (no futuro) e auditoria.
 
-Se você quiser ver os novos recursos incluídos no Repositório Data Lake, envie seus comentários para o [Fórum Uservoice](https://feedback.azure.com/forums/327234-data-lake).
+Se você quiser ver os novos recursos incluídos no Data Lake Store, envie seus comentários para o [Fórum Uservoice](https://feedback.azure.com/forums/327234-data-lake).
 
 ## Consulte também
 
@@ -118,4 +121,4 @@ Se você quiser ver os novos recursos incluídos no Repositório Data Lake, envi
 - [Introdução ao Repositório Data Lake](data-lake-store-get-started-portal.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

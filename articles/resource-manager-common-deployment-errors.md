@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Solução de erros comuns de implantação do Azure com o Azure Resource Manager
@@ -24,24 +24,72 @@ Este tópico descreve como é possível resolver alguns erros de implantação c
 
 ## Modelo ou recurso inválido
 
-Se você receber um erro informando que o modelo ou uma propriedade em um recurso é inválida, isso possivelmente indicará a ausência de um caractere em seu modelo. Esse erro é fácil de cometer ao usar expressões de modelo porque a expressão fica entre aspas, então o JSON valida-a mesmo assim e seu editor pode não detectar o erro. Por exemplo, a atribuição de nome a seguir para uma conta de armazenamento contém um par de colchetes, três funções, três pares de parênteses, um par de aspas simples e uma propriedade:
+Ao implantar um modelo, você pode receber:
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+Se você receber um erro informando que o modelo ou uma propriedade em um recurso é inválida, terá um erro de sintaxe em seu modelo. Esse erro é fácil de cometer porque as expressões do modelo podem ser complexas. Por exemplo, a atribuição de nome a seguir para uma conta de armazenamento contém um par de colchetes, três funções, três pares de parênteses, um par de aspas simples e uma propriedade:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 Se você não fornecer toda a sintaxe correspondente, o modelo produzirá um valor muito diferente de sua intenção.
 
-Dependendo da localização do caractere ausente em seu modelo, você receberá um erro informando que o modelo ou então que um recurso é inválido. O erro também pode indicar que o processo de implantação não pôde processar a expressão de linguagem de modelo. Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão.
+Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou o [Visual Studio Code](resource-manager-vs-code.md) que pode avisá-lo sobre os erros de sintaxe.
 
-## O nome do recurso já existe ou já está sendo usado por outro recurso
+## Comprimentos de segmento incorretos
 
-Para alguns recursos, especialmente as contas de armazenamento, servidores do banco de dados e sites da Web, você deve fornecer um nome para o recurso que seja exclusivo em todo o Azure. Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions.md#uniquestring).
+Outro erro de modelo inválido ocorre quando o nome do recurso não está no formato correto.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+Um recurso no nível-raiz deve ser um segmento a menos no nome que no tipo de recurso. Cada segmento é diferenciado por uma barra. No exemplo a seguir, o tipo tem dois segmentos e o nome tem um segmento, portanto, é um **nome válido**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+Mas o exemplo a seguir não é **um nome válido** porque ele tem o mesmo número de segmentos do tipo.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+Para os recursos-filho, o tipo e o nome devem ter o mesmo número de segmentos. Isso faz sentido, porque o nome completo e o tipo para o filho incluem o nome do pai e o tipo, portanto, o nome completo ainda tem um segmento a menos que o tipo completo.
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+Ter os segmentos corretos pode ser especialmente difícil com os tipos de Gerenciador de Recursos que são aplicados nos provedores de recursos. Por exemplo, aplicar um bloqueio de recurso para um site da Web requer um tipo com quatro segmentos. Portanto, o nome tem três segmentos:
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+
+## O nome do recurso já obtido ou já usado por outro recurso
+
+Para alguns recursos, especialmente as contas de armazenamento, servidores do banco de dados e sites da Web, você deve fornecer um nome para o recurso que seja exclusivo em todo o Azure. Se você não fornecer um nome exclusivo, receberá um erro como:
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
+Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions.md#uniquestring).
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
 
 ## Não é possível localizar o recurso durante a implantação
 
-O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo para criar uma dependência do outro recurso. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web é dependente do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe quando tentar definir uma propriedade no aplicativo Web. Você pode evitar esse erro configurando a dependência no aplicativo Web.
+O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo para criar uma dependência no outro recurso. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web é dependente do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe quando tentar definir uma propriedade no aplicativo Web. Você pode evitar esse erro configurando a dependência no aplicativo Web.
 
     {
       "apiVersion": "2015-08-01",
@@ -55,7 +103,7 @@ O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, 
 
 ## Não foi possível encontrar o membro 'copy' no objeto
 
-Você encontrou esse erro quando aplicou o elemento **copy** em uma parte do modelo que não dá suporte a esse elemento. Só é possível aplicar o elemento copy em um tipo de recurso. Não é possível aplicar a cópia em uma propriedade dentro de um tipo de recurso. Por exemplo, você aplica a cópia em uma máquina virtual, mas não pode aplicá-la nos discos do SO para uma máquina virtual. Em alguns casos, você pode converter um recurso-filho em um recurso-pai para criar um loop de cópia. Para obter mais informações sobre como usar a cópia, consulte [Criar várias instâncias de recursos Azure Resource Manager](resource-group-create-multiple.md).
+Você encontrou esse erro quando aplicou o elemento **copy** em uma parte do modelo que não dá suporte a esse elemento. Só é possível aplicar o elemento copy em um tipo de recurso. Não é possível aplicar a cópia em uma propriedade dentro de um tipo de recurso. Por exemplo, você aplica a cópia em uma máquina virtual, mas não pode aplicá-la nos discos do SO para uma máquina virtual. Em alguns casos, você pode converter um recurso-filho em um recurso-pai para criar um loop de cópia. Para obter mais informações sobre como usar a cópia, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
 ## SKU não disponível
 
@@ -70,7 +118,7 @@ Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) n
 
     ![skus disponíveis](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-2.	Se não é possível encontrar um SKU adequado na região ou uma região alternativa que atenda às suas necessidades de negócios, entre em contato o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+2.	Se não for possível encontrar um SKU adequado na região ou uma região alternativa que atenda às suas necessidades de negócios, entre em contato o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 
 ## Nenhum provedor registrado encontrado
@@ -94,7 +142,7 @@ Para ver o status do registro, use **Get-AzureRmResourceProvider**.
 
     Get-AzureRmResourceProvider -ListAvailable
 
-Para registrar um provedor, use **Register-AzureRmResourceProvider** e forneça o nome do provedor de recursos que deseja registrar.
+Para registrar um provedor, use **Register-AzureRmResourceProvider** e forneça o nome do provedor de recursos que você deseja registrar.
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
@@ -168,7 +216,7 @@ Nesses casos, você deve ir para o portal e abrir um problema de suporte para au
 
 Você pode receber um erro durante a implantação porque a conta ou a entidade de serviço que está tentando implantar os recursos de serviço não tem acesso para executar essas ações. O Azure Active Directory permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Por exemplo, se sua conta está atribuída à função Leitor, ela não poderá criar novos recursos. Nesse caso, você deve ver uma mensagem de erro indicando que houve falha na autorização.
 
-Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
+Para obter mais informações sobre o controle de acesso baseado em funções, consulte [Controle de Acesso Baseado em Funções do Azure](./active-directory/role-based-access-control-configure.md).
 
 Além de controle de acesso baseado em função, suas ações de implantação podem ser limitadas por políticas na assinatura. Por meio de políticas, o administrador pode impor convenções a todos os recursos implantados na assinatura. Por exemplo, um administrador pode exigir que um valor de marca específico seja fornecido para um tipo de recurso. Se não tiver cumprido os requisitos da política, você receberá um erro durante a implantação. Para obter mais informações sobre as políticas, consulte [Usar a política para gerenciar os recursos e controlar o acesso](resource-manager-policy.md).
 
@@ -180,7 +228,7 @@ Além de controle de acesso baseado em função, suas ações de implantação p
 | Erros de provisionamento de imagem do SO | [Novos erros da VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />ou<br />[Novos erros da VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
 | Falhas na alocação | [Falhas de alocação da VM do Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />ou<br />[Falhas de alocação da VM do Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
 | Erros do Secure Shell (SSH) ao tentar conectar | [Conexões do Secure Shell com a VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
-| Erros ao conectar o aplicativo em execução na VM | [Aplicativo em execução em uma VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />ou<br />[Aplicativo em execução em uma VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
+| Erros ao conectar o aplicativo em execução na VM | [Aplicativo em execução na VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />ou<br />[Aplicativo em execução na VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
 | Erros de conexão da Área de Trabalho Remota | [Conexões da Área de Trabalho Remota com a VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
 | Erros de conexão resolvidos com a reimplantação | [Reimplantar Máquina Virtual em um novo nó do Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
 | Erros do serviço de nuvem | [Problemas de implantação do serviço de nuvem](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
@@ -210,7 +258,7 @@ Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao cr
 
 ## Próximas etapas
 
-- Para saber mais sobre as ações de auditoria, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
-- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
+- Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
+- Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

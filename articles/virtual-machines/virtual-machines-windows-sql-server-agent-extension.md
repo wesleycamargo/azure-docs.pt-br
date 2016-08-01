@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/16/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # Extensão do SQL Server Agent para VMs do SQL Server (Gerenciador de Recursos)
@@ -25,8 +25,7 @@
 
 A extensão do SQL Server IaaS Agent (SQLIaaSExtension) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este tópico fornece uma visão geral dos serviços que recebem suporte da extensão, bem como instruções de instalação, status e remoção.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-modelo de implantação clássico. Para exibir a versão clássica deste artigo, confira [Extensão do SQL Server Agent para máquinas virtuais clássicas do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico. Para exibir a versão clássica deste artigo, confira [Extensão do SQL Server Agent para máquinas virtuais clássicas do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Serviços com suporte
 
@@ -65,7 +64,9 @@ Se você criar uma máquina virtual somente do sistema operacional Windows Serve
 
 	Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2"
 
-Se você atualizar para a versão mais recente da Extensão do Agente IaaS SQL, você deverá reiniciar a máquina virtual depois de atualizar a extensão.
+Se você atualizar para a versão mais recente da Extensão do Agente IaaS SQL, deverá reiniciar a máquina virtual depois de atualizar a extensão.
+
+>[AZURE.NOTE] Se instalar a Extensão do Agente IaaS do SQL Server manualmente em uma VM do Windows Server, você deverá usar e gerenciar seus recursos usando comandos do PowerShell. A interface do portal está disponível apenas para imagens da galeria do SQL Server.
 
 ## Status
 
@@ -99,4 +100,4 @@ Comece a usar um dos serviços com suporte da extensão. Para obter mais detalhe
 
 Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais do Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

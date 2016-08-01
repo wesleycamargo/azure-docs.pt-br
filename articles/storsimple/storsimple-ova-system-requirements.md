@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Requisitos do sistema da StorSimple Virtual Array
@@ -69,14 +69,22 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | Internet Explorer | Última versão | Testado com o Internet Explorer 11 |
 | Google Chrome | Última versão | Testado com o Chrome 46 |
 
-### Versões do SMB com suporte
+### Clientes de armazenamento com suporte 
 
-| **Versão** |
+Os requisitos de software a seguir referem-se aos iniciadores iSCSI que acessam o StorSimple Array Virtual (configurado como um servidor iSCSI).
+
+| **Sistemas operacionais com suporte** | **Versão necessária** | **Requisitos/observações adicionais** |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Ele não pode criar volumes com provisionamento parcial. Os volumes iSCSI do StorSimple têm suporte apenas em: <ul><li>volumes simples em discos básicos do Windows.</li><li>Windows NTFS para formatação de um volume.</li>|
+
+Os requisitos de software a seguir referem-se aos clientes SMB que acessam o StorSimple Array Virtual (configurado como um servidor de arquivos).
+
+| **Versão do SMB** |
 |-------------|
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
-
+ 
 ## Requisitos de rede 
 
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
@@ -85,9 +93,9 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
 | TCP 80 (HTTP) | Saída | WAN | Não | A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | TCP 443 (HTTPS) | Saída | WAN | Sim | A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
-| UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: se estiver implantando um servidor de arquivos, recomendamos usar o servidor DNS local.|
-| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta é necessária apenas se estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** se estiver implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de Domínio do Active Directory. |
-| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local em HTTP será redirecionado automaticamente para HTTPS.|
+| UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local.|
+| UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta será necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
+| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS.|
 | TCP 443 (HTTPS) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local.|
 | TCP 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
 
@@ -105,7 +113,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 > [AZURE.NOTE] 
 > 
 > - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem.
-> - Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
+> - Os IPs de destino devem ser definidos como [Azure datacenter IP ranges](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653) (Intervalos de IP do datacenter do Azure).
 
 
 | Padrão de URL | Componente/funcionalidade |
@@ -117,10 +125,10 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Pacote de suporte |
-| `http://*.data.microsoft.com ` | Serviço de telemetria no Windows, consulte a [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/pt-BR/kb/3068708) |
+| `http://*.data.microsoft.com ` | Serviço de telemetria no Windows, veja a [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/pt-BR/kb/3068708) |
 
 ## Próxima etapa
 
 -   [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

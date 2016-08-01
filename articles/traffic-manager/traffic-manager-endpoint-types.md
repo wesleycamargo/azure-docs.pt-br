@@ -98,11 +98,13 @@ Se todos os pontos de extremidade em um perfil estiverem desabilitados ou se o p
 ## Perguntas frequentes
 
 ### Posso usar o Gerenciador de Tráfego com pontos de extremidade de várias assinaturas?
-Sim. Como você faz isso depende de estar usando as APIs do Gerenciamento de Serviços ou as APIs do Gerenciador de Recursos para o Gerenciador de Tráfego. O [portal do Azure](https://portal.azure.com) usa o Gerenciador de Recursos, o [portal 'clássico'](https://manage.windowsazure.com) usa o Gerenciamento de Serviços.
+Para os Aplicativos Web do Azure, isso não é possível. Isso ocorre porque os Aplicativos Web exigem que qualquer nome de domínio personalizado usado com eles seja usado somente em uma única assinatura. Não é possível usar os Aplicativos Web de várias assinaturas com o mesmo nome de domínio e, portanto, eles não podem ser usados com o Gerenciador de Tráfego.
 
-No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [controle de acesso baseado em funções (RBAC) do Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+Para outros tipos de ponto de extremidade, é possível usar o Gerenciador de Tráfego com pontos de extremidade de mais de uma assinatura. Como você faz isso depende de estar usando as APIs do Gerenciamento de Serviços ou as APIs do Gerenciador de Recursos para o Gerenciador de Tráfego. O [portal do Azure](https://portal.azure.com) usa o Resource Manager, enquanto o [portal “clássico”](https://manage.windowsazure.com) usa o Gerenciamento de Serviços.
 
-No Gerenciamento de Serviços, o Gerenciador de Tráfego requer que qualquer Serviço de Nuvem ou Aplicativo Web configurado como um ponto de extremidade do Azure resida na mesma assinatura do perfil do Gerenciador de Tráfego. Os pontos de extremidade do Serviço de Nuvem em outras assinaturas podem ser adicionados ao Gerenciador de Tráfego como pontos de extremidade 'externos' (eles ainda serão cobrados na taxa do ponto de extremidade 'interno'). Os aplicativos Web de outras assinaturas não podem ser usados.
+No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [RBAC (controle de acesso baseado em função) do Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+
+No Gerenciamento de Serviços, o Gerenciador de Tráfego requer que qualquer Serviço de Nuvem ou Aplicativo Web configurado como um ponto de extremidade do Azure resida na mesma assinatura do perfil do Gerenciador de Tráfego. Os pontos de extremidade do Serviço de Nuvem em outras assinaturas podem ser adicionados ao Gerenciador de Tráfego como pontos de extremidade 'externos' (eles ainda serão cobrados na taxa do ponto de extremidade 'interno').
 
 ### Posso usar o Gerenciador de Tráfego com os slots de 'Preparo' do Serviço de Nuvem?
 Sim. Os slots de 'preparo' do Serviço de Nuvem podem ser configurados no Gerenciador de Tráfego como pontos de extremidade externos.
@@ -138,8 +140,8 @@ No caso dos Aplicativos Web, os pontos de extremidade do Azure do Gerenciador de
 
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-how-traffic-manager-works.md).
 
-- Saiba mais sobre o [failover automático e monitoramento do ponto de extremidade](traffic-manager-monitoring.md) do Gerenciador de Tráfego.
+- Saiba mais sobre [o monitoramento de ponto de extremidade e failover automático](traffic-manager-monitoring.md) do Gerenciador de Tráfego.
 
-- Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) do Gerenciador de Tráfego.
+- Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) do Gerenciador de Tráfego.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

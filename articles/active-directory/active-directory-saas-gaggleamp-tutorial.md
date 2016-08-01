@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do GaggleAMP ao Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, é possível controlar quem tem acesso ao GaggleAMP
 - Você pode permitir seus usuários façam logon automaticamente no GaggleAMP (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure 
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -61,7 +61,7 @@ Para configurar a integração do GaggleAMP com o Azure AD, você precisa adicio
 
 **Para adicionar o GaggleAMP a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -134,10 +134,10 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Clique em **Baixar certificado** e salve o certificado no computador. Precisaremos desse certificado e das URLs de metadados (ID da Entidade, URL de Entrada e URL de saída de SSO) para configurar o SSO no lado do GaggleAMP.
 
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 
-5. Em outra instância do navegador, navegue até a página de SSO de SAML criada para você pela equipe de suporte do Gaggle (por exemplo: **https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+5. Em outra instância do navegador, navegue até a página de SSO de SAML criada para você pela equipe de suporte do Gaggle (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
 6. Na página **SSO de SAML**, execute as seguintes etapas:
    
@@ -286,4 +286,4 @@ Ao clicar no bloco GaggleAMP no Painel de Acesso, você deve ser automaticamente
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

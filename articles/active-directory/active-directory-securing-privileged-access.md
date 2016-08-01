@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="mwahl"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 
 # Protegendo o acesso privilegiado no Azure AD
 
-Proteger o acesso privilegiado é a primeira etapa crítica para ajudar a proteger os ativos de negócios em uma organização moderna. A segurança da maioria ou todos os ativos de negócios em uma organização depende da integridade das contas privilegiadas que administram e gerenciam sistemas de TI. Os invasores virtuais estão visando essas contas para obter acesso aos sistemas e dados de uma organização.
+Proteger o acesso privilegiado é a primeira etapa crítica para ajudar a proteger os ativos de negócios em uma organização moderna. As contas privilegiadas são aquelas que administram e gerenciam sistemas de TI. Os invasores virtuais visam essas contas para obter acesso aos sistemas e aos dados de uma organização. Para proteger o acesso privilegiado, você deve isolar as contas e os sistemas do risco de serem expostos a um usuário mal-intencionado.
 
-A proteção do acesso administrativo contra determinados adversários requer o isolamento dessas contas administrativas e sistemas contra riscos. Mais usuários estão começando a obter acesso privilegiado por meio de serviços de nuvem. Isso pode incluir os administradores globais do Office365, administradores de assinatura do Azure e os usuários que têm acesso administrativo nas VMs ou em aplicativos SaaS.
+Mais usuários estão começando a obter acesso privilegiado por meio de serviços de nuvem. Isso pode incluir os administradores globais do Office365, administradores de assinatura do Azure e os usuários que têm acesso administrativo nas VMs ou em aplicativos SaaS.
 
 A Microsoft recomenda que você siga este roteiro em [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) (Proteger o acesso privilegiado).
 
@@ -63,11 +63,7 @@ Com o controle de acesso condicional, o Active Directory do Azure verifica as co
 ![Configurando regras de acesso condicional com MFA][4]
 
 
-## Modelo de função
-
-Para reduzir o risco de segurança, você deve revisar suas funções e o modelo de delegação para acomodar as funções administrativas do serviço de nuvem e incorporar a usabilidade de administrador como uma filosofia chave. Esse modelo deve utilizar as funcionalidades de Just in Time.
-
-## Próximas etapas
+## Artigos relacionados
 
 - Habilitar o [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 - Habilitar o [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
@@ -83,4 +79,4 @@ Para obter mais informações sobre a criação de um roteiro de segurança comp
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

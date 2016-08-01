@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/18/2016"
 	ms.author="jodebrui"/>
 
 
@@ -237,4 +237,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

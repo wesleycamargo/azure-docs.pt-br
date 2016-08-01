@@ -19,7 +19,7 @@
 
 # Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
 
-Saiba como a execução transacional e integrada do JavaScript pelo Banco de Dados de Documentos permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados.
+Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Banco de Dados de Documentos do Azure permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados.
 
 É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos.
 
@@ -43,12 +43,12 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
 -	**Transações atômicas:** o Banco de Dados de Documentos garante que as operações do banco de dados sejam realizadas dentro de um procedimento armazenado ou gatilho únicos a fim de que sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote para que todas ou nenhuma delas seja bem-sucedida.
 
 -	**Desempenho:** o fato de o JSON ser intrinsecamente mapeado no sistema de tipos de linguagem JavaScript e também ser a unidade básica de armazenamento no Banco de Dados de Documentos permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda ao código de execução. Há mais benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados:
-	-	Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente. 
+	-	Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente.
 	-	Pré-compilação – O Banco de Dados de Documentos pré-compila os procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
-	-	Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
+	-	Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor.
 -	**Encapsulamento:** procedimentos armazenados podem ser usados para agrupar lógica de negócios em um único lugar. Isso apresenta duas vantagens:
-	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
-	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
+	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.
+	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.
 
 A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Estúdio do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs de clientes](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
 
@@ -479,9 +479,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 ## API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
-> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`.
-> <br/>
-> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+> [AZURE.NOTE] `__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
 As funções permitidas incluem:
 <ul>
@@ -546,7 +544,7 @@ Produz um novo conjunto de documentos classificando os documentos no fluxo de do
 
 Quando incluídas em funções de predicado e/ou do seletor, as construções do JavaScript a seguir são automaticamente otimizadas para serem executadas de forma direta em índices do Banco de Dados de Documentos:
 
-* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Operadores simples: = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * Literais, incluindo o literal de objeto: {}
 * var, return
 
@@ -918,11 +916,11 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 
 - [SDKs do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - [Estudo do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases)
-- [JSON](http://www.json.org/) 
+- [JSON](http://www.json.org/)
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-- [JavaScript – sistema de tipo JSON](http://www.json.org/js.html) 
-- [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
-- [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [JavaScript – sistema de tipo JSON](http://www.json.org/js.html)
+- [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339)
+- [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
 - [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

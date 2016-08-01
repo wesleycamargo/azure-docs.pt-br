@@ -18,7 +18,7 @@
 
 # Monitorar as solicitações, uso e armazenamento do Banco de Dados de Documentos
 
-Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
+Você pode monitorar suas contas do Banco de Dados de Documentos do Azure no [Portal do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
 ## Visualizar métricas de desempenho no portal 
 1.	Em uma nova janela, abra o [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você deseja exibir.
@@ -33,7 +33,7 @@ Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal do M
 
 
 3.	Clicar no bloco **Solicitações**, **Total de RUs** ou **Armazenamento** abre uma folha de **Métrica** detalhada.
-4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha há um gráfico de solicitações por hora e, abaixo dele, há uma tabela que mostra os valores de agregação para solicitações limitadas e totais. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
+4.	A folha **Métrica** mostra detalhes das métricas que você selecionou. Na parte superior da folha há um gráfico de solicitações por hora e, abaixo dele, há uma tabela que mostra os valores de agregação para solicitações limitadas e totais. A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).
 
 	![Captura de tela da folha Métricas que inclui solicitações limitadas](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
@@ -45,7 +45,7 @@ Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal do M
 2.	Na folha **Editar Gráfico**, há opções para modificar as métricas que são exibidas no gráfico, além de seu intervalo de tempo. ![Captura de tela da folha Editar gráfico](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Para alterar as métricas que são exibidas na parte, basta marcar ou desmarcar as métricas de desempenho disponíveis e clicar em **OK** na parte inferior da folha.
-4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Personalizado**) e clique em **OK** na parte inferior da folha.  
+4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Personalizado**) e clique em **OK** na parte inferior da folha.
 
 	![Captura de tela da parte do Intervalo de Tempo da folha Editar gráfico mostrando como inserir um intervalo de tempo personalizado](./media/documentdb-monitor-accounts/madocdb5.png)
 
@@ -111,4 +111,4 @@ Se seus blocos de monitoramento exibirem a mensagem **Não há dados disponívei
 ## Próximas etapas
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

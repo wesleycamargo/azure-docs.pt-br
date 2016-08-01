@@ -317,7 +317,7 @@ Observe que, quando você faz uma solicitação de exclusão, uma ID deve ser es
 
 Dois ou mais clientes podem gravar alterações no mesmo item ao mesmo tempo. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O *Controle de simultaneidade otimista* pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
 
-Os Aplicativos Móveis dão suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item na coluna de propriedades do sistema `version` definida para cada tabela no back-end do Aplicativo Móvel. Cada vez que um registro é atualizado, os Aplicativos Móveis definem a propriedade `version` desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `\version` do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão transmitida com a solicitação não corresponder ao back-end, a biblioteca de cliente gerará uma exceção `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do back-end que contém a versão do registro dos servidores. O aplicativo poderá, então, usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor de `version` correto do back-end para confirmar as alterações.
+Os Aplicativos Móveis dão suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item na coluna de propriedades do sistema `version` definida para cada tabela no back-end do Aplicativo Móvel. Cada vez que um registro é atualizado, os Aplicativos Móveis definem a propriedade `version` desse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `version` do registro incluído na solicitação é comparada à mesma propriedade do registro no servidor. Se a versão transmitida com a solicitação não corresponder ao back-end, a biblioteca de cliente gerará uma exceção `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do back-end que contém a versão do registro dos servidores. O aplicativo poderá, então, usar essas informações para decidir se deve executar a solicitação de atualização novamente com o valor de `version` correto do back-end para confirmar as alterações.
 
 Define uma coluna na classe da tabela para a propriedade do sistema `version` para habilitar a simultaneidade otimista. Por exemplo:
 
@@ -331,9 +331,9 @@ Define uma coluna na classe da tabela para a propriedade do sistema `version` pa
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-		// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "version")]
-        public byte[] Version { set; get; }
+        public string Version { set; get; }
     }
 
 
@@ -497,7 +497,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para i
 	
 	* Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 	
-	* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+	* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_.
 	
 	Veja a seguir o código necessário para cada plataforma:
 	
@@ -966,4 +966,4 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SymbolSource]: http://www.symbolsource.org/
 [instruções do SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

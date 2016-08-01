@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # Configurando e usando o emulador de armazenamento com o Visual Studio
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## Visão geral
 O ambiente de desenvolvimento SDK do Azure inclui o emulador de armazenamento, um utilitário que simula os serviços Blob, Fila e Tabela disponíveis no Azure em seu computador de desenvolvimento local. Se você estiver criando um serviço de nuvem que utiliza os serviços de armazenamento do Azure, ou escrevendo qualquer aplicativo externos que chama os serviços de armazenamento, você pode testar seu código localmente no emulador de armazenamento. As Ferramentas do Azure para o Microsoft Visual Studio integram o gerenciamento do emulador de armazenamento no Visual Studio. As Ferramentas do Azure inicializam o banco de dados do emulador de armazenamento no primeiro uso, iniciam o serviço do emulador de armazenamento quando você executa ou depura seu código do Visual Studio e fornecem acesso somente leitura aos dados de emulador de armazenamento por meio do Gerenciador de Armazenamento do Azure.
 
 Para obter informações detalhadas sobre o emulador de armazenamento incluindo requisitos de sistema e instruções de configuração personalizada, consulte [Usar o Emulador de Armazenamento do Azure para Desenvolvimento e Teste](./storage/storage-use-emulator.md).
@@ -43,4 +46,4 @@ O emulador de armazenamento fornece uma interface do usuário para exibir o stat
 
 O nó de Armazenamento do Azure no Gerenciador de Servidores habilita você a exibir dados e alterar as configurações de dados de blob e de tabela em suas contas de armazenamento, incluindo o emulador de armazenamento. Para obter mais informações, consulte [Procurando e Gerenciando Recursos de Armazenamento com o Gerenciador de Servidores](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Práticas recomendadas de modelos do Gerenciador de Recursos do Azure | Microsoft Azure"
+	pageTitle="Padrões nos modelos do Resource Manager | Microsoft Azure"
 	description="Mostrar os padrões de design para modelos de Gerenciador de Recursos do Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
-# Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure
+# Padrões para design de modelos do Azure Resource Manager
 
 Em nosso trabalho com empresas, SIs (integradores de sistemas), CSVs (fornecedores de serviço de nuvem) e equipes de projeto de OSS (software livre), muitas vezes é necessário implantar rapidamente ambientes, cargas de trabalho ou unidades de escala. É necessário que haja suporte para essas implantações, que elas sigam práticas comprovadas e cumpram as políticas identificadas. Usando uma abordagem flexível com base em modelos do Gerenciador de Recursos do Azure, você pode implantar topologias complexas rápida e consistentemente e adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem, ou para acomodar grades para cenários de exceção ou clientes.
 
@@ -33,8 +33,7 @@ Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões 
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.
 
-Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem).
-As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
+Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem). As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
 
 ## Empresas e integradores de sistemas
 
@@ -383,4 +382,4 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 - Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

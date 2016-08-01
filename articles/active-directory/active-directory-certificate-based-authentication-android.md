@@ -94,11 +94,6 @@ Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD F
 Há suporte para determinados aplicativos do Exchange ActiveSync no Android 5.0 (Lollipop) ou superior. Para determinar se seu aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo.
 
 
-### Limitações  
-
-A autenticação federada com um certificado de cliente não tem suporte.
-
-
 
 ## Introdução 
 
@@ -272,4 +267,4 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

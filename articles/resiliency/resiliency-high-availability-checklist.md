@@ -79,4 +79,4 @@ __O que acontece se você não usar uma CDN?__ Se você não estiver usando uma 
 ##Próximas etapas:
 Se quiser ler mais sobre como projetar seus aplicativos para a alta disponibilidade, leia [Alta disponibilidade para aplicativos baseados no Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

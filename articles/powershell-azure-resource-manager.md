@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Usando o Azure PowerShell com o Azure Resource Manager
@@ -22,6 +22,7 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -49,7 +50,7 @@ Para concluir este tutorial, você precisará:
   + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
   
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
-- Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões.
 
@@ -95,7 +96,7 @@ As configurações de conta expiram, portanto, você precisa atualizá-las ocasi
 
 >[AZURE.NOTE] Os módulos do Resource Manager exigem o cmdlet Add-AzureRmAccount. Um arquivo de configurações de publicação não é suficiente.
 
-Se você tiver mais de uma assinatura, forneça a ID da assinatura que quer usar para implantação com o cmdlet **Set-AzureRmContext**.
+Se você tiver mais de uma assinatura, forneça a ID da assinatura que deseja usar para a implantação com o cmdlet **Set-AzureRmContext**.
 
     Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
@@ -121,13 +122,13 @@ O grupo de recursos foi criado com êxito.
 
 ## Implantar sua solução
 
-Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter mais informações, confira [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md) e [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md). Você implantará o modelo pré-definido em [Provisionar um aplicativo Web com um Banco de Dados SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) nos [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+Este tópico não mostra como criar seu modelo nem discute a estrutura do modelo. Para obter informações, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md) e [Passo a Passo do Modelo do Resource Manager](resource-manager-template-walkthrough.md). Você implantará o modelo predefinido [Provisionar um Aplicativo Web com um Banco de Dados SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) a partir dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
 Você tem o grupo de recursos e o seu modelo, portanto agora está pronto para implantar a infraestrutura definida no modelo para o grupo de recursos. Implante recursos com o cmdlet **New-AzureRmResourceGroupDeployment**. O modelo especifica muitos valores padrão que usaremos para que você não precise fornecer valores para esses parâmetros. A sintaxe básica é semelhante a essa:
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
-Especifique o grupo de recursos e o local do modelo. Se o modelo for um arquivo local, use o parâmetro **-TemplateFile** e especifique o caminho até o modelo. Você pode definir o parâmetro **-Mode** como **Incremental** ou **Complete**. Por padrão, o Gerenciador de Recursos executa uma atualização incremental durante a implantação; portanto, não é essencial definir **-Mode** quando quiser a opção **Incremental**. Para entender as diferenças entre esses modos de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+Especifique o grupo de recursos e o local do modelo. Se o modelo for um arquivo local, use o parâmetro **-TemplateFile** e especifique o caminho para o modelo. Você pode definir o parâmetro **-Mode** como **Incremental** ou **Complete**. Por padrão, o Gerenciador de Recursos executa uma atualização incremental durante a implantação; portanto, não é essencial definir **-Mode** quando quiser a opção **Incremental**. Para entender as diferenças entre esses modos de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
 ###Parâmetros de modelo dinâmico
 
@@ -140,7 +141,7 @@ Quando você digitar o comando, será solicitado que você forneça o parâmetro
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-Se o modelo incluir um parâmetro com um nome que corresponde a um dos parâmetros incluídos no comando para implantar o modelo (como um parâmetro chamado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), será solicitado que você forneça um valor para um parâmetro com o pós-fixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome que os parâmetros usados para operações de implantação.
+Se o modelo incluir um parâmetro com um nome que corresponde a um dos parâmetros no comando para implantar o modelo (como incluir um parâmetro denominado **ResourceGroupName** no modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), será solicitado que você forneça um valor para um parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome que os parâmetros usados para operações de implantação.
 
 O comando é executado e retorna mensagens conforme os recursos são criados. Por fim, você pode ver o resultado de sua implantação.
 
@@ -177,7 +178,7 @@ Em apenas algumas etapas, criamos e implantamos os recursos necessários para um
 
 ### Informações de depuração do log
 
-Ao implantar um modelo, você pode registrar informações adicionais sobre a solicitação e a resposta especificando o parâmetro **-DeploymentDebugLogLevel** ao executar o cmdlet **New-AzureRmResourceGroupDeployment**. Essas informações podem ajudar você a solucionar erros de implantação. O valor padrão é **Nenhum**, o que significa que nenhum conteúdo de solicitação ou resposta será registrado. Você pode especificar o registro em log do conteúdo da solicitação, da resposta ou de ambos. Para obter mais informações sobre como solucionar problemas de implantação e como registrar informações de depuração, confira [Solução de problemas de implantações de grupo de recursos com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). O exemplo a seguir registra o conteúdo da solicitação e da resposta da implantação.
+Ao implantar um modelo, você pode registrar informações adicionais sobre a solicitação e a resposta especificando o parâmetro **-DeploymentDebugLogLevel** ao executar **New-AzureRmResourceGroupDeployment**. Essas informações podem ajudar você a solucionar erros de implantação. O valor padrão é **Nenhum**, o que significa que nenhum conteúdo de solicitação ou resposta será registrado. Você pode especificar o registro em log do conteúdo da solicitação, da resposta ou de ambos. Para obter mais informações sobre como solucionar os problemas de implantação e como registrar as informações de depuração, consulte [Solução de problemas das implantações do grupo de recursos com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). O exemplo a seguir registra o conteúdo da solicitação e da resposta da implantação.
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -188,7 +189,7 @@ Ao implantar um modelo, você pode registrar informações adicionais sobre a so
 
 Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do Gerenciador de Recursos para gerenciar seu grupo de recursos.
 
-- Para obter um grupo de recursos em sua assinatura, use o cmdlet **Get-AzureRmResourceGroup**:
+- Para ter um grupo de recursos em sua assinatura, use o cmdlet **Get-AzureRmResourceGroup**:
 
 		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
 	
@@ -221,7 +222,7 @@ Depois de criar um grupo de recursos, você pode usar os cmdlets no módulo do G
         Tags              : {System.Collections.Hashtable}
         ...
 	        
-- Você pode usar marcas para organizar os recursos de forma lógica em sua assinatura e para recuperar os recursos com os cmdlets **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
+- Você pode usar marcas para organizar os recursos de forma lógica em sua assinatura e recuperar os recursos com os cmdlets **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
 
         Find-AzureRmResource -TagName displayName -TagValue Website
 
@@ -386,4 +387,4 @@ Os exemplos de implantação anteriores neste tópico mostraram apenas os cmdlet
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,15 +4,15 @@
 	keywords="banco de dados elásticos, bancos de dados sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="srinia"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -53,6 +53,8 @@ Bancos de dados que são ótimos candidatos a pools de banco de dados elástico 
 
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
+Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas. O serviço de BD SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. O aplicativo desta integridade de compartilhamento de recursos é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.
+
 ## Propriedades do pool de bancos de dados elásticos
 
 ### Limites para pools elásticos
@@ -79,22 +81,22 @@ Bancos de dados que são ótimos candidatos a pools de banco de dados elástico 
 
 ## Trabalhos de banco de dados elástico
 
-Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, confira [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
+Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, consulte [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
-Para obter mais informações sobre outras ferramentas, confira o [Mapa de aprendizagem das ferramentas de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Para obter mais informações sobre outras ferramentas, consulte o [Mapa de aprendizagem das ferramentas de Banco de Dados Elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Recursos de continuidade de negócios para bancos de dados em um pool
 
-Os bancos de dados elásticos normalmente dão suporte às mesmas [funcionalidades de continuidade de negócios](sql-database-business-continuity.md) disponíveis para bancos de dados únicos em servidores V12.
+Os Bancos de Dados Elásticos normalmente dão suporte às mesmas [funcionalidades de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para Bancos de Dados Individuais em servidores V12.
 
 
 ### Recuperação pontual
 
-A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Confira [Recuperar um Banco de Dados SQL do Azure de um erro do usuário](sql-database-user-error-recovery.md)
+A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Consulte [Recuperar um Banco de Dados SQL do Azure de um erro do usuário](sql-database-user-error-recovery.md)
 
 ### Restauração geográfica
 
-A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md) (Recuperar um Banco de Dados SQL do Azure de uma interrupção)
+A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Consulte [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md)
 
 ### Replicação geográfica ativa
 
@@ -104,4 +106,4 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a r
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

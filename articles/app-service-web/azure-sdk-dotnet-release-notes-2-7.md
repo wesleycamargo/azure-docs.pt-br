@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
 # Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
@@ -79,14 +79,14 @@ O SDK 2.7 do Azure inclui o Gerenciador de Nuvem para Visual Studio 2015, que pe
 
 O Gerenciador de Nuvem dá suporte a:
 
-- Exibições de grupo de recursos e tipo de recurso de seus recursos do Azure 
+- Exibições de grupo de recursos e tipo de recurso de seus recursos do Azure
 - Pesquisar recursos por nome (disponível no modo de exibição do tipo de recurso)
-- Suporte para assinaturas e recursos que têm o controle de acesso com base em função (RBAC) aplicado 
+- Suporte para assinaturas e recursos que têm o controle de acesso com base em função (RBAC) aplicado
 - Painel de ação integrada que mostra ações voltadas para desenvolvedores específicas para os recursos selecionados. Por exemplo: anexe o depurador remoto para máquinas virtuais criadas usando a pilha do Gerenciador de Recursos, exiba dados de diagnóstico para máquinas virtuais, etc.
-- Painel de propriedades integradas que mostra as propriedades voltadas para desenvolvedores comumente necessárias durante o desenvolvimento e teste 
-- A alternância rápida da conta a ser usada ao enumerar recursos (use o comando Configurações na barra de ferramentas) 
-- Filtragem de assinaturas a serem usadas ao enumerar recursos (use o comando Configurações na barra de ferramentas) 
-- Links profundos para o portal do Azure para gerenciamento de recursos e grupos de recursos 
+- Painel de propriedades integradas que mostra as propriedades voltadas para desenvolvedores comumente necessárias durante o desenvolvimento e teste
+- A alternância rápida da conta a ser usada ao enumerar recursos (use o comando Configurações na barra de ferramentas)
+- Filtragem de assinaturas a serem usadas ao enumerar recursos (use o comando Configurações na barra de ferramentas)
+- Links profundos para o portal do Azure para gerenciamento de recursos e grupos de recursos
  
  
 ###Ferramentas do gerenciador de recursos do Azure 
@@ -98,18 +98,18 @@ Se você estiver usando um projeto do grupo de recursos do Azure de uma versão 
  
 ###Ferramentas do Gerenciador de Armazenamento 
 
-- Suporte à exibição de Blobs acrescentados. Mais informações disponíveis [nesta postagem do blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
+- Suporte à exibição de Blobs acrescentados. Mais informações disponíveis [nesta postagem do blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx).
 - Suporte à exibição de contas de armazenamento Premium por meio do Gerenciador de Servidores. O Gerenciador de Servidores só exibe os blobs de página para contas de armazenamento premium, uma vez que eles são o único tipo com suporte para contas de armazenamento premium.
 
 ###Ferramentas da Azure Data Factory para o Visual Studio 
 
 Introdução às **Ferramentas da Azure Data Factory** para o Visual Studio. Abaixo estão os recursos habilitados. Para obter mais informações, confira [este blog](http://go.microsoft.com/fwlink/?LinkId=617530).
 
-- **Criação com base em modelo**: Selecione modelos com base em caso de uso, modelos de movimentação de dados ou modelos de processamento de dados para implantar uma solução de integração de dados de ponta a ponta e começar rapidamente a utilizar Data Factory. 
-- **Integração com o Gerenciador de Soluções para criar e implantar as entidades de Data Factory**: crie e implante pipelines e entidades relacionadas como projetos do Visual Studio. 
-- **Integração com o modo de exibição de diagrama de interação visual durante a criação**: crie visualmente pipelines e conjuntos de dados com o auxílio da exibição de diagrama. 
-- **Integração com o Gerenciador de Servidores para navegação e interação com entidades já implantadas**: use o Gerenciador de Servidores para procurar Data factories já implantados e entidades correspondentes. Importe um Data Factory implantado ou qualquer entidade (Pipeline, serviço vinculado, conjuntos de dados) no seu projeto. 
-- **Edição de JSON com validação de esquema e IntelliSense avançado**: configure de forma eficiente e edite documentos JSON de entidades de Data Factory com IntelliSense avançado e validação de esquema 
+- **Criação com base em modelo**: Selecione modelos com base em caso de uso, modelos de movimentação de dados ou modelos de processamento de dados para implantar uma solução de integração de dados de ponta a ponta e começar rapidamente a utilizar Data Factory.
+- **Integração com o Gerenciador de Soluções para criar e implantar as entidades de Data Factory**: crie e implante pipelines e entidades relacionadas como projetos do Visual Studio.
+- **Integração com o modo de exibição de diagrama de interação visual durante a criação**: crie visualmente pipelines e conjuntos de dados com o auxílio da exibição de diagrama.
+- **Integração com o Gerenciador de Servidores para navegação e interação com entidades já implantadas**: use o Gerenciador de Servidores para procurar Data factories já implantados e entidades correspondentes. Importe um Data Factory implantado ou qualquer entidade (Pipeline, serviço vinculado, conjuntos de dados) no seu projeto.
+- **Edição de JSON com validação de esquema e IntelliSense avançado**: configure de forma eficiente e edite documentos JSON de entidades de Data Factory com IntelliSense avançado e validação de esquema
 - **Publicação em vários ambientes**: publique pipelines criados em ambientes de desenvolvimento, teste ou produção criando arquivos de configuração separados para cada ambiente.
 - **Suporte ao processamento de dados com base em Pig, Hive e .Net**: suporte para scripts Pig e Hive no projeto de Data Factory. Suporte para referenciar o Projeto C# para gerenciar atividade do .Net.
 
@@ -125,7 +125,7 @@ Para obter mais explicações sobre atualizações de ferramentas de HDInsight, 
 	Para ajudá-lo a compreender melhor sua consulta de Hive, o recurso de Exibição de Operador Hive foi adicionado. Para ver todos os operadores dentro de um vértice, clique duas vezes nos vértices do gráfico do trabalho. Para exibir mais detalhes de um operador específico, passe o mouse sobre esse operador.
 - Marcador de Erro do Hive (um novo recurso)
 
-	Para que você possa exibir os erros de gramática instantaneamente, o recurso de Marcador de Erro do Hive foi adicionado. Além disso, as mensagens de erro foram aprimoradas e agora você pode ver erros gramaticais detalhados instantaneamente (até nesta versão, era necessário enviar um script do Hive ao cluster e aguardar algum tempo antes de obter detalhes sobre a mensagem de erro).  
+	Para que você possa exibir os erros de gramática instantaneamente, o recurso de Marcador de Erro do Hive foi adicionado. Além disso, as mensagens de erro foram aprimoradas e agora você pode ver erros gramaticais detalhados instantaneamente (até nesta versão, era necessário enviar um script do Hive ao cluster e aguardar algum tempo antes de obter detalhes sobre a mensagem de erro).
 - Gráfico de topologia Storm (um novo recurso)
 
 	Visualizar é muito importante quando você deseja verificar se a topologia está funcionando conforme o esperado. Nesta versão, adicionamos visualização para gráficos Storm. Você pode visualizar as métricas importantes para a sua topologia (por exemplo, uma cor indica se um determinado Bolt está "ocupado" ou não). Você pode também clicar duas vezes o Bolt/Spout para ver mais detalhes.
@@ -158,4 +158,4 @@ Projetos do LightSwitch não são compatíveis com esta versão. Esse problema s
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

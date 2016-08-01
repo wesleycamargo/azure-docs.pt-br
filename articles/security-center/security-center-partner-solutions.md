@@ -4,16 +4,16 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="07/19/2016"
    ms.author="terrylan"/>
 
 # Monitoramento de soluções de parceiros com a Central de Segurança do Azure
@@ -21,9 +21,6 @@
 Este documento orienta sobre como monitorar o status de integridade de suas soluções de parceiro na Central de Segurança do Azure.
 
 > [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
-
-## O que é a Central de Segurança?
- A Central de Segurança ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ## Monitoramento das soluções de parceiros
 
@@ -43,21 +40,21 @@ Se não houver soluções integradas à sua assinatura, o bloco informará que n
 
 Para exibir a integridade das soluções de seu parceiro:
 
-1. Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de suas soluções de parceiro conectadas à Central de Segurança. ![Soluções de parceiros][3]
+1. Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de suas soluções de parceiros conectadas à Central de Segurança. ![Soluções de parceiros][3]
 
-2. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **WAF2 F5**. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução. ![Detalhes da solução de parceiro][4]
+2. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **F5-WAF2**. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução. ![Detalhes da solução de parceiro][4]
 
-3. Volte para a folha **F5-WAF2** folha e selecione **Vincular aplicativo**. A folha **Vincular Aplicativos** é aberta. Aqui você pode conectar recursos à solução de parceiro. ![Vincular recursos à solução de parceiro][5]
+3. Volte para a folha **F5-WAF2** folha e selecione **Vincular aplicativo**. A folha **Vincular Aplicativos** é aberta. Nela, você pode conectar recursos à solução de parceiro. ![Vincular recursos à solução de parceiro][5]
 
-## Próximas etapas
+## Consulte também
 Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e as informações do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+- [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
@@ -66,4 +63,4 @@ Neste documento, você foi apresentado às **Soluções de Parceiros** na Centra
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

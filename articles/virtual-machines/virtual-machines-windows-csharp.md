@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando C# 
@@ -75,8 +75,8 @@ O aplicativo do Azure Active Directory foi criado e a biblioteca de autenticaç�
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
@@ -514,4 +514,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 - Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager](virtual-machines-windows-csharp-template.md).
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-csharp-manage.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

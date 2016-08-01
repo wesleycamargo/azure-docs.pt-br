@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Projetar sua solução
@@ -23,6 +23,7 @@ Este artigo fornece instruções sobre como projetar os seguintes recursos em su
 - Provisionamento de dispositivos
 - Gateways de campo
 - Autenticação de dispositivo
+- Pulsação do dispositivo
 
 ## Provisionamento de dispositivos
 
@@ -55,11 +56,11 @@ Um gateway de campo é diferente de um dispositivo de roteamento de tráfego sim
 
 ### Outras considerações
 
-É possível usar os [SDKs do Gateway IoT do Azure][lnk-gateway-sdk] para implementar um gateway de campo. Estes SDKs oferecem uma funcionalidade específica, tal como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão para o Hub IoT.
+É possível usar o [SDK do Gateway do Azure IoT][lnk-gateway-sdk] para implementar um gateway de campo. Estes SDKs oferecem uma funcionalidade específica, tal como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão para o Hub IoT.
 
 ## Autenticação personalizada de dispositivo
 
-Você pode usar o [registro de identidade de dispositivo][lnk-devguide-identityregistry] do Hub IoT para configurar credenciais de segurança e controle de acesso por dispositivo. No entanto, se uma solução IoT já tiver um investimento considerável em um registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação, você poderá integrar essa infraestrutura existente ao Hub IoT por meio da criação de um *serviço de token*. Dessa forma, você pode usar outros recursos de IoT em sua solução.
+Você pode usar o [registro de identidade de dispositivo][lnk-devguide-identityregistry] do Hub IoT para configurar credenciais de segurança e controle de acesso por dispositivo usando [tokens][lnk-sas-token]. No entanto, se uma solução IoT já tiver um investimento considerável em um registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação, você poderá integrar essa infraestrutura existente ao Hub IoT por meio da criação de um *serviço de token*. Dessa forma, você pode usar outros recursos de IoT em sua solução.
 
 Um serviço de token é um serviço de nuvem personalizado. Ele usa uma *política de acesso compartilhado* do Hub IoT com permissões **DeviceConnect** para criar tokens *device-scoped*. Esses tokens permitem que um dispositivo se conecte ao seu Hub IoT.
 
@@ -80,17 +81,17 @@ Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao 
 
 ### Comparação com um gateway personalizado
 
-O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo disso é o [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway de protocolo][lnk-gateway].
+O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo disso é o [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway de protocolo][lnk-protocols].
 
 ## Pulsação do dispositivo <a id="heartbeat"></a>
 
-O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. É necessário usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se uma mensagem da nuvem para o dispositivo ou um SMS deve ser enviada). Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
+O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. É necessário usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se uma mensagem da nuvem para o dispositivo ou um SMS deve ser enviado). Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
 
 No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Isso significa que mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo e supõe que haja um problema com um dispositivo se ela não receber uma mensagem de pulsação dentro do tempo esperado.
 
-Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e restrições do Hub IoT][].
+Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e limitações do Hub IoT][].
 
-> [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Consulte o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-messaging] para obter mais informações sobre mensagens C2D.
+> [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Consulte o [Guia do desenvolvedor do Hub IoT][lnk-devguide-messaging] para obter mais informações sobre mensagens C2D.
 
 ## Próximas etapas
 
@@ -114,21 +115,14 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
-[lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
 [lnk-portal]: https://portal.azure.com
-[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
-[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
-[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
-[Cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
+[Cotas e limitações do Hub IoT]: iot-hub-devguide.md#throttling
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
 [lnk-mqtt]: iot-hub-mqtt-support.md
@@ -140,5 +134,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
+[lnk-sas-token]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

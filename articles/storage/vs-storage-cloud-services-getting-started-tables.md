@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="05/08/2016"
+    ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de tabela do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ##Visão geral
 
@@ -24,7 +26,7 @@ Este artigo descreve como começar a usar o armazenamento de tabelas do Azure no
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
-Para começar, primeiramente, você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure com código e também como realizar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em código C# e usam a [Biblioteca do cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Para começar, primeiramente, você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure com código e também como realizar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em código C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 **OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
 
@@ -197,4 +199,4 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

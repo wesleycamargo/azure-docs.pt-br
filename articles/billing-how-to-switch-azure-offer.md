@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Trocar para uma oferta do Azure diferente | Microsoft Azure"
+	pageTitle="Trocar a assinatura do Azure por outra oferta | Microsoft Azure"
 	description="Descreve como um assinante do Azure pode trocar para uma oferta do Azure diferente"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Alterar para uma oferta do Azure diferente
+# Trocar a assinatura do Azure por outra oferta
 
 Você pode alterar sua assinatura existente para uma oferta mais favorável sem nenhum tempo de inatividade do serviço. Você pode alterar sua oferta por um destes motivos:
 
@@ -75,4 +75,4 @@ Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://acc
 -	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para a [Oferta de 12 Meses de Pagamento Antecipado](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para todas as [ofertas mensais de Crédito Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

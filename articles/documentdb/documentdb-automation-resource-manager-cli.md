@@ -24,7 +24,7 @@
 - [Portal do Azure](documentdb-create-account.md)
 - [CLI do Azure e ARM](documentdb-automation-resource-manager-cli.md)
 
-Este artigo mostra como criar uma conta de Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure ou a CLI (Interface de Linha de Comando) do Azure. Para criar uma conta do Banco de Dados de Documentos usando o Portal do Azure, confira [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-account.md).
+Este artigo mostra como criar uma conta de Banco de Dados de Documentos do Azure usando modelos do Azure Resource Manager ou a CLI (Interface de Linha de Comando) do Azure. Para criar uma conta do Banco de Dados de Documentos usando o Portal do Azure, confira [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-account.md).
 
 - [Criar uma conta do Banco de Dados de Documentos usando a CLI](#quick-create-documentdb-account)
 - [Criar uma conta do Banco de Dados de Documentos usando um modelo ARM](#deploy-documentdb-from-a-template)
@@ -111,7 +111,7 @@ Para criar um novo grupo de recursos, execute o seguinte comando, especifique o 
 
 	azure group create <resourcegroupname> <resourcegrouplocation>
 
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
  - `<resourcegrouplocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
 Entrada de exemplo:
@@ -142,7 +142,7 @@ Crie uma conta do Banco de Dados de Documentos no grupo de recursos novo ou exis
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
  - `<databaseaccountname>` pode usar apenas letras minúsculas, números, o caractere '-' e deve ter entre três e 50 caracteres.
  - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
@@ -239,7 +239,7 @@ Para criar um novo grupo de recursos, execute o seguinte comando, especifique o 
 
 	azure group create <resourcegroupname> <databaseaccountlocation>
 
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto. 
+ - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
  - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
 Entrada de exemplo:
@@ -272,7 +272,7 @@ Para usar um arquivo de parâmetro:
 
  - `<PathToTemplate>` é o caminho até o arquivo azuredeploy.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
  - `<PathToParameterFile>` é o caminho até o arquivo azuredeploy.parameters.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
- - `<resourcegroupname>` é o nome do grupo de recursos existente no qual você quer adicionar uma conta de banco de dados do Banco de Dados de Documentos. 
+ - `<resourcegroupname>` é o nome do grupo de recursos existente no qual você quer adicionar uma conta de banco de dados do Banco de Dados de Documentos.
  - `<deploymentname>` é o nome opcional da implantação.
 
 Entrada de exemplo:
@@ -346,7 +346,7 @@ Agora que você tem uma conta do Banco de Dados de Documentos, a próxima etapa 
 
 - O portal do Azure, como descrito em [Criar um banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-database.md).
 - As amostras do C# .NET no projeto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) do repositório [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) no GitHub.
-- As [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. 
+- As [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js.
 
 Depois de criar seu banco de dados, você precisa [adicionar uma ou mais coleções](documentdb-create-collection.md) ao banco de dados e [adicionar documentos](documentdb-view-json-document-explorer.md) às coleções.
 
@@ -359,4 +359,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
 Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Exemplos de configuração do roteador para configurar e gerenciar o NAT
@@ -319,4 +319,4 @@ Veja os exemplos na página [Exemplos de configuração de roteamento](expressro
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="07/18/2016"
    ms.author="seanmck"/>
 
 # Visão geral do modelo de programação do Service Fabric
@@ -45,4 +45,4 @@ Como o Reliable Actors em si é uma estrutura de aplicativo baseada no Reliable 
 ## Próximas etapas
 [Saiba mais sobre o Reliable Actors](service-fabric-reliable-actors-introduction.md) ou comece [escrevendo seu primeiro serviço Reliable Actor](service-fabric-reliable-actors-get-started.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

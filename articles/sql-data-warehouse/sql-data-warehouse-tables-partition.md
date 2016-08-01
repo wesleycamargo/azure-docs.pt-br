@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Particionando tabelas no SQL Data Warehouse
@@ -146,6 +146,8 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Alternância de partição
 
+O SQL Data Warehouse dá suporte à divisão, mesclagem e comutação de partição. Cada uma dessas funções é executada usando a instrução [ALTER TABLE][].
+
 Para alternar as partições entre duas tabelas, você deve garantir que as partições alinhem em seus respectivos limites e que correspondam as definições de tabela. Como restrições de verificação não estão disponíveis para impor o intervalo de valores em uma tabela, a tabela de origem deve conter os mesmos limites de partição da tabela de destino. Se este não for o caso, a alternância de partição falhará, já que os metadados da partição não serão sincronizados.
 
 ### Como dividir uma partição que contém dados
@@ -187,7 +189,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] Criando o objeto de estatística garantimos que os metadados de tabela sejam mais precisos. Se omitirmos a criação de estatísticas, o SQL Data Warehouse usará os valores padrão. Para obter detalhes sobre as estatísticas examine [estatísticas][].
 
-Podemos consultar a contagem de linha utilizando a `sys.partitions` exibição do catálogo:
+Em seguida, podemos consultar a contagem de linhas usando a exibição do catálogo `sys.partitions`:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -350,7 +352,7 @@ Com essa abordagem, o código no controle de origem permanece estático e são p
 
 ## Próximas etapas
 
-Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados de tabela][Data Types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Mantendo estatísticas de tabela][Statistics] e [Tabelas temporárias][Temporary]. Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][].
+Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados de tabela][Data Types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Mantendo estatísticas de tabela][Statistics] e [Tabelas temporárias][Temporary]. Para saber mais sobre as práticas recomendadas, veja [Práticas recomendadas para o Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -369,10 +371,11 @@ Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [T
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporário]: ./sql-data-warehouse-tables-temporary.md
 [gerenciamento de carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
-[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Práticas recomendadas para o Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
 [Tabelas e índices particionados]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/pt-BR/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [função de partição]: https://msdn.microsoft.com/library/ms187802.aspx
 [esquema de partição]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -380,4 +383,4 @@ Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [T
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

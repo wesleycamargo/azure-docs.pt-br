@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/29/2016"
+     ms.date="07/19/2016"
      ms.author="dobett"/>
 
 # Tutorial: Como processar mensagens de dispositivo para nuvem do Hub IoT
@@ -446,4 +446,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

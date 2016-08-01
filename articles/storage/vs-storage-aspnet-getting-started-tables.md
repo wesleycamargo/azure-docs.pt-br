@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de tabela e aos serviços conectados do Visual Studio (ASP.NET)
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## Visão geral
-Este artigo descreve como começar a usar o armazenamento de Tabelas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET, usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Este artigo mostra como executar tarefas comuns nas tabelas do Azure, incluindo a criação e exclusão de uma tabela, bem como o trabalho com entidades de tabela. Os exemplos são escritos em código C# e usam a [Biblioteca do Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para obter mais informações sobre como usar o Armazenamento de tabelas do Azure, consulte [Introdução ao Armazenamento de Tabelas do Azure usando .NET](storage-dotnet-how-to-use-tables.md).
+Este artigo descreve como começar a usar o armazenamento de Tabelas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET, usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Este artigo mostra como executar tarefas comuns nas tabelas do Azure, incluindo a criação e exclusão de uma tabela, bem como o trabalho com entidades de tabela. Os exemplos são escritos em código C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para obter mais informações sobre como usar o Armazenamento de Tabelas do Azure, consulte [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md).
 
 O serviço de armazenamento de Tabela do Azure permite que você armazene grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
@@ -182,4 +184,4 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

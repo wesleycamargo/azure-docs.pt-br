@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 # Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
@@ -129,7 +129,7 @@ Use as etapas a seguir para executar uma consulta do Hive usando o Tez.
 
     > [AZURE.NOTE] Assim como no menu anterior, você pode rolar a exibição da coluna para Tarefas, Tentativas de Tarefa e Fontes de Coletores para exibir links para outras informações sobre cada item.
 
-10. Escolha __Tarefas__ e selecione o item chamado __00\_000000__. Isso exibirá os __Detalhes da Tarefa__ desta tarefa. Nessa tela, você pode exibir __Contadores de Tarefa__ e __Tentativas de Tarefa__.
+10. Escolha __Tarefas__ e selecione o item chamado __00_000000_\_. Isso exibirá os __Detalhes da Tarefa__ desta tarefa. Nessa tela, você pode exibir __Contadores de Tarefa__ e __Tentativas de Tarefa\_\_.
 
     ![Detalhes de tarefa](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
@@ -141,4 +141,4 @@ Para obter informações técnicas mais detalhadas sobre o Tez, confira a [pági
 
 Para saber mais sobre como usar o Ambari com o HDInsight, confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

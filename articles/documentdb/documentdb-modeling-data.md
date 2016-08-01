@@ -18,14 +18,14 @@
 	ms.author="stbaro"/>
 
 #Modelando dados no Banco de Dados de Documentos#
-Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável você dedicar algum tempo a pensar nos seus dados.
+Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos do Azure, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável dedicar algum tempo pensando nos seus dados.
 
 Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? O aplicativo realizará grandes volumes de leitura e gravação?
 
 Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
 - Como devo pensar em um documento num banco de dados de documentos?
-- O que é modelagem de dados e como ele me afeta? 
+- O que é modelagem de dados e como ele me afeta?
 - Como a modelagem de dados em um banco de dados de documentos difere da modelagem de dados em um banco de dados relacional?
 - Como posso expressar relações de dados em um banco de dados não relacional?
 - Quando eu insiro dados e quando vinculo a eles?
@@ -393,4 +393,4 @@ Para saber como fragmentar seus dados em diversas partições, consulte [Partici
 Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, confira [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

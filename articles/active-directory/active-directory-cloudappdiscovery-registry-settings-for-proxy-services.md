@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"/>
+	manager="femila"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/13/2016" 
 	ms.author="markusvi"/>
 
 # Configurações de Registro do Cloud App Discovery para serviços de proxy
@@ -45,6 +45,6 @@ O objetivo deste tópico é fornecer as etapas que você precisa executar para c
 **Recursos adicionais**
 
 
-* [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md) 
+* [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0720_2016-->

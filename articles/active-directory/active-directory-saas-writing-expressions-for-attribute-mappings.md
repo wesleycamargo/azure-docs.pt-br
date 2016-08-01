@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,10 +29,10 @@ Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de 
 
 A sintaxe de expressões para mapeamentos de atributos é semelhante à das funções de VBA (Visual Basic for Applications).
 
-- A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses: <br> *FunctionName(<<argument 1>>,<<argument N>>)*
+- A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses: <br> *NomeDaFunção(<<argumento 1>>,<<argumento N>>)*
 
 
-- Você pode aninhar funções dentro umas das outras. Por exemplo: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+- Você pode aninhar funções dentro umas das outras. Por exemplo: <br> *FunçãoUm(FunçãoDois(<<argumento1>>))*
 
 
 - Você pode passar três tipos diferentes de argumentos em funções:
@@ -41,7 +41,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
    2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo: "Estados Unidos"
 
-   3. Outras funções. Por exemplo: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+   3. Outras funções. Por exemplo: FunçãoUm(<<argumento1>>, FunçãoDois(<<argumento2>>))
 
 
 - Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\\). Por exemplo: "Nome da empresa: "Contoso""
@@ -103,7 +103,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obrigatório | Cadeia de caracteres | Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1 … sourceN** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
+| **source1 … sourceN ** | Obrigatório, número de vezes variável | Cadeia de caracteres | Valores de cadeia de caracteres a serem unidos. |
 
 
 
@@ -315,4 +315,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 - [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->
