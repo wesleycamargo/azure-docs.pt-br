@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planejar sua infraestrutura de backup da VM no Azure
@@ -79,7 +79,7 @@ Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos n
 | Backup inicial | 160 Mbps |
 | Backup incremental (DR) | 640 Mbps <br><br> Essa taxa de transferência pode cair significativamente se houver muita variação dispersa no disco cujo backup precisa ser feito. |
 
-### Tempo total de backup da VM
+## Tempo total de backup da VM
 Embora a maioria do tempo seja gasto com a leitura e a cópia de dados, existem outras operações que contribuem para o tempo total gasto no backup de uma VM:
 
 - Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-vms.md#offline-vms).
@@ -131,4 +131,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

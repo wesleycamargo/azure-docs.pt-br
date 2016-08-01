@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr" />
 
 # Vincular uma rede virtual a um circuito de Rota Expressa
@@ -157,4 +157,4 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

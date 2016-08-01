@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
  
@@ -26,7 +26,7 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 ##Atualizações do Barramento de Serviço
 
-- Hubs de Eventos: 
+- Hubs de Eventos:
 
 	- Agora permite o controle de acesso direcionado ao enviar eventos expondo o ponto de extremidade do editor adicional para Hubs de Eventos.
 	- Mais estabilidade e aperfeiçoamento adicionados ao recurso de Hubs de Eventos.
@@ -36,7 +36,7 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 - **Aprimoramento do IntelliSense**: sugestão de metadados remotos
 
-	Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **SELECT * FROM** e todos os nomes de tabela serão exibidos. Além disso, os nomes das colunas serão mostrados depois de especificar uma tabela.
+	Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **SELECT* FROM** e todos os nomes de tabela serão exibidos. Além disso, os nomes das colunas serão mostrados depois de especificar uma tabela.
 
 - **Suporte ao emulador do HDInsight**
 
@@ -48,9 +48,9 @@ Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem 
 
 	Agora as Ferramentas do HDInsight para Visual Studio dão suporte a clusters de Hadoop genéricos, então você pode usar as Ferramentas do HDInsight para Visual Studio para fazer o seguinte:
 
-	- conectar-se ao seu cluster, 
-	- criar uma consulta do Hive com o suporte avançado do IntelliSense/preenchimento automático, 
-	- exibir todos os trabalhos no seu cluster com uma interface do usuário intuitiva. 
+	- conectar-se ao seu cluster,
+	- criar uma consulta do Hive com o suporte avançado do IntelliSense/preenchimento automático,
+	- exibir todos os trabalhos no seu cluster com uma interface do usuário intuitiva.
 
 	Para obter mais informações, consulte [este manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
@@ -72,7 +72,7 @@ Os seguintes itens foram atualizados na versão 2.6 do SDK do Azure.
 - Funcionalidade de provisionamento de Aplicativos de API para habilitar os usuários com a funcionalidade de criação e provisionamento de Aplicativo de API.
 - Gerenciador de Servidores alterado para refletir o novo nó de Serviço de Aplicativo, com aplicativos Web, móveis e API agrupados por grupo de recursos.
 - Gesto para adicionar o cliente de Aplicativo de API do Azure adicionado na maioria dos projetos C#, o que permitirá a geração automática de Aplicativos de API habilitados para Swagger em execução em uma assinatura do Azure do usuário.
-- As ferramentas de Aplicativos de API e os nós de Serviço de Aplicativo no Gerenciador de Servidores estão disponíveis apenas no Visual Studio 2013. 
+- As ferramentas de Aplicativos de API e os nós de Serviço de Aplicativo no Gerenciador de Servidores estão disponíveis apenas no Visual Studio 2013.
 
 ##Atualizações das ferramentas do gerenciador de recursos do Azure
 
@@ -93,7 +93,7 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
  
 ##Problemas conhecidos
 
-- A coleta de logs de diagnóstico no emulador requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador. 
+- A coleta de logs de diagnóstico no emulador requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador.
 
 - O SDK do Azure 2.6, lançado, em 29/04/2015, tinha dois problemas:
 
@@ -108,4 +108,4 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

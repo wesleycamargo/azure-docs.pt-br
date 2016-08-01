@@ -20,7 +20,7 @@
 
 # Políticas de indexação do Banco de Dados de Documentos
 
-Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados, pois elas permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Para saber como a indexação funciona no Banco de Dados de Documentos, é preciso entender que ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
+Embora muitos clientes fiquem satisfeitos em deixar que o Banco de Dados de Documentos do Azure manipule automaticamente [todos os aspectos da indexação](documentdb-indexing.md), o Banco de Dados de Documentos também permite a especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Banco de Dados de Documentos são mais flexíveis e poderosas do que os índices secundários oferecidos em outras plataformas de banco de dados, pois elas permitem o design e a personalização da forma do índice sem sacrificar a flexibilidade de esquema. Para saber como a indexação funciona no Banco de Dados de Documentos, é preciso entender que ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a taxa de transferência de gravação e de consulta e a consistência de consulta.
 
 Neste artigo, examinaremos em mais detalhes as políticas de indexação do Banco de Dados de Documentos, como podemos personalizar a política de indexação e as compensações associadas.
 
@@ -38,7 +38,7 @@ Os desenvolvedores podem personalizar as compensações entre armazenamento, des
 
 - **Incluindo/excluindo documentos e caminhos no/do índice**. Os desenvolvedores podem escolher determinados documentos a serem excluídos ou incluídos no índice no momento da inserção ou da substituição deles na coleção. Os desenvolvedores também podem optar por incluir ou excluir determinadas propriedades JSON, conhecidas como caminhos (incluindo padrões curinga), a serem indexadas em documentos incluídos em um índice.
 - **Configurando diversos tipos de índice**. Para cada um dos caminhos incluídos, os desenvolvedores também podem especificar o tipo de índice exigido em uma coleção com base nos dados e na carga de trabalho de consulta esperada, além da “precisão” numérica ou de cadeia de caracteres de cada caminho.
-- **Configurando modos de atualização de índice**. O Banco de Dados de Documentos dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Banco de Dados de Documentos: Consistente, Lento e Nenhum. 
+- **Configurando modos de atualização de índice**. O Banco de Dados de Documentos dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Banco de Dados de Documentos: Consistente, Lento e Nenhum.
 
 O seguinte trecho de código .NET mostra como definir uma política de indexação personalizada durante a criação de uma coleção. Aqui, definimos a política com índice de intervalo de cadeias de caracteres e números à precisão máxima. Essa política nos permite executar consultas de Ordenar por com relação a cadeias de caracteres.
 
@@ -296,7 +296,7 @@ O Banco de Dados de Documentos modela documentos JSON e o índice como árvores 
 
 Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir SELECT * FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção.
 
-Caminhos de índice também podem usar o * operador curinga para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo sob a propriedade de carga da indexação.
+Caminhos de índice também podem usar o operador curinga * para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo sob a propriedade payload da indexação.
 
 Estes são os padrões comuns para especificar caminhos de índice:
 
@@ -462,7 +462,7 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 Agora que já vimos como especificar caminhos, vamos examinar as opções que podemos usar para configurar a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
 - Tipo de dados: **String**, **Number** ou **Point** (pode conter somente uma entrada por tipo de dados por caminho)
-- Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais) 
+- Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais)
 - Precisão: 1 a 8 ou -1 (precisão máxima) para os números de 1 a 100 (precisão máxima) para a cadeia de caracteres
 
 #### Tipo de índice
@@ -600,8 +600,8 @@ Quando você alterar a política de indexação, a forma como as alterações se
 
 No entanto, você pode mudar para o modo de indexação Lento ou Nenhum enquanto uma transformação está em andamento.
 
-- Quando você muda para Lento, a alteração da política de indexação é efetivada imediatamente e o Banco de Dados de Documentos inicia a recriação do índice de forma assíncrona. 
-- Quando você muda para Nenhum, então o índice é removido imediatamente. A mudança para Nenhum será útil quando você quiser cancelar uma transformação em andamento e iniciar uma nova com uma política de indexação diferente. 
+- Quando você muda para Lento, a alteração da política de indexação é efetivada imediatamente e o Banco de Dados de Documentos inicia a recriação do índice de forma assíncrona.
+- Quando você muda para Nenhum, então o índice é removido imediatamente. A mudança para Nenhum será útil quando você quiser cancelar uma transformação em andamento e iniciar uma nova com uma política de indexação diferente.
 
 Se você estiver usando o SDK do .NET, poderá iniciar uma alteração de política de indexação usando o novo método **ReplaceDocumentCollectionAsync** e acompanhar o progresso em porcentagem da transformação do índice transformação usando o a propriedade de resposta **IndexTransformationProgress** de uma chamada **ReadDocumentCollectionAsync**. Outros SDKs e a API REST dão suporte a propriedades e métodos equivalentes para alterações na política de indexação.
 
@@ -759,4 +759,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

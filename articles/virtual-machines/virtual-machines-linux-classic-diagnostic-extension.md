@@ -41,7 +41,7 @@ Essa extensão funciona com os modelos de implantação Clássico e do Resource 
 
 ### Versão atual da extensão e substituição de versões antigas
 
-A versão mais recente da extensão é a **2.3**, e **todas as versões antigas (2.0, 2.1 e 2.2) serão substituídas e suas publicações serão canceladas em breve**. Se você instalou a Extensão de Diagnóstico do Linux com a atualização automática de versão secundária desabilitada, é altamente recomendado que você desinstale a extensão e reinstale-a com a atualização automática de versão secundária habilitada. Em VMs clássicas (ASM), você pode conseguir isso especificando '2.*' como a versão, se você estiver instalando a extensão por meio da CLI do Azure XPLAT ou do Powershell. Em VMs ARM, você pode conseguir isso, incluindo ' "autoUpgradeMinorVersion": true' no modelo de implantação da VM. Além disso, todas as novas instalações da extensão devem ter a opção de atualização automática de versão secundária ativada.
+A versão mais recente da extensão é a **2.3**, e **todas as versões antigas (2.0, 2.1 e 2.2) serão preteridas com suas publicações canceladas até o final deste ano (2016)**. Se você instalou a Extensão de Diagnóstico do Linux com a atualização automática de versão secundária desabilitada, é altamente recomendado que você desinstale a extensão e reinstale-a com a atualização automática de versão secundária habilitada. Em VMs clássicas (ASM), você pode conseguir isso especificando '2.*' como a versão, se você estiver instalando a extensão por meio da CLI do Azure XPLAT ou do Powershell. Em VMs ARM, você pode conseguir isso, incluindo ' "autoUpgradeMinorVersion": true' no modelo de implantação da VM. Além disso, todas as novas instalações da extensão devem ter a opção de atualização automática de versão secundária ativada.
 
 
 ## Habilitar a extensão
@@ -124,7 +124,7 @@ Etapa 1. Crie um arquivo chamado PrivateConfig.json com o conteúdo descrito no 
 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
-Observe que com essa configuração, todos os logs gravados no `/var/log/mysql.err` também podem ser duplicados para `/var/log/syslog` (ou `/var/log/messages` dependendo da distribuição do Linux). Se você quiser evitar esse registro duplicado, exclua o registro em log dos logs de recursos do `local6` em sua configuração de rsyslog. Depende da distribuição do Linux, mas em um sistema Ubuntu 14.04, o arquivo a ser modificado é p `/etc/rsyslog.d/50-default.conf`, e você pode substituir a linha `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. Posteriormente, isso será tratado automaticamente pela Extensão de Diagnóstico do Linux.
+Observe que, com essa configuração nas versões de extensão anteriores a 2.3, todos os logs gravados em `/var/log/mysql.err` também podem ser duplicados para `/var/log/syslog` (ou `/var/log/messages`, dependendo da distribuição Linux). Se você quiser evitar esse registro duplicado, exclua o registro em log dos logs de recursos do `local6` em sua configuração de rsyslog. Depende da distribuição do Linux, mas em um sistema Ubuntu 14.04, o arquivo a ser modificado é p `/etc/rsyslog.d/50-default.conf`, e você pode substituir a linha `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. Esse problema foi corrigido na versão mais recente de hotfix 2.3 (2.3.9007); portanto, se você tiver a versão de extensão 2.3, esse problema não deverá ocorrer. Se o problema ainda persistir mesmo após a reinicialização da VM, entre em contato conosco e nos ajude a descobrir por que a versão mais recente de hotfix não é instalada automaticamente.
 
 ###   Cenário 4: Parar a coleta de todos os logs pela extensão
 Esta seção descreve como parar a coleta de logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Se quiser parar o completamente processo do agente de monitoramento, você poderá fazer isso desabilitando a extensão. O comando para desabilitar a extensão é **azure vm extension set --disable <vm\_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
@@ -156,4 +156,4 @@ Se você tiver habilitado fileCfg ou perfCfg (conforme descrito nos Cenários 2 
 ## Problemas conhecidos
 - Na versão atual (2.3) da Extensão de Diagnóstico do Linux, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

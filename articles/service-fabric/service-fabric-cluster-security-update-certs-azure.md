@@ -25,12 +25,12 @@ O Service Fabric permite que você especifique dois certificados, um principal e
 ## Adicionar um certificado secundário
 Para adicionar outro certificado como um secundário, você deve carregar o certificado em um Cofre de chaves do Azure e implantá-lo nas máquinas virtuais no cluster. Para obter informações adicionais, veja [Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-1. [Carregar um certificado X.509 no cofre de chaves](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
+1. [Carregar um certificado X.509 no cofre de chaves](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o recurso de clusters ao qual você deseja adicionar esse certificado.
 3. Em **Configurações**, clique na configuração do certificado e insira a impressão digital do certificado secundário.
 4. Clique em **Salvar**. Uma implantação será iniciada e, após a conclusão bem sucedida da implantação, você poderá usar o certificado principal ou secundário para realizar operações de gerenciamento no cluster.
 
-![Captura de tela das impressões digitais do certificado no portal][SecurityConfigurations_02]
+![Captura de tela das impressões digitais do certificado no portal][SecurityConfigurations\_02]
 
 ## Remover um certificado
 Este é o processo para remover um certificado antigo para que o cluster não o use:
@@ -49,4 +49,4 @@ Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

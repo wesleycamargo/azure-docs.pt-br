@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	/>
 
 <tags
@@ -90,4 +90,4 @@ Se você tiver comprado créditos do Azure via Open de um revendedor e recebido 
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

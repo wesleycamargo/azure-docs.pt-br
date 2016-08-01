@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida simulado para testes
@@ -40,7 +40,7 @@ Há quatro fases principais para configurar esse ambiente de teste de nuvem híb
 1.	Configurar a rede virtual TestLab.
 2.	Criar a rede virtual entre locais.
 3.	Criar a conexão VPN de VNet para VNet.
-4.	Configurar o DC2. 
+4.	Configurar o DC2.
 
 Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para uma avaliação gratuita em [Teste o Azure](https://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,7 +62,7 @@ Obtenha o nome da sua assinatura usando o comando a seguir.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure. Use a mesma assinatura que você usou para compilar a configuração básica. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina sua assinatura do Azure. Use a mesma assinatura que você usou para compilar a configuração básica. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -198,7 +198,7 @@ Observe que você será solicitado a fornecer a senha de CORP\\User1 e uma senha
 
 Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você deve configurar a rede virtual TestVNET para usar esse servidor DNS.
 
-1.	No painel esquerdo do portal do Azure, clique no ícone das redes virtuais e depois em **TestVNET**.
+1.	No painel esquerdo do portal do Azure, clique no ícone das redes virtuais e em **TestVNET**.
 2.	Na guia **Configurações**, clique em **Servidores DNS**.
 3.	Em **Servidor DNS primário**, digite **192.168.0.4** para substituir 10.0.0.4.
 4.	Clique em **Salvar**.
@@ -211,6 +211,6 @@ Seu ambiente de nuvem híbrida simulado agora está pronto para testes.
 
 ## Próximas etapas
 
-- [Adicione uma nova máquina virtual](virtual-machines-windows-ps-create.md) à sub-rede TestVNET, como uma que executa o Microsoft SQL Server.
+- [Adicione uma nova máquina virtual](virtual-machines-windows-ps-create.md) à sub-rede TestVNET, por exemplo, uma que executa o Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

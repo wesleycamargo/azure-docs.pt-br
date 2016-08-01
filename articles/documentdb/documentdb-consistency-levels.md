@@ -19,7 +19,7 @@
 
 # Níveis de consistência no Banco de Dados de Documentos
 
-O Banco de Dados de Documentos foi desenvolvido desde o início com foco na distribuição global. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Banco de Dados de Documentos fornece quatro níveis de consistência: strong, bounded staleness, session e eventual. Além dos modelos de consistência **strong** e **eventual** frequentemente oferecidos por outros bancos de dados NoSQL, o Banco de Dados de Documentos também oferece dois modelos de consistência cuidadosamente codificados e operacionalizados — **bounded staleness** e **session**, tendo validado sua utilidade em casos de uso verídicos. Coletivamente, esses quatro níveis de consistência permitem que você faça trocas ponderadas entre consistência, disponibilidade e latência.
+O Banco de Dados de Documentos do Azure foi desenvolvido desde o início com foco na distribuição global. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Banco de Dados de Documentos fornece quatro níveis de consistência: strong, bounded staleness, session e eventual. Além dos modelos de consistência **strong** e **eventual** frequentemente oferecidos por outros bancos de dados NoSQL, o Banco de Dados de Documentos também oferece dois modelos de consistência cuidadosamente codificados e operacionalizados — **bounded staleness** e **session**, tendo validado sua utilidade em casos de uso verídicos. Coletivamente, esses quatro níveis de consistência permitem que você faça trocas ponderadas entre consistência, disponibilidade e latência.
 
 ## Escopo de consistência
 
@@ -33,38 +33,38 @@ Você pode configurar um nível de consistência padrão, na conta do banco de d
 
 **Strong**:
 
-- A consistência Strong oferece uma garantia de [linearidade](https://aphyr.com/posts/313-strong-consistency-models) com garantia de que as leituras retornem a versão mais recente de um documento. 
-- a consistência Strong garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada de modo síncrono e permanente pelo quorum primário e secundário, ou é anulada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada. 
-- As contas do Banco de Dados de Documentos que são configuradas para usar consistência strong não podem associar mais de uma região do Azure à respectiva conta do Banco de Dados de Documentos. 
+- A consistência Strong oferece uma garantia de [linearidade](https://aphyr.com/posts/313-strong-consistency-models) com garantia de que as leituras retornem a versão mais recente de um documento.
+- a consistência Strong garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada de modo síncrono e permanente pelo quorum primário e secundário, ou é anulada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada.
+- As contas do Banco de Dados de Documentos que são configuradas para usar consistência strong não podem associar mais de uma região do Azure à respectiva conta do Banco de Dados de Documentos.
 - O custo de uma operação de leitura (em termos de [unidades de solicitação](documentdb-request-units.md) consumidas) com consistência strong é maior do que com session e eventual, mas igual ao de bounded staleness.
  
 
 **Bounded staleness**:
 
-- A consistência bounded staleness garante que as leituras podem não acompanhar as gravações até, no máximo, as versões *K*, ou prefixos de um documento ou intervalo de tempo *t*. 
-- Consequentemente, ao escolher bounded staleness, "staleness" pode ser configurado de duas maneiras: 
+- A consistência bounded staleness garante que as leituras podem não acompanhar as gravações até, no máximo, as versões *K*, ou prefixos de um documento ou intervalo de tempo *t*.
+- Consequentemente, ao escolher bounded staleness, "staleness" pode ser configurado de duas maneiras:
     - Número de versões *K* do documento pelas quais as leituras não acompanham as gravações
-    - Intervalo de tempo *t* 
-- A consistência bounded staleness oferece total de ordem global, exceto na "janela staleness". Observe que a leitura monotônica garante existência em uma região dentro e fora da "janela staleness". 
-- A bounded staleness oferece garantia de consistência mais forte do que session ou eventual. Para aplicativos distribuídos globalmente, é recomendável usar bounded staleness para cenários em que deseja ter consistência forte, mas também 99,99% de disponibilidade e baixa latência. 
-- As contas do Banco de Dados de Documentos que são configuradas com a consistência bounded staleness podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos. 
+    - Intervalo de tempo *t*
+- A consistência bounded staleness oferece total de ordem global, exceto na "janela staleness". Observe que a leitura monotônica garante existência em uma região dentro e fora da "janela staleness".
+- A bounded staleness oferece garantia de consistência mais forte do que session ou eventual. Para aplicativos distribuídos globalmente, é recomendável usar bounded staleness para cenários em que deseja ter consistência forte, mas também 99,99% de disponibilidade e baixa latência.
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência bounded staleness podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
 - O custo de uma operação de leitura (em termos de RUs consumidas) com consistência strong é maior do que com session e eventual, mas igual ao da consistência strong.
 
 **Session**:
 
-- Ao contrário dos modelos globais de consistência oferecidos pelos níveis de consistência strong e bounded staleness, a consistência session engloba uma sessão de cliente. 
-- A consistência session é ideal para todos os cenários em que há o envolvimento de um dispositivo ou uma sessão de usuário, uma vez que ela garante leituras monotônicas, gravações monotônicas e RYW (leitura de suas próprias gravações). 
-- A consistência session oferece consistência previsível para uma sessão, além de taxa de transferência de leitura máxima, ao mesmo tempo que oferece gravações e leituras de latência mais baixa. 
-- As contas do Banco de Dados de Documentos que são configuradas com a consistência session podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos. 
+- Ao contrário dos modelos globais de consistência oferecidos pelos níveis de consistência strong e bounded staleness, a consistência session engloba uma sessão de cliente.
+- A consistência session é ideal para todos os cenários em que há o envolvimento de um dispositivo ou uma sessão de usuário, uma vez que ela garante leituras monotônicas, gravações monotônicas e RYW (leitura de suas próprias gravações).
+- A consistência session oferece consistência previsível para uma sessão, além de taxa de transferência de leitura máxima, ao mesmo tempo que oferece gravações e leituras de latência mais baixa.
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência session podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
 - O custo de uma operação de leitura (em termos de RUs consumidas) com nível de consistência session é menor do que com strong e bounded staleness, mas maior do que com a consistência eventual
  
 
 **Eventual**:
 
-- A consistência eventual garante que, na ausência de qualquer gravação adicional, as réplicas no grupo sejam convergidas. 
+- A consistência eventual garante que, na ausência de qualquer gravação adicional, as réplicas no grupo sejam convergidas.
 - A consistência eventual é a forma mais fraca de consistência, em que um cliente pode obter valores que sejam mais antigos do que aqueles que tinha visto antes.
 - A consistência Eventual oferece a consistência de leitura mais fraca, mas oferece a menor latência para leituras e gravações.
-- As contas do Banco de Dados de Documentos que são configuradas com a consistência eventual podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos. 
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência eventual podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
 - O custo de uma operação de leitura (em termos de RUs consumidas) com o nível de consistência eventual é o mais baixo de todos os níveis de consistência do Banco de Dados de Documentos.
 
 
@@ -122,4 +122,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

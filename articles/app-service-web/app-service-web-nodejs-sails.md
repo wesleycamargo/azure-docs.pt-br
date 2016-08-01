@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="cephalin"/>
 
 # Implantar um aplicativo Web Sails.js no Serviço de Aplicativo do Azure
@@ -22,11 +22,11 @@ Este tutorial mostra como implantar um aplicativo Sails.js no Serviço de Aplica
 
 ## Pré-requisitos
 
-- Node.js. Os binários de instalação estão [aqui](https://nodejs.org/).
-- Sails.js. As instruções de instalação estão [aqui](http://sailsjs.org/get-started).
+- [Node.js](https://nodejs.org/).
+- [Sails.js](http://sailsjs.org/get-started).
 - Conhecimento prático dos Sails.js. Este tutorial não se destina a ajudá-lo com problemas relacionados à execução do Sail.js em geral.
-- Git. Os binários de instalação estão [aqui](http://www.git-scm.com/downloads).
-- CLI do Azure. As instruções de instalação estão [aqui](../xplat-cli-install.md).
+- [Git](http://www.git-scm.com/downloads).
+- [CLI do Azure](../xplat-cli-install.md)
 - Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Para ver o Serviço de Aplicativo do Azure em ação antes de se inscrever para uma conta do Azure, acesse [Experimente o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — sem exigência de cartão de crédito e sem compromissos.
@@ -99,36 +99,21 @@ Siga estas etapas:
 
     Você pode encontrar a documentação para essas configurações na [Sails.js Documentation](http://sailsjs.org/documentation/reference/configuration/sails-config) (Documentação do Sails.js).
 
-    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) é compatível com unidades de rede do Azure. No momento da elaboração deste artigo, o Grunt pode gerar o [erro "ENOTSUP: operação sem suporte no soquete"](https://github.com/isaacs/node-glob/issues/205) porque no momento ele usa um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (v3.1.21), que não dá suporte às unidades de rede. As próximas etapas mostram como fazer o Grunt usar o [glob v5.0.14 ou superior](https://github.com/isaacs/node-glob/commit/bf3381e90e283624fbd652835e1aefa55d45e2c7).
+    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) é compatível com unidades de rede do Azure. Versões do Grunt inferiores a 1.0.0 usam um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (inferior a 5.0.14), que não oferece suporte a unidades de rede.
 
-3. Uma vez que `npm install` já foi executado quando o aplicativo foi criado, gere o npm-shrinkwrap.json na raiz do projeto:
+3. Abra o package.json e altere a versão do `grunt` para `1.0.0` e remova todos os pacotes do `grunt-*`. Sua propriedade `dependencies` deve ter esta aparência:
 
-        npm shrinkwrap
-
-4. Abra o npm-shrinkwrap.json, localize o json para `"grunt":` e, em seguida, adicione a dependência para a versão do glob desejada. O json concluído deve ter esta aparência:
-
-        "grunt": {
-            "version": "0.4.5",
-            "from": "grunt@0.4.5",
-            "resolved": "https://registry.npmjs.org/grunt/-/grunt-0.4.5.tgz",
-            "dependencies": {
-                "glob": {
-                    "version": "5.0.14",
-                    "from": "glob@5.0.14",
-                    "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-                }
-            }
+        "dependencies": {
+            "ejs": "<leave-as-is>",
+            "grunt": "1.0.0",
+            "include-all": "<leave-as-is>",
+            "rc": "<leave-as-is>",
+            "sails": "<leave-as-is>",
+            "sails-disk": "<leave-as-is>",
+            "sails-sqlserver": "<leave-as-is>"
         },
 
-5. Localize todas as referências ao glob pesquisando `"glob":`. Se qualquer referência for v3.1.21 ou inferior, altere o json para:
-
-        "glob": {
-            "version": "5.0.14",
-            "from": "glob@5.0.14",
-            "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-        }
-
-6. Salve as alterações e teste-as para se certificar de que seu aplicativo ainda é executado localmente:
+6. Salve as alterações e teste-as para se certificar de que seu aplicativo ainda é executado localmente. Para fazer isso, exclua a pasta `node_modules` e execute:
 
         npm install
         sails lift
@@ -154,7 +139,7 @@ Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, en
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.1             |\
+    v0.12.3             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -167,6 +152,8 @@ Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, en
     To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
     To shut down Sails, press <CTRL> + C at any time.
 
+Você pode controlar a granularidade dos logs do stdout no arquivo [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging).
+
 ## Conectar-se a um banco de dados no Azure
 
 Para se conectar a um banco de dados do Azure, crie o banco de dados de sua escolha no Azure, como Banco de Dados SQL, MySQL, MongoDB, Cache (Redis) do Azure etc., e use o [adaptador de repositório de dados](https://github.com/balderdashy/sails#compatibility) correspondente para se conectar a ele. As etapas nesta seção mostram como se conectar a um Banco de Dados SQL do Azure.
@@ -177,17 +164,7 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
 
         npm install sails-sqlserver --save
 
-    Como você alterou o package.json, precisa regenerar o npm-shrinkwrap.json. Você fará isso a seguir.
-    
-3. Exclua o diretório node\_modules/.
-
-4. Execute `npm shrinkwrap`.
-
-5. Abra o npm-shrinkwrap.json novamente e atualize as versões do pacote do `glob` como você fez na seção anterior.
-
-    Agora, volte para a tarefa principal.
-        
-3. Abra config/connections.js e adicione o seguinte json à lista de adaptadores:
+3. Abra config/connections.js e adicione o seguinte objeto de conexão à lista:
 
         sqlserver: {
             adapter: 'sails-sqlserver',
@@ -207,35 +184,68 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
         azure site appsetting add sqlserver="<database server name>.database.windows.net"
         azure site appsetting add dbname="<database name>"
         
-4. Abra config/env/production.js para configurar seu ambiente de produção e definir `connection` e `migrate` no objeto JSON `models`:
+    Colocar suas configurações nas configurações de aplicativo do Azure mantém dados confidenciais fora do seu controle de origem (Git). Em seguida, você configurará seu ambiente de desenvolvimento para usar as mesmas informações de conexão.
+
+4. Abra config/local.js e adicione o seguinte objeto de conexão:
+
+        connections: {
+            sqlserver: {
+                user: "<database server administrator>",
+                password: "<database server password>",
+                host: "<database server name>.database.windows.net", 
+                database: "<database name>",
+            },
+        },
+    
+    Essa configuração substitui as configurações no arquivo config/connections.js para o ambiente local. Esse arquivo é excluído pelo .gitignore padrão em seu projeto, portanto não será armazenado no Git. Agora, você será capaz de se conectar ao Banco de Dados SQL do Azure de seu aplicativo Web e do ambiente de desenvolvimento local.
+
+4. Abra config/env/production.js para configurar seu ambiente de produção e adicione o seguinte objeto `models`:
+
+        models: {
+            connection: 'sqlserver',
+            migrate: 'safe'
+        },
+
+4. Abra config/env/development.js para configurar seu ambiente de desenvolvimento e adicione o seguinte objeto `models`:
 
         models: {
             connection: 'sqlserver',
             migrate: 'alter'
         },
 
-4. No terminal, [gere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) uma [API de plano gráfico](http://sailsjs.org/documentation/concepts/blueprints) do Sails.js como faria normalmente. Por exemplo:
+    O `migrate: 'alter'` permite que você use os recursos de migração do banco de dados para criar e atualizar facilmente suas tabelas de banco de dados no Banco de Dados SQL do Azure. No entanto, o `migrate: 'safe'` é usado para seu ambiente (produção) do Azure, pois Sails.js não permite o uso de `migrate: 'alter'` em um ambiente de produção (consulte [Documentação do Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+
+4. No terminal, [gere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) um [API de plano gráfico](http://sailsjs.org/documentation/concepts/blueprints) do Sails.js, como você faria normalmente, e execute `sails lift` para criar o banco de dados com a migração de banco de dados do Sails.js. Por exemplo:
 
          sails generate api mywidget
-     
-5. Salve todas as alterações, envie por push suas alterações para o Azure e navegue até seu aplicativo para verificar se ele ainda funciona.
+         sails lift
+
+    O modelo `mywidget` gerado por este comando está vazio, mas podemos usar isso para mostrar que temos conectividade com o banco de dados. Quando você executa o `sails lift`, ele cria as tabelas ausentes para os modelos usados por seu aplicativo.
+
+6. Acesse a API de plano gráfico que você acabou de criar no navegador. Por exemplo:
+
+        http://localhost:1337/mywidget/create
+    
+    A API deve retornar a entrada criada para você na janela do navegador, o que significa que seu banco de dados foi criado com êxito.
+
+        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+
+5. Agora, envie por push suas alterações para o Azure e navegue até seu aplicativo para verificar se ele ainda funciona.
 
         git add .
         git commit -m "<your commit message>"
         git push azure master
         azure site browse
 
-6. Agora, acesse a API de plano gráfico que você acabou de criar no navegador. Por exemplo:
+6. Acesse a API de plano gráfico de seu aplicativo Web do Azure. Por exemplo:
 
-        http://<appname>.azurewebsites.net/widget/create
-    
-    A API deve retornar a entrada criada para você na janela do navegador:
-    
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        http://<appname>.azurewebsites.net/mywidget/create
+
+    Se a API retornar outra entrada nova, seu aplicativo Web do Azure estará falando com seu Banco de Dados SQL do Azure.
 
 ## Mais recursos
 
-- [Get started with Node.js web apps in Azure App Service](app-service-web-nodejs-get-started.md) (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)
+- [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
 - [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

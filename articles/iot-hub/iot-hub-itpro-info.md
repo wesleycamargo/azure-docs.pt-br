@@ -36,7 +36,7 @@ Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo ender
 
 ## Hub IoT e segurança
 
-Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista negra (*DeviceConnect* permissão revogada).
+Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista negra (*DeviceConnect* permissão revogada). Para obter informações sobre os tokens compatíveis com o Hub IoT, confira [Usar tokens de segurança do Hub IoT e certificados X.509][lnk-tokens]
 
 O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também é controlado por meio de um conjunto de permissões: *iothubowner*, *serviço*, *registryRead*, e *registryReadWrite*. Qualquer aplicativo de gerenciamento de cliente que se conecta a um hub IoT deve incluir um token com as permissões apropriadas.
 
@@ -51,13 +51,12 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 - [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
 - [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 
-[lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: iot-hub-manage-through-portal.md
 
 [lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

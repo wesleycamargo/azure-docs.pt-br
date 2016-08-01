@@ -13,29 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
 
-Em um modelo do Azure Resource Manager, você define os recursos a serem implantados em uma solução e especifica os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação. Este tópico descreve as seções do modelo.
+Este tópico descreve a estrutura de um modelo do Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
 
-O Visual Studio fornece ferramentas para ajudá-lo com a criação de modelos. Para obter mais informações sobre como usar o Visual Studio com seus modelos, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para obter orientações sobre como criar um modelo, consulte [Passo a Passo do Modelo do Resource Manager](resource-manager-template-walkthrough.md). Para ver recomendações sobre como criar modelos, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](resource-manager-template-best-practices.md).
 
-Para obter orientações sobre como criar um modelo, consulte [Passo a passo do Modelo do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
-
-## Planejar seu modelo
-
-Antes de começar o modelo, você deve reservar algum tempo para descobrir o que deseja implantar e como usará o modelo. Especificamente, você deve considerar:
-
-1. Quais tipos de recursos você precisa implantar
-2. Onde esses recursos residirão
-3. Qual versão da API do provedor de recursos você usará ao implantar o recurso
-4. Se algum dos recursos deve ser implantado após outros recursos
-5. Quais valores você deseja transmitir durante a implantação e quais valores deseja definir diretamente no modelo
-6. Se você precisa retornar valores da implantação
-
-Para ajudá-lo a descobrir quais tipos de recursos estão disponíveis para implantação, quais regiões têm suporte para o tipo e as versões de API disponíveis para cada tipo, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+Um bom editor JSON pode simplificar a tarefa de criação de modelos. Para obter informações sobre como usar o Visual Studio com seus modelos, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Para obter informações sobre como usar o VS Code, consulte [Trabalhando com Modelos do Azure Resource Manager no Visual Studio Code](resource-manager-vs-code.md).
 
 Você deve limitar o tamanho de seu modelo para 1 MB, e cada arquivo de parâmetro para 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros.
 
@@ -125,7 +112,7 @@ Os valores e tipos permitidos são:
 
 Para especificar um parâmetro como opcional, forneça um defaultValue (pode ser uma cadeia de caracteres vazia).
 
-Se especificar um nome de parâmetro que corresponde a um dos parâmetros no comando para implantar o modelo (por exemplo, incluir um parâmetro chamado **ResourceGroupName** em seu modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), você será solicitado a fornecer um valor para o parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
+Se você especificar um nome de parâmetro que corresponde a um dos parâmetros no comando para implantar o modelo (como incluir um parâmetro denominado **ResourceGroupName** em seu modelo que é igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), será solicitado a fornecer um valor para um parâmetro com o sufixo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
 
 >[AZURE.NOTE] Todas as senhas, chaves e outros segredos devem usar o tipo **secureString**. Os parâmetros do modelo com o tipo secureString não podem ser lidos após a implantação de recursos.
 
@@ -165,7 +152,7 @@ O seguinte exemplo mostra como definir parâmetros:
       }
     }
 
-Para saber como inserir os valores do parâmetro durante a implantação, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
+Para saber como inserir os valores do parâmetro durante a implantação, consulte [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
 
 ## Variáveis
 
@@ -215,7 +202,7 @@ O próximo exemplo mostra uma variável que é um tipo JSON complexo e variávei
 
 ## Recursos
 
-Na seção de recursos, você define os recursos que são implantados ou atualizados. É aqui que o modelo pode ficar mais complicado, porque você precisa entender os tipos que está implantando para fornecer os valores corretos. Para aprender a maior parte do que precisa saber sobre provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+Na seção de recursos, você define os recursos que são implantados ou atualizados. É aqui que o modelo pode ficar mais complicado, porque você precisa entender os tipos que está implantando para fornecer os valores corretos. Para aprender a maior parte do que você precisa saber sobre os provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 
 Você define recursos com a seguinte estrutura:
 
@@ -241,12 +228,12 @@ Você define recursos com a seguinte estrutura:
 | :----------------------: | :------: | :----------
 | apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](resource-manager-supported-services.md#supported-api-versions).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
-| name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. Confira [Verificar o nome do recurso](https://msdn.microsoft.com/library/azure/mt219035.aspx).
-| location | Varia | Locais geográficos com suporte do recurso fornecido. Para determinar quais são os locais disponíveis, veja [Regiões com suporte](resource-manager-supported-services.md#supported-regions). A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não.
+| name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. Consulte [Verificar o nome do recurso](https://msdn.microsoft.com/library/azure/mt219035.aspx).
+| location | Varia | Locais geográficos com suporte do recurso fornecido. Para determinar os locais disponíveis, consulte [Regiões com suporte](resource-manager-supported-services.md#supported-regions). A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não.
 | marcas | Não | Marcas que são associadas ao recurso.
 | comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
-| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, confira [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 | recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência no recurso pai não é implícita; você deve definir explicitamente essa dependência. 
 
 
@@ -281,7 +268,7 @@ A seção de recursos contém uma matriz dos recursos a serem implantados. Dentr
 
 
 
-O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso **Extensions** filho. Observe que o site está marcado como dependente no farm de servidores, uma vez que o farm de servidores deve existir antes que o site possa ser implantado. Observe também que o recurso **Extensions** é um filho do site.
+O exemplo a seguir mostra um recurso **Microsoft.Web/serverfarms** e um recurso **Microsoft.Web/sites** com um recurso-filho **Extensions**. Observe que o site está marcado como dependente no farm de servidores, uma vez que o farm de servidores deve existir antes que o site possa ser implantado. Observe também que o recurso **Extensions** é filho do site.
 
     "resources": [
       {
@@ -368,13 +355,13 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
        }
     }
 
-Para obter mais informações sobre como trabalhar com a saída, consulte [Compartilhando estados nos modelos do Azure Resource Manager](best-practices-resource-manager-state.md).
+Para obter mais informações sobre como trabalhar com a saída, consulte [Compartilhando o estado nos modelos do Azure Resource Manager](best-practices-resource-manager-state.md).
 
 ## Próximas etapas
-- Para exibir modelos completos de diversos tipos diferentes de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-- Para obter detalhes sobre as funções que podem ser usadas em um modelo, veja [Funções de Modelo do Azure Resource Manager](resource-group-template-functions.md).
-- Para combinar vários modelos durante a implantação, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+- Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+- Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](resource-group-template-functions.md).
+- Para combinar vários modelos durante a implantação, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

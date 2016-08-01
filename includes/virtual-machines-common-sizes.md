@@ -49,18 +49,18 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 
 |Família de SKU |ACU/núcleo |
 |---|---|
-|[Standard\_A0](#a-series) |50 |
-|[Standard\_A1-4](#a-series) |100 |
-|[Standard\_A5-7](#a-series) |100 |
-|[A8-A11](#a-series) |225*|
-|[D1-14](#d-series) |160 |
-|[D1-15v2](#dv2-series) |210 - 250*|
-|[DS1-14](#ds-series) |160 |
-|[DS1-15v2](#dsv2-series) |210-250* |
-|[F1-F16](#f-series) | 210-250*|
-|[F1s-F16s](#fs-series) | 210-250*|
-|[G1-5](#g-series) |180 - 240*|
-|[GS1-5](#gs-series) |180 - 240*|
+|[Standard\_A0](#a-series)	|50 |
+|[Standard\_A1-4](#a-series)	|100 |
+|[Standard\_A5-7](#a-series)	|100 |
+|[A8-A11](#a-series)	|225*|
+|[D1-14](#d-series)	|160 |
+|[D1-15v2](#dv2-series)	|210 - 250*|
+|[DS1-14](#ds-series)	|160 |
+|[DS1-15v2](#dsv2-series)	|210-250* |
+|[F1-F16](#f-series)	| 210-250*|
+|[F1s-F16s](#fs-series)	| 210-250*|
+|[G1-5](#g-series)	|180 - 240*|
+|[GS1-5](#gs-series)	|180 - 240*|
 
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho. A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -227,7 +227,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 
 No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:
 
-* Standard\_A0 é ExtraSmall 
+* Standard\_A0 é ExtraSmall
 * Standard\_A1 é pequeno
 * Standard\_A2 é médio
 * Standard\_A3 é grande
@@ -239,4 +239,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="iainfou"/>
 
 # Usando a extensão de VM do Docker para implantar seu ambiente
@@ -22,7 +22,7 @@ O Docker é uma plataforma popular de geração de imagens e gerenciamento de co
 
 - Para fazer rapidamente um protótipo de um aplicativo ou se você já conhece e usa o Docker Machine, você pode [usar o driver do Azure do Docker Machine](./virtual-machines-linux-docker-machine.md) para implantar hosts do Docker no Azure.
 - Para uma implantação baseada em modelo, a extensão de VM do Docker para máquinas virtuais do Azure pode ser usada. Essa abordagem pode se integrar a implantações de modelo do Azure Resource Manager e inclui todos os benefícios relacionados, como acesso baseado em função, diagnóstico e configuração após a implantação.
-- A extensão de VM do Docker também oferece suporte ao Docker Compose, que usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente.  
+- A extensão de VM do Docker também oferece suporte ao Docker Compose, que usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente.
 - Você também pode [implantar um cluster completo do Docker Swarm nos Serviços de Contêiner do Azure](../container-service/container-service-deployment.md) para implantações escalonáveis prontas para produção que aproveitam as ferramentas de gerenciamento e agendamento adicionais fornecidas pelo Swarm.
 
 Este artigo se concentra no uso de modelos do Resource Manager para implantar a Extensão de VM do Docker em um ambiente personalizado e pronto para produção definido por você.
@@ -74,7 +74,7 @@ info:    group create command OK
 Depois que a implantação for concluída, faça a conexão SSH com seu novo host do Docker usando o nome DNS que você forneceu durante a implantação. As ferramentas do Docker já estarão instaladas, então vamos tentar executar um contêiner nginx:
 
 ```
-docker run -d -p 80:80 nginx
+sudo docker run -d -p 80:80 nginx
 ```
 
 Você deverá ver uma saída semelhante ao seguinte:
@@ -91,11 +91,11 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Examine o contêiner em execução no seu host usando `docker ps`:
+Examine o contêiner em execução no host usando `sudo docker ps`:
 
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
-b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   nostalgic_murdock
+b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
 Abra um navegador da Web e digite o nome DNS especificado durante a implantação para ver o contêiner em ação:
@@ -134,9 +134,9 @@ Você pode encontrar um passo a passo mais detalhado de como usar modelos do Res
 
 Leia etapas mais detalhadas para as diferentes opções de implantação:
 
-1. [Usar o computador Docker com o driver do Azure](./virtual-machines-linux-docker-machine.md)  
-2. [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+1. [Usar o computador Docker com o driver do Azure](./virtual-machines-linux-docker-machine.md)
+2. [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
 3. [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implantar um cluster do Serviço de Contêiner do Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

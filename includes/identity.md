@@ -1,4 +1,4 @@
-O gerenciamento de identidade é tão importante na nuvem pública quanto no local. Para ajudar nisso, o Azure oferece suporte a várias tecnologias de identidade de nuvem diferentes. Entre elas:
+O gerenciamento de identidade é tão importante em ambiente de nuvem pública quanto local. Para ajudar nisso, o Azure oferece suporte a várias tecnologias de identidade de nuvem diferentes. Entre elas:
 
 - Você pode executar o Active Directory do Windows Server (normalmente chamado apenas de AD) na nuvem usando máquinas virtuais criadas com Máquinas Virtuais do Azure. Essa abordagem faz sentido quando você estiver usando o Azure para estender seu datacenter local para a nuvem.
 
@@ -102,7 +102,7 @@ Mas por que fazer isso? Em vez disso, por que não criar um intermediário que p
 
 O processo começa quando um usuário tenta acessar o aplicativo em um navegador. O aplicativo o redireciona para um IdP de sua escolha (no qual o aplicativo também confia). O usuário se autentica por conta própria nesse IdP, digitando um nome de usuário e uma senha (etapa 1), por exemplo, e o IdP retorna um token contendo informações sobre ele (etapa 2).
 
-Como mostra a figura, o Controle de Acesso oferece suporte a uma variedade de diferentes IdPs baseados em nuvem, incluindo contas criadas pelo Google, Yahoo, Facebook, Microsoft (anteriormente conhecido como Windows Live ID) e qualquer provedor de OpenID. Ele também oferece suporte a identidades criadas usando o Active Directory do Azure e, por meio de federação com o AD FS, o Active Directory do Windows Server. O objetivo é abordar as identidades usadas com mais frequência hoje em dia, sejam elas emitidas por IdPs na nuvem ou no local.
+Como mostra a figura, o Controle de Acesso oferece suporte a uma variedade de diferentes IdPs baseados em nuvem, incluindo contas criadas pelo Google, Yahoo, Facebook, Microsoft (anteriormente conhecido como Windows Live ID) e qualquer provedor de OpenID. Ele também dá suporte a identidades criadas usando o Azure Active Directory e, por meio de federação com o AD FS, o Active Directory do Windows Server. O objetivo é abordar as identidades usadas com mais frequência hoje em dia, sejam elas emitidas por IdPs na nuvem ou no local.
 
 Uma vez que o navegador do usuário tem um token do IdP do IdP escolhido, ele envia esse token para o Controle de Acesso (etapa 3). O Controle de Acesso valida o token, certificando-se de que ele realmente foi emitido por esse IdP, e cria um novo token de acordo com as regras definidas para este aplicativo. Assim como o Active Directory do Azure, o Controle de Acesso é um serviço multilocatário, mas os inquilinos são aplicativos em vez das empresas dos clientes. Cada aplicativo pode obter seu próprio namespace, como mostra a figura, e pode definir várias regras sobre autorização e muito mais.
 
@@ -118,4 +118,4 @@ Trabalhar com identidade é importante em praticamente todos os aplicativos. O o
 
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em São Francisco, Califórnia.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0720_2016-->

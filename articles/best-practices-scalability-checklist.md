@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Lista de verificação de escalabilidade
@@ -68,4 +68,4 @@
 - **Considere minimizar o número de contas de serviço**. Por exemplo, usar uma conta específica para acessar recursos ou serviços que impõem um limite de conexões ou têm desempenho melhor quando menos conexões são mantidas. Essa abordagem é comum para serviços como bancos de dados, mas ela pode afetar a capacidade de auditar operações com precisão devido à representação do usuário original.
 - **Execute testes de perfil e carga de desempenho** durante o desenvolvimento, como parte das rotinas de teste, e antes da liberação o final para assegurar o desempenho e o dimensionamento necessários para o aplicativo. Esse teste deve ocorrer no mesmo tipo de hardware da plataforma de produção e com os mesmos tipos e quantidades de dados e carga de usuário que serão encontrados em produção. Para saber mais, confira [Testando o desempenho de um serviço de nuvem](vs-azure-tools-performance-profiling-cloud-services.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

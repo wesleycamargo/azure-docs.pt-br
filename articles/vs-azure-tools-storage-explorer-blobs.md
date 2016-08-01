@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="06/05/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Preview)
@@ -277,4 +277,4 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

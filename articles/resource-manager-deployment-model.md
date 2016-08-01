@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
@@ -175,4 +175,4 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 - Para saber mais sobre a estrutura de modelos do Resource Manager, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

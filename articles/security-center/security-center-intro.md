@@ -4,16 +4,16 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="07/19/2016"
    ms.author="terrylan"/>
 
 # Introdução à Central de Segurança do Azure
@@ -71,7 +71,7 @@ A opção **Coleta de dados** (veja acima) habilita a coleta de dados para uma p
 
 > [AZURE.NOTE] A coleta de dados e a escolha de uma conta de armazenamento por região são configuradas no nível de assinatura.
 
-**Mostrar recomendações para** (veja acima) permite que você escolha os controles de segurança que deseja monitorar e recomendar com base nas necessidades de segurança dos recursos na assinatura.
+Selecione **Política de prevenção** (veja acima) para abrir a folha **Política de prevenção**. **Mostrar recomendações para** permite que você escolha os controles de segurança que deseja monitorar e recomendar com base nas necessidades de segurança dos recursos na assinatura.
 
 Em seguida, selecione um grupo de recursos para exibir detalhes da política.
 
@@ -100,9 +100,9 @@ Clique no bloco **Recomendações** para obter uma lista de recomendações. Cli
 
 ### Integridade de recursos
 
-O bloco **Integridade da segurança dos recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos web e outros recursos.
+O bloco **Integridade da segurança dos recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos Web e outros recursos.
 
-Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Máquinas virtuais** é selecionado no exemplo a seguir.)
+Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Máquinas virtuais** é selecionado no exemplo a seguir).
 
 ![Bloco de integridade de recursos][6]
 
@@ -125,7 +125,7 @@ Selecionar um alerta mostra mais informações sobre o ataque e sugestões para 
 
 ### Soluções de parceiros
 
-O bloco **Soluções de parceiros** permite monitorar rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure. A Central de Segurança exibe alertas das soluções.
+O bloco **Soluções de parceiros** permite monitorar rapidamente o status da integridade de suas soluções de parceiros integradas em sua assinatura do Azure. A Central de Segurança exibe alertas das soluções.
 
 Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de todas as soluções de parceiro conectadas.
 
@@ -134,20 +134,20 @@ Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo u
 ## Introdução
 Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. A Central de segurança é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
- Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+ Acesse a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Consulte a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
 
-A [Introdução à Central de segurança do Azure](security-center-get-started.md) o orienta rapidamente quanto ao monitoramento de segurança e aos componentes de gerenciamento da política da Central de Segurança.
+A [Introdução à Central de Segurança do Azure](security-center-get-started.md) o orienta rapidamente quanto ao monitoramento de segurança e aos componentes de gerenciamento da política da Central de Segurança.
 
-## Próximas etapas
+## Consulte também
 Neste documento, você foi apresentado à Central de Segurança, seus principais recursos e como começar. Para saber mais, consulte os seguintes:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e as informações do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+- [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) -- saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
@@ -160,4 +160,4 @@ Neste documento, você foi apresentado à Central de Segurança, seus principais
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

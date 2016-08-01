@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/14/2016"
    ms.author="masashin"/>
 
 
@@ -934,4 +934,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 - O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

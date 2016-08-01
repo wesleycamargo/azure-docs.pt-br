@@ -18,11 +18,13 @@
 
 # Introdução ao armazenamento de Fila do Azure e serviços conectados do Visual Studio
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## Visão geral
 
 Este artigo descreve como começar a usar o armazenamento de Filas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
-Mostraremos como criar e acessar uma Fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em código C# e usam a [Biblioteca do Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+Mostraremos como criar e acessar uma Fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em código C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
 
 O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 
@@ -156,4 +158,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

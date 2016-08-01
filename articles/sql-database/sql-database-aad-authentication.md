@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="07/18/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory
@@ -83,11 +83,11 @@ Não há suporte para contas da Microsoft (por exemplo, outlook.com, hotmail.com
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
 - O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (A autenticação do Azure Active Directory tem suporte apenas do **Provedor de dados do .NET Framework para SQL Server**; é necessária pelo menos a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos de camada de dados (DAC e .bacpac) podem usar a autenticação do Azure Active Directory, mas **sqlcmd.exe** e **bcp.exe** não podem se conectar porque usam o provedor ODBC.
 - O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
-- O [Microsoft JDBC Driver 6.0 para SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/) dá suporte à autenticação do Azure Active Directory.
+- O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/pt-BR/download/details.aspx?id=11774) dá suporte à autenticação do Azure Active Directory. Consulte também [Configuração das propriedades de conexão](https://msdn.microsoft.com/library/ms378988.aspx).
 - O PolyBase não pode ser autenticado usando a autenticação do Azure Active Directory.
 - Não há suporte para o SQL Server Management Studio para SQL Data Warehouse. Use as SQL Server Data Tools.
 - Não há suporte para algumas ferramentas como o Excel e o BI.
-- Não há suporte para a autenticação de dois fatores ou outras formas de autenticação interativa.
+- Não há suporte para a MFA/2FA (Multi-factor Authentication) ou outras formas de autenticação interativa.
 - A autenticação do Azure Active Directory tem suporte para Banco de Dados SQL por meio das folhas **Importar Banco de Dados** e **Exportar Banco de Dados** do Portal do Azure. Também há suporte para importação e exportação usando a autenticação do Azure Active Directory do comando do PowerShell.
 
 
@@ -98,7 +98,7 @@ Crie um Active Directory do Azure e popule-o com usuários e grupos. Isso inclui
 - Crie o domínio inicial de domínio gerenciado do AD do Azure.
 - Realize a federação de uma instância local dos Serviços de Domínio do Active Directory com o Active Directory do Azure.
 
-Para saber mais, veja [Integração de suas identidades locais com o Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o Azure AD usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Para saber mais, consulte [Integração de suas identidades locais com o Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-add-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o Azure AD usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Verificar se o Banco de Dados SQL está no Banco de Dados SQL V12 do Azure
 
@@ -239,7 +239,7 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 
 A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-> [AZURE.NOTE] Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server ou para o SQL Data Warehouse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **Colaborador do SQL Server** não concede acesso para se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
+> [AZURE.NOTE] Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server ou para o SQL Data Warehouse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **Contribuidor do SQL Server** não concede acesso para se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
 
 ### Conecte-se ao banco de dados ou ao data warehouse do usuário usando o SQL Server Management Studio ou o SQL Server Data Tools
 
@@ -340,7 +340,7 @@ Este método de autenticação permite que os serviços de camada intermediária
 3. Criar um certificado no computador cliente que executará o aplicativo.
 4. Adicionar o certificado como uma chave para seu aplicativo.
 
-Para saber mais, veja [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+Para obter mais informações, consulte [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/) (Blog de segurança do SQL Server).
 
 ## Consulte também
 
@@ -366,4 +366,4 @@ Para saber mais, veja [Blog de segurança do SQL Server](https://blogs.msdn.micr
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,15 +23,16 @@
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber mais sobre como gerenciar seus recursos, consulte [Gerenciar recursos do Azure pelo portal](./azure-portal/resource-group-portal.md).
+Este tópico mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber sobre como gerenciar seus recursos, consulte [Gerenciar recursos do Azure pelo portal](./azure-portal/resource-group-portal.md).
 
-Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para obter o status de cada serviço, confira o [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recursos. Para esses serviços, você precisará usar o [portal clássico](https://manage.windowsazure.com). Para ver o status de cada serviço, consulte o [gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Criar grupo de recursos
 
@@ -47,7 +48,7 @@ Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recurso
 
 Após criar um grupo de recursos, você pode implantar recursos nele usando o Marketplace. O Marketplace oferece soluções predefinidas para cenários comuns.
 
-1. Para iniciar uma implantação, selecione **Novo** e o tipo de recurso que gostaria de implantar. Em seguida, procure a versão específica do recurso que deseja implantar.
+1. Para iniciar uma implantação, selecione **Novo** e o tipo de recurso que você gostaria de implantar. Em seguida, procure a versão específica do recurso que deseja implantar.
 
     ![implantar recurso](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
@@ -75,11 +76,11 @@ Após criar um grupo de recursos, você pode implantar recursos nele usando o Ma
 
 Se quiser executar uma implantação, mas não usar nenhum dos modelos no Marketplace, você poderá criar um modelo personalizado que define a infraestrutura para sua solução. Para saber mais sobre a criação de modelos, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-1. Para implantar um modelo personalizado usando o portal, selecione **Novo** e comece a procurar por **Implantação de modelo** até conseguir selecioná-la nas opções.
+1. Para implantar um modelo personalizado usando o portal, selecione **Novo** e comece a procurar **Implantação do Modelo** até conseguir selecioná-la nas opções.
 
     ![procurar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 
-2. Selecione **Implantação de modelo** entre os recursos disponíveis.
+2. Selecione **Implantação do Modelo** entre os recursos disponíveis.
 
     ![selecionar implantação de modelo](./media/resource-group-template-deploy-portal/select-template.png)
 
@@ -87,11 +88,11 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
     ![criar modelo](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    No editor, adicione a sintaxe JSON que define os recursos que você deseja implantar. Selecione **Salvar** quando terminar. Para obter orientações sobre como escrever a sintaxe JSON, consulte [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
+    No editor, adicione a sintaxe JSON que define os recursos que você deseja implantar. Selecione **Salvar** quando terminar. Para ter orientações sobre como escrever a sintaxe JSON, consulte [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 
     ![editar modelo](./media/resource-group-template-deploy-portal/edit-template.png)
 
-4. Outra opção é selecionar um modelo já existente nos [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Esses modelos são fornecidos como contribuição pela comunidade. Eles abrangem vários cenários comuns, e alguém pode ter adicionado um modelo parecido com o que você está tentando implantar. Você pode pesquisar nos modelos para encontrar algo que corresponda ao seu cenário.
+4. Ou você pode selecionar um modelo já existente entre os [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Esses modelos são fornecidos como contribuição pela comunidade. Eles abrangem vários cenários comuns, e alguém pode ter adicionado um modelo parecido com o que você está tentando implantar. Você pode pesquisar nos modelos para encontrar algo que corresponda ao seu cenário.
 
     ![selecionar modelo de início rápido](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 
@@ -103,7 +104,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
 ## Implantar recursos de um modelo salvo em sua conta
 
-O portal permite que você salve um modelo em sua conta do Azure e o reimplante mais tarde. Para obter mais informações sobre como trabalhar com esses modelos salvos, consulte [Introdução aos modelos privados no Portal do Azure](./marketplace-consumer/mytemplates-getstarted.md).
+O portal permite que você salve um modelo em sua conta do Azure e o reimplante mais tarde. Para obter mais informações sobre como trabalhar com esses modelos salvos, consulte [Introdução aos Modelos privados no Portal do Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
 1. Para localizar os modelos salvos, selecione **Procurar** > **Modelos**.
 
@@ -119,8 +120,8 @@ O portal permite que você salve um modelo em sua conta do Azure e o reimplante 
 
 ## Próximas etapas
 
-- Para ver os logs de auditoria, confira [Operações de auditoria com o Resource Manager](resource-group-audit.md).
-- Para solucionar erros de implantação, confira [Solucionando problemas de implantações de grupo de recursos com o portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
-- Para recuperar um modelo de uma implantação ou de um grupo de recursos, consulte [Exportar um modelo do Azure Resource Manager por meio dos recursos existentes](resource-manager-export-template.md).
+- Para ver os logs de auditoria, consulte [Auditar operações com o Resource Manager](resource-group-audit.md).
+- Para solucionar os erros de implantação, consulte [Solução de problemas das implantações dos grupos de recursos com o Portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Para recuperar um modelo a partir de uma implantação ou um grupo de recursos, consulte [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

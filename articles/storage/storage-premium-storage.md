@@ -362,6 +362,9 @@ Para obter informações detalhadas sobre os preços para Armazenamento Premium 
 - [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 - [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
+## Backup
+O backup de máquinas virtuais que usam o Armazenamento Premium pode ser feito com o Backup do Azure. [Mais detalhes](../backup/backup-azure-vms-first-look-arm.md).
+
 ## Início rápido
 
 ## Criar e usar uma conta de Armazenamento Premium para um disco de dados da máquina virtual
@@ -390,31 +393,31 @@ Esta seção mostra como criar uma conta de armazenamento Premium usando o Porta
 
 4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
 
-5. Especifique o nível de desempenho para a conta de armazenamento como **Premium**.
+5. Especifique a camada de desempenho para a conta de armazenamento como **Premium**.
 
-6. **LRS (Armazenamento com Redundância Local)** é a única opção de replicação disponível com o Armazenamento Premium. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
+6. **LRS (armazenamento com redundância local)** é a única opção de replicação disponível no Armazenamento Premium. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
 7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Usando do Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
+8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para obter mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
-9. Selecione a região geográfica para sua conta de armazenamento. É possível confirmar se o Armazenamento Premium está disponível na Localização selecionada consultando os [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services).
+9. Selecione a região geográfica para sua conta de armazenamento. É possível confirmar se o Armazenamento Premium está disponível na Localização selecionada consultando os [Serviços do Azure por região](https://azure.microsoft.com/regions/#services).
 
 10. Clique em **Criar** para criar a conta de armazenamento.
 
 #### II. Criar uma máquina virtual do Azure por meio do Portal do Azure
 
-Você deve criar uma VM das séries DS, DSv2 ou GS para poder usar o Armazenamento Premium. Siga as etapas em [Criar uma máquina virtual Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para criar uma nova máquina virtual DS, DSv2 ou GS.
+Você deve criar uma VM das séries DS, DSv2 ou GS para poder usar o Armazenamento Premium. Siga as etapas em [Criar sua primeira máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para criar uma nova máquina virtual DS, DSv2 ou GS.
 
 #### III. Anexar um disco de dados de armazenamento premium por meio do Portal do Azure
 
 1. Localize a VM DS, DSv2 ou GS nova ou existente no Portal do Azure.
 2. Em **Todas as Configurações** da VM, vá para **Discos** e clique em **Anexar Novo**.
-3. Insira o nome do disco de dados e selecione o **Tipo** como **Premium**. Selecione a configuração desejada de **Tamanho** e **Cache de host**.
+3. Insira o nome do disco de dados e selecione o **Tipo** como **Premium**. Selecione a configuração desejada de **Tamanho** e **Caching de host**.
 
 	![Disco Premium][Image1]
 
-Veja etapas mais detalhadas em [Como anexar um disco de dados no Portal do Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+Veja etapas mais detalhadas em [Como anexar um disco de dados a uma VM do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
 #### IV. Alterar a política de cache de disco por meio do Portal do Azure
 
@@ -429,7 +432,7 @@ Veja etapas mais detalhadas em [Como anexar um disco de dados no Portal do Azure
 Este exemplo de PowerShell mostra como criar uma nova conta de Armazenamento Premium e conectar um disco de dados que usa essa conta a uma nova máquina virtual do Azure.
 
 1. Configure o ambiente do PowerShell seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta de armazenamento Premium.
+2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta do Armazenamento Premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -469,7 +472,7 @@ Para atualizar a política de cache de disco, anote o número de LUN do disco de
 
 ### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio da Interface de Linha de Comando do Azure
 
-A [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) fornece um conjunto de comandos de software livre entre plataformas para o trabalho com a Plataforma Azure. Os exemplos a seguir mostram como usar o Azure CLI (versão 0.8.14 e posterior) para criar uma conta de armazenamento Premium, uma nova máquina virtual e conectar um novo disco de dados de uma conta de armazenamento Premium.
+A [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) fornece um conjunto de comandos de software livre de plataforma cruzada para trabalhar com a Plataforma Azure. Os exemplos a seguir mostram como usar o Azure CLI (versão 0.8.14 e posterior) para criar uma conta de armazenamento Premium, uma nova máquina virtual e conectar um novo disco de dados de uma conta de armazenamento Premium.
 
 #### I. Criar uma conta de armazenamento Premium por meio da CLI do Azure
 
@@ -540,7 +543,7 @@ Observe que as opções da política de cache podem ser ReadOnly, None ou ReadWr
 
 9. **Como converter minha VM da série D em uma VM da série DS**
 
-	Confira o guia de migração, [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md), para mover a carga de trabalho de uma VM da série D usando uma conta de armazenamento standard para uma VM da série DS usando uma conta de armazenamento premium.
+	Confira o guia de migração, [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md), para mover sua carga de trabalho de uma VM da série D usando uma conta do Armazenamento Standard para uma VM da série DS usando uma conta do Armazenamento Premium.
 
 ## Próximas etapas
 
@@ -562,4 +565,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

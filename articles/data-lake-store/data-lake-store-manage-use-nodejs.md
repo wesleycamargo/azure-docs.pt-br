@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Gerenciar o Repositório Azure Data Lake usando o SDK do Azure para Node.js
@@ -141,4 +141,4 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Microsoft Azure SDK para Node.js](https://github.com/azure/azure-sdk-for-node)
 - [SDK do Microsoft Azure para Node.js - Gerenciamento da Análise de Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

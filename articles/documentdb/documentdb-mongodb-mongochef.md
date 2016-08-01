@@ -19,7 +19,7 @@
 
 # Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
-Para se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB usando o MongoChef, você deve:
+Para se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o MongoChef, você deve:
 
 - Baixar e instalar o [MongoChef](http://3t.io/mongochef)
 - Ter as informações de [cadeia de conexão](documentdb-connect-mongodb-account.md) da sua conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -40,7 +40,7 @@ Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo 
 	
 	![Captura de tela da guia servidor do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação ** (MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
+3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação **(MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
 
 	![Captura de tela da guia autenticação do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -132,4 +132,4 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

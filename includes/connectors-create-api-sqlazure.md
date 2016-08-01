@@ -1,13 +1,10 @@
 ### Pré-requisitos
 
-- Uma conta do [SQL Azure](https://www.microsoft.com/sql)
+- Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
+- Um [Banco de Dados SQL](../articles/sql-database/sql-database-get-started.md) com suas informações de conexão, incluindo o nome do servidor, nome do banco de dados e nome de usuário e senha. Essa informação é incluída na cadeia de conexão de banco de dados SQL: Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your\_username};Password={your\_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
+> [AZURE.NOTE] Quando você cria um banco de dados SQL do Azure, também pode criar os bancos de dados de exemplo incluídos no SQL.
 
-Antes de usar a conta do SQL Azure em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do SQL Azure. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.
+Saiba mais sobre o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database).
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do SQL Azure:
-1. Para criar uma conexão com o SQL Azure, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *SQL Azure* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sql/sql-1.png)
-2. Se você não tiver criado quaisquer conexões com o SQL Azure antes, suas credenciais do SQL Azure serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do SQL Azure. O formato de cadeia de conexão SQL é o seguinte: **Server=tcp:[serverName].database.windows.net;Database=myDataBase; User ID=[LoginForDb]@[serverName];Password=myPassword;Trusted\_Connection=False; Encrypt=True;** ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sql/sql-2.png)
-3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sql/sql-3.png)
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

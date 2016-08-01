@@ -20,7 +20,7 @@
 
 Para clientes que usam o Windows Server com o Software Assurance, você pode colocar suas licenças do Windows Server locais no Azure e executar VMs do Windows Server no Azure a um custo reduzido. O Benefício do uso híbrido do Azure permite executar VMs do Windows Server no Azure e ser cobrado somente pela a taxa de computação base. Para obter mais informações, consulte a página [Licenciamento de Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Este artigo explica como implantar VMs do Windows Server no Azure para usar esse benefício de licenciamento.
 
-> [AZURE.NOTE] Você não pode usar imagens do Azure Marketplace para implantar VMs do Windows Server utilizando o Benefício do uso híbrido do Azure. Você deve implantar suas VMs usando o PowerShell ou os modelos do Resource Manager para registrar corretamente suas VMs como qualificadas para o desconto de taxa de computação base.
+> [AZURE.NOTE] Você não pode usar imagens do Azure Marketplace para implantar VMs do Windows Server utilizando o Benefício do uso híbrido do Azure. Você deve implantar suas VMs usando o PowerShell ou modelos do Resource Manager para registrar corretamente suas VMs como qualificadas para o desconto de taxa de computação base.
 
 ## Pré-requisitos
 Há alguns pré-requisitos para utilizar a Vantagem do uso híbrido do Azure para VMs do Windows Server no Azure:
@@ -49,8 +49,7 @@ Você também pode ler mais sobre como [carregar o VHD no processo do Azure](./v
 Ao implantar a VM do Windows Server por meio do PowerShell, você tem um parâmetro adicional para `-LicenseType`. Quando o VHD estiver carregado no Azure, você criará uma nova VM usando `New-AzureRmVM` e especificará o tipo de licenciamento como a seguir:
 
 ```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
-    -LicenseType Windows_Server
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
 Você pode [ler uma explicação mais detalhada sobre como implantar uma VM no Azure por meio do PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) abaixo ou ler um guia mais descritivo sobre as diferentes etapas para [criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](./virtual-machines-windows-ps-create.md).
@@ -151,7 +150,7 @@ Carregue o VHD, preparado adequadamente, e anexe à sua VM para uso:
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 Finalmente, crie sua VM e defina o tipo de licenciamento para utilizar o Benefício do uso híbrido do Azure:
@@ -166,4 +165,4 @@ Leia mais sobre o [Licenciamento do Benefício de Uso Híbrido do Azure](https:/
 
 Saiba mais sobre como [usar os modelos do Gerenciador de Recursos](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

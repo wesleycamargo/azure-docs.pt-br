@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Visão geral
 
@@ -213,7 +215,7 @@ O SDK serializa automaticamente o objeto em JSON. Uma mensagem da fila sempre é
 
 ### Criar várias mensagens ou em funções assíncronas
 
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector<T>** ou **IAsyncCollector<T>**, conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, verifique o tipo de parâmetro para a fila de saída **ICollector<T>** ou **IAsyncCollector<T>**, conforme mostrado no exemplo a seguir.
 
 		public static void CreateQueueMessages(
 		    [QueueTrigger("inputqueue")] string queueMessage,
@@ -525,7 +527,7 @@ No painel do SDK do Web Jobs, as 100 linhas da saída do Console mais recentes s
 
 ![Ativar/desativar saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/continuous/*{webjobname}*/job\_log.txt no sistema de aplicativo web.
+Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/continuous/*{nomedowebjob}*/job\_log.txt no sistema de arquivos do aplicativo Web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -543,4 +545,4 @@ E, em uma tabela do Azure os logs **Console.Out** e **Console.Error** têm essa 
 
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

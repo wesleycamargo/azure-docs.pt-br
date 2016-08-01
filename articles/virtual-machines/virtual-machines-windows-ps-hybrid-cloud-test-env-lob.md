@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste
@@ -59,7 +59,7 @@ Esta é a configuração atual.
 
 No portal do Azure, inicie o computador DC2, se necessário.
 
-Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < and >.
+Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no prompt de comando do Azure PowerShell em seu computador local. Antes de executar estes comandos, preencha os valores variáveis e remova os caracteres < e >.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -86,7 +86,7 @@ Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no
 Use o portal do Azure para conectar-se ao SQL1 usando a conta de administrador local.
 
 1.	No painel esquerdo do Portal de Gerenciamento do Azure, clique em **Máquinas Virtuais** e, em seguida, em **Executando** na coluna Status do SQL1.
-2.	Na barra de tarefas, clique em **Conectar**. 
+2.	Na barra de tarefas, clique em **Conectar**.
 3.	Quando receber uma solicitação para abrir SQL1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
@@ -136,7 +136,7 @@ Em seguida, configure o SQL Server 2014 para usar a unidade F: para novos bancos
 2.	Em **Conectar ao Servidor**, clique em **Conectar**.
 3.	No painel de árvore do Pesquisador de Objetos, clique com o botão direito do mouse em **SQL1** e clique em **Propriedades**.
 4.	Na janela **Propriedades do Servidor**, clique em **Configurações de Banco de Dados**.
-5.	Localize os **Locais padrão de banco de dados** e defina estes valores: 
+5.	Localize os **Locais padrão de banco de dados** e defina estes valores:
 	- Para **Dados**, digite o caminho **f:\\Data**.
 	- Para **Log**, digite o caminho **f:\\Log**.
 	- Para **Backup**, digite o caminho **f:\\Backup**.
@@ -216,6 +216,6 @@ Este ambiente agora está pronto para que você implante seu aplicativo baseado 
 
 ## Próxima etapa
 
-- Implante o [ambiente de produção](virtual-machines-windows-lob-overview.md).
+- Implantar outras [cargas de trabalho](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) nesse ambiente.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="07/14/2016"
 	ms.author="danlep"/>
 
 
-# Configurar um cluster HPC (computação de alto desempenho) híbrido e pequeno com instâncias de trabalho do Azure sob demanda e Microsoft HPC Pack
+# Configurar um cluster HPC (computação de alto desempenho) híbrido com nós de computação do Azure sob demanda e o Microsoft HPC Pack
 
 Use o Microsoft HPC Pack 2012 R2 e o Azure para configurar um cluster HPC (computação de alto desempenho) híbrido e pequeno. O cluster consistirá em um nó de cabeça no local (um computador que execute o sistema operacional Windows Server e o HPC Pack) e alguns nós de computação implantados sob demanda como instâncias de função de trabalho em um serviço de nuvem do Azure. É possível executar trabalhos de computação no cluster híbrido.
 
@@ -33,11 +33,9 @@ Este tutorial não pressupõe nenhuma experiência anterior com clusters de cál
 
 * **Assinatura do Azure** - Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
-* **Um computador local executando o Windows Server 2012 R2 ou o Windows Server 2012** - Esse computador será o nó de cabeçalho do cluster HPC. Se não estiver executando o Windows Server, você pode baixar e instalar uma [versão de avaliação](http://technet.microsoft.com/evalcenter/dn205286.aspx).
+* **Um computador local executando o Windows Server 2012 R2 ou o Windows Server 2012** - Esse computador será o nó de cabeçalho do cluster HPC. Se você ainda não estiver executando o Windows Server, poderá baixar e instalar uma [versão de avaliação](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
 
-	* O computador deve estar ingressado a um domínio do Active Directory.
-
-	* Certifique-se de que nenhuma função de servidor ou serviço de função adicional esteja instalado.
+	* O computador deve estar ingressado a um domínio do Active Directory. Para um cenário de teste com uma instalação nova do Windows Server, você pode adicionar a função de servidor Serviços de Domínio do Active Directory e promover o computador nó principal como um controlador de domínio em uma nova floresta de domínio (consulte a documentação do Windows Server).
 
 	* Para oferecer suporte ao HPC Pack, o sistema operacional deve ser instalado em um desses idiomas: inglês, japonês ou chinês (simplificado).
 
@@ -84,7 +82,7 @@ Primeiro instale o Microsoft HPC Pack em um computador local executando o Window
 	![Concluir][install_hpc7]
 
 ## Preparar a assinatura do Azure
-Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local.
+Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local. Confira os procedimentos detalhados nas próximas seções.
 
 - Carregue um certificado de gerenciamento (necessário para proteger conexões entre o nó de cabeça e os serviços do Azure)
 
@@ -92,7 +90,7 @@ Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar
 
 - Criar uma conta de armazenamento do Azure
 
-	>[AZURE.NOTE]Anote também sua ID de assinatura do Azure, que será necessária posteriormente. Encontre-a nas [informações sobre sua conta do Azure](https://account.windowsazure.com/Subscriptions).
+	>[AZURE.NOTE]Anote também sua ID de assinatura do Azure, que será necessária posteriormente. Encontre-a no Portal Clássico, clicando em **Configurações** > **Assinaturas**.
 
 ### Carregue o certificado de gerenciamento padrão
 O HPC Pack instala um certificado autoassinado no nó de cabeça, chamado de Certificado de gerenciamento padrão de HPC no Azure da Microsoft, que pode ser carregado como um certificado de gerenciamento do Azure. Este certificado é fornecido para implantações de prova de conceito e fins de teste.
@@ -195,13 +193,13 @@ Agora você usará o modelo do nó para adicionar nós do Azure ao cluster. Adic
 
 Para este tutorial, você adicionará dois nós Pequenos.
 
-1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em algumas versões do HPC Pack), no painel **Ações**, clique em **Adicionar Nó**.
+1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), no painel **Ações**, clique em **Adicionar Nó**.
 
 	![Adicionar nó][add_node1]
 
 2. No Assistente de Adição de Nó, na página **Selecionar Método de implantação**, clique **Adicionar Nós do Azure**e em **Avançar**.
 
-	![Adicionar nó do Azure][add_node1_1]
+	![Adicionar Nó do Azure][add\_node1\_1]
 
 3. Na página **Especificar Novos nós**, selecione o modelo do nó do Azure criado anteriormente (chamado por padrão **Modelo de nós do Azure padrão**). Em seguida, especifique **2** nós de tamanho **Pequeno**e clique em **Avançar**.
 
@@ -218,7 +216,7 @@ Para este tutorial, você adicionará dois nós Pequenos.
 ## Iniciar os nós do Azure
 Quando desejar usar os recursos de cluster no Azure, use o Gerenciador de Cluster de HPC para iniciar (provisionar) os nós no Azure e colocá-los on-line.
 
-1.	No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em algumas versões do HPC Pack), clique em um ou nos dois nós e, em seguida, no painel **Ações**, clique em **Iniciar**.
+1.	No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), clique em um ou nos dois nós e, em seguida, no painel **Ações**, clique em **Iniciar**.
 
 	![Iniciar nós][add_node4]
 
@@ -260,7 +258,7 @@ Para verificar a instalação, use o comando **clusrun** do HPC Pack para execut
 
 ## Executar um trabalho de teste
 
-Você pode enviar um trabalho de teste que é executado no cluster híbrido. Este exemplo é um trabalho simples de limpeza paramétrica (um tipo de computação intrinsecamente paralela). Este exemplo executa as subtarefas que adicionam um número inteiro a si mesmo usando o comando **set /a**. Todos os nós no cluster contribuem para concluir as subtarefas para números inteiros de 1 a 100.
+Você pode enviar um trabalho de teste que é executado no cluster híbrido. Este exemplo é um trabalho muito simples de limpeza paramétrica (um tipo de computação intrinsecamente paralela). Este exemplo executa as subtarefas que adicionam um número inteiro a si mesmo usando o comando **set /a**. Todos os nós no cluster contribuem para concluir as subtarefas para números inteiros de 1 a 100.
 
 1. No Gerenciador de Cluster de HPC, em **Gerneciamento de trabalho**, no painel **Ações**, clique em **Novo trabalho de limpeza paramétrica**.
 
@@ -284,7 +282,7 @@ Você pode enviar um trabalho de teste que é executado no cluster híbrido. Est
 
 Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças desnecessárias em sua conta. Isso interromperá o serviço de nuvem e removerá as instâncias de função do Azure.
 
-1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em algumas versões do HPC Pack), selecione amos os nós do Azure. Em seguida, no painel **Ações**, clique **Parar**.
+1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), selecione amos os nós do Azure. Em seguida, no painel **Ações**, clique **Parar**.
 
 	![Parar os nós][stop_node1]
 
@@ -308,7 +306,7 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 
 * Para configurar uma implantação de cluster de HPC Pack hibrida em uma escala maior, consulte [Intermitência para Instâncias de Função de Trabalho do Azure com Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 
-* Para outras maneiras de criar um cluster de HPC Pack no Azure, inclusive usando modelos do Azure Resource Manager, consulte [Opções de cluster HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md).
+* Para outras maneiras de criar um cluster de HPC Pack no Azure, inclusive usando modelos do Azure Resource Manager, consulte [Opções de cluster HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
 * Consulte [Big Compute no Azure: Recursos Técnicos para HPC (Computação de Alto Desempenho) e Lote](../batch/big-compute-resources.md) para obter mais informações sobre o alcance de soluções de nuvem HPT e Big Compute no Azure.
 
 
@@ -331,7 +329,7 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
+[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add\_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png
@@ -349,4 +347,4 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

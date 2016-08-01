@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth"/>
 
 # Provisionar uma máquina virtual SQL Server usando o Azure PowerShell (Gerenciador de Recursos)
@@ -310,4 +310,4 @@ O script a seguir contém o script completo do PowerShell para este tutorial. El
 ## Próximas etapas
 Depois que a máquina virtual for criada, você estará pronto para se conectar à máquina virtual usando a conectividade de instalação e RDP. Para obter mais informações, confira [Conectar-se a uma Máquina Virtual do SQL Server (Gerenciador de Recursos)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

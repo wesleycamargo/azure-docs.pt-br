@@ -167,7 +167,7 @@ Após a [criação de um pool de Banco de Dados Elástico](sql-database-elastic-
 
 	![Criar nome de usuário e senha][2]
 
-6. Clique no botão OK. Os componentes são criados para você em questão de minutos em um novo [Grupo de recursos](../azure-portal/resource-group-portal.md). O novo grupo de recursos é fixado à tela inicial, conforme mostrado abaixo. Depois de criados, os trabalhos de banco de dados elástico (Serviço de Nuvem, Banco de Dados SQL, Barramento de Serviço e Armazenamento) são criados no grupo.
+6. Clique no botão OK. Os componentes são criados para você em questão de minutos em um novo [Grupo de recursos](../resource-group-overview.md). O novo grupo de recursos é fixado à tela inicial, conforme mostrado abaixo. Depois de criados, os trabalhos de banco de dados elástico (Serviço de Nuvem, Banco de Dados SQL, Barramento de Serviço e Armazenamento) são criados no grupo.
 
 	![grupo de recursos na tela inicial][3]
 
@@ -187,4 +187,4 @@ Certifique-se de que uma credencial com os direitos apropriados para a execuçã
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="CDN: solucionando problemas de compactação de arquivo"
 	description="Solucione problemas com a compactação de arquivo CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de compactação de arquivo CDN
@@ -79,7 +79,7 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de resposta para garantir que o arquivo está armazenado em cache na região em que está sendo solicitado.
 
 - Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo abaixo.
-- Verifique o cabeçalho de resposta **X-Cache**. No cabeçalho, deve-se ler **HIT**.  
+- Verifique o cabeçalho de resposta **X-Cache**. No cabeçalho, deve-se ler **HIT**.
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 - Maior que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0518_2016-->
+### Verifique a solicitação no servidor de origem por um cabeçalho **Via**
+
+O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo passada por um servidor proxy. Por padrão, os servidores Web do Microsoft IIS não compactam as respostas quando a solicitação contém um cabeçalho **Via**. Para substituir esse comportamento, execute o seguinte procedimento:
+
+- **IIS 6**: [Defina HcNoCompressionForProxies="FALSE" nas propriedades do IIS Metabase](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 and up**: [Defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+
+<!---HONumber=AcomDC_0720_2016-->

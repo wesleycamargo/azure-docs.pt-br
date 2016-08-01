@@ -496,7 +496,7 @@ Defina a propriedade **allowPolyBase** como **true**, conforme mostrado no exemp
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}
@@ -654,4 +654,4 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 ## Desempenho e Ajuste  
 Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) na Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

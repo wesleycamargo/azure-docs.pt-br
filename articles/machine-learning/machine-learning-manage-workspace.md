@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure
+
+>[AZURE.NOTE] Os procedimentos neste artigo são relevantes para serviços Web clássicos do Aprendizado de Máquina do Azure. Para obter informações sobre como gerenciar os novos serviços Web, veja [Gerenciar um novo serviço Web do Aprendizado de Máquina](machine-learning-manage-new-webservice.md).
+
 Com o Portal Clássico do Azure, você pode gerenciar seus espaços de trabalho do Aprendizado de Máquina para:
 
 - Monitorar como o espaço de trabalho está sendo usado
@@ -94,4 +97,4 @@ Clique na guia **CONFIGURAR** para editar a descrição, controlar o número de 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

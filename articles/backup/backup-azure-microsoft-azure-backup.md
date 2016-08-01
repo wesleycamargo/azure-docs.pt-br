@@ -72,7 +72,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
 5. Clique em **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Só haverá múltiplas opções se sua conta organizacional estiver associada a várias assinaturas do Azure.
 
-6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para saber mais sobre os Grupos de recursos, confira [Usar o Portal do Azure para implantar e gerenciar os seus recursos do Azure](../azure-portal/resource-group-portal.md).
+6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para obter informações completas sobre Grupos de recursos, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md)
 
 7. Clique em **Local** para selecionar a região geográfica do cofre.
 
@@ -264,4 +264,4 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 - [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 - [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

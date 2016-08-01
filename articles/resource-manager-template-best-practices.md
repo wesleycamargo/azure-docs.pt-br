@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
 # Práticas recomendadas para criação de modelos do Azure Resource Manager
@@ -34,15 +34,15 @@ Para obter ajuda com o estabelecimento de uma convenção de nomenclatura, confi
 
 Você deve fornecer um nome de recurso exclusivo para qualquer tipo de recurso que tenha um ponto de extremidade de acesso de dados. Entre os tipos comuns que exigem um nome exclusivo estão:
 
-- Armazenamento
-- Aplicativo Web
+- Conta de armazenamento
+- Site da Web
 - SQL Server
-- Cofre da Chave
+- Cofre de chaves
 - Cache Redis
-- Batch
-- Gerenciador de Tráfego
+- Conta do Batch
+- Gerenciador de tráfego
 - Serviço de pesquisa
-- HDInsight
+- Cluster HDInsight
 
 Além disso, os nomes de conta de armazenamento devem estar em letras minúsculas, ter 24 caracteres ou menos e não incluir hífens.
 
@@ -361,4 +361,4 @@ Você pode criar links condicionais para modelos aninhados usando um parâmetro 
 2. Para obter orientação sobre a configuração de uma conta de armazenamento, confira [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](./storage/storage-performance-checklist.md).
 3. Para obter ajuda com redes virtuais, confira [Diretrizes de infraestrutura de rede](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

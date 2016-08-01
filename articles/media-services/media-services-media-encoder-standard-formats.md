@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Codecs e formatos padrão do codificador de mídia
@@ -88,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Sim
 Áudio do Windows Media|Sim 
 WAV/PCM|Sim 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Sim 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Sim 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sim 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Sim 
 AMR (multitaxa adaptável)|Sim
 AES (SMPTE 331M e 302M, AES3-2003) |Não 
@@ -123,4 +123,4 @@ MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-A
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

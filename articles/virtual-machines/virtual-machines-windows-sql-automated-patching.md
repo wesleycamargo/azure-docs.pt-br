@@ -56,13 +56,15 @@ A tabela a seguir descreve as opções que podem ser configuradas para Aplicaç�
 |---|---|---|
 |**Aplicação de patch automatizada**|Habilitar/desabilitar (Desabilitado)|Habilita ou desabilita a Aplicação de Patch Automatizada para uma máquina virtual do Azure.|
 |**Agenda de manutenção**|Todos os dias, segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado e domingo|A agenda para baixar e instalar atualizações do Windows, do SQL Server e do Microsoft para sua máquina virtual.|
-|**Hora de início da manutenção**|0–24|A hora de início local para atualizar a máquina virtual.|
+|**Hora de início da manutenção**|0h a 24h|A hora de início local para atualizar a máquina virtual.|
 |**Duração da janela de manutenção**|30-180|O número de minutos permitidos para concluir o download e a instalação de atualizações.|
 |**Categoria de patch**|Importante|A categoria de atualizações para baixar e instalar.|
 
 ## Configuração no Portal
+Você pode usar o Portal do Azure para configurar o a Aplicação de Patch Automatizado durante o provisionamento ou para VMs existentes.
 
-Use o [portal do Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar a Aplicação de Patch Automatizada quando criar uma nova Máquina Virtual do SQL Server no modelo de implantação do Gerenciador de Recursos.
+### Novas VMs
+Use o Portal do Azure para configurar a Aplicação de Patch Automatizada quando criar uma nova Máquina Virtual do SQL Server no modelo de implantação do Gerenciador de Recursos.
 
 Na folha **Configurações do SQL Server**, selecione **Aplicação de patch automatizada**. As capturas de tela do portal do Azure a seguir mostram a folha **Aplicação de Patch Automatizada**.
 
@@ -70,9 +72,20 @@ Na folha **Configurações do SQL Server**, selecione **Aplicação de patch aut
 
 Para ter contexto, consulte o tópico completo sobre [provisionamento de uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Para máquinas virtuais do SQL Server existentes, use o PowerShell para definir as configurações de Aplicação de Patch Automatizada.
+### VMs existentes
+Para máquinas virtuais existentes do SQL Server, selecione sua máquina virtual do SQL Server. Selecione a seção **Configuração do SQL Server** da folha **Configurações**.
 
->[AZURE.NOTE] Quando você habilita a Aplicação de Patch Automatizada pela primeira vez, o Azure configura o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal do Azure não mostrará que a Aplicação de Patch Automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal do Azure refletirá as novas configurações.
+![Aplicação de Patch Automática do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
+
+Na folha **Configuração do SQL Server**, clique no botão **Editar** na seção de Aplicação de Patch Automatizada.
+
+![Configurar a Aplicação de Patch Automática do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
+
+Quando terminar, clique no botão **OK** na parte inferior da folha **Configuração do SQL Server** para salvar suas alterações.
+
+Se você for habilitar a Aplicação de Patch Automatizada pela primeira vez, o Azure configurará o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal do Azure não mostrará que a Aplicação de Patch Automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal do Azure refletirá as novas configurações.
+
+>[AZURE.NOTE] Você também pode configurar a Aplicação de Patch Automatizada usando um modelo. Para obter mais informações, consulte o [Modelo de início rápido do Azure para a Aplicação de Patch Automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
 
 ## Configuração com o PowerShell
 
@@ -105,4 +118,4 @@ Para obter informações sobre outras tarefas de automação disponíveis, consu
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016--->

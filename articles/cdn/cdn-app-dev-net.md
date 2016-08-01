@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Introdução ao desenvolvimento de CDN do Azure
@@ -58,7 +58,7 @@ Vejamos a estrutura básica do nosso programa gravado.
 
 1. De volta à guia Program.cs, substitua as diretivas `using` na parte superior com o seguinte:
 
-	```
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using Microsoft.Azure.Management.Cdn;
@@ -71,7 +71,7 @@ Vejamos a estrutura básica do nosso programa gravado.
 
 2. Precisamos definir algumas constantes que serão usadas nos nossos métodos. Na classe `Program`, mas antes do método `Main`, adicione o seguinte. Substitua os espaços reservados, inclusive os **&lt;colchetes angulares&gt;**, por seus próprios valores, conforme necessário.
 
-	```
+	```csharp
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -87,14 +87,14 @@ Vejamos a estrutura básica do nosso programa gravado.
 
 3. Também no nível de classe, defina essas duas variáveis. Nós as usaremos posteriormente para determinar se o perfil e o ponto de extremidade já existem.
 
-	```
+	```csharp
 	static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
 	```
 
 4.  Substitua o método `Main` da seguinte maneira:
 
-	```
+	```csharp
 	static void Main(string[] args)
 	{
 		//Get a token
@@ -130,7 +130,7 @@ Vejamos a estrutura básica do nosso programa gravado.
 
 5. Alguns dos nossos outros métodos solicitarão que o usuário responda perguntas do tipo "Sim/Não". Adicione o seguinte método para tornar esse processo um pouco mais fácil:
 
-	```
+	```csharp
 	private static bool PromptUser(string Question)
 	{
 		Console.Write(Question + " (Y/N): ");
@@ -158,7 +158,7 @@ Agora que a estrutura básica do nosso programa está gravada, devemos criar mé
 
 Para que possamos usar a biblioteca de gerenciamento do Azure CDN, é necessário autenticar nossa entidade de serviço e obter um token de autenticação. Esse método usa a ADAL para recuperar o token.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority); 
@@ -174,7 +174,7 @@ Se você estiver usando a autenticação de usuário individual, o método `GetA
 
 >[AZURE.IMPORTANT] Use este exemplo de código somente se optar pela autenticação de usuário individual, em vez de uma entidade de serviço.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority);
@@ -191,7 +191,7 @@ Certifique-se de substituir `<redirect URI>` com o URI de redirecionamento que v
 
 Agora estamos prontos para executar as operações de CDN. A primeira tarefa que nosso método faz é relacionar todos os perfis e pontos de extremidade em nosso grupo de recursos e, se ele encontrar uma correspondência para os nomes de perfis e de pontos de extremidade especificados em nossas constantes, ele fará uma observação a respeito posteriormente. Portanto, não tentaremos criar duplicatas.
 
-```
+```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
 	// List all the CDN profiles in this resource group
@@ -226,7 +226,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
 Em seguida, criaremos um perfil.
 
-```
+```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
 {
 	if (profileAlreadyExists)
@@ -245,7 +245,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 
 Depois que o perfil for criado, criaremos um ponto de extremidade.
 
-```
+```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
 {
 	if (endpointAlreadyExists)
@@ -274,7 +274,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 Supondo que o ponto de extremidade tenha sido criado, uma tarefa comum que talvez desejemos executar em nosso programa está limpando o conteúdo no ponto de extremidade.
 
-```
+```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 {
 	if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
@@ -293,7 +293,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 Os últimos métodos excluirão nosso ponto de extremidade e perfil.
 
-```
+```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
 {
 	if(PromptUser(String.Format("Delete CDN endpoint {0} on profile {1}?", endpointName, profileName)))
@@ -337,4 +337,4 @@ Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://cod
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

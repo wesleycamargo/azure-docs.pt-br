@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo desse tutorial é mostrar como integrar o StatusPage ao Azure AD (Azu
 
 A integração do StatusPage ao Azure AD oferece os seguintes benefícios:
 
-- No AD do Azure, você pode controlar quem tem acesso ao StatusPage 
+- No AD do Azure, você pode controlar quem tem acesso ao StatusPage
 - Você pode habilitar o logon automático de seus usuários no StatusPage (Logon único) com as contas do AD do Azure
 - Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
@@ -43,7 +43,7 @@ Para configurar a integração do AD do Azure com o StatusPage, você precisa do
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
@@ -51,7 +51,7 @@ O objetivo deste tutorial é permitir que você teste o logon único do Azure AD
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o StatusPage da galeria 
+1. Adicionando o StatusPage da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
@@ -60,7 +60,7 @@ Para configurar a integração do StatusPage ao AD do Azure, você precisará ad
 
 **Para adicionar o StatusPage da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -321,4 +321,4 @@ Quando você clica no bloco StatusPage no Painel de Acesso, você deve ser conec
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

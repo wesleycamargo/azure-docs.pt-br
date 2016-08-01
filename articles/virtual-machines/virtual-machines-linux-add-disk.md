@@ -218,10 +218,33 @@ boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
 > [AZURE.NOTE] Você também pode se conectar à máquina virtual Linux usando uma chave SSH para identificação. Para saber mais, confira [Como usar uma chave SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md).
 
+
+### Suporte a TRIM/UNMAP para Linux no Azure
+Alguns kernels Linux darão suporte a operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Isso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Isso poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
+
+Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
+
+- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
+
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+- Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo a crontab para ser executado normalmente:
+
+	**Ubuntu**
+
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
+
+	**RHEL/CentOS**
+
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
+
+
 ## Próximas etapas
 
 - Lembre-se de que o novo disco normalmente não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [/etc/fstab](http://en.wikipedia.org/wiki/Fstab).
-- Examine as recomendações em [Otimizar o desempenho do computador Linux](virtual-machines-linux-optimization.md) para assegurar que sua VM do Linux esteja configurada corretamente.
+- Examine as recomendações em [Otimizar sua VM do Linux no Azure](virtual-machines-linux-optimization.md) para assegurar que sua VM do Linux está configurada corretamente.
 - Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](virtual-machines-linux-configure-raid.md) para obter desempenho adicional.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

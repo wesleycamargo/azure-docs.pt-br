@@ -13,10 +13,10 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Adicionar nós de “disparo contínuo” sob demanda (instâncias de função de trabalho) como recursos de computação a um cluster HPC Pack no Azure
+# Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 
 
 
@@ -26,15 +26,15 @@ Este artigo mostra como adicionar os nós de “disparo contínuo” do Azure (i
 
 ![Nós de disparo contínuo][burst]
 
->[AZURE.TIP] Se você usar o [script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para criar o cluster no Azure, é possível incluir os nós de disparo contínuo do Azure em sua implantação automatizada. Consulte os exemplos nesse artigo.
-
 As etapas neste artigo ajudarão você a adicionar nós do Azure rapidamente a uma VM de nó de cabeçalho do HPC Pack baseado em nuvem para uma implantação de teste ou de prova de conceito. O procedimento é basicamente o mesmo que o usado para o “disparo contínuo para o Azure” para adicionar a capacidade de computação em nuvem a um cluster HPC Pack local. Para obter um tutorial, veja [Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obter diretrizes e considerações detalhadas sobre implantações de produção, veja [Disparo contínuo para o Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-Se desejar usar o tamanho de instância A8 ou A9 de uso intensivo de computação, veja [Sobre as instâncias A8, A9, A10 e A11 de computação intensiva](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Para ver considerações sobre o uso do tamanho A8 ou A9 de instância de computação intensiva, veja [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Pré-requisitos
 
-* **Nó de cabeçalho do HPC Pack implantado em uma VM do Azure**: consulte [Implantar um nó de cabeçalho do HPC Pack em uma VM do Azure](virtual-machines-windows-hpcpack-cluster-headnode.md) para obter as etapas para criar um nó de cabeçalho do cluster no modelo de implantação clássica.
+* **Nó de cabeçalho do HPC Pack implantado em uma VM do Azure** – Você pode usar uma VM de nó de cabeçalho autônomo ou uma que faça parte de um cluster maior. Para criar um nó de cabeçalho autônomo, veja [Criar o nó principal de um cluster de Pacote HPC em uma VM do Azure com uma imagem do Marketplace](virtual-machines-windows-hpcpack-cluster-headnode.md). Para obter opções de implantação do cluster HPC Pack, veja [Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) do Windows no Azure com o Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+
+    >[AZURE.TIP] Se você usar o [script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para criar o cluster no Azure, é possível incluir os nós de disparo contínuo do Azure em sua implantação automatizada. Consulte os exemplos nesse artigo.
 
 * **Assinatura do Azure** - Para adicionar nós do Azure, você pode escolher a mesma assinatura usada para implantar a VM de nó de cabeçalho ou uma assinatura (ou assinaturas) diferente.
 
@@ -62,7 +62,7 @@ Use o portal clássico do Azure ou ferramentas equivalentes para configurar o se
 
 Para adicionar nós do Azure como recursos de computação, você precisará ter um certificado de gerenciamento no nó de cabeçalho e carregar um certificado correspondente na assinatura do Azure usada para a implantação.
 
-Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, basta carregar o arquivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer da VM de nó de cabeçalho na assinatura.
+Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, basta carregar o arquivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer da VM de nó de cabeçalho na assinatura. Você poderá fazer isso no [portal clássico do Azure](https://manage.windowsazure.com). Clique em **Configurações** > **Certificados de Gerenciamento**.
 
 Para obter opções adicionais para configurar o certificado de gerenciamento, veja [Cenários para configurar o certificado de gerenciamento do Azure para implantações de disparo contínuo do Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
@@ -80,13 +80,13 @@ As etapas para adicionar e iniciar os nós do Azure neste cenário geralmente s�
 
 Depois de adicionar e iniciar os nós, eles estarão prontos para uso para a execução de trabalhos de cluster.
 
-Se você encontrar problemas ao implantar nós do Azure, consulte [Solucionar problemas de implantações de Nós do Azure com o Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
+Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of Azure Nodes with Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx) (Solucionar problemas de nós do Azure com o Microsoft HPC Pack).
 
 ## Próximas etapas
 
-* Caso deseje aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a atual carga de trabalho dos trabalhos e de tarefas no cluster, consulte [Aumentar e reduzir automaticamente os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Caso deseje aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a atual carga de trabalho de trabalhos e tarefas no cluster, veja [Aumentar e reduzir automaticamente os recursos do cluster HPC Pack no Azure conforme a carga de trabalho do cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

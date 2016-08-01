@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="07/18/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **Asse
 
 Quando você cria ativos, você pode especificar as seguintes opções de criptografia.
 
-- **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
+- **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
 - **CommonEncryption** - use essa opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 - **EnvelopeEncrypted** – use essa opção se você estiver carregando HSL criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 - **StorageEncrypted** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
@@ -54,7 +54,7 @@ O código de exemplo abaixo usa o SDK do .NET para executar as seguintes tarefas
 - Cria uma instância de AssetFile que desejamos associar ao ativo.
 - Cria uma instância de AccessPolicy que define as permissões e a duração do acesso ao ativo.
 - Cria uma instância de localizador que fornece acesso ao ativo.
-- Carrega um único arquivo de mídia nos Serviços de Mídia. 
+- Carrega um único arquivo de mídia nos Serviços de Mídia.
 
 		
 		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -315,4 +315,4 @@ Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [C
 [Como obter um processador de mídia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

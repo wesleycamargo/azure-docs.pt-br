@@ -18,7 +18,7 @@
 
 # Diretrizes de desenvolvimento de visualização para contas do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
-Você pode se comunicar com o Banco de Dados de Documentos por meio de qualquer um dos [drivers](https://docs.mongodb.org/ecosystem/drivers/) do cliente MongoDB de software livre. O suporte de protocolo para MongoDB supõe que os drivers do cliente MongoDB estão se comunicando com um ponto de extremidade de servidor 2.6 ou posterior do MongoDB. O Banco de Dados de Documentos permite isso ao adotar o [protocolo wire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) do MongoDB, versão 2.6 (observe que a versão 3.2 do protocolo wire está bem próxima de ser totalmente compatível, mas determinadas experiências de cliente, como as sessões de shell do MongoDB versão 3.2, podem indicar que elas estão "sendo rebaixadas para o modo 'herdado'").
+Você pode se comunicar com o Banco de Dados de Documentos do Azure por meio de qualquer um dos [drivers](https://docs.mongodb.org/ecosystem/drivers/) do cliente MongoDB de software livre. O suporte de protocolo para MongoDB supõe que os drivers do cliente MongoDB estão se comunicando com um ponto de extremidade de servidor 2.6 ou posterior do MongoDB. O Banco de Dados de Documentos permite isso ao adotar o [protocolo wire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) do MongoDB, versão 2.6 (observe que a versão 3.2 do protocolo wire está bem próxima de ser totalmente compatível, mas determinadas experiências de cliente, como as sessões de shell do MongoDB versão 3.2, podem indicar que elas estão "sendo rebaixadas para o modo 'herdado'").
 
 O Banco de Dados de Documentos é compatível com as principais funções da API do MongoDB para operações CRUD (Criar, Ler, Atualizar e Excluir) dados, bem como para consultar o banco de dados. Os recursos implementados foram priorizados com base nas necessidades de plataformas, estruturas, ferramentas e padrões de aplicativos comuns.
 
@@ -100,4 +100,4 @@ Diagnóstico|listDatabases, collStats, dbStats| |Todo o resto
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

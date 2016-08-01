@@ -23,6 +23,7 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -37,7 +38,7 @@ Este artigo apresenta como criar e gerenciar os recursos do Azure usando a CLI (
 
 Use o Gerenciador de Recursos do Azure para criar e gerenciar um grupo de _recursos_ (entidades gerenciadas pelo usuário, como máquina virtual, servidor de banco de dados, banco de dados ou site) como uma unidade lógica única ou um _grupo de recursos_.
 
-Uma vantagem do Azure Resource Manager é que você pode criar seus recursos do Azure de maneira _declarativa_: descrevendo a estrutura e as relações de um grupo implantável de recursos em *modelos* JSON. O modelo identifica os parâmetros que podem ser preenchidos em linha ao executar um comando ou armazenados em um arquivo de parâmetros JSON separado (JavaScript Object Notation). Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros configurações comuns.
+Uma vantagem do Azure Resource Manager é que você pode criar seus recursos do Azure de maneira _declarativa_: descrevendo a estrutura e as relações de um grupo implantável de recursos nos *modelos* JSON. O modelo identifica os parâmetros que podem ser preenchidos em linha ao executar um comando ou armazenados em um arquivo de parâmetros JSON separado (JavaScript Object Notation). Isso permite criar facilmente novos recursos usando-se o mesmo modelo simplesmente fornecendo parâmetros diferentes. Por exemplo, um modelo que cria um site terá parâmetros para o nome do site, a região do site em que estará localizado e outros configurações comuns.
 
 Quando um modelo é usado para modificar ou criar um grupo, uma _implantação_ é criada e, então, aplicada ao grupo. Para saber mais sobre o Gerenciador de Recursos do Azure, visite a [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
@@ -84,7 +85,7 @@ Ao trabalhar com modelos, você poderá [criar seu próprio modelo](resource-gro
 
 A criação de um novo modelo está fora do escopo deste artigo. Portanto, para começar, usaremos o modelo _101-simple-vm-from-image_ disponível nos [modelos QuickStart](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Por padrão, isso cria uma única máquina virtual Ubuntu 14.04.2-LTS em uma nova rede virtual com uma única sub-rede. Você só precisa especificar um grupo de recursos e alguns parâmetros a seguir para usar esse modelo:
 
-* Nome de usuário de administrador para a VM = `adminUsername`
+* Nome de usuário do administrador para a VM = `adminUsername`
 * Senha = `adminPassword`
 * Nome de domínio para a VM = `dnsLabelPrefix`
 
@@ -115,7 +116,7 @@ A criação de um novo modelo está fora do escopo deste artigo. Portanto, para 
 			}
 
 	```
-3.  Agora que os parâmetros de implantação foram modificados, você implantará a VM do Ubuntu no grupo de recursos *testRG* criado anteriormente. Escolha um nome para a implantação (*testRGDeploy* neste exemplo), em seguida, use o seguinte comando para iniciar.
+3.  Agora que os parâmetros da implantação foram modificados, você implantará a VM do Ubuntu no grupo de recursos *testRG* criado anteriormente. Escolha um nome para a implantação (*testRGDeploy* neste exemplo), em seguida, use o seguinte comando para iniciar.
 
 	```
 	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGDeploy
@@ -219,13 +220,13 @@ Para um grupo de recursos existente, você pode exibir o modelo Resource Manager
 
 Usando a CLI do Azure, você pode exportar um modelo que representa o estado atual do seu grupo de recursos ou baixar o modelo que foi usado para uma determinada implantação.
 
-* **Exportar o modelo para um grupo de recursos** - isso será útil quando você tiver feito alterações em um grupo de recursos e precisar recuperar a representação JSON de seu estado atual. No entanto, o modelo gerado contém apenas uma quantidade mínima de parâmetros e nenhuma variável. A maioria dos valores no modelo é embutida em código. Antes de implantar o modelo gerado, convém converter mais valores em parâmetros, para que você possa personalizar a implantação para ambientes diferentes.
+* **Exportar o modelo para um grupo de recursos** - Isso será útil quando você tiver feito alterações em um grupo de recursos e precisar recuperar a representação JSON de seu estado atual. No entanto, o modelo gerado contém apenas uma quantidade mínima de parâmetros e nenhuma variável. A maioria dos valores no modelo é embutida em código. Antes de implantar o modelo gerado, convém converter mais valores em parâmetros, para que você possa personalizar a implantação para ambientes diferentes.
 
-    Para exportar o modelo de um grupo de recursos para um diretório local, execute o comando `azure group export` conforme mostrado no exemplo a seguir. (Substitua seu ambiente do sistema operacional por um diretório local apropriado).
+    Para exportar o modelo de um grupo de recursos para um diretório local, execute o comando `azure group export` como mostrado no exemplo a seguir. (Substitua seu ambiente do sistema operacional por um diretório local apropriado).
 
         azure group export testRG ~/azure/templates/
 
-* **Baixe o modelo para uma determinada implantação** – isso será útil quando você precisar exibir o modelo real que foi usado para implantar os recursos. O modelo incluirá todos os parâmetros e variáveis definidos para a implantação original. No entanto, se alguém em sua organização tiver feito alterações ao grupo de recursos que estejam fora da definição no modelo, esse modelo não representará o estado atual do grupo de recursos.
+* **Baixar o modelo de uma determinada implantação** – Isso será útil quando você precisar exibir o modelo real que foi usado para implantar os recursos. O modelo incluirá todos os parâmetros e variáveis definidos para a implantação original. No entanto, se alguém em sua organização tiver feito alterações ao grupo de recursos que estejam fora da definição no modelo, esse modelo não representará o estado atual do grupo de recursos.
 
     Para baixar o modelo usado de uma implantação específica para um diretório local, execute o comando `azure group deployment template download`.
 
@@ -238,4 +239,4 @@ Usando a CLI do Azure, você pode exportar um modelo que representa o estado atu
 * Para obter informações sobre como trabalhar com o Gerenciador de Recursos do Azure usando o Azure PowerShell, veja [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md).
 * Para obter informações sobre como trabalhar com o Azure Resource Manager no portal do Azure, consulte [Usando o Portal do Azure para implantar e gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->
