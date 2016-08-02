@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ O carregamento de dados é uma grande parte da carga de trabalho do data warehou
 
 - Tradicionalmente, o processo de carregamento é chamado de ETL (Extração, Transformação e Carregamento). Geralmente, os dados precisam ser transformados para que sejam consistentes com outros dados no data warehouse. Anteriormente, as empresas usavam servidores ETL dedicados para realizar as transformações. Agora, com um processamento rápido massivamente paralelo, você pode carregar dados no SQL Data Warehouse primeiro e depois realizar as transformações. Esse processo é chamado ELT (Extração, Carregamento e Transformação) e está se tornando um novo padrão para a carga de trabalho do data warehouse.
 
-> [AZURE.NOTE] Com o SQL Server CTP2, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
+> [AZURE.NOTE] Com o SQL Server 2016, agora você pode realizar a análise em tempo real em uma tabela OLTP. Isso não substitui a necessidade de um data warehouse para armazenar e analisar dados, mas é uma maneira de realizar análise em tempo real.
 
 ### Consultas de análise e relatórios
 As consultas de análise e relatórios muitas vezes são classificadas em pequenas, médias e grandes com base em vários critérios, mas normalmente se baseiam no tempo. Na maioria dos data warehouses, há uma carga de trabalho mista de consultas de execução rápida e execução longa. Em cada caso, é importante determinar essa combinação e determinar sua frequência (por hora, diariamente, fim do mês, fim do trimestre e assim por diante). É importante entender que a carga de trabalho de consultas mistas, aliada à simultaneidade, leva ao planejamento adequado da capacidade para um data warehouse.
@@ -71,4 +71,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um D
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

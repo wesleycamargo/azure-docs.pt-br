@@ -28,13 +28,13 @@ Cada solução pré-configurada é uma implementação completa de ponta a ponta
 
 Além de implantar e de executar as soluções no Azure, você pode baixar o código-fonte completo, personalizar e estender a solução para atender às suas necessidades específicas de IoT.
 
-> [AZURE.NOTE] Para implantar uma das soluções pré-configuradas, acesse o [Microsoft Azure IoT Suite][lnk-azureiotsuite]. O artigo [Introdução às soluções IoT pré-configuradas][lnk-preconf-get-started] fornece mais informações sobre como implantar e executar uma das soluções.
+> [AZURE.NOTE] Para implantar uma das soluções pré-configuradas, acesse o [Microsoft Azure IoT Suite][lnk-azureiotsuite]. O artigo [Introdução às soluções IoT pré-configuradas][lnk-getstarted-preconfigured] fornece mais informações sobre como implantar e executar uma das soluções.
 
 A tabela a seguir mostra como essas soluções são mapeadas para recursos específicos de IoT:
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-preconf-get-started] | Sim | Sim | Sim | Sim | - |
+| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - | 
 | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
@@ -79,7 +79,7 @@ O Hub IoT disponibiliza a telemetria recebida por meio do ponto de extremidade d
 A solução pré-configurada usa três trabalhos do ASA ([Stream Analytics do Azure][lnk-asa]) para filtrar o fluxo de telemetria dos dispositivos:
 
 
-- *Trabalho de DeviceInfo* – envia dados para um Hub de Eventos que roteia mensagens específicas de registro de dispositivos, enviadas quando um dispositivo se conecta pela primeira vez ou em resposta a um comando **Alterar estado do dispositivo**, para o registro do dispositivo da solução ( um banco de dados do Banco de Dados de Documentos). 
+- *Trabalho de DeviceInfo* – envia dados para um Hub de Eventos que roteia mensagens específicas de registro de dispositivos, enviadas quando um dispositivo se conecta pela primeira vez ou em resposta a um comando **Alterar estado do dispositivo**, para o registro do dispositivo da solução ( um banco de dados do Banco de Dados de Documentos).
 - *Trabalho de telemetria* – envia toda a telemetria bruta para o armazenamento de blobs do Azure para armazenamento frio e calcula as agregações de telemetria exibidas no painel de solução.
 - *Trabalho de regras* – filtra o fluxo de telemetria para os valores que excedem os limites de regras e retornam os dados para um Hub de Eventos. Quando uma regra é acionada, a exibição de painel do portal da solução mostra esse evento como uma nova linha na tabela de histórico do alarme e dispara uma ação com base nas configurações definidas nas exibições Regras e Ações no portal da solução.
 
@@ -117,10 +117,7 @@ Nesta solução pré-configurada, o portal de solução faz parte do **back-end 
 
 Para obter mais informações sobre as arquiteturas de solução de IoT, confira [Serviços de IoT do Microsoft Azure: arquitetura de referência][lnk-refarch].
 
-Explore estes recursos para saber mais sobre as soluções pré-configuradas de IoT:
-
-- [Introdução às soluções da IoT pré-configuradas][lnk-preconf-get-started]
-- [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-maintenance]
+Agora você sabe o que é uma solução pré-configurada, poderá começar pela implantação da solução pré-configurada de *monitoramento remoto*: [Introdução às soluções pré-configuradas][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,12 +125,10 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/08/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -138,7 +138,7 @@ Consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services) para
 
 Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
-- **Armazenamento com redundância local (LRS).** O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em uma única instalação, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de uma única instalação.  
+- **Armazenamento com redundância local (LRS).** O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em uma única instalação, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de uma única instalação.
   
 	O LRS é oferecido com desconto. Para durabilidade máxima, recomendamos que você utilize o armazenamento com redundância geográfica, descrito abaixo.
 
@@ -208,7 +208,9 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 
 ### Ferramentas e utilitários
 
-- [SDKs e Ferramentas do Azure](https://azure.microsoft.com/downloads/)
+- [Gerenciador de Armazenamento do Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Ferramentas de Cliente do Armazenamento do Azure](storage-explorers.md)
+- [SDKs e Ferramentas do Azure](https://azure.microsoft.com/tools/)
 - [Emulador de Armazenamento do Azure](http://www.microsoft.com/download/details.aspx?id=43709)
 - [PowerShell do Azure](../powershell-install-configure.md)
 - [Utilitário de linha de comando AzCopy](http://aka.ms/downloadazcopy)
@@ -265,4 +267,4 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de fila do Python](storage-python-how-to-use-queue-storage.md)
 - [Como usar o Armazenamento de Filas no Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

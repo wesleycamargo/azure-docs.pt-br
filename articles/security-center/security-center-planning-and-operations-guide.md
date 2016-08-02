@@ -13,15 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
-
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
-
-Leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md) para obter uma lista das perguntas comuns que também podem ser úteis durante as fases de design e planejamento.
 
 ## Guia de planejamento
 Este guia aborda um conjunto de etapas e tarefas que você pode seguir para otimizar seu uso da Central de Segurança com base no modelo de gerenciamento de nuvem e nos requisitos de segurança de sua organização. Para tirar total proveito da Central de Segurança, é importante entender como as pessoas ou equipes diferentes em sua organização usarão o serviço para atender às necessidades de desenvolvimento e operações seguras, monitoramento, administração resposta a incidentes. As principais áreas a serem consideradas ao planejar o uso da Central de Segurança são:
@@ -33,6 +29,9 @@ Este guia aborda um conjunto de etapas e tarefas que você pode seguir para otim
 - Resposta a incidentes
 
 Na próxima seção, você aprenderá a planejar para cada uma dessas áreas e a aplicar essas recomendações de acordo com suas necessidades.
+
+> [AZURE.NOTE] Leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md) para obter uma lista das perguntas comuns que também podem ser úteis durante as fases de design e planejamento.
+
 
 ## Funções de segurança e controles de acesso
 Dependendo do tamanho e da estrutura de sua organização, vários indivíduos e equipes podem usar a Central de Segurança para executar tarefas variadas relacionadas à segurança. Veja abaixo um exemplo de personas fictícias e suas respectivas funções e responsabilidades de segurança:
@@ -102,7 +101,7 @@ Uma política de segurança define o conjunto de controles que são recomendados
 
 Políticas habilitadas no nível da assinatura serão propagadas automaticamente para todos os grupos de recursos dentro da assinatura, conforme mostra o diagrama a seguir:
 
-![Políticas de Segurança](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2.png)
+![Políticas de Segurança](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
 Conforme mostra a figura acima, as políticas de segurança para grupos de recursos podem ser herdadas do nível da assinatura.
 
@@ -118,13 +117,13 @@ Ao começar a criar políticas personalizadas para grupos de recursos diferentes
 
 Antes de configurar as políticas de segurança, examine cada uma das [recomendações de segurança](security-center-recommendations.md) e determine se são apropriadas às suas várias assinaturas e grupos de recursos. Também é importante entender qual ação será executada para resolver as Recomendações de segurança.
 
-**Proteção do Ponto de Extremidade**: Se uma máquina virtual não tiver uma solução de proteção do ponto de extremidade habilitada, a Central de Segurança recomendará a instalação de uma. Se você tiver uma solução de proteção de ponto de extremidade preferida já adotada localmente, será necessário decidir se você usará o mesmo antimalware para suas VMs do Azure. A Central de Segurança do Azure fornece várias opções de proteção de ponto de extremidade. Você pode usar o Microsoft Antimalware gratuito ou escolher entre uma lista de soluções de proteção de ponto de extremidade de parceiros integrados. Para obter mais informações sobre como implantar o antimalware usando a Central de Segurança do Azure, leia [Instalar Proteção do Ponto de Extremidade na Central de Segurança do Azure](security-center-install-endpoint-protection.md).
+**Proteção do Ponto de Extremidade**: se uma máquina virtual não tiver uma solução de proteção do ponto de extremidade habilitada, a Central de Segurança recomendará a instalação de uma. Se você tiver uma solução de proteção de ponto de extremidade preferida já adotada localmente, será necessário decidir se você usará o mesmo antimalware para suas VMs do Azure. A Central de Segurança do Azure fornece várias opções de proteção de ponto de extremidade. Você pode usar o Microsoft Antimalware gratuito ou escolher entre uma lista de soluções de proteção de ponto de extremidade de parceiros integrados. Para saber mais sobre como implantar o antimalware usando a Central de Segurança do Azure, leia [Instalar Proteção do Ponto de Extremidade na Central de Segurança do Azure](security-center-install-endpoint-protection.md).
 
-**Atualizações do Sistema**: A Central de Segurança do Azure identificará as máquinas virtuais sem segurança ou atualizações críticas do sistema operacional para o IaaS e os Serviços de Nuvem (PaaS). Considere quem será responsável pela aplicação das atualizações quando necessário e como elas serão aplicadas. Muitas organizações usam o WSUS, Windows Update ou outra ferramenta.
+**Atualizações do Sistema**: a Central de Segurança do Azure identificará as máquinas virtuais sem segurança ou atualizações críticas do sistema operacional para o IaaS e os Serviços de Nuvem (PaaS). Considere quem será responsável pela aplicação das atualizações quando necessário e como elas serão aplicadas. Muitas organizações usam o WSUS, Windows Update ou outra ferramenta.
 
-**Configurações da Linha de Base**: Se as configurações do sistema operacional da máquina virtual não coincidirem com as linhas de base recomendadas, uma recomendação será exibida. Você deve examinar o conjunto de linhas de base [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) e considerar como as configurações do sistema operacional serão aplicadas.
+**Configurações da Linha de Base**: se as configurações do sistema operacional da máquina virtual não corresponderem às linhas de base recomendadas, uma recomendação será exibida. Você deve examinar o conjunto de linhas de base [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) e considerar como as configurações do sistema operacional serão aplicadas.
 
-**Criptografia de Disco**: Se você tiver discos da máquina virtual que não estão criptografados, a Central de Segurança do Azure recomendará a aplicação do Azure Disk Encryption, que aproveita o BitLocker para Windows e o DM-Crypt para Linux para fornecer a criptografia de volume para o SO e os discos de dados. Essa recomendação redirecionará você para um [guia passo a passo](security-center-disk-encryption.md) contendo instruções sobre como executar essa criptografia.
+**Criptografia de Disco**: se você tiver discos da máquina virtual que não estão criptografados, a Central de Segurança do Azure recomendará a aplicação do Azure Disk Encryption, que aproveita o BitLocker para Windows e o DM-Crypt para Linux para fornecer a criptografia de volume para o SO e os discos de dados. Essa recomendação redirecionará você para um [guia passo a passo](security-center-disk-encryption.md) contendo instruções sobre como executar essa criptografia.
 
 Lembre-se de que há diversos cenários de criptografia que você precisa solucionar. Será necessário planejar os requisitos exclusivos para cada um desses cenários:
 
@@ -132,15 +131,15 @@ Lembre-se de que há diversos cenários de criptografia que você precisa soluci
 - Criptografia de novas máquinas virtuais do Azure que foram criadas da Galeria do Azure
 - Criptografia de máquinas de virtuais do Azure que já estão em execução no Azure
 
-O planejamento dos requisitos será diferente para cada um desses cenários. Consulte o [documento do Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) para obter detalhes sobre cada um desses cenários.
+O planejamento dos requisitos será diferente para cada um desses cenários. Veja o [documento do Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) para obter detalhes sobre cada um desses cenários.
 
-**Firewall do Aplicativo Web**: A Central de Segurança do Azure identificará as máquinas virtuais que executam aplicativos Web e recomendará a instalação de um WAF (Firewall do Aplicativo Web). Avalie as soluções de parceiros disponíveis para determinar qual é a melhor opção para sua organização e determinar como a solução será licenciada (os parceiros podem oferecer suporte a modelos Traga sua própria licença e/ou pré-pago). Para obter mais informações sobre como implantar um firewall do aplicativo Web em suas VMs do Azure usando a Central de Segurança do Azure, leia [Adicionar um firewall do aplicativo Web na Central de Segurança do Azure](security-center-add-web-application-firewall.md).
+**Firewall do Aplicativo Web**: a Central de Segurança do Azure identificará as máquinas virtuais que executam aplicativos Web e recomendará a instalação de um WAF (Firewall do Aplicativo Web). Avalie as soluções de parceiros disponíveis para determinar qual é a melhor opção para sua organização e determinar como a solução será licenciada (os parceiros podem oferecer suporte a modelos Traga sua própria licença e/ou pré-pago). Para saber mais sobre como implantar um firewall do aplicativo Web em suas VMs do Azure usando a Central de Segurança do Azure, leia [Adicionar um firewall do aplicativo Web na Central de Segurança do Azure](security-center-add-web-application-firewall.md).
 
-**Firewall da Próxima Geração**: permite o provisionamento de um dispositivo virtual dos principais fornecedores, incluindo o Check Point e logo depois Cisco e Fortinet. Isso estende as proteções da rede para além dos Grupos de Segurança da Rede, que são internos no Azure. A Central de Segurança descobrirá as implantações para as quais o Firewall da Próxima Geração é recomendado e irá habilitá-lo para fornecer um dispositivo virtual.
+O **Firewall de Próxima Geração**: permite o provisionamento de um dispositivo virtual dos principais fornecedores, incluindo o Check Point e logo depois Cisco e Fortinet. Isso estende as proteções da rede para além dos Grupos de Segurança da Rede, que são internos no Azure. A Central de Segurança descobrirá as implantações para as quais o Firewall da Próxima Geração é recomendado e irá habilitá-lo para fornecer um dispositivo virtual.
 
 **Rede Virtual**: a Central de Segurança do Azure avaliará a infraestrutura e a configuração de sua [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) para verificar se o [Grupo de Segurança da Rede](../virtual-network/virtual-networks-nsg.md) foi aplicado e configurado corretamente com as regras do tráfego de entrada. Você deve considerar quais regras de tráfego devem ser definidas e comunicar isso às pessoas que aplicarão as recomendações relacionadas à segurança.
 
-A Central de Segurança recomendará que você forneça os detalhes de contato da segurança para sua assinatura do Azure. Essas informações serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente têm sido acessados por uma pessoa não autorizada ou ilegal. Leia [Fornecer detalhes de contato da segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para obter mais informações sobre como habilitar essa recomendação.
+A Central de Segurança recomendará que você forneça os detalhes de contato da segurança para sua assinatura do Azure. Essas informações serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente têm sido acessados por uma pessoa não autorizada ou ilegal. Leia [Fornecer detalhes de contato da segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para saber mais sobre como habilitar essa recomendação.
 
 ## Coleta de dados e armazenamento
 
@@ -162,7 +161,7 @@ Se você estiver usando uma conta de armazenamento compartilhada entre diferente
 
 > [AZURE.NOTE] Os custos associados a esse armazenamento não estão incluídos no preço do serviço da Central de Segurança do Azure e serão cobrados separadamente de acordo com as [taxas de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-As considerações de desempenho e escalabilidade também devem ser planejadas de acordo com o tamanho do ambiente do Azure e com os recursos que estão consumindo a sua conta de armazenamento. Examine a [Lista de Verificação de Escalabilidade e Desempenho do Armazenamento do Microsoft Azure](../storage/storage-performance-checklist.md) para obter mais informações.
+As considerações de desempenho e escalabilidade também devem ser planejadas de acordo com o tamanho do ambiente do Azure e com os recursos que estão consumindo a sua conta de armazenamento. Examine a [Lista de Verificação de Escalabilidade e Desempenho do Armazenamento do Microsoft Azure](../storage/storage-performance-checklist.md) para saber mais.
 
 ## Monitoramento contínuo de segurança
 
@@ -191,7 +190,7 @@ A maioria dos ambientes do Azure são dinâmicos, com novos recursos gerados e e
 
 Quando você adiciona novos recursos (VMs, Bancos de Dados SQL) ao seu Ambiente do Azure, a Central de Segurança descobre automaticamente esses recursos e começa a monitorar a segurança. Isso também inclui as funções Web do PaaS e as funções de trabalho. Se a Coleta de Dados estiver habilitada na [Política de Segurança](security-center-policies.md), os recursos de monitoramento adicionais serão habilitados automaticamente para as máquinas virtuais.
 
-![Principais áreas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3.png)
+![Principais áreas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	Para máquinas virtuais, acesse o bloco **Integridade de segurança dos recursos** e clique em **Máquinas Virtuais**. Quaisquer problemas com a habilitação da coleta de dados ou recomendações relacionadas ocorrerão na seção **Recomendações de Monitoramento**.
 2.	Veja as **Recomendações** e saiba quais riscos de segurança, se houver algum, foram identificados para o novo recurso.
@@ -208,7 +207,7 @@ Convém também monitorar regularmente o estado dos recursos existentes para ide
 
 ## Resposta a incidentes
 
-A Central de Segurança detecta e alerta você sobre as ameaças à medida que elas ocorrem. As organizações devem monitorar novos alertas de segurança e tomar as medidas necessárias para investigar com mais profundidade ou corrigir o ataque. Para obter mais informações sobre como funciona a detecção de ameaças da Central de Segurança, leia [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
+A Central de Segurança detecta e alerta você sobre as ameaças à medida que elas ocorrem. As organizações devem monitorar novos alertas de segurança e tomar as medidas necessárias para investigar com mais profundidade ou corrigir o ataque. Para saber mais sobre como funciona a detecção de ameaças da Central de Segurança, leia [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
 
 Embora este artigo não tenha a intenção de ajudá-lo a criar seu próprio plano de Resposta a Incidentes, usaremos a Resposta de Segurança do Microsoft Azure no ciclo de vida da Nuvem como a base para os estágios de resposta a incidentes. Os estágios são mostrados no diagrama a seguir:
 
@@ -219,25 +218,25 @@ Embora este artigo não tenha a intenção de ajudá-lo a criar seu próprio pla
 Você pode usar os Alertas da Central de Segurança durante os estágios a seguir:
 
 - **Detectar**: identifica uma atividade suspeita em um ou mais recursos.
-- **Avaliar**: realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
+- **Avaliar**: realiza a avaliação inicial para saber mais sobre a atividade suspeita.
 - **Diagnosticar**: usa as etapas de correção para realizar o procedimento técnico para resolver o problema.
 
 Cada Alerta de segurança fornece informações que podem ser usadas para entender melhor a natureza do ataque e sugerir possíveis atenuações. Alguns alertas também fornecem links para mais informações ou para outras fontes de informações no Azure. Você pode usar as informações fornecidas como base para mais pesquisas e para começar a atenuação.
 
 O exemplo a seguir mostra uma atividade de RDP suspeita ocorrendo:
 
-![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5.png)
+![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Como você pode ver, essa folha mostra detalhes sobre o horário do ataque, o nome do host de origem, a VM de destino e também fornece etapas de recomendação. Em algumas circunstâncias, as informações de origem do ataque podem estar vazias. Leia [Faltam Informações de Origem nos Alertas da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) para obter mais informações sobre esse tipo de comportamento.
+Como você pode ver, essa folha mostra detalhes sobre o horário do ataque, o nome do host de origem, a VM de destino e também fornece etapas de recomendação. Em algumas circunstâncias, as informações de origem do ataque podem estar vazias. Leia [Faltam Informações de Origem nos Alertas da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) para saber mais sobre esse tipo de comportamento.
 
 
 ## Consulte também
 Neste documento, você aprendeu a planejar a adoção da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 - [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
-- [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorar a integridade dos recursos do Azure.
-- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/20/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="07/23/2016"
+   ms.author="barbkess;lodipalm;sonyama"/>
 
 # Criar um Azure SQL Data Warehouse
 
@@ -27,8 +27,16 @@
 Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse que contém um exemplo de banco de dados AdventureWorksDW.
 
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+## Pré-requisitos
 
+Para começar, você precisará do seguinte:
+
+- **Conta do Azure**: visite [Avaliação Gratuita do Azure][] ou [Créditos do Azure no MSDN][] para criar uma conta.
+- **servidor SQL do Azure**: veja [Criar um servidor lógico do Banco de Dados SQL com o Portal do Azure][] para obter mais detalhes.
+
+> [AZURE.NOTE] A criação de um novo SQL Data Warehouse pode resultar em um novo serviço faturável. Confira [Preços do SQL Data Warehouse][] para obter mais detalhes sobre preços.
+
+## Criar um SQL Data Warehouse
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -36,7 +44,7 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
     ![Criar](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
-3. Na folha **SQL Data Warehouse**, preencha as informações necessárias e, em seguida, pressione “Criar” para criar.
+3. Na folha **SQL Data Warehouse**, preencha as informações necessárias e, em seguida, pressione ‘Criar’ para criar.
 
     ![Criar banco de dados](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
@@ -44,11 +52,11 @@ Neste tutorial, você usará o Portal do Azure para criar um SQL Data Warehouse 
 
 	- **Nome do banco de dados**: o nome que será usado para referenciar o SQL Data Warehouse. Esse nome tem que ser exclusivo do servidor.
 	
-    - **Desempenho**: é recomendável começar com 400 DWUs. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, consulte nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços](https://azure.microsoft.com/pt-BR/pricing/details/sql-data-warehouse/).
+    - **Desempenho**: é recomendável começar com 400 [DWUs][DWU]. Você pode mover o controle deslizante para a esquerda ou direita para ajustar o desempenho de seu data warehouse, ou ampliar ou reduzir após a criação. Para saber mais sobre DWUs, veja nossa documentação sobre [dimensionamento](./sql-data-warehouse-manage-compute-overview.md) ou nossa [página de preços][SQL Data Warehouse pricing].
 
-    - **Assinatura**: selecione a assinatura na qual esse SQL Data Warehouse será cobrado.
+    - **Assinatura**: selecione a [assinatura] na qual esse SQL Data Warehouse será cobrado.
 
-    - **Grupo de recurso**: grupos de recurso são contêineres projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Saiba mais sobre [grupos de recursos](../resource-group-overview.md).
+    - **Grupo de recursos**: os [grupos de recursos][Resource group] são contêineres projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Saiba mais sobre [grupos de recursos](../resource-group-overview.md).
 
     - **Selecionar fonte**: clique em **Selecionar fonte** > **Exemplo**. Como há apenas um banco de dados de exemplo disponível no momento, quando você seleciona Exemplo, o Azure preenche automaticamente a opção **Selecionar exemplo** com AdventureWorksDW.
 
@@ -68,4 +76,27 @@ Para carregar dados no SQL Data Warehouse, veja a [visão geral de carregamento]
 
 Se você estiver tentando migrar um banco de dados existente para o SQL Data Warehouse, confira a [Visão geral de migração](./sql-data-warehouse-overview-migrate.md) ou use o [Utilitário de migração](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+As regras de firewall também podem ser configuradas usando o Transact-SQL. Para saber mais, veja [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
+
+Também é uma ótima ideia dar uma olhada em nossas [práticas recomendadas][].
+
+<!--Article references-->
+[Criar um servidor lógico do Banco de Dados SQL com o Portal do Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../resource-group-template-deploy-portal.md
+[práticas recomendadas]: ./sql-data-warehouse-best-practices.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[assinatura]: ../azure-glossary-cloud-terminology.md#subscription
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
+
+<!--MSDN references-->
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+
+<!--Other Web references-->
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Preços do SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+
+<!---HONumber=AcomDC_0727_2016-->

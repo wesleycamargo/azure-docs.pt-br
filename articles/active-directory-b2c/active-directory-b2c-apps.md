@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Visualização do AD B2C do Azure | Microsoft Azure"
-	description="Os tipos de aplicativos que você pode compilar na visualização Active Directory B2C do Azure."
+	pageTitle="Azure AD B2C | Microsoft Azure"
+	description="Os tipos de aplicativos que você pode compilar no Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Visualização do Active Directory B2C do Azure: tipos de aplicativos
+# Azure Active Directory B2C: tipos de aplicativos
 
 O Active Directory B2C do Azure (AD do Azure) oferece suporte à autenticação para várias arquiteturas de aplicativos modernos. Todas elas se baseiam nos protocolos padrão da indústria, [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Este documento descreve brevemente os tipos de aplicativos que você pode compilar, independentemente da linguagem ou plataforma preferida. Ele também ajuda você a entender os cenários de alto nível antes de [começar a compilar aplicativos](active-directory-b2c-overview.md#getting-started).
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 ## Noções básicas
-Todos os aplicativos que usam o AD B2C do Azure devem ser registrados em seu [diretório B2C](active-directory-b2c-get-started.md) por meio do [Portal do Azure](https://portal.azure.com/). O processo de registro do aplicativo coleta e atribui alguns valores ao seu aplicativo:
+Todos os aplicativos que usam o Azure AD B2C devem ser registrados em seu [diretório B2C](active-directory-b2c-get-started.md) por meio do [Portal do Azure](https://portal.azure.com/). O processo de registro do aplicativo coleta e atribui alguns valores ao seu aplicativo:
 
 - Uma **ID de aplicativo** que identifica exclusivamente o aplicativo.
 - Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo.
@@ -36,7 +34,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-Cada solicitação enviada para o AD B2C do Azure especifica uma **política**. Uma política controla o comportamento do AD do Azure. Você também pode usar esses pontos de extremidade para criar um conjunto altamente personalizável de experiências do usuário. Algumas políticas comuns incluem inscrição, entrada e edição de perfil. Se você não estiver familiarizado com as políticas, leia sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do AD B2C do Azure antes de continuar.
+Cada solicitação enviada para o AD B2C do Azure especifica uma **política**. Uma política controla o comportamento do AD do Azure. Você também pode usar esses pontos de extremidade para criar um conjunto altamente personalizável de experiências do usuário. Algumas políticas comuns incluem inscrição, entrada e edição de perfil. Se você não estiver familiarizado com as políticas, leia sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do Azure AD B2C antes de continuar.
 
 A interação de cada aplicativo com o ponto de extremidade v2.0 segue um padrão semelhante de alto nível:
 
@@ -51,7 +49,7 @@ A interação de cada aplicativo com o ponto de extremidade v2.0 segue um padrã
 Essas etapas podem variar um pouco com base no tipo de aplicativo que você está compilando. Bibliotecas de software livre aberto podem resolver os detalhes para você.
 
 ## Aplicativos Web
-Para os aplicativos Web (incluindo .NET, PHP, Java, Ruby, Python e Node.js) hospedados em um servidor e acessados por meio de um navegador, o AD B2C do Azure dá suporte ao [OpenID Connect](active-directory-b2c-reference-protocols.md) para todas as experiências de usuário. Isso inclui gerenciamento de entrada, de inscrição e de perfil. Na implementação do OpenID Connect do AD B2C do Azure, seu aplicativo Web inicia essas experiências de usuário emitindo solicitações de autenticação para AD do Azure. O resultado da solicitação é um `id_token`. Esse token de segurança representa a identidade do usuário. Ele também fornece informações sobre o usuário na forma de declarações:
+Para os aplicativos Web (incluindo .NET, PHP, Java, Ruby, Python e Node.js) hospedados em um servidor e acessados por meio de um navegador, o Azure AD B2C dá suporte ao [OpenID Connect](active-directory-b2c-reference-protocols.md) para todas as experiências de usuário. Isso inclui gerenciamento de entrada, de inscrição e de perfil. Na implementação do OpenID Connect do AD B2C do Azure, seu aplicativo Web inicia essas experiências de usuário emitindo solicitações de autenticação para AD do Azure. O resultado da solicitação é um `id_token`. Esse token de segurança representa a identidade do usuário. Ele também fornece informações sobre o usuário na forma de declarações:
 
 ```
 // Partial raw id_token
@@ -72,7 +70,7 @@ Em aplicativos Web, cada execução de uma [política](active-directory-b2c-refe
 
 ![Imagem de raias do aplicativo Web](./media/active-directory-b2c-apps/webapp.png)
 
-Validação do `id_token` usando uma chave de assinatura pública recebida do AD do Azure é suficiente para verificar a identidade do usuário. Isso também define um cookie de sessão que pode ser usado para identificar o usuário nas solicitações de página subsequentes.
+Validação do `id_token` usando uma chave de assinatura pública recebida do Azure AD é suficiente para verificar a identidade do usuário. Isso também define um cookie de sessão que pode ser usado para identificar o usuário nas solicitações de página subsequentes.
 
 Para ver esse cenário em ação, experimente um destes exemplos de código de entrada de aplicativo Web em nossa seção [Introdução](active-directory-b2c-overview.md#getting-started).
 
@@ -81,7 +79,7 @@ Além de facilitar a entrada simples, um aplicativo de servidor Web talvez preci
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
 ## APIs da Web
-Você pode usar o AD B2C do Azure para proteger serviços Web, tais como a API Web RESTful do aplicativo. As APIs Web podem usar OAuth 2.0 para proteger seus dados. Elas também podem autenticar solicitações HTTP recebidas usando tokens. O chamador de uma API Web acrescenta um token no cabeçalho de autorização de uma solicitação HTTP:
+Você pode usar o AD B2C do Azure para proteger serviços Web, tais como a API Web RESTful do aplicativo. APIs Web podem usar o OAuth 2.0 para proteger seus dados, autenticando solicitações HTTP recebidas usando tokens. O chamador de uma API Web acrescenta um token no cabeçalho de autorização de uma solicitação HTTP:
 
 ```
 GET /api/items HTTP/1.1
@@ -91,10 +89,10 @@ Accept: application/json
 ...
 ```
 
-A API Web pode usar o token para verificar a identidade do chamador da API e extrair informações sobre o chamador por meio de declarações codificadas no token. Saiba mais sobre os tipos de tokens e declarações disponíveis para um aplicativo na [referência de token do AD B2C do Azure](active-directory-b2c-reference-tokens.md).
+A API Web pode usar o token para verificar a identidade do chamador da API e extrair informações sobre o chamador por meio de declarações codificadas no token. Saiba mais sobre os tipos de tokens e declarações disponíveis para um aplicativo na [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
 > [AZURE.NOTE]
-	Atualmente, a visualização do AD B2C do Azure dá suporte apenas a APIs Web acessadas por seus próprios clientes conhecidos. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. Atualmente, não há suporte para permitir que um cliente parceiro, como outro aplicativo iOS, acesse também a mesma API Web. Todos os componentes do aplicativo completo devem compartilhar uma única ID do aplicativo.
+	Atualmente, o Azure AD B2C dá suporte apenas a APIs Web acessadas por seus próprios clientes conhecidos. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. Atualmente, não há suporte para permitir que um cliente parceiro, como outro aplicativo iOS, acesse também a mesma API Web. Todos os componentes do aplicativo completo devem compartilhar uma única ID do aplicativo.
 
 Uma API Web pode receber tokens de muitos tipos de clientes, incluindo aplicativos Web, aplicativos móveis e de área de trabalho, aplicativos de página única, daemons do lado do servidor e até outras APIs Web. Veja um exemplo do fluxo completo de um aplicativo Web que chama uma API Web:
 
@@ -102,32 +100,32 @@ Uma API Web pode receber tokens de muitos tipos de clientes, incluindo aplicativ
 
 Para saber mais sobre códigos de atualização, tokens de atualização e etapas para a obtenção de tokens, leia sobre o [Protocolo OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
-Para saber como proteger uma API Web com o AD B2C do Azure, confira os tutoriais da API Web em nossa [seção Introdução](active-directory-b2c-overview.md#getting-started).
+Para saber como proteger uma API Web com o Azure AD B2C, confira os tutoriais da API Web em nossa [seção Introdução](active-directory-b2c-overview.md#getting-started).
 
 ## Aplicativos móveis e nativos
-Os aplicativos instalados em dispositivos, como aplicativos móveis e de área de trabalho, geralmente precisam acessar serviços de back-end ou APIs Web em nome de usuários. Você pode adicionar experiências de gerenciamento de identidade personalizadas a seus aplicativos nativos e chamar com segurança serviços de back-end usando o AD B2C do Azure e o [fluxo de código de autorização do OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
+Os aplicativos instalados em dispositivos, como aplicativos móveis e de área de trabalho, geralmente precisam acessar serviços de back-end ou APIs Web em nome de usuários. Você pode adicionar experiências de gerenciamento de identidade personalizadas a seus aplicativos nativos e chamar com segurança serviços de back-end usando o Azure AD B2C e o [fluxo de código de autorização do OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
-Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do AD do Azure depois que o usuário conclui a política. O `authorization_code` representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado no momento. O aplicativo pode trocar o `authorization_code` em segundo plano para um `id_token` e um `refresh_token`. O aplicativo pode usar o `id_token` para autenticar em uma API Web de back-end em solicitações HTTP. Ele também pode usar o `refresh_token` para obter um novo `id_token` quando antigo expira.
+Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do Azure AD B2C depois que o usuário conclui a política. O `authorization_code` representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado no momento. O aplicativo pode trocar o `authorization_code` em segundo plano para um `id_token` e um `refresh_token`. O aplicativo pode usar o `id_token` para autenticar em uma API Web de back-end em solicitações HTTP. Ele também pode usar o `refresh_token` para obter um novo `id_token` quando antigo expira.
 
 > [AZURE.NOTE]
-	A visualização do AD B2C do Azure dá suporte no momento apenas à obtenção de tokens de identificação usados para acessar um serviço Web de back-end do próprio aplicativo. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. Não há suporte atualmente para permitir que o aplicativo iOS acesse uma API Web de parceiro usando tokens de acesso do OAuth 2.0. Todos os componentes do aplicativo completo devem compartilhar uma única ID do aplicativo.
+	Atualmente, o Azure AD B2C só dá suporte a tokens que são usados para acessar um serviço Web de back-end do próprio aplicativo. Por exemplo, seu aplicativo completo pode incluir um aplicativo iOS e aplicativo do Android e um API Web de back-end. Essa arquitetura tem total suporte. Não há suporte atualmente para permitir que o aplicativo iOS acesse uma API Web de parceiro usando tokens de acesso do OAuth 2.0. Todos os componentes do aplicativo completo devem compartilhar uma única ID do aplicativo.
 
 ![Imagem de raias do aplicativo Nativo](./media/active-directory-b2c-apps/native.png)
 
-## Limitações atuais da visualização
-Os tipos de aplicativos a seguir não são compatíveis no momento com a visualização do AD B2C do Azure, mas estão no roteiro para receberem suporte em tempo para disponibilidade geral. As restrições e as limitações adicionais relacionadas à visualização do AD B2C do Azure são descritas em [Limitações e restrições](active-directory-b2c-limitations.md).
+## Limitações atuais
+O Azure AD B2C não dá suporte atualmente aos tipos de aplicativos a seguir, mas eles estão nos planos. As restrições e as limitações adicionais relacionadas ao Azure AD B2C são descritas em [Limitações e restrições](active-directory-b2c-limitations.md).
 
 ### Aplicativos de página única (JavaScript)
-Muitos aplicativos modernos têm um aplicativo de página única front-end escrito principalmente em JavaScript. Eles geralmente usam uma estrutura como AngularJS, Ember.js ou Durandal. O serviço AD do Azure disponível de modo geral oferece suporte a estes aplicativos usando o fluxo implícito do OAuth 2.0. No entanto, esse fluxo ainda não está disponível no AD B2C do Azure. Ele deverá ser disponibilizado em breve.
+Muitos aplicativos modernos têm um aplicativo de página única front-end escrito principalmente em JavaScript. Eles geralmente usam uma estrutura como AngularJS, Ember.js ou Durandal. O serviço AD do Azure disponível de modo geral oferece suporte a estes aplicativos usando o fluxo implícito do OAuth 2.0. No entanto, esse fluxo ainda não está disponível no AD B2C do Azure.
 
 ### Aplicativos daemons/do lado do servidor
 Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) e usando o fluxo de credenciais do cliente OAuth 2.0.
 
-Atualmente, esse fluxo não tem o suporte do AD B2C do Azure. Esses aplicativos podem obter tokens somente após a ocorrência de um fluxo de usuário interativo. O fluxo de credenciais do cliente deve ser adicionado em breve.
+Atualmente, esse fluxo não tem o suporte do AD B2C do Azure. Esses aplicativos podem obter tokens somente após a ocorrência de um fluxo de usuário interativo.
 
 ### Cadeias de API Web (fluxo Em nome de)
 Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end de API Web. Isso chama um serviço online da Microsoft como a API do Graph do AD do Azure.
 
-Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
+Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de. No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

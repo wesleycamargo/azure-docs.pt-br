@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/26/2016"
 	ms.author="gusapost"/>
 
 # Introdução ao armazenamento de Fila do Azure usando o .NET
 
-[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Visão geral
 
@@ -35,7 +35,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 - [Microsoft Visual Studio](https://www.visualstudio.com/pt-BR/visual-studio-homepage-vs.aspx)
 - [Biblioteca do Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gerenciador de configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Uma [conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
+- Uma [conta do Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -48,7 +48,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 ### Adicionar declarações do namespace
 
-Adicione as seguintes instruções `using` na parte superior do arquivo `program.cs`:
+Adicione as seguintes instruções `using` à parte superior do arquivo `program.cs`:
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -275,4 +275,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

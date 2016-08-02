@@ -18,7 +18,7 @@
 
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
 
-O Serviço de Aplicativo do Azure é uma oferta de plataforma como serviço (PaaS) totalmente gerenciada para desenvolvedores profissionais que traz um conjunto rico de recursos para cenários Web, móvel e de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis.
+O Serviço de Aplicativo do Azure é uma oferta de [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) totalmente gerenciada para desenvolvedores profissionais que traz um conjunto rico de recursos para cenários Web, móvel e de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis.
 
 ![Aplicativos Móveis](./media/app-service-mobile-value-prop/overview.png)
 
@@ -74,7 +74,7 @@ Os seguintes recursos de plataforma são geralmente úteis para sites de produç
 ## Introdução ##
 Para começar com aplicativos móveis, siga o tutorial [Introdução]. Isso abordará os conceitos básicos da produção de um back-end móvel e de um cliente à sua escolha, depois a integração de autenticação, da sincronização offline e de notificações por push. Você pode seguir o tutorial [Introdução] várias vezes - uma vez para cada aplicativo cliente.
 
-Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de aprendizagem]. Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
+Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de aprendizagem]. Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, confira [Serviço de Aplicativo do Azure].
 
 >[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
@@ -100,6 +100,6 @@ Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de apr
 [redes virtuais]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Rota Expressa]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
-[mapa de aprendizagem]: https://azure.microsoft.com/pt-BR/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizagem]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->
