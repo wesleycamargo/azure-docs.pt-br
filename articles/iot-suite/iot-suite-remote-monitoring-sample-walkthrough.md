@@ -85,7 +85,7 @@ O [hub IoT][lnk-iothub] consome dados enviados dos dispositivos para a nuvem e o
 
 ## Stream Analytics do Azure
 
-Na solução de monitoramento remota, o [Azure Stream Analytics][lnk-asa] (ASA) envia mensagens recebidas pelo hub IoT dos dispositivos para outros componentes de back-end para processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
+Na solução de monitoramento remota, o [Azure Stream Analytics][lnk-asa] \(ASA) envia mensagens recebidas pelo hub IoT dos dispositivos para outros componentes de back-end para processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
 
 **Trabalho 1: as Informações do Dispositivo** filtram as mensagens de informações de dispositivo do fluxo de mensagens de entrada e as enviam para um ponto de extremidade do Hub de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo**. Essa tarefa usa a seguinte definição de consulta para identificar mensagens **device-info**:
 

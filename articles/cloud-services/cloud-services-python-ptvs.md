@@ -24,7 +24,7 @@ Este artigo oferece uma visão geral do uso das funções Web e de trabalho do P
 ## Pré-requisitos
 
  - Visual Studio 2013 ou 2015
- - [Python Tools for Visual Studio][] (PTVS)
+ - [Python Tools for Visual Studio][] \(PTVS)
  - [Azure Ferramentas SDK para VS 2013][] ou [Azure Ferramentas SDK para VS 2015][]
  - [Python 2.7 de 32 bits][] ou [Python 3.5 de 32 bits][]
 

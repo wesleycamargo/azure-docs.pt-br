@@ -90,9 +90,9 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
 1. Navegue até o local onde salvou os arquivos de projeto compactados, expanda os arquivos em seu computador e inicie um dos arquivos de comando a seguir da subpasta **server**.
 
-	+ ** launch-windows** (computadores com Windows)
-	+ ** launch-mac.command** (computadores com Mac OS X)
-	+ ** launch-linux.sh** (computadores com Linux)
+	+ **launch-windows** (computadores com Windows)
+	+ **launch-mac.command** (computadores com Mac OS X)
+	+ **launch-linux.sh** (computadores com Linux)
 
 	> [AZURE.NOTE] Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 
