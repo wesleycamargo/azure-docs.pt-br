@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="03/06/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Introdução aos Serviços Móveis
@@ -92,4 +92,4 @@ Agora que você concluiu o início rápido, saiba como trabalhar com o [cliente 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

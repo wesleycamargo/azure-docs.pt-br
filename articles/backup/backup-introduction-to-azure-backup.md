@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/21/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # O que é o Backup do Azure?
@@ -45,9 +45,9 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Componente | Pode ser implantado no Azure? | Pode ser implantado localmente? | Armazenamento de destino com suporte|
 | --- | --- | --- | --- |
 | Agente de Backup do Azure | <p>**Sim**</p> <p>O agente de Backup do Azure pode ser implantado em qualquer VM com Windows Server em execução no Azure.</p> | <p>**Sim**</p> <p>O agente de Backup pode ser implantado em qualquer VM com Windows Server ou máquina física.</p> | <p>Cofre de Backup do Azure</p> |
-| System Center Data Protection Manager (DPM) | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho e as VMs em seu datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Disco conectado localmente,</p> <p>cofre de Backup do Azure,</p> <p>fita (apenas local)</p> |
-| Servidor de Backup do Azure | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>Disco conectado localmente,</p> <p>cofre de Backup do Azure</p> |
-| Backup do Azure (extensão VM) | <p>**Sim**</p><p>Faz parte da malha do Azure</p><p>Especializado em [backup máquinas virtuais IaaS (infraestrutura do Azure como serviço)](backup-azure-vms-introduction.md).</p> | <p>**Não**</p> <p>Use o System Center DPM para fazer backup de máquinas virtuais em seu datacenter.</p> | <p>Cofre de backup do Azure</p> |
+| System Center Data Protection Manager (DPM) | <p>**Sim**</p><p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho e as VMs em seu datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Disco conectado localmente,</p> <p>cofre de Backup do Azure,</p> <p>fita (apenas local)</p> |
+| Servidor de Backup do Azure | <p>**Sim**</p><p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>**Sim**</p> <p>Saiba mais sobre [como proteger as cargas de trabalho no Azure usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>Disco conectado localmente,</p> <p>cofre de Backup do Azure</p> |
+| Backup do Azure (extensão VM) | <p>**Sim**</p><p>Faz parte da malha do Azure</p><p>Especializado em [backup máquinas virtuais IaaS (infraestrutura do Azure como serviço)](backup-azure-vms-introduction.md).</p> | <p>**Não**</p> <p>Use o System Center DPM para fazer backup de máquinas virtuais em seu datacenter.</p> | <p>Cofre de Backup do Azure</p> |
 
 ### Limitações e benefícios no nível de componente
 
@@ -55,7 +55,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | --- | --- | --- | --- |
 | Agente de Backup do Azure (MARS) | <li>Pode fazer backup de arquivos e de pastas em um computador com o sistema operacional Windows, seja físico ou virtual (as VMs podem estar em qualquer lugar no local ou no Azure)<li>Nenhum servidor de backup separado necessário<li>Usa o Cofre de Backup do Azure | <li>Backup/restauração no nível de arquivo três <li>Restauração somente no nível de arquivo/pasta/volume, sem reconhecimento de aplicativo<li>Não há suporte para Linux | arquivos/pastas/volumes |
 | System Center Data Protection Manager | <li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Flexibilidade total para quando forem feitos backups<li>Granularidade de recuperação (todos)<li>Pode usar o Cofre de Backup Azure<li>Suporte para Linux (se hospedada no Hyper-V) | <li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle). | arquivos/pastas/volumes<br>/VMs/aplicativos |
-| Servidor de Backup do Microsoft Azure | <li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Flexibilidade total para quando forem feitos backups<li>Granularidade de recuperação (todos)<li>Pode usar o Cofre de Backup Azure<li>Suporte a Linux (se hospedado no Hyper-V)<li>Não exige uma licença do System Center | <li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle).<li>Sempre requer assinatura dinâmica do Azure<li>Não há suporte para backup em fita | arquivos/pastas/volumes<br>/VMs/aplicativos |
+| Servidor de Backup do Microsoft Azure | <li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Flexibilidade total para quando forem feitos backups<li>Granularidade de recuperação (todos)<li>Pode usar o Cofre de Backup Azure<li>Suporte para Linux (se hospedado no Hyper-V)<li>Não exige uma licença do System Center | <li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle).<li>Sempre requer assinatura dinâmica do Azure<li>Não há suporte para backup em fita | arquivos/pastas/volumes<br>/VMs/aplicativos |
 | Backup de VM IaaS do Azure | <li>Backups nativos para Windows/Linux<li>Nenhuma instalação de agente específico necessária<li>Backup em nível de malha com nenhuma infraestrutura de backup necessária | <li>Backup/restauração no nível do disco uma vez por dia<li>Não pode fazer backup no local | VMs<br>Todos os discos (usando o PowerShell) |
 
 ## Quais aplicativos e cargas de trabalho podem passar por backup?
@@ -69,8 +69,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
-| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
-| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Suporte para ARM e para Linux
 
@@ -79,7 +78,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Agente de Backup do Azure (MARS) | Sim | Não (somente agente baseado no Windows) |
 | System Center Data Protection Manager | Sim (agente em convidado) | Somente Hyper-V (VM que não seja do Azure) Somente o backup consistente com arquivo é possível |
 | Servidor de Backup do Azure (MABS) | Sim (agente em convidado) | Somente Hyper-V (VM que não seja do Azure) Somente o backup consistente com arquivo é possível (igual ao DPM) |
-| Backup de VM IaaS do Azure | Em visualização pública | Em visualização pública - VMs do Linux no modelo de implantação do Gerenciador de Recursos <br>(consistência no nível do sistema de arquivos)<br><br>Sim para VMs do Linux no modelo de implantação clássico |
+| Backup de VM IaaS do Azure | Sim | Sim |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -98,7 +97,7 @@ Quando o trabalho de backup for concluído, o local de preparo será excluído. 
 
 ### Restaurar VMs de Armazenamento Premium
 
-A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
+A VM de Armazenamento Premium pode ser restaurada para o Armazenamento Premium ou o armazenamento normal. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
 
 ## Funcionalidade
 Estas cinco tabelas resumem como a funcionalidade de backup é tratada em cada componente:
@@ -228,4 +227,4 @@ Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o c
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

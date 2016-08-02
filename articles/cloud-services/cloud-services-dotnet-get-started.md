@@ -229,7 +229,7 @@ Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorial
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Deixe o arquivo aberto para edição.
 
 2. No [portal clássico do Azure](http://manage.windowsazure.com), clique em **Bancos de Dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial, clique na guia **Painel** e, em seguida, clique em **Mostrar cadeias de conexão**.
@@ -314,10 +314,10 @@ E o arquivo *ServiceConfiguration.Cloud.cscfg* inclui os valores inseridos para 
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Se você estiver usando o Visual Studio 2015, substitua "v11.0" por "MSSQLLocalDB".
 
 2. Salve suas alterações.
@@ -482,7 +482,7 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 3. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e substitua-o pelos arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
-	- *Global.asax.cs*  
+	- *Global.asax.cs*
 	- Na pasta *Views\\Shared*: *\_Layout.cshtml*.
 	- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Controllers*: *AdController.cs*.
@@ -599,7 +599,7 @@ imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
+O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -868,5 +868,6 @@ Para saber mais, consulte os recursos a seguir:
 * [Serviços de nuvem do Azure Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
+* [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->
