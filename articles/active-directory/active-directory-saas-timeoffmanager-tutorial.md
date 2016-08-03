@@ -81,7 +81,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Resposta do TimeOffManager**, digite a URL de AssertionConsumerService do TimeOffManager (por exemplo: "**Exemplo: https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Resposta do TimeOffManager**, digite a URL de AssertionConsumerService do TimeOffManager (por exemplo: "*Exemplo: https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurar a URL do Aplicativo")
 
@@ -176,4 +176,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
