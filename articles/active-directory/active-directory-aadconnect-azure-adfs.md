@@ -257,7 +257,7 @@ Em geral, você precisa das regras a seguir para proteger com eficiência sua su
 
 |Regra|Descrição|Fluxo|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Permitir a comunicação HTTPS para a rede de perímetro | Entrada |
+|AllowHTTPSFromDMZ| Permitir a comunicação HTTPS de rede de perímetro | Entrada |
 |DenyAllFromDMZ| Esta regra bloqueará todo o tráfego da rede de perímetro para a sub-rede interna. A regra AllowHTTPSFromDMZ já se encarrega de garantir que a comunicação HTTPS seja transmitida, e qualquer outro item é bloqueado por essa regra | Entrada |
 |DenyInternetOutbound| Sem acesso à Internet | Saída |
 
@@ -303,4 +303,4 @@ Quando você entrar com êxito, ele lhe fornecerá uma mensagem de êxito, confo
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Configurar e gerenciar o AD FS usando o Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

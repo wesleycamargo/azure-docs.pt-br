@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/30/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -48,7 +48,7 @@ Os itens a seguir são necessários para concluir este tutorial:
 	Você pode usar qualquer servidor web para hospedar o aplicativo, mas estes são os servidores web com suporte dos scripts baixados.
 
 + Um navegador da Web que ofereça suporte a HTML5.
-+ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
 
 
 ## <a name="create-new-service"> </a>Criar um novo serviço móvel
@@ -90,9 +90,9 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
 1. Navegue até o local onde salvou os arquivos de projeto compactados, expanda os arquivos em seu computador e inicie um dos arquivos de comando a seguir da subpasta **server**.
 
-	+ ** launch-windows** (computadores com Windows)
-	+ ** launch-mac.command** (computadores com Mac OS X)
-	+ ** launch-linux.sh** (computadores com Linux)
+	+ **launch-windows** (computadores com Windows)
+	+ **launch-mac.command** (computadores com Mac OS X)
+	+ **launch-linux.sh** (computadores com Linux)
 
 	> [AZURE.NOTE] Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 
@@ -154,4 +154,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

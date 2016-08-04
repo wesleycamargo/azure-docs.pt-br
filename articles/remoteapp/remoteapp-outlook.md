@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/18/2016"
+    ms.date="07/20/2016"
     ms.author="elizapo" />
 
 # Usando o Microsoft Outlook no Azure RemoteApp
@@ -27,8 +27,8 @@ O usuário pode selecionar **Modo Cache do Exchange** ou **Modo Online** durante
 Leia [instruções passo a passo sobre como habilitar o modo cache](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc).
 
 ## Pesquisar
-No Azure RemoteApp, há limitações para o uso da pesquisa no Outlook. O Azure RemoteApp usa VMs em pool para acomodar sessões de usuário. A indexação de pesquisa depende da ID da máquina, que é diferente para VMs diferentes. É possível que sempre que um usuário efetuar o logon no Azure RemoteApp, ele seja direcionado a uma nova VM. Isso significa que, se habilitarmos a pesquisa local, o indexador será executado sempre que a ID da máquina for alterada (quando o usuário estiver em uma VM diferente). Dependendo do tamanho do arquivo .OST, o indexador pode demorar muito para concluir e usar os recursos necessários para outros aplicativos. A pesquisa não seria apenas lenta, como talvez não produzisse resultados. Uma maneira de solucionar isso seria habilitar a pesquisa online por padrão. Infelizmente, a pesquisa indexada/local não pode ser desabilitada e a pesquisa online não pode ser habilitada por padrão no Outlook 2013.
+No Azure RemoteApp, há limitações para o uso da pesquisa no Outlook. O Azure RemoteApp usa VMs em pool para acomodar sessões de usuário. A indexação de pesquisa depende da ID da máquina, que é diferente para VMs diferentes. É possível que sempre que um usuário efetuar o logon no Azure RemoteApp, ele seja direcionado a uma nova VM. Isso significa que, se habilitarmos a pesquisa local, o indexador será executado sempre que a ID da máquina for alterada (quando o usuário estiver em uma VM diferente). Dependendo do tamanho do arquivo .OST, o indexador pode demorar muito para concluir e usar os recursos necessários para outros aplicativos. A pesquisa não seria apenas lenta, como talvez não produzisse resultados. Usar um perfil de conta do Modo Online poderia contornar esse problema, mas o desempenho geral seria afetado devido à falta de um cache local (veja o link acima para saber mais sobre a diferença entre o modo em cache e online). Infelizmente, a pesquisa indexada/local não pode ser desabilitada e a pesquisa online não pode ser habilitada por padrão no Outlook 2013.
 
-O Outlook 2016 tem uma solução para resolver isso, fornecendo uma nova experiência de pesquisa online para caixas de correio hospedadas no Exchange 2016 (ou hospedadas no Office 365). Essa solução usa os resultados de pesquisa de servidor no cache local (OST). O Outlook pode voltar a usar o indexador de pesquisa em alguns cenários, mas a maioria das pesquisas usaria o modo online. A recomendação do Azure RemoteApp é usar o Outlook 2016 se a pesquisa de emails for um cenário muito importante.
+O Outlook 2016 tem uma solução para resolver isso em modo de cache, fornecendo uma nova experiência de pesquisa de serviço para caixas de correio hospedadas no Exchange 2016 (ou hospedadas no Office 365). Essa solução usa os resultados de pesquisa de serviço no cache local (OST). O Outlook pode voltar a usar o indexador de pesquisa local em alguns cenários, mas a maioria das pesquisas usaria esse novo recurso de pesquisa do serviço. A recomendação do Azure RemoteApp é usar o Outlook 2016 se a pesquisa de emails for um cenário muito importante.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

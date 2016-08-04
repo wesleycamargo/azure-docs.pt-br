@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="ggailey777"/>
 
 # Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -39,7 +39,7 @@ A conclusão deste tutorial exige o seguinte:
 + O PhoneGap dá suporte ao desenvolvimento para várias plataformas. Além das próprias ferramentas do PhoneGap, você deve instalar as ferramentas para cada plataforma de destino:
 
 	- Windows Phone: instale o [Visual Studio 2012 Express para Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: instale o [Xcode] (v4.4+ necessária)
+	- iOS: instale o [Xcode] \(v4.4+ necessária)
 	- Android: instale as [Android Developer Tools][Android SDK] <br/>(o SDK dos Serviços Móveis para Android dá suporte a aplicativos para o Android 2.2 ou uma versão posterior. O Android 4.2 ou versão posterior é necessário para executar o aplicativo de início rápido.)
 
 ## Criar um novo serviço móvel
@@ -153,7 +153,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 ## Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
-* **[Adicionar autenticação ao seu aplicativo]** Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.  
+* **[Adicionar autenticação ao seu aplicativo]** Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
 * **[Adicionar notificações por push ao seu aplicativo](https://msdn.microsoft.com/magazine/dn879353.aspx)** Saiba como registrar-se em seu aplicativo e como enviar uma notificação por push para ele.
 
@@ -176,4 +176,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

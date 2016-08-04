@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar SQL Data Warehouse usando o Powershell | Microsoft Azure"
-   description="Criar SQL Data Warehouse usando o Powershell"
+   pageTitle="Criar SQL Data Warehouse usando o PowerShell | Microsoft Azure"
+   description="Criar SQL Data Warehouse usando o PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,27 +13,31 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Criar um SQL Data Warehouse usando o Powershell
+# Criar um SQL Data Warehouse usando o PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-## Pré-requisitos
-Antes de começar, verifique se cumpriu os pré-requisitos a seguir.
+Este artigo mostra como criar um SQL Data Warehouse usando o PowerShell.
 
-- **Conta do Azure**: consulte [Avaliação Gratuita do Azure][] ou [Créditos do Azure no MSDN][] para criar uma conta.
-- **Azure SQL Server V12**: consulte [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure][] ou [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell][].
-- **Nome do grupo de recursos**: use o mesmo Grupo de Recursos do Azure SQL Server V12 ou consulte [grupos de recursos][] para criar um novo grupo de recursos.
-- **PowerShell versão 1.0.3 ou superior**: você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada a partir do [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
+## Pré-requisitos
+
+Para começar, você precisará do seguinte:
+
+- **Conta do Azure**: visite [Avaliação Gratuita do Azure][] ou [Créditos do Azure no MSDN][] para criar uma conta.
+- **Servidor SQL do Azure**: veja [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure][] ou [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell][] para obter mais detalhes.
+- **Grupo de recursos**: use o mesmo grupo de recursos do servidor SQL do Azure ou veja [como criar um grupo de recursos][].
+- **PowerShell versão 1.0.3 ou superior**: você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para saber mais sobre como instalar a versão mais recente, veja [Como instalar e configurar o Azure PowerShell][].
 
 > [AZURE.NOTE] A criação de um novo SQL Data Warehouse pode resultar em um novo serviço faturável. Confira [Preços do SQL Data Warehouse][] para obter mais detalhes sobre preços.
 
 ## Criar um SQL Data Warehouse
+
 1. Abra o Windows PowerShell.
 2. Execute este cmdlet para fazer logon no Gerenciador de Recursos do Azure.
 
@@ -61,13 +65,13 @@ Os parâmetros necessários para esse cmdlet são:
 - **ResourceGroupName**: o grupo de recursos que você está usando. Para encontrar os grupos de recursos na sua assinatura, use Get-AzureResource.
 - **Edition**: você deve definir a edição como "DataWarehouse" para criar um SQL Data Warehouse.
 
-Para obter mais detalhes sobre as opções do parâmetro, confira [Criar Banco de Dados (Azure SQL Data Warehouse)][]. Para obter a referência dos comandos, consulte [New-AzureRmSqlDatabase][]
+Para obter mais detalhes sobre as opções do parâmetro, confira [Criar Banco de Dados (Azure SQL Data Warehouse)][]. Para obter a referência dos comandos, veja [New-AzureRmSqlDatabase][]
 
 ## Próximas etapas
 
 Após o provisionamento do SQL Data Warehouse ter terminado, você pode tentar [carregar os dados de amostra][] ou verificar como [desenvolver][], [carregar][] ou [migrar][].
 
-Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Warehouse de forma programática, confira nosso artigo sobre como usar os [Cmdlets do Powershell e APIs REST][].
+Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Warehouse de forma programática, confira nosso artigo sobre como usar os [Cmdlets do PowerShell e APIs REST][].
 
 <!--Image references-->
 
@@ -77,14 +81,14 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [desenvolver]: ./sql-data-warehouse-overview-develop.md
 [carregar]: ./sql-data-warehouse-load-with-bcp.md
 [carregar os dados de amostra]: ./sql-data-warehouse-get-started-load-sample-databases.md
-[Cmdlets do Powershell e APIs REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[Cmdlets do PowerShell e APIs REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Como instalar e configurar o Azure PowerShell]: ../powershell/powershell-install-configure.md
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[grupos de recursos]: ../resource-group-template-deploy-portal.md
+[como criar um grupo de recursos]: ../resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -97,4 +101,4 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

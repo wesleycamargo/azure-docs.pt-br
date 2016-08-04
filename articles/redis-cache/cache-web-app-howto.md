@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="06/30/2016" 
+	ms.date="07/22/2016" 
 	ms.author="sdanie"/>
 
 # Como criar um aplicativo Web com o Cache Redis
@@ -802,6 +802,8 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 ## Próximas etapas
 
 -	Saiba mais na [Introdução ao MVC 5 ASP.NET](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) no site do [ASP.NET](http://asp.net/).
+-	Para obter mais exemplos de criação de um aplicativo Web ASP.NET no Serviço de Aplicativo, veja [Create and deploy an ASP.NET web app in Azure App Service (Criar e implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) na [demonstração](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) do [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
+	-	Para obter mais inícios rápidos de demonstração do HealthClinic.biz, veja [Azure Developer Tools Quickstarts (Inícios rápidos de ferramentas de desenvolvedor do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -	Saiba mais sobre a abordagem [Code first para um novo banco de dados](https://msdn.microsoft.com/data/jj193542) para o Entity Framework que é usada neste tutorial.
 -	Saiba mais sobre [aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-overview.md).
 -	Saiba como [monitorar](cache-how-to-monitor.md) o cache no portal do Azure.
@@ -811,6 +813,7 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 	-	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
 	-	[Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md)
 	-	Confira as [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para saber mais sobre tamanho, taxa de transferência e largura de banda com caches premium.
+
 
 
 <!-- IMAGES -->
@@ -846,4 +849,4 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

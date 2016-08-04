@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Para obter a versão de Aplicativos Móveis equivalente a este tópico, veja [Criar um aplicativo Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
@@ -45,7 +45,7 @@ Depois de criar seu serviço móvel, você poderá seguir um início rápido fá
 
 Nesta seção você baixará um novo aplicativo Xamarin Android e um projeto de serviço para seu serviço móvel.
 
-1. Se você ainda não fez isso, instale o Visual Studio com Xamarin. Encontre instruções em [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Você também pode usar o Xamarin Studio em um computador com Mac OS X. Para isso, confira [Configuração, instalação e verificações para usuários do Mac](https://msdn.microsoft.com/library/mt488770.aspx).  
+1. Se você ainda não fez isso, instale o Visual Studio com Xamarin. Encontre instruções em [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Você também pode usar o Xamarin Studio em um computador com Mac OS X. Para isso, confira [Configuração, instalação e verificações para usuários do Mac](https://msdn.microsoft.com/library/mt488770.aspx).
 
 2. No [Portal Clássico], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
 
@@ -130,4 +130,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Versão de back-end do JavaScript]: mobile-services-android-get-started.md
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->
