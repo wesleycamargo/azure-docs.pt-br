@@ -98,11 +98,11 @@ Para habilitar os aplicativos no serviço de Despesas, é necessário configurar
 
 O consultor do Concur ou o administrador do cliente deve criar um perfil de Administrador de Serviço Web distinto, e o administrador do cliente deve usar esse perfil para as funções de Administrador de Serviço Web (por exemplo, habilitação de aplicativos). Esses perfis devem ser mantidos separados do perfil de administração diária de T&E do administrador do cliente (o perfil de administração de T&E não deve ter a função de Administrador de Serviço Web).
 
-Ao criar o perfil que será usado para habilitar o aplicativo, insira o nome do administrador do cliente nos campos de perfil do usuário. Isso atribuirá propriedade ao perfil. Após a criação do(s) perfil(s), o cliente deverá fazer logon com esse perfil para clicar no botão “*Habilitar*” de um Aplicativo do Parceiro no menu dos Serviços Web.
+Ao criar o perfil que será usado para habilitar o aplicativo, insira o nome do administrador do cliente nos campos de perfil do usuário. Isso atribuirá propriedade ao perfil. Após a criação do(s) perfil(s), o cliente deverá fazer logon com esse perfil para clicar no botão “ *Habilitar* ” de um Aplicativo do Parceiro no menu dos Serviços Web.
 
 Essa ação não deve ser feita com o perfil usado para a administração normal de T&E pelos seguintes motivos.
 
-1.  É o cliente que deve clicar em “*Sim*” na janela do diálogo exibida após a habilitação de um aplicativo. Esse clique confirma que o cliente está disposto a permitir que o Aplicativo parceiro acesse seus dados, portanto você ou o Parceiro não pode clicar no botão Sim.
+1.  É o cliente que deve clicar em “ *Sim* ” na janela do diálogo exibida após a habilitação de um aplicativo. Esse clique confirma que o cliente está disposto a permitir que o Aplicativo parceiro acesse seus dados, portanto você ou o Parceiro não pode clicar no botão Sim.
 2.  Se um administrador de cliente que habilitou um aplicativo usando o perfil de administrador de T&E deixar a empresa (resultando na inativação do perfil), quaisquer aplicativos habilitados com esse perfil não funcionarão até que sejam habilitados com outro perfil ativo de Administrador de Serviços Web. É por isso que você deve criar perfis de Administrador de Serviços Web distintos.
 3.  Se um administrador deixar a empresa, o nome associado ao perfil de Administrador de Serviço Web pode ser alterado para o administrador substituto, se isso for desejado, sem afetar o aplicativo habilitado, porque esse perfil não ficará inativado
 

@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-huddle-tutorial/IC787834.png "Configurar o logon único")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Huddle**, digite a URL do seu locatário Huddle usando o padrão "*http://company.huddle.com*" e clique em **Avançar*.
+3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Huddle**, digite a URL do seu locatário Huddle usando o padrão "*http://company.huddle.com*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configurar a URL do Aplicativo")
 
