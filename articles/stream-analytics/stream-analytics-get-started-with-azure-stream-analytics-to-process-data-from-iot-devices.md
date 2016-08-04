@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -119,4 +119,4 @@ Aqui, estamos usando um **LEFT OUTER JOIN** no mesmo fluxo de dados (associaçã
 
 Este tutorial apresenta basicamente a introdução para escrever consultas SAQL diferentes e ver os resultados no navegador em padrões diferentes sobre os dados. No entanto, isso está apenas começando. Há muito mais que você pode fazer com Stream Analytics. Em seguida, você aprenderá sobre como conectar o trabalho do Stream Analytics às entradas e saídas e implantá-lo no Azure. Você pode começar a explorar mais sobre Stream Analytics usando nosso guia do [Mapa de aprendizado](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) e, para obter mais informações sobre como escrever consultas, leia o artigo em [Padrões comuns de consulta](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

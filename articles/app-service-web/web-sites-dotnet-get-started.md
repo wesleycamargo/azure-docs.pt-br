@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/22/2016"
+	ms.date="07/22/2016"
 	ms.author="rachelap"/>
 
 # Implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -240,4 +240,6 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Para obter informações sobre como trabalhar com os grupos de recursos no portal do Azure, consulte [Implantar recursos com modelos do Gerenciador de Recursos e o portal do Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+*	Para obter mais exemplos de criação de um aplicativo Web ASP.NET no Serviço de Aplicativo, veja [Create and deploy an ASP.NET web app in Azure App Service (Criar e implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) na [demonstração](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) do [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Para obter mais inícios rápidos de demonstração do HealthClinic.biz, veja [Azure Developer Tools Quickstarts (Inícios rápidos de ferramentas de desenvolvedor do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+
+<!---HONumber=AcomDC_0727_2016-->

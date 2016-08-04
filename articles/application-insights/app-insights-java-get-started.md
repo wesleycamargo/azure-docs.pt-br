@@ -98,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como:* `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 
@@ -162,6 +162,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona isso como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico][diagnostic].
+* A chave do Application Insight pode ser passada dinamicamente do portal do Azure como uma propriedade do sistema (-DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey). Se não houver uma propriedade definida, ele verificará a variável de ambiente (APPLICATION\_INSIGHTS\_IKEY) no Azure Appsetting. Se ambas as propriedades estiverem indefinidas, o padrão InstrumentationKey será usado de ApplicationInsights.xml. Isso ajuda a gerenciar um InstrumentationKey diferente para outro ambiente de forma dinâmica.
 
 ### Maneiras alternativas para definir a chave de instrumentação
 
@@ -412,4 +413,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

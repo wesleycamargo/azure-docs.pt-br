@@ -91,7 +91,7 @@ A solução rastreia o status de cada comando enviado. Inicialmente, o resultado
 
 ## Adicionar um novo dispositivo simulado
 
-Ao implantar a solução pré-configurada, você provisiona automaticamente os quatro dispositivos de exemplo que pode ver na lista de dispositivos. Esses dispositivos são *dispositivos simulados* em execução em um Trabalho Web do Azure. Com os dispositivos simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar dispositivos físicos reais. Se você quiser conectar um dispositivo real à solução, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connecting-devices].
+Ao implantar a solução pré-configurada, você provisiona automaticamente os quatro dispositivos de exemplo que pode ver na lista de dispositivos. Esses dispositivos são *dispositivos simulados* em execução em um Trabalho Web do Azure. Com os dispositivos simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar dispositivos físicos reais. Se você quiser conectar um dispositivo real à solução, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm].
 
 As etapas a seguir mostram como adicionar um novo dispositivo simulado à solução:
 
@@ -105,7 +105,7 @@ As etapas a seguir mostram como adicionar um novo dispositivo simulado à soluç
 
     ![Definir novos detalhes do dispositivo no painel][img-addnew]
     
-    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connecting-devices].
+    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connect-rm].
 
 4.  Selecione **Deixe-me definir minha própria ID de dispositivo** e adicione um nome de ID de dispositivo exclusivo, como **mydevice\_01**.
 
@@ -207,10 +207,11 @@ Ao terminar, você poderá excluir a solução pré-configurada de sua assinatur
 
 ## Próximas etapas
 
-Agora que você criou uma solução de trabalho pré-configurada, é possível passar para as instruções a seguir:
+Agora que você implantou uma solução de trabalho pré-configurada, poderá continuar a introdução ao Suite IoT lendo os seguintes artigos:
 
--   [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize]
--   [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive]
+- [Passo a passo da solução pré-configurada de monitoramento remoto][lnk-rm-walkthrough]
+- [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm]
+- [Permissões no site azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -239,13 +240,13 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

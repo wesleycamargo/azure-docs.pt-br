@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Azure em cinco minutos 
@@ -28,7 +28,7 @@ Para saber mais sobre o Armazenamento do Azure antes de entrarmos no código, co
 
 Você precisará atender aos seguintes pré-requisitos antes de iniciar:
 
-1. Para compilar e criar o aplicativo, você precisará ter uma versão do [Visual Studio](https://www.visualstudio.com/) instalada no computador. 
+1. Para compilar e criar o aplicativo, você precisará ter uma versão do [Visual Studio](https://www.visualstudio.com/) instalada no computador.
 
 2. Instalar a versão mais recente do [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). O SDK inclui os projetos de exemplo de Início Rápido do Azure, o emulador de armazenamento do Azure e a [Biblioteca de Cliente de Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
@@ -90,7 +90,7 @@ Convém examinar o código-fonte antes de executar o aplicativo. Para examinar o
 Em seguida, execute o aplicativo de exemplo no Emulador de Armazenamento do Azure:
 
 1.	Pressione o botão **Iniciar** ou a tecla Windows, procure por *Emulador de Armazenamento do Microsoft Azure* e inicie o aplicativo. Quando o emulador for iniciado, você verá um ícone e uma notificação na área Exibição de Tarefas do Windows.
-2.	No Visual Studio, selecione **Compilar Solução** no menu **Compilar**. 
+2.	No Visual Studio, selecione **Compilar Solução** no menu **Compilar**.
 3.	No menu **Depurar**, pressione **F11** para executar a solução passo a passo ou pressione **F5** para executar a solução do início ao fim.
 
 ## Próximas etapas
@@ -98,6 +98,7 @@ Em seguida, execute o aplicativo de exemplo no Emulador de Armazenamento do Azur
 Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 
 * [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)
+* [Introdução ao Explorer do Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
 * [Introdução ao armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
 * [Introdução ao Armazenamento de Filas do Azure usando o .NET](storage-dotnet-how-to-use-queues.md)
@@ -110,4 +111,4 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="07/20/2016"
 	ms.author="carlrab"/>
 
 # Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
@@ -31,7 +31,7 @@ Saiba como cada opção se ajusta à plataforma de dados da Microsoft e obtenha 
 
 Uma das primeiras coisas a compreender em qualquer discussão do Azure versus bancos de dados local do SQL Server é que você pode usá-lo. A Plataforma de Dados da Microsoft aproveita a tecnologia do SQL Server e o torna disponível em computadores locais físicos, ambientes de nuvem privada, ambientes de nuvem privada hospedados por terceiros e nuvem pública. Isso permite que você atenda a necessidades comerciais exclusivas e diversificadas através de uma combinação de implantações locais e hospedadas em nuvem, ao usar o mesmo conjunto de produtos de servidor, ferramentas de desenvolvimento e experiência nesses ambientes.
 
-   ![Opções do SQL Server na nuvem: servidor SQL em IaaS ou banco de dados SQL de SaaS na nuvem.](./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![Opções do SQL Server na nuvem: servidor SQL em IaaS ou banco de dados SQL de SaaS na nuvem.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 Como visto no diagrama, cada oferta pode ser caracterizada por nível de administração que você tem sobre a infraestrutura (no eixo X) e pelo grau de economia obtida com a consolidação de nível de banco de dados e automação (no eixo Y).
 
@@ -156,4 +156,4 @@ Escolha **SQL Server em VMs do Azure** se:
 - Consulte [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server nas VMs do Azure.
 - Consulte [SQL Server em uma Máquina Virtual do Azure: Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

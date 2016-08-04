@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis e ao Sencha Touch
@@ -23,7 +23,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -675,7 +675,7 @@ O estágio final deste tutorial consiste em hospedar e executar seu novo aplicat
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
-  3. Abra a URL listada no seu terminal em um navegador da Web para iniciar o aplicativo (por ex., http://localhost:1841)).
+  3. Abra a URL listada no seu terminal em um navegador da Web para iniciar o aplicativo (por ex., http://localhost:1841).
 
   4. No aplicativo, digite um texto significativo, como “Concluir o tutorial” e clique em **Adicionar**.
 
@@ -724,4 +724,4 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

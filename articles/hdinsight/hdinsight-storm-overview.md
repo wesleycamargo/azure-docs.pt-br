@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
@@ -206,6 +206,12 @@ Quando a sua topologia depende do cálculo de um valor “N principal”, como o
 
 Para obter um exemplo disso, consulte o exemplo [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java).
 
+##Que tipo de registro em log o Storm utiliza?
+
+O Storm usa o Apache Log4j para registrar informações em log. Por padrão, uma grande quantidade de dados é registrada e pode ser difícil classificar as informações. Você pode incluir um arquivo de configuração de log como parte de sua topologia do Storm para controlar o comportamento de log.
+
+Para uma topologia de exemplo que demonstra como configurar o log, veja o exemplo [WordCount baseado em Java](hdinsight-storm-develop-java-topology.md) para Storm no HDInsight.
+
 ##Próximas etapas
 
 Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no HDInsight:
@@ -219,4 +225,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

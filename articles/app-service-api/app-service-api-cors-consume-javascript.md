@@ -80,8 +80,7 @@ No [aplicativo de exemplo ToDoList](https://github.com/Azure-Samples/app-service
 
 		angular.module('todoApp')
 		.factory('todoListSvc', ['$http', function ($http) {
-		    var apiEndpoint = "http://localhost:46439";
-		
+
 		    $http.defaults.useXDomain = true;
 		    delete $http.defaults.headers.common['X-Requested-With']; 
 		
@@ -285,4 +284,4 @@ Para saber mais sobre os recursos do Visual Studio que simplificam a solução d
 
 Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. Para saber mais sobre aplicativos de API, leia a [introdução à autenticação no Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) e vá para o tutorial [autenticação de usuário para aplicativos de API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

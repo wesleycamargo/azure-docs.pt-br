@@ -399,9 +399,9 @@ Você verá a mensagem **保存成功！** (**Salvo com êxito!**).
 ##Enviar notificações para seu aplicativo
 
 
-Você pode testar o recebimento de notificações no aplicativo enviando notificações no Portal Clássico do Azure por meio da guia de depuração no hub de notificação, como mostra a tela abaixo.
+Você pode testar rapidamente o recebimento de notificações em seu aplicativo ao enviar notificações no [Portal do Azure](https://portal.azure.com/) usando o botão **Envio de Teste** no hub de notificação, como mostrado na tela abaixo.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 Notificações por push normalmente são enviadas em um serviço de back-end como Serviços Móveis ou ASP.NET usando uma biblioteca compatível. Você também pode usar a API REST diretamente para enviar mensagens de notificação se uma biblioteca não está disponível para o back-end.
 
@@ -504,4 +504,4 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

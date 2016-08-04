@@ -34,7 +34,7 @@ O seguinte diagrama descreve os componentes lógicos da solução pré-configura
 
 ## Dispositivos simulados
 
-Na solução pré-configurada, o dispositivo simulado representa um dispositivo de resfriamento (como um ar-condicionado para edifícios ou uma unidade de tratamento de ar para instalações). Ao implantar a solução pré-configurada, você também provisiona automaticamente quatro dispositivos simulados que são executados em um [Trabalho Web do Azure][lnk-webjobs]. Os dispositivos simulados facilitam a exploração do comportamento da solução sem a necessidade de implantar dispositivos físicos. Para implantar um dispositivo físico real, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remota][lnk-connectyourdevice].
+Na solução pré-configurada, o dispositivo simulado representa um dispositivo de resfriamento (como um ar-condicionado para edifícios ou uma unidade de tratamento de ar para instalações). Ao implantar a solução pré-configurada, você também provisiona automaticamente quatro dispositivos simulados que são executados em um [Trabalho Web do Azure][lnk-webjobs]. Os dispositivos simulados facilitam a exploração do comportamento da solução sem a necessidade de implantar dispositivos físicos. Para implantar um dispositivo físico real, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remota][lnk-connect-rm].
 
 Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT:
 
@@ -85,7 +85,7 @@ O [hub IoT][lnk-iothub] consome dados enviados dos dispositivos para a nuvem e o
 
 ## Stream Analytics do Azure
 
-Na solução de monitoramento remota, o [Azure Stream Analytics][lnk-asa] (ASA) envia mensagens recebidas pelo hub IoT dos dispositivos para outros componentes de back-end para processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
+Na solução de monitoramento remota, o [Azure Stream Analytics][lnk-asa] \(ASA) envia mensagens recebidas pelo hub IoT dos dispositivos para outros componentes de back-end para processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
 
 **Trabalho 1: as Informações do Dispositivo** filtram as mensagens de informações de dispositivo do fluxo de mensagens de entrada e as enviam para um ponto de extremidade do Hub de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo**. Essa tarefa usa a seguinte definição de consulta para identificar mensagens **device-info**:
 
@@ -218,12 +218,17 @@ As postagens de blog do TechNet abaixo fornecem mais detalhes sobre a solução 
 - [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Adicionando dispositivos ativos e simulados)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
+Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
+
+- [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm]
+- [Permissões no site azureiotsuite.com][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connectyourdevice]: iot-suite-connecting-devices.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -3,7 +3,7 @@
     description="Use as técnicas de desenvolvimento de bancos de dados C# para criar um pool de banco de dados elástico e escalonável no Banco de Dados SQL do Azure para que você possa compartilhar recursos entre vários bancos de dados."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # Criar um Pool de Banco de Dados Elástico com o C&#x23;
 
@@ -24,13 +24,13 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Saiba como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando C&#x23;.
+Saiba como criar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando C#;.
 
 Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
 Os exemplos a seguir usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), portanto, você precisará instalar essa biblioteca antes de continuar se ela ainda não estiver instalada. É possível instalar a biblioteca executando o seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Criar um novo pool
 
@@ -74,7 +74,7 @@ Crie uma instância [DataBaseCreateorUpdateProperties](https://msdn.microsoft.co
 
 Para mover um banco de dados existente para um pool, confira [Mover um banco de dados para um pool elástico](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Exemplo: criar um pool usando C&#x23
+## Exemplo: criar um pool usando C&#x23;
 
 Esse exemplo cria um novo grupo de recursos do Azure, uma nova instância do SQL Server do Azure e um novo pool elástico.
  
@@ -82,7 +82,7 @@ Esse exemplo cria um novo grupo de recursos do Azure, uma nova instância do SQL
 As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando os comandos a seguir no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md) (Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL). Use o cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) para recuperar o valor de subscriptionId.
@@ -249,4 +249,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

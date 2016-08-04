@@ -62,8 +62,18 @@ Neste momento, você não pode criar uma solução pré-configurada com uma cont
 
 Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um locatário do AD do Azure][lnk-delete-aad-tennant].
 
+## Próximas etapas
+
+Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
+
+- [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
+- [Segurança IoT desde o início][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[link-azuresublimits]: https://azure.microsoft.com/pt-BR/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -72,4 +82,4 @@ Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um loc
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->
