@@ -165,7 +165,8 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 | [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- 
 | [1\.6.3](#1.6.3) | 8 de abril de 2016 |--- 
 | [1\.6.2](#1.6.2) | 29 de março de 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--- | [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--- 
+| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--- 
 | [1\.5.1](#1.5.1) | 23 de novembro de 2015 |--- 
 | [1\.5.0](#1.5.0) | 5 de outubro de 2015 |--- 
 | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- 
@@ -186,4 +187,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_0720_2016-->
+<!-----HONumber=AcomDC_0720_2016-->
