@@ -147,8 +147,8 @@ Escolha o modelo baseado em consumo que funciona melhor para sua organização. 
 
 Como há vários tipos de Azure Multi-Factor Authentication, precisamos determinar algumas coisas para descobrir qual versão é a correta para usar. Esses elementos são:
 
--	[O que estou tentando proteger](#what-am-i-trying-to-secure)
--	[Onde os usuários estão localizados](#where-are-the-users-located)
+-	[O que estou tentando proteger](#o-que-estou-tentando-proteger)
+-	[Onde os usuários estão localizados](#onde-os-usurios-esto-localizados)
 
 As seções a seguir fornecem orientações sobre como determinar a cada um deles.
 
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
