@@ -1,6 +1,6 @@
 <properties
    pageTitle="Habilitar o Agente de VM na Central de Segurança do Azure | Microsoft Azure"
-   description="Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar o Agente de VM**."
+   description="Este documento mostra como implementar a recomendação da Central de Segurança do Azure para Habilitar o Agente de VM."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -47,4 +47,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->
