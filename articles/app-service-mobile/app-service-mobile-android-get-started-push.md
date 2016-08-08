@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	manager="erikre"
 	editor=""
-	authors="ysxu"/>
+	authors="RickSaling"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="yuaxu;ricksal"/>
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
 # Adicionar notificações de push ao seu aplicativo Android
 
@@ -80,4 +80,4 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 
 [Configurar o SDK do Google Play Services]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

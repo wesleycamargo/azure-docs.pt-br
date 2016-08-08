@@ -2,7 +2,9 @@ O gerenciamento de identidade é tão importante em ambiente de nuvem pública q
 
 - Você pode executar o Active Directory do Windows Server (normalmente chamado apenas de AD) na nuvem usando máquinas virtuais criadas com Máquinas Virtuais do Azure. Essa abordagem faz sentido quando você estiver usando o Azure para estender seu datacenter local para a nuvem.
 
-- Você pode usar o Active Directory do Azure para fornecer aos usuários um logon único de aplicativos de Software hospedado como serviço (SaaS). Por exemplo, o Office 365 da Microsoft utiliza essa tecnologia, e aplicativos executados no Azure ou outras plataformas na nuvem também podem usá-lo.
+
+- Você pode usar o Azure Active Directory para fornecer aos usuários um logon único a aplicativos de [SaaS (Software como serviço)](https://azure.microsoft.com/overview/what-is-saas/). Por exemplo, o Office 365 da Microsoft utiliza essa tecnologia, e aplicativos executados no Azure ou outras plataformas na nuvem também podem usá-lo.
+
 
 - Aplicativos em execução na nuvem ou no local podem usar o Controle de Acesso no Active Directory do Azure para permitir que os usuários façam logon usando identidades do Facebook, da Google, da Microsoft e de outros provedores de identidade.
 
@@ -118,4 +120,4 @@ Trabalhar com identidade é importante em praticamente todos os aplicativos. O o
 
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em São Francisco, Califórnia.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -36,8 +36,8 @@ Até mesmo no contexto de Aplicativos Lógicos, você pode usar seu próprio apl
 
 4. Vá para [Twitter](http://apps.twitter.com) e **Criar um Novo Aplicativo**. Na propriedade **URL de Retorno de Chamada**, cole o valor de **URI de Redirecionamento** copiado do seu conector do Twitter: ![][4]
 5. Quando o aplicativo do Twitter é criado, selecione **Chave e Tokens de Acesso**. Copie esses valores.
-6. Nas configurações de autenticação do conector do Twitter, cole esses valores nas propriedades **ID do Cliente** e **Segredo do Cliente**: ![][5]  
-7. Salve as configurações do conector.  
+6. Nas configurações de autenticação do conector do Twitter, cole esses valores nas propriedades **ID do Cliente** e **Segredo do Cliente**: ![][5]
+7. Salve as configurações do conector.
 
 Agora, você pode usar o conector por meio de Aplicativos Lógicos. Ao usar o conector por meio de Aplicativos Lógicos, ele usa seu aplicativo em vez do aplicativo padrão.
 
@@ -51,4 +51,4 @@ Agora, você pode usar o conector por meio de Aplicativos Lógicos. Ao usar o co
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

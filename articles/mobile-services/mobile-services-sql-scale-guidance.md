@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Escalar serviços móveis suportados pelo Banco de Dados SQL do Azure
@@ -494,4 +494,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

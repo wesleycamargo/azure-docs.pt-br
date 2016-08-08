@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="deonhe"/>
 
 # Crie um Aplicativo Lógico usando um modelo
@@ -49,30 +49,6 @@ Para executar a implantação automaticamente, selecione o seguinte botão:
     
 ## Recursos a implantar
 
-### Plano do serviço de aplicativo
-
-Cria um plano de serviço de aplicativo.
-
-Ele usa o mesmo local que o grupo de recursos no qual ele está sendo implantado.
-
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[parameters('hostingPlanName')]",
-      "type": "Microsoft.Web/serverfarms",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "HostingPlan"
-      },
-      "sku": {
-        "name": "[parameters('hostingSkuName')]",
-        "capacity": "[parameters('hostingSkuCapacity')]"
-      },
-      "properties": {
-        "name": "[parameters('hostingPlanName')]"
-      }
-    },
-
-
 ### Aplicativo lógico
 
 Cria o aplicativo lógico.
@@ -83,21 +59,15 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
 
     {
       "type": "Microsoft.Logic/workflows",
-      "apiVersion": "2015-08-01-preview",
+      "apiVersion": "2016-06-01",
       "name": "[parameters('logicAppName')]",
       "location": "[resourceGroup().location]",
       "tags": {
         "displayName": "LogicApp"
       },
       "properties": {
-        "sku": {
-          "name": "[parameters('flowSkuName')]",
-          "plan": {
-            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
-          }
-        },
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -120,7 +90,8 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
               "inputs": {
                 "method": "GET",
                 "uri": "@parameters('testUri')"
-              }
+              },
+              "runAfter": {}
             }
           },
           "outputs": {}
@@ -145,4 +116,4 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

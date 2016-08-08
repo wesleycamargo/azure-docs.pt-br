@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -76,7 +76,7 @@ Vamos configurar transformações para normalizar os dados de entrada.
 
 1. Adicione **Serviço de Transformação do BizTalk** na galeria.
 2. Para configurar uma transformação e transformar as mensagens XML de entrada, selecione a ação **Transformar** como a ação a ser executada quando essa API for chamada. Selecione ```triggers(‘httplistener’).outputs.Content``` como valor para _inputXml_. *Mapa* é um parâmetro opcional, uma vez que os dados de entrada são comparados com todas as transformações configuradas e apenas aquelas que correspondem ao esquema são aplicadas.
-3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, selecione o ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```:  
+3. Por fim, a transformação é executada somente se a validação for bem-sucedida. Para configurar essa condição, selecione o ícone de engrenagem no canto superior direito e selecione _Adicionar uma condição a ser atendida_. Defina a condição como ```equals(actions('xmlvalidator').status,'Succeeded')```:
 
 ![Transformações do BizTalk][4]
 
@@ -86,7 +86,7 @@ Em seguida, vamos adicionar o destino (uma Fila do Barramento de Serviço) no qu
 
 1. Adicione um **Conector do Barramento de Serviço** da galeria. Defina o **Nome** como _Servicebus1_, defina **Cadeia de Conexão** como a cadeia de conexão para sua instância de barramento de serviço, defina **Nome da Entidade** como _Fila_, e ignore **Nome da assinatura**.
 2. Selecione a ação **Enviar Mensagem** e defina o campo **Conteúdo** da ação como _actions('transformservice').outputs.OutputXml_.
-3. Definir o campo **Tipo de Conteúdo** como *application/xml*:  
+3. Definir o campo **Tipo de Conteúdo** como *application/xml*:
 
 ![Barramento de Serviço][5]
 
@@ -118,4 +118,4 @@ Alguns tópicos úteis:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,9 +29,9 @@ Ferramentas de análise de mídias sociais ajudam as organizações a compreende
 Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais. Então, essencialmente eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
 
 ## Pré-requisitos
-1.	Conta do Twitter e [token de acesso do OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+1.	Conta do Twitter e [token de acesso do OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) do Centro de Download da Microsoft
-3.	Opcional: código-fonte do cliente do Twitter do [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
+3.	Opcional: código-fonte do cliente do Twitter do [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
@@ -39,7 +39,7 @@ O aplicativo de exemplo gerará eventos e os enviará a uma instância de Hubs d
 
 Siga as etapas abaixo para criar um Hub de Eventos.
 
-1.	No Portal do Azure, clique em **NOVO** > **SERVIÇOS DE APLICATIVOS** > **BARRAMENTO DE SERVIÇO** > **HUB DE EVENTOS** > **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.  
+1.	No Portal do Azure, clique em **NOVO** > **SERVIÇOS DE APLICATIVOS** > **BARRAMENTO DE SERVIÇO** > **HUB DE EVENTOS** > **CRIAÇÃO RÁPIDA** e forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de Eventos.
 2.	Como prática recomendada, cada trabalho de Stream Analytics deve ser lido de um único Grupo de Consumidores de Hubs de Eventos. Vamos orientá-lo ao longo do processo de criação de um Grupo de Consumidores abaixo, e você poderá saber mais sobre eles aqui. Para criar um Grupo de Consumidores, navegue até o Hub de Eventos recém-criado e clique na guia **GRUPOS DE CONSUMIDORES**. Em seguida, clique em **CRIAR** na parte inferior da página e forneça um nome para o Grupo de Consumidores.
 3.	Para conceder acesso ao Hub de Eventos, precisamos criar uma política de acesso compartilhado. Clique na guia **CONFIGURAR** de seu Hub de Eventos.
 4.	Em **POLÍTICAS DE ACESSO COMPARTILHADO**, crie uma nova política com permissões para **GERENCIAR**.
@@ -57,11 +57,11 @@ Fornecemos um aplicativo de cliente que acessará os dados do Twitter por meio d
 Siga estas etapas para configurar o aplicativo:
 
 1.	[Baixar a solução TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-2.	Abra o TwitterClient.exe.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter pelos seus valores.  
+2.	Abra o TwitterClient.exe.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter pelos seus valores.
 
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Observe que você precisa criar um aplicativo vazio para gerar um token.  
+	Observe que você precisa criar um aplicativo vazio para gerar um token.
 3.	Substitua os valores de EventHubConnectionString e EventHubName em TwitterClient.exe.config pela cadeia de conexão e o nome do Hub de Eventos. A cadeia de conexão que você copiou anteriormente fornece a você tanto o nome quanto a cadeia de conexão do Hub de eventos, então esteja ciente da necessidade de separá-los e colocar cada um no campo correto.
 4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em TwitterClient.exe.config, se desejar.
 5.	Executar o **TwitterClient.exe** para iniciar o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
@@ -94,7 +94,7 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 
 	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione o namespace em que o hub de eventos está.
 
-		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
+		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para ** NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
 
 	* **NOME DO HUB DE EVENTOS**: selecione o nome do Hub de Eventos
 	* **NOME DE POLÍTICA DO HUB DE EVENTOS**: selecione a política de hub de eventos criada anteriormente neste tutorial.
@@ -236,4 +236,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

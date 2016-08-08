@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Como usar um cliente HTML/JavaScript para os Serviços Móveis do Azure
@@ -666,4 +666,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

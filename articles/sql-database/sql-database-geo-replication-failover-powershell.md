@@ -79,12 +79,12 @@ O comando a seguir alternará as funções de banco de dados chamado "mydb" para
 
 
 
-## Recursos adicionais
+## Próximas etapas   
 
-- [Destacar novos recursos de Replicação Geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Projetando aplicativos de nuvem para continuidade de negócios usando a Replicação Geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
+- Para saber mais sobre a recuperação após um desastre usando a replicação geográfica ativa, incluindo as etapas anteriores e posteriores à recuperação e como executar uma análise de recuperação de desastre, confira [Disaster Recovery Drills](sql-database-disaster-recovery.md) (Análises de recuperação de desastre)
+- Para ver uma postagem de blog de Sasha Nosov sobre a replicação geográfica ativa, confira [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Destaque para os novos recursos de replicação geográfica ativa)
+- Para obter informações sobre a criação de aplicativos de nuvem para usar a replicação geográfica ativa, confira [Projetando aplicativos de nuvem para continuidade de negócios usando a Replicação Geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- Para obter informações sobre como usar a replicação geográfica ativa com o Pool de Banco de Dados Elástico, confira [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Estratégias de recuperação de desastre do pool elástico).
+- Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

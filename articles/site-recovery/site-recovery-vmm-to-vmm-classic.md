@@ -18,7 +18,12 @@
 
 # Replicar máquinas virtuais do Hyper-V em nuvens de VMM para um site de VMM secundário
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md)
+> [AZURE.SELECTOR]
+- [Portal do Azure](site-recovery-vmm-to-vmm.md)
+- [Portal clássico](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell – Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md)
 
 ## Visão geral
 
@@ -92,7 +97,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![Atualizações da Microsoft](./media/site-recovery-vmm-to-vmm-classic/ms-update.png)
 
-5. O local de instalação é definido como **<SystemDrive>\\Arquivos de Programas\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor.
+5. O local de instalação é definido para **<UnidadeDoSistema>\\Arquivos de Programa\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique no botão Instalar para iniciar a instalação do Provedor.
 
 	![InstallLocation](./media/site-recovery-vmm-to-vmm-classic/install-location.png)
 
@@ -154,13 +159,13 @@ O Provedor do Azure Site Recovery também pode ser instalado da linha de comando
 
 Em que os parâmetros são:
 
- - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
+ - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado
  - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
  - **/EncryptionEnabled**: parâmetro opcional que você precisa usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se de que o nome do arquivo que você fornecer tem uma extensão **. pfx**.
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
  - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
- - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).  
+ - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
 
 ## Etapa 4: definir as configurações da proteção de nuvem
 
@@ -209,7 +214,7 @@ Você precisará executar as seguintes ações para preparar a replicação inic
 	1. No controlador de domínio, abra **Usuários e Computadores do Active Directory**.
 	2. Na árvore de console, clique em **DomainName** > **Computadores**.
 	3. Clique com o botão direito do mouse no nome do servidor host Hyper-V > **Propriedades**.
-	4. Na guia **Delegação**, clique em **Confiar neste computador para delegação apenas a serviços especificados**.
+	4. Na guia **Delegação**, clique em **Confiar no computador para delegação apenas a serviços especificados**.
 	5. Clique em **Usar qualquer protocolo de autenticação**.
 	6. Clique em **Adicionar** > **Usuários e Computadores**.
 	7. Digite o nome do computador que hospeda o caminho de exportação > **OK**. Na lista de serviços disponíveis, mantenha pressionada a tecla CTRL e clique em **cifs** > **OK**. Repita o procedimento para o nome do computador que hospeda o caminho de importação. Repita conforme necessário para servidores host Hyper-V adicionais.
@@ -377,4 +382,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
 Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [saiba mais sobre](site-recovery-failover.md) os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

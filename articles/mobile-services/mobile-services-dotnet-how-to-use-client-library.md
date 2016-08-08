@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Como usar a biblioteca de cliente gerenciado para os Serviços Móveis do Azure
@@ -770,4 +770,4 @@ Essa propriedade converte todas as propriedades em letras minúsculas, durante a
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [InvokeApiSync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

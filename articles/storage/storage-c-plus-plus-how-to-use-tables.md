@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # Como usar o armazenamento de Tabela por meio do C++
@@ -34,8 +34,8 @@ Neste guia, você usará os recursos de armazenamento que podem ser executados e
 
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
--	**Linux:** siga as instruções fornecidas na página [LEIAME da Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o comando a seguir no [console do Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione Enter.  
+-	**Linux:** siga as instruções fornecidas na página [LEIAME da Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+-	**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o comando a seguir no [console do Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione Enter.
 
 		Install-Package wastorage
 
@@ -167,10 +167,10 @@ O código a seguir cria uma nova instância de **table\_entity** com alguns dado
 
 Algumas outras observações sobre as operações em lote:
 
--	Você pode executar até 100 operações de inserção, exclusão, mesclagem, substituição, inserção ou mesclagem e inserção ou substituição em qualquer combinação em um único lote.  
--	Uma operação em lote pode ter uma operação de recuperação se ela for a única operação no lote.  
--	Todas as entidades em uma única operação em lote devem ter a mesma chave de partição.  
--	Uma operação em lote está limitada a uma carga de dados de 4 MB.  
+-	Você pode executar até 100 operações de inserção, exclusão, mesclagem, substituição, inserção ou mesclagem e inserção ou substituição em qualquer combinação em um único lote.
+-	Uma operação em lote pode ter uma operação de recuperação se ela for a única operação no lote.
+-	Todas as entidades em uma única operação em lote devem ter a mesma chave de partição.
+-	Uma operação em lote está limitada a uma carga de dados de 4 MB.
 
 ## Recuperar todas as entidades em uma partição
 Para consultar uma tabela de todas as entidades em uma partição, use um objeto **table\_query**. O exemplo de código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
@@ -414,4 +414,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
 -	[Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

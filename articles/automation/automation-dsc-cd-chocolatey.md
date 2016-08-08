@@ -26,8 +26,8 @@ Em um mundo de DevOps, há várias ferramentas para ajudá-lo em vários pontos 
 
 Há bem pouco acontecendo aqui, mas, felizmente, é possível dividir tudo em dois processos principais:
 
-  - Escrever código e testá-lo e, depois, criar e publicar pacotes de instalação para as versões principais e secundárias do sistema. 
-  - Criar e gerenciar VMs que vão instalar e executar o código nos pacotes.  
+  - Escrever código e testá-lo e, depois, criar e publicar pacotes de instalação para as versões principais e secundárias do sistema.
+  - Criar e gerenciar VMs que vão instalar e executar o código nos pacotes.
 
 Depois que esses dois processos principais são realizados, leva pouco tempo para atualizar automaticamente o pacote em execução em qualquer VM específica, à medida que novas versões são criadas e implantadas.
 
@@ -63,7 +63,7 @@ Em uma linha de comando do PowerShell (Add-AzureRmAccount) autenticada: (pode de
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-Você pode colocar sua conta de automação em qualquer uma das seguintes regiões (também conhecidas como localizações): Leste do Japão, Leste dos EUA 2, Europa Ocidental, Sudeste da Ásia, Centro-Sul dos EUA.
+Você pode colocar sua conta de automação em qualquer uma das seguintes regiões (também conhecido como local): Leste dos EUA 2, Centro-Sul dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Sudeste Asiático, Leste do Japão, Índia Central e Sudeste da Austrália.
 
 ## Etapa 2: ajustes da extensão de VM para o modelo ARM
 
@@ -79,10 +79,10 @@ Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integr
 
 -   Instale o módulo necessário na estação de trabalho, da seguinte maneira:
     -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) (não é necessário para o Windows 10)
-    -   `Install-Module –Name MODULE-NAME` < — captura o módulo da Galeria do PowerShell 
--   Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária 
--   Exclua os exemplos e a documentação da pasta principal 
--   Compacte a pasta principal, nomeando o arquivo ZIP exatamente como a pasta 
+    -   `Install-Module –Name MODULE-NAME` < — captura o módulo da Galeria do PowerShell
+-   Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária
+-   Exclua os exemplos e a documentação da pasta principal
+-   Compacte a pasta principal, nomeando o arquivo ZIP exatamente como a pasta
 -   Coloque o arquivo ZIP em um local http acessível, como o armazenamento de blobs em uma Conta do Armazenamento do Azure.
 -   Execute este PowerShell:
 
@@ -185,4 +185,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

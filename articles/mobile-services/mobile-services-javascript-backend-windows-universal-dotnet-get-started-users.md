@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo universal do Windows 8.1
@@ -61,7 +61,7 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 ##Consulte também
 
-+ [Recurso avançado de usuários](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> Você pode obter dados de usuário adicionais mantidos pelo provedor de identidade em seu serviço móvel chamando a função **user.getIdentities()** nos scripts de servidor. 
++ [Recurso avançado de usuários](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> Você pode obter dados de usuário adicionais mantidos pelo provedor de identidade em seu serviço móvel chamando a função **user.getIdentities()** nos scripts de servidor.
 
 + [Referência conceitual do tutorial dos Serviços Móveis em .NET] <br/>Saiba mais sobre como usar os Serviços Móveis com um cliente .NET.
 
@@ -89,4 +89,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

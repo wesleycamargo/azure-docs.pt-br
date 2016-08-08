@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="07/22/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
@@ -34,9 +34,9 @@ Este artigo apresenta os conceitos básicos da proteção do banco de dados do S
 
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
-As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][].
+As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][], [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
 
-Conexões com o SQL Data Warehouse podem ser criptografadas, definindo o modo de criptografia na sua cadeia de conexão. A sintaxe para ativar a criptografia para a conexão varia de acordo com o protocolo. Para ajudá-lo a configurar sua cadeia de conexão, navegue até o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão do banco de dados*.
+Conexões com o SQL Data Warehouse podem ser criptografadas, definindo o modo de criptografia na sua cadeia de conexão. A sintaxe para ativar a criptografia para a conexão varia de acordo com o protocolo. Para ajudá-lo a configurar sua cadeia de conexão, navegue até o banco de dados no Portal do Azure. Em *Essentials*, clique em *Mostrar cadeias de conexão do banco de dados*.
 
 
 ## Autenticação
@@ -63,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obter mais informações sobre como fazer a autenticação em um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][]. Para obter mais detalhes sobre como usar a visualização do Azure AD para SQL Data Warehouse, consulte [Conectando o SQL Data Warehouse Usando a Autenticação do Azure Active Directory][].
+Para obter mais informações sobre como fazer a autenticação em um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][]. Para obter mais detalhes sobre como usar a visualização do Azure AD para SQL Data Warehouse, consulte [Conectando o SQL Data Warehouse usando a autenticação do Azure Active Directory][].
 
 
 ## Autorização
@@ -96,33 +96,35 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Você também pode habilitar a Transparent Data Encryption nas configurações do banco de dados no [portal do Azure][]. Para obter mais informações, consulte [Introdução à TDE (Transparent Data Encryption)][].
+Você também pode habilitar a Transparent Data Encryption nas configurações do banco de dados no [Portal do Azure][]. Para obter mais informações, consulte [Introdução ao TDE (Transparent Data Encryption)][].
 
 ## Auditoria
 
 A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a manter a conformidade normativa e a identificar atividades suspeitas. A Auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua conta de armazenamento do Azure. A Auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL][].
 
 ## Próximas etapas
-Para obter detalhes e exemplos sobre como conectar o SQL Data Warehouse com protocolos diferentes, consulte [Conectar o SQL Data Warehouse][].
+Para obter detalhes e exemplos sobre como conectar o SQL Data Warehouse com protocolos diferentes, consulte [Conectar-se ao SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Conectar o SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
+[Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-overview-auditing.md
-[Introdução à TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
-[Conectando o SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Introdução ao TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
+[Conectando o SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [Funções de banco de dados]: https://msdn.microsoft.com/library/ms189121.aspx
 [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissões]: https://msdn.microsoft.com/library/ms191291.aspx
 [Procedimentos armazenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: https://go.microsoft.com/fwlink/?LinkId=526242
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

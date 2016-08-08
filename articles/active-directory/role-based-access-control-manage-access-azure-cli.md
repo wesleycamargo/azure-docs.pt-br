@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/14/2016"
+	ms.date="07/22/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
@@ -39,6 +39,10 @@ Para relacionar todas as funções disponíveis, use:
 
 O exemplo a seguir mostra a relação de *todas as funções disponíveis*.
 
+```
+azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+```
+
 ![Linha de comando do Azure RBAC - lista de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ###	Relacionar ações de uma função
@@ -47,6 +51,12 @@ Para relacionar as ações de uma função, use:
     azure role show "<role name>"
 
 O exemplo a seguir mostra as ações do *Colaborador* e as funções do *Colaborador da máquina virtual*.
+
+```
+azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
+
+azure role show "virtual machine contributor" --json | jq '.[] | .properties.permissions[0].actions'
+```
 
 ![Linha de comando do Azure RBAC - exibição de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
@@ -57,6 +67,10 @@ Para listar as atribuições de função que existem em um grupo de recursos, us
     azure role assignment list --resource-group <resource group name>
 
 O exemplo a seguir mostra as atribuições de função no grupo *pharma-sales-projecforcast*.
+
+```
+azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![Linha de comando do Azure RBAC - lista de atribuição de funções do azure por grupo - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
@@ -70,6 +84,12 @@ Você também pode ver as atribuições da função herdadas dos grupos modifica
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
 O exemplo a seguir mostra as atribuições da função concedidas ao usuário *sameert@aaddemo.com*. Isso inclui funções atribuídas diretamente ao usuário, mas também funções herdadas de grupos.
+
+```
+azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+
+azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![Linha de comando do Azure RBAC - lista de atribuição de funções do azure por usuário - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -85,6 +105,7 @@ Para atribuir função ao grupo no escopo da assinatura, use:
 
 O exemplo a seguir atribui a função *Leitor* para a *equipe de Christine Koch* no escopo da *assinatura*.
 
+
 ![Linha de comando do Azure RBAC - criação de atribuição de funções do azure por grupo - captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ###	Atribuir função ao aplicativo no escopo da assinatura
@@ -99,7 +120,7 @@ O exemplo a seguir concede a função *Colaborador* para um aplicativo *Azure AD
 ###	Atribuir função ao usuário no escopo do grupo de recursos
 Para atribuir uma função ao usuário no escopo do grupo de recursos, use:
 
-	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
 O exemplo a seguir concede a função *Colaborador da Máquina Virtual* ao usuário *samert@aaddemo.com* no escopo do grupo de recursos *Pharma-Sales-ProjectForcast*.
 
@@ -160,9 +181,17 @@ Para listar as funções disponíveis para atribuição em um escopo, use o coma
 
 O exemplo a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
 
+```
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+```
+
 ![Linha de comando do Azure RBAC - lista de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
 No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* não está disponível na assinatura *Production4*, pois essa assinatura não está no **AssignableScopes** da função.
+
+```
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+```
 
 ![Linha de comando do Azure RBAC - lista de funções do azure para funções personalizadas - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
@@ -173,4 +202,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

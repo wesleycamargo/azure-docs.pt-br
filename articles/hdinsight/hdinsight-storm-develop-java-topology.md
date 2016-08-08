@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Desenvolver topologias baseadas em Java para um aplicativo básico de contagem de palavras com Apache Storm e Maven no HDInsight
@@ -23,7 +23,7 @@ Aprenda a um processo básico para criar uma topologia baseada em Java para o Ap
 
 Depois de concluir as etapas neste documento, você terá uma topologia básica que pode implantar para o Apache Storm no HDInsight.
 
-> [AZURE.NOTE]\: uma versão completa dessa topologia está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> [AZURE.NOTE] uma versão completa dessa topologia está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Pré-requisitos
 
@@ -80,7 +80,10 @@ Como essa é uma topologia Storm, você deverá adicionar uma dependência a com
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-	  <version>0.9.2-incubating</version>
+      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+           To find the version information for earlier HDInsight cluster
+           versions, see https://azure.microsoft.com/pt-BR/documentation/articles/hdinsight-component-versioning/ -->
+	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -96,9 +99,11 @@ Os plugins do Maven permitem que você personalize os estágios de compilação 
 	<build>
 	  <plugins>
 	  </plugins>
+      <resources>
+      </resources>
 	</build>
 
-Esta seção será usada para adicionar plug-ins e outras opções de configuração de compilação.
+Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação. Para obter uma referência completa do arquivo __pom.xml__, consulte [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ###Adicionar plug-ins
 
@@ -137,6 +142,20 @@ Adicione o seguinte à seção `<plugins>` do arquivo **pom.xml** para incluir o
         <target>1.7</target>
       </configuration>
     </plugin>
+
+###Configurar recursos
+
+A seção de recursos permite que você inclua recursos que não são código, por exemplo, arquivos de configuração necessários aos componentes na topologia. Para este exemplo, adicione o seguinte na seção `<resources>` do arquivo **pom.xml**.
+
+    <resource>
+        <directory>${basedir}/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>log4j2.xml</include>
+        </includes>
+    </resource>
+
+Isso adiciona o diretório de recursos na raiz do projeto (`${basedir}`) como um local que contém recursos e inclui o arquivo chamado __log4j2.xml__. Esse arquivo é usado para configurar quais informações são registradas pela topologia.
 
 ##Criar a topologia
 
@@ -319,8 +338,15 @@ Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretó
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
 
+    // For logging
+    import org.apache.logging.log4j.Logger;
+    import org.apache.logging.log4j.LogManager;
+
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
+      //Create logger for this class
+      private static final Logger logger = LogManager.getLogger(WordCount.class);
+      
       //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
 
@@ -338,6 +364,8 @@ Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretó
           counts.put(word, count);
           //Emit the word and the current count
           collector.emit(new Values(word, count));
+          //Log information
+          logger.info("Emitting a count of " + count + " for word " + word);
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
@@ -349,7 +377,7 @@ Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretó
 
 Reserve um tempo para ler os comentários do código para entender o funcionamento de cada bolt.
 
-###Criar a topologia
+###Definir a topologia
 
 A topologia vincula os spouts e bolts em um gráfico, que define como os dados fluem entre os componentes. Ele também fornece dicas de paralelismo que o Storm usará ao criar instâncias dos componentes de dentro do cluster.
 
@@ -391,7 +419,9 @@ Para implementar a topologia, crie um novo arquivo chamado **WordCountTopology.j
 
         //new configuration
         Config conf = new Config();
-        conf.setDebug(true);
+        //Set to false to disable debug information
+        // when running in production mode.
+        conf.setDebug(false);
 
         //If there are arguments, we are running on a cluster
         if (args != null && args.length > 0) {
@@ -419,6 +449,37 @@ Para implementar a topologia, crie um novo arquivo chamado **WordCountTopology.j
 
 Reserve um tempo para ler os comentários do código para entender como a topologia é definida e enviada para o cluster.
 
+###Configurar o registro em log
+
+O Storm usa o Apache Log4j para registrar informações em log. Se você não configurar o registro em log, a topologia emitirá muitas informações de diagnóstico, que podem ser difíceis de ler. Para controlar o que é registrado, crie um arquivo chamado __log4j2.xml__ no diretório __recursos__. Use o seguinte como o conteúdo do arquivo.
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
+    </Configuration>
+
+Isso configura um novo agente para a classe __com.microsoft.example__, que inclui os componentes nesta topologia de exemplo. O nível é definido como rastreamento para esse agente, que capturará informações de registro em log emitidas pelos componentes nesta topologia. Se você revisar o código deste projeto, observará que apenas o arquivo WordCount.java implementa o registro em log; ele registrará a contagem de cada palavra.
+
+A seção `<Root level="error">` configura o nível raiz do registro em log (tudo que não esteja em __com.microsoft.example__) para registrar apenas informações de erro.
+
+> [AZURE.IMPORTANT] Embora isso reduza consideravelmente as informações registradas ao testar uma topologia em seu ambiente de desenvolvimento, não remove todas as informações de depuração produzidas durante a execução em um cluster em produção. Para reduzir essas informações, você também deve definir a depuração como falso na configuração enviada ao cluster. Consulte o código WordCountTopology.java neste documento para obter um exemplo.
+
+Para saber mais sobre como configurar o registro em log para Log4j, confira [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+
+> [AZURE.NOTE] O Storm, versão 0.10.0, usa Log4j 2.x. Versões mais antigas do storm usavam Log4j 1.x, que usava um formato diferente para a configuração de log. Para saber mais sobre a configuração mais antiga, confira [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+
 ##Testar a topologia localmente
 
 Depois de salvar os arquivos, use o comando a seguir para testar a topologia localmente.
@@ -427,29 +488,23 @@ Depois de salvar os arquivos, use o comando a seguir para testar a topologia loc
 
 À medida que é executada, a topologia exibirá informações de inicialização. Em seguida, ela começa a exibir linhas semelhantes às opções a seguir à medida que frases são emitidas do spout e processadas pelos bolts.
 
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
-    15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
-    15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
-    15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-Como você pode ver nessa saída, ocorreu o seguinte:
-
-1. O spout emite "uma maçã por dia mantém os médicos longe".
-
-2. O bolt de divisão começa a emitir palavras individuais da frase.
-
-3. O bolt de contagem começa a emitir cada palavra e quantas vezes ela foi emitida.
-
-Ao examinar os dados emitidos pelo bolt de contagem, podemos ver que ‘maçã’ foi emitida 53 vezes. A contagem continuará a crescer durante a execução da topologia porque as mesmas frases são aleatoriamente emitidas de forma contínua e a contagem nunca é reiniciada.
+Ao examinar o registro em log emitido pelo bot WordCount, é possível ver que ‘maçã’ foi emitida 53 vezes. A contagem continuará a crescer durante a execução da topologia porque as mesmas frases são aleatoriamente emitidas de forma contínua e a contagem nunca é reiniciada.
 
 ##Trident
 
@@ -471,4 +526,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -35,7 +35,7 @@ Recursos adicionais incluem:
 - Ao criar um mapa, você pode exibir uma representação gráfica do mapa, incluindo ver todas as relações e os links que você criar.
 - Use o recurso **Testar Mapa** para adicionar uma mensagem XML de exemplo. Com um simples clique, você pode testar o mapa que você criou e ver a saída gerada.
 - Carregue os mapas de Serviço BizTalk do Azure existentes (.trfm) e use todos os benefícios do Aplicativo de API de Transformação.
-- Ao criar o mapa, você não precisa adicionar um esquema. Quando o mapa estiver pronto, adicione-o ao aplicativo de API de transformação e você estará pronto para começar. 
+- Ao criar o mapa, você não precisa adicionar um esquema. Quando o mapa estiver pronto, adicione-o ao aplicativo de API de transformação e você estará pronto para começar.
 - Inclui suporte para o formato XML.
 
 
@@ -117,4 +117,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

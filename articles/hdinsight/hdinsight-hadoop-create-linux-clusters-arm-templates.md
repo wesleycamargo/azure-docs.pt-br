@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM
@@ -313,4 +313,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
     }
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

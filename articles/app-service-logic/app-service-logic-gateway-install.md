@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -221,4 +221,4 @@ O [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta gratuita da Teleri
 - [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 - [Conectores de Aplicativos Lógicos](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

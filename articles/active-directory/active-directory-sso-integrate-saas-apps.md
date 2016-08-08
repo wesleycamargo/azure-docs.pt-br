@@ -5,7 +5,7 @@
 	  keywords="integrar o AD do Azure a aplicativos SaaS"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Integrar o logon único do Azure AD com aplicativos de SaaS  
@@ -31,7 +31,7 @@ Para aplicativos que dão suporte apenas ao logon baseado em formulários HTML, 
 
 ## Autorização
 
-Uma conta provisionada permite que um usuário autorizado use um aplicativo após ser autenticado por meio de logon único. O provisionamento do usuário pode ser feito manualmente ou, em alguns casos, você pode adicionar e remover informações do usuário do aplicativo de SaaS com base nas alterações feitas no Active Directory do Azure. Para saber mais sobre o uso de conectores existentes do Azure AD para provisionamento automatizado, consulte [Provisionamento e desprovisionamento do usuário automatizados para aplicativos de SaaS](active-directory-saas-app-provisioning.md)
+Uma conta provisionada permite que um usuário autorizado use um aplicativo após ser autenticado por meio de logon único. O provisionamento do usuário pode ser feito manualmente ou, em alguns casos, você pode adicionar e remover informações do usuário do aplicativo de SaaS com base nas alterações feitas no Active Directory do Azure. Para saber mais sobre o uso de conectores existentes do Azure AD para provisionamento automatizado, consulte [Provisionamento e desprovisionamento do usuário automatizados para aplicativos de SaaS](active-directory-saas-app-provisioning.md).
 
 Caso contrário, você pode adicionar manualmente informações do usuário a um aplicativo ou usar outras soluções de provisionamento que estão disponíveis no marketplace.
 
@@ -72,4 +72,4 @@ Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, c
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

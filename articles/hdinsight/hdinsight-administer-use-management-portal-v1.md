@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure
@@ -102,9 +102,7 @@ As credenciais do cluster que você forneceu em sua criação concedem acesso ao
 
 > [AZURE.NOTE] Você também pode usar o SDK do .NET HDInsight para habilitar a área de trabalho remota em um cluster. Use o **EnableRdp** método no objeto de cliente HDInsight da seguinte maneira: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desabilitar a área de trabalho remota no cluster, você pode usar **client.DisableRdp(clustername, location)**. Para obter mais informações sobre esses métodos, consulte [Referência do SDK do .NET HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isso é aplicável apenas a clusters do HDInsight em execução no Windows.
 
-
-
-> [AZURE.NOTE] Depois que o RDP for habilitado para um cluster, você deverá atualizar a página antes de conectar-se ao cluster.
+> Depois que o RDP for habilitado para um cluster, você deverá atualizar a página antes de conectar-se ao cluster.
 
 **Para conectar-se ao cluster usando o RDP**
 
@@ -201,4 +199,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Cl�
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

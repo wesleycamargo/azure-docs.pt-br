@@ -13,10 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/26/2016"
+	ms.date="07/22/2016"
 	ms.author="jroth"/>
-
-
 
 # Usar o armazenamento do Azure para o backup e restauração do SQL Server
 
@@ -33,9 +31,9 @@ Este tópico explica por que você pode optar por usar o Armazenamento do Azure 
 Há vários desafios que enfrentamos ao fazer o backup do SQL Server. Eles incluem gerenciamento de armazenamento, risco de falha de armazenamento, acesso a armazenamento externo e configuração de hardware. Muitos desses desafios são resolvidos ao usar o serviço de armazenamento de Blobs do Azure para backups do SQL Server. Considere as vantagens a seguir:
 
 - **Fácil utilização**: armazenar seus backups no serviço Blobs do Azure pode ser uma opção conveniente, flexível e de fácil acesso externo. Criar armazenamento externo para os backups do SQL Server pode ser tão fácil quanto modificar seus scripts/trabalhos existentes para usar a sintaxe **BACKUP TO URL**. Armazenamento externo deve ser tipicamente longe o suficiente da localização do banco de dados de produção para evitar um desastre único que pode afetar os dois locais de banco de dados externo e produção. Ao optar por fazer a [replicação geográfica de seus blobs do Azure](../storage/storage-redundancy.md), você tem uma camada extra de proteção em caso de um desastre que poderia afetar a região inteira.
-- **Arquivo de backup**: o serviço de armazenamento de Blobs do Azure oferece uma alternativa melhor que a opção de fita usadas com frequência para arquivar backups. Armazenamento em fita pode exigir transporte físico para um recurso externo e medidas para proteger a mídia. Armazenar os backups em armazenamento de BLOBs do Azure fornece um instante e altamente disponível, e a opção de arquivamento de um duráveis. 
+- **Arquivo de backup**: o serviço de armazenamento de Blobs do Azure oferece uma alternativa melhor que a opção de fita usadas com frequência para arquivar backups. Armazenamento em fita pode exigir transporte físico para um recurso externo e medidas para proteger a mídia. Armazenar os backups em armazenamento de BLOBs do Azure fornece um instante e altamente disponível, e a opção de arquivamento de um duráveis.
 - **Hardware gerenciado**: não há nenhuma sobrecarga de gerenciamento de hardware com os serviços do Azure. Serviços Azure gerenciar o hardware e fornecem replicação geográfica para redundância e proteção contra falhas de hardware.
-- **Armazenamento ilimitado**: ao habilitar o backup direto para blobs do Azure, você terá acesso a um armazenamento praticamente ilimitado. Como alternativa, o backup em um disco de máquina virtual do Azure tem limites com base no tamanho da máquina. Há um limite para o número de discos que você pode anexar a uma máquina virtual do Azure para backups. Esse limite é de 16 discos para uma instância extra grande e menos para instâncias menores. 
+- **Armazenamento ilimitado**: ao habilitar o backup direto para blobs do Azure, você terá acesso a um armazenamento praticamente ilimitado. Como alternativa, o backup em um disco de máquina virtual do Azure tem limites com base no tamanho da máquina. Há um limite para o número de discos que você pode anexar a uma máquina virtual do Azure para backups. Esse limite é de 16 discos para uma instância extra grande e menos para instâncias menores.
 - **Disponibilidade de backup**: os backups armazenados nos blobs do Azure estão disponíveis em qualquer lugar e a qualquer momento e podem ser acessados facilmente para restaurações em um SQL Server local ou em outro SQL Server em execução em uma Máquina Virtual do Azure, sem a necessidade de desanexar/anexar o banco de dados ou baixar e anexar o VHD.
 - **Custo**: pague somente pelo serviço usado. Pode ser econômico como uma opção de arquivamento externo e backup. Consulte a [calculadora de preços do Azure](http://go.microsoft.com/fwlink/?LinkId=277060 "Calculadora de preços") e o [artigo sobre preços do Azure](http://go.microsoft.com/fwlink/?LinkId=277059 "Artigo de preços") para obter mais informações.
 - **Instantâneos de armazenamento**: quando arquivos de banco de dados são armazenados em um blob do Azure e você está usando o SQL Server 2016, você pode usar o [backup de arquivo de instantâneo](http://msdn.microsoft.com/library/mt169363.aspx) para fazer backups quase instantâneos e restaurações incrivelmente rápidas.
@@ -52,7 +50,7 @@ Os seguintes componentes do Azure são usados durante o backup para o serviço d
 |---------------------|-------------------------------|
 | **Conta de armazenamento** | A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para acessar um serviço de armazenamento de BLOBs do Azure, primeiro crie uma conta de armazenamento do Azure. Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar o serviço de armazenamento de blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contêiner** | Um contêiner fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de blobs. Para escrever um SQL Server backup para um serviço Blob do Azure, você deve ter pelo menos o contêiner raiz criado. |
-| **Blob** | Um arquivo de qualquer tipo e tamanho. Blobs são endereçáveis usando o seguinte formato de URL: **conta https://[storage].blob.core.windows.net/[contêiner]/[blob]**. Para obter mais informações sobre blobs de páginas, consulte [Noções gerais sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). |
+| **Blob** | Um arquivo de qualquer tipo e tamanho. Blobs são endereçáveis usando o seguinte formato de URL: ** conta https://[storage].blob.core.windows.net/[contêiner]/[blob]**. Para obter mais informações sobre blobs de páginas, consulte [Noções gerais sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). |
 
 ## Componentes do SQL Server
 
@@ -80,4 +78,4 @@ Se você tiver problemas, examine o tópico [Backup do SQL Server para práticas
 
 Para ver outras opções de backup e restauração do SQL Server, consulte [Backup e Restauração do SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

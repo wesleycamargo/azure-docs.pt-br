@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -66,13 +66,13 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 |Recomendações|Descrição|
 |-----|-----|
 |[Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md)|Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas.|
-|[Corrigir as vulnerabilidades do sistema operacional](security-center-resolve-mismatch-baseline-rules.md)|Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas.|
+|[Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)|Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas.|
 |[Aplicar atualizações do sistema](security-center-apply-system-updates.md)|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs.|
 |[Reinicializar após as atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates)|Recomenda que você reinicialize uma VM para concluir o processo de aplicação de atualizações de sistema.|
 |[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica).|
 |[Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection)|Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, serão concluídas as alterações de configuração necessárias.|
 |[Adicionar um Firewall de Última Geração](security-center-add-next-generation-firewall.md)|Recomenda que você adicione um Firewall de Última Geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança.|
-|[Rotear o tráfego apenas através do NGFW](security-center-route-traffic-through-ngfw-only.md)|Recomenda que você configure regras para o grupo de segurança de rede (NSG) que forcem o tráfego de entrada em sua VM a passar pelo NGFW.|
+|[Rotear o tráfego apenas através do NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recomenda que você configure regras para o grupo de segurança de rede (NSG) que forcem o tráfego de entrada em sua VM a passar pelo NGFW.|
 |[Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)|Recomenda que você provisione programas antimalware para máquinas virtuais (somente VMs do Windows).|
 |[Resolver alertas de integridade do Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)|Recomenda que você resolva falhas do Endpoint Protection.|
 |[Habilitar Grupos de Segurança de Rede em sub-redes ou máquinas virtuais](security-center-enable-network-security-groups.md)|Recomenda que você habilite NSGs em sub-redes ou VMs.|
@@ -115,4 +115,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

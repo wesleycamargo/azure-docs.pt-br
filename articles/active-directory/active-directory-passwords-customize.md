@@ -37,7 +37,7 @@ Para dar aos usuários a melhor experiência possível, recomendamos que você e
 | Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? | [Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Como habilitar notificações de redefinição de senha para os usuários? | [Configuração: notificar os usuários quando suas senhas forem redefinidas](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Como habilitar notificações de redefinição de senha para administradores? | [Configuração: notificar outros administradores quando um administrador redefinir suas senhas](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](#password-managment-look-and-feel) |
+| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](#password-management-look-and-feel) |
 
 
 ## Aparência do gerenciamento de senha
@@ -875,4 +875,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

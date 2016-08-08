@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ Em todos os cenários deste tópico, as seguintes tarefas são necessárias:
 
 - Acesso a autoridades de certificação para emitir certificados de cliente.
 
-- As autoridades de certificação devem ser configuradas no Azure Active Directory. Você pode encontrar etapas detalhadas sobre como concluir a configuração na seção Introdução.
+- As autoridades de certificação devem ser configuradas no Azure Active Directory. Você pode encontrar etapas detalhadas sobre como concluir a configuração na seção [Introdução](#getting-started).
 
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.
 
@@ -61,17 +61,19 @@ Em todos os cenários deste tópico, as seguintes tarefas são necessárias:
 
 | Aplicativos | Suporte |
 | ---                       | ---          |
-| OneDrive | Sim |
-| Outlook | Sim |
-| Word/Excel/PowerPoint | Sim |
-| Skype for Business | Sim |
+| Word/Excel/PowerPoint | ![Verificação][1] |
+| OneNote | Em breve |
+| OneDrive | ![Verificação][1] |
+| Outlook | ![Verificação][1] |
+| Yammer | ![Verificação][1] |
+| Skype for Business | ![Verificação][1] |
 
 
 ### Requisitos  
 
-A versão do sistema operacional do dispositivo deve ser Android 5.0 (Lollipop) e superior
+A versão do sistema operacional do dispositivo deve ser Android 5.0 (Lollipop) e superior.
 
-Um servidor de federação deve ser configurado para executar CBA nos aplicativos móveis do Office.
+Um servidor de federação deve ser configurado.
 
 
 Para que o Azure Active Directory revogue um certificado do cliente, o token ADFS deve ter as seguintes declarações:
@@ -140,7 +142,7 @@ Para carregar as informações, você pode usar o módulo do Azure AD por meio d
 
 2. Instale o módulo do Azure AD. Você precisa instalar a versão [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) ou superior.
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Conecte-se ao locatário de destino:
 
@@ -267,4 +269,8 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
+
+<!---HONumber=AcomDC_0727_2016-->

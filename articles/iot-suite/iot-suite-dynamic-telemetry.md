@@ -236,10 +236,9 @@ Para que um fluxo de dados seja exibido no gráfico, seu **Tipo** nos metadados 
 
 ## Próximas etapas
 
-Agora que você criou uma solução de trabalho pré-configurada, é possível passar para as instruções a seguir:
+Agora que você já viu como usar a telemetria dinâmica, saiba mais sobre como as soluções pré-configuradas usam das informações do dispositivo: [Metadados de informações de dispositivo na solução pré-configurada de monitoramento remoto][lnk-devinfo].
 
--   [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize]
--   [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive]
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
@@ -248,10 +247,8 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

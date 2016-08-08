@@ -112,7 +112,7 @@ Salve a ID da assinatura, que será usada mais tarde.
 					var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
 		
 		            // The Pig Latin statements to run
-		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+		            string queryString = "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
 		                "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
 		                "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
@@ -162,4 +162,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

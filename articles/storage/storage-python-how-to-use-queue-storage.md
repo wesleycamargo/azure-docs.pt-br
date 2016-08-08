@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Como usar o Armazenamento de fila do Python
 
-[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
 
 [AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -105,6 +105,7 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga e
 - [SDK do Armazenamento do Microsoft Azure para Python]
 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

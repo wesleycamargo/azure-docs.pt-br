@@ -29,13 +29,13 @@ Quando os armazenamentos de dados de origem e coletores (destino) residem na nuv
 2.	Executa a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo baseado nas configurações de conjuntos de dados de entrada e de saída e na atividade de cópia.
 3.	Grava dados no armazenamento de dados de destino
 
-![cópia de nuvem para nuvem](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
+![cópia de nuvem para nuvem](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
 
 ## Copiar dados entre um armazenamento de dados local e um armazenamento de dados em nuvem
 Para mover com segurança dados entre armazenamentos de dados locais dentro do seu firewall corporativo armazenamento de dados de nuvem, você precisará instalar o gateway de gerenciamento de dados, que é um agente que permite a movimentação e o processamento de dados híbridos em seu computador local. O gateway de gerenciamento de dados pode ser instalado no mesmo computador do próprio armazenamento de dados ou em computador separado que tenha acesso ao armazenamento de dados.. Neste cenário, a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo são executadas pelo gateway de gerenciamento de dados. Os dados não fluem pelo serviço Azure Data Factory nesse caso. O gateway de gerenciamento de dados grava diretamente os dados no repositório de destino.
 
-![cópia local para nuvem](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+![cópia local para nuvem](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
 Consulte o artigo [Mover dados entre armazenamentos de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter uma introdução e um passo a passo, e o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) artigo para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados.
 
@@ -47,10 +47,7 @@ A atividade de cópia copia os dados de um armazenamento de dados de **origem** 
 
 | Fontes| Coletores |
 |:------- | :---- |
-| <ul><li>[Blob do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure (veja observação abaixo)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Fontes OData](data-factory-odata-connector.md)</li><li>[Tabela da Web (tabela de HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian local/IaaS do Azure](data-factory-odbc-connector.md#ge-historian-store)</li><li>[Salesforce](data-factory-salesforce-connector.md)</li><li>[SQL Server Local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de Arquivos Local/IaaS do Azure](data-factory-onprem-file-system-connector.md)</li><li>[Banco de Dados Oracle local/IaaS do Azure](data-factory-onprem-oracle-connector.md)</li><li>[Banco de Dados MySQL Local/IaaS do Azure ](data-factory-onprem-mysql-connector.md)</li><li>[Banco de Dados DB2 Local/IaaS do Azure](data-factory-onprem-db2-connector.md)</li><li>[Banco de Dados Teradata Local/IaaS do Azure ](data-factory-onprem-teradata-connector.md)</li><li>[Banco de Dados Sybase Local/IaaS do Azure](data-factory-onprem-sybase-connector.md)</li><li>[Banco de Dados PostgreSQL Local/IaaS do Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Fones de dados ODB locais/IaaS do Azure](data-factory-odbc-connector.md)</li><li>[HDFS (Sistema de Arquivos Distribuídos Hadoop) Local/IaaS do Azure](data-factory-hdfs-connector.md)</li><li>[Banco de Dados Cassandra Local/IaaS do Azure](data-factory-onprem-cassandra-connector.md)</li></ul> | <ul><li>[Blob do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure (confira a observação abaixo)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server Local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de Arquivos Local/IaaS do Azure](data-factory-onprem-file-system-connector.md)</li><li>[Banco de Dados Oracle Local/IaaS do Azure](data-factory-onprem-oracle-connector.md)</li></ul> |
-
-
-> [AZURE.NOTE] Não há suporte para a cópia de dados de/para um Banco de Dados de Documentos do Azure de/para armazenamentos de dados locais/de IaaS do Azure no momento. A matriz completa do Banco de Dados de Documentos do Azure estará habilitada em breve.
+| <ul><li>[Blobs do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[Fontes OData](data-factory-odata-connector.md)</li><li>[Tabela da Web (tabela de HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian local/IaaS do Azure](data-factory-odbc-connector.md#ge-historian-store)</li><li>[Salesforce](data-factory-salesforce-connector.md)</li><li>[SQL Server Local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de Arquivos Local/IaaS do Azure](data-factory-onprem-file-system-connector.md)</li><li>[Banco de Dados Oracle local/IaaS do Azure](data-factory-onprem-oracle-connector.md)</li><li>[Banco de Dados MySQL Local/IaaS do Azure ](data-factory-onprem-mysql-connector.md)</li><li>[Banco de Dados DB2 Local/IaaS do Azure](data-factory-onprem-db2-connector.md)</li><li>[Banco de Dados Teradata Local/IaaS do Azure ](data-factory-onprem-teradata-connector.md)</li><li>[Banco de Dados Sybase Local/IaaS do Azure](data-factory-onprem-sybase-connector.md)</li><li>[Banco de Dados PostgreSQL Local/IaaS do Azure](data-factory-onprem-postgresql-connector.md)</li><li>[Fontes de dados ODBC locais/IaaS do Azure](data-factory-odbc-connector.md)</li><li>[HDFS (Sistema de Arquivos Distribuídos Hadoop) Local/IaaS do Azure](data-factory-hdfs-connector.md)</li><li>[Banco de Dados Cassandra Local/IaaS do Azure](data-factory-onprem-cassandra-connector.md)</li></ul> | <ul><li>[Blobs do Azure](data-factory-azure-blob-connector.md)</li><li>[Tabela do Azure](data-factory-azure-table-connector.md)</li><li>[Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)</li><li>[SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Banco de Dados de Documentos do Azure](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server Local/IaaS do Azure](data-factory-sqlserver-connector.md)</li><li>[Sistema de Arquivos Local/IaaS do Azure](data-factory-onprem-file-system-connector.md)</li><li>[Banco de Dados Oracle Local/IaaS do Azure](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 Se precisar mover dados para dentro e fora de um repositório de dados que não seja compatível com a **Atividade de Cópia**, você poderá usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Confira o artigo [Usar atividades personalizadas em um pipeline do Azure Data Factory](data-factory-use-custom-activities.md) para obter detalhes sobre como criar e usar uma atividade personalizada.
 
@@ -90,7 +87,7 @@ Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A at
 Você pode encontrar o mapeamento para um determinado sistema de tipo nativo para o .NET para o armazenamento de dados nos respectivos artigos de conector de armazenamento de dados. Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar tabelas para que as conversões certas sejam executadas durante a atividade de cópia.
 
 ### Trabalhando com diferentes formatos de arquivo
-A Atividade de Cópia dá suporte a vários formatos de arquivo, incluindo os formatos binário, texto, Avro, ORC e JSON para repositórios baseados em arquivo. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
+A Atividade de Cópia permite vários formatos de arquivo, incluindo: binário (imagens, documentos, música etc.), texto, Avro, ORC e JSON para repositórios baseados em arquivo. No entanto, ela pode ler apenas conteúdo interno de arquivos estruturados em Texto, Avro, ORC, arquivos JSON. Você pode usar a atividade de cópia para converter dados de um formato para outro. Exemplo: texto (CSV) para Avro. Se os dados não estiverem estruturados, você pode omitir a propriedade **Structure** da definição de JSON do [conjunto de dados](data-factory-create-datasets.md).
 
 ### Propriedades da atividade de cópia
 Propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade.
@@ -134,9 +131,9 @@ O **Assistente de Cópia do Data Factory** permite que você crie um pipeline pa
 #### Um assistente intuitivo e simples para copiar dados 
 Este assistente permite mover dados facilmente de uma origem para um destino em minutos com estas etapas simples:
 
-1.	Selecionar a **origem**
-2.	Selecionar o **destino**
-3.	Definir as **configurações**
+1.	Selecione a **origem**
+2.	Selecione o **destino**
+3.	Defina as **configurações**
 
 ![Selecione uma fonte de dados](./media/data-factory-data-movement-activities/select-data-source-page.png)
 
@@ -185,7 +182,7 @@ Você também pode usar uma variável **personalizada**, conforme mostrado abaix
 
 ## Próximas etapas
 - Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um repositório de dados de origem para um repositório de dados de coletor em geral.
-- Consulte [Mover dados entre repositórios de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre como mover dados de um repositório de dados local para um repositório de dados na nuvem.
+- Confira [Mover dados entre repositórios de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre como mover dados de um repositório de dados local para um repositório de dados na nuvem.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

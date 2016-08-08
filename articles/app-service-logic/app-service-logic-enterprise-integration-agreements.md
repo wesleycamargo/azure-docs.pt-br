@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -65,4 +65,4 @@ Você pode excluir qualquer contrato seguindo estas etapas de dentro da conta de
 ## Próximas etapas
 - [Criar um contrato AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

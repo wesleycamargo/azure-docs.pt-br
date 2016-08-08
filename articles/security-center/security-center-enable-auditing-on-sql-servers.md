@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitar a auditoria em servidores SQL na Central de Segurança do Azure
@@ -24,7 +24,7 @@ Depois de ativar a auditoria, você poderá definir as configurações de Detec�
 
 Essa recomendação se aplica apenas ao serviço do SQL do Azure. Ela não inclui o servidor SQL em execução nas máquinas virtuais nos Serviços de Infraestrutura do Azure (Azure IaaS).
 
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
 ## Implementar a recomendação
 
@@ -37,7 +37,7 @@ Essa recomendação se aplica apenas ao serviço do SQL do Azure. Ela não inclu
 
 5. Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
 
-## Próximas etapas
+## Consulte também
 
 Este artigo mostrou como implementar a recomendação "Habilitar auditoria em servidores SQL" da Central de Segurança. Para saber mais sobre como proteger seu banco de dados SQL, veja:
 
@@ -58,4 +58,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

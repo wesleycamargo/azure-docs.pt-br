@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Guia de início rápido da Central de Segurança do Azure
 
 Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas.
 
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
 ## Coleta de dados
 
@@ -110,4 +110,4 @@ Neste documento, você foi apresentado para o monitoramento de segurança e para
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

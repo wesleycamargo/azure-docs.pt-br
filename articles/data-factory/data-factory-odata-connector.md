@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados De uma origem de OData usando o Azure Data Factory
@@ -122,7 +122,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -130,7 +130,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -138,7 +138,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -290,4 +290,4 @@ Ao mover dados de repositórios de dados OData, os tipos de dados OData são map
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

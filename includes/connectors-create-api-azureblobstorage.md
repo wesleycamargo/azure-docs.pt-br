@@ -1,27 +1,33 @@
 ### Pré-requisitos
-
 - Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-- Uma [conta de Armazenamento de Blobs do Azure](../articles/storage/storage-create-storage-account.md), incluindo o nome da conta de armazenamento e sua chave de acesso. Essa informação é listada nas propriedades da conta de armazenamento no Portal do Azure.
+- Uma [conta de Armazenamento de Blobs do Azure](../articles/storage/storage-create-storage-account.md), incluindo o nome da conta de armazenamento e sua chave de acesso. Essa informação é listada nas propriedades da conta de armazenamento no Portal do Azure. Saiba mais sobre o [Armazenamento do Azure](../articles/storage/storage-introduction.md).
 
-Saiba mais sobre o [Armazenamento do Azure](../articles/storage/storage-introduction.md).
+Antes de usar sua conta do Armazenamento de Blobs do Azure em um aplicativo lógico, conecte-se à sua conta do Armazenamento de Blobs do Azure. Você pode fazer isso de forma fácil usando seu aplicativo lógico no portal do Azure.
 
-<!--Archived
-Before you use your Azure Blob Storage account in a logic app, authorize the logic app to connect to your Azure Blob Storage account. Fortunately, you can do this easily from within your logic app on the Azure  portal.  
+Conecte-se à sua conta do Armazenamento de Blobs do Azure seguindo essas etapas:
 
-Here are the steps to authorize your logic app to connect to your Azure Blob Storage account:  
+1. Crie um aplicativo lógico. No designer de Aplicativos Lógicos, adicione um gatilho e, em seguida, uma ação. Selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e digite “blob” na caixa de pesquisa. Selecione uma das ações:
 
-1. To create a connection to Azure Blob Storage, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Azure Blob Storage* in the search box. Select the trigger or action you'll like to use:  
+	![Etapa de criação da conexão com o Armazenamento de Blobs do Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+2. Se ainda não tiver criado conexões com o Armazenamento do Azure, você deverá fornecer os detalhes de conexão:
 
-2. If you haven't created any connections to Azure Blob Storage before, you'll get prompted to provide your Azure Blob Storage credentials. These credentials will be used to authorize your Logic app to connect to, and access your Azure Blob Storage account's data:  
+	![Etapa de criação da conexão com o Armazenamento de Blobs do Azure](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-2.png)  
+3. Insira os detalhes da conta de armazenamento. As propriedades com um asterisco são obrigatórias.
 
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+	| Propriedade | Detalhes |
+|---|---|
+| Nome da Conexão * | Digite um nome para a conexão. |
+| Nome da Conta de Armazenamento do Azure * | Digite o nome da conta de armazenamento. O nome da conta de armazenamento é exibido nas propriedades de armazenamento no portal do Azure. |
+| Chave de Acesso da Conta de Armazenamento do Azure * | Insira a chave da conta de armazenamento. As chaves de acesso são exibidas nas propriedades de armazenamento no portal do Azure. |
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+	Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar seus dados.
 
--->
+4. Selecione **Criar**.
 
-<!---HONumber=AcomDC_0720_2016-->
+5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico:
+
+	![Etapa de criação da conexão com o Armazenamento de Blobs do Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,7 +1,7 @@
-Este artigo serve para Serviço de Aplicativo (aplicativos Web, aplicativos de API, aplicativos móveis, aplicativos lógicos); para Serviços de Nuvem, consulte <a href="/develop/net/common-tasks/custom-dns/">Configurando um nome de domínio personalizado no Azure</a>.
+Este artigo serve para Serviço de Aplicativo do Azure (aplicativos Web, Aplicativos de API, Aplicativos Móveis, Aplicativos Lógicos); para Serviços de Nuvem, consulte [Configurando um nome de domínio personalizado no serviço de nuvem do Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
-> [AZURE.NOTE]**Para obter instruções sobre como utilizar o Gerenciador de Tráfego para balancear carga de tráfego para um aplicativo Web**, use o seletor na parte superior deste artigo para selecionar as etapas específicas do Gerenciador de Tráfego.
+> [AZURE.NOTE]  Se seu aplicativo tiver balanceamento de carga do [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), clique no seletor na parte superior desse artigo para obter etapas específicas.
 >
-> **Nomes de domínio personalizado não podem ser usados com o aplicativo Web gratuito**. É preciso que você configure seu aplicativo Web para o modo **Compartilhado**, **Básico** ou **Padrão**, o que pode alterar o quanto você é cobrado por sua assinatura. Consulte <a href=/pricing/details/web-sites/">Detalhes de preços de aplicativos Web</a> para obter mais informações.
+> **Nomes de domínio personalizados não são habilitados para a camada Gratuita**. Você deve [escalar verticalmente para um tipo de preço mais alto](../articles/app-service-web/web-sites-scale.md), que pode alterar o quanto você será cobrado por sua assinatura. Consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) para obter mais informações.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0727_2016-->

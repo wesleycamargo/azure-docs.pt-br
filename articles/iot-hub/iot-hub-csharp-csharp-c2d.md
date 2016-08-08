@@ -45,7 +45,7 @@ Para concluir esse tutorial, você precisará do seguinte:
 
 + Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure][lnk-free-trial].)
 
-## Recebendo mensagens no dispositivo simulado
+## Receber mensagens no dispositivo simulado
 
 Nesta seção, você modificará o aplicativo do dispositivo simulado criado na [Introdução ao Hub IoT] para receber mensagens da nuvem para o dispositivo do Hub IoT.
 
@@ -79,7 +79,7 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
 
 > [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Tratamento de Falhas Transitórias] do MSDN.
 
-## Enviar uma mensagem da nuvem para o dispositivo do back-end do aplicativo
+## Envie uma mensagem da nuvem para o dispositivo
 
 Nesta seção, você escreverá um aplicativo do console do Windows que envia mensagens da nuvem para o dispositivo ao aplicativo do dispositivo simulado.
 
@@ -198,4 +198,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

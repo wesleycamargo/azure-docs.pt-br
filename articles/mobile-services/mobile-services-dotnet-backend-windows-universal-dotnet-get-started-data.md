@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -114,11 +114,11 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [Introdução à autenticação]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introdução às notificações por push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Começar a usar a sincronização de dados offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[site de exemplos de código do desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

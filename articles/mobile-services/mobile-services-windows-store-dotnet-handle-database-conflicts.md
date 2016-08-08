@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Tratando conflitos de gravação do banco de dados
@@ -369,4 +369,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

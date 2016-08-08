@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -37,7 +37,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |Os volumes iSCSI do StorSimple são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e dos recursos ODX serão permitidos se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes dinâmica ou totalmente provisionados. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>execute o comando a seguir antes de reformatar para evitar atrasos de reclamação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>depois da conclusão da formatação, use o seguinte comando para reativar a reclamação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270) em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components).|
 | VMWare ESX | 5\.5 e 6.0 | Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple.
-| Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
+| Linux RHEL/CentOS | 5, 6 e 7 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5, 6 e 7. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
 
@@ -127,12 +127,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:
@@ -280,4 +275,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

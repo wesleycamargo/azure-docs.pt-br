@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+   ms.workload="NA"
+    ms.date="07/14/2016"
     ms.author="sstein"/>
 
 # Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o PowerShell
@@ -146,6 +146,6 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 ## Próximas etapas
 
 - Para saber mais sobre a Replicação Geográfica Ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, veja [Cenários de continuidade](sql-database-business-continuity-scenarios.md)
+- Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

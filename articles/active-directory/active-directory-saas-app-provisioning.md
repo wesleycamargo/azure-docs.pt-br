@@ -20,7 +20,7 @@
 
 ##O que é o provisionamento automatizado de usuário para aplicativos SaaS?
 
-O Azure Active Directory (Azure AD) permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforcde, ServiceNow e muito mais.
+O Azure AD (Azure Active Directory) permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow e muito mais.
 
 **Abaixo estão alguns exemplos do que esse recurso permite que você faça:**
 
@@ -116,4 +116,4 @@ Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o supo
 - [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

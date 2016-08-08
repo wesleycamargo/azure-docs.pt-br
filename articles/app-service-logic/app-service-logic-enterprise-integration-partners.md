@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@ Execute estas etapas para editar um parceiro que já existe em sua conta de inte
 ## Próximas etapas
 - [Saiba mais sobre contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

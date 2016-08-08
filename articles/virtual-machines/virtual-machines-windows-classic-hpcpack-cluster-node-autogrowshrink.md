@@ -1,5 +1,5 @@
 <properties
- pageTitle="Escalar automaticamente os recursos de computação no cluster HPC | Microsoft Azure"
+ pageTitle="Dimensionar automaticamente nós de cluster do HPC Pack | Microsoft Azure"
  description="Aumentar e reduzir automaticamente o número de nós de computação de cluster do HPC Pack no Azure"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Aumentar e reduzir automaticamente os recursos de cluster do HPC Pack no Azure conforme a carga de trabalho de cluster
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-Se você implantar nós de “disparo contínuo” no seu cluster do HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá ser conveniente encontrar uma maneira de aumentar ou reduzir automaticamente o número de recursos de computação do Azure como os núcleos de acordo com a atual carga de trabalho atual no cluster. Isso permite usar os recursos do Azure com mais eficiência e controlar seus custos. Para fazer isso, configure a propriedade de cluster de HPC Pack **AutoGrowShrink**. Ou então, use o script **AzureAutoGrowShrink.ps1** do script HPC PowerShell que é instalado com o HPC Pack.
+Se você implantar nós de “disparo contínuo” no seu cluster do HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá ser conveniente encontrar uma maneira de aumentar ou reduzir automaticamente o número de recursos de computação do Azure como nós ou núcleos, de acordo com a atual carga de trabalho atual no cluster. Isso permite usar os recursos do Azure com mais eficiência e controlar seus custos. Para fazer isso, configure a propriedade de cluster de HPC Pack **AutoGrowShrink**. Ou então, use o script **AzureAutoGrowShrink.ps1** do script HPC PowerShell que é instalado com o HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Além disso, no momento somente é possível aumentar ou reduzir automaticamente nós de computação HPC Pack que estão em execução em um sistema operacional Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Além disso, no momento somente é possível aumentar ou reduzir automaticamente nós de computação HPC Pack que estão em execução em um sistema operacional Windows Server.
 
 ## Definir a propriedade de cluster AutoGrowShrink
 
@@ -34,7 +34,7 @@ Se você implantar nós de “disparo contínuo” no seu cluster do HPC Pack ou
 
 * **Para um cluster com um nó principal no Azure**: se você usar o script de implantação do IaaS HPC Pack para criar o cluster, habilite a propriedade de cluster **AutoGrowShrink** definindo a opção AutoGrowShrink no arquivo de configuração do cluster. Para obter detalhes, consulte a documentação que acompanha o [download do script](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    Como alternativa, defina a propriedade de cluster **AutoGrowShrink** depois de implantá-lo usando os comandos do PowerShell HPC descritos na seção a seguir. Para usar o PowerShell HPC para fazer isso, primeiro conclua as seguintes etapas:
+    Como alternativa, habilite a propriedade de cluster **AutoGrowShrink** depois de implantá-lo usando os comandos do PowerShell HPC descritos na seção a seguir. Para se preparar para isso, primeiro conclua as seguintes etapas:
     1. Configure o certificado de gerenciamento do Azure no nó de cabeçalho na assinatura do Azure. Para uma implantação de teste, você pode usar o certificado autoassinado padrão do Microsoft HPC Azure que instala o HPC Pack no nó principal e simplesmente carregar esse certificado para sua assinatura do Azure. Para ver as opções e as etapas, consulte a [diretriz da Biblioteca do TechNet](https://technet.microsoft.com/library/gg481759.aspx).
     2. Execute **regedit** no nó principal, vá para HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo e adicione um novo valor de cadeia de caracteres. Defina o nome do valor como "Impressão digital" e dados de Valor para a impressão digital do certificado na Etapa 1.
 
@@ -144,7 +144,7 @@ AzureAutoGrowShrink.ps1
 
 * **NumOfActiveQueuedTasksPerNodeToGrow** - O número de tarefas em fila ativas necessárias para aumentar um nó. Se **NumOfQueuedJobsPerNodeToGrow** for especificado com um valor maior que 0, esse parâmetro será ignorado.
 
-* **NumOfActiveQueuedTasksToGrowThreshold**- O número de tarefas em fila ativas para iniciar o processo de aumento.
+* **NumOfActiveQueuedTasksToGrowThreshold** - O número de tarefas em fila ativas para iniciar o processo de aumento.
 
 * **NumOfInitialNodesToGrow** - O número mínimo inicial de nós a ser aumentado se todos os nós no escopo forem **Não Implantados** ou **Interrompidos (Desalocados)**.
 
@@ -158,7 +158,7 @@ AzureAutoGrowShrink.ps1
 
 * **ArgFile**- O nome do arquivo argumento usado para salvar e atualizar as configurações para executar o script.
 
-* **LogFilePrefix**- O nome do prefixo do arquivo de log. Você pode especificar um caminho. Por padrão, o log é gravado no atual diretório de trabalho.
+* **LogFilePrefix** - O nome do prefixo do arquivo de log. Você pode especificar um caminho. Por padrão, o log é gravado no atual diretório de trabalho.
 
 ### Exemplo 1
 
@@ -179,4 +179,4 @@ O exemplo a seguir configura as VMs de nó de computação do Azure implantadas 
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

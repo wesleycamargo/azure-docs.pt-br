@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do Active Directory B2C do Azure: redefinição de senha por autoatendimento | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: redefinição de senha por autoatendimento | Microsoft Azure"
 	description="Um tópico que demonstra como configurar a redefinição de senha por autoatendimento para seus consumidores no Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 
-# Visualização do Azure Active Directory B2C: configurar a redefinição de senha por autoatendimento para seus consumidores
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: configurar a redefinição de senha por autoatendimento para seus consumidores
 
 Com o recurso de redefinição de senha por autoatendimento, seus consumidores (que tenham se registrado com contas locais) poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de consumidores usarem seu aplicativo regularmente. Atualmente, só há suporte para usar um endereço de email verificado como um método de recuperação. Vamos incluir mais métodos de recuperação (número de telefone verificado, perguntas de segurança, etc.) futuramente.
 
@@ -43,4 +41,4 @@ Para testar, use o recurso "Executar agora" em qualquer política de entrada que
 > [AZURE.NOTE]
 As páginas do autoatendimento de redefinição de senha podem ser personalizadas usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

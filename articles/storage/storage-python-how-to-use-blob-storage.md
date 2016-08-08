@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="07/26/2016"
 	ms.author="jehine"/>
 
 # Como usar o armazenamento de Blob do Azure no Python
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Visão geral
 
 O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O armazenamento de blobs pode ser qualquer tipo de texto ou dados binários, como um documento, um arquivo de mídia ou um instalador do aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
 
-Este artigo mostra como executar cenários comuns usando o armazenamento de Blob. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs.
+Este artigo mostra como executar cenários comuns usando o armazenamento de Blob. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs.
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@ Este artigo mostra como executar cenários comuns usando o armazenamento de Blob
 
 ## Criar um contêiner
 
-Com base no tipo de blob que você deseja usar, crie um objeto **BlockBlobService**, **AppendBlobService** ou **PageBlobService**. O código a seguir usa um objeto do **BlockBlobService**. Adicione o seguinte na parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento de Blobs de Blocos do Azure com programação.
+Com base no tipo de blob que você deseja usar, crie um objeto **BlockBlobService**, **AppendBlobService** ou **PageBlobService**. O código a seguir usa um objeto **BlockBlobService**. Adicione o seguinte na parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento de Blobs de Blocos do Azure com programação.
 
 	from azure.storage.blob import BlockBlobService
 
@@ -42,7 +42,7 @@ O código a seguir cria um objeto **BlockBlobService** usando o nome da conta de
 
 [AZURE.INCLUDE [armazenamento-contêiner-nomeando-regras-include](../../includes/storage-container-naming-rules-include.md)]
 
-No exemplo de código a seguir, será possível usar um objeto **BlockBlobService** para criar o contêiner, se ele não existir.
+No exemplo de código a seguir, você poderá usar um objeto **BlockBlobService** para criar o contêiner, se ele não existir.
 
 	block_blob_service.create_container('mycontainer')
 
@@ -125,6 +125,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 - [SDK do Armazenamento do Microsoft Azure para Python]
 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="07/21/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -27,7 +27,7 @@ Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueado
 
 Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
 
-> [AZURE.NOTE] Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você realmente deseja alterar sua oferta de conta do Azure (por exemplo, atualizando do modo de pagamento por utilização para pré-pago), mas quer continuar trabalhando com seus recursos existentes, confira [Alterar para uma oferta diferente do Azure](billing-how-to-switch-azure-offer.md).
+> [AZURE.NOTE] Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você realmente deseja alterar sua oferta de conta do Azure (por exemplo, atualizando do modo pré-pago para pagar antecipadamente), mas quer continuar trabalhando com seus recursos existentes, consulte [Trocar a assinatura do Azure por outra oferta](billing-how-to-switch-azure-offer.md).
 
 ## Lista de verificação antes de mover recursos
 
@@ -272,4 +272,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

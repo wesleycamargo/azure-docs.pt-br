@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Depurar os trabalhos do Stream Analytics usando logs de serviço e operação
@@ -25,8 +25,8 @@ Todos os serviços do Azure fornecem mensagens em log operacionais aos usuários
 
 Os Logs de Operação podem ser acessados de duas maneiras:
 
-- Painel do trabalho do Stream Analytics  
-- Serviços de Gerenciamento no Portal Clássico do Azure  
+- Painel do trabalho do Stream Analytics
+- Serviços de Gerenciamento no Portal Clássico do Azure
 
 ## Painel do trabalho do Stream Analytics
 
@@ -39,7 +39,7 @@ Um link para os logs correspondentes de um trabalho do Stream Analytics é exibi
 Para navegar manualmente até os Logs de Operação do Stream Analytics e outros serviços no Portal Clássico do Azure:
 
 1.	Clique em **Serviços de Gerenciamento** no [Portal Clássico do Azure](https://manage.windowsazure.com).
-2.	Selecione **Stream Analytics** para **Tipo** e o nome do trabalho para **Nome do Serviço**.  
+2.	Selecione **Stream Analytics** para **Tipo** e o nome do trabalho para **Nome do Serviço**.
 
   ![Selecionar Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

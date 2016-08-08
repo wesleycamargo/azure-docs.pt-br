@@ -42,52 +42,81 @@ A tabela a seguir fornece detalhes sobre ofertas comuns:
 
 Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve fornecer um número de telefone, um cartão de crédito e uma Conta da Microsoft. Sua conta da Microsoft é o endereço de email usado, juntamente com sua senha, para entrar em qualquer programa ou serviço do Windows Live, como Outlook, Hotmail ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Confira [Perguntas frequentes sobre a conta da Microsoft](https://www.microsoft.com/account/faq.aspx) para obter mais detalhes.
 
+Consulte [Solucionar Problemas de Inscrição do Azure](billing-troubleshoot-azure-sign-up-issues.md) se tiver problemas.
+
 >[AZURE.NOTE] Seu número de telefone e os detalhes do seu cartão de crédito são usados apenas para verificar sua identidade. Embora seu cartão de crédito não será cobrado, a Microsoft colocará uma espera de autorização em uma quantidade mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
 
-1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Experimentar agora**.
-2. Entre com sua conta da Microsoft ou com sua conta corporativa ou de estudante.
-3. Na seção **Sobre você**, digite suas informações pessoais. ![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Iniciar agora**.
 
- **Observação**: o endereço de email e as informações sobre o país que você fornecer ao se inscrever para uma assinatura do Azure sempre serão associados à assinatura e não podem ser alterados posteriormente.</br>
+2. Faça logon com sua conta da Microsoft ou conta institucional.
+
+3. Na seção **Sobre você**, digite suas informações pessoais. [Saiba mais](billing-troubleshoot-azure-sign-up-issues.md#i-am-getting-an-error-when-entering-my-information-to-sign-up) sobre como inserir suas informações pessoais com precisão.
+
+    ![Inserir suas informações pessoais aqui](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+
+    >[AZURE.NOTE] O endereço de email e as informações do país que você fornece ao se inscrever para uma assinatura do Azure sempre serão associados à assinatura e não poderão ser alterados posteriormente.
+
 4. Em **Verificação por seção** de telefone, você deve fornecer um número de telefone para receber um código de verificação que você pode fornecer para concluir o processo de verificação.
 
- Você pode optar por receber o código de verificação como uma mensagem de texto ou por meio de uma chamada de voz. Faça sua escolha, selecionando **Enviar mensagem de texto** ou **Ligar para mim**. Selecione o código de discagem internacional para seu país na primeira caixa e insira seu número de telefone na segunda caixa. Depois de receber o código de verificação, insira-o na terceira caixa e selecione o botão **Verificar código**.
+    Você pode optar por receber o código de verificação como uma mensagem de texto ou por meio de uma chamada de voz. Faça sua escolha, selecionando **Enviar mensagem de texto** ou **Ligar para mim**. Selecione o código de discagem internacional para seu país na primeira caixa e insira seu número de telefone na segunda caixa. Depois de receber o código de verificação, insira-o na terceira caixa e selecione o botão **Verificar código**. [Consulte para ver mais detalhes](billing-troubleshoot-azure-sign-up-issues.md#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
 
- **Observação** Você não pode usar um número de telefone VOIP para a verificação do telefone.</br> ![a captura de tela sobre verificação de telefone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>Se você não receber uma mensagem de texto ou uma chamada, tente usar outro número de telefone ou entre em contato com o [Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para obter ajuda. </br>
+    >[AZURE.NOTE] Você não pode usar um número de telefone VOIP para o processo de verificação do telefone.
+ 
+    ![Inserir um número de telefone válido para verificar seu telefone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
+    
+    Se você não receber uma mensagem de texto ou uma chamada, tente usar outro número de telefone ou entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.
+
 5. Na seção **Verificação por cartão** digite os detalhes de um cartão de crédito válido. Essas informações são coletadas somente para verificar sua identidade.
 
- **Observação** Embora seu cartão de crédito não seja cobrado, a Microsoft colocará uma espera de autorização nele de uma quantia mínima para verificar se o cartão de crédito é válido. A suspensão será liberada dentro de 3 a 5 dias úteis, dependendo das políticas da sua instituição financeira.
+    Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
- Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
+    ![Você também pode verificar por cartão](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)
 
- ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
-6. Na seção **Contrato**, marque a caixa se você concordar com o contrato de assinatura, os detalhes da oferta e a política de privacidade. Em seguida, selecione **Inscrever-se**. A captura de tela de exemplo é para a versão em inglês do contrato. O formulário de contrato pode variar por país.
+6. Na seção **Contrato**, marque a caixa se você concordar com o contrato de assinatura, os detalhes da oferta e a política de privacidade. Em seguida, selecione **Inscrever-se**. O formulário de contrato pode variar por país.
 
- ![Inscrição](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> Pode levar alguns minutos para que a sua assinatura seja configurada. Se a configuração de assinatura não for concluída em 15 minutos, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter assistência. </br> Se você receber uma mensagem de erro, siga as etapas na mensagem para resolver o problema. Uma mensagem de erro típica é:
+    ![A versão em inglês do contrato. O formulário de contrato pode variar por país.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
+ 
+    Pode levar alguns minutos para que sua assinatura seja configurada. Se a configuração de assinatura não for concluída em 15 minutos, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter assistência.
+ 
+    > [AZURE.NOTE] Se você receber uma mensagem de erro, siga as etapas na mensagem para resolver o problema. Uma mensagem de erro típica é:
 
- **Não foi possível concluir a operação. Tente novamente mais tarde ou recarregue a página da Web** </br>
+    > **Não foi possível concluir a operação. Tente novamente mais tarde ou recarregue a página da Web**
 
- Neste caso, tente usar outro navegador para concluir o processo de inscrição. Se o problema persistir, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.</br>
-7. Quando a assinatura estiver pronta, selecione **Começar a gerenciar meu serviço** para começar.</br> ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
+    > Neste caso, tente usar outro navegador para concluir o processo de inscrição. Se o problema persistir, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda.
+
+7. Quando a assinatura estiver pronta, selecione **Começar a gerenciar meu serviço** para começar.
+ 
+    ![Bem-vindo à sua assinatura do Azure](./media/billing-buy-sign-up-azure-subscription/startservice.png)
+
+### Recursos adicionais
+
+- [Não é possível ativar uma Avaliação Gratuita do Azure](billing-troubleshoot-azure-sign-up-issues.md#i-cant-activate-an-azure-free-trial)
+- [ Perguntas Frequentes sobre a Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 <a name="UpgradeFreeToPYG"></a>
 ## Atualizar a Versão de Avaliação Gratuita do Azure para Pré-Pago
 
-1. Faça logon no [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions) usando a conta da Microsoft ou sua conta corporativa ou de estudante que você usou para se inscrever para a avaliação gratuita.
-2. Escolha a assinatura e selecione **Atualizar**.</br>![billpage](./media/billing-buy-sign-up-azure-subscription/billpage.png)
-3. Selecione **Sim** e **Atualizar agora**. </br>![atualizar](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
+1. Faça logon no [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions) usando a conta da Microsoft ou a conta corporativa usada para se inscrever para a avaliação gratuita.
 
-Quando você atualizar de uma assinatura de avaliação gratuita em uma assinatura pré-paga, nenhum benefício restantes de sua avaliação gratuita, como o limite de 30 dias ou o crédito de US $200 para usar em serviços do Azure continuará até que um deles esteja esgotado. A atualização de assinatura ocorrerá somente depois disso.
+2. Escolha a assinatura e selecione **Atualizar**
+
+    ![Atualizar a Avaliação Gratuita para Pré-Pago](./media/billing-buy-sign-up-azure-subscription/billpage.png)
+
+3. Selecione **Sim** e **Atualizar agora**.
+
+    ![Confirmar para atualizar sua assinatura](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
+
+Quando você atualiza de uma assinatura de Avaliação Gratuita para uma assinatura Pré-Paga, qualquer benefício restante de sua avaliação gratuita, como o limite de 30 dias ou o crédito de US $200 para usar nos serviços do Azure, continuará até que um deles esteja esgotado. A atualização de assinatura ocorrerá somente depois disso.
 
 <a name="activateKey"></a>
 ## Ativar usando uma Chave de Ativação do Serviço Online
 
-Se você tiver comprado créditos do Azure via Open de um revendedor e recebido uma chave de ativação (chave 5x5), siga estas etapas para ativar sua assinatura:
+Se você comprou créditos do **Azure via Open** de um revendedor e recebeu uma chave de ativação (chave 5x5), siga estas etapas para ativar sua assinatura:
 
-1. Vá para a [página de resumo da assinatura](https://account.windowsazure.com/subscriptions) em azure.com.
+1. Vá para a [página de resumo da assinatura](https://account.windowsazure.com/subscriptions).
 
 2. Escolha **Azure via Open**. Na página [Chave de licença do Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/), escolha **Ativar uma nova assinatura ou uma assinatura existente**.
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

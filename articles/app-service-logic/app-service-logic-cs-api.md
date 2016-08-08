@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,7 +52,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
 As entradas para a ação são:
-- **Expressão C#** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo. 
+- **Expressão C#** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo.
 - **Objeto(s) de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome).
 - **Bibliotecas** - uma matriz opcional de arquivos .dll para incluir ao compilar o script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
 
@@ -112,4 +112,4 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

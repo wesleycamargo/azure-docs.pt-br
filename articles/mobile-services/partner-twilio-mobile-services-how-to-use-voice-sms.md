@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -32,9 +32,9 @@ Os clientes do Azure recebem uma [oferta especial][special_offer]\: US$ 10 de co
 Twilio é um serviço flexível. Não há nenhuma taxa de configuração e você pode fechar sua conta a qualquer momento. Você pode encontrar mais detalhes em [Preços da Twilio][twilio_pricing].
 
 ## <a id="Concepts"></a>Conceitos
-A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para aplicativos. As bibliotecas de cliente estão disponíveis em vários idiomas. Para obter uma lista, consulte [Bibliotecas de API da Twilio][twilio_libraries]. Tutoriais adicionais estão disponíveis para uso da Twilio em qualquer aplicativo do Azure escrito em [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] ou [Ruby][azure_twilio_howto_ruby].
+A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para aplicativos. As bibliotecas de cliente estão disponíveis em vários idiomas.
 
-Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação de Twilio (TwiML).
+Os principais aspectos da API do Twilio são os verbos Twilio e a TwiML (Linguagem de Marcação do Twilio).
 
 ### <a id="Verbs"></a>Verbos da Twilio
 A API usa os verbos da Twilio; por exemplo, o verbo **&lt;Say&gt;** instrui a Twilio a fornecer de forma audível uma mensagem em uma chamada.
@@ -221,12 +221,4 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-
-[azure_twilio_howto_dotnet]: /twilio-dotnet-how-to-use-for-voice-sms.md
-[azure_twilio_howto_java]: /partner-twilio-java-how-to-use-voice-sms.md
-[azure_twilio_howto_node]: /partner-twilio-nodejs-how-to-use-voice-sms.md
-[azure_twilio_howto_ruby]: /partner-twilio-ruby-how-to-use-voice-sms.md
-[azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
-[azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

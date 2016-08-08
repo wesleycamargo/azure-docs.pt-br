@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/23/2016"
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,9 @@ Parâmetro de comparação|[Arquivo de entrada: 5 minutos de duração, 640x360p
 
 - Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho que com RUs S1. No entanto, não há nenhum limite superior para o tempo em suas Tarefas podem gastar no estado na fila e, em qualquer momento específico, no máximo uma tarefa será executada.
 
-- Os seguintes data centers não oferecem o tipo de unidade reservada **S3**: sul do Brasil, Índia Ocidental, Índia Central e sul da Índia.
+- Os seguintes data centers não oferecem o tipo de unidade reservada **S2**: sul do Brasil, Índia Ocidental, Índia Central e sul da Índia.
+
+- Os seguintes data centers não oferecem o tipo de unidade reservada **S3**: sul do Brasil, Índia Ocidental, Índia Central.
 
 - O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
 
@@ -91,4 +93,4 @@ Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

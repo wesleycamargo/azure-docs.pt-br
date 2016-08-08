@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/25/2016"
    ms.author="kipandya"/>
    
    
 # Distribute data globally with DocumentDBs (Distribuir dados globalmente com o Banco de Dados de Documentos)
+
+> [AZURE.NOTE] A distribuição global dos bancos de dados do Banco de Dados de Documentos geralmente é disponibilizada e habilitada automaticamente para contas do Banco de Dados de Documentos recentemente criadas. Estamos trabalhando para habilitar a distribuição global em todas as contas existentes, mas nesse ínterim, se quiser que a distribuição global seja habilitada para sua conta, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e nós a habilitaremos para você agora mesmo.
 
 O Banco de Dados de Documentos foi desenvolvido para atender às necessidades de aplicativos IoT que consistem em milhões de dispositivos globalmente distribuídos e aplicativos de escala de Internet que proporcionam experiências altamente responsivas aos usuários no mundo todo. Esses sistemas de banco de dados enfrentam o desafio de conseguir acesso de baixa latência a dados de aplicativo de várias regiões geográficas com garantias bem definidas de consistência e disponibilidade de dados. Como um sistema de banco de dados globalmente distribuído, o Banco de Dados de Documentos simplifica a distribuição global de dados oferecendo contas de banco de dados em várias regiões totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas de banco de dados do Banco de Dados de Documentos são oferecidas com alta disponibilidade, latências de milissegundos de digito único, vários [níveis bem definidos de consistência][consistency], failover regional transparente com APIs de hospedagem múltipla e a capacidade de escalar elasticamente a produtividade e o armazenamento ao redor do mundo.
 
@@ -35,11 +37,11 @@ A seleção do nível certo de consistência depende da garantia da consistênci
 
 ## Usando o failover de várias regiões 
 
-O Banco de Dados de Documentos é capaz de fazer failover de modo transparente de contas de banco de dados em várias regiões do Azure — as novas [APIs de hospedagem múltipla][developingwithmultipleregions] garantem que o aplicativo possa continuar usando um ponto de extremidade lógico e não seja interrompido pelo failover. O failover é controlado por você, fornecendo a flexibilidade para hospedar novamente sua conta de banco de dados no caso de ocorrer qualquer condição de falha, incluindo falhas de aplicativo, infraestrutura, serviço ou regionais (reais ou simuladas). Em caso de falha regional de um Banco de Dados de Documentos, o serviço fará failover de modo transparente da sua conta de banco de dados e o aplicativo continuará acessando os dados sem perder a disponibilidade. Embora o Banco de Dados de Documentos ofereça [SLAs de disponibilidade de 99,99%][sla], você pode testar as propriedades de disponibilidade completa do aplicativo simulando uma falha regional, tanto de [modo programático][arm], como pelo Portal do Azure.
+O Banco de Dados de Documentos é capaz de fazer failover de modo transparente de contas de banco de dados em várias regiões do Azure – as novas [APIs de hospedagem múltipla][developingwithmultipleregions] garantem que o aplicativo possa continuar usando um ponto de extremidade lógico e não seja interrompido pelo failover. O failover é controlado por você, fornecendo a flexibilidade para hospedar novamente sua conta de banco de dados no caso de ocorrer qualquer condição de falha, incluindo falhas de aplicativo, infraestrutura, serviço ou regionais (reais ou simuladas). Em caso de falha regional de um Banco de Dados de Documentos, o serviço fará failover de modo transparente da sua conta de banco de dados e o aplicativo continuará acessando os dados sem perder a disponibilidade. Embora o Banco de Dados de Documentos ofereça [SLAs de disponibilidade de 99,99%][sla], você pode testar as propriedades de disponibilidade completa do aplicativo simulando uma falha regional, tanto de [modo programático][arm], como pelo Portal do Azure.
 
 
 ## Escalando em nível mundial
-O Banco de Dados de Documentos permite que você provisione a produtividade de forma independente e consuma armazenamento de cada coleção do Banco de Dados de Documentos em qualquer escala, globalmente em todas regiões associadas à sua conta de banco de dados. Uma coleção do Banco de Dados de Documentos é distribuída automaticamente de forma global e gerenciada em todas regiões associadas à sua conta de banco de dados. As coleções na sua conta de banco de dados podem ser distribuídas em qualquer um das regiões do Azure na qual o [serviço do Banco de Dados de Documentos esteja disponível][serviceregions].
+O Banco de Dados de Documentos permite que você provisione a produtividade de forma independente e consuma armazenamento de cada coleção do Banco de Dados de Documentos em qualquer escala, globalmente em todas regiões associadas à sua conta de banco de dados. Uma coleção do Banco de Dados de Documentos é distribuída automaticamente de forma global e gerenciada em todas regiões associadas à sua conta de banco de dados. As coleções na sua conta de banco de dados podem ser distribuídas em qualquer uma das regiões do Azure na qual o [serviço do Banco de Dados de Documentos esteja disponível][serviceregions].
 
 A produtividade comprada e o armazenamento consumido para cada coleção do Banco de Dados de Documentos são provisionados automaticamente em todas as regiões igualmente. Isso permite que o aplicativo escale perfeitamente ao redor do mundo [pagando apenas pela produtividade e pelo armazenamento que você está usando a cada hora][pricing]. Por exemplo, se você tiver provisionado 2 milhões de RUs para uma coleção do Banco de Dados de Documentos, e cada uma das regiões associadas à conta do banco de dados obtiver 2 milhões de RUs para essa coleção. Isso é ilustrado abaixo.
 
@@ -79,12 +81,12 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/pt-BR/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/regions/#services
+[serviceregions]: https://azure.microsoft.com/pt-BR/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

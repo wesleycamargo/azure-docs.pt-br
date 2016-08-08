@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Provisionar clusters do Hadoop no HDInsight
@@ -51,7 +51,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a seguir:
 	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
+	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versão do HDInsight**
@@ -127,7 +127,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 	Os clusters do HDInsight permitem que você configure duas contas de usuário durante o provisionamento:
 
 	- Usuário HTTP. O nome de usuário padrão é admin, com a configuração básica do Portal Clássico do Azure.
-	- Usuário RDP (clusters do Windows): é usado para conectar-se ao cluster usando o RDP. Quando cria a conta, você deve definir uma data de validade que esteja dentro de 90 dias a partir do dia atual. 
+	- Usuário RDP (clusters do Windows): é usado para conectar-se ao cluster usando o RDP. Quando cria a conta, você deve definir uma data de validade que esteja dentro de 90 dias a partir do dia atual.
 	- Usuário SSH (clusters do Linux): é usado para conectar-se ao cluster usando SSH. Você pode criar contas de usuário SSH adicionais depois que o cluster for criado ao seguir as etapas em [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
  
@@ -815,4 +815,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

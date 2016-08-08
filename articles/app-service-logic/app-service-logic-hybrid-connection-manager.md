@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -46,7 +46,7 @@ No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serv
 
 ## Instalar o Gerenciador de Conexão Híbrida
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou aplicativo de API. <br/><br/> Em **Conexão híbrida**, a configuração está **incompleta**: <br/> ![][2] 
+1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou aplicativo de API. <br/><br/> Em **Conexão híbrida**, a configuração está **incompleta**: <br/> ![][2]
 
 2. Selecione **Conexão híbrida**. A cadeia de conexão do Barramento de Serviço inserida anteriormente é listada.
 3. Copie a **cadeia de configuração principal**: <br/> ![][PrimaryConfigString]
@@ -84,19 +84,19 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
 
 1. No servidor IIS, confirme se a função web do IIS está instalada e se todos os serviços do IIS foram iniciados.
 2. No servidor IIS, confirme se o Gerenciador de Conexão Híbrida está instalado e em execução:
- - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução. 
+ - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução.
  - Esse site usa o ***HybridListenerAppPool*** executado como a conta interna de usuário local *NetworkService*. Esse AppPool também deve ser iniciado.
-3. No servidor IIS, confirme se o conector está instalado e em execução: 
- - Um site é criado para o conector do Serviço de Aplicativo. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado. 
- - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService*. Esse site e o AppPool devem ser iniciados. 
+3. No servidor IIS, confirme se o conector está instalado e em execução:
+ - Um site é criado para o conector do Serviço de Aplicativo. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado.
+ - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService*. Esse site e o AppPool devem ser iniciados.
  - Procure o conector local. Por exemplo, se o site do seu conector usar a porta 6569, navegue até http://localhost:6569. Como não há documento padrão configurado, espera-se um `HTTP Error 403.14 - Forbidden error`.
 4. Em seu firewall, confirme se as portas TCP listadas neste tópico estão abertas.
 5. Examine o sistema de origem ou de destino:
  - Alguns sistemas locais exigem arquivos de dependência adicionais. Por exemplo, se você estiver se conectando ao SAP local, alguns arquivos adicionais do SAP deverão ser instalados no servidor IIS.
  - Verifique a conectividade com o sistema usando a conta de logon. Por exemplo, a porta TCP usada pelo sistema deve estar aberta, como a porta 1433 para o SQL Server. A conta de logon que você inseriu no portal do Azure deve ter acesso ao sistema.
-6. No servidor IIS, verifique os erros dos logs de eventos. 
-7. Limpe e reinstale o Gerenciador de Conexão Híbrida: 
- - No IIS, exclua manualmente o site do conector e seu pool de aplicativos. 
+6. No servidor IIS, verifique os erros dos logs de eventos.
+7. Limpe e reinstale o Gerenciador de Conexão Híbrida:
+ - No IIS, exclua manualmente o site do conector e seu pool de aplicativos.
  - Execute novamente o Gerenciador de Conexão Híbrida e confirme se está inserindo a **cadeia de configuração principal** correta para o conector.
 
 
@@ -140,4 +140,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

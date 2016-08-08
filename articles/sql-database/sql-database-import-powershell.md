@@ -116,15 +116,6 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 
 ## Próximas etapas
 
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
+- Para aprender a se conectar e a consultar um Banco de Dados SQL importado, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
-
-
-
-## Recursos adicionais
-
-- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

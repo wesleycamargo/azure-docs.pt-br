@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/18/2016"
+   ms.date="07/21/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 2.2 no dispositivo StorSimple
@@ -80,13 +80,13 @@ O método de hotfix envolve as três etapas a seguir:
 **Se o dispositivo estiver executando a Atualização 2.1**, baixe apenas a atualização de software do dispositivo KB3179904. Instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente CIS e MDS precedido por `all-cismdsagentupdatebundle`. Se você não fizer isso, receberá um erro.
 
 
-#### Baixe as atualizações para um dispositivo que executa o software da Atualização 2 ou 2.1
+#### Baixe as atualizações para um dispositivo que executa o software da Atualização 2
 
 **Se o dispositivo estiver executando a Atualização 2**, baixe e instale os seguintes hotfixes na ordem recomendada:
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3179954 | Atualização de software &#42; | Regular | ~ 45 Min. |
+| 1\. | KB3179904 | Atualização de software &#42; | Regular | ~ 45 Min. |
 | 2\. | KB3146621 | Pacote iSCSI | Regular | ~ 20 Min. |
 | 3\. | KB3103616 | Pacote WMI | Regular | ~ 12 Min. |
 
@@ -136,4 +136,4 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 Saiba mais sobre a [versão da Atualização 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

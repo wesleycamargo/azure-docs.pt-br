@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -123,7 +123,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
 O HBase inclui vários métodos de carregamento de dados em tabelas. Para obter mais informações, consulte [Carregamento em massa](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Um arquivo de exemplo de dados foi carregado para um contêiner público de blobs, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. O conteúdo do arquivo de dados é:
+Um arquivo de exemplo de dados foi carregado para um contêiner público de blobs, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. O conteúdo do arquivo de dados é:
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -147,7 +147,7 @@ Você pode criar um arquivo de texto e carregá-lo à sua própria conta de arma
 
 3. Execute o seguinte comando para transformar o arquivo de dados para o StoreFiles e armazene em um caminho relativo especificado por Dimporttsv.bulk.output:
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Execute o seguinte comando para carregar os dados de /example/data/storeDataFileOutput para a tabela do HBase:
 
@@ -334,4 +334,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

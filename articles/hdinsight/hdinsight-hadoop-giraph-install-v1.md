@@ -47,7 +47,7 @@ O <a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> permite 
    
 ## Instalar o Giraph usando o Portal
 
-1. Comece a criar um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md#portal). 
+1. Comece a criar um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md#portal).
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
 	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Usar Ação de Script para personalizar um cluster")
@@ -94,14 +94,14 @@ Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementaçã
 
 		$clusterName = "clustername"
 		# Giraph examples jar
-		$jarFile = "wasb:///example/jars/giraph-examples.jar"
+		$jarFile = "wasbs:///example/jars/giraph-examples.jar"
 		# Arguments for this job
 		$jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
 		                "-ca", "mapred.job.tracker=headnodehost:9010",
 		                "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-		                "-vip", "wasb:///example/data/tiny_graph.txt",
+		                "-vip", "wasbs:///example/data/tiny_graph.txt",
 		                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-		                "-op",  "wasb:///example/output/shortestpaths",
+		                "-op",  "wasbs:///example/output/shortestpaths",
 		                "-w", "2"
 		# Create the definition
 		$jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -120,7 +120,7 @@ Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementaçã
 
 	No exemplo acima, substitua **clustername** pelo nome do cluster HDInsight que tem o Giraph instalado.
 
-5. Exiba os resultados. Depois de concluir o trabalho, os resultados serão armazenados em dois arquivos de saída na pasta \_\___wasb:///example/out/shotestpaths__. Os arquivos se chamam __part-m-00001__ e __part-m-00002__. Execute as etapas a seguir para baixar e exibir a saída:
+5. Exibir os resultados. Concluído o trabalho, os resultados serão armazenados em dois arquivos de saída na pasta __wasbs:///example/out/shotestpaths__. Os arquivos se chamam __part-m-00001__ e __part-m-00002\_\_. Execute as etapas a seguir para baixar e exibir a saída:
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -194,4 +194,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -240,7 +240,7 @@ Você mesmo também poderá chamá-la se desejar simular solicitações em um co
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@ Use-o para ajudar a diagnosticar problemas enviando uma 'trilha de navegação e
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-O limite de tamanho para `message` é muito maior do que o limite para propriedades. Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
+
+Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
+
+O limite de tamanho para `message` é muito maior do que o limite para propriedades. Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.
+
+
+Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade que podem ser usados para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Isso permite que você filtre facilmente todas as mensagens de um nível de severidade específico relacionadas a determinado banco de dados em [Pesquisa][diagnostic].
 
 ## Rastrear dependência
 
@@ -690,7 +704,7 @@ Em páginas da web, convém defini-lo com base no estado do servidor Web, em vez
 
 TelemetryClient tem uma propriedade de Contexto, que contém um número de valores que serão enviadas junto com todos os dados de telemetria. Normalmente, eles são definidos pelos módulos padrão de telemetria, mas você pode também defini-las por conta própria. Por exemplo:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 Se você definir qualquer um desses valores por conta própria, considere remover a linha relevante de [Applicationinsights.config][config], de modo que os valores e os valores padrão não fiquem confusos.
 
@@ -778,4 +792,4 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

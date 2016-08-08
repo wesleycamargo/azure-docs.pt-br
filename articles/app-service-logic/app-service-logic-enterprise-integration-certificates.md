@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -73,4 +73,4 @@ Depois de carregar um certificado, ele estará disponível para proteção de su
 - [Criar um Aplicativo Lógico usando recursos de B2B](./app-service-logic-enterprise-integration-b2b.md)
 - [Saiba mais sobre o Cofre da Chave](../key-vault/key-vault-get-started.md "Saiba mais sobre o Cofre de Chaves")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

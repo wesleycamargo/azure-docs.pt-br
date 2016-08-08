@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Criar clusters Hadoop baseados no Windows no HDInsight usando modelos ARM
@@ -294,4 +294,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         }
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

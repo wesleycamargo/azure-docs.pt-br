@@ -82,7 +82,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
     
 - **Nome do grupo de recursos**
 
-	O [ARM (Azure Resource Manager)](resource-group-overview.md) permite trabalhar com os recursos em seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada.
+	O [ARM (Azure Resource Manager)](../resource-group-overview.md) permite que você trabalhe com os recursos de seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada.
 
 - **Credenciais**
 
@@ -96,7 +96,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	O HDFS original usa vários discos locais no cluster. O HDInsight usa o armazenamento de Blobs do Azure em vez do armazenamento de dados. O armazenamento de blobs do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Através de uma interface HDFS (Sistema de Arquivos Distribuído Hadoop), o conjunto completo de componentes em HDInsight pode operar diretamente sobre os dados não estruturados do armazenamento de Blobs. O armazenamento de dados no armazenamento de blobs permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 
-	Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blobs do Azure na conta de armazenamento do Azure. Alguns processos de criação requerem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blobs sejam criados anteriormente. O contêiner de armazenamento de Blobs é usado como o local de armazenamento padrão pelo cluster. Ou você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que poderão ser acessadas pelo cluster. Além disso, o cluster também pode acessar quaisquer contêineres de Blob configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs. Para obter mais informações sobre o acesso restrito, confira [Gerenciar o acesso aos recursos do Armazenamento do Azure](storage-manage-access-to-resources.md).
+	Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blobs do Azure na conta de armazenamento do Azure. Alguns processos de criação requerem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blobs sejam criados anteriormente. O contêiner de armazenamento de Blobs é usado como o local de armazenamento padrão pelo cluster. Ou você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que poderão ser acessadas pelo cluster. Além disso, o cluster também pode acessar quaisquer contêineres de Blob configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs. Para obter mais informações sobre o acesso restrito, confira [Gerenciar o acesso aos recursos do Armazenamento do Azure](../storage/storage-manage-access-to-resources.md).
 
 	![Armazenamento do HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -110,7 +110,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
 	Para obter mais informações sobre o uso de repositórios de blobs secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-    Além do Armazenamento de blobs do Azure, também é possível usar o [Azure Data Lake Store](data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para obter instruções, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+    Além do armazenamento de Blobs do Azure, também é possível usar o [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como um armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para obter instruções, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
     
 - **Local (Região)**
 
@@ -173,7 +173,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
         |Standard\_D13\_v2 |8|56 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
         |Standard\_D14\_v2 |16|112 GB|8|Temporário (SSD) =800 GB |32|32 x 500|    
  
-    Para obter considerações de implantação a ser observadas ao planejar o uso desses recursos, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md). Para obter informações sobre o preço dos vários tamanhos, veja [Preço do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight)
+    Para considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-size.md). Para obter informações sobre o preço dos vários tamanhos, veja [Preço do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight)
     
 	> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM. A cobrança é iniciada quando um cluster é criado e só para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -258,4 +258,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

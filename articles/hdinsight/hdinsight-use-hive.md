@@ -68,21 +68,21 @@ No exemplo anterior, o nível de log é ERRO.
 
 Os dados de exemplo ficam no armazenamento de blob do Azure, que é usado pelo HDInsight como o sistema de arquivos padrão. O HDInsight pode acessar arquivos armazenados no armazenamento blob usando o prefixo **wasb**. Por exenplo, para acessar o arquivo sample.log, você devel usar a seguinte sintaxe:
 
-	wasb:///example/data/sample.log
+	wasbs:///example/data/sample.log
 
 Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do HiveQL.
 
-> [AZURE.NOTE] A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você poderá acessar os dados especificando o nome do contêiner e o endereço da conta de armazenamento, por exemplo, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] A sintaxe acima, **wasbs:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você poderá acessar os dados especificando o nome do contêiner e o endereço da conta de armazenamento, por exemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
 
-As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no diretório **wasb:///example/data**:
+As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no diretório **wasbs:///example/data**:
 
     set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
@@ -214,4 +214,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

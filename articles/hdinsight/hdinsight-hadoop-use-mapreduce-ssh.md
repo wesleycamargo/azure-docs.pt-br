@@ -57,9 +57,9 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 
 1. Uma vez conectado ao cluster HDInsight, use o comando do **Hadoop** a seguir para iniciar um trabalho MapReduce:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
-	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento **wasb://example/data/gutenberg/davinci.txt**, e a saída é armazenada em: **wasb:///example/data/WordCountOutput**.
+	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o documento **wasbs://example/data/gutenberg/davinci.txt**, e a saída é armazenada em: **wasbs:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Para saber mais sobre esse trabalho MapReduce e os dados de exemplo, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
@@ -70,9 +70,9 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 		File Output Format Counters
         Bytes Written=337623
 
-3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em **wasb://example/data/WordCountOutput**:
+3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em **wasbs://example/data/WordCountOutput**:
 
-		hdfs dfs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasbs:///example/data/WordCountOutput
 
 	Isso deve exibir dois arquivos, **\_SUCCESS** e **part-r-00000**. O arquivo **part-r-00000** contém a saída para esse trabalho.
 
@@ -80,9 +80,9 @@ Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoo
 
 4. Para exibir a saída, use o comando a seguir:
 
-		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
 
-	Isso exibe uma lista das palavras contidas no arquivo **wasb://example/data/gutenberg/davinci.txt** e o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
+	Isso exibe uma lista das palavras contidas no arquivo **wasbs://example/data/gutenberg/davinci.txt** e o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
 
 		wreathed        3
 		wreathing       1
@@ -108,4 +108,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

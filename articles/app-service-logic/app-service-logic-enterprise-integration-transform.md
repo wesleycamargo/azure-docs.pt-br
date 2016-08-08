@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -74,4 +74,4 @@ Agora você pode testar a ação de transformação fazendo uma solicitação ao
 - [Saiba mais sobre mapas](./app-service-logic-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

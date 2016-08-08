@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -70,7 +70,7 @@ O loop forEach especifica uma matriz para repetir uma ação. Se não for uma ma
 
 Além do designer, você pode editar diretamente o código que define um aplicativo lógico da seguinte maneira.
 
-1. Clique no botão **Visualização do código** na barra de comandos. 
+1. Clique no botão **Visualização do código** na barra de comandos.
 
 	Isso abre um editor completo que mostra a definição que você acabou de editar.
 
@@ -112,4 +112,4 @@ Os serviços podem chamar um ponto de extremidade do aplicativo lógico para ini
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/25/2016"
 	ms.author="piyushjo;ricksal" />
 
 #Como usar a API do Engagement no Android
@@ -297,4 +297,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"expiration":"2016-12-07","status":"premium"}
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

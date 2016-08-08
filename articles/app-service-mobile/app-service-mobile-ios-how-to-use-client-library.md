@@ -394,18 +394,18 @@ Para fazer uma solicitação `GET` em vez de uma solicitação `POST`, defina o 
 
 **Objective-C**:
 ```
-    [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"contents": @"Hello world!" }
-                HTTPMethod:@"POST"
-                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
-                   headers:nil
-                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
-                    if(error) {
-                        NSLog(@"ERROR %@", error);
-                    } else {
-                        // Do something with result
-                    }
-                }];
+[self.client invokeAPI:@"sendEmail"
+                  body:@{ @"contents": @"Hello world!" }
+            HTTPMethod:@"POST"
+            parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+               headers:nil
+            completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"ERROR %@", error);
+                } else {
+                    // Do something with result
+                }
+            }];
 ```
 
 **Swift**:
@@ -792,4 +792,4 @@ Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativ
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

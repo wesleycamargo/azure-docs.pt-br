@@ -139,7 +139,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 6. Use o seguinte para a consulta de Hive:
 
-		add file wasb:///HiveCSharp.exe;
+		add file wasbs:///HiveCSharp.exe;
 
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		USING 'HiveCSharp.exe' AS
@@ -147,7 +147,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Isso seleciona os campos `clientid`, `devicemake` e `devicemodel` de `hivesampletable`, e passa os campos para o aplicativo HiveCSharp.exe. A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera encontrar HiveCSharp.exe na raiz do contêiner de armazenamento padrão (`add file wasb:///HiveCSharp.exe`).
+    Isso seleciona os campos `clientid`, `devicemake` e `devicemodel` de `hivesampletable`, e passa os campos para o aplicativo HiveCSharp.exe. A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera encontrar HiveCSharp.exe na raiz do contêiner de armazenamento padrão (`add file wasbs:///HiveCSharp.exe`).
 
 5. Clique em **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho Hive** será aberta.
 
@@ -212,7 +212,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 3. Digite o seguinte para executar um trabalho de Pig simples usando o aplicativo do .NET Framework:
 
 		DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
-		LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 		LOG = FILTER LOGS by LINE is not null;
 		DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
 		DUMP DETAILS;
@@ -241,4 +241,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

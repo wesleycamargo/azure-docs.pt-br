@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -24,7 +24,7 @@ A Exportação Contínua está disponível no período de avaliação gratuita n
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
-* [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel. 
+* [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
 * [Análise](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
 
@@ -111,7 +111,7 @@ Where
 
 ## <a name="format"></a> Formato dos dados
 
-* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”.
+* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”. Ele contém a telemetria processada durante um período de tempo de aproximadamente metade um minuto.
 * Cada linha representa um ponto de dados de telemetria como uma solicitação ou uma exibição de página.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar olhando para ele, abra-o no Visual Studio e escolha Editar, Avançado, Arquivo de Formato:
 
@@ -178,7 +178,7 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
 ## Perguntas e respostas
 
-* *Mas tudo o que eu quero é um download único de um gráfico.*  
+* *Mas tudo o que eu quero é um download único de um gráfico.*
  
     Sim, você pode fazer isso. Na parte superior da folha, clique [Exportar dados](app-insights-metrics-explorer.md#export-to-excel).
 
@@ -229,4 +229,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

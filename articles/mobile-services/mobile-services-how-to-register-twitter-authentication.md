@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 #Registrar seus aplicativos para logon do Twitter com os Serviços Móveis
@@ -66,4 +66,4 @@ Agora você está pronto para usar um logon do Twitter para autenticação no se
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

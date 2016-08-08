@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure
 
 A Central de Segurança do Azure recomendará que você restrinja o acesso por meio de pontos de extremidade para a Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tiver uma ou mais regras de entrada que permitam acesso de "qualquer" endereço IP de origem. Abrir o acesso a "qualquer" um pode permitir que os invasores acessem seus recursos. A Central de Segurança recomendará que você edite essas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisem de acesso.
+
+Essa recomendação é gerada para qualquer porta que não seja da Web que tenha "qualquer" como fonte.
 
 > [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
@@ -26,7 +28,7 @@ A Central de Segurança do Azure recomendará que você restrinja o acesso por m
 
 1. Na **folha recomendações**, selecione **Restringir o acesso por meio de ponto de extremidade para a Internet**. ![Restringir o acesso por meio de ponto de extremidade para a Internet][1]
 
-2. Isso abre a folha **Restringir o acesso por meio de ponto de extremidade para a Internet**. Essa folha lista as VMs (máquinas virtuais) com as regras de entrada que criam um problema potencial de segurança. Selecione uma VM. ![Selecionar uma máquina virtual][2]
+2. Isso abre a folha **Restringir o acesso por meio de ponto de extremidade para a Internet**. Essa folha lista as VMs (máquinas virtuais) com as regras de entrada que criam um problema potencial de segurança. Selecionar uma máquina virtual. ![Selecionar uma máquina virtual][2]
 
 3. A folha **NSG** exibe informações de Grupo de Segurança de Rede, as regras de entrada relacionadas e a VM associada. Selecione **Editar regras de entrada** para prosseguir com a edição de uma regra de entrada. ![Folha Grupo de Segurança de Rede][3]
 
@@ -47,12 +49,12 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
@@ -63,4 +65,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

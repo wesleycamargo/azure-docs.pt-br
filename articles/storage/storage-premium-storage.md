@@ -3,7 +3,7 @@
 	description="O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure. As VMs das séries DS, DSv2 e GS do Azure são compatíveis com o Armazenamento Premium."
 	services="storage"
 	documentationCenter=""
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="prkhad"/>
+	ms.date="07/24/2016"
+	ms.author="aungoo-msft"/>
 
 
 # Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
@@ -565,4 +565,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

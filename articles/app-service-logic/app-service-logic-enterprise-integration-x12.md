@@ -18,6 +18,8 @@
 
 # Integração corporativa com o X12 
 
+>[AZURE.NOTE]Esta página cobre os recursos de X12 dos Aplicativos Lógicos. Para obter informações sobre X12 clique [aqui](app-service-logic-enterprise-integration-edifact.md).
+
 ## Criar um contrato X12 
 Para poder trocar mensagens X12, você precisará criar um contrato X12 e armazená-lo em sua conta de integração. As etapas a seguir orientarão você pelo processo de criação de um contrato X12.
 
@@ -38,9 +40,9 @@ Depois de fazer logon no [Portal do Azure](http://portal.azure.com "Portal do Az
 >[AZURE.TIP]Se você não vir o link **Procurar**, talvez seja necessário expandir o menu primeiro. Faça isso selecionando o link **Mostrar menu** que está localizado na parte superior esquerda do menu recolhido.
 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Digite *integração* na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)
-3. Na folha **Contas de Integração** que é aberta, selecione a conta de integração na qual você criará o contrato. Se você não vê nenhuma lista de contas de integração, [crie uma primeiro](./app-service-logic-enterprise-integration-accounts.md "Tudo sobre contas de integração"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
-4.  Selecione o bloco **Contratos**. Se você não vê o bloco de contratos, adicione-o primeiro. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)
+2. Digite *integração* na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)
+3. Na folha **Contas de Integração** que é aberta, selecione a conta de integração na qual você criará o contrato. Se você não vir nenhuma lista de contas de integração, [crie uma primeiro](./app-service-logic-enterprise-integration-accounts.md "Tudo sobre contas de integração"). ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)
+4.  Selecione o bloco **Contratos**. Se você não vir o bloco de contratos, adicione-o primeiro. ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)
 5. Selecione o botão **Adicionar** na folha Contratos que se abre. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
 6. Insira um **Nome** para seu contrato, selecione **Tipo de Contrato**, **Parceiro Host**, **Identidade do Host** e **Parceiro Convidado**, **Identidade do Convidado** na folha Contratos que se abre. ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)
 7. Depois de definir as propriedades das configurações de recebimento, selecione o botão **OK**. Continuando:
@@ -187,4 +189,4 @@ Depois de selecionar **OK** nas folhas abertas:
 ## Saiba mais
 - [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

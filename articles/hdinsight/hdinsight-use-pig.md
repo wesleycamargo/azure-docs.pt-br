@@ -61,18 +61,18 @@ No exemplo anterior, o nível de log é ERRO.
 
 Os dados de exemplo ficam no armazenamento de Blob do Azure, que é usado pelo HDInsight como o sistema de arquivos padrão para clusters Hadoop. O HDInsight pode acessar arquivos armazenados no armazenamento blob usando o prefixo **wasb**. Por exenplo, para acessar o arquivo sample.log, você devel usar a seguinte sintaxe:
 
-	wasb:///example/data/sample.log
+	wasbs:///example/data/sample.log
 
 Como o WASB é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do Pig Latin.
 
-> [AZURE.NOTE] A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e o endereço da conta de armazenamento, por exemplo: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] A sintaxe acima, **wasbs:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você poderá acessar os dados especificando o nome do contêiner e o endereço da conta de armazenamento, por exemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 
 ##<a id="job"></a>Sobre o trabalho de exemplo
 
 O trabalho do Pig Latin a seguir carrega o arquivo **sample.log** do armazenamento padrão para o cluster HDInsight. Em seguida, ele executa uma série de transformações que resultam na contagem de quantas vezes cada nível de log ocorreu nos dados de entrada. Os resultados são despejados no STDOUT.
 
-	LOGS = LOAD 'wasb:///example/data/sample.log';
+	LOGS = LOAD 'wasbs:///example/data/sample.log';
 	LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 	FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 	GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -148,4 +148,4 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do Active Directory B2C do Azure: perguntas frequentes | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: perguntas frequentes | Microsoft Azure"
 	description="Perguntas frequentes sobre o Active Directory B2C do Azure."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Visualização Active Directory B2C do Azure: perguntas frequentes
+# Azure Active Directory B2C: perguntas frequentes
 
-Esta página responde a perguntas frequentes sobre a visualização do Active Directory B2C do Azure (AD do Azure). Continue verificando as atualizações.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
 
 ### Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 
@@ -32,9 +30,9 @@ O AD B2C do Azure não pode ser usado com o Microsoft Office 365. Em geral, ele 
 
 ### O que são contas locais no AD B2C do Azure? Como elas são diferentes de contas corporativas ou de estudante no AD do Azure?
 
-Em um locatário do AD do Azure, cada usuário no locatário (exceto os usuários com contas existente da Microsoft) entram com um endereço de email do formulário `<xyz>@<tenant domain>` em que `<tenant domain>` é um dos domínios verificados no locatário ou do domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma conta corporativa ou de estudante.
+Em um locatário do Azure AD, cada usuário no locatário (exceto os usuários com contas existente da Microsoft) entram com um endereço de email do formulário `<xyz>@<tenant domain>` em que `<tenant domain>` é um dos domínios verificados no locatário ou do domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário AD B2C do Azure, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (por exemplo, pedro, paulo, clara ou davi). Você pode escolher um destes dois tipos de conta no serviço do AD B2C do Azure.
+Em um locatário Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Hoje, também apoiamos nomes de usuário arbitrários (apenas sequências de caracteres simples) como contas locais (por exemplo, pedro, paulo, clara ou davi). Você pode escolher um destes dois tipos de conta no serviço do AD B2C do Azure.
 
 ### A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 
@@ -56,7 +54,7 @@ Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou localmen
 
 ### Tenho vários locatários do AD B2C do Azure. Como posso gerenciá-los no Portal do Azure?
 
-Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal do Azure. Confira a [Preview do Azure AD B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) para saber como é possível navegar até a folha de recursos do B2C de um locatário específico no portal do Azure. Alternar entre diretórios do AD B2C do Azure no Portal do Azure não manterá a folha de recursos do B2C aberta na maioria dos navegadores.
+Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal do Azure. Confira [Azure AD B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) para saber como é possível navegar até a folha de recursos do B2C de um locatário específico no portal do Azure. Alternar entre diretórios do AD B2C do Azure no Portal do Azure não manterá a folha de recursos do B2C aberta na maioria dos navegadores.
 
 ### Como personalizar os emails de verificação (o conteúdo e o campo "De:") enviados pelo AD B2C do Azure?
 
@@ -68,7 +66,7 @@ Você pode usar a API do Graph do AD do Azure para escrever sua ferramenta de mi
 
 ### Qual é a política de senha usada para contas locais no AD B2C do Azure?
 
-A política de senha do AD B2C do Azure para contas locais se baseia na política do AD do Azure. O AD B2C do Azure utiliza a força da senha "forte" e não expira nenhuma senha. Leia a [Política de senha do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter detalhes.
+A política de senha do AD B2C do Azure para contas locais se baseia na política do AD do Azure. As políticas de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Leia a [Política de senha do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter detalhes.
 
 ### Posso usar o Azure AD Connect para migrar identidades de consumidores armazenadas no Active Directory local para o AD B2C do Azure?
 
@@ -122,12 +120,8 @@ Não, o AD B2C do Azure é um serviço pré-pago do Azure e não faz parte do En
 
 Veja [Solicitações de suporte a arquivos para o Azure Active Directory B2C](active-directory-b2c-support.md).
 
-### Quando o AD B2C do Azure estará disponível para todos?
-
-Não podemos fornecer informações sobre a data de disponibilidade geral no momento.
-
 ## Mais informações
 
-Também convém analisar as [limitações e restrições da versão de atualização](active-directory-b2c-limitations.md) atuais.
+Também convém analisar as [limitações e restrições do serviço](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

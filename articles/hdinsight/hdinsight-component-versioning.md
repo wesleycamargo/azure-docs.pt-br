@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -156,4 +156,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

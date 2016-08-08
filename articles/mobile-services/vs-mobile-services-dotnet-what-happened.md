@@ -1,6 +1,6 @@
 <properties
 	pageTitle="O que aconteceu com o meu projeto .NET depois de adicionar Serviços Móveis usando os Serviços Conectados do Visual Studio | Microsoft Azure"
-	description="Descreve o que aconteceu em seu projeto do Visual Studio .NET depois da adição de Serviços Móveis do Azure usando Serviços Conectados"
+	description="Descreve o que aconteceu em seu projeto do Visual Studio .NET depois da adição de Serviços Móveis do Azure usando Serviços Conectados "
 	services="mobile-services"
 	documentationCenter=""
 	authors="mlhoop"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # O que aconteceu com o meu projeto do Visual Studio .NET depois da adição de Serviços Móveis do Azure usando Serviços Conectados?
@@ -41,4 +41,4 @@ Se um serviço móvel .NET foi criado no Provedor de Serviço Conectado, um proj
 
 [Saiba mais sobre serviços móveis](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

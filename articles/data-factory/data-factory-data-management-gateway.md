@@ -126,10 +126,10 @@ A home page permite que você faça o seguinte:
 ### Página Configurações
 A página Configurações permite que você faça o seguinte:
 
-- Veja, altere e exporte o **certificado** usado pelo gateway.
+- Veja, altere e exporte o **certificado** usado pelo gateway. Esse certificado é usado para criptografar credenciais de fonte de dados.
 - Altere a **porta HTTPS** para o ponto de extremidade. O gateway abre uma porta para definir as credenciais de fonte de dados.
 - **Status** do ponto de extremidade
-- Veja o **certificado SSL** usado para definir credenciais para fontes de dados.
+- Exibir **certificado SSL** é usado para comunicação SSL entre o portal e o gateway na definição de credenciais de fontes de dados.
 
 ### Página de Diagnóstico
 A página de Diagnóstico permite que você faça o seguinte:
@@ -426,4 +426,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureRmDataFactoryGateway
 ## Próximas etapas
 - Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter informações detalhadas sobre o gateway.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

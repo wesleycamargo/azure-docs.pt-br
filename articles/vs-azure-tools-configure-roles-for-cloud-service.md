@@ -183,7 +183,7 @@ Ao usar um valor diferente para cada configuração de serviço, você não prec
 
 ## Gerenciar o armazenamento local para cada instância de função
 
-Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função. Para obter mais informações sobre recursos de armazenamento local, consulte [Configurar Recursos de Armazenamento Local](cloud-services/cloud-services-configure-local-storage-resources.md).
+Você pode adicionar o armazenamento do sistema de arquivos local para cada instância de uma função. Você pode armazenar aqui dados locais que não precisam ser acessados por outras funções. Quaisquer dados que você não precisar salvar em tabela, blob ou armazenamento do Banco de Dados SQL podem ser armazenados aqui. Por exemplo, você poderia usar esse armazenamento local para armazenar em cache dados que podem precisar ser usados novamente. Esses dados armazenados não podem ser acessados por outras instâncias de uma função.
 
 Configurações de armazenamento locais se aplicam a todas as configurações de serviço. Você só pode adicionar, remover ou modificar o armazenamento local para todas as configurações de serviço.
 
@@ -235,7 +235,7 @@ Configurações de armazenamento locais se aplicam a todas as configurações de
 
 1. (Opcional) Para exibir esse arquivo que você criou quando executou seu serviço de nuvem localmente, use as seguintes etapas:
 
-  1. Execute a função web e selecione **Button1** para se certificar de que o código dentro de `Button1_Click` é chamado.
+  1. Execute a função Web e selecione **Button1** para se certificar de que o código dentro de `Button1_Click` é chamado.
 
   1. Na área de notificação, abra o menu de atalho para o ícone do Azure e escolha **Exibir interface de emulador de computação**. A caixa de diálogo **Emulador de Computação do Azure** é exibida.
 
@@ -279,7 +279,7 @@ Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esse
 
 1. Escolha a conta de armazenamento que você deseja usar no **Nome da Conta**.
 
-    Se você estiver inserindo manualmente suas credenciais de conta de armazenamento, copie ou digite sua chave primária em **Chave de Conta**. Essa chave pode ser copiada do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave, siga estas etapas da exibição **Contas de Armazenamento** no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885):
+    Se você estiver inserindo manualmente suas credenciais de conta de armazenamento, copie ou digite sua chave primária em **Chave de Conta**. Essa chave pode ser copiada do [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar a chave, siga estas etapas na exibição **Contas de Armazenamento** no [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885):
     
   1. Selecione a conta de armazenamento que você deseja usar para seu serviço de nuvem.
 
@@ -319,7 +319,7 @@ Você também pode adicionar pontos de extremidade que podem ser usados interna 
 
 Se adicionar pontos de extremidade HTTPS, você precisa usar um certificado SSL. Para fazer isso, você pode associar certificados com sua função para todas as configurações de serviço e usá-los para seus pontos de extremidade.
 
->[AZURE.IMPORTANT] Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Qualquer certificado de gerenciamento que você associar às suas configurações de serviço só se aplicará quando o serviço de nuvem estiver em execução no Azure. Quando seu serviço de nuvem é executado no ambiente de desenvolvimento local, um certificado padrão que é gerenciado pelo emulador de computação do Azure é usado.
 
@@ -376,4 +376,4 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 ## Próximas etapas
 Saiba mais sobre projetos do Azure no Visual Studio, lendo [Configurando um projeto do Azure](vs-azure-tools-configuring-an-azure-project.md). Saiba mais sobre o esquema do serviço de nuvem lendo [Referência de Esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

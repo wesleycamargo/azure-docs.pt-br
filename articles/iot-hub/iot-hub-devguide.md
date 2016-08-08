@@ -582,6 +582,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 - [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
 - [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
 - [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+- [Proteger sua solução de IoT desde o início][lnk-securing]
 
 
 
@@ -634,5 +635,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

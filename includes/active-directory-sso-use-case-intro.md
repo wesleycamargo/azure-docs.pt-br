@@ -1,4 +1,5 @@
-As organizações vêm utilizando mais aplicativos de SaaS (Software como serviço) para aumentar a tecnologia, uma vez que a tecnologia e as ferramentas de nuvem estão se tornando mais prontamente disponíveis. À medida que cresce o número de aplicativos de SaaS, torna-se um desafio para os administradores gerenciar contas e direitos de acesso e para os usuários lembrar de suas senhas diferentes. Gerenciar esses aplicativos individualmente cria mais trabalho e é menos seguro.
+As organizações vêm utilizando mais aplicativos de [SaaS (Software como serviço)](https://azure.microsoft.com/overview/what-is-saas/) para produtividade, uma vez que a tecnologia e as ferramentas de nuvem estão se tornando mais amplamente disponíveis. À medida que cresce o número de aplicativos de SaaS, torna-se um desafio para os administradores gerenciar contas e direitos de acesso e para os usuários lembrar de suas senhas diferentes. Gerenciar esses aplicativos individualmente cria mais trabalho e é menos seguro.
+
 
 - Funcionários que precisam controlar muitas senhas tendem a usar métodos menos seguros para se lembrar delas, anotando as senhas ou usando as mesmas senhas em várias contas.
 
@@ -21,4 +22,4 @@ No caso em que usuários criam suas próprias contas para aplicativos de SaaS qu
 
 Ao integrar um aplicativo ao Azure AD, você pode mapear as identidades do aplicativo estabelecido pelos usuários para suas respectivas identidades Azure AD.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="06/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Use o Python com o Hive e o Pig no HDInsight
@@ -41,7 +41,7 @@ O Python pode ser utilizado como uma UDF por meio do Hive por meio da instruçã
 
 **HDInsight baseado em Linux**
 
-	add file wasb:///streaming.py;
+	add file wasbs:///streaming.py;
 
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'python streaming.py' AS
@@ -51,7 +51,7 @@ O Python pode ser utilizado como uma UDF por meio do Hive por meio da instruçã
 
 **HDInsight baseado em Windows**
 
-	add file wasb:///streaming.py;
+	add file wasbs:///streaming.py;
 
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'D:\Python27\python.exe streaming.py' AS
@@ -107,8 +107,8 @@ Consulte [Executando os exemplos](#running) para saber como executar este exempl
 
 Um script Python pode ser utilizado como uma UDF por meio do Pig por meio da instrução **GENERATE**. Por exemplo, o exemplo a seguir usa um script Python armazenado no arquivo **jython.py**.
 
-	Register 'wasb:///jython.py' using jython as myfuncs;
-    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+	Register 'wasbs:///jython.py' using jython as myfuncs;
+    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
     LOG = FILTER LOGS by LINE is not null;
     DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
     DUMP DETAILS;
@@ -146,7 +146,7 @@ Você se lembra que, anteriormente, nós apenas definimos a entrada **LINE** com
 
 2. Em seguida, a **def create\_structure(input)** define a função à qual o Pig passará os itens de linha.
 
-3. Os dados de exemplo, **sample.log**, na maior parte das vezes estão em conformidade com o esquema de data, horário, nome de classe, nível e detalhe que desejamos retornar. Mas eles também contêm algumas linhas que começam com a cadeia ' *java.lang.Exception* ‘, que precisam ser modificadas para corresponder ao esquema. A instrução **if** busca essas linhas, então movimenta os dados de entrada para mover a cadeia de caracteres ' *java.lang.Exception* ' para o final, colocando os dados em linha com o nosso esquema de saída esperado.
+3. Os dados de exemplo, **sample.log**, na maior parte das vezes estão em conformidade com o esquema de data, horário, nome de classe, nível e detalhe que desejamos retornar. Mas eles também contêm algumas linhas que começam com a cadeia '*java.lang.Exception*‘, que precisam ser modificadas para corresponder ao esquema. A instrução **if** busca essas linhas, então movimenta os dados de entrada para mover a cadeia de caracteres '*java.lang.Exception*' para o final, colocando os dados em linha com o nosso esquema de saída esperado.
 
 4. Em seguida, o comando **split** é utilizado para dividir os dados nos caracteres ocupando os quatro primeiros espaços. Isso resulta em cinco valores, que são atribuídos a **date**, **time**, **classname**, **level** e **detail**.
 
@@ -185,7 +185,7 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
 2. No prompt `hive>`, insira o seguinte:
 
-		add file wasb:///streaming.py;
+		add file wasbs:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		  USING 'python streaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
@@ -206,8 +206,8 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
 2. No prompt `grunt>`, insira as instruções a seguir.
 
-		Register wasb:///jython.py using jython as myfuncs;
-	    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		Register wasbs:///jython.py using jython as myfuncs;
+	    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 	    LOG = FILTER LOGS by LINE is not null;
 	    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
 	    DUMP DETAILS;
@@ -285,7 +285,7 @@ O script a seguir executará o script __streaming.py__. Antes da execução, ele
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$HiveQuery = "add file wasb:///streaming.py;" +
+	$HiveQuery = "add file wasbs:///streaming.py;" +
 	             "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
 	               "USING 'D:\Python27\python.exe streaming.py' AS " +
 	               "(clientid string, phoneLabel string, phoneHash string) " +
@@ -352,8 +352,8 @@ O exemplo a seguir usará o script __jython.py__. Antes da execução, ele solic
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$PigQuery = "Register wasb:///jython.py using jython as myfuncs;" +
-	            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
+	$PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
+	            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
 	            "LOG = FILTER LOGS by LINE is not null;" +
 	            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
 	            "DUMP DETAILS;"
@@ -444,4 +444,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

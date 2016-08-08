@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Como usar o Armazenamento de Arquivos do Azure do Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o Armazenamento de Arquivos. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abordados incluem carregamento, listagem, download e exclusão de arquivos.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Arquivos. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abordados incluem carregamento, listagem, download e exclusão de arquivos.
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -48,9 +48,9 @@ O compartilhamento do armazenamento de arquivos do Azure contém, pelo menos, um
 
 Para criar um arquivo e carregar dados, use os métodos **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** ou **create\_file\_from\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-**create\_file\_from\_path** carrega o conteúdo de um arquivo do caminho especificado, **create\_file\_from\_stream** carrega o conteúdo de um arquivo/fluxo já aberto. **create\_file\_from\_bytes** carrega uma matriz de bytes, e **create\_file\_from\_text** carrega o valor de texto especificado usando a codificação especificada (UTF-8 é o padrão).
+**create\_file\_from\_path** carrega o conteúdo de um arquivo do caminho especificado e **create\_file\_from\_stream** carrega o conteúdo de um arquivo/transmissão já aberto. **create\_file\_from\_bytes** carrega uma matriz de bytes e **create\_file\_from\_text** carrega o valor de texto especificado usando a codificação especificada (UTF-8 é o padrão).
 
-O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** para o arquivo **myblob**.
+O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** para o arquivo **myfile**.
 
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
@@ -98,6 +98,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Arquivos, sig
 - [SDK do Armazenamento do Microsoft Azure para Python]
 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

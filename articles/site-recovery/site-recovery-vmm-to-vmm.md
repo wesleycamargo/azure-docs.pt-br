@@ -21,10 +21,11 @@
 > [AZURE.SELECTOR]
 - [Portal do Azure](site-recovery-vmm-to-vmm.md)
 - [Portal clássico](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell – Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 Bem-vindo ao Azure Site Recovery! Use este artigo se você quiser replicar máquinas virtuais do Hyper-V locais gerenciadas em nuvens do VMM (System Center Virtual Machine Manager) do System Center no Azure para um site secundário. Este artigo descreve como configurar a replicação usando o Azure Site Recovery no portal do Azure.
 
-> [AZURE.NOTE] O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: ARM (Azure Resource Manager) e clássico. O Azure também tem dois portais – o portal clássico do Azure, que dá suporte ao modelo de implantação clássica, e o portal do Azure, com suporte para ambos os modelos de implantação.
+> [AZURE.NOTE] O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: Azure Resource Manager e Clássico. O Azure também tem dois portais – o portal clássico do Azure, que dá suporte ao modelo de implantação clássica, e o portal do Azure, com suporte para ambos os modelos de implantação.
 
 
 No portal do Azure, o Azure Site Recovery fornece alguns recursos novos:
@@ -169,7 +170,7 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 
 1. Na folha **Cofres dos Serviços de Recuperação**, selecione seu cofre e clique em **Configurações**.
 2. Em **Configurações** > **Introdução**, clique em **Recuperação de Site** > **Etapa 1: Preparar a Infraestrutura** > **Meta de proteção**.
-3. Em **Meta de proteção**, selecione **Recuperar site** e selecione **Sim, com o Hyper-V**.
+3. Em **Meta de proteção**, selecione **Para site de recuperação** e selecione **Sim, com o Hyper-V**.
 4. Selecione **Sim** para indicar que você está usando o VMM para gerenciar os hosts do Hyper-V e selecione **Sim** se você tiver um servidor VMM secundário. Se você estiver implantando a replicação entre nuvens em um único servidor VMM, clique **não**. Em seguida, clique em **OK**.
 
 	![Escolher metas](./media/site-recovery-vmm-to-vmm/choose-goals.png)
@@ -483,4 +484,4 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

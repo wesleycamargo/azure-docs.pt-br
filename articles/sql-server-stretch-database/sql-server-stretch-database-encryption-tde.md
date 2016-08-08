@@ -16,7 +16,7 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure
+# Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-encryption-tde-tsql.md)
@@ -58,4 +58,4 @@ Para desabilitar a TDE para um banco de dados do Azure que armazena os dados mig
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

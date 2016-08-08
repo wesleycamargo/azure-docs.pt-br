@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="07/27/2016"
    	ms.author="larryfr"/>
 
 #Criar clusters baseados em Linux no HDInsight usando cURL e API REST do Azure
@@ -362,7 +362,7 @@ Use o seguinte para criar um novo grupo de recursos. Você deve criar o grupo pr
 
 * Substitua __SubscriptionID__ pela ID da assinatura recebida ao criar a entidade de serviço.
 * Substitua __AccessToken__ pelo token de acesso recebido na etapa anterior.
-* Substitua __DataCenterLocation__ pelo data center no qual você quer criar o grupo de recursos e os recursos. Por exemplo, "Centro-Sul dos EUA". 
+* Substitua __DataCenterLocation__ pelo data center no qual você quer criar o grupo de recursos e os recursos. Por exemplo, "Centro-Sul dos EUA".
 * Substitua __ResourceGroupName__ pelo nome que deseja usar para esse grupo.
 
 ```
@@ -380,7 +380,7 @@ Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 seri
 
 Use o seguinte para implantar a configuração de cluster (modelo de valores de parâmetro) no grupo de recursos.
 
-* Substitua __SubscriptionID__ e __AccessToken__ pelos valores usados anteriormente. 
+* Substitua __SubscriptionID__ e __AccessToken__ pelos valores usados anteriormente.
 * Substitua __ResourceGroupName__ pelo nome do grupo de recursos criado na seção anterior.
 * Substitua __DeploymentName__ pelo nome que você deseja usar para essa implementação.
 
@@ -403,7 +403,7 @@ Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 seri
 
 Para verificar o status da implantação, use o seguinte:
 
-* Substitua __SubscriptionID__ e __AccessToken__ pelos valores usados anteriormente. 
+* Substitua __SubscriptionID__ e __AccessToken__ pelos valores usados anteriormente.
 * Substitua __ResourceGroupName__ pelo nome do grupo de recursos criado na seção anterior.
 
 ```
@@ -435,4 +435,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->
