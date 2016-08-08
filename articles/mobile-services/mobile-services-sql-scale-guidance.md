@@ -74,10 +74,10 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 6. Verifique se as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
     - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
 
-    - *Porcentagem de E/S de Dados * (disponível apenas nos tipos Básico/Standard/Premium)
-    - *Porcentagem de E/S de Log * (disponível apenas nos tipos Básico/Standard/Premium)
-    - *Armazenamento*
-7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas.
+    - *Porcentagem de E/S de Dados* (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Log* (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Armazenamento* 
+7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
 
     ![Portal clássico do Azure – métricas do Banco de Dados SQL][PortalSqlMetrics]
 
@@ -192,7 +192,7 @@ Aqui estão algumas orientações a serem consideradas ao consultar o banco de d
 - **Implementar paginação.** Às vezes, consultar o banco de dados pode resultar em um grande número de registros retornado ao cliente. Para minimizar o tamanho e a latência das operações, considere implementar a paginação.
 
     - Por padrão, seu serviço móvel limitará quaisquer consultas de entrada para uma página de tamanho 50 e você pode solicitar manualmente até 1.000 registros. Para obter mais informações, consulte "Retornar dados em páginas" para [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) e [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se estiver usando o back-end do .NET, considere usar o [método Take] como parte de sua consulta LINQ.
+    - Não existe um tamanho de página padrão para as consultas feitas de seu código de serviço móvel. Se o seu aplicativo não implementar a paginação, ou como uma medida defensiva, considere aplicar limites padrão em suas consultas. No back-end do JavaScript, use o operador **take** no [objeto de consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx). Se estiver usando o back-end do .NET, considere usar o [método Take] como parte de sua consulta LINQ.  
 
 
 Para obter mais informações sobre como melhorar o design da consulta, inclusive como analisar os planos de consulta, consulte [Design de consulta avançada](#AdvancedQuery) na parte inferior deste documento.

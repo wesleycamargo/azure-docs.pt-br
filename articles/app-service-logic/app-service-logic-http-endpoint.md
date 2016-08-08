@@ -139,7 +139,7 @@ Essa funcionalidade está disponível por meio do **Gerenciamento de API**:
 | 2014-12-01-preview | 2015-08-01-preview |
 |---------------------|--------------------|
 | Clicar no aplicativo de API **Ouvinte HTTP** | Clicar em **Gatilho manual** (nenhum aplicativo de API é necessário) |
-| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP | Inclui ou não uma ação **response** na definição do fluxo de trabalho |
+| Configuração “ *Envia a resposta automaticamente* ” do Ouvinte HTTP | Inclui ou não uma ação **response** na definição do fluxo de trabalho |
 | Configurar a autenticação básica ou OAuth | por meio do gerenciamento de API |
 | Configurar o método HTTP | por meio do gerenciamento de API |
 | Configurar o caminho relativo | por meio do gerenciamento de API |

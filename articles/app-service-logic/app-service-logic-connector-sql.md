@@ -63,7 +63,8 @@ Procedimentos Armazenados | Não | Informe um procedimento armazenado existente 
 Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from table\_name.
 Sondar Consulta de Dados | Para suporte de gatilho | Instrução SQL para sondar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>**Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
-5. Após a conclusão, as Configurações do Pacote serão semelhantes às seguintes: ![][1]
+5. Após a conclusão, as Configurações do Pacote serão semelhantes às seguintes:  
+![][1]
 
 6. Selecione **Criar**.
 
@@ -91,24 +92,31 @@ Para usar o conector do SQL como um gatilho, informe os valores de **Consulta de
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Adicionar o Gatilho
-1. Ao criar ou editar um aplicativo lógico, selecione o conector do SQL criado como gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: ![][5]
+1. Ao criar ou editar um aplicativo lógico, selecione o conector do SQL criado como gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**:  
+![][5]
 
-2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: ![][6]
+2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓:  
+![][6]
 
-3. O gatilho agora aparece conforme configurado no aplicativo lógico. As saídas do gatilho serão mostradas e poderão ser usadas como entradas em quaisquer ações posteriores: ![][7]
+3. O gatilho agora aparece conforme configurado no aplicativo lógico. As saídas do gatilho serão mostradas e poderão ser usadas como entradas em quaisquer ações posteriores:  
+![][7]
 
 ## Usar o Conector como uma Ação
 Usaremos o cenário de aplicativo lógico simples que sonda os dados de uma tabela SQL, adiciona os dados a outra tabela e os atualiza.
 
 Para usar o conector do SQL como uma ação, insira o nome de tabelas e/ou procedimentos armazenados que você inseriu quando você criou o conector do SQL:
 
-1. Após o gatilho (ou escolha 'executar esta lógica manualmente'), adicione o conector do SQL criado na galeria. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: ![][8]
+1. Após o gatilho (ou escolha 'executar esta lógica manualmente'), adicione o conector do SQL criado na galeria. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*:  
+![][8]
 
-2. Especifique os valores de entrada do registro a ser inserido e clique em ✓: ![][9]
+2. Especifique os valores de entrada do registro a ser inserido e clique em ✓:  
+![][9]
 
-3. Na galeria, selecione o mesmo conector do SQL que você criou. Como uma ação, selecione a ação Atualizar na mesma tabela, como *Atualizar EmployeeDetails*: ![][11]
+3. Na galeria, selecione o mesmo conector do SQL que você criou. Como uma ação, selecione a ação Atualizar na mesma tabela, como *Atualizar EmployeeDetails*:  
+![][11]
 
-4. Insira os valores de entrada para a ação de atualização e clique em ✓: ![][12]
+4. Insira os valores de entrada para a ação de atualização e clique em ✓:  
+![][12]
 
 Você pode testar o aplicativo lógico adicionando um novo registro na tabela que está sendo sondada.
 
