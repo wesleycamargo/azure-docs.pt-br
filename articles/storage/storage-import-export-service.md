@@ -45,7 +45,7 @@ Você pode usar esse serviço em cenários como:
 
 Nesta seção, listamos os pré-requisitos necessários para usar este serviço. Examine-os cuidadosamente antes de enviar suas unidades.
 
-### Contas de armazenamento
+### Conta de armazenamento
 
 Você deve ter uma assinatura do Azure existente e uma ou mais contas de armazenamento **clássicas** para usar o serviço de Importação/Exportação. Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento clássica, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
@@ -80,7 +80,7 @@ Baixe a versão mais recente da [ferramenta do cliente de Importação/Exportaç
 
 ### Unidades de disco rígido
 
-Somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 8 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Ao copiar dados para o disco rígido, você poderá anexá-lo diretamente usando um conector SATA ou anexá-lo externamente usando um adaptador USB SATA II/III. Recomendamos usar um dos seguintes adaptadores USB SATA II/III externos:
+Somente discos rígidos SATA II/III internos de 3,5 polegadas têm suporte para uso com o serviço de Importação/Exportação. Você pode usar discos rígidos de até 10 TB. Para trabalhos de importação, somente o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS. Ao copiar dados para o disco rígido, você poderá anexá-lo diretamente usando um conector SATA ou anexá-lo externamente usando um adaptador USB SATA II/III. Recomendamos usar um dos seguintes adaptadores USB SATA II/III externos:
 
 - Anker 68UPSATAA-02BU
 - Anker 68UPSHHDS-BU
@@ -160,11 +160,11 @@ Você também deve fornecer um número de conta da transportadora FedEx ou DHL v
 
 Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, peça a seus consultores para verificar se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
+> [AZURE.IMPORTANT] Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, peça a seus consultores para verificar se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente. Por exemplo, qualquer pacote que cruzará fronteiras internacionais precisa que uma fatura comercial acompanhe o pacote (exceto se cruzar fronteiras dentro da União Europeia). Você pode imprimir uma cópia preenchida da fatura comercial do site da transportadora. Alguns exemplos de fatura comercial são a [Fatura comercial da DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) ou a [Fatura comercial da FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Certifique-se de que a Microsoft não tenha sido indicada como o exportador.
 
 ## Como funciona o serviço de Importação/Exportação do Azure?
 
-Você pode transferir dados entre o site local e o armazenamento de blobs do Azure usando o serviço de Importação/Exportação do Azure criando trabalhos e enviando as unidades de disco rígido para um data center do Azure. Cada unidade de disco rígido que você enviar estará associada a um único trabalho. Cada trabalho é associado uma única conta de armazenamento. Examine a [seção de pré-requisitos](#pre-requisites) cuidadosamente para conhecer as especificações desse serviço, como tipos de blob com suporte, tipos de disco, locais e envio.
+Você pode transferir dados entre o site local e o armazenamento de blobs do Azure usando o serviço de Importação/Exportação do Azure criando trabalhos e enviando as unidades de disco rígido para um data center do Azure. Cada unidade de disco rígido que você enviar estará associada a um único trabalho. Cada trabalho é associado uma única conta de armazenamento. Examine a [seção de pré-requisitos](#pre-requisites) cuidadosamente para conhecer as especificações desse serviço, como tipos de blob, tipos de disco, localizações e envio com suporte.
 
 Nesta seção, descreveremos em um nível alto, as etapas envolvidas na importação e exportação de trabalhos. Posteriormente na [seção Início Rápido](#quick-start), forneceremos instruções passo a passo para criar um trabalho de importação e exportação.
 
@@ -204,7 +204,7 @@ Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 
 ### Exibindo o status do trabalho
 
-Você pode acompanhar o status de seus trabalhos de importação ou exportação no portal Clássico. Navegue até sua conta de armazenamento no portal Clássico e clique na guia **Importação/Exportação**. Uma lista dos seus trabalhos será exibida na página. Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
+Você pode acompanhar o status de seus trabalhos de importação ou exportação no portal Clássico. Navegue até sua conta de armazenamento no Portal Clássico e clique na guia **Importação/Exportação**. Uma lista dos seus trabalhos será exibida na página. Você pode filtrar a lista por status do trabalho, nome do trabalho, tipo de trabalho ou número de controle.
 
 Você verá um dos seguintes status de trabalho, dependendo de onde a unidade está no processo.
 
@@ -232,7 +232,7 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 
 **Custos de transação**
 
-Não há nenhum custo de transação ao importar dados para o armazenamento de blobs. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços da transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Não há nenhum custo de transação ao importar dados para o armazenamento de blobs. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## Início rápido
 
@@ -300,13 +300,13 @@ O comando PrepImport da ferramenta do cliente de Importação/Exportação do Az
 
 **Lembre-se**: por padrão, os dados serão importados como Blobs de Blocos. Você pode usar o parâmetro /BlobType para importar dados como os Blobs de Página. Por exemplo, se você estiver importando arquivos VHD que serão montados como discos em uma VM do Azure, deverá importá-los como Blobs de Página. Se você não tiver certeza sobre qual tipo de blob usar, poderá especificar /blobType:auto e ajudaremos a determinar o tipo correto. Nesse caso, todos os arquivos vhd e vhdx serão importados como Blobs de Página e o restante será importado como Blobs de Bloco.
 
-Veja mais detalhes sobre como usar a ferramenta do cliente de Importação/Exportação do Azure em [Preparando Discos Rígidos para a Importação](https://msdn.microsoft.com/library/dn529089.aspx).
+Veja mais detalhes sobre como usar a ferramenta do cliente de Importação/Exportação do Azure em [Preparando discos rígidos para importação](https://msdn.microsoft.com/library/dn529089.aspx).
 
-Além disso, consulte o [Fluxo de Trabalho de Exemplo para Preparar os Discos Rígidos para um Trabalho de Importação](https://msdn.microsoft.com/library/dn529097.aspx) para obter instruções passo a passo mais detalhadas.
+Além disso, consulte o [Fluxo de trabalho de exemplo para preparar discos rígidos para um trabalho de importação](https://msdn.microsoft.com/library/dn529097.aspx) para obter instruções passo a passo mais detalhadas.
 
 ### Criar o trabalho de importação
 
-1.	Depois de preparar a unidade, navegue até a conta de armazenamento no [portal Clássico](https://manage.windowsazure.com) e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. Examine as etapas e marque a caixa de seleção para indicar que você preparou a unidade e que o arquivo de diário de unidade está disponível.
+1.	Depois de preparar a unidade, navegue até a conta de armazenamento no [Portal Clássico](https://manage.windowsazure.com) e veja o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. Examine as etapas e marque a caixa de seleção para indicar que você preparou a unidade e que o arquivo de diário de unidade está disponível.
 
 2.	Na Etapa 1, forneça as informações de contato da pessoa responsável por esse trabalho de importação e um endereço de retorno válido. Se desejar salvar dados de log detalhados para o trabalho de importação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
@@ -324,7 +324,7 @@ Além disso, consulte o [Fluxo de Trabalho de Exemplo para Preparar os Discos R�
 
 	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de importação após enviar meu pacote** e, em seguida, conclua o processo de importação.
 
-6. Para inserir o número de controle após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no portal Clássico, selecione seu trabalho na lista e escolha **Informações do Envio**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+6. Para inserir o número de controle após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal Clássico, selecione seu trabalho na lista e escolha **Informações da Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 
 	Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
 
@@ -340,13 +340,13 @@ Crie um trabalho de exportação para notificar o serviço de Importação/Expor
 
 As pré-verificações a seguir são recomendadas para preparar suas unidades para um trabalho de exportação:
 
-1. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o Uso da Unidade para um Trabalho de Exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar.
+1. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar.
 
 2. Verifique se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
 ### Criar o trabalho de Exportação
 
-1. 	Para criar um trabalho de exportação, navegue até sua conta de armazenamento no [portal Clássico](https://manage.windowsazure.com) e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
+1. 	Para criar um trabalho de exportação, navegue até sua conta de armazenamento no [Portal Clássico](https://manage.windowsazure.com) e veja o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
 
 2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
@@ -383,7 +383,7 @@ As pré-verificações a seguir são recomendadas para preparar suas unidades pa
 
 	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote** e, em seguida, conclua o processo de exportação.
 
-6. Para inserir o número de controle após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no portal Clássico, selecione seu trabalho na lista e escolha **Informações do Envio**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
+6. Para inserir o número de controle após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal Clássico, selecione seu trabalho na lista e escolha **Informações da Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 
 	Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
 
@@ -423,7 +423,7 @@ Qualquer unidade que você deseja enviar para importar os dados deve ser prepara
 
 **É necessário executar alguma preparação de disco ao criar um trabalho de exportação?**
 
-Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o Uso da Unidade para um Trabalho de Exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
+Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
 
 **O que acontecerá se eu enviar por engano uma unidade de disco rígido que não esteja em conformidade com os requisitos com suporte?**
 
@@ -453,7 +453,7 @@ Não. Todas as unidades são criptografadas com o BitLocker.
 
 Não. Você precisará enviar suas próprias unidades para os trabalhos de importação e exportação.
 
-**Depois do trabalho de importação ser concluído, como ficarão meus dados na conta de armazenamento? A hierarquia de diretório será preservada?**
+**Depois de o trabalho de importação ser concluído, como ficarão meus dados na conta de armazenamento? A hierarquia de diretório será preservada?**
 
 Ao preparar um disco rígido para um trabalho de importação, o destino será especificado pelo parâmetro /dstdir:. É o contêiner de destino na conta de armazenamento para o qual os dados do disco rígido serão copiados. Dentro desse contêiner de destino, diretórios virtuais são criados para as pastas do disco rígido e blobs são criados para os arquivos.
 
@@ -461,7 +461,7 @@ Ao preparar um disco rígido para um trabalho de importação, o destino será e
 
 Ao preparar a unidade, você pode especificar se os arquivos de destino devem ser substituídos ou ignorados usando o parâmetro denominado /Disposition:<rename|no-overwrite|overwrite>. Por padrão, o serviço irá renomear os novos arquivos em vez de substituir os blobs existentes.
 
-**A ferramenta do cliente de Importação/Exportação do Azure é compatível com os sistemas operacionais de 32 bits?** Não. A ferramenta do cliente só é compatível com os sistemas operacionais Windows de 64 bits. Consulte a seção Sistemas Operacionais em [pré-requisitos](#pre-requisites) para obter uma lista completa de versões do SO com suporte.
+**A ferramenta do cliente de Importação/Exportação do Azure é compatível com os sistemas operacionais de 32 bits?** Não. A ferramenta do cliente só é compatível com os sistemas operacionais Windows de 64 bits. Consulte a seção Sistemas Operacionais em [pré-requisitos](#pre-requisites) para obter uma lista completa de versões do sistema operacional com suporte.
 
 **Devo incluir algo diferente de unidade de disco rígido no meu pacote?**
 
@@ -475,7 +475,7 @@ Você pode enviar as unidades para o data center usando qualquer transportadora 
 
 Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
-**Ao criar um trabalho, o endereço de envio será um local diferente do meu local da conta de armazenamento. O que devo fazer?**
+**Ao criar um trabalho, o endereço de envio será uma localização diferente da minha localização da conta de armazenamento. O que devo fazer?**
 
 Alguns locais de armazenamento de conta são mapeados para os locais de entrega alternativos. Locais de envio disponíveis anteriormente também podem ser temporariamente mapeados para locais alternativos. Sempre verifique o endereço de envio fornecido durante a criação do trabalho antes de enviar suas unidades.
 
@@ -483,7 +483,7 @@ Alguns locais de armazenamento de conta são mapeados para os locais de entrega 
 
 O status no portal Clássico muda de Enviando para Transferindo quando o processamento da unidade inicia. Se a unidade tiver alcançado a instalação, porém, ainda não tiver iniciado o processamento, o status do trabalho será exibido como Enviando.
 
-**Ao enviar a unidade, a transportadora solicitará o nome de contato do data center e o número de telefone. O que devo fornecer?**
+**Ao enviar a unidade, a transportadora solicitará o nome e o número de telefone de contato do data center. O que devo fornecer?**
 
 O número de telefone é fornecido a você durante a criação do trabalho. Se você precisar de um nome de contato, entre em contato conosco em waimportexport@microsoft.com e forneceremos essas informações.
 
@@ -493,7 +493,7 @@ Consulte [Importar arquivos PST ou dados do SharePoint para o Office 365](https:
 
 **Posso usar o serviço de Importação/Exportação do Azure para copiar meus backups offline para o Serviço de Backup do Azure?**
 
-Consulte o [Fluxo de trabalho do backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
+Consulte o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
 
 ## Consulte também:
 
@@ -501,4 +501,4 @@ Consulte o [Fluxo de trabalho do backup offline no Backup do Azure](../backup/ba
 
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

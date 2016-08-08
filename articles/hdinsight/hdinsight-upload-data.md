@@ -161,7 +161,7 @@ Por exemplo, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Como o sistema de arquivos padrão para o HDInsight está no armazenamento de Blob do Azure, /example/data.txt está, na verdade, no armazenamento de Blob do Azure. Você também pode fazer referência ao arquivo como:
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 ou
 
@@ -188,7 +188,7 @@ O *Explorador de Armazenamento do Azure* é uma ferramenta útil para inspeciona
 
 Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para saber mais sobre como obter essas informações, confira a seção "Como exibir, copiar e regenerar chaves de acesso de armazenamento” em [Criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].
 
-1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Explorador de Armazenamento, deverá inserir o ___nome da conta de Armazenamento\___ e a __chave da conta de armazenamento__. Se você tiver o antes, use botão __Adicionar__ para adicionar um novo nome de conta de armazenamento e chave.
+1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Explorador de Armazenamento, deverá inserir o ___Nome da conta de armazenamento_\_ e a __Chave da conta de armazenamento__. Se você tiver o antes, use botão __Adicionar\_\_ para adicionar um novo nome de conta de armazenamento e chave.
 
     Insira o nome e a chave da conta de armazenamento usada para o seu cluster HDinsight e selecione __Salvar & Abrir__.
 
@@ -282,4 +282,4 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

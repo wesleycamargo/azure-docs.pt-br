@@ -12,12 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Explorar os logs de rastreamento do .NET no Application Insights  
 
 Se usa NLog, log4Net ou System.Diagnostics.Trace para rastreamento de diagnóstico em seu aplicativo ASP.NET, você pode fazer com que os logs sejam enviados ao [Visual Studio Application Insights][start], em que você pode explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
+
+
+
 
 > [AZURE.NOTE] Você precisa do módulo de captura de log? É um adaptador útil para agentes de terceiros, mas se você ainda não usa o NLog, log4Net ou System.Diagnostics.Trace, convém chamar apenas o [TrackTrace() do Application Insights](app-insights-api-custom-events-metrics.md#track-trace) diretamente.
 
@@ -26,7 +29,23 @@ Se usa NLog, log4Net ou System.Diagnostics.Trace para rastreamento de diagnósti
 
 Instale a estrutura de registros escolhida no seu projeto. Isso deve resultar em uma entrada no app.config ou web.config.
 
-> É necessário adicionar uma entrada ao web.config, se você estiver usando System.Diagnostics.Trace.
+Se você estiver usando System.Diagnostics.Trace, precisará adicionar uma entrada ao web.config:
+
+```XML
+
+    <configuration>
+     <system.diagnostics>
+       <trace autoflush="false" indentsize="4">
+         <listeners>
+           <add name="myListener" 
+             type="System.Diagnostics.TextWriterTraceListener" 
+             initializeData="TextWriterOutput.log" />
+           <remove name="Default" />
+         </listeners>
+       </trace>
+     </system.diagnostics>
+   </configuration>
+```
 
 ## Configurar o Application Insights para coletar logs
 
@@ -41,7 +60,7 @@ Ou então **Configure o Application Insights** clicando com o botão direito no 
 
 Use este método se o tipo de projeto não tiver suporte no instalador do Application Insights (por exemplo, um projeto de Área de Trabalho do Windows).
 
-1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto. 
+1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
 3. Pesquise “Application Insights”
 
@@ -76,6 +95,15 @@ Por exemplo:
 
 Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.
 
+Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade que podem ser usados para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Isso permite que você filtre facilmente todas as mensagens de um nível de severidade específico relacionadas a determinado banco de dados em [Pesquisa][diagnostic].
 
 ## Explorar seus logs
 
@@ -85,13 +113,13 @@ Na folha de visão geral do aplicativo no [portal do Application Insights][porta
 
 ![No Application Insights, escolha Pesquisar](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Pesquisa de Diagnóstico](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Pesquisar](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Por exemplo, você pode:
 
 * Filtrar rastreamentos de log ou itens com propriedades específicas
 * Inspecionar um item específico em detalhes.
-* Localizar outra telemetria relacionada à mesma solicitação de usuário (ou seja, com o mesmo OperationId) 
+* Localizar outra telemetria relacionada à mesma solicitação de usuário (ou seja, com o mesmo OperationId)
 * Salvar a configuração dessa página como um favorito
 
 > [AZURE.NOTE] **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
@@ -100,7 +128,7 @@ Por exemplo, você pode:
 
 [Diagnosticar falhas e exceções no ASP.NET][exceptions]
 
-[Saber mais sobre a Pesquisa de Diagnóstico][diagnostic].
+[Saiba mais sobre a Pesquisa][diagnostic].
 
 
 
@@ -153,11 +181,11 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[portal]: http://portal.azure.com/
+[exceptions]: app-insights-asp-net-exceptions.md
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="ashwink"/>
 
 # Exemplos de início rápido da CLI entre plataformas do Azure Insights
 
-Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos de monitoramento do Azure Insights. O Azure Insights permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
+Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos de monitoramento do Azure Insights. O Azure Insights permite que você dimensione automaticamente os Serviços de Nuvem, as Máquinas Virtuais e os Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
->[AZURE.NOTE] Algumas das últimas correções de bugs da CLI do Azure Insights ainda não estão concluídas. Por isso, alguns dos recursos mais recentes ainda não estão disponíveis na versão atual da CLI do Azure. Enquanto isso, você pode usar a última CLI do Azure Insights, que inclui as correções por meio do download do tarball mais recente da ramificação de desenvolvimento em [tarball da CLI XPLAT do Azure](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz) e seguir as instruções no [Repositório de linha de comando de plataforma cruzada do Microsoft Azure](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository) para instalá-la usando o tarball que você baixar. O Azure Insights incluirá as correções de bugs para a CLI do Azure quando for atualizado em breve. Atualizaremos este documento quando as alterações estiverem disponíveis na ramificação principal da CLI do Azure.
 
 ## Pré-requisitos
 
-Se ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](../xplat-cli-install.md). Se não estiver familiarizado com a CLI do Azure, você poderá ler mais sobre ela em [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+Se você ainda não tiver instalado a CLI do Azure, confira [Instalar a CLI do Azure](../xplat-cli-install.md). Se não estiver familiarizado com a CLI do Azure, você poderá ler mais sobre ela em [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 
 No Windows, instale o npm do [site do Node.js](https://nodejs.org/). Após concluir a instalação, usando o CMD.exe com os privilégios de Executar como Administrador, execute o seguinte na pasta em que o npm está instalado:
@@ -221,4 +220,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

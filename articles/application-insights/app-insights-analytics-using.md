@@ -21,12 +21,12 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
+* **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não está enviando dados para o Application Insights.
 
 ## Abrir Análise
 
-Do recurso de página inicial do seu aplicativo no Application Insights, clique em Análise.
-
-![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-using/001.png)
+Do recurso de página inicial do seu aplicativo no Application Insights, clique em Análise. p ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-using/001.png)
 
 O tutorial embutido fornecerá algumas ideias sobre o que você pode fazer.
 
@@ -121,6 +121,8 @@ Se você tiver várias colunas dos tipos corretos, você poderá escolher os eix
 
 Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
 
+Você pode fixar um diagrama para um dos seus [painéis compartilhados](app-insights-dashboards.md), basta clicar no pin. (Disponível somente para aplicativos em um tipo de preço pago.)
+
 ## Exportar para o Excel
 
 Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar para Excel**.
@@ -148,4 +150,4 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

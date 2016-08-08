@@ -110,7 +110,7 @@ O exemplo a seguir recuperará o URI WASB do armazenamento padrão de clusters:
 
 Isso retornará um valor semelhante ao seguinte, no qual __CONTÊINER__ é o contêiner padrão e __NOMEDACONTA__ é o nome da conta de Armazenamento do Azure:
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md) para carregar ou baixar dados do contêiner.
 
@@ -136,7 +136,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
         
     Substitua __NOMEDACONTA__ pelo nome da conta de armazenamento. Substitua __CHAVEDACONTA__ pela chave recuperada anteriormente. __CAMINHODOARQUIVO__ é o caminho para o arquivo que você deseja carregar, enquanto __CAMINHODOBLOB__ é o caminho no contêiner.
 
-    Por exemplo, se você quiser exibir o arquivo no HDInsight em wasb://example/data/filename.txt, __CAMINHODOBLOB__ deve ser `example/data/filename.txt`.
+    Por exemplo, se você quiser exibir o arquivo no HDInsight em wasbs://example/data/filename.txt, __CAMINHODOBLOB__ deve ser `example/data/filename.txt`.
 
 ##Exemplo: atualizar a configuração do Ambari
 
@@ -255,4 +255,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

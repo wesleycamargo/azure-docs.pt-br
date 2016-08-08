@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -26,8 +26,8 @@ O [Conector AS2](app-service-logic-connector-as2.md) expõe a capacidade de arqu
 
 O arquivamento é exposto em dois pontos, para mensagens e confirmações (MDNs):
 
-1. **Gatilho de recebimento/decodificação**: a mensagem é arquivada assim que é recebida pela instância do aplicativo de API 
-2. **Ação de codificação/envio**: a mensagem codificada é arquivada após todo o processamento ser concluído e antes de ser enviada ao parceiro 
+1. **Gatilho de recebimento/decodificação**: a mensagem é arquivada assim que é recebida pela instância do aplicativo de API
+2. **Ação de codificação/envio**: a mensagem codificada é arquivada após todo o processamento ser concluído e antes de ser enviada ao parceiro
 
 ## Como: recuperar a URL arquivada da mensagem
 
@@ -42,4 +42,4 @@ Use a URL recuperada acima para recuperar a mensagem arquivada do Armazenamento 
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

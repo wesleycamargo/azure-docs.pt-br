@@ -18,7 +18,7 @@
 
 # Apresentando o Microsoft Azure
 
-O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
+O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. O objetivo deste artigo é fornecer uma base para compreender os conceitos básicos do Azure, mesmo se você não sabe nada sobre [a computação em nuvem](https://azure.microsoft.com/overview/what-is-cloud-computing/).
 
 **Como ler este artigo**
 
@@ -55,7 +55,7 @@ Essas tecnologias podem ser usadas separadamente ou combinadas, conforme a neces
 
 ![Máquinas Virtuais do Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
 
-A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço (IaaS), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
+A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
 
 Para criar uma VM, você especifica qual VHD usar e o tamanho da VM. Você então paga por cada momento em que a VM estiver em execução. Você paga por minuto e somente enquanto estiver em funcionamento, apesar de existir uma cobrança mínima de armazenamento para manter o VHD disponível. O Azure oferece uma galeria de VHDs em estoque (chamados "imagens") que contêm um sistema operacional inicializável do qual se pode começar. Estas incluem opções da Microsoft e de parceiros, como o Windows Server e Linux, SQL Server, Oracle e muitos outros. Você fica livre para criar VHDs e imagens e então carregá-los, por conta própria. Você pode até mesmo carregar VHDs que contém somente dados e acessá-los a partir de suas VMs em execução.
 
@@ -68,7 +68,7 @@ Essa abordagem geral para computação em nuvem pode ser usada para solucionar m
 **Cenários para máquina virtual**
 
 1.	**Dev/Test** - Você pode usá-las para criar uma plataforma barata de desenvolvimento e teste que pode ser desligada quando tiver terminado de usá-la. Também é possível criar e executar aplicativos que usem qualquer linguagem e biblioteca de sua preferência. Esses aplicativos podem usar qualquer uma das opções de gerenciamento de dados fornecidas pelo Azure e você pode optar por usar o SQL Server ou outro DBMS em uma ou mais máquinas virtuais.
-2.	**Mova os aplicativos para o Azure (arrastar e deslocar)** - “Arrastar e deslocar" refere-se a mover seu aplicativo, como você utilizaria uma empilhadeira para mover um objeto grande. Você “arrasta" o VHD a partir de seu datacenter local e “desloca-o" para o Azure, executando-o de lá. Você normalmente precisará fazer algum trabalho para remover dependências de outros sistemas. Se houver muitas você pode escolher, em vez dessa opção, a opção 3.  
+2.	**Mova os aplicativos para o Azure (arrastar e deslocar)** - “Arrastar e deslocar" refere-se a mover seu aplicativo, como você utilizaria uma empilhadeira para mover um objeto grande. Você “arrasta" o VHD a partir de seu datacenter local e “desloca-o" para o Azure, executando-o de lá. Você normalmente precisará fazer algum trabalho para remover dependências de outros sistemas. Se houver muitas você pode escolher, em vez dessa opção, a opção 3.
 3.	**Estenda seu Datacenter** - Use as VMs do Azure como uma extensão do seu datacenter local, executando o SharePoint ou outros aplicativos. Para oferecer suporte a essa opção, é possível criar domínios do Windows na nuvem executando o Active Directory nas VMs do Azure. Você pode utilizar a rede virtual do Azure (mencionada posteriormente) para unir sua rede local à rede do Azure.
 
 
@@ -606,4 +606,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

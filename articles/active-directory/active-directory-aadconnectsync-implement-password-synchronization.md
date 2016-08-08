@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 <tags
 	ms.service="active-directory"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/20/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -31,14 +31,14 @@ A sincronização de senha é um recurso para sincronizar senhas de usuário de 
 
 Reduzindo o número de senhas que os usuários precisam manter para apenas uma, a sincronização de senha ajuda a:
 
-- Aumentar a produtividade dos seus usuários 
-- Reduzir seu custos de suporte técnico relacionados  
+- Aumentar a produtividade dos seus usuários
+- Reduzir seu custos de suporte técnico relacionados
 
 Se você optar por usar a [**Federação com o AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), outra opção será habilitar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS.
 
 A sincronização de senha é uma extensão para o recurso de sincronização de diretório, implementado pelo Azure AD Connect Sync. Para usar a sincronização de senha no seu ambiente, você precisa:
 
-- Instalar o Azure AD Connect  
+- Instalar o Azure AD Connect
 
 - Configure a sincronização de diretórios entre seu AD local e o Azure Active Directory
 
@@ -129,8 +129,8 @@ Se o servidor foi bloqueado de acordo com o FIPS (Federal Information Processing
 
 1. Vá para **%programfiles%\\Azure AD Sync\\Bin**.
 2. Abra **miiserver.exe.config**.
-2. Acesse o nó **configuração/tempo de execução** (no fim do arquivo). 
-3. Adicione o seguinte nó: **<enforceFIPSPolicy enabled="false"/>** 
+2. Acesse o nó **configuração/tempo de execução** (no fim do arquivo).
+3. Adicione o seguinte nó: **<enforceFIPSPolicy enabled="false"/>**
 4. Salve suas alterações.
 
 Para obter informações sobre segurança e FIPS, veja [Sincronização de senha do AAD, criptografia e conformidade FIPS](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
@@ -201,4 +201,4 @@ Normalmente, não é necessário disparar uma sincronização completa de todas 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -25,20 +25,16 @@ A data factory dá suporte à conexão com fontes DB2 locais usando o Gateway de
 
 Atualmente, a data factory dá suporte apenas para a movimentação de dados do DB2 para outros armazenamentos de dados, não de outros armazenamentos de dados para o DB2.
 
-> [AZURE.NOTE] Esse conector do DB2 oferece suporte para DB2 para LUW (Linux, UNIX, Windows). Para copiar dados do DB2 para z/OS ou DB2 para AS 400, considere usar o conector ODBC genérico e instalar o driver ODBC correspondente no computador do gateway. Por exemplo, para incluir dados do DB2 para AS/400, você pode usar o Driver ODBC do Access iSeries e veja [fontes de dados ODBC no local/Azure IaaS](data-factory-odbc-connector.md) para configurar a atividade de cópia.
-
 ## Instalação 
 
-Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados DB2, você precisa instalar o [Driver do servidor de dados IBM DB2](http://go.microsoft.com/fwlink/p/?LinkID=274911) no mesmo sistema que o Gateway de Gerenciamento de Dados.
+Para que o Gateway de Gerenciamento de Dados se conecte ao Banco de Dados DB2, começando na versão 2.1 do gateway, o Azure Data Factory fornece driver interno com suporte ao DB2 (SQLAM 9 / 10 / 11), incluindo DB2 para LUW (Linux, Unix, Windows), DB2 para z/OS e DB2 para i (também conhecido como AS/400). Desse modo, não é mais preciso instalar manualmente os drivers ao copiar dados do DB2.
 
-Há problemas conhecidos relatados pela IBM sobre a instalação do Driver do servidor de dados IBM DB2 no Windows 8, em que são necessárias etapas adicionais de instalação conhecidos. Para obter mais informações sobre o Driver do servidor de dados IBM DB2 no Windows 8, consulte [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
-
-> [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
+> [AZURE.NOTE] Confira [Solucionar problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
 
 
 ## Exemplo: copiar dados do DB2 para o Blob do Azure
 
-Este exemplo mostra como copiar dados de um banco de dados DB2 local para um Armazenamento de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+Este exemplo mostra como copiar dados de um banco de dados DB2 local para um Armazenamento de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
  
 O exemplo tem as seguintes entidades de data factory:
 
@@ -141,7 +137,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -149,7 +145,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -157,7 +153,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -324,6 +320,6 @@ Char | Cadeia de caracteres
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho do movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

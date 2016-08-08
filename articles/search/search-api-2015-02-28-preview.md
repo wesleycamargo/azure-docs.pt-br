@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="06/01/2016"
+   ms.date="07/25/2016"
    ms.author="brjohnst"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
@@ -978,6 +978,8 @@ A operação **Obter Estatísticas do Índice** retorna uma contagem de document
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
+> [AZURE.NOTE] As estatísticas de tamanho de armazenamento e contagem de documentos são coletadas a cada poucos minutos, não em tempo real. Portanto, talvez as estatísticas retornadas por essa API não reflitam as alterações causadas por operações de indexação recentes.
+
 **Solicitação**
 
 HTTPS é necessário para todas as solicitações de serviço. A solicitação **Obter Estatísticas do Índice** pode ser criada usando o método GET.
@@ -1402,7 +1404,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 `facet=[string]` (zero ou mais) ‒ um campo de acordo com o qual o facetamento deve ser realizado. Opcionalmente, a cadeia de caracteres pode conter parâmetros para personalizar o facetamento expressado como pares separados por vírgulas `name:value`. Os parâmetros válidos são:
 
 - `count` (número máximo de termos de faceta; o padrão é 10). Não há um máximo, mas os valores mais altos incorrerão em uma penalidade de desempenho correspondente, principalmente se o campo facetado contiver um grande número de termos exclusivos.
-  - Por exemplo: `facet=category,count:5` obtém as cinco principais categorias nos resultados de faceta.  
+  - Por exemplo: `facet=category,count:5` obtém as cinco principais categorias nos resultados de faceta.
   - **Observação**: se o parâmetro `count` for menor do que o número de termos exclusivos, os resultados poderão não ser precisos. Isso ocorre devido à maneira como as consultas de facetamento são distribuídas entre fragmentos. O aumento de `count` geralmente aumenta a precisão da contagem de termos, mas isso prejudica o desempenho.
 - `sort` (uma das `count` para classificar em ordem *decrescente* por contagem, `-count` para classificar em ordem *crescente* por contagem, `value` para classificar em ordem *crescente* por valor ou `-value` para classificar em ordem *decrescente* por valor)
   - Por exemplo: `facet=category,count:3,sort:count` obtém as três principais categorias nos resultados de faceta em ordem decrescente pelo número de documentos com o nome de cada cidade. Por exemplo, se as três principais categorias forem Orçamento, Motel e Luxo, Orçamento tiver cinco ocorrências, Motel tiver seis e Luxo tiver quatro, as classificações, em ordem, serão Motel, Orçamento, Luxo.
@@ -1416,7 +1418,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 - `timeoffset` ([+-]hh:mm, [+-]hhmm ou [+-]hh) `timeoffset` é opcional. Ele só pode ser combinado com a opção `interval` e somente quando aplicado a um campo do tipo `Edm.DateTimeOffset`. O valor especifica o deslocamento de hora em relação ao UTC para compensar ao definir limites de tempo.
   - Por exemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa o dia limite que inicia à 01:00:00 UTC (meia-noite no fuso horário de destino)
 - **Observação**: `count` e `sort` podem ser combinados na mesma especificação de faceta, mas não podem ser combinados com `interval` ou `values`, e `interval` e `values` não podem ser combinados juntos.
-- **Observação**: as facetas de intervalo de data e hora serão calculadas com base na hora UTC, caso `timeoffset` não seja especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o limite de dia começa à 00:00:00 UTC. 
+- **Observação**: as facetas de intervalo de data e hora serão calculadas com base na hora UTC, caso `timeoffset` não seja especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o limite de dia começa à 00:00:00 UTC.
 
 > [AZURE.NOTE] Ao chamar **Search** usando POST, esse parâmetro é chamado de `facets` em vez de `facet`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é uma expressão de faceta separada.
 
@@ -1448,7 +1450,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1745,7 +1747,7 @@ O URI da solicitação inclui um [nome de índice] e uma [chave], especificando 
 
 `$select=[string]` (opcional) ‒ uma lista de campos separados por vírgulas a serem recuperados. Se não for especificado ou se for definido como `*`, todos os campos marcados como recuperáveis no esquema serão incluídos na projeção.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, a `api-version` é especificada como um parâmetro de consulta.
 
@@ -1835,7 +1837,7 @@ Uma operação **Suggestions** é emitida como uma solicitação GET ou POST.
 
 Quando você usar HTTP GET para chamar a API de **Sugestões**, será preciso estar ciente de que o comprimento da URL da solicitação não pode exceder 8 KB. Isso costuma ser suficiente para a maioria dos aplicativos. No entanto, alguns aplicativos geram consultas muito grandes, especificamente expressões de filtro OData. Para esses aplicativos, usar HTTP POST é uma opção melhor, pois permite filtros maiores que o GET. Com o POST, o número de cláusulas em um filtro é o fator limitante, não o tamanho da cadeia de caracteres de filtro não processada, uma vez que o limite de tamanho da solicitação POST é quase 16 MB.
 
-> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Confira [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) (Sintaxe de expressão OData) para obter mais informações sobre as limitações de complexidade de filtro.
+> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Confira [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre as limitações de complexidade de filtro.
 
 **Solicitação**
 
@@ -1968,4 +1970,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

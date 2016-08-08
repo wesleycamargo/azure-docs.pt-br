@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -63,7 +63,7 @@ Substitua os valores por *SubscriptionId* e *ActiveDirectoryTenantId* por suas I
     ```
     Get-AzureAccount
     ```
-4.	Adicione as seguintes declarações usando o arquivo de origem (Program.cs) no projeto. 
+4.	Adicione as seguintes declarações usando o arquivo de origem (Program.cs) no projeto.
 
     ```
         using System;
@@ -180,4 +180,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,257 +1,422 @@
 <properties
-    pageTitle="Adicionar o conector do SFTP aos seus Aplicativos Lógicos | Microsoft Azure"
-    description="Visão geral do conector do SFTP com os parâmetros da API REST"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Saiba como usar o conector de SFTP nos seus aplicativos lógicos | Microsoft Azure"
+description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se à API do SFTP para enviar e receber arquivos. Você pode executar várias operações, como criar, atualizar, obter ou excluir arquivos."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="logic-apps"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/20/2016"
+ms.author="deonhe"/>
 
-# Introdução ao conector de SFTP 
-Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar tarefas diferentes no servidor do SFTP, como carregar arquivos, excluí-los e muito mais. O conector de SFTP pode ser usado por meio de:
+# Introdução ao conector de SFTP
 
-- Aplicativos lógicos
+Use o conector de SFTP de modo a acessar uma conta SFTP para enviar e receber arquivos. Você pode executar várias operações, como criar, atualizar, obter ou excluir arquivos.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Com o SFTP, você pode:
+## Conectar-se ao SFTP
 
-- Criar seu fluxo de negócios com base nos dados obtidos do SFTP. 
-- Usar um gatilho quando um arquivo for atualizado.
-- Usar ações para criar arquivos, excluí-los e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e então atualizar um banco de dados SQL. 
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Criar uma conexão com o SFTP
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o SFTP](../../includes/connectors-create-api-sftp.md)]
+
+## Usar um gatilho de SFTP
+
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+Neste exemplo, mostrarei como usar o gatilho **SFTP – quando um arquivo é adicionado ou modificado** para iniciar um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado, ou modificado, em um servidor SFTP. No exemplo, você também aprenderá a adicionar uma condição que verifica o conteúdo do arquivo novo ou modificado e a tomar uma decisão para extrair o arquivo se seu conteúdo indicar que ele deve ser extraído antes do uso. Por fim, você aprenderá a adicionar uma ação para extrair o conteúdo de um arquivo e colocar o conteúdo extraído em uma pasta no servidor SFTP.
+
+Em um exemplo corporativo, você pode usar esse gatilho para monitorar uma pasta SFTP em busca de novos arquivos que representam pedidos de clientes. Você pode usar uma ação de conector de SFTP, como **Obter conteúdo do arquivo** para obter o conteúdo do pedido para processamento posterior e armazenamento em seu banco de dados de pedidos.
+
+>[AZURE.INCLUDE [Etapas para criar um gatilho de SFTP](../../includes/connectors-create-api-sftp-trigger.md)]
+
+## Adicione uma condição
+
+>[AZURE.INCLUDE [Etapas para adicionar uma condição](../../includes/connectors-create-api-sftp-condition.md)]
+
+## Usar uma ação de SFTP
+
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+>[AZURE.INCLUDE [Etapas para criar uma ação de SFTP](../../includes/connectors-create-api-sftp-action.md)]
 
 
-## Gatilhos e ações
-O conector de SFTP tem os gatilhos e ações a seguir disponíveis.
+## Detalhes técnicos
 
-Gatilhos | Ações
---- | ---
-<ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter o conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
+Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## Gatilhos de SFTP
+
+O SFTP tem os seguintes gatilhos:
+
+|Gatilho | Descrição|
+|--- | ---|
+|[Quando um arquivo é adicionado ou modificado](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|Esta operação dispara um fluxo quando um arquivo é adicionado ou modificado em uma pasta.|
 
 
-## Criar uma conexão com o SFTP
-Ao adicionar esse conector aos seus aplicativos lógicos, insira os seguintes valores:
+## Ações de SFTP
 
-|Propriedade| Obrigatório|Descrição|
+O SFTP tem as seguintes ações:
+
+
+|Ação|Descrição|
+|--- | ---|
+|[Obter metadados do arquivo](connectors-create-api-sftp.md#get-file-metadata)|Esta operação obtém os metadados do arquivo usando a ID do arquivo.|
+|[Atualizar arquivo](connectors-create-api-sftp.md#update-file)|Esta operação atualiza o conteúdo do arquivo.|
+|[Excluir arquivo](connectors-create-api-sftp.md#delete-file)|Esta operação exclui um arquivo.|
+|[Obter metadados do arquivo usando o caminho](connectors-create-api-sftp.md#get-file-metadata-using-path)|Esta operação obtém os metadados do arquivo usando o caminho do arquivo.|
+|[Obter o conteúdo do arquivo usando o caminho](connectors-create-api-sftp.md#get-file-content-using-path)|Esta operação obtém o conteúdo do arquivo usando o caminho do arquivo.|
+|[Obter conteúdo do arquivo](connectors-create-api-sftp.md#get-file-content)|Esta operação obtém o conteúdo do arquivo usando a ID do arquivo.|
+|[Criar arquivo](connectors-create-api-sftp.md#create-file)|Esta operação carrega um arquivo em um servidor SFTP.|
+|[Copiar arquivo](connectors-create-api-sftp.md#copy-file)|Esta operação copia um arquivo em um servidor SFTP.|
+|[Lista de arquivos na pasta](connectors-create-api-sftp.md#list-files-in-folder)|Esta operação obtém os arquivos contidos em uma pasta.|
+|[Lista de arquivos na pasta-raiz](connectors-create-api-sftp.md#list-files-in-root-folder)|Esta operação obtém os arquivos na pasta raiz.|
+|[Extrair pasta](connectors-create-api-sftp.md#extract-folder)|Essa operação extrai um arquivo para uma pasta (exemplo: .zip).|
+### Detalhes da ação
+
+Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
+
+
+
+### Obter metadados do arquivo
+Esta operação obtém os metadados do arquivo usando a ID do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|Endereço do Servidor Host| Sim | Insira o FQDN (domínio totalmente qualificado) ou o endereço IP do servidor SFTP.|
-|Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor SFTP.|
-|Senha | Sim | Insira a senha do nome de usuário.|
-|Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar a você essa chave. Você também pode usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
+|id*|Arquivo|Especificar o arquivo|
 
-Veja um passo a passo e as etapas para criar a conexão:
+Um * indica que uma propriedade é obrigatória
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o sftp](../../includes/connectors-create-api-sftp.md)]
+#### Detalhes da Saída
 
-Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pasta ou o arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
-
->[AZURE.TIP] Você pode usar essa mesma conexão do SFTP em outros aplicativos lógicos.
+BlobMetadata
 
 
-## Referência da API REST do Swagger
-Aplica-se à versão: 1.0.
-
-### Criar arquivo
-Carrega um arquivo no SFTP.```POST: /datasets/default/files```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|folderPath|string|sim|query|nenhum |Caminho exclusivo da pasta no SFTP|
-|name|string|sim|query| nenhum|Nome do arquivo|
-|corpo|string(binary) |sim|corpo|nenhum |Conteúdo do arquivo a ser criado no SFTP|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-### Copiar arquivo
-Copia um arquivo no SFTP.```POST: /datasets/default/copyFile```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|fonte|string|sim|query| nenhum|Caminho para o arquivo de origem|
-|destino|string|sim|query|nenhum |Caminho para o arquivo de destino, incluindo o nome do arquivo|
-|substituir|booleano|não|query|nenhum|Substitui o arquivo de destino se estiver definido como "true"|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-### Excluir arquivo 
-Exclui um arquivo no SFTP.```DELETE: /datasets/default/files/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo no SFTP|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-### Extrair pasta
-Extrai um arquivo morto para uma pasta usando o SFTP (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|fonte|string|sim|query|nenhum |Caminho para o arquivo morto|
-|destino|string|sim|query|nenhum |Caminho para a pasta de destino|
-|substituir|booleano|não|query|nenhum|Substitui os arquivos de destino se estiver definido como "true"|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-### Obter conteúdo do arquivo
-Recupera o conteúdo do arquivo do SFTP usando a ID.```GET: /datasets/default/files/{id}/content```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo no SFTP|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
 
 
-### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do SFTP usando o caminho.```GET: /datasets/default/GetFileContentByPath```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|path|string|sim|query| nenhum|Caminho exclusivo do arquivo SFTP|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-
-### Obter Metadados do Arquivo 
-Recupera os metadados do arquivo do SFTP usando a ID do arquivo.```GET: /datasets/default/files/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path| nenhum|Identificador exclusivo do arquivo no SFTP|
-
-#### Resposta
-| Nome | Descrição |
-| --- | --- |
-| 200 | OK | 
-| padrão | Falha na Operação.
-
-
-### Obter Metadados do Arquivo usando o caminho
-Recupera os metadados do arquivo do SFTP usando o caminho.```GET: /datasets/default/GetFileByPath```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|path|string|sim|query|nenhum |Caminho exclusivo do arquivo SFTP|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
 
 
 ### Atualizar arquivo
-Atualiza o conteúdo do arquivo usando o SFTP.```PUT: /datasets/default/files/{id}```
+Esta operação atualiza o conteúdo do arquivo.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo no SFTP|
-|corpo|string(binary) |sim|corpo| nenhum|Conteúdo do arquivo para atualizar no SFTP|
 
-#### Resposta
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Especificar o arquivo|
+|body*|Conteúdo do arquivo|Conteúdo do arquivo para atualizar|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Excluir arquivo
+Esta operação exclui um arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Especificar o arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Obter metadados do arquivo usando o caminho
+Esta operação obtém os metadados do arquivo usando o caminho do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|path*|Caminho do arquivo|Caminho exclusivo do arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Obter o conteúdo do arquivo usando o caminho
+Esta operação obtém o conteúdo do arquivo usando o caminho do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|path*|Caminho do arquivo|Caminho exclusivo do arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Obter conteúdo do arquivo
+Esta operação obtém o conteúdo do arquivo usando a ID do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Arquivo|Especificar o arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Criar arquivo
+Esta operação carrega um arquivo em um servidor SFTP.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|folderPath*|Caminho da pasta|Caminho exclusivo da pasta|
+|name*|Nome do arquivo|Nome do arquivo|
+|body*|Conteúdo do arquivo|Conteúdo do arquivo a ser criado|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+|| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copiar arquivo
+Esta operação copia um arquivo em um servidor SFTP.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|source*|Caminho do arquivo de origem|Caminho para o arquivo de origem|
+|destination*|Caminho do arquivo de destino|Caminho para o arquivo de destino, incluindo o nome do arquivo|
+|substituir|Substituir?|Substitui o arquivo de destino se estiver definido como "true"|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Quando um arquivo é adicionado ou modificado
+Esta operação dispara um fluxo quando um arquivo é adicionado ou modificado em uma pasta.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|folderId*|Pasta|Especificar uma pasta|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Lista de arquivos na pasta
+Esta operação obtém os arquivos contidos em uma pasta.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|id*|Pasta|Especificar a pasta|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|cadeia de caracteres|
+
+
+
+
+### Lista de arquivos na pasta-raiz
+Esta operação obtém os arquivos na pasta raiz.
+
+
+Não há parâmetros para essa chamada
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extrair pasta
+Essa operação extrai um arquivo para uma pasta (exemplo: .zip).
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|source*|Caminho do arquivo de origem|Caminho para o arquivo morto|
+|destination*|Caminho da pasta de destino|Caminho para a pasta de destino|
+|substituir|Substituir?|Substitui os arquivos de destino se estiver definido como "true"|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|cadeia de caracteres|
+
+
+
+## Respostas HTTP
+
+As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP:
+
 |Nome|Descrição|
 |---|---|
 |200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido.|
 |padrão|Falha na Operação.|
 
 
-### Quando um arquivo é criado ou modificado 
-Dispara um fluxo quando um arquivo é modificado no SFTP.```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|folderId|string|sim|query|nenhum |Identificador exclusivo da pasta|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
 
 
-## Definições de objeto
 
-#### DataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
-
-#### TabularDataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
-
-#### BlobDataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-
-#### BlobMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|ID|string|não|
-|Nome|string|não|
-|DisplayName|string|não|
-|Caminho|string|não|
-|LastModified|string|não|
-|Tamanho|inteiro|não|
-|MediaType|string|não|
-|IsFolder|booleano|não|
-|ETag|string|não|
-|FileLocator|string|não|
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

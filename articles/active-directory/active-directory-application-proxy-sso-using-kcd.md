@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -97,7 +97,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 3. Em **Propriedades**, defina o **Método de Autenticação Interna** como **Autenticação Integrada do Windows**. ![Configuração de Aplicativo Avançada](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/lob.contoso.com.
 
->[AZURE.IMPORTANT] Os UPNs no Active Directory do Azure devem ser idênticos aos UPNs no Active Directory local para que a pré-autenticação funcione. Verifique se o AD do Azure está sincronizado com o AD local.
+>[AZURE.IMPORTANT] Se o UPN local e o UPN no Azure Active Directory não forem idênticos, você precisará configurar a [identidade de logon delegada](#delegated-login-identity) para que a pré-autenticação funcione.
 
 | | |
 | --- | --- |
@@ -110,14 +110,17 @@ O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é inic
 
 ![Diagrama de SSO não Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### Identidade delegada parcial
-Aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, não um endereço de email (username@domain). Isso é diferente da maioria dos sistemas baseados no Windows que preferem um UPN, que é mais conclusivo e garante que nenhuma duplicação entre domínios.
+### Identidade de logon delegada
+A identidade de logon delegada ajuda a lidar com dois cenários de logon diferentes:
 
-Por esse motivo, o Proxy de Aplicativo permite que você selecione qual identidade aparece no tíquete Kerberos, por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email.
+- Aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, não um endereço de email (username@domain).
+- Configurações de logon alternativas em que o UPN no Azure AD e o UPN no Active Directory local são diferentes.
+
+Com o Proxy de Aplicativo, você pode selecionar qual identidade deve ser usada para obter o tíquete Kerberos. Essa configuração é por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email, e outras são desenvolvidas para logon alternativo.
 
 ![Captura de tela de parâmetro de identidade de logon delegada](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-Se a identidade parcial é usada, e talvez essa identidade não seja exclusiva para todos os domínios ou florestas em sua organização, convém publicar esses aplicativos duas vezes usando dois grupos diferentes de Conector. Como cada aplicativo tem um público de usuários diferente, é possível ingressar seus Conectores em um domínio diferente.
+Se a identidade de logon delegada for usada, o valor não poderá ser exclusivo para todos os domínios ou florestas em sua organização. Você pode evitar esse problema publicando esses aplicativos duas vezes com dois grupos diferentes de Conectores. Como cada aplicativo tem um público de usuários diferente, é possível ingressar seus Conectores em um domínio diferente.
 
 
 ## Trabalhando com o SSO as identidades no local e na nuvem não são idênticas
@@ -166,4 +169,4 @@ Para ver as últimas notícias e atualizações, confira o [blog Application Pro
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

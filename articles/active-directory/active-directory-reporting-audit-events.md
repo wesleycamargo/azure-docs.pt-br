@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="07/25/2016"
    ms.author="dhanyahk"/>
 
 # Eventos de relatório de auditoria do Azure Active Directory
@@ -48,9 +48,9 @@ Adicionar entidade de serviço | Uma entidade de serviço foi adicionada ao dire
 Remover entidade de serviço | Uma entidade de serviço foi removida do diretório.
 Adicionar credenciais de entidade de serviço | Credenciais adicionadas a uma entidade de serviço.
 Remover credenciais de entidade de serviço | Credenciais removidas de uma entidade de serviço.
-Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) criado no diretório.
-Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) atualizado no diretório.
-Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) excluído do diretório.
+Adicionar entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) criado no diretório.
+Definir entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) atualizado no diretório.
+Remover entrada de delegação | [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) excluído do diretório.
 **Eventos de função** |
 Adicionar um membro da função à Função | Um usuário foi adicionado a uma função de diretório.
 Remover membro de função da Função | Um usuário foi removido de uma função de diretório.
@@ -122,4 +122,4 @@ TelephoneNumber | O número de telefone do usuário.
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Active Directory do Azure para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](https://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

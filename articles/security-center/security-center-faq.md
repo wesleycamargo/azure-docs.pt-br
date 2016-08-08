@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
 
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
-
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
 
 ## Perguntas gerais
 
@@ -41,12 +39,12 @@ A Central de Segurança coleta dados de suas máquinas virtuais para avaliar o e
 
 ### Como desabilitar a coleta de dados?
 
-Você pode desabilitar a **Coleta de dados** para uma assinatura na política de segurança a qualquer momento. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a **Coleta de dados**. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
+Você pode desabilitar a **Coleta de dados** para uma assinatura na política de segurança a qualquer momento. ([Entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a **Coleta de dados**. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você deve selecionar uma assinatura para desativar a coleta de dados.
 
 ### Como habilitar a coleta de dados?
-Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando a **Coleta de dados** estiver habilitada, ela coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
+Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando a **Coleta de dados** estiver habilitada, ela coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da coleta de dados ocorre apenas no nível da assinatura.
 
@@ -57,7 +55,7 @@ A coleta de dados é habilitada por meio do agente de monitoramento do Azure e d
 O agente e a extensão consomem uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho.
 
 ### Onde meus dados são armazenados?
-Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para escolher uma região.
+Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para selecionar uma região.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a seleção da região de sua conta de armazenamento ocorre apenas no nível da assinatura.
 
@@ -114,7 +112,7 @@ Para editar uma política de segurança, você deve ser um proprietário ou cola
 ## Máquinas Virtuais
 
 ### Quais tipos de máquinas virtuais terão suporte?
-O monitoramento de integridade de segurança e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md), inclusive VMs que fazem parte dos clusters do Azure Service Fabric.
+O monitoramento de integridade de segurança e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-classic-rm.md).
 
 VMs do Windows com suporte:
 
@@ -132,4 +130,4 @@ VMs do Linux com suporte:
 
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

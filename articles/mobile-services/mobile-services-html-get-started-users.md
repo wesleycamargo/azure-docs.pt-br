@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis 
@@ -35,9 +35,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 3. No diretório do aplicativo, inicie um dos seguintes arquivos de comando da subpasta **server**.
 
-	+ **launch-windows** (computadores com Windows) 
-	+ **launch-mac.command** (computadores com Mac OS X)
-	+ **launch-linux.sh** (computadores com Linux)
+	+ ** launch-windows** (computadores com Windows)
+	+ ** launch-mac.command** (computadores com Mac OS X)
+	+ ** launch-linux.sh** (computadores com Linux)
 
 	>[AZURE.NOTE]Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 
@@ -105,7 +105,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
 	>[AZURE.IMPORTANT]Em um aplicativo do PhoneGap, você deve também adicionar os seguintes plug-ins ao projeto:
 	><ul><li><code>plug-in PhoneGap adicionar https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-	> <li><code>plug-in PhoneGap adicionar https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	><li><code>plug-in PhoneGap adicionar https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Volte para o navegador onde seu aplicativo está em execução e atualize a página.
 
@@ -137,4 +137,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

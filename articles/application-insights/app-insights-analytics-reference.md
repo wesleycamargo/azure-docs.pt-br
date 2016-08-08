@@ -19,6 +19,7 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) se o seu aplicativo ainda não estiver enviando dados para o Application Insights.
 
 ## Índice
 
@@ -62,7 +63,7 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 Uma cláusula let associa um [nome](#names) a um resultado tabular, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
@@ -82,7 +83,7 @@ Uma cláusula let associa um [nome](#names) a um resultado tabular, um valor esc
 
 **Exemplos**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -508,7 +509,7 @@ Obtenha atividades estendidas a partir de um log em que algumas entradas marcam 
 
      T | limit 5
 
-Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator)).
+Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator).)
 
 **Alias** `take`
 
@@ -531,7 +532,7 @@ Há um limite implícito quanto ao número de linhas retornadas ao cliente, mesm
 
 Expande uma lista de uma célula dinamicamente tipada (JSON) para que cada entrada tenha uma linha separada. Todas as outras células em uma linha expandida são duplicadas.
 
-(Veja também [`summarize makelist`](#summarize-operator), que executa a função oposta).
+(Veja também [`summarize makelist`](#summarize-operator), que executa a função oposta.)
 
 **Exemplo**
 
@@ -720,7 +721,7 @@ Agendador | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
     T | project cost=price*quantity, price
 
-Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Veja também `extend`).
+Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Veja também `extend`.)
 
 
 **Sintaxe**
@@ -785,7 +786,7 @@ Gera uma tabela de coluna única de valores. Observe que ele não tem uma entrad
 * *Stop:* o valor mais elevado que está sendo gerado na saída (ou um limite para o valor mais elevado, se *step* passar por esse valor).
 * *Step:* a diferença entre dois valores consecutivos.
 
-Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator)).
+Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator).)
 
 **Retorna**
 
@@ -1271,7 +1272,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset)).
+Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset).)
 
 *Accuracy*, se for especificado, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1292,7 +1293,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset).)
 
 *Accuracy*, se for especificado, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1683,17 +1684,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -2588,7 +2579,7 @@ A notação de ponto e a notação [colchetes] são equivalentes:
 
 * Aplicar cláusulas where antes de usar `extractjson()`
 * Considere a possibilidade de, em vez disso, usar uma correspondência da expressão regular com [extract](#extract). Isso pode ser executado muito mais rápido, e será eficaz se JSON for produzido a partir de um modelo.
-* Use `parsejson()` se você precisar extrair mais de um valor de JSON.
+* Use `parsejson()` se você precisa extrair mais de um valor de JSON.
 * Considere analisar o JSON na ingestão declarando o tipo da coluna como dinâmica.
 
 ### Expressões de caminho JSON
@@ -2721,4 +2712,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

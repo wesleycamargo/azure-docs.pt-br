@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -43,7 +43,7 @@ Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A a�
 
 ### Usando o Portal do Azure
 
-Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Você deve fazer algumas alterações nas instruções deste artigo.
+Para obter instruções sobre como usar Portal do Azure para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Você deve fazer algumas alterações nas instruções deste artigo.
 
 * Você deve usar o script para instalar o Zeppelin. O script personalizado para instalar o Zeppelin em um cluster do Spark HDInsight está disponível nos seguintes links:
 	* Para clusters do Spark 1.6.0 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -201,7 +201,7 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **zeppelinnotebook** – apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – **\*hn0\*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
+	* **Padrão de URL** – ***hn0*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
 
 		![padrão do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -211,18 +211,18 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	![modo de seleção do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres __internal.cloudapp.net__ serão roteadas pelo túnel SSL.
+Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres __hn0__ serão roteadas pelo túnel SSL.
 
 ## Acessar o bloco de anotações do Zeppelin
 
-Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações do Zeppelin no cluster Spark seguindo as etapas abaixo.
+Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações do Zeppelin no cluster Spark seguindo as etapas abaixo. Nesta seção, você verá como executar instruções %sql e %hive.
 
 1. No navegador da Web, abra o seguinte ponto de extremidade:
 
 		http://hn0-myspar:9995
 
 	* **hn0**: denota headnode0
-	* **myspar**: são as seis primeiras letras do nome do cluster Spark.
+	* **myspar** são as seis primeiras letras do nome do cluster Spark.
 	* **9995**: é a porta onde o bloco de anotações do Zeppelin pode ser acessado.
 
 2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Notebook** e em **Criar Nova Anotação**.
@@ -235,12 +235,14 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 	![Status do bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Status do bloco de anotações do Zeppelin")
 
+### Executar Instruções SQL
+
 4. Carregar dados de exemplo em uma tabela temporária. Quando você cria um cluster Spark no HDInsight, o arquivo de dados de exemplo, **hvac.csv**, é copiado para a conta de armazenamento associada em **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	No parágrafo vazio criado por padrão no novo bloco de anotações, cole o trecho a seguir.
 
 		// Create an RDD using the default Spark context, sc
-		val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -297,6 +299,41 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 
 	![Reiniciar o interpretador do Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Reiniciar o interpretador do Zeppelin")
 
+### Executar Instruções do hive
+
+1. No bloco de anotações Zeppelin, clique no botão **Interpretador**.
+
+	![Atualizar o interpretador de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Atualizar o interpretador de Hive")
+
+2. Para o interpretador de **hive**, clique em **editar**.
+
+	![Atualizar o interpretador de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Atualizar o interpretador de Hive")
+
+	Atualize as seguintes propriedades.
+
+	* Defina **default.password** com a senha especificada para o usuário administrador durante a criação do cluster HDInsight Spark.
+	* Defina **default.url** como `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Substitua o **<nome\_cluster\_spark>** pelo nome de seu cluster Spark.
+	* Defina **default.user** como o nome de usuário administrador especificado durante a criação do cluster. Por exemplo, *administrador*.
+
+3. Clique em **Salvar** e, quando receber a solicitação para reiniciar o interpretador de hive, clique em **OK**.
+
+4. Crie um novo bloco de anotações e execute a instrução a seguir para listar todas as tabelas de hive no cluster.
+
+		%hive
+		SHOW TABLES
+
+	Por padrão, um cluster HDInsight tem um exemplo de tabela chamado **hivesampletable**, então você deverá ver a seguinte saída.
+
+	![Saída do Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Saída do Hive")
+
+5. Execute a instrução a seguir para listar os registros na tabela.
+
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
+
+	Você deverá ver algo semelhante ao seguinte.
+
+	![Saída do Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Saída do Hive")
 
 ## <a name="seealso"></a>Consulte também
 
@@ -350,4 +387,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

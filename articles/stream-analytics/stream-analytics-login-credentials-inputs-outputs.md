@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #Fazer a rotação de credenciais de logon para entradas e saídas em trabalhos do Stream Analytics
@@ -46,15 +46,15 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 ###Hubs de evento
 1.  Vá para a extensão Barramento de Serviço no Portal de Gerenciamento do Azure: ![elementográfico6][graphic6]
 2.  Localize o Namespace do Barramento de Serviço usado por seu trabalho e acesse-o: ![elementográfico7][graphic7]
-3.  Se seu trabalho usar uma política de acesso compartilhado no Namespace de Barramento de Serviço, vá para a etapa 6  
+3.  Se seu trabalho usar uma política de acesso compartilhado no Namespace de Barramento de Serviço, vá para a etapa 6
 4.  Vá para a guia Hubs de Eventos: ![elementográfico8][graphic8]
 5.  Localize o Hub de Eventos usado por seu trabalho e acesse-o: ![elementográfico9][graphic9]
 6.  Vá para a guia Configurar: ![elementográfico10][graphic10]
 7.  No menu suspenso Nome da Política, localize a política de acesso compartilhado usada por seu trabalho: ![elementográfico11][graphic11]
-8.  Entre a Chave Primária e a Chave Secundária, **escolha a que não é usada por seu trabalho**.  
+8.  Entre a Chave Primária e a Chave Secundária, **escolha a que não é usada por seu trabalho**.
 9.  Regeneração de ocorrência: ![elementográfico12][graphic12]
 10. Copie a chave recém-gerada: ![elementográfico13][graphic13]
-11. Prossiga para a Parte 2.  
+11. Prossiga para a Parte 2.
 
 ###Banco de dados SQL
 
@@ -66,13 +66,13 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 4.  Digite o Banco de Dados Mestre: ![elementográfico17][graphic17]
 5.  Digite seu Nome de Usuário, sua Senha e clique em Fazer logon: ![elementográfico18][graphic18]
 6.  Clique em Nova Consulta: ![elementográfico19][graphic19]
-7.  Digite a consulta a seguir, substituindo <login_name> por seu Nome de Usuário e substituindo <enterStrongPasswordHere> por sua nova senha: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
+7.  Digite a consulta a seguir, substituindo <login\_name> por seu Nome de Usuário e substituindo <enterStrongPasswordHere> por sua nova senha: `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Clique em Executar: ![elementográfico20][graphic20]
 9.  Volte para etapa 2 e, dessa vez, clique no banco de dados: ![elementográfico21][graphic21]
 10. Clique no comando Gerenciar: ![elementográfico22][graphic22]
 11. digite seu Nome de Usuário, sua Senha e clique em Fazer logon: ![elementográfico23][graphic23]
 12. Clique em Nova Consulta: ![elementográfico24][graphic24]
-13. Digite a consulta a seguir, substituindo <user_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados (é possível fornecer o mesmo valor atribuído para <login_name>, por exemplo) e substituindo <login_name> por seu novo nome de usuário: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Digite a consulta a seguir, substituindo <user\_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados (é possível fornecer o mesmo valor atribuído para <login\_name>, por exemplo) e substituindo <login\_name> por seu novo nome de usuário: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Clique em Executar: ![elementográfico25][graphic25]
 15. Agora, você deve fornecer o novo usuário com as mesmas funções e privilégios do usuário original.
 16. Prossiga para a Parte 2.
@@ -100,9 +100,9 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 4.	Prossiga para a Parte 4.
 
 ###Power BI
-1.	Clique em Renovar autorização:  
+1.	Clique em Renovar autorização:
 * ![elementográfico35][graphic35]
-* Você obterá a seguinte confirmação:  
+* Você obterá a seguinte confirmação:
 * ![elementográfico36][graphic36]
 2.	Clique no comando Salvar e confirme o salvamento das alterações: ![elementográfico37][graphic37]
 3.	Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
@@ -111,14 +111,14 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 ###Banco de dados SQL
 1.	Localize os campos Nome de usuário e Senha e cole seu conjunto de credenciais recém-criado neles: ![elementográfico38][graphic38]
 2.	Clique no comando Salvar e confirme o salvamento das alterações: ![elementográfico39][graphic39]
-3.	Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.  
+3.	Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
 4.	Prossiga para a Parte 4.
 
 ##Parte 4: Iniciando o trabalho desde a hora da última interrupção
 1.	Navegue para fora da Entrada/Saída: ![elementográfico40][graphic40]
 2.	Clique no comando Iniciar: ![elementográfico41][graphic41]
 3.	Selecione a Hora da Última Interrupção e clique em OK: ![elementográfico42][graphic42]
-4.	Prossiga para a Parte 5.  
+4.	Prossiga para a Parte 5.
 
 ##Parte 5: Removendo o conjunto de credenciais antigo
 Essa parte é aplicável às seguintes entradas/saídas:
@@ -133,9 +133,9 @@ Repita a Parte 1 da Chave de Acesso usada anteriormente por seu trabalho para re
 ###Hubs de evento
 Repita a Parte 1 da Chave usada anteriormente por seu trabalho para renovar a Chave agora não utilizada.
 
-###Banco de dados SQL
-1.	Vá para a janela de consulta da Parte 1 Etapa 7 e digite a consulta a seguir, substituindo <previous_login_name> pelo nome de usuário usado anteriormente por seu trabalho: `DROP LOGIN <previous_login_name>`  
-2.	Clique em Executar: ![elementográfico43][graphic43]  
+###Banco de Dados SQL
+1.	Vá para a janela de consulta da Parte 1 Etapa 7 e digite a consulta a seguir, substituindo <previous\_login\_name> pelo nome de usuário usado anteriormente por seu trabalho: `DROP LOGIN <previous_login_name>`
+2.	Clique em Executar: ![elementográfico43][graphic43]
 
 Você deverá obter a seguinte confirmação:
 
@@ -198,4 +198,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

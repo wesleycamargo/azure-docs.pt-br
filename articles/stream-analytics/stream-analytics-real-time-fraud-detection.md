@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok" />
 
 
@@ -45,7 +45,7 @@ O aplicativo de exemplo gerará eventos e os enviará por push a uma instância 
 
 Para criar um Hub de Evento:
 
-1.	No [Portal do Azure](https://manage.windowsazure.com/) clique em **Novo** > **Serviços de Aplicativos** > **Barramento de Serviço** > **Hub de eventos** > **Criação rápida**. Forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de eventos.  
+1.	No [Portal do Azure](https://manage.windowsazure.com/) clique em **Novo** > **Serviços de Aplicativos** > **Barramento de Serviço** > **Hub de eventos** > **Criação rápida**. Forneça um nome, uma região e um namespace novo ou existente para criar um novo Hub de eventos.
 2.	Como prática recomendada, cada trabalho de Stream Analytics deve ser lido por meio de um único Grupo de Consumidores de Hub de Eventos. Vamos orientá-lo abaixo ao longo do processo de criação de um Grupo de Consumidores, e você poderá [saber mais sobre esses Grupos de Consumidores](https://msdn.microsoft.com/library/azure/dn836025.aspx). Para criar um Grupo de Consumidores, navegue até o Hub de Eventos recém-criado e clique na guia **Grupos de Consumidores**. Em seguida, clique em **Criar** na parte inferior da página e forneça um nome para o seu Grupo de Consumidores.
 3.	Para conceder acesso ao Hub de Eventos, precisamos criar uma política de acesso compartilhado. Clique na guia **Configurar** de seu Hub de Eventos.
 4.	Em **Políticas de acesso compartilhado**, crie uma nova política com permissões para **Gerenciar**.
@@ -65,7 +65,7 @@ Nós fornecemos um aplicativo cliente que gerará metadados de chamadas de entra
 
 2.	Substitua os valores Microsoft.ServiceBus.ConnectionString e EventHubName em **telcodatagen.exe.config** pela cadeia de conexão e pelo nome do Hub de Eventos.
 
-    **Observação**: a cadeia de conexão copiada do Portal do Azure coloca o nome da conexão no final. Certifique-se de remover a "; EntityPath =<value>" da chave de adição = campo.
+    **Observação**: a cadeia de conexão copiada do Portal do Azure coloca o nome da conexão no final. Certifique-se de remover a ";EntityPath=<value>" da chave de adição = campo.
 
 3.	Inicie o aplicativo. A utilização é o seguinte:
 
@@ -135,7 +135,7 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 O Stream Analytics oferece suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados em tempo real de chamada.
 
 #### Opcional: Dados de entrada de exemplo
-Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso, e também fornecemos um arquivo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
+Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
 
 1.	Selecione a entrada do seu Hub de Eventos e clique em **Dados de exemplo** na parte inferior da página.
 2.	Na caixa de diálogo que será exibida, especifique uma **Hora de Início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados extras devem ser consumidos.
@@ -264,4 +264,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

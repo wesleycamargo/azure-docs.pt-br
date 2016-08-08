@@ -8,12 +8,12 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
     
 # Criando uma API personalizada para usar com Aplicativos Lógicos
@@ -30,15 +30,17 @@ A ação básica para um aplicativo Lógico é um controlador que aceitará uma 
 
 Por padrão, o mecanismo de aplicativo lógico atingirá o tempo limite de uma solicitação após um minuto. No entanto, você pode fazer com que sua API execute ações que demoram mais e fazer o mecanismo aguardar a conclusão, seguindo um padrão assíncrono ou de webhook detalhado abaixo.
 
+Para ações padrão, simplesmente escreva um método de solicitação HTTP em sua API, que é exposto por meio de swagger. Veja exemplos de aplicativos de API que funcionam com Aplicativos Lógicos em nosso [repositório do GitHub](https://github.com/logicappsio). Veja abaixo maneiras de realizar padrões comuns com um conector personalizado.
+
 ### Ações de execução longa: padrão assíncrono
 
 Ao executar uma tarefa ou etapa longa, a primeira coisa que você precisa fazer é se certificar de que o mecanismo saiba que você ainda não atingiu o tempo limite. Você também precisa comunicar ao mecanismo como ele saberá quando tiver terminado a tarefa e, finalmente, precisa retornar dados relevantes para o mecanismo para que ele possa continuar com o fluxo de trabalho. Você pode concluir isso por meio de uma API seguindo o fluxo abaixo. Essas etapas são do ponto de vista da API personalizada:
 
-1. Quando uma solicitação for recebida, retorne imediatamente uma resposta (antes de o trabalho ser concluído). Esta resposta será uma resposta `202 ACCEPTED`, informando ao mecanismo que você recebeu os dados, aceitou a carga e agora está processando. A resposta 202 deve conter os seguintes cabeçalhos: 
+1. Quando uma solicitação for recebida, retorne imediatamente uma resposta (antes de o trabalho ser concluído). Esta resposta será uma resposta `202 ACCEPTED`, informando ao mecanismo que você recebeu os dados, aceitou a carga e agora está processando. A resposta 202 deve conter os seguintes cabeçalhos:
  * Cabeçalho `location` (obrigatório): esse é um caminho absoluto para a URL que os Aplicativos Lógicos podem usar para verificar o status do trabalho.
  * `retry-after` (opcional, será padronizado como 20 para ações). Este é o número de segundos que o mecanismo deve aguardar antes de sondar a URL do cabeçalho do local para verificar o status.
 
-2. 2\. Quando o status de um trabalho for verificado, execute as seguintes verificações: 
+2. 2\. Quando o status de um trabalho for verificado, execute as seguintes verificações:
  * Se o trabalho estiver concluído: retorne uma resposta `200 OK`, com a carga de resposta.
  * Se o trabalho ainda estiver em processamento: retorne outra resposta `202 ACCEPTED`, com os mesmos cabeçalhos que a resposta inicial
 
@@ -72,7 +74,7 @@ Por exemplo, se eu estivesse sondando para ver se havia um arquivo disponível, 
 
 * Se uma solicitação fosse recebida sem nenhum triggerState, a API retornaria um `202 ACCEPTED` com um cabeçalho `location` que tem um triggerState da hora atual e um `retry-after` de 15.
 * Se uma solicitação fosse recebida com um triggerState:
- * Verificaria se algum arquivo foi adicionado após o DateTime do triggerState. 
+ * Verificaria se algum arquivo foi adicionado após o DateTime do triggerState.
   * Se houvesse um arquivo, retornaria uma resposta `200 OK` com a carga de conteúdo, incrementaria o triggerState para a DateTime do arquivo que eu retornei e definiria o `retry-after` como 15.
   * Se houvesse vários arquivos, eu poderia retornar um de cada vez com um `200 OK`, incrementar meu triggerState no cabeçalho `location` e definir `retry-after` como 0. Isso informaria ao mecanismo que há mais dados disponíveis e ele os solicitaria imediatamente no cabeçalho `location` especificado.
   * Se não houvesse nenhum arquivo disponível, retornaria uma resposta `202 ACCEPTED` e deixaria o triggerState `location` igual. Definiria `retry-after` para 15.
@@ -89,4 +91,4 @@ Atualmente o Designer de Aplicativo Lógico não dá suporte à descoberta de um
 
 Você pode ver um exemplo de um gatilho webhook no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar um front-end da Web para seu aplicativo | Microsoft Azure"
+   pageTitle="Criar um front-end da Web para seu aplicativo usando ASP.NET Core | Microsoft Azure"
    description="Exponha seu aplicativo do Service Fabric na Web usando um projeto de API Web do ASP.NET Core a e comunicação entre serviços via ServiceProxy."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="07/22/2016"
    ms.author="seanmck"/>
 
 
-# Compilar um serviço Web front-end para seu aplicativo
+# Compilar um serviço Web front-end para seu aplicativo usando ASP.NET Core
 
 Por padrão, os serviços do Azure Service Fabric não fornecem uma interface pública para a Web. Para expor a funcionalidade do aplicativo para clientes HTTP, você precisará criar um projeto Web para atuar como ponto de entrada e se comunicar dali com seus serviços individuais.
 
@@ -27,7 +27,7 @@ Neste tutorial, podemos retomar de onde paramos no tutorial [Criação do seu pr
 
 O ASP.NET Core é uma estrutura de desenvolvimento Web leve entre plataformas que permite a criação de uma interface do usuário Web e APIs Web modernas. Vamos adicionar um projeto de API Web do ASP.NET a nosso aplicativo existente.
 
->[AZURE.NOTE] Para concluir este tutorial, você precisará [instalar o .NET Core RC2][dotnetcore-install].
+>[AZURE.NOTE] Para concluir este tutorial, você precisará [instalar o .NET Core 1.0][dotnetcore-install].
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **Serviços** no projeto de aplicativo e escolha **Adicionar > Novo Serviço do Fabric Service**.
 
@@ -205,6 +205,9 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
     Atualize o navegador periodicamente para ver o valor do contador de atualização.
 
 
+>[AZURE.WARNING] O servidor Web do ASP.NET Core fornecido no modelo, conhecido como Kestrel, [não tem suporte no momento para tratar o tráfego direto da internet](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Para cenários de produção, considere a hospedagem de seus pontos de extremidade do ASP.NET Core atrás do [Gerenciamento de API][api-management-landing-page] ou de outro gateway voltado para a internet. Observe que não há suporte para o Service Fabric para implantação no IIS.
+
+
 ## E os atores?
 
 Este tutorial se concentra em adicionar um front-end da Web que se comunique com um serviço com estado. No entanto, você pode seguir um modelo muito semelhante ao conversar com atores. Na verdade, é um pouco mais simples.
@@ -240,5 +243,6 @@ Para saber como configurar valores diferentes para um ambiente diferente, confir
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/pt-BR/services/api-management/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

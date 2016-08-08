@@ -36,7 +36,7 @@ Você pode configurar um nível de consistência padrão, na conta do banco de d
 - A consistência Strong oferece uma garantia de [linearidade](https://aphyr.com/posts/313-strong-consistency-models) com garantia de que as leituras retornem a versão mais recente de um documento.
 - a consistência Strong garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada de modo síncrono e permanente pelo quorum primário e secundário, ou é anulada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada.
 - As contas do Banco de Dados de Documentos que são configuradas para usar consistência strong não podem associar mais de uma região do Azure à respectiva conta do Banco de Dados de Documentos.
-- O custo de uma operação de leitura (em termos de [unidades de solicitação](documentdb-request-units.md) consumidas) com consistência strong é maior do que com session e eventual, mas igual ao de bounded staleness.
+- O custo de uma operação de leitura (em termos de [unidades de solicitação](documentdb-request-units.md) consumidas) com coerência forte é maior do que com sessão e eventual, mas igual ao de obsolescência vinculada.
  
 
 **Bounded staleness**:
@@ -48,7 +48,7 @@ Você pode configurar um nível de consistência padrão, na conta do banco de d
 - A consistência bounded staleness oferece total de ordem global, exceto na "janela staleness". Observe que a leitura monotônica garante existência em uma região dentro e fora da "janela staleness".
 - A bounded staleness oferece garantia de consistência mais forte do que session ou eventual. Para aplicativos distribuídos globalmente, é recomendável usar bounded staleness para cenários em que deseja ter consistência forte, mas também 99,99% de disponibilidade e baixa latência.
 - As contas do Banco de Dados de Documentos que são configuradas com a consistência bounded staleness podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
-- O custo de uma operação de leitura (em termos de RUs consumidas) com consistência strong é maior do que com session e eventual, mas igual ao da consistência strong.
+- O custo de uma operação de leitura (em termos de RUs consumidas) com obsolescência vinculada é maior do que com sessão e eventual, mas igual ao da coerência forte.
 
 **Session**:
 
@@ -122,4 +122,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

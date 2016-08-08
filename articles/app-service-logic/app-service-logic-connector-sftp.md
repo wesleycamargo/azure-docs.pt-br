@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -24,6 +24,6 @@ Removemos o conteúdo (que se destinava à versão 2014-12-01-preview dos Aplica
 ## Próximas etapas    
 
 - [Saiba mais sobre o novo conector](../connectors/connectors-create-api-sftp.md)
-- Veja [a lista completa](../connectors/apis-list.md) de todos os conectores que são executados na nova versão de esquema 2015-08-01-preview dos Aplicativos Lógicos  
+- Veja [a lista completa](../connectors/apis-list.md) de todos os conectores que são executados na nova versão de esquema 2015-08-01-preview dos Aplicativos Lógicos
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

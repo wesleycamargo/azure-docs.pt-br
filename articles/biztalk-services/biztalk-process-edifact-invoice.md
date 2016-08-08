@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -73,7 +73,7 @@ Você pode criar essas filas do Barramento de Serviço usando um aplicativo clie
 
 3.  Na tela, insira o namespace, o nome do emissor e a chave do emissor do ACS do Barramento de Serviço.
 
-    ![][2]  
+    ![][2]
 4.  Uma caixa de mensagem solicitará a criação de três filas no namespace do Barramento de Serviço. Clique em **OK**.
 
 5.  Deixe o Tutorial Cliente em execução. Abra, clique em **Barramento de Serviço** > **_seu namespace do Barramento de Serviço_** > **Filas** e verifique se as três filas foram criadas.
@@ -112,7 +112,7 @@ Acordos entre parceiros comerciais são criados entre os perfis comerciais dos p
 
     3.  Na guia **Protocolo**, na seção **Esquemas**, carregue o esquema **EFACT\_D93A\_INVOIC.xsd**. Esse esquema está disponível com o pacote de exemplo.
 
-        ![][4]  
+        ![][4]
     4.  Na guia **Transporte**, especifique os detalhes das filas do Barramento de Serviço. Para o contrato do lado de envio, usamos a fila **northwindreceive** para enviar a fatura EDIFACT à Northwind e a fila **suspended** para rotear todas as mensagens que falham durante o processamento e são suspensas. Você criou essas filas na **Etapa 1: criar as filas do Barramento de Serviço** (neste tópico).
 
         ![][5]
@@ -161,15 +161,15 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 
 2.  Clique em qualquer lugar na tela e defina a **URL do Serviço BizTalk** na caixa de propriedade para especificar o nome da sua assinatura dos Serviços BizTalk. Por exemplo: `https://contosowabs.biztalk.windows.net`.
 
-    ![][7]  
+    ![][7]
 3.  Na caixa de ferramentas, arraste uma **Ponte unidirecional de Xml** para a tela. Defina as propriedades **Entity Name** e **Relative Address** da ponte para **ProcessInvoiceBridge**. Clique duas vezes em **ProcessInvoiceBridge** para abrir a superfície de configuração da ponte.
 
 4.  Na caixa **Tipos de Mensagem**, clique no sinal de adição (**+**) para especificar o esquema da mensagem de entrada. Como a mensagem de entrada para a ponte EAI é sempre a fatura interna, defina-a como **INHOUSEINVOICE**.
 
-    ![][8]  
+    ![][8]
 5.  Clique na forma **Transformação Cml** e na caixa de propriedade; para a propriedade **Maps**, clique no botão de reticências (**...**). Na caixa de diálogo **Seleção de Mapas**, selecione o arquivo de transformação **INHOUSEINVOICE\_to\_D93AINVOIC** e clique em **OK**.
 
-    ![][9]  
+    ![][9]
 6.  Volte para **MessageFlowItinerary.bcs** e, na caixa de ferramentas, arraste um **Ponto de extremidade de serviço externo bidirecional** à direita do **ProcessInvoiceBridge**. Defina a propriedade **Entity Name** como **EDIBridge**.
 
 7.  No Gerenciador de Soluções, expanda o **MessageFlowItinerary.bcs** e clique duas vezes no arquivo **EDIBridge.config**. Substitua o conteúdo de **EDIBridge.config** com o seguinte:
@@ -223,16 +223,16 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
     ```
 8.  Atualize o arquivo EDIBridge.config para incluir detalhes de configuração
 
-    *   Em _<behaviors>_, forneça o namespace do ACS e a chave associada à assinatura dos Serviços BizTalk.
+    *   Em _<comportamentos>_, forneça o namespace do ACS e a chave associada à assinatura dos Serviços BizTalk.
 
-    *   Em _<client>_, forneça o ponto de extremidade em que o contrato de envio EDI é implantado.
+    *   Em _<cliente>_, forneça o ponto de extremidade no qual o contrato de envio EDI está implantado.
 
     Salve as alterações e feche o arquivo de configuração.
 
 9.  Na Caixa de Ferramentas, clique no **Conector** e adicione os componentes **ProcessInvoiceBridge** e **EDIBridge**. Selecione o conector e, na caixa Propriedades, defina **Condição de Filtro** como **Corresponder Tudo**. Isso garante que todas as mensagens processadas pela ponte EAI sejam roteadas para a ponte EDI.
 
-    ![][10]  
-10.  Salve as alterações na solução.  
+    ![][10]
+10.  Salve as alterações na solução.
 
 ### Implantar o projeto
 
@@ -259,16 +259,16 @@ Neste tópico, veremos como testar a solução usando o aplicativo **Cliente de 
 
     O ponto de extremidade de ponte EAI foi copiado na etapa anterior. Para o ponto de extremidade da ponte de recebimento EDI, no Portal dos Serviços BizTalk, acesse o contrato > Configurações de Recebimento > Transporte > Ponto de Extremidade.
 
-    ![][12]  
+    ![][12]
 4.  Na próxima janela, em Contoso, clique no botão **Enviar Fatura Interna**. Na caixa de diálogo Abrir arquivo, abra o arquivo INHOUSEINVOICE.txt. Examine o conteúdo do arquivo e clique em **OK** para enviar a fatura.
 
-    ![][13]  
+    ![][13]
 5.  Em poucos segundos, a fatura é recebida pela Northwind. Clique no link **Exibir Mensagem** para ver a fatura recebida pela Northwind. Observe como a fatura recebida pela Northwind está no esquema padrão EDIFACT enquanto aquela enviada pela Contoso estava no esquema interno.
 
-    ![][14]  
+    ![][14]
 6.  Selecione a fatura e clique em **Enviar Confirmação**. Na caixa de diálogo exibida, observe que o ID da troca é igual ao da fatura recebida e da confirmação enviada. Clique em OK na caixa de diálogo **Enviar Confirmação**.
 
-    ![][15]  
+    ![][15]
 7.  Em poucos segundos, a fatura será recebida pela Contoso.
 
     ![][16]
@@ -284,10 +284,10 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 
 3.  Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Próximo**.
 
-    ![][17]  
+    ![][17]
 4.  Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Próximo**.
 
-    ![][18]  
+    ![][18]
 5.  Examine o resumo e clique em **Salvar**. Clique em **Implantar** para reimplantar o contrato.
 
 6.  Volte para o **Cliente de Tutorial**, clique em **Enviar Fatura Interna** e siga os prompts para enviar a fatura. Você observará que nenhuma fatura foi recebida na Northwind porque o tamanho do lote não foi atendido. Repita essa etapa mais duas vezes, para que você tenha três mensagens de faturas enviadas para a Northwind. Isso satisfaz os critérios de liberação de lote de três mensagens e agora você deverá ver uma fatura na Northwind.
@@ -313,4 +313,4 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

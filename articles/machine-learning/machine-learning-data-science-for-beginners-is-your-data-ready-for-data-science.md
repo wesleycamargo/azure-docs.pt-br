@@ -22,7 +22,7 @@
 
 ## Vídeo 2: Série de ciência de dados para iniciantes
 
-Saiba como avaliar seus dados para assegurar que eles atendem aos critérios básicos da ciência de dados.
+Saiba como avaliar seus dados para assegurar que eles atendem aos critérios básicos de preparo para a ciência de dados.
 
 Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
@@ -71,7 +71,7 @@ Agora, veja a tabela à direita. Desta vez, medimos a massa corporal de cada pes
 
 O próximo ingrediente serão os dados conectados.
 
-![Dados conectados versus dados desconectados - critérios dos dados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Dados conectados versus dados desconectados – critérios dos dados, dados prontos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Aqui estão alguns dados relevantes sobre a qualidade dos hambúrgueres: temperatura da churrasqueira, peso do hambúrguer e a classificação na revista de alimentos local. Mas observe as lacunas na tabela à esquerda.
 
@@ -119,4 +119,4 @@ Confira os outros quatro vídeos em *Ciência de Dados para Iniciantes* no Apren
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -3,7 +3,7 @@
     description="Crie aplicativos de alto desempenho usando o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
 	editor="tysonn" />
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/26/2016"
+    ms.author="aungoo-msft"/>
 
 # Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -25,11 +25,11 @@ Embora, neste artigo, tenhamos abordado cenários da camada de Armazenamento, vo
 
 Este artigo ajudará a responder às perguntas comuns a seguir sobre como otimizar o desempenho de aplicativos no Armazenamento Premium do Azure.
 
--   Como avaliar o desempenho do aplicativo?  
--   Por que você não está vendo o alto desempenho esperado?  
--   Quais fatores influenciam o desempenho do aplicativo no Armazenamento Premium?  
--   Como esses fatores influenciam o desempenho do aplicativo no Armazenamento Premium?  
--   Como você pode otimizar para IOPS, Largura de Banda e Latência?  
+-   Como avaliar o desempenho do aplicativo?
+-   Por que você não está vendo o alto desempenho esperado?
+-   Quais fatores influenciam o desempenho do aplicativo no Armazenamento Premium?
+-   Como esses fatores influenciam o desempenho do aplicativo no Armazenamento Premium?
+-   Como você pode otimizar para IOPS, Largura de Banda e Latência?
 
 Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as cargas de trabalho em execução no Armazenamento Premium são altamente sensíveis ao desempenho. Fornecemos exemplos onde apropriado. Também é possível aplicar algumas destas diretrizes a aplicativos em execução nas VMs da IaaS com discos de Armazenamento Padrão.
 
@@ -144,12 +144,12 @@ Alguns aplicativos permitem a você alterar o tamanho de E/S, enquanto outros ap
 
 Se estiver usando um aplicativo que não permite alterar o tamanho de E/S, use as diretrizes neste artigo para otimizar o KPI de desempenho que é mais relevante para o aplicativo. Por exemplo,
 
--   Um aplicativo OLTP gera milhões de solicitações de E/S pequenas e aleatórias. Para lidar com esses tipos de solicitação de E/S, você deve projetar a infraestrutura do aplicativo para obter IOPS mais alta.  
+-   Um aplicativo OLTP gera milhões de solicitações de E/S pequenas e aleatórias. Para lidar com esses tipos de solicitação de E/S, você deve projetar a infraestrutura do aplicativo para obter IOPS mais alta.
 -   Um aplicativo de data warehouse gera solicitações de E/S grandes e sequenciais. Para lidar com esses tipos de solicitação de E/S, você deve projetar a infraestrutura do aplicativo para obter largura de banda ou Taxa de Transferência mais alta.
 
 Se estiver usando um aplicativo que permita alterar o tamanho de E/S, use esta regra prática para o tamanho de E/S além de outras diretrizes de desempenho:
 
--   Tamanho menor de E/S para obter IOPS mais alta. Por exemplo, 8 KB para um aplicativo OLTP.  
+-   Tamanho menor de E/S para obter IOPS mais alta. Por exemplo, 8 KB para um aplicativo OLTP.
 -   Tamanho maior de E/S para obter largura de banda/Taxa de Transferência mais alta. Por exemplo, 1024 KB para um aplicativo de data warehouse.
 
 Veja um exemplo de como é possível calcular a IOPS e a Taxa de Transferência/largura de banda do seu aplicativo. Considere um aplicativo usando um disco P30. A IOPS e a Taxa de Transferência/largura de banda máximas que um disco P30 pode atingir é de 5.000 IOPS e 200 MB por segundo, respectivamente. Agora, se seu aplicativo exigir a IOPS máxima do disco P30 e você usar um tamanho de E/S menor, como 8 KB, a largura de banda resultante que você poderá obter será de 40 MB por segundo. No entanto, se seu aplicativo exigir a Taxa de Transferência/largura de banda máxima do disco P30 e você usar um tamanho de E/S maior, como 1024 KB, a IOPS resultante será menor, 200 IOPS. Sendo assim, ajuste o tamanho de E/S, de tal modo que ele atenda aos requisitos de IOPS e Taxa de Transferência/largura de banda do aplicativo. A tabela abaixo resume os diferentes tamanhos de E/S e a IOPS e a Taxa de Transferência correspondentes para um disco P30.
@@ -250,14 +250,14 @@ Veja a seguir as configurações recomendadas de cache de disco para discos de d
 
 *ReadOnly* Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, você pode obter baixa latência de leitura e IOPS de leitura e Taxa de Transferência muito altas para seu aplicativo. Isso se deve a dois motivos:
 
-1.  As leituras executadas no cache, que está na memória da VM e na SSD local, são muito mais rápidas do que as leituras no disco de dados, que está no armazenamento blob do Azure.  
+1.  As leituras executadas no cache, que está na memória da VM e na SSD local, são muito mais rápidas do que as leituras no disco de dados, que está no armazenamento blob do Azure.
 2.  O Armazenamento Premium não conta as leituras atendidas no cache para IOPS e Taxa de Transferência do disco. Portanto, o aplicativo é capaz de atingir um total mais alto de IOPS e Taxa de Transferência.
 
 *ReadWrite* Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte ao cache ReadWrite também nos discos de dados. Se estiver usando o cache ReadWrite, você deverá ter uma maneira adequada de gravar os dados do cache nos discos persistentes. Por exemplo, o SQL Server manipula a gravação de dados em cache nos discos de armazenamento persistentes por sua própria conta. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
 
 Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no Armazenamento Premium seguindo estes passos.
 
-1.  Configure o cache "ReadOnly" em discos do Armazenamento Premium que hospedam arquivos de dados. a. A leitura rápida no cache reduz o tempo de consulta do SQL Server, uma vez que as páginas de dados são recuperadas muito mais rapidamente do cache do que diretamente dos discos de dados. b. Atender às leituras no cache, significa que há Taxa de Transferência adicional disponível nos discos de dados premium. O SQL Server pode usar essa Taxa de Transferência adicional para recuperar mais páginas de dados e outras operações, como backup/restauração, cargas em lote e recriações de índice.  
+1.  Configure o cache "ReadOnly" em discos do Armazenamento Premium que hospedam arquivos de dados. a. A leitura rápida no cache reduz o tempo de consulta do SQL Server, uma vez que as páginas de dados são recuperadas muito mais rapidamente do cache do que diretamente dos discos de dados. b. Atender às leituras no cache, significa que há Taxa de Transferência adicional disponível nos discos de dados premium. O SQL Server pode usar essa Taxa de Transferência adicional para recuperar mais páginas de dados e outras operações, como backup/restauração, cargas em lote e recriações de índice.
 2.  Configure o cache "None" nos discos do Armazenamento Premium que hospedam os arquivos de log. a. Os arquivos de log têm basicamente operações pesadas de gravação. Sendo assim, eles não se beneficiam do cache ReadOnly.
 
 ## Distribuição de disco  
@@ -309,7 +309,7 @@ Normalmente, um aplicativo pode atingir a taxa máxima de transferência com 8 a
 
 Por exemplo, no SQL Server, definir o valor MAXDOP de uma consulta para "4" informa ao SQL Server que ele pode usar até quatro núcleos para executar a consulta. O SQL Server determinará qual é o melhor valor de profundidade de fila e o número de núcleos para a execução da consulta.
 
-*Profundidade Ideal de Fila* Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila. ![](media/storage-premium-storage-performance/image6.png)
+*Profundidade Ideal de Fila * Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila. ![](media/storage-premium-storage-performance/image6.png)
 
 Você não deve configurar a profundidade da fila para algum valor alto, mas para um valor ideal, o que pode fornecer IOPS suficiente ao aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS será, QD = 5000 x 0,001 = 5.
 
@@ -428,8 +428,8 @@ directory=/mnt/nocache
 ```
 
 Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:
--   Uma profundidade de fila alta de 256.  
--   Um bloco pequeno de 8 KB.  
+-   Uma profundidade de fila alta de 256.
+-   Um bloco pequeno de 8 KB.
 -   Vários threads que executam gravações aleatórias.
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
@@ -464,8 +464,8 @@ directory=/mnt/readcache
 
 Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:
 
--   Uma profundidade de fila alta de 256.  
--   Um bloco pequeno de 8 KB.  
+-   Uma profundidade de fila alta de 256.
+-   Um bloco pequeno de 8 KB.
 -   Vários threads que executam gravações aleatórias.
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
@@ -517,8 +517,8 @@ rate_iops=12500
 
 Observe os itens importantes a seguir que estão de acordo com as diretrizes de projeto abordadas nas seções anteriores. Estas especificações são essenciais para impulsionar a IOPS máxima:
 
--   Uma profundidade alta de fila de 128.  
--   Um bloco pequeno de 4 KB.  
+-   Uma profundidade alta de fila de 128.
+-   Um bloco pequeno de 4 KB.
 -   Vários threads que executam leituras e gravações aleatórias.
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
@@ -533,11 +533,11 @@ Enquanto o teste for executado, você poderá ver o número de IOPS de leitura e
 
 Saiba mais sobre o Armazenamento Premium do Azure:
 
-- [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md)  
+- [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md)
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 
 - [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
-- [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+- [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

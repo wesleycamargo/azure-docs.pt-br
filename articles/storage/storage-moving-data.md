@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="micurd"/>
 
 # Movendo dados para dentro e para fora do Armazenamento do Azure
@@ -27,6 +27,8 @@ Se você estiver criando um aplicativo, o desenvolvimento na API REST ou em uma 
 O Armazenamento do Azure fornece ricas bibliotecas de cliente para .NET, iOS, Java, Android, UWP (Plataforma Universal do Windows), Xamarin, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
 
 Confira [Introdução ao Armazenamento de Blobs do Azure](storage-dotnet-how-to-use-blobs.md) para saber mais.
+
+Além disso, nós também oferecemos a [Biblioteca de movimentação de dados do Armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que é uma biblioteca projetada para a cópia de alto desempenho dos dados do Azure e para ele. Consulte nossa [documentação](https://github.com/Azure/azure-storage-net-data-movement) da Biblioteca de movimentação de dados para saber mais.
 
 ## Exibindo/interagindo rapidamente com seus dados
 
@@ -42,7 +44,7 @@ Se você se sentir mais à vontade com um utilitário de linha de comando (por e
 
 O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você também pode copiar dados em uma conta de armazenamento ou entre diferentes contas de armazenamento.
 
-Confira [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md) para saber mais.
+Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para saber mais.
 
 ### PowerShell do Azure
 
@@ -80,4 +82,4 @@ Quando houver cargas de trabalho e aplicativos locais, você precisará de uma s
 
 Confira [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para saber mais.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

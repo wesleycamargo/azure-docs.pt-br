@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Conectar o Excel ao Hadoop com o driver ODBC do Microsoft Hive
@@ -58,7 +58,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
     Propriedade|Descrição
     ---|---
     Nome da fonte de dados|Forneça um nome para a sua fonte de dados
-    Host|Digite <HDInsightClusterName>.azurehdinsight.net. Por exemplo, meu\_Cluster\_HDI.azurehdinsight.net
+    Host|Insira <HDInsightClusterName>.azurehdinsight.net. Por exemplo, meu\_Cluster\_HDI.azurehdinsight.net
     Porta|Use <strong>443</strong>. (Essa porta foi alterada de 563 para 443.)
     Banco de dados|Use <strong>Padrão</strong>.
     Tipo de servidor Hive|Selecione <strong>Servidor Hive 2</strong>
@@ -105,7 +105,7 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela hive para
 	![Propriedades da conexão][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. Clique em **OK** para fechar o diálogo Propriedades da Conexão.
-12. Clique em **OK** para fechar o diálogo **Importar Dados**.  
+12. Clique em **OK** para fechar o diálogo **Importar Dados**.
 13. Insira a senha novamente e clique em **OK**. Leva alguns segundos para que os dados sejam importados para o Excel.
 
 ##Próximas etapas
@@ -131,4 +131,4 @@ Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recupera
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

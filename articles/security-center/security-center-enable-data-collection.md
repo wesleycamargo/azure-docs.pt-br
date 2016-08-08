@@ -1,6 +1,6 @@
 <properties
    pageTitle="Habilitar a coleta de dados na Central de Segurança do Azure | Microsoft Azure"
-   description="Saiba como habilitar a coleta de dados na Central de Segurança do Azure."
+   description=" Saiba como habilitar a coleta de dados na Central de Segurança do Azure. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Habilitar coleta de dados na Central de Segurança do Azure
 
 Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de Segurança do Azure coleta e processa dados sobre as máquinas virtuais do Azure, incluindo informações de configuração, metadados, logs de eventos e muito mais. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança (confira [Desabilitar a coleta de dados](#disabling-data-collection)). Se você desativar a coleta de dados, a Central de Segurança recomenda que você ative a coleta de dados na política de segurança para essa assinatura.
 
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
 ## Implementar a recomendação
 
@@ -60,7 +60,7 @@ Você pode desabilitar a coleta de dados a qualquer momento, o que removerá os 
 
 5.	Selecione **Excluir agentes** na faixa de opções superior para remover os agentes das máquinas virtuais existentes.
 
-## Próximas etapas
+## Consulte também
 
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Habilitar a coleta de dados". Para saber mais sobre a Central de Segurança, confira o seguinte:
 
@@ -80,4 +80,4 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

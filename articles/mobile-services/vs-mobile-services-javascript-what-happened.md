@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # O que acontece com o meu projeto do Javascript quando adiciono os Serviços Móveis do Azure usando os Serviços Conectados do Visual Studio?
@@ -38,4 +38,4 @@ Na pasta de serviços, arquivos de configuração de Serviços Conectados foram 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

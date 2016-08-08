@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 
@@ -304,7 +304,7 @@ Se um aplicativo fornecer um valor para uma id, os Serviços Móveis irão armaz
 O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
 
 + Caracteres de controle: [0x0000-0x001F] e [0x007F-0x009F]. Para obter mais informações, consulte [Códigos de controle ASCII C0 e C1].
-+  Caracteres imprimíveis: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  Caracteres imprimíveis: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Os ids "." e ".."
 
 Como alternativa, você pode usar Ids de números inteiros para suas tabelas. Para usar uma Id de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para saber mais sobre como usar a CLI, confira [CLI para gerenciar tabelas de Serviços Móveis].
@@ -449,7 +449,7 @@ Primeiro, defina a variável:
 
 
 
-Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate** (aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
+Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate **(aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
 
 
             // Get the Mobile Service Json Table to use
@@ -938,4 +938,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

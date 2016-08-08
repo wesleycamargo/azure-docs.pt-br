@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # Como gerenciar uma conta do Banco de Dados de Documentos
@@ -28,14 +28,11 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 ### Para especificar a consistência padrão para uma conta do Banco de Dados de Documentos
 
 1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
-2. Na folha da conta, se a folha **Configurações** ainda não estiver aberta, clique em **Todas as configurações**.
-![Sessão de consistência padrão][5]
+2. Na folha da conta, se a folha **Configurações** ainda não estiver aberta, clique em **Todas as configurações**. ![Sessão de consistência padrão][5]
 
-3. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** em **Recurso**.
-    ![Sessão de consistência padrão][6]
-
-4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
-5. O andamento da operação pode ser monitorado por meio do hub de Notificações do Portal do Azure.
+3. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** em **Recurso**. ![Sessão de consistência padrão][6]
+4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
+5. O andamento da operação pode ser monitorado por meio do hub de Notificações do Portal do Azure.
 
 > [AZURE.NOTE] Pode ser que demore um pouco para que uma alteração na configuração padrão da consistência entre em vigor na sua conta do Banco de Dados de Documentos.
 
@@ -144,7 +141,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
+[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

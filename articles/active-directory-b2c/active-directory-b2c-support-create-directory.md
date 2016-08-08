@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Criando um locatário do Azure AD (Azure Active Directory) ou um locatário do Azure AD B2C: problemas e resoluções
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Criando um locatário do Azure AD
 
 Se você não conseguir criar um locatário do AD do Azure na primeira vez, tente novamente. Se o problema persistir, contate o Suporte.
 
-## Criando um Locatário do Azure AD B2C (preview)
+## Criando um Locatário do Azure AD B2C
 
 Se encontrar problemas durante a [criação de um locatário do AD B2C do Azure](active-directory-b2c-get-started.md), tente o seguinte:
  
@@ -32,4 +30,4 @@ Se encontrar problemas durante a [criação de um locatário do AD B2C do Azure]
 - Se o locatário do Azure AD B2C aparecer na lista de locatários, mas você receber uma mensagem de erro ("Não foi possível concluir a criação do locatário B2C 'contosob2c'. Visite este [link](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) para obter mais diretrizes."), exclua o locatário que acabou de criar e tente novamente.
 - Se essas resoluções não funcionarem, entre em contato com o Suporte. Saiba mais sobre [como arquivar solicitações de suporte para o Azure AD B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,12 +26,14 @@ O nó de borda de um cluster Premium fornece um local conveniente para se conect
 
 ## Contextos de computação para um nó de extremidade
 
-Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. A exceção é aquelas etapas que chamam uma função ScaleR. As chamadas de ScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do ScaleR. Ao executar o script de R de um nó de borda, os possíveis valores de contexto de computação são local sequencial ('local'), local paralelo ('localpar'), Map Reduce e Spark, da seguinte maneira:
+Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. A exceção é aquelas etapas que chamam uma função ScaleR. As chamadas de ScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do ScaleR. Ao executar o script de R de um nó de borda, os possíveis valores de contexto de computação são local sequencial ('local'), local paralelo ('localpar'), Map Reduce e Spark.
+
+As opções ‘local’ e ‘localpar’ diferem apenas em como chamadas do rxExec são executadas. As duas executam outras chamadas de função rx de forma paralela entre os núcleos disponíveis, a menos que seja especificado de outra forma por meio do uso da opção numCoresToUse de ScaleR, por exemplo, rxOptions(numCoresToUse=6). Veja a seguir um resumo das diversas opções de contexto de computação
 
 | Contexto de computação | Como definir | Contexto de execução |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Local sequencial | rxSetComputeContext(‘local’) | Execução sequencial (não paralela) no servidor de nó de extremidade |
-| Local paralelo | rxSetComputeContext(‘localpar’) | Em paralelo entre os núcleos do servidor de nó de extremidade |
+| Local sequencial | rxSetComputeContext(‘local’) | Execução em paralelo entre os núcleos do servidor de nó de borda, exceto para chamadas rxExec, que são executadas em série |
+| Local paralelo | rxSetComputeContext(‘localpar’) | Execução paralela entre os núcleos do servidor de nó de borda |
 | Spark | RxSpark() | Execução distribuída em paralelo por meio do Spark em todos os nós do cluster do HDI |
 | Map Reduce | RxHadoopMR() | Execução distribuída em paralelo por meio do Map Reduce em todos os nós do cluster do HDI |
 
@@ -50,10 +52,10 @@ Atualmente, não há uma fórmula que informa qual contexto de computação usar
 
 Com esses princípios, algumas regras gerais para selecionar um contexto de computação são:
 
-### Local paralelo
+### Local
 
-- Se a quantidade de dados a ser analisada for pequena e não demandar análise repetida, transmita-a diretamente para a rotina de análise e use 'localpar'.
-- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e necessitar de análise repetida, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de 'localpar'.
+- Se a quantidade de dados a ser analisada for pequena e não demandar análise repetida, transmita-a diretamente para a rotina de análise e use 'local' ou 'localpar'.
+- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e necessitar de análise repetida, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de 'local' ou 'localpar'.
 
 ### Hadoop Spark
 
@@ -69,7 +71,7 @@ Para obter mais informações e exemplos de contextos de computação de ScaleR,
 
     > ?rxSetComputeContext
 
-Você também pode conferir o "ScaleR Distributed Computing Guide" (Guia de computação distribuída do ScaleR) disponível na biblioteca [MSDN do Servidor R](https://msdn.microsoft.com/library/mt674634.aspx "R Server no MSDN").
+Você também pode conferir o “Guia de computação distribuída do ScaleR” disponível na biblioteca [MSDN do Servidor R](https://msdn.microsoft.com/library/mt674634.aspx "R Server no MSDN").
 
 
 ## Próximas etapas
@@ -81,4 +83,4 @@ Neste artigo, você aprendeu como criar um novo cluster do HDInsight que inclui 
 - [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de Armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
-   ms.author="erihur"/>
+   ms.date="07/21/2016"
+   ms.author="erihur;genli"/>
 
 
 # Entenda sua fatura do Microsoft Azure
@@ -77,8 +77,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Informações da conta
 
-A seção de informações da conta identifica informações pertinentes no que diz respeito ao seu uso e perfil. 
-    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações da conta identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
@@ -218,7 +217,7 @@ Informações do Serviço 2 | Informações do Serviço 2 | Este é um campo her
 
 Além de alguns novos campos e as alterações de nome do arquivo csv versão 2, haverá uma formatação padronizada para os dados nos campos abaixo:
 
-- **ID da instância**: o campo ID de instância representa o identificador especificado pelo usuário para o serviço provisionado. Atualmente, há dois formatos em que a ID de instância é representada: é o nome do recurso ou ID do recurso totalmente qualificado. Os serviços do Microsoft Azure estão fazendo a transição para representar a ID de instância em um formato padronizado de ID de recurso totalmente qualificado _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. Durante a transição para o novo formato de serviços você verá o campo de dados da ID da instância mudar de apenas o nome do recurso para a ID do recurso. A ID de recurso é o formato usado pelo [API do Gerenciador de recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar recursos em um uma assinatura.
+- **ID da instância**: o campo ID de instância representa o identificador especificado pelo usuário para o serviço provisionado. Atualmente, há dois formatos em que a ID de instância é representada: é o nome do recurso ou ID do recurso totalmente qualificado. Os serviços do Microsoft Azure estão fazendo a transição para representar a ID de Instância em um formato padronizado da ID do Recurso totalmente qualificado _**(/subscriptions/<idassinatura>/resourcegroups/<nomegruporecursos>/providers/<nomeprovedor>/<nomerecurso>)**_. Durante a transição para o novo formato de serviços você verá o campo de dados da ID da instância mudar de apenas o nome do recurso para a ID do recurso. A ID de recurso é o formato usado pelo [API do Gerenciador de recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar recursos em um uma assinatura.
 
 ![instanceId](./media/billing-understand-your-bill/instanceid.png)
 
@@ -226,7 +225,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md) Serviços que oferecem suporte a marcas de emissão são:  
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md) Serviços que oferecem suporte a marcas de emissão são:
     - Máquinas Virtuais
     - Armazenamento e
     - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -254,4 +253,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

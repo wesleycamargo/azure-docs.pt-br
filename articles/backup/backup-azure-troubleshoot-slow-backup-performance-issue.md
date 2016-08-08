@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="markgal"
+   manager="jimpark"
    editor=""/>
 
 <tags
@@ -31,6 +31,8 @@ Antes de começar a solucionar o problema, recomendamos o download e a instalaç
 
 Também recomendamos que você revise as [Perguntas frequentes do serviço Backup do Azure](backup-azure-backup-faq.md) para ter certeza de que você não está enfrentando problemas comuns de configuração.
 
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
 ## Etapas para solucionar problemas
 <a id="cause1"></a>
 ## Causa 1: lentidão no backup devido a afunilamentos de desempenho no computador do qual está sendo feito o backup
@@ -39,19 +41,19 @@ Também recomendamos que você revise as [Perguntas frequentes do serviço Backu
 
 Pode haver alguns afunilamentos no computador do qual está sendo feito o backup que podem causar atrasos. Por exemplo, capacidade do computador de ler ou gravar no disco, larguras de banda para enviar dados pela rede etc.
 
-O Windows fornece uma ferramenta interna chamada [Monitor de desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx)(Perfmon) para detectar esses afunilamentos. A tabela a seguir resume os contadores de desempenho e os intervalos para obter os Backups ideais.
+O Windows fornece uma ferramenta interna denominada [Monitor de Desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx)(Perfmon) para detectar esses afunilamentos. A tabela a seguir resume os contadores de desempenho e os intervalos para ter Backups ideais.
 
 Veja alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar afunilamentos.
 
 | Contador | Status |
 |---|---|
-|Disco Lógico(Disco Físico) – %ocioso | • 100% ocioso a 50% ocioso = Íntegro</br>• 49% ocioso a 20% ocioso = Aviso ou Monitorar</br>• 19% ocioso a 0% ocioso = Crítico ou Fora de Especificação|
-| Disco Lógico(Disco Físico) -- %média Leitura ou Gravação do Disco por S | • 0,001ms a 0,015ms = Íntegro</br>• 0,015ms a 0,025 = Aviso ou Monitorar</br>• 0,026ms ou mais = Crítico ou Fora de Especificação|
+|Disco Lógico(Disco Físico) – %ocioso | • 100% a 50% ociosos = Íntegro</br>• 49% a 20% ociosos = Aviso ou Monitorar</br>• 19% a 0% ocioso = Crítico ou Fora de Especificação|
+| Disco Lógico(Disco Físico) -- %média Leitura ou Gravação do Disco por S | • 0,001 ms a 0,015 ms = Íntegro</br>• 0,015 ms a 0,025 = Aviso ou Monitorar</br>• 0,026 ms ou mais = Crítico ou Fora de Especificação|
 | Disco Lógico(Disco Físico) -- Comprimento da Fila do Disco Atual (para todas as instâncias) | 80 solicitações por mais de seis minutos |
-| Memória--Bytes de Pool não Pagináveis|• Menos de 60% do pool consumido = Íntegro<br>• 61% a 80% do pool consumido = Aviso ou Monitorar</br>• Mais de 80% do pool consumido = Crítico ou Fora de Especificação|
-| Memória--Bytes de Pool Pagináveis |• Menos de 60% do pool consumido = Íntegro</br>• 61% a 80% do pool consumido = Aviso ou Monitorar.</br>• Mais de 80% do pool consumido = Crítico ou Fora de Especificação.|
-| Memória--Megabytes disponíveis| • 50% de memória livre disponível ou mais = Íntegro</br>• 25% de memória livre disponível = Monitorar.</br>• 10% de memória livre disponível = Aviso.</br>• Menos de 100MB ou 5% de memória livre disponível = Crítico ou Fora de Especificação.|
-|Processor--\\%Tempo do Processor (todas as instâncias)|• Menos de 60% consumido = Íntegro</br>• 61% a 90% consumido = Monitorar ou Cuidado</br>• 91% a 100% consumido = Crítico|
+| Memória--Bytes de Pool não Pagináveis|• Menos de 60% do pool consumidos = Íntegro<br>• 61% a 80% do pool consumidos = Aviso ou Monitorar</br>• Mais de 80% do pool consumidos = Crítico ou Fora de Especificação|
+| Memória--Bytes de Pool Pagináveis |• Menos de 60% do pool consumidos = Íntegro</br>• 61% a 80% do pool consumidos = Aviso ou Monitorar</br>• Mais de 80% do pool consumidos = Crítico ou Fora de Especificação.|
+| Memória--Megabytes disponíveis| • 50% de memória livre disponíveis ou mais = Íntegro</br>• 25% de memória livre disponíveis = Monitorar</br>• 10% de memória livre disponíveis = Aviso</br>• Menos de 100 MB ou 5% de memória livre disponíveis = Crítico ou Fora de Especificação.|
+|Processor--\\%Tempo do Processor (todas as instâncias)|• Menos de 60% consumidos = Íntegro</br>• 61% a 90% consumidos = Monitorar ou Cuidado</br>• 91% a 100% consumidos = Crítico|
 
 
 > [AZURE.NOTE] Se a infraestrutura isolada for a possível culpada, é aconselhável desfragmentar os discos que estão sendo protegidos regularmente para melhorar o desempenho.
@@ -89,8 +91,8 @@ Esse comportamento ocorre porque durante o backup dos dados e movimentação par
 
 Execute as etapas abaixo para entender o gargalo e trabalhar adequadamente nas próximas etapas:
 
-a. **Interface do usuário mostra o progresso da quantidade de dados transferidos**- Nesse caso, os dados ainda estão sendo transferidos e a largura de banda de rede ou o tamanho dos dados pode estar causando atrasos.
+a. **Interface do usuário mostrando o progresso da quantidade de dados transferidos** - Neste caso, os dados ainda estão sendo transferidos e a largura de banda da rede ou o tamanho dos dados pode estar causando atrasos.
 
-b. **Interface do usuário não mostra o progresso**- Nesse caso, abra os logs localizados em "C:\\Agente do Serviços de Recuperação do Microsoft Azure\\Temp" e procure a entrada "FileProvider::EndData" nos logs. Essa entrada significa que a transferência de dados está concluída e a operação de catálogo está acontecendo. Não cancele os trabalhos de backup, em vez disso, aguarde algum tempo para a conclusão do catálogo. Se o problema persistir, contate o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+b. **Interface do usuário não mostrando o progresso**- Neste caso, abra os logs localizados em "C:\\Agente dos Serviços de Recuperação do Microsoft Azure\\Temp" e procure a entrada "FileProvider::EndData" nos logs. Essa entrada significa que a transferência de dados está concluída e a operação de catálogo está acontecendo. Não cancele os trabalhos de backup, em vez disso, aguarde algum tempo para a conclusão do catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

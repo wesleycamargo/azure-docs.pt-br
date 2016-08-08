@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Gerenciar controladores de dispositivo StorSimple
@@ -78,7 +78,7 @@ Para gerenciar os controladores de dispositivo no Portal Clássico do Azure, exe
 Isso irá reiniciar ou desligar o controlador. A tabela a seguir resume os detalhes do que acontece dependendo das seleções feitas na caixa de diálogo **Alterar Configurações do Controlador**.
 
 
-|Seleção #|Se você optar por...|Acontecerá isso.|
+|Seleção n°|Se você optar por...|Acontecerá isso.|
 |---|---|---|
 |1\.|Reinicie o controlador passivo.|Um trabalho será criado para reiniciar o controlador e você será notificado depois que o trabalho tiver sido criado com êxito. Isso iniciará a reinicialização do controlador. Você pode monitorar o processo de reinicialização acessando **Serviço > Painel de controle > Exibir logs de operação** e filtrando por parâmetros específicos do seu serviço.|
 |2\.|Reinicie o controlador ativo.|Você verá o seguinte aviso: "Se você reiniciar o controlador ativo, o dispositivo realizará failover para o controlador passivo. Deseja continuar?" </br>Se você optar por continuar com essa operação, as etapas seguintes serão idênticas àquelas usadas para reiniciar o controlador passivo (confira a seleção 1).|
@@ -140,6 +140,8 @@ Esta seção explica como desligar um dispositivo StorSimple com falha ou em exe
 
 ## Redefinir o dispositivo para as configurações padrões de fábrica
 
+> [AZURE.IMPORTANT] Se você precisar redefinir o dispositivo para as configurações padrão de fábrica, entre em contato com o Suporte da Microsoft. O procedimento descrito a seguir deve ser usado apenas em conjunto com o Suporte da Microsoft.
+
 Este procedimento descreve como redefinir o dispositivo Microsoft Azure StorSimple para as configurações padrão de fábrica usando o Windows PowerShell para StorSimple. A redefinição de um dispositivo remove todos os dados e todas as configurações do cluster inteiro por padrão.
 
 Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimple para as configurações padrões de fábrica:
@@ -160,7 +162,7 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
 
 	> [AZURE.TIP]
 
-	> - Se você estiver usando a Atualização 1.2 ou anterior, use o parâmetro `–SkipFirmwareVersionCheck` para ignorar a verificação de versão de firmware (caso contrário, você verá um erro de incompatibilidade de firmware: a redefinição de fábrica não pode continuar devido a uma incompatibilidade de versões de firmware).
+	> - Se você estiver usando a Atualização 1.2 ou anterior, use o parâmetro `–SkipFirmwareVersionCheck` para ignorar a verificação de versão de firmware (caso contrário, você verá um erro de incompatibilidade de firmware: A restauração de fábrica não pode continuar devido a uma incompatibilidade nas versões do firmware.).
 
 	> - O procedimento de redefinição de fábrica pode falhar para dispositivos StorSimple que executam a Atualização 1 ou 1.1 no Portal do Governo e que executaram uma substituição de controlador único ou duplo com êxito (com os controladores de substituição que foram enviados com software anterior à Atualização 1). Isso acontece quando a imagem de redefinição de fábrica é validada para verificar a presença de um arquivo SHA1 no controlador, o qual não existe para um software anterior à Atualização 1. Se você encontrar esta falha de redefinição dos parâmetros originais, entre em contato com o Suporte da Microsoft para que ele possa auxiliar nas próximas etapas. Esse problema não é encontrado em controladores de substituição que foram enviados de fábrica com o software de Atualização 1 ou mais recente.
 
@@ -213,4 +215,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

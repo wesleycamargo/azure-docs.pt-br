@@ -196,7 +196,7 @@ Uma vez conectado, você chegará em um prompt semelhante ao seguinte.
     
     Você também pode usar o endereçamento de estilo WASB.
     
-        rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasbs:///")
 
 ## Usando o Servidor R no HDI de uma instância remota do Microsoft R Server ou Microsoft R Client
 
@@ -411,4 +411,4 @@ Ambos os modelos criam um novo cluster HDInsight e uma conta de armazenamento as
 
 Para obter informações genéricas sobre como usar os modelos do Azure Resource Manager, confira [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

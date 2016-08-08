@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # Volume localmente afixado do StorSimple: perguntas frequentes
@@ -121,7 +121,7 @@ Se os instantâneos locais forem invalidados, você receberá um alerta de infor
 **A.** O processo de conversão envolve duas etapas:
 
   1. Provisionamento de espaço no dispositivo para o volume localmente afixado que será convertido em breve.
-  2. Download de dados em camadas da nuvem para assegurar que haja garantias locais. 
+  2. Download de dados em camadas da nuvem para assegurar que haja garantias locais.
 
 Essas duas etapas são operações de longa execução que dependem do tamanho do volume que está sendo convertido, dos dados no dispositivo e da largura de banda disponível. Como alguns dados dos volumes em camadas existentes podem ser colocados na nuvem como parte do processo de provisionamento, o dispositivo poderá ter o desempenho reduzido durante esse período. Além disso, o processo de conversão poderá ser mais lento se:
 
@@ -213,4 +213,4 @@ Mais informações sobre [o failover e a DR de volumes fixos localmente entre ve
 
 **A.** Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

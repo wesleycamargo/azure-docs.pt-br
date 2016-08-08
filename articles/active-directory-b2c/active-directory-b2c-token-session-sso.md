@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do Azure do Active Directory B2C: Token, sessão e configuração de logon único | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Configuração de token, de sessão e de logon único | Microsoft Azure"
 	description="Token, sessão e configuração de logon único no Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Visualização do Azure Active Directory B2C: Token, sessão e configuração de logon único
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Configuração de token, de sessão e de logon único
 
 Esse recurso oferece um controle refinado, com base [em cada política](active-directory-b2c-reference-policies.md), de:
  
@@ -29,10 +27,10 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 Você pode usar esse recurso em seu locatário B2C da seguinte maneira:
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de entrada**. *Observação: você pode usar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada***.
+2. Clique em **Políticas de entrada**. *Observação: você pode usar esse recurso em qualquer tipo de política, não apenas em *Políticas de entrada**.
 3. Clique em uma política para abri-la. Por exemplo, clique em **B2C\_1\_SiIn**.
 4. Clique em **Editar** na parte superior da folha.
-5. Clique em **Token, sessão e configuração de logon único**.
+5. Clique em **Configuração de token, de sessão e de logon único**.
 6. Faça as alterações desejadas. Saiba mais sobre as propriedades disponíveis nas seções seguintes.
 7. Clique em **OK**.
 8. Clique em **Salvar** na parte superior da folha.
@@ -45,7 +43,7 @@ O Azure AD B2C dá suporte ao [protocolo de autorização OAuth 2.0](active-dire
 
 - **Vida útil (minutos) dos tokens de acesso e de ID**: a vida útil do token de portador do OAuth 2.0 usado para acessar um recurso protegido. No momento, o Azure AD B2C só emite tokens de ID. Esse valor também deverá se aplicar aos tokens de acesso quando adicionarmos suporte para eles.
    - Padrão = 60 minutos.
-   - Mínimo (inclusive) = 15 minutos.
+   - Mínimo (inclusive) = 5 minutos.
    - Máximo (inclusive) = 1440 minutos.
 - **Vida útil do token de atualização (dias)**: o período de tempo máximo que um token de atualização pode ser usado para adquirir um novo acesso ou o token de ID (e, opcionalmente, um novo token de atualização se seu aplicativo tiver recebido o escopo `offline_access`).
    - Padrão = 14 dias.
@@ -74,15 +72,15 @@ O Azure AD B2C dá suporte ao [protocolo de autenticação do OpenID Connect](ac
 Estes são alguns casos de uso que você pode habilitar usando essas propriedades:
 
 - Atenda aos requisitos de conformidade e segurança de seu setor definindo adequadamente a vida útil da sessão do aplicativo Web.
-- Force uma nova autenticação após um período de tempo definido durante a interação do usuário com uma parte do alto nível de segurança de seu aplicativo Web. 
+- Force uma nova autenticação após um período de tempo definido durante a interação do usuário com uma parte do alto nível de segurança de seu aplicativo Web.
 
 ## Configuração de SSO (Logon Único)
 
 Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá gerenciar interações do usuário entre eles usando a propriedade **Configuração de logon único**. Você pode definir a propriedade com uma das seguintes configurações:
 
 - **Locatário**: essa é a configuração padrão. O uso dessa configuração permite a vários aplicativos e políticas em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, quando um usuário entra em um aplicativo, Contoso Shopping, ele também pode entrar sem problemas em outro aplicativo, Contoso Pharmacy, ao acessá-lo.
-- **Aplicativo**: isso permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, se você deseja que o usuário entre em Contoso Pharmacy (com as mesmas credenciais), mesmo que ele já esteja conectado a Contoso Shopping, outro aplicativo no mesmo locatário do B2C. 
+- **Aplicativo**: isso permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, se você deseja que o usuário entre em Contoso Pharmacy (com as mesmas credenciais), mesmo que ele já esteja conectado a Contoso Shopping, outro aplicativo no mesmo locatário do B2C.
 - **Política**: isso permite que você mantenha uma sessão de usuário exclusivamente para uma política, independente dos aplicativos que estejam a usá-la. Por exemplo, se o usuário já tiver entrado e concluído uma etapa da MFA (Multi-Factor Authentication), ele pode receber acesso à partes com maior segurança de vários aplicativos enquanto a sessão vinculada à política não expirar.
 - **Desabilitado**: isso força o usuário a percorrer toda a jornada do usuário em cada execução da política. Por exemplo, isso permitirá que vários usuários se inscrevam em seu aplicativo (em um cenário de área de trabalho compartilhada), mesmo quando um usuário permanecer conectado o tempo todo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->
