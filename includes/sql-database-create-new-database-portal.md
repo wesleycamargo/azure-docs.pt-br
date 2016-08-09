@@ -30,7 +30,7 @@ Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL 
  - Nome do banco de dados
  - Assinatura (somente se você tiver várias assinaturas)
  - Grupo de recursos (se estiver começando, use o grupo de recursos do servidor lógico)
- - Selecione a origem (você pode escolher um banco de dados em branco, dados de exemplo ou backup de banco de dados)
+ - Selecione a fonte (você pode escolher um banco de dados em branco, dados de exemplo ou um backup do banco de dados do Azure - para migrar um dados do SQL Server local ou carregar os dados usando o BCP, consulte os links no final deste artigo)
  - Servidor (um servidor lógico novo ou existente)
  - Senha de administrador do servidor
  - Senha
@@ -47,4 +47,4 @@ Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL 
 
      ![novo banco de dados](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

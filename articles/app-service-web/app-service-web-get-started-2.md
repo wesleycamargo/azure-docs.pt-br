@@ -129,7 +129,7 @@ Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parc
 
 - [Comprar e configurar um nome de domínio personalizado](custom-dns-web-site-buydomains-web-app.md) - compre um domínio atraente para seu aplicativo Web em vez do domínio *.azurewebsites.net. Ou use um domínio que você já tenha.
 - [Configurar ambientes de preparo](web-sites-staged-publishing.md) - implante seu aplicativo em uma URL de preparo antes de colocá-lo em produção. Atualize o aplicativo Web dinâmico com confiança. Configure uma solução DevOps elaborada com vários slots de implantação.
-- [Configurar implantação contínua](web-sites-publish-source-control.md) - integre a implantação de aplicativo em seu sistema de controle de origem. Implante no Azure com cada confirmação.
+- [Configurar implantação contínua](app-service-continuous-deployment.md) - integre a implantação de aplicativo em seu sistema de controle de origem. Implante no Azure com cada confirmação.
 - [Acessar recursos locais](web-sites-hybrid-connection-get-started.md) - acesse um banco de dados local existente ou um sistema CRM.
 - [Fazer backup de seu aplicativo](web-sites-backup.md) – configure o backup e a restauração para seu aplicativo Web. Prepare-se para falhas inesperadas e recupere-se delas.
 - [Habilitar logs de diagnóstico](web-sites-enable-diagnostic-log.md) - leia os logs do IIS do Azure ou de rastreamentos de aplicativo. Leia-os em um fluxo, baixe-os ou porte-os para o [Application Insights](../application-insights/app-insights-overview.md) para análise turn key.
@@ -137,4 +137,4 @@ Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parc
 - [Executar trabalhos em segundo plano](../azure-functions/functions-overview.md) - execute trabalhos de processamento de dados, relatórios, etc.
 - [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

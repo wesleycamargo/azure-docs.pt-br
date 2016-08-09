@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/15/2016"
+   ms.date="08/02/2016"
    ms.author="elizapo"/>
 
 # OneDrive for Business e o Azure RemoteApp
 
-O OneDrive for Business não tem suporte no Azure RemoteApp.
+O agente de sincronização OneDrive for Business não tem suporte no Azure RemoteApp.
 
-Este artigo descreveu anteriormente as opções de implementação diferentes para usar o OneDrive for Business com o Azure RemoteApp. Saiba que essas opções de implementação não têm mais suporte.
+Você pode incluir o OneDrive for Business em uma coleção para o uso com o Office 365.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

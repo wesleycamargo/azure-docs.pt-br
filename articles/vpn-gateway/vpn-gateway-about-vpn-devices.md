@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site
@@ -51,7 +51,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | Citrix | Dispositivo CloudBridge MPX ou VPX virtual | N/D | [Instruções de integração](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Não compatível |
 | Dell SonicWALL | Séries TZ, NSA, SuperMassive e NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instruções - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instruções - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instruções - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instruções - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Série BIG-IP | N/D | [Instruções de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Não compatível |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
+| Fortinet | FortiGate | FortiOS 5.2.7 | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | Internet Initiative Japan (IIJ) | Série SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instruções de configuração](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Não compatível |
 | Juniper | SRX | JunOS 10.2 (baseado em política) e JunOS 11.4 (baseado em rota) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | Série J | JunOS 10.4r9 (baseado em política) e JunOS 11.4 (baseado em rota) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -118,10 +118,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Versão IKE | IKEv1 | IKEv2 |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
-| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | 
-| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) | 
-| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) | 
-| Detecção de Par Inativo | Sem suporte | Com suporte |
+| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | | Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) | | PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -145,12 +142,11 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida | 
-| 18 | - | AH MD5, sem tempos de vida |
+| 17 | - | AH SHA, sem tempos de vida | | 18 | - | AH MD5, sem tempos de vida |
 
 
 - Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso em cenários de comunicação vnet a vnet, ou quando a criptografia está sendo aplicada em outro lugar na solução.
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

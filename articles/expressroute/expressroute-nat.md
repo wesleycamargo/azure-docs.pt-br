@@ -23,7 +23,7 @@ Consulte a página [Circuitos e domínios de roteamento da Rota Expressa](expres
 
 ## Requisitos de NAT para o emparelhamento público do Azure
 
-O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Entre eles estão todos os serviços listados nas [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
+O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png)
 
@@ -37,7 +37,7 @@ Não há restrições com relação ao tamanho do prefixo IP de NAT anunciado po
 
 ## Requisitos de NAT para emparelhamento da Microsoft
 
-O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o CRM Online. A Microsoft espera dar suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve estar no modo SNAT para endereços IPv4 públicos válidos antes de entrar na rede da Microsoft. O tráfego destinado a sua rede proveniente dos serviços de nuvem da Microsoft deve estar no modo SNAT antes de entrar na rede. A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para emparelhamento da Microsoft.
+O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o CRM Online. A Microsoft espera dar suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve estar no modo SNAT para endereços IPv4 públicos válidos antes de entrar na rede da Microsoft. O tráfego destinado à sua rede proveniente dos serviços de nuvem da Microsoft deve estar no modo SNAT antes de entrar na rede. A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para emparelhamento da Microsoft.
  
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png)
 
@@ -66,4 +66,4 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

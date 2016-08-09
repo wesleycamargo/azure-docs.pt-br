@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 # Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows 
@@ -34,7 +34,7 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 	![Captura de tela do portal do Azure mostrando como conectar sua VM.](./media/virtual-machines-windows-connect-logon/connect.png)
 	
- > [AZURE.TIP] Se o botão 'Conectar' no portal estiver acinzentado e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../expressroute/expressroute-introduction.md)ou conexão [VPN Site a Site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), precisará criar e atribuir à VM um endereço IP público antes de usar o RDP. Você pode ler mais sobre os [endereços IP públicos no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+ > [AZURE.TIP] Se o botão **Conectar** no portal estiver acinzentado e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), será necessário criar e atribuir à VM um endereço IP público antes de usar o RDP. Leia mais sobre os [endereços IP públicos no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Faça logon na máquina virtual
 
@@ -43,6 +43,6 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 ## Próximas etapas
 
-Se você tiver problemas ao tentar se conectar, consulte [Solucionar Problemas de conexões da Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
+Se você tiver problemas ao tentar se conectar, consulte [Solucionar Problemas de conexões da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

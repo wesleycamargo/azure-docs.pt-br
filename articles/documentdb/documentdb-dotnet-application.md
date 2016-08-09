@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="08/01/2016" 
 	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativos Web com o Banco de Dados de Documentos
@@ -24,7 +24,7 @@
 - [.NET](documentdb-dotnet-application.md)
 - [Node.js](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
-- [Python](documentdb-python-application.md) 
+- [Python](documentdb-python-application.md)
 
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
 
@@ -39,7 +39,7 @@ Este passo a passo mostra como usar o serviço Banco de Dados de Documentos forn
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) Atualização 4 ou mais recente.
+- [Visual Studio 2015](http://www.visualstudio.com/) ou Visual Studio 2013 Atualização 4 ou superior. Se usar o Visual Studio 2013, você precisará instalar o [pacote nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) para adicionar suporte ao C# 6.0.
 - SDK do Azure para .NET versão 2.5.1 ou superior, disponível pelo [Microsoft Web Platform Installer][].
 
 Todas as capturas de tela neste artigo foram feitas usando o Visual Studio 2013 com Atualização 4 aplicada e o SDK do Azure para .NET versão 2.5.1. Se o seu sistema estiver configurado com versões diferentes, será possível que suas telas e opções não correspondam totalmente, mas se você cumprir os pré-requisitos acima, esta solução deverá funcionar.
@@ -101,9 +101,9 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
 
 	A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
 
-2. Na caixa **Procurar** do NuGet, digite ***Banco de Dados de Documentos do Azure***.
+2. Na caixa **Procurar** do NuGet, digite *** Banco de Dados de Documentos do Azure***.
 	
-	Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Visualização** e **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
+	Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Visualização** e em **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
 
   	![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure realçada](./media/documentdb-dotnet-application/nuget.png)
 
@@ -208,7 +208,7 @@ Agora vamos criar o **V** no MVC, as exibições:
 	- Na caixa **Nome da exibição**, digite ***Índice***.
 	- Na caixa **Modelo**, selecione ***Lista***.
 	- Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
-	- Deixe a caixa **Classe de contexto de dados** vazia. 
+	- Deixe a caixa **Classe de contexto de dados** vazia.
 	- Na caixa da página de layout, digite ***~/Views/Shared/\_Layout.cshtml***.
 	
 	![Captura de tela mostrando a caixa de diálogo Adicionar Exibição](./media/documentdb-dotnet-application/image18.png)
@@ -239,7 +239,7 @@ E, por fim, adicione uma última exibição para editar um **Item** da mesma man
 	- Na caixa **Nome da exibição**, digite ***Editar***.
 	- Na caixa **Modelo**, selecione ***Editar***.
 	- Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
-	- Deixe a caixa **Classe de contexto de dados** vazia. 
+	- Deixe a caixa **Classe de contexto de dados** vazia.
 	- Na caixa da página de layout, digite ***~/Views/Shared/\_Layout.cshtml***.
 	- Clique em **Adicionar**.
 
@@ -405,7 +405,7 @@ Abra ***App\_Start\\RouteConfig.cs***, encontre a linha que começa com "default
 
 Agora isso informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento que, em vez de **Home**, usa **Item** como controlador e o usuário **Índice** como exibição.
 
-Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\**Item**\\**Índice**.
+Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\**Item**\**Índice**.
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 
@@ -545,7 +545,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 	![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/documentdb-dotnet-application/image24.png)
 
-	Se encontrar erros neste ponto, você poderá comparar seu código ao projeto de exemplo no [GitHub][].
+	Se você estiver usando o Visual Studio 2013 e receber o erro "Não é possível usar await no corpo de uma cláusula catch.”, precisará instalar o [pacote nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Você também pode comparar seu código ao projeto de exemplo no [GitHub][].
 
 2. Clique no link **Criar Novo** e adicione valores ao campos **Nome** e **Descrição**. Deixe a caixa de seleção **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado em um estado concluído e não aparecerá na lista inicial.
 
@@ -563,7 +563,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 4. Depois de testar o aplicativo, pressione Ctrl + F5 para parar a depuração do aplicativo. Você está pronto para implantar!
 
-##<a name="_Toc395637774"></a>Etapa 7: implantar o aplicativo nos Sites do Azure
+## <a name="_Toc395637774"></a>Etapa 7: implantar o aplicativo nos Sites do Azure
 
 Agora que você tem o aplicativo completo funcionando corretamente no Banco de Dados de Documentos, vamos implantar esse aplicativo Web nos Sites do Azure. Se você selecionou **Hospedar na nuvem** ao criar o projeto ASP.NET MVC vazio, o Visual Studio tornará essa ação muito fácil e fará a maior parte do trabalho.
 
@@ -577,7 +577,7 @@ Agora que você tem o aplicativo completo funcionando corretamente no Banco de D
 
 Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e iniciará um navegador no qual você poderá ver seu trabalho sendo executado no Azure!
 
-##<a name="_Toc395637775"></a>Próximas etapas
+## <a name="_Toc395637775"></a>Próximas etapas
 
 Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP.NET MVC usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
 
@@ -592,4 +592,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon�
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 [projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

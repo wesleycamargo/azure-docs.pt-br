@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando APIs REST
@@ -43,7 +43,7 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 	* **Para a autenticação não interativa** - no Azure Active Directory, é necessário criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
 		- Obter a **ID do cliente**, o **segredo do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
-		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. Para obter instruções, veja [Atribuir um aplicativo a uma função](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. Para obter instruções, veja [Atribuir um aplicativo a uma função](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Veja [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
 
@@ -61,7 +61,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> precisa ser codificado para uso em uma URL. Portanto, https://localhost, use `https%3A%2F%2Flocalhost`)
+	>[AZURE.NOTE] <REDIRECT-URI> precisa ser codificado para uso em uma URL. Portanto, https://localhost, use `https%3A%2F%2Flocalhost`)
 
 	Para os fins deste tutorial, é possível substituir os valores de espaço reservado na URL acima e colá-los na barra de endereços do navegador da Web. Você será redirecionado para autenticar usando seu logon do Azure. Depois de fazer logon com êxito, a resposta será exibida na barra de endereços do navegador. A resposta estará no seguinte formato:
 		
@@ -76,7 +76,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] Nesse caso, o \<REDIRECT-URI> não precisa ser codificado.
+	>[AZURE.NOTE] Nesse caso, o <REDIRECT-URI> não precisa ser codificado.
 
 3. A resposta é um objeto JSON que contém um token de acesso (por exemplo, `"access_token": "<ACCESS_TOKEN>"`) e um token de atualização (por exemplo, `"refresh_token": "<REFRESH_TOKEN>"`). Seu aplicativo usa o token de acesso ao acessar o Repositório Azure Data Lake e o token de atualização para obter outro token de acesso quando um token de acesso expira.
 
@@ -276,4 +276,4 @@ Você verá algo semelhante ao mostrado a seguir:
 - [Aplicativos de Big Data de software livre compatíveis com o Repositório Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

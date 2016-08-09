@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Criar sua primeira data factory do Azure usando o Azure PowerShell
@@ -383,4 +383,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando as folhas do portal do Azure. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

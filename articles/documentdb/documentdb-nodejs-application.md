@@ -110,7 +110,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 
 1. No diretório do projeto, crie um novo diretório chamado **modelos**.
 2. No diretório **modelos**, criar um novo arquivo chamado **taskDao.js**. Esse arquivo conterá o modelo para as tarefas criadas pelo seu aplicativo.
-3. No mesmo diretório **modelos**, crie um novo arquivo chamado **docdbUtils.js**. Esse arquivo conterá algum código útil e reutilizável, que será usado em todo o nosso aplicativo. 
+3. No mesmo diretório **modelos**, crie um novo arquivo chamado **docdbUtils.js**. Esse arquivo conterá algum código útil e reutilizável, que será usado em todo o nosso aplicativo.
 4. Copie o seguinte código para **docdbUtils.js**
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -305,7 +305,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 
 ### Criar o controlador
 
-1. No diretório **rotas** do projeto, crie um novo arquivo chamado **tasklist.js**. 
+1. No diretório **rotas** do projeto, crie um novo arquivo chamado **tasklist.js**.
 2. Adicione os seguintes códigos ao **tasklist.js**. Ele carrega os módulos DocumentDBClient e assíncrono, que são usados pelo **tasklist.js**. Isso também definiu a função de **TaskList**, que é transmitida a uma instância do objeto da **Tarefa** definido anteriormente:
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -439,7 +439,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 
 Agora vamos voltar a atenção para criar a interface do usuário, desse modo, um usuário pode realmente interagir com nosso aplicativo. O aplicativo Express que criamos usa **Jade** como mecanismo de exibição. Para obter mais informações sobre o Jade, consulte [http://jade-lang.com/](http://jade-lang.com/).
 
-1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante. 
+1. O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante.
 2. Abra o arquivo **layout.jade **encontrado na pasta **exibições** e substitua o conteúdo pelo seguinte:
 	
 		doctype html
@@ -545,7 +545,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 ## <a name="_Toc395783182"></a>Etapa 7: implantar seu projeto de desenvolvimento de aplicativo nos sites do Azure
 
-1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Encontre instruções sobre como fazer isso no tópico [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](../app-service-web/web-sites-publish-source-control.md).
+1. Se ainda não o fez, habilite um repositório git do seu site do Azure. Encontre instruções sobre como fazer isso no tópico [Implantação GIT Local no Serviço de Aplicativo do Azure](../app-service-web/app-service-deploy-local-git.md).
 
 2. Adicione seu site do Azure como um git remoto.
 
@@ -570,4 +570,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0803_2016-->

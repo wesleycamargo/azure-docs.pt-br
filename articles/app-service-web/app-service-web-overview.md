@@ -40,7 +40,7 @@ Veja alguns recursos importantes do Serviço de Aplicativo que se aplicam aos Ap
 
 - **Várias linguagens e estruturas** -o Serviço de Aplicativo tem suporte de primeira classe para ASP.NET, Node.js, Java, PHP e Python. Você também pode executar [o PowerShell e outros scripts ou executáveis](../app-service-web/web-sites-create-web-jobs.md) nas VMs do Serviço de Aplicativo.
 
-- **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](../powershell-install-configure.md) ou a [CLI (interface de linha de comando de plataforma cruzada)](../xplat-cli-install.md).
+- **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continuous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](../powershell-install-configure.md) ou a [CLI (interface de linha de comando de plataforma cruzada)](../xplat-cli-install.md).
  
 - **Escala global com alta disponibilidade** - escale [verticalmente](../app-service-web/web-sites-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 
@@ -62,4 +62,4 @@ Para começar com a implantação do código de exemplo para um novo aplicativo 
 
 Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

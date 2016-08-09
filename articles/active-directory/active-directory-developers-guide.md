@@ -103,7 +103,13 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 - [Substituição de Chave de Assinatura no Azure AD](active-directory-signing-key-rollover.md): saiba mais sobre a cadência de substituição de chave de assinatura do Azure AD e como atualizar a chave para os cenários de aplicativo mais comuns.
 
+- [Protocolo OAuth 2.0: usando a concessão de código de autorização](active-directory-protocols-oauth-code.md): você pode usar a concessão de código de autorização do protocolo OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web no Azure Active Directory de seu locatário.
+
 - [Protocolo OAuth 2.0: noções básicas sobre a concessão implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): saiba mais sobre a concessão de autorização implícita e se ela é adequada para seu aplicativo.
+
+- [Protocolo OAuth 2.0: chamadas de serviço para serviço usando credenciais de cliente](active-directory-protocols-oauth-service-to-service.md): o Fluxo de Concessão de Credenciais do Cliente do OAuth 2.0 permite que um serviço Web (um cliente confidencial) use suas próprias credenciais para se autenticar ao chamar outro serviço Web, em vez de representar um usuário. Nesse cenário, o cliente é geralmente um serviço Web de camada intermediária, um serviço daemon ou um site.
+
+- [Protocolo OpenID Connect 1.0: entrada e autenticação](active-directory-protocols-openid-connect-code.md): o protocolo OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação. Um aplicativo cliente pode receber um id\_token para gerenciar o processo de entrada ou aumentar o fluxo de código de autorização de modo a receber um id\_token e o código de autorização.
 
 - [Referência do protocolo SAML 2.0](active-directory-saml-protocol-reference.md): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único aos usuários.
 
@@ -139,4 +145,4 @@ O [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/)
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

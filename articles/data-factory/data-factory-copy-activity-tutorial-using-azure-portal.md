@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/16/2016" 
+	ms.date="08/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor
@@ -464,4 +464,4 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->
