@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview | Serviço de Aplicativo do Microsoft Azure"
 	description="Você pode facilmente migrar aplicativos lógicos para a última versão do esquema. Basta seguir estas etapas."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -42,4 +42,4 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

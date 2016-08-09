@@ -13,20 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Introdução aos cmdlets do PowerShell para o Azure Batch
-Essa é uma breve introdução aos cmdlets do Azure PowerShell que você pode usar para gerenciar suas contas do Lote e trabalhar com seus recursos do Lote, como pools, trabalhos e tarefas. Você pode executar muitas das mesmas tarefas com cmdlets do Lote que realiza com as APIs do Lote, o portal do Azure e a CLI (interface de linha de comando) do Azure. Este artigo baseia-se nos cmdlets do Azure PowerShell versão 1.3.2 ou posterior.
+Com os cmdlets do PowerShell do Lote do Azure, você pode executar e criar scripts para muitas das mesmas tarefas que executa com as APIs do Lote, o portal do Azure e a CLI (Interface de Linha de Comando) do Azure. Essa é uma breve introdução aos cmdlets que você pode usar para gerenciar suas contas do Lote e trabalhar com seus recursos do Lote, como pools, trabalhos e tarefas. Este artigo baseia-se nos cmdlets do Azure PowerShell versão 1.6.0.
 
 Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet, consulte a [Referência de cmdlet do Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Pré-requisitos
 
-* **PowerShell do Azure** ‒ consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter instruções para baixar e instalar o Azure PowerShell. 
+* **PowerShell do Azure** ‒ consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter instruções para baixar e instalar o Azure PowerShell.
    
-    * Como os cmdlets do Lote do Azure são fornecidos no módulo do Azure Resource Manager, você precisará executar o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura. 
+    * Como os cmdlets do Lote do Azure são fornecidos no módulo do Azure Resource Manager, você precisará executar o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura.
     
     * É recomendável que você atualize o Azure PowerShell com frequência para tirar proveito de atualizações e aprimoramentos do serviço.
     
@@ -45,7 +45,7 @@ Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Em seguida, crie uma nova conta do Lote no grupo de recursos, especificando também um nome de conta para <*nome\_da\_conta*> e um local onde o serviço em Lotes esteja disponível. A criação da conta pode levar vários minutos para ser concluída. Por exemplo:
+Em seguida, crie uma nova conta do Lote no grupo de recursos, especificando um nome para a conta em <*nome\_da\_conta*> e o local e o nome de seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,16 +94,22 @@ Você passa o objeto BatchAccountContext para os cmdlets que usam o parâmetro *
 ## Criar e modificar recursos do Lote
 Use cmdlets como **New-AzureBatchPool**, **New-AzureBatchJob** e **New-AzureBatchTask** para criar recursos em uma conta do Lote. Há cmdlets correspondentes **Get-** e **Set-** para atualizar as propriedades de recursos existentes e cmdlets **Remove-** para remover recursos em uma conta do Lote.
 
+Ao usar muitos desses cmdlets, além de passar um objeto BatchContext, você precisa criar ou passar objetos que contêm as configurações detalhadas de recursos, conforme mostrado no exemplo a seguir. Confira a ajuda detalhada de cada cmdlet para obter exemplos adicionais.
+
 ### Criar um pool do Lote
 
-Por exemplo, o cmdlet a seguir cria um novo pool do Lote configurado para usar máquinas virtuais de tamanho Pequeno com uma imagem com a versão mais recente do sistema operacional da família 3 (Windows Server 2012), com o número de destino de nós de computação determinado por uma fórmula de dimensionamento automático. Nesse caso, a fórmula é simplesmente **$TargetDedicated=3**, indicando que o número de nós de computação no pool é 3, no máximo. O parâmetro **BatchContext** especifica uma variável definida anteriormente *$context* como o objeto BatchAccountContext.
+Ao criar ou atualizar um pool de lote, selecione uma configuração de serviço de nuvem ou uma configuração de máquina virtual para o sistema operacional em nós de computação (confira [Visão geral do recurso de Lote](batch-api-basics.md#pool)). Sua escolha determina se os nós de computação têm a imagem gerada com uma do [versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) ou com uma das imagens de VM com Linux ou Windows com suporte no Azure Marketplace.
+
+Ao executar **New-AzureBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o cmdlet a seguir cria um novo pool do Lote com nós de computação de tamanho pequeno na configuração de serviço de nuvem, com a imagem criada com a última versão do sistema operacional da família 3 (Windows Server 2012). Aqui, o parâmetro **CloudServiceConfiguration** especifica a variável *$configuration* do objeto PSCloudServiceConfiguration. O parâmetro **BatchContext** especifica uma variável definida anteriormente *$context* como o objeto BatchAccountContext.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Atualmente, os cmdlets do PowerShell do Lote dão suporte apenas à configuração de serviços de nuvem para nós de computação. Isso permite que você escolha uma das versões do sistema operacional Convidado do Azure a ser executada nos nós de computação. Para outras opções de configuração de nó de computação para pools do Lote, use os SDKs do lote ou a CLI do Azure.
+O número de nós de computação no novo pool de destino é determinado por uma fórmula de dimensionamento automático. Nesse caso, a fórmula é simplesmente **$TargetDedicated=4**, indicando que o número de nós de computação no pool é 4, no máximo.
 
-## Consultar pool, trabalhos, tarefas e outros detalhes
+## Consultar pools, trabalhos, tarefas e outros detalhes
 
 Use cmdlets como**Get-AzureBatchPool** , **Get-AzureBatchJob** e **Get-AzureBatchTask** para consultar entidades criadas em uma conta do Lote.
 
@@ -161,4 +167,4 @@ Os cmdlets do Batch podem aproveitar o pipeline do PowerShell para enviar dados 
 
 * Veja [Consultar o serviço Lote com eficiência](batch-efficient-list-queries.md) para saber mais sobre a redução do número de itens e sobre o tipo de informação retornado por consultas do Lote.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

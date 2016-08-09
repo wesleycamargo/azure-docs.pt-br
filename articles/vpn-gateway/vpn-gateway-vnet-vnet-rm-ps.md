@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager
@@ -24,6 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Este artigo explica as etapas para criar uma conexão entre redes virtuais usando o modelo de implantação do Gerenciador de Recursos e o PowerShell. As redes virtuais podem estar na mesma região ou em regiões diferentes, com a mesma assinatura ou em assinaturas diferentes.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **Sobre modelos de implantação do Azure**
@@ -83,7 +85,7 @@ Esta configuração aplica-se a redes virtuais que estão na mesma assinatura, c
 
 ### Antes de começar
 
-- Verifique se você tem uma assinatura do Azure. Se você ainda não tem uma assinatura do Azure, poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
 - Você precisará instalar os cmdlets do Azure Resource Manager PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
 
@@ -120,7 +122,7 @@ Para este exercício, use os seguintes valores para as redes virtuais:
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Grupo de recursos: TestRG4
 - Local: Oeste dos EUA
 - Servidor DNS: 8.8.8.8
@@ -298,7 +300,7 @@ Os exemplos a seguir irão mostrar como verificar a conexão. Não se esqueça d
 
 ### Como verificar sua conexão usando o Portal do Azure
 
-Você pode verificar uma conexão VPN no Portal do Azure, navegando até os **Gateways da rede virtual** -> **e clique no nome do gateway** -> **Configurações** -> **Conexões**. Selecionando o nome da conexão, você pode exibir mais informações na folha **Conexão**.
+Você pode verificar uma conexão VPN no Portal do Azure, navegando até os **Gateways de rede virtual** -> **e clique no nome do gateway** -> **Configurações** -> **Conexões**. Selecionando o nome da conexão, você pode exibir mais informações na folha **Conexão**.
 
 
 ### Como verificar sua conexão usando o PowerShell
@@ -443,7 +445,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
 
 Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos esta etapa em duas sessões do PowerShell marcadas como [Assinatura 1] e [Assinatura 5].
 
-1. **[Assinatura 1]** Obter o gateway da rede virtual para a Assinatura 1
+1. **[Assinatura 1]** Obter o gateway de rede virtual para a Assinatura 1
 
 	Certifique-se de fazer logon e se conectar à Assinatura 1.
 
@@ -461,7 +463,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 		PS D:> $vnet1gw.Id
 		/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
 
-2. **[Assinatura 5]** Obter o gateway da rede virtual para a Assinatura 5
+2. **[Assinatura 5]** Obter o gateway de rede virtual para a Assinatura 5
 
 	Certifique-se de fazer logon e conectar-se à Assinatura 5.
 
@@ -511,4 +513,4 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 - Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

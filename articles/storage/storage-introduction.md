@@ -151,11 +151,11 @@ Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes 
 	> 
 	> Depois que tiver criado sua conta de armazenamento e selecionado ZRS, você não poderá convertê-la para utilizar nenhum outro tipo de replicação, ou vice-versa.
 
-- **Armazenamento com redundância geográfica (GRS)**. O armazenamento com redundância geográfica é habilitado para sua conta de armazenamento por padrão quando ela é criada. O GRS mantém seis cópias de seus dados. Com o GRS, seus dados são replicados três vezes na região primária e também são replicados três vezes para uma região secundária a centenas de quilômetros de distância da região primária, oferecendo o nível mais alto de durabilidade. Em caso de falha na região primária, o Armazenamento do Azure realizará failover para a região secundária. O GRS assegura que seus dados serão duráveis em duas regiões separadas.
+- **Armazenamento com redundância geográfica (GRS)**. O GRS mantém seis cópias de seus dados. Com o GRS, seus dados são replicados três vezes na região primária e também são replicados três vezes para uma região secundária a centenas de quilômetros de distância da região primária, oferecendo o nível mais alto de durabilidade. Em caso de falha na região primária, o Armazenamento do Azure realizará failover para a região secundária. O GRS assegura que seus dados serão duráveis em duas regiões separadas.
 
 	Para obter informações sobre os pares primários e secundários por região, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
-- **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**. O armazenamento com redundância geográfica com acesso de leitura replica seus dados para uma localização geográfica secundária e também fornece acesso de leitura aos dados no local secundário. O armazenamento com redundância geográfica com acesso de leitura permite acessar os dados no local primário ou secundário caso um local fique indisponível.
+- **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**. O acesso de leitura ao armazenamento com redundância geográfica é habilitado para sua conta de armazenamento por padrão quando ela é criada. O armazenamento com redundância geográfica com acesso de leitura replica seus dados para uma localização geográfica secundária e também fornece acesso de leitura aos dados no local secundário. O armazenamento com redundância geográfica com acesso de leitura permite acessar os dados no local primário ou secundário caso um local fique indisponível.
 
 	> [AZURE.IMPORTANT] Você pode alterar como seus dados são replicados depois que sua conta de armazenamento tiver sido criada, a menos que tenha especificado ZRS quando criou a conta. No entanto, observe que você pode incorrer em custo por uma transferência de dados adicional e ocasional se alternar de LRS para GRS ou RA-GRS.
  
@@ -267,4 +267,4 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de fila do Python](storage-python-how-to-use-queue-storage.md)
 - [Como usar o Armazenamento de Filas no Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

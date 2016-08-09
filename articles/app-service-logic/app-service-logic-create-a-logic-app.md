@@ -4,7 +4,7 @@
 	authors="jeffhollan"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -64,4 +64,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Azure portal]: https://portal.azure.com
 [Usar os recursos de aplicativos lógicos]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

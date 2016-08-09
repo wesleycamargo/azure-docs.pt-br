@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/16/2016" 
+	ms.date="08/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Azure PowerShell
@@ -65,7 +65,7 @@ Nesta etapa, é possível utilizar o PowerShell do Azure para criar uma Azure Da
 1. Inicie o Azure PowerShell e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechá-la e reabri-la, precisará executar esses comandos novamente.
 	- Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
 	- Execute **Get-AzureSubscription** para exibir todas as assinaturas dessa conta.
-	- Execute **Select-AzureSubscription <Nome da assinatura>** para selecionar a assinatura com a qual você deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
+	- Execute **Select-AzureSubscription <Nome da assinatura> ** para selecionar a assinatura com a qual você deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
 3. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir.
    
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -475,4 +475,4 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

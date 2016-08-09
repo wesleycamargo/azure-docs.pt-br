@@ -60,7 +60,7 @@ A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por me
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Django** e clique em **Criar**.
 5. Configure o novo aplicativo Django, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
-6. Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+6. Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação de GIT local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
 ## Visão geral do aplicativo
 
@@ -146,7 +146,7 @@ As próximas três seções descrevem como prosseguir com o desenvolvimento de a
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
 Abra o arquivo da solução (.sln) que está incluído na raiz do repositório.
 
@@ -223,7 +223,7 @@ Navegue até a URL do Azure para exibir suas alterações.
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Navegue até a URL do Azure para exibir suas alterações.
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -517,4 +517,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [Ferramentas Python para Documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Documentação do Django]: https://www.djangoproject.com/
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0803_2016-->

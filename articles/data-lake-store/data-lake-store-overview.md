@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Visão geral do Repositório Azure Data Lake
@@ -65,7 +65,7 @@ O Repositório Azure Data Lake usa o Active Directory do Azure para autenticaç�
 | Recurso | Descrição |
 |-----------------------------------------|------------------------------------------|
 | Autenticação | O Repositório Azure Data Lake integra-se ao Active Directory do Azure (AAD) para gerenciamento de identidades e de acesso a todos os dados armazenados no Repositório Azure Data Lake. Como resultado dessa integração, o Azure Data Lake se beneficia de todos os recursos do AAD, incluindo a autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento de uso do aplicativo, monitoramento de segurança e alertas etc. O Repositório Azure Data Lake oferece suporte ao protocolo OAuth 2.0 para autenticação na interface REST. |
-| Controle de acesso | O Repositório Azure Data Lake fornece controle de acesso por meio do suporte a permissões no estilo POSIX expostas pelo protocolo WebHDFS. Na versão atual, as permissões podem ser especificadas no nível do Data Lake e serão aplicadas a todos os arquivos e pastas no Data Lake. Em atualizações futuras, habilitaremos o controle de acesso refinado ao permitirmos a especificação de permissões em arquivos e pastas individuais.|
+| Controle de acesso | O Repositório Azure Data Lake fornece controle de acesso por meio do suporte a permissões no estilo POSIX expostas pelo protocolo WebHDFS. Na versão atual, as ACLs podem ser habilitadas na pasta raiz, nas subpastas, bem como em arquivos individuais. As ACLs que se aplicam à pasta raiz também se aplicarão a todos os arquivos/pastas filhos também.|
 
 Quer saber mais sobre a proteção de dados no Repositório Data Lake? Siga os links abaixo.
 
@@ -80,9 +80,9 @@ O Repositório Azure Data Lake é compatível com a maioria dos componentes de s
 * Consulte [Integração com outros serviços do Azure](data-lake-store-integrate-with-other-services.md) para entender como o Repositório Data Lake pode ser usado com outros serviços do Azure para permitir uma variedade maior de cenários.
 * Confira [Cenários de uso do Repositório Data Lake](data-lake-store-data-scenarios.md) para aprender a usar o Repositório Data Lake em cenários como ingestão de dados, processamento de dados, download de dados e visualização de dados.
 
-## O que é o sistema de arquivos do Repositório Azure Data Lake (adl://)?)
+## O que é o sistema de arquivos do Azure Data Lake Store (adl://)?
 
-O Repositório Data Lake pode ser acessado por meio do novo sistema de arquivos, o AzureDataLakeFilesystem (adl://), em ambientes Hadoop (disponíveis no cluster HDInsight). Os aplicativos e os serviços que usam adl:// podem aproveitar a otimização adicional de desempenho que não está disponível no momento no WebHDFS. Como resultado, o Repositório Data Lake oferece a flexibilidade de avaliar o melhor desempenho com a recomendação de uso da opção adl:// ou de manter o código existente caso você continue a usar a API do WebHDFS de forma direta. O Azure HDInsight aproveita o AzureDataLakeFilesystem por completo para fornecer o melhor desempenho no Repositório Data Lake.
+O Data Lake Store pode ser acessado por meio do novo sistema de arquivos, o AzureDataLakeFilesystem (adl://), em ambientes Hadoop (disponíveis no cluster HDInsight). Os aplicativos e os serviços que usam adl:// podem aproveitar a otimização adicional de desempenho que não está disponível no momento no WebHDFS. Como resultado, o Repositório Data Lake oferece a flexibilidade de avaliar o melhor desempenho com a recomendação de uso da opção adl:// ou de manter o código existente caso você continue a usar a API do WebHDFS de forma direta. O Azure HDInsight aproveita o AzureDataLakeFilesystem por completo para fornecer o melhor desempenho no Repositório Data Lake.
 
 Você pode acessar seus dados no Repositório Data Lake usando `adl://<data_lake_store_name>.azuredatalakestore.net`. Para saber mais sobre como acessar os dados no Repositório Data Lake, consulte [Exibir as propriedades dos dados armazenados](data-lake-store-get-started-portal.md#properties)
 
@@ -110,4 +110,4 @@ Se você prefere aprender assistindo a vídeos, o Repositório Data Lake tem ví
 * [Orquestração de dados usando o Azure Data Factory para o Repositório Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Protegendo dados no Repositório Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

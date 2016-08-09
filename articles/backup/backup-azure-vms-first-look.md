@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução: proteger VMs no Azure com o Backup do Azure | Microsoft Azure"
-	description="Proteja VMs do Azure com o serviço Backup do Azure. O tutorial explica como criar um cofre, registrar VMs, criar uma política e proteger VMs no Azure."
+	pageTitle="Introdução: proteger VMs do Azure com um cofre de backup | Microsoft Azure"
+	description="Proteger as VMs do Azure com o cofre de Backup. O tutorial explica como criar um cofre, registrar VMs, criar uma política e proteger VMs no Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/18/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Introdução: Fazendo backup de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Fazer backup de VMs do Gerenciador de Recursos](backup-azure-vms-first-look-arm.md)
-- [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
+- [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md)
+- [Introdução: proteger VMs do Azure com um cofre de backup](backup-azure-vms-first-look.md)
 
-Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure em um cofre de backup do Azure. Este artigo descreve o modelo clássico ou o modelo de implantação do Service Manager para fazer backup de máquinas virtuais. Se você estiver interessado em fazer backup de uma VM em um cofre de Serviços de Recuperação que pertence a um Grupo de Recursos, confira a outra guia - Fazer backup de VMs do Gerenciador de Recursos. Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
+Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure em um cofre de backup do Azure. Este artigo descreve o modelo clássico ou o modelo de implantação do Service Manager para fazer backup de máquinas virtuais. Se você estiver interessado em fazer backup de uma VM em um cofre de Serviços de Recuperação que pertence a um grupo de recursos, confira [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md). Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
 
 - Você criou uma VM em sua assinatura do Azure.
 - A VM tem conectividade com os endereços IP públicos do Azure. Para saber mais, veja [Conectividade de rede](./backup-azure-vms-prepare.md#network-connectivity).
@@ -34,7 +34,7 @@ Para fazer backup de uma VM, há cinco etapas principais:
 
 ![Visão geral do processo de backup de VM](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Este tutorial é para uso com as VMs que podem ser criadas no portal Clássico do Azure. O serviço de Backup do Azure dá suporte a VMs baseadas no ARM (Azure Resource Manager), também conhecidas como as VMs IaaS V2. Para obter detalhes sobre como fazer backup de VMs do ARM, veja [Introdução: fazer backup das VMs ARM em um cofre de Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Este tutorial é para uso com as VMs que podem ser criadas no portal Clássico do Azure. O serviço de Backup do Azure dá suporte a VMs baseadas no Gerenciador de Recursos. Para obter detalhes sobre como fazer backup de VMs em um cofre de serviços de recuperação, confira [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -82,7 +82,7 @@ O cofre de backup é uma entidade que armazena todos os pontos de backups e de r
 
     ![Lista de cofres de backup](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Escolha o armazenamento com redundância geográfica se esse for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com redundância geográfica e com redundância local na [visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Escolha o armazenamento com redundância geográfica se esse for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com redundância geográfica e redundância local na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
 Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, descubra e registre as máquinas virtuais do Azure.
 
@@ -213,4 +213,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

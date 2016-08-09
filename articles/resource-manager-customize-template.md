@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz"/>
 
 # Personalizar um modelo exportado do Azure Resource Manager
@@ -233,4 +233,4 @@ Você pode usar o Azure PowerShell ou a CLI (interface de linha de comando) do A
 - Para ver como exportar um modelo por meio da CLI do Azure, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 - Para saber mais sobre como os modelos são estruturados, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

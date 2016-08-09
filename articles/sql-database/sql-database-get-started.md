@@ -4,7 +4,7 @@
 	keywords="tutorial do banco de dados SQL, criar um banco de dados SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -61,4 +61,4 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->
