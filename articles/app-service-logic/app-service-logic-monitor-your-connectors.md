@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -123,7 +123,7 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 
 [Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/>
 [Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/>
-[Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)<br/>
+[Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
 [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
 
 
@@ -137,4 +137,4 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

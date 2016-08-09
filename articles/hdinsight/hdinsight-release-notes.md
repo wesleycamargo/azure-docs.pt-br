@@ -14,11 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/21/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 14/07/2016 do HDInsight
+
+Os números completos da versão para clusters HDInsight baseados em Linux implantados com essa versão:
+
+|HDI |Versão de cluster do HDI |HDP |Compilação HDP |Build do Ambari |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.7932505 |2\.2 |2\.2.9.1-11 |2\.2.1.12-2 |
+|3\.3 |3\.3.1000.0.7932505 |2\.3 |2\.3.3.1-18 |2\.2.1.12-2 |
+|3\.4 |3\.4.1000.0.7933003 |2\.4 |2\.4.2.0 |2\.2.1.12-2 |
+
+Os números completos da versão para clusters HDInsight baseados em Windows implantados com essa versão:
+
+|HDI |Versão de cluster do HDI |HDP |Compilação HDP |
+|----|----------------------|----|--------------|
+|2,1 |2\.1.10.989.2441725 |1,3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.989.2441725 |2,0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.989.2441725 |2,1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.989.2441725 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.989.2441725 |2\.3 |2\.3.3.1-21 |
 
 ## Notas da versão de 07/07/2016 do HDInsight
 
@@ -1460,7 +1480,7 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 
 ###Alterações de última hora
 
-**Sintaxe de prefixo**: apenas a sintaxe "wasb://" tem suporte em clusters HDInsight 3.0 e 3.1. A antiga sintaxe "asv://" tem suporte em clusters HDInsight 1.6 e 2.1, mas não tem suporte em clusters HDInsight 3.0 ou 3.1. Isso significa que qualquer trabalho enviado para um cluster HDInsight 3.0 ou 3.1 que use explicitamente a sintaxe “asv://” falhará. Em vez disso, a sintaxe “wasb://” deve ser usada. Os trabalhos enviados para qualquer cluster HDInsight 3.0 ou 3.1, criados com um metastore existente e contendo referências explícitas a recursos usando a sintaxe “asv://” também falharão. Esses metastores precisarão ser recriados usando a sintaxe “wasb://” para endereçar recursos.
+**Sintaxe de prefixo**: apenas a sintaxe "wasbs://" tem suporte em clusters HDInsight 3.0 e 3.1. A antiga sintaxe "asv://" tem suporte em clusters HDInsight 1.6 e 2.1, mas não tem suporte em clusters HDInsight 3.0 ou 3.1. Isso significa que qualquer trabalho enviado para um cluster HDInsight 3.0 ou 3.1 que use explicitamente a sintaxe “asv://” falhará. Em vez disso, a sintaxe “wasbs://” deve ser usada. Os trabalhos enviados para qualquer cluster HDInsight 3.0 ou 3.1, criados com um metastore existente e contendo referências explícitas a recursos usando a sintaxe “asv://” também falharão. Esses metastores precisarão ser recriados usando a sintaxe “wasbs://” para endereçar recursos.
 
 
 **Portas:** as portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço do HDP (plataforma de dados Hortonworks) permitido está agora fora desse intervalo, para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados são conforme descrito a seguir:
@@ -1632,4 +1652,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

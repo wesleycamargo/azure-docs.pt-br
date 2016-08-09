@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Usando exclusão reversível nos Serviços Móveis
@@ -165,4 +165,4 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis de back-end d
 [Sincronização de dados offline para Serviços Móveis]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

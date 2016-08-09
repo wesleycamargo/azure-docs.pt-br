@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -98,7 +98,7 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
 4. Selecione o botão *Criar* 
 ![Alt text][3]
-1. Na nova lâmina que será aberta, insira as seguintes informações:  
+1. Na nova lâmina que será aberta, insira as seguintes informações:
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
 	1. Plano do Serviço de Aplicativo – selecione ou crie um novo Plano do Serviço de Aplicativo
 	1. Camada de preços – escolha a camada de preço na qual deseja posicionar esse aplicativo
@@ -111,12 +111,12 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria criar vocabulários. A expectativa é que o desenvolvedor seja a pessoa mais comum a fazer esse exercício. Veja como fazer isso:
 
 
-1. Inicie o Aplicativo de API das Regras do BizTalk no portal acessando Procurar -> Aplicativos de API-><Your Rules API App>. Isso levará você a um Painel do Aplicativo de API de Regras semelhante ao mostrado abaixo:
+1. Inicie o Aplicativo de API das Regras do BizTalk no portal acessando Procurar -> Aplicativos de API-><Suas Regras de Aplicativo de API>. Isso levará você a um Painel do Aplicativo de API de Regras semelhante ao mostrado abaixo:
 
    ![Alt text][4]
 
-2.Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário.<br/>
-3.Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
+2\. Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário 
+3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
 Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
@@ -128,7 +128,7 @@ Dois tipos de definições de vocabulário têm suporte – Literal e XML.
   	i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
 	ii. Booliano – pode ser verdadeiro ou falso 
 	iii. Número – pode ser qualquer número decimal 
-  iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM  
+	iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM  
   5. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. Você pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave do *to*. Por exemplo, é possível inserir um valor exclusivo 1, um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. É importante lembrar que o intervalo dá suporte apenas para números.
   6. Selecione *OK*.
 
@@ -158,36 +158,37 @@ Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é
 
 ##Criação de regra
 Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:
-1. 	And – operador condicional  
-2. 	Or – operador condicional  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
-10. is\_less\_than  
-11. is\_less\_than\_equal\_to  
-12. is\_not\_in  
-13. is\_not\_equal\_to  
-14. mod  
-15. verdadeiro  
+1. 	And – operador condicional
+2. 	Or – operador condicional
+3. 	does\_not\_exist
+4. 	exists
+5. 	false
+6. 	is\_equal\_to
+7. 	is\_greater\_than
+8. 	is\_greater\_than\_equal\_to
+9. 	is\_in
+10. is\_less\_than
+11. is\_less\_than\_equal\_to
+12. is\_not\_in
+13. is\_not\_equal\_to
+14. mod
+15. verdadeiro
 
 A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:
-1.	equals  
-2.	false  
-3.	verdadeiro  
-4.	halt  
-5.	mod  
-6.	nulo  
-7.	atualizar  
+1.	equals
+2.	false
+3.	verdadeiro
+4.	halt
+5.	mod
+6.	nulo
+7.	atualizar
 
-As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. ![Alt text][9]
+As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
+![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:  
-   1.	update <vocabulary definition> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:
+   1.	update <definição de vocabulário> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.
    2.	Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\\desabilitar regras
@@ -254,4 +255,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

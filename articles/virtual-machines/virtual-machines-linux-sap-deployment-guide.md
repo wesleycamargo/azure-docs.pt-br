@@ -23,6 +23,7 @@
 [773830]: https://service.sap.com/sap/support/notes/773830
 [826037]: https://service.sap.com/sap/support/notes/826037
 [965908]: https://service.sap.com/sap/support/notes/965908
+[1031096]: https://service.sap.com/sap/support/notes/1031096
 [1139904]: https://service.sap.com/sap/support/notes/1139904
 [1173395]: https://service.sap.com/sap/support/notes/1173395
 [1245200]: https://service.sap.com/sap/support/notes/1245200
@@ -31,6 +32,7 @@
 [1585981]: https://service.sap.com/sap/support/notes/1585981
 [1588316]: https://service.sap.com/sap/support/notes/1588316
 [1590719]: https://service.sap.com/sap/support/notes/1590719
+[1597355]: https://service.sap.com/sap/support/notes/1597355
 [1605680]: https://service.sap.com/sap/support/notes/1605680
 [1619720]: https://service.sap.com/sap/support/notes/1619720
 [1619726]: https://service.sap.com/sap/support/notes/1619726
@@ -50,151 +52,43 @@
 [1941500]: https://service.sap.com/sap/support/notes/1941500
 [1956005]: https://service.sap.com/sap/support/notes/1956005
 [1973241]: https://service.sap.com/sap/support/notes/1973241
+[1984787]: https://service.sap.com/sap/support/notes/1984787
 [1999351]: https://service.sap.com/sap/support/notes/1999351
+[2002167]: https://service.sap.com/sap/support/notes/2002167
 [2015553]: https://service.sap.com/sap/support/notes/2015553
 [2039619]: https://service.sap.com/sap/support/notes/2039619
 [2121797]: https://service.sap.com/sap/support/notes/2121797
 [2134316]: https://service.sap.com/sap/support/notes/2134316
 [2178632]: https://service.sap.com/sap/support/notes/2178632
 [2191498]: https://service.sap.com/sap/support/notes/2191498
-[2243692]: https://service.sap.com/sap/support/notes/2243692
 [2233094]: https://service.sap.com/sap/support/notes/2233094
+[2243692]: https://service.sap.com/sap/support/notes/2243692
 
-[azure-portal]: https://portal.azure.com
-[azure-script-ps]: https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-ps]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
+[azure-portal]: https://portal.azure.com
+[azure-ps]: ../powershell-install-configure.md
+[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
+[azure-script-ps]: https://go.microsoft.com/fwlink/p/?LinkID=395017
+[azure-subscription-service-limits]: ../azure-subscription-service-limits.md
+[azure-subscription-service-limits-subscription]: ../azure-subscription-service-limits.md#subscription
 
-[planning-guide]: virtual-machines-linux-sap-planning-guide.md "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Planejamento e Implementação"
-[planning-guide-classic]: virtual-machines-windows-classic-sap-planning-guide.md
-[deployment-guide]: virtual-machines-linux-sap-deployment-guide.md "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação"
-[deployment-guide-classic]: virtual-machines-windows-classic-sap-deployment-guide.md
 [dbms-guide]: virtual-machines-linux-sap-dbms-guide.md "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS"
-[dbms-guide-classic]: virtual-machines-windows-classic-sap-dbms-guide.md
-[dr-guide-classic]: http://go.microsoft.com/fwlink/?LinkID=521971
-[ha-guide-classic]: http://go.microsoft.com/fwlink/?LinkId=613056
-
-[getting-started]: virtual-machines-linux-sap-getting-started-arm.md
-[getting-started-windows-classic]: virtual-machines-windows-classic-sap-getting-started.md
-
-[getting-started-windows-classic-dbms]: virtual-machines-windows-classic-sap-getting-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
-[getting-started-windows-classic-planning]: virtual-machines-windows-classic-sap-getting-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
-[getting-started-windows-classic-deployment]: virtual-machines-windows-classic-sap-getting-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea
-[getting-started-windows-classic-dr]: virtual-machines-windows-classic-sap-getting-started.md#cff10b4a-01a5-4dc3-94b6-afb8e55757d3
-[getting-started-windows-classic-ha-sios]: virtual-machines-windows-classic-sap-getting-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
-
-[getting-started-planning]: virtual-machines-linux-sap-getting-started-arm.md#3da0389e-708b-4e82-b2a2-e92f132df89c
-[getting-started-deployment]: virtual-machines-linux-sap-getting-started-arm.md#6aadadd2-76b5-46d8-8713-e8d63630e955
-[getting-started-dbms]: virtual-machines-linux-sap-getting-started-arm.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
-
-[deployment-guide-2.2]: virtual-machines-linux-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 "Recursos da SAP"
-[deployment-guide-3]: virtual-machines-linux-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e "Cenários de implantação de VMs para SAP no Microsoft Azure"
-[deployment-guide-3.1.2]: virtual-machines-linux-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab "Implantando uma VM com uma imagem personalizada"
-[deployment-guide-3.2]: virtual-machines-linux-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 "Cenário 1: Implantando uma VM com origem no Azure Marketplace para SAP"
-[deployment-guide-3.3]: virtual-machines-linux-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 "Cenário 2: Implantando uma VM com uma imagem personalizada para SAP"
-[deployment-guide-3.4]: virtual-machines-linux-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 "Cenário 3: Movendo uma VM do local usando um VHD do Azure não generalizado com o SAP"
-[deployment-guide-4.1]: virtual-machines-linux-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 "Implantando cmdlets do Azure PowerShell"
-[deployment-guide-4.2]: virtual-machines-linux-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e "Baixar e importar os cmdlets do PowerShell relevantes para SAP"
-[deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Ingressar a VM no domínio local, somente Windows"
-[deployment-guide-4.4]: virtual-machines-linux-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d "Baixar, instalar e habilitar o agente de VM do Azure"
-[deployment-guide-4.4.2]: virtual-machines-linux-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 "Linux"
-[deployment-guide-4.5]: virtual-machines-linux-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca "Configurar a extensão de monitoramento aprimorado do Azure para SAP"
-[deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "PowerShell do Azure"
-[deployment-guide-4.5.2]: virtual-machines-linux-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f "CLI do Azure"
-[deployment-guide-5.1]: virtual-machines-linux-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 "Verificação de preparação para o monitoramento aprimorado do Azure para SAP"
-[deployment-guide-5.2]: virtual-machines-linux-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 "Verificação de integridade para a configuração de infraestrutura de monitoramento do Azure"
-[deployment-guide-5.3]: virtual-machines-linux-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 "Mais soluções de problemas da infraestrutura de monitoramento do Azure para SAP"
-[deployment-guide-install-vm-agent-windows]: virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-configure-proxy]: virtual-machines-linux-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d "Configurar proxy"
-[deployment-guide-configure-monitoring-scenario-1]: virtual-machines-linux-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b "Configurar o monitoramento"
-[deployment-guide-troubleshooting-chapter]: virtual-machines-linux-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b "Verificações e solução de problemas de configuração de monitoramento de ponta a ponta para SAP no Azure"
-[deployment-guide-figure-100]: ./media/virtual-machines-linux-sap-deployment-guide/100-deploy-vm-image.png
-[deployment-guide-figure-300]: ./media/virtual-machines-linux-sap-deployment-guide/300-deploy-private-image.png
-[deployment-guide-figure-400]: ./media/virtual-machines-linux-sap-deployment-guide/400-deploy-using-disk.png
-[deployment-guide-figure-500]: ./media/virtual-machines-linux-sap-deployment-guide/500-install-powershell.png
-[deployment-guide-figure-600]: ./media/virtual-machines-linux-sap-deployment-guide/600-powershell-version.png
-[deployment-guide-figure-700]: ./media/virtual-machines-linux-sap-deployment-guide/700-install-powershell-installed.png
-[deployment-guide-figure-760]: ./media/virtual-machines-linux-sap-deployment-guide/760-azure-cli-version.png
-[deployment-guide-figure-50]: ./media/virtual-machines-linux-sap-deployment-guide/50-forced-tunneling-suse.png
-[deployment-guide-figure-900]: ./media/virtual-machines-linux-sap-deployment-guide/900-cmd-update-executed.png
-[deployment-guide-figure-1000]: ./media/virtual-machines-linux-sap-deployment-guide/1000-service-properties.png
-[deployment-guide-figure-1100]: ./media/virtual-machines-linux-sap-deployment-guide/1100-azperflib.png
-[deployment-guide-figure-1200]: ./media/virtual-machines-linux-sap-deployment-guide/1200-cmd-test-login.png
-[deployment-guide-figure-1300]: ./media/virtual-machines-linux-sap-deployment-guide/1300-cmd-test-executed.png
-[deployment-guide-figure-1400]: ./media/virtual-machines-linux-sap-deployment-guide/1400-azperflib-error-servicenotstarted.png
-[deployment-guide-figure-5]: virtual-machines-linux-sap-deployment-guide.md#figure-5
-[deployment-guide-figure-6]: virtual-machines-linux-sap-deployment-guide.md#figure-6
-[deployment-guide-figure-7]: virtual-machines-linux-sap-deployment-guide.md#figure-7
-[deployment-guide-figure-11]: virtual-machines-linux-sap-deployment-guide.md#figure-11
-[deployment-guide-figure-14]: virtual-machines-linux-sap-deployment-guide.md#figure-14
-[deployment-guide-figure-azure-cli-installed]: virtual-machines-linux-sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
-[deployment-guide-figure-azure-cli-version]: virtual-machines-linux-sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
-
-[planning-guide-1.2]: virtual-machines-linux-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff "Recursos"
-[planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Somente em nuvem - implantações de máquinas virtuais no Azure sem dependências na rede do cliente local"
-[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Entre instalações - implantação de uma ou várias VMs SAP no Azure com o requisito de integração completa à rede local"
-[planning-guide-3.1]: virtual-machines-linux-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a "Regiões do Azure"
-[planning-guide-3.2]: virtual-machines-linux-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 "O conceito de máquina virtual do Microsoft Azure"
-[planning-guide-3.2.1]: virtual-machines-linux-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 "Domínios de falha"
-[planning-guide-3.2.2]: virtual-machines-linux-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 "Domínios de atualização"
-[planning-guide-3.2.3]: virtual-machines-linux-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 "Conjuntos de disponibilidade do Azure"
-[planning-guide-3.3.2]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Armazenamento Premium do Azure"
-[planning-guide-5.1.1]: virtual-machines-linux-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 "Movendo uma VM do local para o Azure com um disco não generalizado"
-[planning-guide-5.1.2]: virtual-machines-linux-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c "Implantando uma VM com uma imagem específica do cliente"
-[planning-guide-5.2]: virtual-machines-linux-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 "Preparando VMs com SAP para o Azure"
-[planning-guide-5.2.1]: virtual-machines-linux-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef "Preparação para mover uma VM do local para o Azure com um disco não generalizado"
-[planning-guide-5.2.2]: virtual-machines-linux-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 "Preparação para implantar uma VM com uma imagem específica do cliente para SAP"
-[planning-guide-5.3.1]: virtual-machines-linux-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 "Diferença entre uma imagem do Azure e disco do Azure"
-[planning-guide-5.3.2]: virtual-machines-linux-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a "Carregando um VHD do local no Azure"
-[planning-guide-5.4.2]: virtual-machines-linux-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 "Copiando discos entre Contas de Armazenamento do Azure"
-[planning-guide-5.5.1]: virtual-machines-linux-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 "Estrutura de VM/VHD para implantações SAP"
-[planning-guide-5.5.3]: virtual-machines-linux-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d "Definindo a montagem automática para os discos anexados"
-[planning-guide-7]: virtual-machines-linux-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 "Conceitos de implantação somente em nuvem de instâncias SAP"
-[planning-guide-7.1]: virtual-machines-linux-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 "Cenário de treinamento/demonstração de VM única com SAP NetWeaver"
-[planning-guide-9.1]: virtual-machines-linux-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 "Solução de monitoramento do Azure para SAP"
-[planning-guide-11.4.1]: virtual-machines-linux-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 "Alta disponibilidade para servidores de aplicativos SAP"
-[planning-guide-11.5]: virtual-machines-linux-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f "Usando a inicialização automática para instâncias SAP"
-[planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Rede do Microsoft Azure"
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Armazenamento: Armazenamento do Microsoft Azure e discos de dados"
-[planning-guide-azure-premium-storage]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Armazenamento Premium do Azure"
-[planning-guide-figure-100]: ./media/virtual-machines-linux-sap-planning-guide/100-single-vm-in-azure.png
-[planning-guide-figure-200]: ./media/virtual-machines-linux-sap-planning-guide/200-multiple-vms-in-azure.png
-[planning-guide-figure-300]: ./media/virtual-machines-linux-sap-planning-guide/300-vpn-s2s.png
-[planning-guide-figure-400]: ./media/virtual-machines-linux-sap-planning-guide/400-vm-services.png
-[planning-guide-figure-600]: ./media/virtual-machines-linux-sap-planning-guide/600-s2s-details.png
-[planning-guide-figure-700]: ./media/virtual-machines-linux-sap-planning-guide/700-decision-tree-deploy-to-azure.png
-[planning-guide-figure-800]: ./media/virtual-machines-linux-sap-planning-guide/800-portal-vm-overview.png
-[planning-guide-figure-1300]: ./media/virtual-machines-linux-sap-planning-guide/1300-ref-config-iaas-for-sap.png
-[planning-guide-figure-1400]: ./media/virtual-machines-linux-sap-planning-guide/1400-attach-detach-disks.png
-[planning-guide-figure-1600]: ./media/virtual-machines-linux-sap-planning-guide/1600-firewall-port-rule.png
-[planning-guide-figure-1700]: ./media/virtual-machines-linux-sap-planning-guide/1700-single-vm-demo.png
-[planning-guide-figure-1900]: ./media/virtual-machines-linux-sap-planning-guide/1900-vm-set-vnet.png
-[planning-guide-figure-2100]: ./media/virtual-machines-linux-sap-planning-guide/2100-s2s.png
-[planning-guide-figure-2200]: ./media/virtual-machines-linux-sap-planning-guide/2200-network-printing.png
-[planning-guide-figure-2300]: ./media/virtual-machines-linux-sap-planning-guide/2300-sapgui-stms.png
-[planning-guide-figure-2400]: ./media/virtual-machines-linux-sap-planning-guide/2400-vm-extension-overview.png
-[planning-guide-figure-2500]: ./media/virtual-machines-linux-sap-planning-guide/2500-vm-extension-details.png
-[planning-guide-figure-2600]: ./media/virtual-machines-linux-sap-planning-guide/2600-sap-router-connection.png
-[planning-guide-figure-2700]: ./media/virtual-machines-linux-sap-planning-guide/2700-exposed-sap-portal.png
-[planning-guide-figure-2800]: ./media/virtual-machines-linux-sap-planning-guide/2800-endpoint-config.png
-[planning-guide-figure-2900]: ./media/virtual-machines-linux-sap-planning-guide/2900-azure-ha-sap-ha.png
-[planning-guide-figure-3000]: ./media/virtual-machines-linux-sap-planning-guide/3000-sap-ha-on-azure.png
-[planning-guide-figure-3200]: ./media/virtual-machines-linux-sap-planning-guide/3200-sap-ha-with-sql.png
-
-[dbms-guide-2]: virtual-machines-linux-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 "Estrutura de uma implantação do RDBMS"
 [dbms-guide-2.1]: virtual-machines-linux-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f "Cache para VMs e VHDs"
 [dbms-guide-2.2]: virtual-machines-linux-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 "RAID de software"
 [dbms-guide-2.3]: virtual-machines-linux-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 "Armazenamento do Microsoft Azure"
+[dbms-guide-2]: virtual-machines-linux-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 "Estrutura de uma implantação do RDBMS"
 [dbms-guide-3]: virtual-machines-linux-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 "Alta disponibilidade e recuperação de desastre com VMs do Azure"
-[dbms-guide-5]: virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 "Informações específicas para o RDBMS do SQL Server"
 [dbms-guide-5.5.1]: virtual-machines-linux-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 "SQL Server 2012 SP1 CU4 e posterior"
 [dbms-guide-5.5.2]: virtual-machines-linux-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b "SQL Server 2012 SP1 CU3 e versões anteriores"
 [dbms-guide-5.6]: virtual-machines-linux-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 "Usando imagens do SQL Server do Microsoft Azure Marketplace"
 [dbms-guide-5.8]: virtual-machines-linux-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 "Resumo do SQL Server para SAP no Azure geral"
+[dbms-guide-5]: virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 "Informações específicas para o RDBMS do SQL Server"
 [dbms-guide-8.4.1]: virtual-machines-linux-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 "Configuração de armazenamento"
 [dbms-guide-8.4.2]: virtual-machines-linux-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d "Backup e restauração"
 [dbms-guide-8.4.3]: virtual-machines-linux-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c "Considerações de desempenho para backup e restauração"
 [dbms-guide-8.4.4]: virtual-machines-linux-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 "Outros"
+[dbms-guide-900-sap-cache-server-on-premises]: virtual-machines-linux-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+
 [dbms-guide-figure-100]: ./media/virtual-machines-linux-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]: ./media/virtual-machines-linux-sap-dbms-guide/200-ha-set-for-dbms-ha.png
 [dbms-guide-figure-300]: ./media/virtual-machines-linux-sap-dbms-guide/300-reference-config-iaas.png
@@ -205,103 +99,206 @@
 [dbms-guide-figure-800]: ./media/virtual-machines-linux-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]: ./media/virtual-machines-linux-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[dbms-guide-900-sap-cache-server-on-premises]: virtual-machines-linux-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[deployment-guide]: virtual-machines-linux-sap-deployment-guide.md "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação"
+[deployment-guide-2.2]: virtual-machines-linux-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 "Recursos da SAP"
+[deployment-guide-3.1.2]: virtual-machines-linux-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab "Implantando uma VM com uma imagem personalizada"
+[deployment-guide-3.2]: virtual-machines-linux-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 "Cenário 1: Implantando uma VM com origem no Azure Marketplace para SAP"
+[deployment-guide-3.3]: virtual-machines-linux-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 "Cenário 2: Implantando uma VM com uma imagem personalizada para SAP"
+[deployment-guide-3.4]: virtual-machines-linux-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 "Cenário 3: Movendo uma VM do local usando um VHD do Azure não generalizado com o SAP"
+[deployment-guide-3]: virtual-machines-linux-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e "Cenários de implantação de VMs para SAP no Microsoft Azure"
+[deployment-guide-4.1]: virtual-machines-linux-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 "Implantando cmdlets do Azure PowerShell"
+[deployment-guide-4.2]: virtual-machines-linux-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e "Baixar e importar os cmdlets do PowerShell relevantes para SAP"
+[deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Ingressar a VM no domínio local, somente Windows"
+[deployment-guide-4.4.2]: virtual-machines-linux-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 "Linux"
+[deployment-guide-4.4]: virtual-machines-linux-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d "Baixar, instalar e habilitar o agente de VM do Azure"
+[deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "Azure PowerShell"
+[deployment-guide-4.5.2]: virtual-machines-linux-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f "CLI do Azure"
+[deployment-guide-4.5]: virtual-machines-linux-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca "Configurar a extensão de monitoramento aprimorado do Azure para SAP"
+[deployment-guide-5.1]: virtual-machines-linux-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 "Verificação de preparação para o monitoramento aprimorado do Azure para SAP"
+[deployment-guide-5.2]: virtual-machines-linux-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 "Verificação de integridade para a configuração de infraestrutura de monitoramento do Azure"
+[deployment-guide-5.3]: virtual-machines-linux-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 "Mais soluções de problemas da infraestrutura de monitoramento do Azure para SAP"
 
-[Logo_Windows]: ./media/virtual-machines-linux-sap-shared/Windows.png
+[deployment-guide-configure-monitoring-scenario-1]: virtual-machines-linux-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b "Configurar o monitoramento"
+[deployment-guide-configure-proxy]: virtual-machines-linux-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d "Configurar proxy"
+[deployment-guide-figure-100]: ./media/virtual-machines-linux-sap-deployment-guide/100-deploy-vm-image.png
+[deployment-guide-figure-1000]: ./media/virtual-machines-linux-sap-deployment-guide/1000-service-properties.png
+[deployment-guide-figure-11]: virtual-machines-linux-sap-deployment-guide.md#figure-11
+[deployment-guide-figure-1100]: ./media/virtual-machines-linux-sap-deployment-guide/1100-azperflib.png
+[deployment-guide-figure-1200]: ./media/virtual-machines-linux-sap-deployment-guide/1200-cmd-test-login.png
+[deployment-guide-figure-1300]: ./media/virtual-machines-linux-sap-deployment-guide/1300-cmd-test-executed.png
+[deployment-guide-figure-14]: virtual-machines-linux-sap-deployment-guide.md#figure-14
+[deployment-guide-figure-1400]: ./media/virtual-machines-linux-sap-deployment-guide/1400-azperflib-error-servicenotstarted.png
+[deployment-guide-figure-300]: ./media/virtual-machines-linux-sap-deployment-guide/300-deploy-private-image.png
+[deployment-guide-figure-400]: ./media/virtual-machines-linux-sap-deployment-guide/400-deploy-using-disk.png
+[deployment-guide-figure-5]: virtual-machines-linux-sap-deployment-guide.md#figure-5
+[deployment-guide-figure-50]: ./media/virtual-machines-linux-sap-deployment-guide/50-forced-tunneling-suse.png
+[deployment-guide-figure-500]: ./media/virtual-machines-linux-sap-deployment-guide/500-install-powershell.png
+[deployment-guide-figure-6]: virtual-machines-linux-sap-deployment-guide.md#figure-6
+[deployment-guide-figure-600]: ./media/virtual-machines-linux-sap-deployment-guide/600-powershell-version.png
+[deployment-guide-figure-7]: virtual-machines-linux-sap-deployment-guide.md#figure-7
+[deployment-guide-figure-700]: ./media/virtual-machines-linux-sap-deployment-guide/700-install-powershell-installed.png
+[deployment-guide-figure-760]: ./media/virtual-machines-linux-sap-deployment-guide/760-azure-cli-version.png
+[deployment-guide-figure-900]: ./media/virtual-machines-linux-sap-deployment-guide/900-cmd-update-executed.png
+[deployment-guide-figure-azure-cli-installed]: virtual-machines-linux-sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
+[deployment-guide-figure-azure-cli-version]: virtual-machines-linux-sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
+[deployment-guide-install-vm-agent-windows]: virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
+[deployment-guide-troubleshooting-chapter]: virtual-machines-linux-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b "Verificações e solução de problemas de configuração de monitoramento de ponta a ponta para SAP no Azure"
+
+[deploy-template-cli]: ../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
+[deploy-template-portal]: ../resource-group-template-deploy.md#deploy-with-the-preview-portal
+[deploy-template-powershell]: ../resource-group-template-deploy.md#deploy-with-powershell
+
+[dr-guide-classic]: http://go.microsoft.com/fwlink/?LinkID=521971
+
+[getting-started]: virtual-machines-linux-sap-get-started.md
+[getting-started-dbms]: virtual-machines-linux-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
+[getting-started-deployment]: virtual-machines-linux-sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
+[getting-started-planning]: virtual-machines-linux-sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
+
+[getting-started-windows-classic]: virtual-machines-windows-classic-sap-get-started.md
+[getting-started-windows-classic-dbms]: virtual-machines-windows-classic-sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
+[getting-started-windows-classic-deployment]: virtual-machines-windows-classic-sap-get-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea
+[getting-started-windows-classic-dr]: virtual-machines-windows-classic-sap-get-started.md#cff10b4a-01a5-4dc3-94b6-afb8e55757d3
+[getting-started-windows-classic-ha-sios]: virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
+[getting-started-windows-classic-planning]: virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
+
+[ha-guide-classic]: http://go.microsoft.com/fwlink/?LinkId=613056
+
+[install-extension-cli]: virtual-machines-linux-enable-aem.md
+
 [Logo_Linux]: ./media/virtual-machines-linux-sap-shared/Linux.png
-
-[vm-size-specs]: virtual-machines-size-specs.md
-[azure-subscription-service-limits-subscription]: azure-subscription-service-limits.md#subscription
-[vpn-gateway-create-site-to-site-rm-powershell]: vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]: vpn-gateway-cross-premises-options.md
-[vpn-gateway-site-to-site-create]: vpn-gateway-site-to-site-create.md
-[virtual-machines-deploy-rmtemplates-azure-cli]: virtual-machines-deploy-rmtemplates-azure-cli.md "Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure"
-[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-deploy-rmtemplates-powershell.md "Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure"
-[virtual-machines-linux-capture-image-resource-manager]: virtual-machines-linux-capture-image.md
-[virtual-machines-manage-availability]: virtual-machines-manage-availability.md
-[virtual-machines-linux-how-to-attach-disk]: virtual-machines-linux-how-to-attach-disk.md
-[virtual-networks-reserved-private-ip]: virtual-networks-static-private-ip-arm-ps.md
-[virtual-machines-sql-server-infrastructure-services]: virtual-machines-sql-server-infrastructure-services.md
-[storage-redundancy]: storage-redundancy.md
-[storage-scalability-targets]: storage-scalability-targets.md
-[virtual-networks-manage-dns-in-vnet]: virtual-networks-manage-dns-in-vnet.md
-[resource-groups-networking]: resource-groups-networking.md
-[virtual-networks-static-private-ip-arm-pportal]: virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-multiple-nics]: virtual-networks-multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]: virtual-network-deploy-multinic-arm-template.md
-[virtual-network-deploy-multinic-arm-ps]: virtual-network-deploy-multinic-arm-ps.md
-[virtual-network-deploy-multinic-arm-cli]: virtual-network-deploy-multinic-arm-cli.md
-[vpn-gateway-create-site-to-site-rm-powershell]: vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-create-site-to-site-rm-powershell]: vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-about-vpn-devices]: vpn-gateway-about-vpn-devices.md
-[vpn-gateway-vpn-faq]: vpn-gateway-vpn-faq.md
-[vpn-gateway-create-site-to-site-rm-powershell]: vpn-gateway-create-site-to-site-rm-powershell.md
-[powershell-install-configure]: powershell-install-configure.md
-[xplat-cli]: xplat-cli.md
-[virtual-machines-deploy-rmtemplates-azure-cli]: virtual-machines-deploy-rmtemplates-azure-cli.md
-[xplat-cli-azure-resource-manager]: xplat-cli-azure-resource-manager.md
-[virtual-machines-linux-create-upload-vhd-suse]: virtual-machines-linux-create-upload-vhd-suse.md
-[storage-use-azcopy]: storage-use-azcopy.md
-[virtual-machines-linux-capture-image-resource-manager-capture]: virtual-machines-linux-capture-image.md#capture-the-vm
-[storage-azure-cli]: storage-azure-cli.md
-[storage-powershell-guide-full-copy-vhd]: storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-azure-cli-copy-blobs]: storage-azure-cli.md#copy-blobs
-[virtual-machines-linux-agent-user-guide]: virtual-machines-linux-agent-user-guide.md
-[virtual-machines-size-specs]: virtual-machines-size-specs.md
-[virtual-machines-sql-server-performance-best-practices]: virtual-machines-sql-server-performance-best-practices.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]: virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md
-[virtual-machines-sql-server-alwayson-availability-groups-powershell]: virtual-machines-sql-server-alwayson-availability-groups-powershell.md
-[virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener]: virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md
-[virtual-networks-configure-vnet-to-vnet-connection]: virtual-networks-configure-vnet-to-vnet-connection.md
-[azure-subscription-service-limits]: azure-subscription-service-limits.md
-[virtual-machines-configuring-oracle-data-guard]: virtual-machines-configuring-oracle-data-guard.md
-[virtual-machines-linux-configure-raid]: virtual-machines-linux-configure-raid.md
-[virtual-machines-attach-disk-preview]: virtual-machines-attach-disk-preview.md
-[virtual-machines-workload-template-sql-alwayson]: virtual-machines-workload-template-sql-alwayson.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]: virtual-machines-linux-how-to-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux
-[resource-group-authoring-templates]: resource-group-authoring-templates.md
-[virtual-machines-linux-update-agent]: virtual-machines-linux-update-agent.md
-[virtual-machines-linux-create-upload-vhd-step-1]: virtual-machines-linux-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[deploy-template-powershell]: resource-group-template-deploy.md#deploy-with-powershell
-[deploy-template-cli]: resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]: resource-group-template-deploy.md#deploy-with-the-preview-portal
-[virtual-networks-udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
-[resource-group-overview]: ../resource-group-overview.md
-[virtual-machines-linux-agent-user-guide-command-line-options]: virtual-machines-linux-agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]: virtual-machines-linux-capture-image.md
-[virtual-networks-nsg]: virtual-networks-nsg.md
-[storage-premium-storage-preview-portal]: storage-premium-storage-preview-portal.md
-[storage-introduction]: storage-introduction.md
-[virtual-machines-upload-image-windows-resource-manager]: virtual-machines-windows-upload-image.md
-[virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
-[virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
-[virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
-[virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
+[Logo_Windows]: ./media/virtual-machines-linux-sap-shared/Windows.png
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[virtual-machines-azurerm-versus-azuresm]: virtual-machines-azurerm-versus-azuresm.md
+[planning-guide]: virtual-machines-linux-sap-planning-guide.md "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Planejamento e Implementação"
+[planning-guide-1.2]: virtual-machines-linux-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff "Recursos"
+[planning-guide-11.4.1]: virtual-machines-linux-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 "Alta disponibilidade para servidores de aplicativos SAP"
+[planning-guide-11.5]: virtual-machines-linux-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f "Usando a inicialização automática para instâncias SAP"
+[planning-guide-2.1]: virtual-machines-linux-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 "Somente em nuvem - implantações de máquinas virtuais no Azure sem dependências na rede do cliente local"
+[planning-guide-2.2]: virtual-machines-linux-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 "Entre instalações - implantação de uma ou várias VMs SAP no Azure com o requisito de integração completa à rede local"
+[planning-guide-3.1]: virtual-machines-linux-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a "Regiões do Azure"
+[planning-guide-3.2.1]: virtual-machines-linux-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 "Domínios de falha"
+[planning-guide-3.2.2]: virtual-machines-linux-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 "Domínios de atualização"
+[planning-guide-3.2.3]: virtual-machines-linux-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 "Conjuntos de disponibilidade do Azure"
+[planning-guide-3.2]: virtual-machines-linux-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 "O conceito de máquina virtual do Microsoft Azure"
+[planning-guide-3.3.2]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Armazenamento Premium do Azure"
+[planning-guide-5.1.1]: virtual-machines-linux-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 "Movendo uma VM do local para o Azure com um disco não generalizado"
+[planning-guide-5.1.2]: virtual-machines-linux-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c "Implantando uma VM com uma imagem específica do cliente"
+[planning-guide-5.2.1]: virtual-machines-linux-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef "Preparação para mover uma VM do local para o Azure com um disco não generalizado"
+[planning-guide-5.2.2]: virtual-machines-linux-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 "Preparação para implantar uma VM com uma imagem específica do cliente para SAP"
+[planning-guide-5.2]: virtual-machines-linux-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 "Preparando VMs com SAP para o Azure"
+[planning-guide-5.3.1]: virtual-machines-linux-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 "Diferença entre uma imagem do Azure e disco do Azure"
+[planning-guide-5.3.2]: virtual-machines-linux-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a "Carregando um VHD do local no Azure"
+[planning-guide-5.4.2]: virtual-machines-linux-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 "Copiando discos entre Contas de Armazenamento do Azure"
+[planning-guide-5.5.1]: virtual-machines-linux-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 "Estrutura de VM/VHD para implantações SAP"
+[planning-guide-5.5.3]: virtual-machines-linux-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d "Definindo a montagem automática para os discos anexados"
+[planning-guide-7.1]: virtual-machines-linux-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 "Cenário de treinamento/demonstração de VM única com SAP NetWeaver"
+[planning-guide-7]: virtual-machines-linux-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 "Conceitos de implantação somente em nuvem de instâncias SAP"
+[planning-guide-9.1]: virtual-machines-linux-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 "Solução de monitoramento do Azure para SAP"
+[planning-guide-azure-premium-storage]: virtual-machines-linux-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 "Armazenamento Premium do Azure"
 
-[install-extension-cli]: https://github.com/Azure/azure-linux-extensions/blob/master/AzureEnhancedMonitor/README.md
+[planning-guide-figure-100]: ./media/virtual-machines-linux-sap-planning-guide/100-single-vm-in-azure.png
+[planning-guide-figure-1300]: ./media/virtual-machines-linux-sap-planning-guide/1300-ref-config-iaas-for-sap.png
+[planning-guide-figure-1400]: ./media/virtual-machines-linux-sap-planning-guide/1400-attach-detach-disks.png
+[planning-guide-figure-1600]: ./media/virtual-machines-linux-sap-planning-guide/1600-firewall-port-rule.png
+[planning-guide-figure-1700]: ./media/virtual-machines-linux-sap-planning-guide/1700-single-vm-demo.png
+[planning-guide-figure-1900]: ./media/virtual-machines-linux-sap-planning-guide/1900-vm-set-vnet.png
+[planning-guide-figure-200]: ./media/virtual-machines-linux-sap-planning-guide/200-multiple-vms-in-azure.png
+[planning-guide-figure-2100]: ./media/virtual-machines-linux-sap-planning-guide/2100-s2s.png
+[planning-guide-figure-2200]: ./media/virtual-machines-linux-sap-planning-guide/2200-network-printing.png
+[planning-guide-figure-2300]: ./media/virtual-machines-linux-sap-planning-guide/2300-sapgui-stms.png
+[planning-guide-figure-2400]: ./media/virtual-machines-linux-sap-planning-guide/2400-vm-extension-overview.png
+[planning-guide-figure-2500]: ./media/virtual-machines-linux-sap-planning-guide/2500-vm-extension-details.png
+[planning-guide-figure-2600]: ./media/virtual-machines-linux-sap-planning-guide/2600-sap-router-connection.png
+[planning-guide-figure-2700]: ./media/virtual-machines-linux-sap-planning-guide/2700-exposed-sap-portal.png
+[planning-guide-figure-2800]: ./media/virtual-machines-linux-sap-planning-guide/2800-endpoint-config.png
+[planning-guide-figure-2900]: ./media/virtual-machines-linux-sap-planning-guide/2900-azure-ha-sap-ha.png
+[planning-guide-figure-300]: ./media/virtual-machines-linux-sap-planning-guide/300-vpn-s2s.png
+[planning-guide-figure-3000]: ./media/virtual-machines-linux-sap-planning-guide/3000-sap-ha-on-azure.png
+[planning-guide-figure-3200]: ./media/virtual-machines-linux-sap-planning-guide/3200-sap-ha-with-sql.png
+[planning-guide-figure-400]: ./media/virtual-machines-linux-sap-planning-guide/400-vm-services.png
+[planning-guide-figure-600]: ./media/virtual-machines-linux-sap-planning-guide/600-s2s-details.png
+[planning-guide-figure-700]: ./media/virtual-machines-linux-sap-planning-guide/700-decision-tree-deploy-to-azure.png
+[planning-guide-figure-800]: ./media/virtual-machines-linux-sap-planning-guide/800-portal-vm-overview.png
+[planning-guide-microsoft-azure-networking]: virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd "Rede do Microsoft Azure"
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]: virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f "Armazenamento: Armazenamento do Microsoft Azure e discos de dados"
 
-[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
+[powershell-install-configure]: ../powershell-install-configure.md
+[resource-group-authoring-templates]: ../resource-group-authoring-templates.md
+[resource-group-overview]: ../resource-group-overview.md
+[resource-groups-networking]: ../virtual-network/resource-groups-networking.md
+[sap-pam]: https://support.sap.com/pam "Matriz de Disponibilidade de Produto da SAP"
 [sap-templates-2-tier-marketplace-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-3-tier-marketplace-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-2-tier-user-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
-[sap-templates-3-tier-user-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
+[sap-templates-2-tier-user-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
+[sap-templates-3-tier-marketplace-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-3-tier-user-image]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
+[storage-azure-cli]: ../storage/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]: ../storage/storage-azure-cli.md#copy-blobs
+[storage-introduction]: ../storage/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]: ../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]: ../storage/storage-premium-storage.md
+[storage-redundancy]: ../storage/storage-redundancy.md
+[storage-scalability-targets]: ../storage/storage-scalability-targets.md
+[storage-use-azcopy]: ../storage/storage-use-azcopy.md
+[template-201-vm-from-specialized-vhd]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
-[template-201-vm-from-specialized-vhd]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[virtual-machines-linux-attach-disk-portal]: virtual-machines-linux-attach-disk-portal.md
+[virtual-machines-azure-resource-manager-architecture]: ../resource-manager-deployment-model.md
+[virtual-machines-azurerm-versus-azuresm]: virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-windows-classic-configure-oracle-data-guard]: virtual-machines-windows-classic-configure-oracle-data-guard.md
+[virtual-machines-linux-cli-deploy-templates]: virtual-machines-linux-cli-deploy-templates.md "Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure"
+[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-windows-ps-manage.md "Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure"
+[virtual-machines-linux-agent-user-guide]: virtual-machines-linux-agent-user-guide.md
+[virtual-machines-linux-agent-user-guide-command-line-options]: virtual-machines-linux-agent-user-guide.md#command-line-options
+[virtual-machines-linux-capture-image]: virtual-machines-linux-capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]: virtual-machines-linux-capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]: virtual-machines-linux-capture-image.md#capture-the-vm
+[virtual-machines-linux-configure-raid]: virtual-machines-linux-configure-raid.md
+[virtual-machines-linux-classic-create-upload-vhd-step-1]: virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
+[virtual-machines-linux-create-upload-vhd-suse]: virtual-machines-linux-suse-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]: virtual-machines-linux-redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]: virtual-machines-linux-add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]: virtual-machines-linux-add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
+[virtual-machines-linux-update-agent]: virtual-machines-linux-update-agent.md
+[virtual-machines-manage-availability]: virtual-machines-linux-manage-availability.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
+[virtual-machines-sizes]: virtual-machines-linux-sizes.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]: virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]: virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]: virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]: virtual-machines-windows-sql-performance.md
+[virtual-machines-upload-image-windows-resource-manager]: virtual-machines-windows-upload-image.md
+[virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
+[virtual-machines-workload-template-sql-alwayson]: https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-network-deploy-multinic-arm-cli]: ../virtual-network/virtual-network-deploy-multinic-arm-cli.md
+[virtual-network-deploy-multinic-arm-ps]: ../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-template]: ../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-networks-configure-vnet-to-vnet-connection]: ../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md
+[virtual-networks-create-vnet-arm-pportal]: ../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-manage-dns-in-vnet]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
+[virtual-networks-multiple-nics]: ../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-nsg]: ../virtual-network/virtual-networks-nsg.md
+[virtual-networks-reserved-private-ip]: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-networks-static-private-ip-arm-pportal]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
+[vpn-gateway-about-vpn-devices]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-create-site-to-site-rm-powershell]: ../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]: ../vpn-gateway/vpn-gateway-cross-premises-options.md
+[vpn-gateway-site-to-site-create]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[vpn-gateway-vpn-faq]: ../vpn-gateway/vpn-gateway-vpn-faq.md
+[xplat-cli]: ../xplat-cli-install.md
+[xplat-cli-azure-resource-manager]: ../xplat-cli-azure-resource-manager.md
 
-[sap-pam]: https://support.sap.com/pam "Matriz de Disponibilidade de Produto da SAP"
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
 
 O Microsoft Azure permite que empresas adquiram recursos de computação e armazenamento gastando o mínimo de tempo, sem ciclos de compras longos. As Máquinas Virtuais do Azure permitem que as empresas implantem aplicativos clássicos no Azure, como aplicativos baseados no SAP NetWeaver, além de aumentar a confiabilidade e disponibilidade desses aplicativos sem que sejam necessários mais recursos disponíveis localmente. O Microsoft Azure também dá suporte à conectividade entre locais, o que permite que as empresas integrem ativamente as Máquinas Virtuais do Azure a seus domínios locais, suas nuvens privadas e sua estrutura do sistema da SAP.
 
-Este white paper descreve passo a passo como uma Máquina Virtual do Azure é preparada para a implantação de aplicativos baseados no SAP NetWeaver. Ele pressupõe que você tenha conhecimento das informações contidas no [Guia de Implantação e Planejamento][planning-guide]. Caso contrário, o documento em questão precisa ser lido primeiro.
+Este white paper descreve passo a passo como uma Máquina Virtual do Azure é preparada para a implantação de aplicativos baseados no SAP NetWeaver. Ele pressupõe que você tenha conhecimento das informações contidas no [Guia de Planejamento e Implantação][planning-guide]. Caso contrário, o documento em questão precisa ser lido primeiro.
 
 O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
 
@@ -337,7 +334,7 @@ A topologia e a arquitetura de implantação de SAP no Azure precisam ser defini
 As Contas de Armazenamento ou as Redes Virtuais do Azure já devem ter sido criadas e configuradas. Veja como criar e configurá-las no [Guia de Planejamento e Implementação][planning-guide].
 
 #### Dimensionamento do SAP
-* A carga de trabalho projetada do SAP foi determinada, por exemplo, usando o SAP Quicksizer, e o número de SAPs correspondente é conhecido 
+* A carga de trabalho projetada do SAP foi determinada, por exemplo, usando o SAP Quicksizer, e o número de SAPs correspondente é conhecido
 * Os recursos de CPU e consumo de memória necessários para o sistema SAP devem ser conhecidos
 * As operações de E/S necessárias por segundo devem ser conhecidas
 * A largura de banda de rede necessária para eventual comunicação entre VMs diferentes no Azure é conhecida
@@ -350,15 +347,17 @@ Grupos de recursos são um novo conceito que contém todos os recursos que têm 
 Durante a configuração, são necessários os seguintes recursos:
 
 * Nota SAP [1928533]
-	* a lista de tamanhos de Máquinas Virtuais do Azure que têm suporte para a implantação de Software SAP 
+	* a lista de tamanhos de Máquinas Virtuais do Azure que têm suporte para a implantação de Software SAP
 	* informações importantes sobre a capacidade por tamanho de Máquina Virtual do Azure
 	* combinação de sistema operacional e banco de dados e software SAP com suporte
 * Nota SAP [2015553] listando os pré-requisitos para ter suporte do SAP durante a implantação de software SAP no Microsoft Azure.
 * Nota SAP [1999351] que contém informações adicionais de solução de problemas para o Monitoramento Avançado do Azure para SAP.
-* Nota SAP [2178632] que contém informações detalhadas sobre todas as métricas de monitoramentos disponíveis para SAP no Microsoft Azure. 
+* Nota SAP [2178632] que contém informações detalhadas sobre todas as métricas de monitoramentos disponíveis para SAP no Microsoft Azure.
 * Nota SAP [1409604] que contém a versão necessária do Agente de Host do SAP para Windows no Microsoft Azure ao implantar no novo Azure Resource Manager.
 * Nota SAP [2191498] que contém a versão necessária do Agente de Host do SAP para Linux no Microsoft Azure ao implantar no novo Azure Resource Manager.
 * Nota SAP [2243692] que contém informações sobre o licenciamento para SAP no Linux no Azure
+* Nota SAP [1984787] que contém informações gerais sobre o SUSE LINUX Enterprise Server 12
+* Nota SAP [2002167] que contém informações gerais sobre o Red Hat Enterprise Linux 7.x
 * [SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) que contém todas as Notas SAP para Linux
 * Cmdlets do PowerShell específicos para SAP que fazem parte do [Azure PowerShell][azure-ps]
 * CLI do Azure específica para SAP que faz parte da [CLI do Azure][azure-cli]
@@ -419,7 +418,7 @@ A sequência de etapas específicas do SAP para implantar uma VM com origem no A
 As etapas no fluxograma a seguir precisam ser executadas:
 
 #### Criar uma máquina virtual usando o Portal do Azure
-A maneira mais fácil de criar uma nova máquina virtual usando uma imagem com origem no Azure Marketplace é por meio do Portal do Azure. Navegue até <https://portal.azure.com/#create>. Insira o tipo do sistema operacional que você deseja implantar, como Windows ou SUSE, e selecione a versão. Certifique-se de selecionar o modelo de implantação do "Azure Resource Manager" e clique em "Criar".
+A maneira mais fácil de criar uma nova máquina virtual usando uma imagem com origem no Azure Marketplace é por meio do Portal do Azure. Navegue até <https://portal.azure.com/#create>. Insira no campo de pesquisa o tipo do sistema operacional que você deseja implantar, como Windows, SLES ou RHEL; depois, selecione a versão. Certifique-se de selecionar o modelo de implantação do "Azure Resource Manager" e clique em "Criar".
 
 O assistente o orientará com relação aos parâmetros necessários para criar a máquina virtual, bem como todos os recursos necessários, como interfaces de rede ou contas de armazenamento. Alguns desses parâmetros são:
 
@@ -429,7 +428,7 @@ O assistente o orientará com relação aos parâmetros necessários para criar 
     1. Assinatura: selecione a assinatura que deseja usar para provisionar a nova máquina virtual.
     1. Grupo de recursos: o nome do grupo de recursos. Você pode inserir o nome de um novo grupo de recursos ou de um grupo de recursos que já existe
     1. Local: selecione o local no qual a nova máquina virtual deve ser implantada. Se quiser conectar a máquina virtual à sua rede local, certifique-se de selecionar o local da Rede Virtual que conecta o Azure à sua rede local. Para obter mais detalhes, consulte o capítulo [Rede do Microsoft Azure][planning-guide-microsoft-azure-networking] no [Guia de Planejamento][planning-guide].
-1. Tamanho: leia a Nota SAP [1928533] para obter uma lista dos tipos de VM com suporte. Também certifique-se de selecionar o tipo correto se quiser usar o Armazenamento Premium. Nem todos os tipos VM dão suporte ao Armazenamento Premium. Consulte os capítulos [Armazenamento: Armazenamento e Discos de Dados do Microsoft Azure][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Armazenamento Premium do Azure][planning-guide-azure-premium-storage] no [Guia de Planejamento][planning-guide] para obter mais detalhes.
+1. Tamanho: leia a Nota SAP [1928533] para obter uma lista dos tipos de VM com suporte. Também certifique-se de selecionar o tipo correto se quiser usar o Armazenamento Premium. Nem todos os tipos VM dão suporte ao Armazenamento Premium. Consulte os capítulos [Armazenamento: Armazenamento do Microsoft Azure e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Armazenamento Premium do Azure][planning-guide-azure-premium-storage] no [Guia de Planejamento][planning-guide] para obter mais detalhes.
 1. Configurações
     1. Conta de armazenamento: você pode selecionar uma conta de armazenamento existente ou criar uma nova. Leia o capítulo [Armazenamento do Microsoft Azure][dbms-guide-2.3] do [Guia de DBMS][dbms-guide] para obter mais detalhes sobre os diferentes tipos de armazenamento. Observe que nem todos os tipos de armazenamento têm suporte para a execução de aplicativos SAP.
     1. Rede virtual e sub-rede: selecione a rede virtual que está conectada à sua rede local se quiser integrar a máquina virtual à sua intranet.
@@ -450,14 +449,14 @@ Você também pode criar uma implantação usando um dos modelos de SAP publicad
 Após você ter aberto um dos modelos acima, o Portal do Azure navegará até o painel Editar Parâmetros. Insira as seguintes informações:
 
 * **sapSystemId**: ID do sistema SAP
-* **osType**: sistema operacional que você deseja implantar, por exemplo, Windows Server 2012 R2 ou SLES 12
+* **osType**: sistema operacional que você deseja implantar, por exemplo, Windows Server 2012 R2, SLES 12 ou RHEL 7.2
     * A lista contém somente versões com suporte da SAP no Microsoft Azure
 * **sapSystemSize**: o tamanho do sistema SAP
     * A quantidade de SAPs que o novo sistema fornecerá. Se você não tiver certeza de quantos SAPs o sistema precisará, pergunte ao seu Parceiro de tecnologia SAP ou Integrador de sistemas
-* **systemAvailability**: (apenas para o modelo de três camadas) disponibilidade do sistema 
+* **systemAvailability**: (apenas para o modelo de três camadas) disponibilidade do sistema
     * Selecione HA para uma configuração adequada para uma instalação de alta disponibilidade. Dois servidores de banco de dados e dois servidores para o ASCS serão criados.
-* storageType: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado 
-    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia 
+* storageType: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado
+    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia
         * [Armazenamento do Microsoft Azure][dbms-guide-2.3] no [Guia de DBMS][dbms-guide]
         * [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure][storage-premium-storage-preview-portal]
         * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
@@ -481,7 +480,7 @@ Caso a implantação no Azure esteja conectada ao AD/DNS local por meio do Azure
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configurar o monitoramento
 Configure a Extensão de Monitoramento Avançado do Azure para SAP, conforme descrito no capítulo [Configurar Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5] deste documento.
 
-Verifique os pré-requisitos para Monitoramento do SAP para ver as versões mínimas necessárias do Kernel do SAP e do Agente de Host do SAP nos recursos listados no capítulo [Recursos de SAP][deployment-guide-2.2] deste documento.
+Verifique os pré-requisitos para Monitoramento do SAP para ver as versões mínimas necessárias do kernel do SAP e do Agente de Host do SAP nos recursos listados no capítulo [Recursos de SAP][deployment-guide-2.2] deste documento.
 
 #### Verificação de monitoramento
 Verifique se o monitoramento está funcionando conforme descrito no capítulo [Verificações e solução de problemas para configuração de monitoramento de ponta a ponta para SAP no Azure][deployment-guide-troubleshooting-chapter].
@@ -508,10 +507,10 @@ Após você ter aberto um dos modelos acima, o Portal do Azure navegará até o 
 * **osType**: tipo de sistema operacional que você deseja implantar, Windows ou Linux
 * **sapSystemSize**: o tamanho do sistema SAP
     * A quantidade de SAPs que o novo sistema fornecerá. Se você não tiver certeza de quantos SAPs o sistema precisará, pergunte ao seu Parceiro de tecnologia SAP ou Integrador de sistemas
-* **systemAvailability**: (apenas para o modelo de três camadas) disponibilidade do sistema 
+* **systemAvailability**: (apenas para o modelo de três camadas) disponibilidade do sistema
     * Selecione HA para uma configuração adequada para uma instalação de alta disponibilidade. Dois servidores de banco de dados e dois servidores para o ASCS serão criados.
-* **storageType**: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado 
-    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia 
+* **storageType**: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado
+    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia
         * [Armazenamento do Microsoft Azure][dbms-guide-2.3] no [Guia de DBMS][dbms-guide]
         * [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure][storage-premium-storage-preview-portal]
         * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
@@ -536,7 +535,7 @@ Caso a implantação no Azure esteja conectada ao AD/DNS local por meio do Azure
 Dependendo da configuração da rede local, poderá ser necessário configurar o proxy em sua máquina virtual se ela estiver conectada à rede local por meio da VPN ou da Rota Expressa. Caso contrário, é possível que a máquina virtual não consiga acessar a Internet e, portanto, não consiga baixar as extensões necessárias ou coletar dados de monitoramento. Consulte o capítulo [Configurar proxy][deployment-guide-configure-proxy] neste documento.
 
 #### Configurar o monitoramento
-Configure a Extensão de Monitoramento do Azure para SAP, conforme descrito no capítulo [Configurar Monitoramento Avançado do Azure para SAP][deployment-guide-4.5] deste documento. Verifique os pré-requisitos para Monitoramento do SAP para ver as versões mínimas necessárias do Kernel do SAP e do Agente de Host do SAP nos recursos listados no capítulo [Recursos de SAP][deployment-guide-2.2] deste documento.
+Configure a Extensão de Monitoramento do Azure para SAP, conforme descrito no capítulo [Configurar Monitoramento Avançado do Azure para SAP][deployment-guide-4.5] deste documento. Verifique os pré-requisitos para Monitoramento do SAP para ver as versões mínimas necessárias do kernel do SAP e do Agente de Host do SAP nos recursos listados no capítulo [Recursos de SAP][deployment-guide-2.2] deste documento.
 
 #### Verificação de monitoramento
 Verifique se o monitoramento está funcionando conforme descrito no capítulo [Verificações e solução de problemas para configuração de monitoramento de ponta a ponta para SAP no Azure][deployment-guide-troubleshooting-chapter].
@@ -554,7 +553,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> [Guia do usuário do agente Linux para o Azure][virtual-machines-linux-agent-user-guide]
 
 ___
 
@@ -576,8 +575,8 @@ Após você ter aberto o modelo acima, o Portal do Azure navegará até o painel
 * **osType**: tipo de sistema operacional que você deseja implantar, Windows ou Linux
 * **sapSystemSize**: o tamanho do sistema SAP
     * A quantidade de SAPs que o novo sistema fornecerá. Se você não tiver certeza de quantos SAPs o sistema precisará, pergunte ao seu Parceiro de tecnologia SAP ou Integrador de sistemas
-* **storageType**: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado 
-    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia 
+* **storageType**: (apenas para o modelo de duas camadas) tipo de armazenamento que deve ser usado
+    * Para sistemas maiores, é altamente recomendável utilizar o Armazenamento Premium. Para obter mais informações sobre os diferentes tipos de armazenamento, leia
         * [Armazenamento do Microsoft Azure][dbms-guide-2.3] no [Guia de DBMS][dbms-guide]
         * [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure][storage-premium-storage-preview-portal]
         * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
@@ -611,7 +610,7 @@ Verifique se o monitoramento está funcionando conforme descrito no capítulo [V
 ### Cenário 4: Atualizando a configuração de monitoramento para SAP
 Há casos em que você precisa atualizar a configuração de monitoramento:
 
-* A equipe conjunta da MS/SAP estendeu os recursos de monitoramentos e decidiu adicionar mais contadores ou excluir alguns contadores. 
+* A equipe conjunta da MS/SAP estendeu os recursos de monitoramentos e decidiu adicionar mais contadores ou excluir alguns contadores.
 * A Microsoft apresenta uma nova versão da infraestrutura subjacente do Azure que fornece os dados de monitoramento e a Extensão de Monitoramento Avançado do Azure para SAP está se adaptando a essas alterações.
 * Você adiciona mais VHDs montados em sua VM do Azure ou remove um VHD. Nesse caso, você precisa atualizar a coleção de dados relacionados a armazenamento. Se você alterar a configuração adicionando ou excluindo pontos de extremidade ou atribuindo endereços IP a uma VM, isso não afetará a configuração de monitoramento.
 * Você altera o tamanho de sua VM do Azure, por exemplo, de A5 para qualquer outro tamanho de VM.
@@ -619,7 +618,7 @@ Há casos em que você precisa atualizar a configuração de monitoramento:
 
 Para atualizar a configuração de monitoramento, faça o seguinte:
 
-* Atualize a infra-estrutura de monitoramento seguindo as etapas explicadas no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5] deste documento. Uma nova execução do script descrito neste capítulo detectará que uma configuração de monitoramento foi implantada e executará todas as alterações necessárias para a configuração de monitoramento. 
+* Atualize a infraestrutura de monitoramento seguindo as etapas explicadas no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5] deste documento. Uma nova execução do script descrito neste capítulo detectará que uma configuração de monitoramento foi implantada e executará todas as alterações necessárias para a configuração de monitoramento.
 
 ___
 
@@ -665,7 +664,7 @@ Observe o círculo vermelho na [figura][deployment-guide-figure-7] abaixo.
  
 ![Tela de instalação de cmdlets do Azure PowerShell indicando que a versão mais recente dos cmdlets do Azure PowerShell está instalada][deployment-guide-figure-700] <a name="figure-7"></a>
 
-Se a tela for semelhante à tela [acima][deployment-guide-figure-7], indicando que a versão mais recente do cmdlet do Azure já está instalada, não é necessário prosseguir com a instalação. Nesse caso, você pode "Sair" da instalação nesta etapa.
+Se a tela for semelhante à tela [acima][deployment-guide-figure-7], indicando que a versão mais recente do cmdlet do Azure já está instalada, não será necessário prosseguir com a instalação. Nesse caso, você pode "Sair" da instalação nesta etapa.
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Implantando a CLI do Azure
 * Acesse <https://azure.microsoft.com/downloads/>
@@ -683,7 +682,7 @@ O resultado deve ser apresentado como mostrado abaixo [nesta][deployment-guide-f
 
 ![Resultado da verificação de versão da CLI do Azure][deployment-guide-figure-760] <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Ingressar a VM no domínio local, somente Windows
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Ingressar a VM no domínio local (somente Windows)
 Em casos em que você implantar VMs SAP em um cenário com conexão entre locais em que o AD local e o DNS são estendidos para o Azure, espera-se que as VMs ingressem em um domínio local. As etapas detalhadas para ingressar uma VM em um domínio local e os softwares adicionais necessários para ser membro de um domínio local dependem do cliente. Normalmente, ingressar uma VM em um domínio local significa instalar software adicional, como software de proteção contra malware, ou vários agentes de software de backup ou monitoramento.
 
 Além disso, você precisa certificar-se de que, para casos em que as configurações de proxy de Internet são forçadas ao ingressar em um domínio, a Conta do sistema local do Windows (S-1-5-18) na VM convidada também tenha essas configurações. A opção mais fácil é forçar o proxy com a Política de grupo do domínio, que se aplica a sistemas dentro do domínio.
@@ -706,8 +705,15 @@ As etapas a seguir são necessárias quando uma VM para SAP é implantada por me
 #### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
 Instale o Agente de VM para Linux usando o seguinte comando
 
+- **SLES**
+
 ```
 sudo zypper install WALinuxAgent
+```
+- **RHEL**
+
+```
+sudo yum install WALinuxAgent
 ```
 
 ### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurar proxy
@@ -737,7 +743,13 @@ Reinicie o agente depois de ter alterado sua configuração com
 sudo service waagent restart
 ```
 
-As configurações de proxy em /etc/waagent.conf também se aplicam para as extensões de VM necessárias. Se você quiser usar os repositórios do Azure, certifique-se de que o tráfego para esses repositórios não passe pela intranet local. Se você tiver criado rotas definidas pelo usuário para habilitar o túnel forçado, certifique-se de adicionar uma rota que encaminhe o tráfego para 104.45.17.148 diretamente pela Internet, sem passar por sua conexão site a site. Você também precisa adicionar rotas para os endereços IP listados em /etc/regionserverclnt.cfg. Um exemplo é mostrado na captura de tela abaixo. Para obter mais detalhes sobre rotas definidas pelo usuário, consulte [este artigo][virtual-networks-udr-overview].
+As configurações de proxy em /etc/waagent.conf também se aplicam para as extensões de VM necessárias. Se você quiser usar os repositórios do Azure, certifique-se de que o tráfego para esses repositórios não passe pela intranet local. Se você tiver criado rotas definidas pelo usuário para habilitar o túnel forçado, adicione uma rota que encaminhe o tráfego para os repositórios diretamente pela Internet, sem passar por sua conexão site a site.
+
+- **SLES** Você também precisa adicionar rotas para os endereços IP listados em /etc/regionserverclnt.cfg. Um exemplo é mostrado na captura de tela abaixo.
+
+- **RHEL** Também é necessário adicionar rotas para os endereços IP dos hosts listados em /etc/yum.repos.d/rhui-load-balancers. Um exemplo é mostrado na captura de tela abaixo.
+
+Para obter mais detalhes sobre rotas definidas pelo usuário, consulte [este artigo][virtual-networks-udr-overview].
 
 ![Túnel forçado][deployment-guide-figure-50]
 
@@ -749,7 +761,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para instalar e configurar 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell para VMs Linux e Windows
 Para realizar a tarefa de instalar a Extensão de Monitoramento Avançado do Azure para SAP, realize as seguintes etapas:
 
-* Certifique-se de ter a versão mais recente do cmdlet do Microsoft Azure PowerShell instalada. Consulte o capítulo [Implantando cmdlets do Azure PowerShell][deployment-guide-4.1] deste documento.  
+* Certifique-se de ter a versão mais recente do cmdlet do Microsoft Azure PowerShell instalada. Consulte o capítulo [Implantando cmdlets do Azure PowerShell][deployment-guide-4.1] deste documento.
 * Execute o seguinte cmdlet do PowerShell. Para obter uma lista dos ambientes disponíveis, execute o comando Get-AzureRmEnvironment. Se você quiser usar o Azure público, seu ambiente será AzureCloud. Para o Azure na China, selecione AzureChinaCloud.
 
 ```powershell
@@ -769,17 +781,46 @@ Uma execução bem-sucedida de set-AzureRmVMAEMExtension realizará todas as eta
 A saída fornecida pelo script deve ser semelhante a esta:
 
 * Confirmação de que a configuração de monitoramento para o VHD Base (que contém o sistema operacional), bem como todos os VHDs adicionais montados na VM, foram configurados.
-* As duas próximas mensagens confirmam a configuração das métricas de armazenamento para uma conta de armazenamento específica. 
+* As duas próximas mensagens confirmam a configuração das métricas de armazenamento para uma conta de armazenamento específica.
 * Uma linha da saída fornecerá um status sobre a atualização real da configuração de monitoramento.
 * Outra será exibida para confirmar que a configuração foi implantada ou atualizada.
 * A última linha da saída é informativa, mostrando a possibilidade de testar a configuração de monitoramento.
-* Para verificar se todas as etapas do Monitoramento Avançado do Azure foram executadas com êxito e se a infraestrutura do Azure fornece os dados necessários, faça a verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP, conforme descrito no capítulo [Verificação de preparação para o Monitoramento Avançado do Azure para SAP][deployment-guide-5.1] neste documento. 
+* Para verificar se todas as etapas do Monitoramento Avançado do Azure foram executadas com êxito e se a infraestrutura do Azure fornece os dados necessários, faça a verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP, conforme descrito no capítulo [Verificação de preparação para o Monitoramento Avançado do Azure para SAP][deployment-guide-5.1] neste documento.
 * Para continuar fazendo isso, aguarde de 15 a 30 minutos até que o Diagnóstico do Azure colete os dados relevantes.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI do Azure para VMs Linux
-Siga as etapas [neste artigo][install-extension-cli] para instalar a Extensão de Monitoramento Avançado do Azure para SAP em uma VM Linux por meio de um desktop/laptop Linux.
 
- [comentário]: <> (MSSedusch TODO Verificar se o link ainda é válido)
+Para realizar a tarefa de instalar a Extensão de Monitoramento Avançado do Azure para SAP usando a CLI do Azure, realize as seguintes etapas:
+
+1. Instale a CLI do Azure conforme descrito [neste][azure-cli] artigo
+1. Faça logon com sua conta do Azure
+
+    ```
+    azure login
+    ```
+1. Mude para o modo do Azure Resource Manager
+
+    ```
+    azure config mode arm
+    ```
+1. Habilite o Monitoramento Aprimorado do Azure
+
+    ```
+    azure vm enable-aem <resource-group-name> <vm-name>
+    ```  
+1. Verifique se o Monitoramento Aprimorado do Azure está ativo na VM Linux do Azure. Verifique se o arquivo /var/lib/AzureEnhancedMonitor/PerfCounters existe. Se existir, exiba as informações coletadas pelo AEM com:
+
+    ```
+    cat /var/lib/AzureEnhancedMonitor/PerfCounters
+    ```
+    Em seguida, você obterá saída semelhante a:
+    
+    ```
+    2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+    2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+    …
+    …
+    ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e solução de problemas de configuração de monitoramento de ponta a ponta para SAP no Azure
 Depois de ter implantado a VM do Azure e ter configurado a infraestrutura relevante de monitoramento do Azure, verifique se todos os componentes do Monitoramento Avançado do Azure estão funcionando de forma adequada.
@@ -837,16 +878,16 @@ Para executar a verificação de preparação, conecte-se via SSH à máquina vi
         * ps -ax | grep waagent
             * deve mostrar uma entrada semelhante a "python /usr/sbin/waagent-daemon"
     * Certifique-se de que a extensão de Diagnóstico do Linux esteja instalada e seja iniciada
-        * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-*
+        * sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-*'
             * deve listar o conteúdo do diretório da Extensão de Diagnóstico do Linux
         * ps -ax | grep diagnostic
             * deve mostrar uma entrada semelhante a "python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py-daemon"
     * Certifique-se de que a Extensão de Monitoramento Avançado do Azure esteja instalada e seja iniciada
-        * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
+        * sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'
             * deve listar o conteúdo do diretório da Extensão de Monitoramento Avançado do Azure
         * ps -ax | grep AzureEnhanced
             * deve mostrar uma entrada semelhante a "python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon"
-* Instale o Agente de Host do SAP, conforme descrito na Nota SAP 1031096 e verifique a saída de saposcol
+* Instale o Agente de Host do SAP, conforme descrito na Nota SAP [1031096] e verifique a saída de saposcol
     * Execute /usr/sap/hostctrl/exe/saposcol -d
     * Execute dump ccm
     * Verifique se a métrica "Virtualization\_Configuration\\Enhanced Monitoring Access" é verdadeira
@@ -888,7 +929,7 @@ A coleta de métricas de desempenho no Azure é feita pelo serviço Windows "Azu
 ##### O diretório de instalação da Extensão de Monitoramento Avançado do Azure está vazio 
 
 ###### Problema
-O diretório de instalação C:\\Pacotes\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\`<version`> \\drop está vazio.
+O diretório de instalação C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\`<version`>\\drop está vazio.
 
 ###### Solução
 A extensão não está instalada. Verifique se há um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reinicializar o computador e/ou executar novamente o script de configuração Set-AzureRmVMAEMExtension
@@ -901,7 +942,7 @@ O serviço Windows "AzureEnhancedMonitoring" não existe. Azperflib.exe: a saíd
 ![A execução de azperflib.exe indica que o serviço da Extensão de Monitoramento Avançado do Azure para SAP não está em execução][deployment-guide-figure-1400] <a name="figure-14"></a>
 
 ###### Solução
-Se o serviço não existir, conforme mostrado na [figura acima][deployment-guide-figure-14], a Extensão de Monitoramento do Azure para SAP não foi instalada corretamente. Reimplante a extensão de acordo com as etapas descritas para seu cenário de implantação no capítulo [Cenários de implantação de VMs para SAP no Microsoft Azure][deployment-guide-3].
+Se o serviço não existir, conforme mostrado na [figura acima][deployment-guide-figure-14], isso se deverá a uma instalação incorreta da Extensão de Monitoramento do Azure para SAP. Reimplante a extensão de acordo com as etapas descritas para seu cenário de implantação no capítulo [Cenários de implantação de VMs para SAP no Microsoft Azure][deployment-guide-3].
 
 Após a implantação da extensão, verifique novamente se os contadores de desempenho do Azure são fornecidos na VM do Azure após uma hora.
 
@@ -938,4 +979,4 @@ Para ver uma completa e atualizada dos conhecidos problemas, consulte a Nota SAP
 
 Se a solução de problemas usando Nota SAP [1999351] não ajudar, execute novamente o script de configuração Set-AzureRmVMAEMExtension conforme descrito no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte do cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

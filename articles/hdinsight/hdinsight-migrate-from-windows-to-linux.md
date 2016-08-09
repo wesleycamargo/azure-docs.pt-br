@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
@@ -79,7 +79,7 @@ Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do arm
 
 6. Na sessão SSH, use o comando a seguir para copiar arquivos da conta de armazenamento vinculada para a nova conta de armazenamento padrão. Substitua CONTAINER e ACCOUNT pelas informações de contêiner e conta retornadas pelo script do PowerShell na etapa 1. Substitua o caminho para dados pelo caminho para um arquivo de dados.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] Se a estrutura de diretório que contiver os dados não existir no ambiente de teste, você poderá criá-la usando o comando a seguir.
 
@@ -240,9 +240,9 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 
 -   **Se tiver scripts que já estão no armazenamento usado pelo cluster**, você poderá usar o comando a seguir em uma sessão do SSH para o cluster baseado em Linux, a fim de modificar o script.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##Próximas etapas
 
@@ -254,4 +254,4 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 
 -   [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

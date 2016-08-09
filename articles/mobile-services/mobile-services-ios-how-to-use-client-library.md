@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Aprenda a usar a Biblioteca de Cliente iOS para os Serviços Móveis do Azure.
@@ -285,7 +285,7 @@ O exemplo a seguir usa o [SDK do Live Connect] para habilitar o logon único par
 
 ##<a name="caching-tokens"></a>Como armazenar tokens de autenticação em cache
 
-Vamos ver como você pode armazenar em cache tokens no projeto [Início Rápido dos Serviços Móveis]; você pode usar etapas semelhantes em qualquer projeto.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+Vamos ver como você pode armazenar em cache tokens no projeto [Início Rápido dos Serviços Móveis]; você pode usar etapas semelhantes em qualquer projeto. [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ##<a name="errors"></a>Como tratar erros
 
@@ -339,4 +339,4 @@ O arquivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/az
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Manipulador de conflito]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

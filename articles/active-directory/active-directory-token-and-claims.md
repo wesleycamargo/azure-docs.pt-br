@@ -122,7 +122,7 @@ Quando o aplicativo recebe um id\_token na conexão do usuário, ele também dev
 
 Para obter uma lista completa das validações de declaração que seu aplicativo deve executar, consulte a [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-Os detalhes dos valores esperados para essas declarações estão incluídos acima na [seção id\_token](#id_tokens).
+Os detalhes dos valores esperados para essas declarações estão incluídos acima na [seção id\_token](#id-tokens).
 
 ## Tokens de exemplo
 
@@ -275,4 +275,4 @@ Este é um exemplo de um típico JWT (token Web JSON) usado em um fluxo de conce
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

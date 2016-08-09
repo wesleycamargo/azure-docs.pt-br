@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Usando o Azure CDN"
+	 pageTitle="Uso da CDN do Azure | Microsoft Azure"
 	 description="Este tópico mostra como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure. O tutorial o orienta ao longo da criação de um novo perfil da CDN e do ponto de extremidade."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Usando o Azure CDN  
@@ -67,7 +67,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 	
 	> [AZURE.NOTE] A **Porta de origem** afeta somente a porta que o ponto de extremidade usa para recuperar as informações da origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente da **Porta de origem**.
 	>
-	> Os pontos de extremidade **Azure CDN do Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista de portas de origem que não são permitidas, confira [Detalhes do comportamento do Azure CDN do Akamai](cdn-akamai-behavior-details.md).
+	> Os pontos de extremidade **Azure CDN do Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).
 	>
 	> O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
 	> 
@@ -97,4 +97,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

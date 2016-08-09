@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -619,4 +619,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 
@@ -94,7 +94,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 	- **_from-address_**: o endereço de onde se origina o email. Considere usar um endereço de domínio registrado que pertence à sua organização.
 
-     > [AZURE.NOTE] Se não tiver um domínio registrado, você pode usar o domínio de seus Serviços Móveis, no formato **notifications@_your-mobile-service_.azure-mobile.net*. No entanto, as mensagens enviadas para seu domínio de serviços móveis serão ignoradas.
+     > [AZURE.NOTE] Se você não tiver um domínio registrado, você pode usar o domínio de seus Serviços Móveis, no formato *notificações@_seu-serviço-móvel_.azure-mobile.net*. No entanto, as mensagens enviadas para seu domínio de serviços móveis serão ignoradas.
 
 6. Clique no botão **Salvar**. Você configurou um script para enviar um e-mail sempre que um registro for inserido na tabela **TodoItem**.
 
@@ -141,4 +141,4 @@ Agora que você já viu como é fácil usar o serviço de emails do SendGrid com
 [serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -44,7 +44,7 @@ A maneira mais fácil de instalar é por meio da [Galeria do PowerShell](https:/
 
 Você também pode instalar o módulo do PowerShell manualmente:
 
-1. Baixe a versão mais recente do [criador de modelos de aplicativo lógico](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
+1. Baixe a versão mais recente do [criador de modelos de aplicativo lógico](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
 1. Extraia a pasta para sua pasta do módulo do PowerShell (geralmente `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
 Para que o módulo funcione com qualquer token de acesso do locatário e da assinatura, recomenda-se usá-lo com a ferramenta de linha de comando [ARMClient](https://github.com/projectkudu/ARMClient). Essa [postagem de blog](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) discute o ARMClient mais detalhadamente.
@@ -85,4 +85,4 @@ Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta 
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

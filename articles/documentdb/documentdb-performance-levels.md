@@ -2,7 +2,7 @@
 	pageTitle="Níveis de desempenho no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como os níveis de desempenho no Banco de Dados de Documentos permitem reservar a produtividade com base na coleção." 
 	services="documentdb" 
-	authors="johnfmacintyre" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
-	ms.author="johnmac"/>
+	ms.date="07/27/2016" 
+	ms.author="mimig"/>
 
 # Níveis de desempenho no Banco de Dados de Documentos
 
@@ -95,30 +95,30 @@ Coleções do Banco de Dados de Documentos permitem agrupar seus dados com base 
 
 É recomendável que seu aplicativo use um pequeno número de coleções, a menos que você tenha grandes requisitos de armazenamento ou taxa de transferência. Certifique-se de que você tenha padrões de aplicativo bem compreendidos para a criação de novas coleções. Você pode optar por fazer da criação de coleções uma ação de gerenciamento feita fora do aplicativo. De forma semelhante, ajustar o nível de desempenho para uma coleção altera a taxa por hora segundo a qual a coleção é cobrada. Você deve monitorar os níveis de desempenho da coleção se o aplicativo ajustar esses níveis dinamicamente.
 
-## Alterando os níveis de desempenho usando o Portal do Azure
+## <a href="changing-performance-levels-using-the-azure-portal"></a>Alterar de S1, S2, S3 para desempenho definido pelo usuário
 
-O Portal do Azure é uma opção disponível para você ao gerenciar os níveis de desempenho de suas coleções. Siga estas etapas para alterar o uso dos níveis de taxa de transferência predefinidos para níveis de taxa de transferência definidos pelo usuário no Portal do Azure. Ao usar níveis de taxa de transferência definidos pelo usuário, você pode ajustar a taxa de transferência de acordo com suas necessidades. E, se ainda estiver usando uma conta S1, você poderá aumentar a taxa de transferência padrão de 250 RU/s para 400 RU/s com apenas alguns cliques.
+Siga estas etapas para alterar o uso dos níveis de taxa de transferência predefinidos para níveis de taxa de transferência definidos pelo usuário no Portal do Azure. Ao usar níveis de taxa de transferência definidos pelo usuário, você pode ajustar a taxa de transferência de acordo com suas necessidades. E, se ainda estiver usando uma conta S1, você poderá aumentar a taxa de transferência padrão de 250 RU/s para 400 RU/s com apenas alguns cliques.
 
-Para obter mais informações sobre as alterações de preços relacionadas às taxas de transferência definidas e predefinidas do usuário, confira a postagem no blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (Banco de Dados de Documentos: tudo o que você precisa saber sobre como usar as novas opções de preços).
+Para obter mais informações sobre as alterações de preços relacionadas à produtividade predefinida e definida pelo usuário, confira a postagem no blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (Banco de Dados de Documentos: tudo o que você precisa saber sobre como usar as novas opções de preços).
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
-1. No seu navegador, navegue até o [**Portal do Azure**](https://portal.azure.com).
-2. Clique em **Procurar** -> **Contas de Banco de Dados de Documentos** e, em seguida, selecione a conta de Banco de Dados de Documentos para modificar.
-3. Na lente **Bancos de dados**, selecione o banco de dados para modificar e, em seguida, na folha **Banco de dados**, selecione a coleção para modificar. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.
+1. No navegador, acesse o [**Portal do Azure**](https://portal.azure.com).
+2. Clique em **Procurar** -> **Contas de Banco de Dados de Documentos** e selecione a conta do Banco de Dados de Documentos a ser modificada.
+3. Na lente **Bancos de Dados**, escolha o banco de dados a ser modificado e, na folha **Banco de Dados**, escolha a coleção a ser modificada. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.
 
       ![Captura de tela da folha de banco de dados com uma coleção S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
 4. Na folha **Coleções**, clique em **Configurações** na barra superior.
-5. Na folha **Configurações**, clique em **Tipo de preço** e observe que a estimativa de custo mensal para cada plano é exibida na folha **Escolha seu tipo de preço**. Para alterar a taxa de transferência definida pelo usuário, clique em **Standard** e, em seguida, clique em **Selecionar** para salvar as alterações.
+5. Na folha **Configurações**, clique em **Tipo de Preço** e observe que a estimativa de custo mensal para cada plano é exibida na folha **Escolha a camada de preço**. Para alterar a produtividade definida pelo usuário, clique em **Standard** e em **Selecionar** para salvar as alterações.
 
       ![Faça uma captura de tela das Configurações de Banco de Dados de Documentos e escolha as folhas do tipo de preço](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-6. Na folha **Configurações**, o **Tipo de preço** foi alterado para **Standard** e a caixa **Taxa de transferência (RU/s)** é exibida com um valor padrão de 400. Defina a taxa de transferência entre 400 e 10.000 [unidades de solicitação](documentdb-request-units.md)/segundo (RUS/s). O **Resumo de Preços** na parte inferior da página é atualizado automaticamente para fornecer uma estimativa do custo mensal. Clique em **OK** para salvar as alterações.
+6. De volta na folha **Configurações**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](documentdb-request-units.md)/segundo (RUS/s). O **Resumo de Preços** na parte inferior da página é atualizado automaticamente para fornecer uma estimativa do custo mensal. Clique em **OK** para salvar as alterações.
     
 	![Captura de tela da folha Configurações, mostrando em que lugar alterar o valor da taxa de transferência](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-7. Na folha **Banco de dados**, você pode verificar a nova taxa de transferência da coleção.
+7. Na folha **Banco de Dados**, você pode verificar a nova produtividade da coleção.
 
 	![Captura de tela da folha Banco de dados com a coleção modificada](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
@@ -162,6 +162,20 @@ Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
+## <a href="change-throughput"></a>Alterando a produtividade de uma coleção
+
+Se já estiver usando desempenho definido pelo usuário, você poderá alterar a produtividade da sua coleção seguindo o procedimento abaixo. Se precisar alterar do nível de desempenho S1, S2 ou S3 (desempenho predefinido) para desempenho definido pelo usuário, confira [Alterar de S1, S2, S3 para desempenho definido pelo usuário](#changing-performance-levels-using-the-azure-portal).
+
+1. No navegador, acesse o [**Portal do Azure**](https://portal.azure.com).
+2. Clique em **Procurar** -> **Contas de Banco de Dados de Documentos** e selecione a conta do Banco de Dados de Documentos a ser modificada.
+3. Na folha **Conta do Banco de Dados de Documentos**, na lente **Bancos de Dados**, escolha o banco de dados a ser modificado e, na folha **Banco de Dados**, escolha a coleção a ser modificada.
+4. Na folha **Coleções**, clique em **Configurações** na barra superior.
+5. Na folha **Configurações**, aumente o valor na caixa **Produtividade (RU/s)** e clique em **OK** para salvar a alteração. O **Resumo de Preços**, na parte inferior da folha, é atualizado para mostrar o novo custo mensal estimado da coleção em uma única região.
+
+    ![Captura de tela da folha Configurações, destacando a caixa Produtividade e o Resumo de Preços](./media/documentdb-performance-levels/documentdb-change-throughput.png)
+ 
+Se não tiver certeza de quanto aumentar sua produtividade, confira [Estimativa das necessidades de produtividade](documentdb-request-units.md#estimating-throughput-needs) e a [Calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner).
+
 ## Próximas etapas
 
 Para saber mais sobre a definição de preços e o gerenciamento de dados no Banco de Dados de Documentos do Azure, explore esses recursos:
@@ -174,9 +188,9 @@ Para saber mais sobre a definição de preços e o gerenciamento de dados no Ban
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
-Para começar com os testes de escala e desempenho com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+Para começar com os testes de desempenho e escala com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

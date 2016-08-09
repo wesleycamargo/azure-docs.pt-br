@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Atualizar a versão do sistema operacional na Central de Segurança do Azure
 
 Para VMs (máquinas virtuais) em serviços de nuvem, a Central de Segurança do Azure recomendará que o SO (sistema operacional) seja atualizado se houver uma versão mais recente disponível. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados.
 
-> [AZURE.NOTE] As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure. Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
 ## Implementar a recomendação
 
@@ -28,7 +28,7 @@ Para VMs (máquinas virtuais) em serviços de nuvem, a Central de Segurança do 
 
 2. Isso abrirá a folha **Atualizar versão do sistema operacional**. Siga as etapas nessa folha para atualizar a versão do sistema operacional.
 
-## Próximas etapas
+## Consulte também
 
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Atualizar versão do iOS". Para saber mais sobre os serviços de nuvem e atualizar a versão do sistema operacional para um serviço de nuvem, confira:
 
@@ -49,4 +49,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

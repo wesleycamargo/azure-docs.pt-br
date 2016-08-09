@@ -101,8 +101,8 @@ Você pode gerenciar cada diretório como um recurso completamente independente:
 
 - **Independência de recursos**. Se você criar ou excluir um recurso em um diretório, ele não afeta nenhum recurso em outro diretório, com a exceção parcial de usuários externos, como descrito abaixo. Se você usar um domínio personalizado "contoso.com" com um diretório, ele não pode ser usado com nenhum outro diretório.
 - **Independência administrativa**. Se um usuário não administrativo do diretório "Contoso" criar um diretório "Teste", então:
-    - ◦Ferramenta de sincronização do diretório, para sincronizar dados com uma única floresta do AD.
-    - ◦Os administradores do diretório "Contoso" não têm privilégios administrativos diretos para o diretório "Teste", a menos que um administrador de "Teste" conceda especificamente esses privilégios a eles. Os administradores do "Contoso" podem controlar o acesso ao diretório "Teste" por meio de seu controle da conta do usuário que criou "Teste".
+    - Ferramenta de sincronização do diretório, para sincronizar dados com uma única floresta do AD.
+    - Os administradores do diretório "Contoso" não têm privilégios administrativos diretos para o diretório "Teste", a menos que um administrador de "Teste" conceda especificamente esses privilégios a eles. Os administradores do "Contoso" podem controlar o acesso ao diretório "Teste" por meio de seu controle da conta do usuário que criou "Teste".
 
     E se você alterar (adicionar ou remover) uma função de administrador para um usuário em um diretório, a alteração não afeta nenhuma função de administrador que o usuário pode ter em outro diretório.
 
@@ -129,8 +129,8 @@ As seguintes condições são verificadas:
 - Não pode haver nenhum aplicativo no diretório. Qualquer aplicativo deve ser excluído antes que o diretório possa ser excluído.
 - Não pode haver assinaturas para Microsoft Online Services, como o Microsoft Azure, Office 365 ou Azure AD Premium associadas ao diretório. Por exemplo, se um diretório padrão tiver sido criado para você no Azure, você não poderá excluir esse diretório se sua assinatura do Azure ainda depender desse diretório para autenticação. Da mesma forma, você não pode excluir um diretório se outro usuário tiver associado uma assinatura a ele. Para associar sua assinatura a um diretório diferente, entre no Portal de Gerenciamento do Azure e clique em **Configurações** no painel de navegação esquerdo. Em seguida, na parte inferior da página **Assinaturas**, clique em **Editar diretório**. Para obter mais informações sobre as assinaturas do Azure, consulte [Como as assinaturas do Azure são associadas ao Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
+> [AZURE.NOTE]
+Se o usuário estiver conectado com uma conta comercial ou de estudante, ele não deve tentar excluir seu diretório base. Por exemplo, se o usuário estiver conectado como joe@contoso.onmicrosoft.com, esse usuário não poderá excluir o diretório que tiver contoso.onmicrosoft.com como seu domínio padrão.
 
 - Nenhum provedor de autenticação multifator pode ser vinculado ao diretório.
 
@@ -148,4 +148,4 @@ As seguintes condições são verificadas:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -28,10 +28,10 @@ Sua experiência variará de acordo com o modo que você se conecta e usa a aute
 
 O que você está fazendo?|Descrição
 :------------- | :------------- | 
-[Conectando-se com o telefone celular ou comercial](#signing-in-with-mobile-or-office-phone) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
-[Conectando-se com o aplicativo móvel usando notificação](#signing-in-with-the-mobile-app-using-notification) | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
-[Conectando-se com o aplicativo móvel usando o código de verificação](#signing-in-with-the-mobile-app-using-verification-code)|Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
-[Conectando-se com um método alternativo](#signing-in-with-an-alternate-method)|Isso mostrará o que esperar se você desejar usar um método alternativo.
+[Conectando-se com o telefone celular ou comercial](#conectando-se-com-o-telefone-celular-ou-comercial) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
+[Conectando-se com o aplicativo móvel usando notificação](#conectando-se-com-o-aplicativo-mvel-usando-notificao) | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
+[Conectando-se com o aplicativo móvel usando o código de verificação](#conectando-se-com-o-aplicativo-mvel-usando-o-cdigo-de-verificao)|Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
+[Conectando-se com um método alternativo](#conectando-se-com-um-mtodo-alternativo)|Isso mostrará o que esperar se você desejar usar um método alternativo.
 
 ## Conectando-se com o telefone celular ou comercial
 
@@ -104,4 +104,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->

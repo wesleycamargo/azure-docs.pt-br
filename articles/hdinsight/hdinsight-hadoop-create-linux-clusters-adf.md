@@ -24,7 +24,7 @@
 O [Azure Data Factory](../data-factory/data-factory-introduction.md) é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação dos dados. Neste artigo, você aprenderá a usar o Azure Data Factory para criar um [serviço vinculado do Azure HDInsight sob demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) e a usar o cluster para executar um trabalho do Hive. Este é o fluxo de alto nível:
 
 1. Criar um cluster HDInsight sob demanda.
-2. Executar um trabalho do Hive para ler dados brutos do log da Web de uma conta de armazenamento de blob de origem, transformar os dados e gravar a saída em uma conta de armazenamento de blob de destino. 
+2. Executar um trabalho do Hive para ler dados brutos do log da Web de uma conta de armazenamento de blob de origem, transformar os dados e gravar a saída em uma conta de armazenamento de blob de destino.
 3. Excluir o cluster com base na configuração da vida útil.
 
 A atividade do Hive definida no pipeline do data factory chama um script HiveQL predefinido. O script cria uma tabela externa que faz referência aos dados brutos de log da Web armazenados no Armazenamento de Blobs do Azure e, em seguida, particiona os dados brutos por ano e por mês.
@@ -47,14 +47,14 @@ Há muitas vantagens de usar o HDInsight com o Data Factory:
 
 - O faturamento dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Com o Data Factory, os clusters são criados sob demanda. E os clusters são excluídos automaticamente após a conclusão dos trabalhos. Portanto, você paga apenas pelo tempo de execução do trabalho e pelo tempo ocioso breve (vida útil).
 - Você pode criar um fluxo de trabalho usando o pipeline do Data Factory.
-- Você pode agendar os trabalhos recursivos.  
+- Você pode agendar os trabalhos recursivos.
 
 ##Pré-requisitos:
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
 - [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- CLI do Azure ou Azure PowerShell. 
+- CLI do Azure ou Azure PowerShell.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -181,7 +181,7 @@ Se você precisar de ajuda com esse script do PowerShell, confira [Como usar o A
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Clique em **Grupos de recursos** no painel esquerdo.
-3. Clique duas vezes no nome do grupo de recursos criado em seu script da CLI ou do PowerShell. Use o filtro se houver muitos grupos de recursos listados. 
+3. Clique duas vezes no nome do grupo de recursos criado em seu script da CLI ou do PowerShell. Use o filtro se houver muitos grupos de recursos listados.
 4. No bloco **Recursos**, você deverá ter um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Essa é a conta de armazenamento com o nome especificado anteriormente. Clique no nome da conta de armazenamento.
 5. Clique nos blocos **Blobs**.
 6. Clique no contêiner **adfgetstarted**. Você verá duas pastas: **dados de entrada** e **script**.
@@ -293,8 +293,8 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
                     "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                     "scriptLinkedService": "[variables('storageLinkedServiceName')]",
                     "defines": {
-                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                        "inputtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
                     }
                 },
                 "inputs": [
@@ -320,7 +320,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
     
 **Para criar um data factory**
 
-1. Clique na imagem a seguir para entrar no Azure e abra o modelo ARM no Portal do Azure. O modelo está localizado em https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
+1. Clique na imagem a seguir para entrar no Azure e abra o modelo ARM no Portal do Azure. O modelo está localizado em https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -342,12 +342,12 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
 
 1. Use o mesmo procedimento da última sessão para verificar o conteúdo do contêiner adfgetstarted. Há dois novos contêineres além de **adfgetsarted**:
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: esse é o contêiner padrão do cluster HDInsight. O nome do contêiner padrão segue o padrão: "adf>nomedoseudatafactory>-nomedoserviçovinculado-carimbodedatahora". 
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: esse é o contêiner padrão do cluster HDInsight. O nome do contêiner padrão segue o padrão: "adf>nomedoseudatafactory>-nomedoserviçovinculado-carimbodedatahora".
     - adfjobs: esse é o contêiner para os logs do trabalho do ADF.
     
-    A saída do data factory é armazenada em afgetstarted, conforme configurado no modelo ARM. 
+    A saída do data factory é armazenada em afgetstarted, conforme configurado no modelo ARM.
 2. Clique em **adfgetstarted**.
-3. Clique duas vezes em **partitioneddata**. Você verá uma pasta **ano=2014**, porque todos os logs da Web têm data de 2014. 
+3. Clique duas vezes em **partitioneddata**. Você verá uma pasta **ano=2014**, porque todos os logs da Web têm data de 2014.
 
     ![Saída do pipeline de atividade do hive HDInsight sob demanda do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
@@ -438,4 +438,4 @@ Neste artigo, você aprendeu a usar o Azure Data Factory para criar o cluster HD
 - [Documentação do HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentação do data factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

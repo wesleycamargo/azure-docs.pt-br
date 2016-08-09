@@ -106,7 +106,7 @@ Para saber mais sobre preços do Azure AD Basic ou Premium, visite a página [De
 | Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? | [Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Como habilitar notificações de redefinição de senha para os usuários? | [Configuração: notificar os usuários quando suas senhas forem redefinidas](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Como habilitar notificações de redefinição de senha para administradores? | [Configuração: notificar outros administradores quando um administrador redefinir suas senhas](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](active-directory-passwords-customize.md#password-managment-look-and-feel) |
+| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
 ##Configurar usuários para usar a redefinição de senha
@@ -252,4 +252,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

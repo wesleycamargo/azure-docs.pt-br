@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Proteger as VMs implantadas com o Resource Manager com o Backup do Azure | Microsoft Azure"
-	description="Proteger as VMs implantadas com o Resource Manager com o serviço Backup do Azure. Use os backups de VMs implantadas com o Resource Manager e de VMs de Armazenamento Premium para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure."
+	pageTitle="Introdução: proteger VMs do Azure com um cofre de serviços de recuperação | Microsoft Azure"
+	description="Proteger as VMs do Azure com um cofre de serviços de recuperação. Use backups de VMs implantadas pelo Gerenciador de Recursos, VMs implantadas clássicas e VMs de Armazenamento Premium para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,11 +18,11 @@
 	ms.author="markgal; jimpark"/>
 
 
-# Introdução: fazer backup das VMs implantadas com o Resource Manager em um cofre dos Serviços de Recuperação
+# Introdução: proteger VMs do Azure com um cofre de serviços de recuperação
 
 > [AZURE.SELECTOR]
-- [Fazer backup das máquinas virtuais implantadas com o Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
+- [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md)
+- [Introdução: proteger VMs do Azure com um cofre de backup](backup-azure-vms-first-look.md)
 
 Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperação e fazer backup de uma VM (máquina virtual) do Azure. Os cofres dos Serviços de Recuperação protegem:
 
@@ -50,7 +50,7 @@ Um cofre de Serviços de Recuperação é uma entidade que armazena todos os pon
 >[AZURE.NOTE] Fazer backup das VMs é um processo local. Não é possível fazer backup das VMs de um local para um cofre de Serviços de Recuperação em outro local. Portanto, para cada local do Azure com VMs que devem sofrer backup, pelo menos um cofre de Serviços de Recuperação deve existir nesse local.
 
 
-Para criar um cofre de Serviços de Recuperação:
+Para criar um cofre dos Serviços de Recuperação:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -102,7 +102,7 @@ Para editar a configuração de replicação de armazenamento:
 
 Antes de registrar uma VM em um cofre, execute o processo de descoberta para garantir que todas as novas máquinas virtuais adicionadas à assinatura sejam identificadas. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região. No portal do Azure, o cenário se refere ao que você vai colocar no cofre de serviços de recuperação. A Política é o agendamento para quando e com que frequência os pontos de recuperação serão feitos. A Política também inclui o período de retenção dos pontos de recuperação.
 
-1. Se você já tiver um cofre de Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
+1. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
 
   - Na lista de recursos, digite **Serviços de Recuperação**.
   - Quando você começar a digitar, a lista será filtrada com base em sua entrada. Quando vir a opção **Cofres de Serviços de Recuperação**, clique nela.
@@ -219,4 +219,4 @@ Se você tiver problemas para realizar algumas das tarefas neste artigo, consult
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

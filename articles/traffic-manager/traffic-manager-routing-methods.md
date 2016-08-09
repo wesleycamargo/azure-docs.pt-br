@@ -33,7 +33,7 @@ O Gerenciador de Tráfego do Azure dá suporte a vários algoritmos para determi
 
 Três métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
 
-- **Prioridade:** selecione "Prioridade" quando quiser usar um ponto de extremidade de serviço primário para todo o tráfego e fornecer backups caso o ponto de extremidade primário ou os pontos de extremidade de backup não estejam disponíveis. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](#wriority-traffic-routing-method).
+- **Prioridade:** selecione "Prioridade" quando quiser usar um ponto de extremidade de serviço primário para todo o tráfego e fornecer backups caso o ponto de extremidade primário ou os pontos de extremidade de backup não estejam disponíveis. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](#priority-traffic-routing-method).
 
 - **Ponderado:** selecione "Ponderado" quando quiser distribuir o tráfego entre um conjunto de pontos de extremidade, seja uniformemente ou de acordo com pesos que você definir. Para obter mais informações, consulte [Método de roteamento de tráfego ponderado](#weighted-traffic-routing-method).
 
@@ -126,4 +126,4 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

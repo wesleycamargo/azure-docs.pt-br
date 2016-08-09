@@ -8,7 +8,7 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -46,4 +46,4 @@ Modelos simples que se integram a serviços de mídia social, como Twitter, Yamm
 Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio Aplicativo lógico. As etapas detalhadas estão em [Criar um Aplicativo lógico](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

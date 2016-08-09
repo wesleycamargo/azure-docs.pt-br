@@ -9,63 +9,44 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
 # Introdução ao conector do Banco de Dados SQL
-Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas. Veja também:
+Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas.
+
+Com o Banco de Dados SQL, você:
 
 - Compile o fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
 - Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação).
 
 Este tópico mostra como usar o conector do Banco de Dados SQL em um aplicativo lógico e também lista as ações.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão de disponibilidade geral de Aplicativos Lógicos.
+>[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
 
-Para saber mais sobre Aplicativos Lógicos, confira [criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [Para começar, você precisa do seguinte:](../../includes/connectors-create-api-sqlazure.md)]
+Para saber mais sobre Aplicativos Lógicos, confira [O que são aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Conectar-se ao Banco de Dados SQL do Azure
 
-Para que o aplicativo lógico possa acessar qualquer serviço, primeiramente, você cria uma *conexão* com o serviço. Uma conexão estabelece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Banco de Dados SQL, você cria uma *conexão* do Banco de Dados SQL. Para criar uma conexão, insira as credenciais que normalmente usa para acessar o serviço ao qual você está se conectando. Desse modo, no Banco de Dados SQL, insira suas credenciais do Banco de Dados SQL para criar a conexão.
-
-Ao adicionar esse conector aos aplicativos lógicos, você cria a conexão com o Banco de Dados SQL. Na primeira vez que você adiciona esse conector, as informações de conexão são solicitadas:
-
-![](./media/connectors-create-api-sqlazure/connection-details.png)
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão estabelece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Banco de Dados SQL, você cria uma *conexão* do Banco de Dados SQL. Para criar uma conexão, insira as credenciais que normalmente usa para acessar o serviço ao qual você está se conectando. Desse modo, no Banco de Dados SQL, insira suas credenciais do Banco de Dados SQL para criar a conexão.
 
 #### Criar a conexão
 
-1. Insira os detalhes do Banco de Dados SQL. As propriedades com um asterisco são obrigatórias.
-
-	| Propriedade | Detalhes |
-|---|---|
-| Conectar-se Usando Gateway | Deixe desmarcada. Essa propriedade é usada na conexão com um SQL Server local. |
-| Nome da Conexão * | Digite um nome para a conexão. | 
-| Nome do SQL Server * | Insira o nome do servidor; que é algo como *servername.database.windows.net*. O nome do servidor é exibido nas propriedades do Banco de Dados SQL no portal do Azure e também na cadeia de conexão. | 
-| Nome do Banco de Dados SQL * | Insira o nome que você deu a seu Banco de Dados SQL. Ele está listado nas propriedades do Banco de Dados SQL na cadeia de conexão: Initial Catalog=*nomedoseubancodedadossql*. | 
-| Nome de Usuário * | Insira o nome de usuário que você criou quando o Banco de Dados SQL foi criado. Ele está listado nas propriedades do Banco de Dados SQL no portal do Azure. | 
-| Senha * | Insira a senha que você criou quando o Banco de Dados SQL foi criado. | 
-
-	Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar dados do SQL. Uma vez concluída, os detalhes da conexão se parecerão com estes:
-
-	![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png)
-
-2. Selecione **Criar**.
+>[AZURE.INCLUDE [Criar a conexão com o SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Usar um gatilho
 
-Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, incluindo um gatilho Recorrência, um gatilho HTTP Webhook, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, como um gatilho de Recorrência, um gatilho de Webhook HTTP, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
 
 ## Usar uma ação
 	
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico.
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **Adicionar uma condição** ou uma das opções **Mais**.
 
@@ -77,11 +58,11 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 	![](./media/connectors-create-api-sqlazure/sql-1.png)
 
-4. Em nosso exemplo, escolha **SQL Server - Obter linha**. Se uma conexão já existir, escolha o **Nome da tabela** na lista suspensa e insira a **ID da Linha** que deseja retornar.
+4. Em nosso exemplo, escolha **SQL Server – obter linha**. Se uma conexão já existir, escolha o **Nome da tabela** na lista suspensa e insira a **ID da Linha** que deseja retornar.
 
 	![](./media/connectors-create-api-sqlazure/sample-table.png)
 
-	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve essas propriedades.
+	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-sqlazure.md#create-the-connection) neste tópico descreve estas propriedades.
 
 	> [AZURE.NOTE] Nesse exemplo, retornamos uma linha de uma tabela. Para ver os dados nessa linha, adicione outra ação que cria um arquivo usando os campos da tabela. Por exemplo, adicione uma ação do OneDrive que usa os campos FirstName e LastName para criar um novo arquivo na conta de armazenamento de nuvem.
 
@@ -90,7 +71,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## Detalhes técnicos
 
-## Ações
+## Ações do Banco de Dados SQL
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do Banco de Dados SQL inclui as ações a seguir.
 
 |Ação|Descrição|
@@ -195,7 +176,7 @@ Exclui uma linha de uma tabela SQL.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da saída
+##### Detalhes da Saída
 Nenhum.
 
 #### Obter tabelas 
@@ -247,6 +228,6 @@ Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas.
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis em Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

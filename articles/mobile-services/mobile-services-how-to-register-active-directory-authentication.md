@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Registrar seus aplicativos para usar um logon de conta do Active Directory do Azure
@@ -70,4 +70,4 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 [portal clássico do Azure]: https://manage.windowsazure.com/
 [portal clássico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

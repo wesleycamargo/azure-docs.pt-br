@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="07/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,7 +38,7 @@ Um BACPAC é um arquivo .bacpac que contém um esquema de banco de dados e dados
 
 Para importar um banco de dados SQL de um .bacpac, você precisará de:
 
-- Uma assinatura do Azure. 
+- Uma assinatura do Azure.
 - Um servidor do Banco de Dados SQL V12 do Azure. Se você não tiver um servidor V12, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 - Um arquivo .bacpac do banco de dados que você deseja importar em um contêiner de blob da [conta de Armazenamento do Azure (standard)](../storage/storage-create-storage-account.md).
 
@@ -65,7 +65,7 @@ Abra a folha do SQL Server:
     ![selecionar camada de preços][3]
 
 1.  Insira um **NOME DE BANCO DE DADOS** para o banco de dados que será criado do arquivo BACPAC.
-2.  Escolha o tipo de autenticação e, em seguida, forneça as informações de autenticação para o servidor. 
+2.  Escolha o tipo de autenticação e, em seguida, forneça as informações de autenticação para o servidor.
 3.  Clique em **Criar** para criar o banco de dados do BACPAC.
 
     ![criar banco de dados][4]
@@ -92,13 +92,7 @@ Clicar em **Criar** envia para o serviço uma solicitação para importar o banc
 
 ## Próximas etapas
 
-- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
-
-
-
-## Recursos adicionais
-
-- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- Para saber mais sobre como conectar e consultar um Banco de Dados SQL importado, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
 
 <!--Image references-->
@@ -109,4 +103,4 @@ Clicar em **Criar** envia para o serviço uma solicitação para importar o banc
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

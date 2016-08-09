@@ -9,16 +9,18 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Introdução ao conector de armazenamento de blobs do Azure
 O armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados. Execute várias ações, como carregar, atualizar, obter e excluir blobs no armazenamento de blobs do Azure.
+
+Com o armazenamento de blobs do Azure, você:
 
 - Compile seu fluxo de trabalho ao carregar novos projetos ou ao obter os arquivos que foram atualizados recentemente.
 - Use as ações para obter metadados do arquivo, excluir um arquivo, copiar arquivos e muito mais. Por exemplo, quando uma ferramenta é atualizada em um site do Azure (um gatilho), então, atualize um arquivo no armazenamento de blobs (uma ação).
@@ -27,40 +29,19 @@ Este tópico mostra como usar o conector de armazenamento de blobs em um aplicat
 
 >[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
 
-Comece [criando um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [Para começar, você precisa do seguinte:](../../includes/connectors-create-api-azureblobstorage.md)]
-
+Para saber mais sobre Aplicativos Lógicos, confira [O que são aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Conectar o armazenamento de blobs do Azure
 
-Para que o aplicativo lógico possa acessar qualquer serviço, primeiro, você cria uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para conectar o Dropbox, você primeiro cria uma conexão do *Dropbox*. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual está conectando-se. Assim, no exemplo do Dropbox, insira suas credenciais do Dropbox para criar a conexão com o Dropbox.
-
-Quando você adiciona esse conector a seus aplicativos lógicos, cria uma conexão com a conta de armazenamento de blobs. Na primeira vez em que você adicionar esse conector, as informações de conexão serão solicitadas:
-
-![](./media/connectors-create-api-azureblobstorage/connection-details.png)
-
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar a uma conta de armazenamento, você primeiro cria uma *conexão* de armazenamento de blobs. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual está se conectando. Assim, com o armazenamento do Azure, insira as credenciais de sua conta de armazenamento para criar a conexão.
 
 #### Criar a conexão
 
-1. Insira os detalhes da conta de armazenamento. As propriedades com um asterisco são obrigatórias.
-
-	| Propriedade | Detalhes |
-|---|---|
-| Nome da Conexão * | Digite um nome para a conexão. |
-| Nome da Conta de Armazenamento do Azure * | Digite o nome da conta de armazenamento. O nome da conta de armazenamento é exibido nas propriedades de armazenamento no portal do Azure. |
-| Chave de Acesso da Conta de Armazenamento do Azure * | Insira a chave da conta de armazenamento. As chaves de acesso são exibidas nas propriedades de armazenamento no portal do Azure. |
-
-	Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar seus dados. Uma vez concluída, os detalhes da conexão se parecerão com estes:
-
-	![Etapa de criação da conexão de blobs do Azure](./media/connectors-create-api-azureblobstorage/sample-connection.png)
-
-2. Selecione **Criar**.
-
+>[AZURE.INCLUDE [Criar uma conexão com o armazenamento de blobs do Azure](../../includes/connectors-create-api-azureblobstorage.md)]
  
 ## Usar um gatilho
 
-Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, incluindo um gatilho Recorrência, um gatilho HTTP Webhook, gatilhos disponíveis com outros conectores e mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
+Esse conector não tem gatilhos. Use outros gatilhos para iniciar o aplicativo lógico, como um gatilho de Recorrência, um gatilho de Webhook HTTP, gatilhos disponíveis com outros conectores e muito mais. [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) fornece um exemplo.
 
 ## Usar uma ação
 	
@@ -76,7 +57,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 	![](./media/connectors-create-api-azureblobstorage/actions.png)
 
-4. Em nosso exemplo, escolha **AzureBlob - Obter metadados do arquivo usando o caminho**. Se já existir uma conexão, então, selecione **...** Botão (Mostrar Seletor) para selecionar um arquivo.
+4. Em nosso exemplo, escolha **AzureBlob – Obter metadados do arquivo usando o caminho**. Se já existir uma conexão, selecione **...** Botão (Mostrar Seletor) para selecionar um arquivo.
 
 	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 
@@ -90,7 +71,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## Detalhes técnicos
 
-## Ações
+## Ações de blobs de armazenamento
 
 |Ação|Descrição|
 |--- | ---|
@@ -131,7 +112,7 @@ BlobMetadata
 |MediaType|string|
 |IsFolder|booleano|
 |ETag|string|
-|FileLocator|cadeia de caracteres|
+|FileLocator|string|
 
 
 #### Atualizar arquivo
@@ -197,7 +178,7 @@ BlobMetadata
 |MediaType|string|
 |IsFolder|booleano|
 |ETag|string|
-|FileLocator|cadeia de caracteres|
+|FileLocator|string|
 
 
 #### Obter o conteúdo do arquivo usando o caminho
@@ -306,7 +287,7 @@ BlobMetadata
 |MediaType|string|
 |IsFolder|booleano|
 |ETag|string|
-|FileLocator|string|
+|FileLocator|cadeia de caracteres|
 
 
 ## Respostas HTTP
@@ -328,4 +309,4 @@ Ao fazer chamadas para diferentes ações, você pode obter certas respostas. A 
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

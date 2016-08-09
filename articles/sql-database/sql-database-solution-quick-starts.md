@@ -20,10 +20,6 @@
 
 Este artigo contém uma visão geral dos Guias de Início Rápido da solução de Banco de Dados SQL do Azure. Estes Guias de Início Rápido demonstram o uso do banco de dados SQL na solução completa com base em cenários do mundo real. Para obter tutoriais passo a passo simples que demonstram o uso de um recurso específico do Banco de Dados SQL do Azure, consulte [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md).
 
-## Demonstração de WingTipTickets e laboratório prático
-
-Os arquivos de demonstração e laboratório prático de [WingTipTickets de Banco de Dados do SQL Azure](https://github.com/microsoft/wingtiptickets) incluem um laboratório prático que demonstra um Banco de Dados SQL do Azure e um aplicativo de exemplo baseado na Pesquisa do Azure usado para vender ingressos para concertos.
-
 ## Coletar e monitorar dados de uso de recursos em vários pools
 
 Este Guia de Início Rápido da Solução fornece uma solução para coletar e monitorar o uso de recursos do Banco de Dados SQL do Azure em vários pools em uma assinatura. Quando você tiver um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente. Para resolver disso, você pode combinar cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL para coletar dados de uso de recursos de vários pools e bancos de dados para monitoramento e análise de uso de recursos.
@@ -54,10 +50,10 @@ Este exemplo é um aplicativo Web multilocatário, chamado Surveys, que permite 
 
 ## Aplicativo de demonstração Contoso Clinic
 
-Este exemplo demonstra os recursos de segurança do BD SQL do Azure (V12). Para executar este exemplo, consulte [Aplicativo de demonstração Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
+Este exemplo demonstra os recursos de segurança do BD SQL do Azure (V12). Para executar este exemplo, consulte [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) (Aplicativo de demonstração Contoso Clinic).
 
 ## Próximas etapas
 
 [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

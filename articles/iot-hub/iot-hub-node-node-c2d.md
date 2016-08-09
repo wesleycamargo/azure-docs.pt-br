@@ -45,7 +45,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, confira [Avaliação Gratuita do Azure][lnk-free-trial].)
 
-## Recebendo mensagens no dispositivo simulado
+## Receber mensagens no dispositivo simulado
 
 Nesta seção, você modificará o aplicativo do dispositivo simulado criado na [Introdução ao Hub IoT] para receber mensagens da nuvem para o dispositivo do hub IoT.
 
@@ -77,7 +77,7 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
 
     > [AZURE.NOTE] Se você usar HTTP/1 em vez de AMQP como transporte, a instância **DeviceClient** verificará se há mensagens do Hub IoT com pouca frequência (menos de cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte do AMQP e HTTP/1 e a limitação do Hub IoT, confira o [Guia do desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
-## Enviar uma mensagem da nuvem para o dispositivo do back-end do aplicativo
+## Envie uma mensagem da nuvem para o dispositivo
 
 Nesta seção, você criará um aplicativo do console do Node.js que envia mensagens da nuvem ao dispositivo para o aplicativo do dispositivo simulado. Você precisa da ID do dispositivo adicionado no tutorial [Introdução ao Hub IoT] e da cadeia de conexão para o Hub IoT, que pode ser encontrada no [portal do Azure].
 
@@ -165,7 +165,7 @@ Agora você está pronto para executar os aplicativos.
     node SimulatedDevice.js 
     ```
 
-    ![][img-simulated-device]
+    ![Executar um aplicativo de dispositivo simulado][img-simulated-device]
 
 2. No prompt de comando na pasta **sendcloudtodevicemessage**, execute o seguinte comando para enviar uma mensagem da nuvem para o dispositivo e esperar os comentários de confirmação:
 
@@ -173,7 +173,7 @@ Agora você está pronto para executar os aplicativos.
     node SendCloudToDeviceMessage.js 
     ```
 
-    ![][img-send-command]
+    ![Executar o aplicativo para enviar o comando c2d][img-send-command]
 
     > [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Tratamento de Falhas Transitórias] do MSDN.
 
@@ -193,12 +193,7 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 
 [Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
@@ -206,4 +201,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [portal do Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

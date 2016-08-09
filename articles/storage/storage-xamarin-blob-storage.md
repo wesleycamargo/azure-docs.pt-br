@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/26/2016"
 	ms.author="micurd"/>
 
 # Como usar o Armazenamento de Blob no Xamarin (visualização)
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Visão geral
 
@@ -49,13 +49,13 @@ O URI de assinatura de acesso compartilhado do novo contêiner deve ser semelhan
 
 A assinatura de acesso compartilhado criada no contêiner será válida para o dia seguinte. A assinatura concede permissões completas (*por exemplo*, leitura, gravação, exclusão e lista) para os blobs do contêiner.
 
-Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado: criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
+Para obter mais informações sobre Assinaturas de Acesso Compartilhado, consulte [Assinaturas de Acesso Compartilhado: criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Criar um novo aplicativo Xamarin
 
 Para este tutorial, criaremos nosso aplicativo Xamarin no Visual Studio. Siga estas etapas para criar o aplicativo:
 
-1. Execute o [instalador do Visual Studio 2015](https://www.visualstudio.com/), selecionando uma instalação **Personalizada** e marcando a caixa sob **Desenvolvimento Móvel de Plataforma Cruzada > C# / .NET (Xamarin)**. Se você já tiver o Visual Studio instalado, baixe e instale [Xamarin](http://xamarin.com/platform) diretamente. Para obter instruções completas para Visual Studio e Xamarin, consulte [Instalar e configurar](https://msdn.microsoft.com/library/mt613162.aspx) no MSDN.
+1. Execute o [instalador do Visual Studio 2015](https://www.visualstudio.com/), selecionando uma instalação **Personalizada** e marcando a caixa sob **Desenvolvimento Móvel de Plataforma Cruzada > C#/.NET (Xamarin)**. Se você já tiver o Visual Studio instalado, baixe e instale o [Xamarin](http://xamarin.com/platform) diretamente. Para obter instruções completas para Visual Studio e Xamarin, consulte [Setup and Install](https://msdn.microsoft.com/library/mt613162.aspx) (Instalar e configurar) no MSDN.
 3. Abra o Visual Studio e selecione **Arquivo -> Novo -> Projeto > Android > Aplicativo em branco (Android)**.
 4. Clique com o botão direito no seu projeto no painel do Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet**. Em seguida, procure **armazenamento do Azure** e instale **Azure Storage 4.4.0-preview**.
 
@@ -179,4 +179,4 @@ Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 - [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

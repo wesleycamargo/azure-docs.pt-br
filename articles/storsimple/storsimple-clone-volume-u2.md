@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para clonar um volume (Atualização 2)
@@ -90,9 +90,9 @@ O clone é agora um volume normal e qualquer operação que é possível em um v
 
 ## Clones transitórios versus permanentes
 
-Os clones transitórios e permanentes são criados apenas quando a clonagem está sendo realizada para um dispositivo diferente. Você pode clonar um volume específico por meio de um conjunto de backups para um dispositivo diferente. Um clone criado dessa maneira é um clone *transitório*. O clone transitório terá referências para o volume original e usará esse volume para ler durante a gravação local.
+Os clones transitórios são criados apenas quando a clonagem está sendo realizada para um dispositivo diferente. Você pode clonar um volume específico por meio de um conjunto de backups para um dispositivo diferente gerenciado pelo StorSimple Manager. O clone transitório terá referências aos dados no volume original e usará esses dados para ler e gravar localmente no dispositivo de destino.
 
-Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. O clone permanente é independente e não tem nenhuma referência para o volume original do qual foi clonado.
+Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. Durante esse processo, é criada uma cópia dos dados na nuvem e o tempo para copiar esses dados é determinado pelo tamanho dos dados e das latências do Azure (essa é uma cópia do Azure para o Azure). Esse processo pode levar de dias a semanas. O clone transitório se torna um clone permanente dessa maneira e não tem nenhuma referência aos dados do volume original do qual ele foi clonado.
 
 ## Cenários para os clones transitórios e permanentes
 
@@ -117,4 +117,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

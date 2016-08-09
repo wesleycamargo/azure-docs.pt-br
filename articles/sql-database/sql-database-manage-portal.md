@@ -35,7 +35,7 @@ O [portal do Azure](https://portal.azure.com/) permite que você crie, monitore 
 
 O Portal do Azure fornece um conjunto de ações comuns de banco de dados acessíveis na parte superior da folha de um banco de dados. Você pode restaurar um banco de dados para um ponto anterior no tempo, abrir um banco de dados no Visual Studio, copiar um banco de dados para um novo servidor e exportar o banco de dados para uma conta de armazenamento do Azure.
 
-- [Restaurar um banco de dados SQL](sql-database-user-error-recovery.md)
+- [Restaurar um banco de dados SQL](sql-database-recovery-using-backups.md)
 - [Abrir um banco de dados SQL no Visual Studio](sql-database-connect-query.md)
 - [Exportar um banco de dados SQL](sql-database-export.md)
 
@@ -74,4 +74,4 @@ Os bancos de dados SQL do Azure também podem ser configurados para mascarar dad
 
 - [Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

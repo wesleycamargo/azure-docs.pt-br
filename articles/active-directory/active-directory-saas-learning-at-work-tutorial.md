@@ -176,7 +176,8 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png)
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -273,4 +274,4 @@ Quando você clicar no bloco Learning at Work no Painel de Acesso, deverá ser a
 [204]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Aplicar a criptografia de disco na Central de Segurança do Azure
@@ -45,7 +45,7 @@ Há várias abordagens que podem ser usadas para configurar os pré-requisitos e
 
 
 
-## Próximas etapas
+## Consulte também
 
 Este documento mostrou como implementar a recomendação da Central de Segurança "Aplicar criptografia de disco". Para saber mais sobre a criptografia de disco, confira o seguinte:
 
@@ -67,4 +67,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

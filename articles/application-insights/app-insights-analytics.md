@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics: a ferramenta de pesquisa avançada do Application Insights | Microsoft Azure" 
-	description="Visão geral da Análise, a ferramenta de pesquisa avançada do Application Insights." 
+	description="Visão geral da Análise, a ferramenta de pesquisa avançada do Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,10 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
+* **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não está enviando dados para o Application Insights.
 
+## Consultas na Análise
  
 Uma consulta típica é formada por uma tabela de *origem* seguida de uma série de *operadores* separados por `|`.
 
@@ -81,4 +84,4 @@ No momento, os resultados da consulta são limitados apenas a uma semana de dado
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

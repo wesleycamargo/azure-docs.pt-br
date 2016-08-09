@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-04-11 , carlrab.
+Latest Freshness check:  2016-08-01 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
@@ -31,7 +31,7 @@ Use as seguintes etapas no portal do Azure para criar uma regra de firewall de n
  	![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
 
- 	> [AZURE.IMPORTANT] Se você não vir a opção para **Firewall** na folha exibida, volte e verifique se está vendo a folha do servidor lógico do Banco de Dados SQL, e não a folha de um banco de dados SQL.
+ 	> [AZURE.NOTE] Você também pode acessar a folha **Configurações do firewall** no nível do servidor na barra de ferramentas da folha Banco de Dados.
 
 5. Clique em **Adicionar IP do Cliente** para que o Azure crie uma regra para o endereço IP do cliente.
 
@@ -47,4 +47,4 @@ Use as seguintes etapas no portal do Azure para criar uma regra de firewall de n
 
 	>[AZURE.IMPORTANT] Seu endereço IP de cliente pode mudar periodicamente, e talvez você não possa acessar seu servidor até que crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Consulte [Gerenciar configurações de firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) para obter detalhes.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

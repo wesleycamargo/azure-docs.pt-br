@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="03/24/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 
-Este artigo mostra uma maneira de executar OpenFoam no Azure. Você implantará um cluster Microsoft HPC Pack no Azure e executará um trabalho [OpenFoam](http://openfoam.com/) com o Intel MPI em vários nós de computação Linux que se conectam pela rede de RDMA (acesso remoto direto à memória) do Azure. Outras opções para executar OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace.
+Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Você implantará um cluster Microsoft HPC Pack no Azure e executará um trabalho [OpenFoam](http://openfoam.com/) com o Intel MPI em vários nós de computação Linux que se conectam pela rede de RDMA (acesso remoto direto à memória) do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -26,25 +26,25 @@ OpenFOAM (Operação e Manipulação de Campo Aberto) é um pacote de software c
 
 O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. O HPC Pack também dá suporte a aplicativos de HPC no Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Consulte a [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para saber como começar a usar os nós de computação do Linux com o HCP Pack.
 
->[AZURE.NOTE] Este artigo pressupõe que você tem alguma familiaridade com a administração do sistema Linux e com a execução das cargas de trabalho MPI nos clusters de HPC do Linux.
+>[AZURE.NOTE] Este artigo ilustra como executar uma carga de trabalho MPI do Linux com o HPC Pack e pressupõe que você tem alguma familiaridade com a administração do sistema Linux e com a execução das cargas de trabalho MPI nos clusters do Linux. Se você usar versões do MPI e do OpenFOAM diferentes daquelas mostradas neste artigo, você talvez precise modificar algumas etapas de instalação e configuração.
 
 ## Pré-requisitos
 
-*   **Cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9**: implante um cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9 no Azure usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Confira [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para conhecer os pré-requisitos e as etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, veja o exemplo de arquivo de configuração nos exemplos de arquivos ao final deste artigo para implantar um cluster HPC Pack baseado no Azure consistindo em um nó principal do Windows Server 2012 R2 do tamanho A8 e dois nós de computação do SUSE Linux Enterprise Server 12 do tamanho A8. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
+*   **Cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9**: implante um cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9 no Azure usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para encontrar os pré-requisitos e etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, veja o exemplo de arquivo de configuração nos exemplos de arquivos ao final deste artigo para implantar um cluster HPC Pack baseado no Azure consistindo em um nó principal do Windows Server 2012 R2 do tamanho A8 e dois nós de computação do SUSE Linux Enterprise Server 12 do tamanho A8. Substitua os valores apropriados por sua assinatura e nomes de serviço.
 
     **Informações adicionais importantes**
 
-    *   Atualmente, a rede RDMA do Linux no Azure tem suporte apenas em VMs de tamanho A8 ou A9 VMs criadas usando o SUSE Linux Enterprise Server 12 – otimizado para imagem de Computação de Alto Desempenho do Azure Marketplace. Para considerações adicionais, consulte [Sobre as instâncias com uso intensivo de computação A8, A9, A10 e A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    *   Atualmente, a rede RDMA no Linux tem suporte apenas em VMs do tamanho A8 ou A9 executando uma distribuição do SLES (SUSE Linux Enterprise Server) 12 para HPC, SLES 12 para HPC (Premium), HPC baseado em CentOS 7.1 ou HPC baseado em CentOS 6.5, implantada de uma imagem do Azure Marketplace. Para considerações adicionais, consulte [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
     *   Se você usar a opção de implantação de script do Powershell, implante todos os nós de computação Linux em um serviço de nuvem para usar a conexão de rede RDMA.
 
     *   Depois de implantar os nós do Linux, se você precisar conectar-se por SSH para executar tarefas administrativas adicionais, encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.
         
-*   **Intel MPI** - para executar o OpenFOAM em nós de computação Linux no Azure, é necessário obter o tempo de execução do Intel MPI Library 5 no [site Intel.com](https://software.intel.com/pt-BR/intel-mpi-library/) (registro necessário). Em uma etapa posterior, você instalará o Intel MPI em seus nós de computação do Linux. Para isso, depois de se registrar na Intel, siga o link no email de confirmação até a página da Web relacionada e copie o link de download para o arquivo .tgz a fim de obter a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
+*   **Intel MPI**: para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no [site Intel.com](https://software.intel.com/pt-BR/intel-mpi-library/). (O Intel MPI 5 já está pré-instalado em imagens do HPC baseado em CentOS.) Em uma etapa posterior, se necessário, você instalará o Intel MPI em seus nós de computação do Linux. Para isso, depois de se registrar na Intel, siga o link no email de confirmação até a página da Web relacionada e copie o link de download para o arquivo .tgz a fim de obter a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
 
-*   **OpenFOAM Source Pack** - baixe o software OpenFOAM Source Pack do Linux no [site OpenFOAM Foundation](http://www.openfoam.org/download/source.php). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga as instruções neste artigo para descompactar e compilar o OpenFOAM nos nós de computação do Linux.
+*   **OpenFOAM Source Pack** - baixe o software OpenFOAM Source Pack do Linux no [site OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga as instruções neste artigo para descompactar e compilar o OpenFOAM nos nós de computação do Linux.
 
-*   **EnSight** (opcional) - para ver os resultados da simulação do OpenFOAM, baixe e instale a versão Windows da visualização [EnSight](https://www.ceisoftware.com/download/) e o programa de análise no nó principal do cluster HPC Pack. As informações de licenciamento e download estão no site EnSight.
+*   **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://www.ceisoftware.com/download/). As informações de licenciamento e download estão no site EnSight.
 
 
 ## Configurar a relação de confiança mútua entre os nós de computação
@@ -101,14 +101,14 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
 
 Agora, configure um compartilhamento SMB padrão em uma pasta no nó principal e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos do aplicativo com um caminho comum. Se desejar, você pode usar outra opção de compartilhamento de arquivos, como o compartilhamento de Arquivos do Azure - recomendado para muitos cenários - ou um compartilhamento NFS. Consulte as informações de compartilhamento arquivos e as etapas detalhadas em [Introdução aos nós de computação Linux em um Cluster do HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-1.	Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de Leitura/Gravação. Por exemplo, compartilhe C:\\OpenFOAM no nó principal como \\\SUSE12RDMA-HN\\OpenFOAM. Aqui, *SUSE12RDMA-HN* é o nome de host do nó principal.
+1.	Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de leitura/gravação. Por exemplo, compartilhe C:\\OpenFOAM no nó principal como \\\SUSE12RDMA-HN\\OpenFOAM. Aqui, *SUSE12RDMA-HN* é o nome de host do nó principal.
 
 2.	Abra uma janela do Windows PowerShell e execute os seguintes comandos para montar a pasta compartilhada.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
 O primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo LinuxNodes. O segundo comando monta a pasta compartilhada //SUSE12RDMA-HN/OpenFOAM nos nós do Linux com os bits dir\_mode e file\_mode definidos para 777. O *nome de usuário* e a *senha* no comando devem ser as credenciais de um usuário no nó principal.
@@ -119,9 +119,9 @@ O primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo Li
 
 Para executar o OpenFOAM como um trabalho MPI na rede RDMA, você precisa compilar o OpenFOAM com as bibliotecas do Intel MPI.
 
-Primeiro, você executará vários **clusrun** comandos para instalar as bibliotecas do Intel MPI e o OpenFOAM em todos os nós do Linux. Use o compartilhamento de nós principais configurado anteriormente para compartilhar os arquivos de instalação entre os nós do Linux.
+Primeiro, você executará vários comandos **clusrun** para instalar as bibliotecas do Intel MPI (se ainda não estiverem instaladas) e o OpenFOAM em todos os seus nós do Linux. Use o compartilhamento de nós principais configurado anteriormente para compartilhar os arquivos de instalação entre os nós do Linux.
 
->[AZURE.IMPORTANT]Essas etapas de instalação e compilação são exemplos e exigem algum conhecimento de administração do sistema Linux para garantir a instalação correta dos compiladores dependentes e das bibliotecas. Talvez você precise modificar determinadas variáveis de ambiente ou outras configurações para as versões do Intel MPI e do OpenFOAM. Para obter detalhes, consulte [Intel MPI Library para o Guia de Instalação do Linux](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) e [Instalação do OpenFOAM Source Pack](http://www.openfoam.org/download/source.php).
+>[AZURE.IMPORTANT]Essas etapas de instalação e compilação são exemplos e exigem algum conhecimento de administração do sistema Linux para garantir a instalação correta dos compiladores dependentes e das bibliotecas. Talvez você precise modificar determinadas variáveis de ambiente ou outras configurações para as versões do Intel MPI e do OpenFOAM. Para obter detalhes, consulte [Guia de instalação do Intel MPI Library para Linux](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) e [Instalação do OpenFOAM Source Pack](http://openfoam.org/download/2-3-1-source/) para seu ambiente.
 
 
 ### Instalar o Intel MPI
@@ -138,7 +138,7 @@ Salve o pacote de instalação baixado para o Intel MPI (l\_mpi\_p\_5.0.3.048.tg
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  Para instalar a Intel MPI Library silenciosamente, use um arquivo silent.cfg. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo. Coloque esse arquivo na pasta compartilhada /openfoam. Para obter detalhes sobre o arquivo silent.cfg, consulte [Intel MPI Library para o Guia de Instalação do Linux - Instalação Silenciosa](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall).
+2.  Para instalar a Intel MPI Library silenciosamente, use um arquivo silent.cfg. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo. Coloque esse arquivo na pasta compartilhada /openfoam. Para obter detalhes sobre o arquivo silent.cfg, consulte [Intel MPI Library para o Guia de Instalação do Linux - Instalação Silenciosa](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
 
     >[AZURE.TIP]Salve o arquivo silent.cfg como um arquivo de texto com as terminações de linha do Linux (LF apenas, não CR LF). Isso garante que ele seja executado corretamente nos nós do Linux.
 
@@ -152,10 +152,10 @@ Salve o pacote de instalação baixado para o Intel MPI (l\_mpi\_p\_5.0.3.048.tg
 
 Para testar, adicione as seguintes linhas a /etc/security/limits.conf em cada um dos nós do Linux:
 
-```
-*               hard    memlock         unlimited
-*               soft    memlock         unlimited
-```
+
+    clusrun /nodegroup:LinuxNodes echo "*               hard    memlock         unlimited" `>`> /etc/security/limits.conf
+    clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
+
 
 Depois de atualizar o arquivo limits.conf, reinicie os nós do Linux. Por exemplo, use o comando **clusrun**.
 
@@ -167,7 +167,7 @@ Depois de reiniciar, verifique se a pasta compartilhada está montada como /open
 
 ### Compilar e instalar o OpenFOAM
 
-Salve o pacote de instalação baixado para o OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz neste exemplo) em C:\\OpenFoam no nó principal para que os nós do Linux possam acessar esse arquivo em /openfoam. Em seguida, execute **clusrun** para compilar o OpenFOAM em todos os nós do Linux.
+Salve o pacote de instalação baixado para o OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz neste exemplo) em C:\\OpenFoam no nó principal para que os nós do Linux possam acessar esse arquivo em /openfoam. Em seguida, execute comandos **clusrun** para compilar o OpenFOAM em todos os nós do Linux.
 
 
 1.  Crie uma pasta /opt/OpenFOAM em cada nó do Linux, copie o pacote de origem para essa pasta e extraia-o nesse local.
@@ -176,7 +176,7 @@ Salve o pacote de instalação baixado para o OpenFOAM Source Pack (OpenFOAM-2.3
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
     clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-2.3.1.tgz /opt/OpenFOAM/
-
+    
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
@@ -190,7 +190,7 @@ Salve o pacote de instalação baixado para o OpenFOAM Source Pack (OpenFOAM-2.3
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
     
-    Se necessário, use ssh em cada nó do Linux para executar os comandos a fim de confirmar se são executados corretamente.
+    Se necessário, use SSH em cada nó do Linux para executar os comandos a fim de confirmar se são executados corretamente.
 
 4.  Execute o comando a seguir para compilar o OpenFOAM. O processo de compilação levará algum tempo para ser concluído e irá gerar uma grande quantidade de informações de log na saída padrão, portanto, use a opção **/ interleaved** para exibir a saída intercalada.
 
@@ -236,7 +236,7 @@ Use o compartilhamento de nós principais configurado anteriormente para compart
 
     ![Modificar as variáveis da etapa][step_variables]
 
-5.  Especifique os valores desejados para as variáveis no arquivo system/decomposeParDict. Este exemplo usa dois nós do Linux, cada um com oito núcleos, portanto, defina numberOfSubdomains para 16 e n de hierarchicalCoeffs para (1 1 16), que significa executar o OpenFOAM em paralelo com 16 processos. Para obter mais informações, consulte [Guia do usuário OpenFOAM: 3.4 Execução de aplicativos em paralelo](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5.  Especifique os valores desejados para as variáveis no arquivo system/decomposeParDict. Este exemplo usa dois nós do Linux, cada um com oito núcleos, portanto, defina numberOfSubdomains para 16 e n de hierarchicalCoeffs para (1 1 16), que significa executar o OpenFOAM em paralelo com 16 processos. Para obter mais informações, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4) (Guia do usuário OpenFOAM: 3.4 Execução de aplicativos em paralelo).
 
     ![Decompor processos][decompose]
 
@@ -293,7 +293,7 @@ Nesta etapa você criará um arquivo de host (uma lista de nós de computação)
 
         onde
 
-        * `<Number of nodes>`: o número de nós alocados para esse trabalho.  
+        * `<Number of nodes>`: o número de nós alocados para esse trabalho.
         
         * `<Name of node_n_...>`: o nome de cada nó alocado para esse trabalho.
         
@@ -558,6 +558,7 @@ ENVIRONMENT_REG_MPI_ENV=no
 # Select yes to update ld.so.conf, valid values are: {yes, no}
 ENVIRONMENT_LD_SO_CONF=no
 
+
 ```
 
 ### Script settings.sh de exemplo
@@ -654,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

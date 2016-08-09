@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/25/2016"
    ms.author="kipandya"/>
    
 # Desenvolvendo com contas do Banco de Dados de Documentos em várias regiões
 
-Para aproveitar a [distribuição global](documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenada de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Banco de Dados de Documentos do Azure, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
+> [AZURE.NOTE] A distribuição global dos bancos de dados do Banco de Dados de Documentos geralmente é disponibilizada e habilitada automaticamente para contas do Banco de Dados de Documentos recentemente criadas. Estamos trabalhando para habilitar a distribuição global em todas as contas existentes, mas nesse ínterim, se quiser que a distribuição global seja habilitada para sua conta, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e nós a habilitaremos para você agora mesmo.
+
+Para aproveitar a [distribuição global](documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Banco de Dados de Documentos do Azure, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
 
 Essa lista de preferências é especificada ao inicializar uma conexão usando os SDKs do cliente do Banco de Dados de Documentos. Os SDKs aceitam um parâmetro opcional "PreferredLocations", que é uma lista ordenada de regiões do Azure.
 
@@ -143,4 +145,4 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Direcionamento do Banco de Dados de Documentos do Azure para saída em JSON a partir do Stream Analytics
@@ -54,12 +54,12 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 
 ![tela de saída do stream analytics do banco de dados de documentos](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)
 
--   **Alias de Saída**: um alias para se referir a essa saída em sua consulta ASA  
--   **Nome da Conta**: o nome ou URI do ponto de extremidade da conta do Banco de Dados de Documentos.  
--   **Chave da Conta**: a chave de acesso compartilhado para a conta do Banco de Dados de Documentos.  
--   **Banco de dados**: o nome do banco de dados do Banco de Dados de Documentos.  
--   **Padrão de Nome de Coleção**: o padrão de nome da coleção que será usado para as coleções. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0. Veja a seguir exemplos de entradas válidas: 1) MyCollection – É necessário existir uma coleção chamada “MyCollection”. 2) MyCollection {partição} – Essas coleções devem existir – "MyCollection0", "MyCollection1", "MyCollection2" etc.  
--   **Chave de Partição**: o nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
--   **ID do Documento**: opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
+-   **Alias de Saída**: um alias para se referir a essa saída em sua consulta ASA
+-   **Nome da Conta**: o nome ou URI do ponto de extremidade da conta do Banco de Dados de Documentos.
+-   **Chave da Conta**: a chave de acesso compartilhado para a conta do Banco de Dados de Documentos.
+-   **Banco de dados**: o nome do banco de dados do Banco de Dados de Documentos.
+-   **Padrão de Nome de Coleção**: o padrão de nome da coleção que será usado para as coleções. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0. Veja a seguir exemplos de entradas válidas: 1) MyCollection – É necessário existir uma coleção chamada “MyCollection”. 2) MyCollection {partição} – Essas coleções devem existir – "MyCollection0", "MyCollection1", "MyCollection2" etc.
+-   **Chave de Partição**: o nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.
+-   **ID do Documento**: opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

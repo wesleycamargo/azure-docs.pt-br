@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrando aplicativos com o Active Directory do Azure
@@ -153,10 +153,10 @@ Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente e
 ![Permissões da lista de tarefas são mostradas](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Mais sobre o manifesto do aplicativo
-O manifesto do aplicativo, na verdade, funciona como um mecanismo para atualizar a entidade de aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do Azure AD, incluindo os escopos de acesso de API que discutimos. Para obter mais informações sobre a entidade de Aplicativo, confira a [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity) (Documentação da entidade de aplicativo da API do Graph). Nela, você encontrará informações de referência completas sobre os membros da entidade de aplicativo usados para especificar permissões para sua API:
+O manifesto do aplicativo, na verdade, funciona como um mecanismo para atualizar a entidade de aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do Azure AD, incluindo os escopos de acesso de API que discutimos. Para saber mais sobre a entidade de Aplicativo, confira a [Documentação da entidade de aplicativo da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Nela, você encontrará informações de referência completas sobre os membros da entidade de aplicativo usados para especificar permissões para sua API:
 
-- o membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) que podem ser usadas para definir as **Permissões de Aplicativo** para uma API Web  
-- o membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) que podem ser usadas para definir as **Permissões Delegadas** para uma API Web
+- o membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) que podem ser usadas para definir as **Permissões de Aplicativo** para uma API Web
+- o membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) que podem ser usadas para definir as **Permissões Delegadas** para uma API Web
 
 Para obter mais informações gerais sobre os conceitos do manifesto do aplicativo, veja [Entendendo o manifesto de aplicativo do Azure Active Directory](active-directory-application-manifest.md).
 
@@ -166,7 +166,7 @@ Conforme mencionado anteriormente, além de expor/acessar APIs em seus próprios
 
 Para ver uma abordagem completa sobre escopos de acesso expostos por:
 
-- API do Graph do Azure AD, confira o artigo [Permission scopes | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) (Escopos de permissão | Conceitos da API do Graph).
+- API do Graph do Azure AD, confira o artigo [Escopos de permissão | Conceitos da API do Graph] (https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 - APIs do Office 365, confira o artigo [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) (Autenticação e autorização usando Common Consent Framework). Confira [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) (Configurar seu ambiente de desenvolvimento do Office 365) para ver uma discussão mais ampla sobre como criar um aplicativo cliente que se integra às APIs do Office 365.
 
 >[AZURE.NOTE] Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a Graph API do AD Azure se usarem a permissão "Acessar o diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
@@ -308,7 +308,7 @@ Se você fizer uma alteração em RequestedPermissions para solicitar um nível 
 Esta seção descreve como remover um aplicativo do locatário do AD do Azure.
 
 ### Removendo um aplicativo autorizado pela sua organização
-Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha empresa possui" na página principal "Aplicativos" do locatário do AD do Azure. Em termos técnicos, esses são os aplicativos que você registrou manualmente pelo portal clássico do Azure ou de modo programático pelo PowerShell ou pela API do Graph. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para obter mais informações, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
+Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha empresa possui" na página principal "Aplicativos" do locatário do AD do Azure. Em termos técnicos, esses são os aplicativos que você registrou manualmente pelo portal clássico do Azure ou de modo programático pelo PowerShell ou pela API do Graph. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para saber mais, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
 
 #### Para remover um aplicativo de locatário único do diretório
 
@@ -337,7 +337,7 @@ Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha em
 1. Clique em **Sim** na mensagem de confirmação.
 
 ### Removendo um aplicativo multilocatário autorizado por outra organização
-Esses são um subconjunto dos aplicativos que são mostrados no filtro "Aplicativos que minha empresa usa" na página principal "Aplicativos" do seu locatário do AD do Azure, mais especificamente aqueles que não estão listados na lista "Aplicativos que minha empresa possui". Em termos técnicos, são aplicativos multilocatários registrados durante o processo de autorização. Mais especificamente, eles são representados apenas por um objeto de Entidade de Serviço em seu locatário. Para obter mais informações, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
+Esses são um subconjunto dos aplicativos que são mostrados no filtro "Aplicativos que minha empresa usa" na página principal "Aplicativos" do seu locatário do AD do Azure, mais especificamente aqueles que não estão listados na lista "Aplicativos que minha empresa possui". Em termos técnicos, são aplicativos multilocatários registrados durante o processo de autorização. Mais especificamente, eles são representados apenas por um objeto de Entidade de Serviço em seu locatário. Para saber mais, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
 
 Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado autorização), o administrador da empresa deve ter uma assinatura do Azure para remover o acesso usando o portal clássico do Azure. Basta navegar até a página de configuração do aplicativo e clicar no botão "Gerenciar Acesso" na parte inferior. Como alternativa, o administrador de empresa pode usar os [Cmdlets do PowerShell do Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
 
@@ -351,4 +351,4 @@ Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois
 
 - Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

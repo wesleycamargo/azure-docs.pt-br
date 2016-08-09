@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
 As entradas para a ação são:
-- **Expressão JavaScript** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo. 
+- **Expressão JavaScript** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo.
 - **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email**. Isso retorna o seguinte objeto:
@@ -99,4 +99,4 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

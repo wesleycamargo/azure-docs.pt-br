@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,7 +30,7 @@ O conector de espera pode ser usado como uma ação. Ele não tem gatilhos.
 
 ### Ação
 - Clique no Conector de Espera no painel à direita: ![Lista de ações][1]
-- O conector de espera dá suporte a duas ações: 
+- O conector de espera dá suporte a duas ações:
 	- Atrasar
 	- Atrasar até
 	 
@@ -56,4 +56,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

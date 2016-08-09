@@ -8,9 +8,9 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 2. Caso esta seja a primeira vez que estiver usando o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Na caixa de pesquisa do catálogo do Microsoft Update, insira o número da KB (base de dados de conhecimento) do hotfix que deseja baixar, por exemplo **3162954**, e clique em **Pesquisar**.
+3. Na caixa de pesquisa do Catálogo do Microsoft Update, insira o número da KB (base de dados de conhecimento) do hotfix que deseja baixar, por exemplo, **3179904**, e clique em **Pesquisar**.
 
-    A listagem de hotfixes aparece, por exemplo, **Atualização de pacote cumulativo de software 2.1 para a série 8000 do StorSimple**.
+    A listagem de hotfixes aparece, por exemplo, **Atualização de pacote cumulativo de software 2.2 para a série 8000 do StorSimple**.
 
     ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
@@ -60,6 +60,8 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
 
 6. Digite **Y** quando solicitado a confirmar a instalação do hotfix.
 
+> [AZURE.IMPORTANT] Se estiver instalando a Atualização 2.2, instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente MDS e Cis precedido por all-cismdsagentupdatebundle. Se você não fizer isso, receberá um erro.
+
 7. Monitore a atualização usando o cmdlet `Get-HcsUpdateStatus`. Primeiro, a atualização será concluída no controlador passivo. Depois que o controlador passivo for atualizado, haverá um failover e a atualização será, então, aplicada no outro controlador. A atualização é concluída quando ambos os controladores são atualizados.
 
     A saída de exemplo a seguir mostra a atualização em andamento. O `RunInprogress` será `True` quando a atualização estiver em andamento.
@@ -95,9 +97,9 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
 
     Você deverá ver as seguintes versões:
 
-    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `HcsSoftwareVersion: 6.3.9600.17708`
     - `CisAgentVersion: 1.0.9299.0`
-    - `MdsAgentVersion: 30.0.4698.16` 
+    - `MdsAgentVersion: 30.0.4698.16`
 
 	Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter mais ajuda.
 
@@ -169,7 +171,7 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
 		[Y] Yes [N] No (Default is "Y"): Y
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 
-1.  Monitorar o progresso de instalação usando o comando `Get-HcsUpdateStatus`. A atualização é concluída quando o `RunInProgress` muda para `False`.
+1.  Monitore o progresso da instalação usando o comando `Get-HcsUpdateStatus`. A atualização é concluída quando o `RunInProgress` muda para `False`.
 
 2.  Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1 com acesso completo e verifique a versão de firmware de disco. Tipo:
 
@@ -239,4 +241,4 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
 
 1. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

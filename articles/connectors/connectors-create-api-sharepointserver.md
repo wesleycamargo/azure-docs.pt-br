@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do SharePoint Online 
@@ -26,7 +26,7 @@ O Conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoi
 Com o SharePoint, você pode:
 
 * Usá-lo para criar aplicativos lógicos
-* Usá-lo para compilar PowerApps  
+* Usá-lo para compilar PowerApps
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -76,13 +76,13 @@ Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade
 
 No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a conexão **conexão** para uso em seu aplicativo lógico:
 
-1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]  
-2. Selecione **SharePoint Online - Quando um arquivo é criado**   
-3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]    
-4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]     
-5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração do diálogo **Quando um arquivo é criado** do SharePoint.![Configurar o SharePoint][4]  
-6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   
-7. Salve seu trabalho selecionando **Salvar** na barra de menus acima.  
+1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]
+2. Selecione **SharePoint Online - Quando um arquivo é criado**
+3. Escolha **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]
+4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]
+5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da caixa de diálogo **Quando um arquivo é criado** do SharePoint. ![Configurar o SharePoint][4]
+6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.
+7. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
 >[AZURE.TIP] É possível usar essa conexão em outros aplicativos lógicos, no PowerApps ou em ambos.
 
@@ -695,10 +695,10 @@ Nenhuma das propriedades é obrigatória.
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

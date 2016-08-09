@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -28,7 +28,7 @@ Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de 
 
 ### Configurações da API
 
-Para o designer dos Aplicativos lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web, na seção da API, configurar a ‘Definição da API’ para a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1)) e adicionar uma política CORS como “*” para permitir solicitações a partir do Designer dos Aplicativos lógicos.
+Para o designer dos Aplicativos lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web, na seção da API, configurar a ‘Definição da API’ para a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1) e adicionar uma política CORS como “*” para permitir solicitações a partir do Designer dos Aplicativos lógicos.
 
 ## Chamando a API
 
@@ -169,4 +169,4 @@ Além disso, se você deseja implementá-lo inteiramente em seu próprio código
 
 Você ainda precisa seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

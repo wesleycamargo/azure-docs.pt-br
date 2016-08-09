@@ -81,7 +81,7 @@ O espaço total necessário na camada local até o momento será de: 240 GB + 12
 
 Em segundo lugar, será necessário pelo menos um espaço na camada local do tamanho da maior reserva única. Esse valor extra será usado caso você precise restaurar de um instantâneo de nuvem. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de arquivos) e, portanto, você adicionaria isso aos 660 GB: 660 GB + 330 GB = 990 GB. Se executamos as restaurações adicionais subsequentes, sempre será possível liberar o espaço da operação de restauração anterior.
 
-Em terceiro lugar, precisaremos de 15% do espaço total local até o momento para armazenar os instantâneos locais, para que apenas 85% disso esteja disponível. Neste exemplo, isso seria em torno de 990 GB = 0,85*TB de disco de dados provisionado. Portanto, o disco de dados provisionado seria (990*(1/0,85)) = 1320 GB = 1,16 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
+Em terceiro lugar, precisaremos de 15% do espaço total local até o momento para armazenar os instantâneos locais, para que apenas 85% disso esteja disponível. Neste exemplo, isso seria em torno de 990 GB = 0,85*TB de disco de dados provisionado. Portanto, o disco de dados provisionado seria (990*(1/0,85))= 1164 GB = 1,16 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
 
 Incluindo o crescimento inesperado e novas restaurações, você deverá provisionar um disco local de aproximadamente 1,25 a 1,5 TB.
 
@@ -350,4 +350,4 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 ## Consulte também
 Saiba como [administrar seu StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) por meio do serviço StorSimple Manager.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

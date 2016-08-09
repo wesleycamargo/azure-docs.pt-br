@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Introdução aos serviços móveis (Projetos Cordova)
@@ -69,7 +69,7 @@ Você pode usar o onde o método deverá modificar a consulta. Veja um exemplo q
             items = results.slice();
         });
 
-Para ver mais exemplos de consultas que podem ser usadas, consulte o objeto de [consulta](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Para ver mais exemplos de consultas que podem ser usadas, consulte o objeto de [consulta](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 ##Atualizar um item da tabela
 
@@ -88,6 +88,4 @@ Exclua uma linha em uma tabela de dados usando o método **del**. Chame o métod
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Saiba mais sobre serviços móveis](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,115 +1,115 @@
-# Securing your IoT deployment
+# Protegendo sua implantação de IoT
 
-This article provides the next level of detail for securing the Azure IoT-based Internet of Things (IoT) infrastructure. It links to implementation level details for configuring and deploying each component. It also provides comparisons and choices between various competing methods.
+Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
 
-Securing the Azure IoT deployment can be divided into the following three security areas:
+A proteção da implantação do Azure IoT pode ser dividida nas seguintes áreas de três segurança:
 
-- **Device Security**: Securing the IoT device while it is deployed in the wild.
-- **Connection Security**: Ensuring all data transmitted between the IoT device and IoT Hub is confidential and tamper-proof.
-- **Cloud Security**: Providing a means to secure data while it moves through, and is stored in the cloud.
+- **Segurança de Dispositivo**: Protegendo o dispositivo IoT enquanto ele é implantado em uso.
+- **Segurança da Conexão**: garantir que todos os dados transmitidos entre o dispositivo IoT e o Hub IoT sejam confidenciais e à prova de adulteração.
+- **Segurança na Nuvem**: fornecendo meios para proteger os dados enquanto eles são movidos pela nuvem e armazenados nela.
 
-![Three security areas][img-overview]
+![Três áreas de segurança][img-overview]
 
-## Secure device provisioning and authentication
+## Provisionamento e autenticação com segurança dos dispositivos
 
-The Azure IoT Suite secures IoT devices by the following two methods:
+O Azure IoT Suite protege dispositivos IoT por meio dos dois métodos a seguir:
 
-- By providing a unique identity key (security tokens) for each device, which can be used by the device to communicate with the IoT Hub.
+- Fornecendo uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser usado pelo dispositivo para se comunicar com o Hub IoT.
 
-- By using an on-device [X.509 certificate][lnk-x509] and private key as a means to authenticate the device to the IoT Hub. This authentication method ensures that the private key on the device is not known outside the device at any time, providing a higher level of security.
+- Usando um [certificado x. 509][lnk-x509] no dispositivo e uma chave privada como meio de autenticar o dispositivo para o Hub IoT. Esse método de autenticação garante que a chave privada no dispositivo não seja conhecida for do dispositivo em momento algum, o que fornece um nível mais alto de segurança.
 
-The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
+O método de token de segurança fornece autenticação para cada chamada feita pelo dispositivo para Hub IoT ao associar a chave simétrica a cada chamada. A autenticação com base em x.509 permite a autenticação de um dispositivo IoT na camada física como parte do estabelecimento de conexão TLS. O método baseado em token de segurança pode ser usado sem a autenticação x.509, que é um padrão menos seguro. A escolha entre os dois métodos é determinada principalmente pelo nível de segurança que a autenticação do dispositivo precisa ter e a disponibilidade do armazenamento de segurança no dispositivo (para armazenar com segurança a chave privada).
 
-## IoT Hub security tokens
+## Tokens de segurança do Hub IoT
 
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT Hub SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern.
+O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves na rede. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os SDKs do Hub IoT do Azure geram automaticamente tokens sem precisar de configuração especial. No entanto, alguns cenários exigem que o usuário gere e use tokens de segurança diretamente. Entre esses cenários estão o uso direto de superfícies HTTP, MQTT ou AMQP, ou a implementação do padrão de serviço de token.
 
-More details on the structure of the security token and its usage can be found in the following articles:
+Mais detalhes sobre a estrutura do token de segurança e seu uso podem ser encontradas nos seguintes artigos:
 
--   [Security token structure][lnk-security-tokens]
--   [Using SAS tokens as a device][lnk-sas-tokens]
+-   [Estrutura do token de segurança][lnk-security-tokens]
+-   [Como usar tokens SAS como um dispositivo][lnk-sas-tokens]
 
-Each IoT Hub has a [Device Identity Registry][lnk-identity-registry] that can be used to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages, and to allow access to the device-facing endpoints. The IoT Hub identity registry provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access. The following articles provide more details on the structure of the Device Identity Registry and supported operations.
+Cada Hub IoT tem um [Registro de Identidade do Dispositivo][lnk-identity-registry] que você pode usar para criar recursos de acordo com o dispositivo no serviço, como uma fila contendo mensagens em andamento da nuvem para o dispositivo, e para permitir acesso aos pontos de extremidade voltados para o dispositivo. O registro de identidade do Hub IoT fornece armazenamento seguro de identidades de dispositivo e chaves de segurança para uma solução. As identidades de dispositivos individuais ou em grupo podem ser adicionadas a uma lista de permissões ou a uma lista de contatos bloqueados, permitindo o controle completo sobre o acesso ao dispositivo. Os artigos a seguir fornecem mais detalhes sobre a estrutura do Registro do Dispositivo de Identidade e operações com suporte.
 
-[IoT Hub supports protocols such as AMQP, MQTT, and HTTPS][lnk-protocols]. Each of these protocols use security tokens from the IoT device to IoT Hub differently:
+[O Hub IoT dá suporte a protocolos como AMQP, MQTT e HTTPS][lnk-protocols]. Cada um desses protocolos usa tokens de segurança do dispositivo para o Hub IoT de maneiras diferentes:
 
-- AMQP: SASL PLAIN and AMQP Claims-based security ({policyName}@sas.root.{iothubName} in the case of Hub-level tokens; {deviceId} in case of device-scoped tokens).
+- AMQP: segurança baseada em declarações SASL PLAIN E AMQP ({policyName}@sas.root.{iothubName} no caso de tokens do nível do Hub; {deviceId} no caso de tokens no escopo do dispositivo).
 
-- MQTT: CONNECT packet uses {deviceId} as the {ClientId}, {IoThubhostname}/{deviceId} in the **Username** field and a SAS token in the **Password** field.
+- MQTT: o pacote CONNECT usa {deviceId} como {ClientId}, {IoThubhostname}/{deviceId} no campo **Nome de usuário** e um token SAS no campo **Senha**.
 
-- HTTP: Valid token is in the authorization request header.
+- HTTP: o token válido está no cabeçalho da solicitação de autorização.
 
-IoT Hub Device Identity Registry can be used to configure per-device security credentials and access control. However, if an IoT solution already has a significant investment in a [custom device identity registry and/or authentication scheme][lnk-custom-auth], it can be integrated into an existing infrastructure with IoT Hub by creating a token service.
+O Registro de Identidade de Dispositivo do Hub IoT pode ser usado para configurar credenciais de segurança e controle de acesso por dispositivo. No entanto, se uma solução IoT já tiver um investimento considerável em um [registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação][lnk-custom-auth], ela poderá ser integrada a uma infraestrutura existente com o Hub IoT por meio da criação de um serviço de token.
 
-### X.509 certificate-based device authentication
+### Autenticação de dispositivo com base no certificado x.509
 
-The use of a [device-based X.509 certificate][lnk-use-x509] and its associated private and public key pair allows additional authentication at the physical layer. The private key is stored securely in the device and is not discoverable outside the device. The X.509 certificate contains information about the device, such as device ID, and other organizational details. A signature of the certificate is generated by using the private key.
+O uso de um [certificado x.509 baseado em dispositivo][lnk-use-x509] e seu par de chaves pública e privada associado permite autenticação adicional na camada física. A chave privada é armazenada com segurança no dispositivo e não é localizável fora do dispositivo. O certificado x.509 contém informações sobre o dispositivo, como ID do dispositivo e outros detalhes organizacionais. Uma assinatura do certificado é gerada usando a chave privada.
 
-High-level device provisioning flow:
+Fluxo de provisionamento do dispositivo de alto nível:
 
-- Associate an identifier to a physical device – device identity and/or X.509 certificate associated to the device during device manufacturing or commissioning.
+- Associe um identificador a um dispositivo físico – identidade do dispositivo e/ou certificado x.509 associado ao dispositivo durante fabricação ou preparação de dispositivo.
 
-- Create a corresponding identity entry in IoT Hub – device identity and associated device information in the IoT Hub Device Registry.
+- Crie uma entrada de identidade correspondente no Hub IoT – informações de dispositivo associado e identidade do dispositivo no Registro do Dispositivo Hub IoT.
 
-- Securely store X.509 certificate thumbprint in IoT Hub device registry.
+- Armazene com segurança a impressão digital do certificado x.509 no registro do dispositivo de Hub IoT.
 
-### Root certificate on device
+### Certificado raiz no dispositivo
 
-While establishing a secure TLS connection with IoT Hub, the IoT device authenticates IoT Hub using a root certificate which is part of the device SDK. For the C client SDK the certificate is located under the folder "\\c\\certs" under the root of the repo. Though these root certificates are long-lived, they still may expire or be revoked. If there is no way of updating the certificate on the device, the device may not be able to subsequently connect to the IoT Hub (or any other cloud service). Having a means to update the root certificate once the IoT device is deployed will effectively mitigate this risk.
+Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentica o Hub IoT usando um certificado raiz que é parte do SDK do dispositivo. Para o SDK do cliente C, o certificado está localizado na pasta "\\c\\certs" sob a raiz do repositório. Embora esses certificados raiz são de vida longa, eles ainda podem expirar ou ser revogados. Se não houver nenhuma maneira de atualizar o certificado no dispositivo, o dispositivo poderá não se conectar subsequentemente ao Hub IoT (ou a qualquer outro serviço de nuvem). Ter um meio para atualizar o certificado raiz quando o dispositivo IoT é implantado reduzirá efetivamente o risco.
 
-## Securing the connection
+## Protegendo a conexão
 
-Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports [TLS 1.2][lnk-tls12], TLS 1.1 and TLS 1.0, in this order. Support for TLS 1.0 is provided for backward compatibility only. It is recommended to use TLS 1.2 since it provides the most security.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2][lnk-tls12], TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. É recomendável usar TLS 1.2, pois ele fornece segurança máxima.
 
-Azure IoT Suite supports the following Cipher Suites, in this order.
+O Azure IoT Suite dá suporte ao seguintes Pacotes de Criptografia, nessa ordem.
 
-| Cipher Suite | Length |
+| Pacote de criptografia | Comprimento |
 |--------------|--------|
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. 7680 bits RSA) FS | 256    |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. 3072 bits RSA) FS | 128    |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. 7680 bits RSA) FS           | 256    |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. 3072 bits RSA) FS           | 128    |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) | 256    |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) | 128    |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) | 256    |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) | 128    |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35)    | 256    |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f)    | 128    |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa)    | 112    |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. RSA de 7680 bits) FS | 256 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. RSA de 3072 bits) FS | 128 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. RSA de 7680 bits) FS | 256 |
+| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. RSA de 3072 bits) FS | 128 |
+| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) | 256 |
+| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) | 128 |
+| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) | 256 |
+| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) | 128 |
+| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) | 256 |
+| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) | 128 |
+| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) | 112 |
 
-## Securing the cloud
+## Proteger a nuvem
 
-Azure IoT Hub allows definition of [access control policies][lnk-protocols] for each security key. It uses the following set of permissions to grant access to each of IoT Hub's endpoints. Permissions limit the access to an IoT Hub based on functionality.
+O Hub IoT do Azure permite a definição de [políticas de controle de acesso][lnk-protocols] para cada chave de segurança. Ele usa o conjunto de permissões a seguir para conceder acesso aos pontos de extremidades de cada Hub IoT. As permissões limitam o acesso a um Hub IoT com base na funcionalidade.
 
-- **RegistryRead**. Grants read access to the Device Identity Registry. For more information, see [Device Identity Registry][lnk-identity-registry].
+- **RegistryRead**. Concede acesso de leitura ao Registro de Identidade do Dispositivo. Para obter mais informações, consulte [Registro de Identidade do Dispositivo][lnk-identity-registry].
 
-- **RegistryReadWrite**. Grants read and write access to the Device Identity Registry. For more information, see [Device Identity Registry][lnk-identity-registry].
+- **RegistryReadWrite**. Concede acesso de leitura e gravação ao Registro de Identidade do Dispositivo. Para obter mais informações, consulte [Registro de Identidade do Dispositivo][lnk-identity-registry].
 
-- **ServiceConnect**. Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments.
+- **ServiceConnect**. Concede acesso aos pontos de extremidade de comunicação e de monitoramento voltados para o serviço de nuvem. Por exemplo, ela concede permissão para que os serviços de nuvem de back-end recebam mensagens do dispositivo para a nuvem, enviem mensagens da nuvem para o dispositivo e obtenham as confirmações de entrega correspondentes.
 
-- **DeviceConnect**. Grants access to device-facing communication endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices.
+- **DeviceConnect**. Concede acesso aos pontos de extremidade de comunicação voltados para o dispositivo. Por exemplo, ela concede permissão de envio de mensagens do dispositivo para a nuvem e de recebimento de mensagens da nuvem para o dispositivo. Essa permissão é usada por dispositivos.
 
-There are two ways to obtain **DeviceConnect** permissions with IoT Hub with [security tokens][lnk-sas-tokens]: using a device identity key, or a shared access policy key. Moreover, it is important to note that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
+Há duas maneiras de obter as permissões **DeviceConnect** com o Hub IoT com [tokens de segurança][lnk-sas-tokens]\: usando uma chave de identidade do dispositivo ou uma chave de política de acesso compartilhada. Além disso, é importante observar que qualquer funcionalidade acessível por meio de dispositivos fica exposta por padrão em pontos de extremidade com o prefixo `/devices/{deviceId}`.
 
-[Service components can only generate security tokens][lnk-service-tokens] using shared access policies granting the appropriate permissions.
+[Os componentes de serviço só podem gerar tokens de segurança][lnk-service-tokens] usando políticas de acesso compartilhado que concedem as permissões apropriadas.
 
-Azure IoT Hub and other services which may be part of the solution allow management of users using the Azure Active Directory.
+O Hub IoT do Azure e outros serviços que podem ser parte da solução permitem o gerenciamento de usuários usando o Azure Active Directory.
 
-Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics, blob storage, etc. These services allow management access. Read more about these services and available options below:
+Dados ingeridos pelo Hub IoT do Azure podem ser consumidos por diversos serviços, como Stream Analytics do Azure, armazenamento de blobs etc. Esses serviços permitem o acesso de gerenciamento. Leia mais sobre esses serviços e opções disponíveis abaixo:
 
-- [Azure DocumentDB][lnk-docdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
+- [Banco de Dados de Documentos do Azure][lnk-docdb]\: um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados, que gerenciam os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Banco de Dados de Documentos oferece processamento de alto desempenho e alta taxa de transferência, indexação independente do esquema de dados e uma interface de consulta SQL avançada.
 
-- [Azure Stream Analytics][lnk-asa]: Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
+- [Stream Analytics do Azure][lnk-asa]\: processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 
-- [Azure App Services][lnk-appservices]: A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE (.NET, NodeJS, PHP, Python, or Java) to build web apps and APIs faster than ever.
+- [Serviços de Aplicativos do Azure][lnk-appservices]\: uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
 
-- [Logic Apps][lnk-logicapps]: The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
+- [Aplicativos lógicos][lnk-logicapps]\: o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 
-- [Blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
+- [Armazenamento de Blobs][lnk-blob]\: armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
 
-## Conclusion
+## Conclusão
 
-This article provides overview of implementation level details for designing and deploying an IoT infrastructure using Azure IoT. Configuring each component to be secure is key in securing the overall IoT infrastructure. The design choices available in Azure IoT provide some level of flexibility and choice; however, each choice may have security implications. It is recommended that each of these choices be evaluated through a risk/cost assessment.
+Este artigo fornece uma visão geral dos detalhes de nível de implantação para projetar e implantar uma infraestrutura de IoT usando o Azure IoT. Configurar cada componente para ser seguro é a chave na proteção da infraestrutura geral de IoT. As opções de design disponíveis no Azure IoT oferecem algum nível de flexibilidade e opções; no entanto, cada opção pode ter implicações de segurança. É recomendável que cada uma dessas opções seja avaliada por meio de uma avaliação de risco e custo.
 
 [img-overview]: media/iot-secure-your-deployment/overview.png
 
@@ -127,3 +127,5 @@ This article provides overview of implementation level details for designing and
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
+
+<!---HONumber=AcomDC_0727_2016-->

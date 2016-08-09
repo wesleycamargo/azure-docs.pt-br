@@ -26,7 +26,7 @@
 
 	**Observação** Para evitar o bloqueio, certifique-se de que não há nenhuma atividade em execução na tabela que está sendo renomeada. Se tiver problemas, lembre-se de executar esse procedimento durante uma janela de manutenção.
 
-2. Restaure um backup do banco de dados para um estado no qual deseja recuperar. Para fazer isso, veja as etapas em [Recuperar um Banco de Dados SQL do Azure de um erro de usuário](sql-database-user-error-recovery.md).
+2. Restaure um backup do banco de dados para um estado no qual deseja recuperar. Para fazer isso, confira as etapas em [Recuperação Pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Observações**:
 	- O nome do banco de dados restaurado estará no formato DBName+TimeStamp; por exemplo, **Adventureworks2012\_2016-01-01T22-12Z**. Essa etapa não substituirá o nome do banco de dados existente no servidor. Esta é uma medida de segurança, e destina-se a permitir que o usuário verifique o banco de dados restaurado antes de remover seu banco de dados atual e renomear o banco de dados restaurado para uso em produção.
@@ -71,4 +71,4 @@
 
 [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

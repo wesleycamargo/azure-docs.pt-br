@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ Você deve ter o seguinte:
 
 ## Como usar os kernels? 
 
-1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -70,7 +70,7 @@ Há alguns benefícios em usar os novos kernels.
 
 	Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
 	
-2. **A mágica da célula**. O kernel PySpark fornece algumas "palavras mágicas" predefinidas, que são comandos especiais que podem ser chamados com o `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro. Para saber mais sobre palavras mágicas, consulte [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+2. **A mágica da célula**. O kernel PySpark fornece algumas "palavras mágicas" predefinidas, que são comandos especiais que podem ser chamados com o `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro. Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
 	A tabela a seguir lista os diferentes comandos mágicos disponíveis por meio dos kernels.
 
@@ -78,14 +78,14 @@ Há alguns benefícios em usar os novos kernels.
 	|-----------|---------------------------------|--------------|
 	| ajuda | `%%help` | Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
 	| informações | `%%info` | Envia informações de sessão para o ponto de extremidade Livy atual |
-	| configurar | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, e a sessão será descartada e recriada. Veja o [Corpo da Solicitação de sessões/POST do Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
+	| configurar | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, e a sessão será descartada e recriada. Veja o [Corpo da Solicitação POST /sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
 	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Executa uma consulta do Hive no dqlContext. Se o parâmetro `-o` for passado, o resultado da consulta será persistido no contexto %%local do Python como um dataframe do [Pandas](http://pandas.pydata.org/). |
 	| local | `%%local`<br>`a=1` | Todo o código nas linhas subsequentes será executado localmente. O código deve ser um código Python válido. |
 	| logs | `%%logs` | Gera os logs da sessão atual do Livy. |
 	| excluir | `%%delete -f -s <session number>` | Exclui uma sessão específica do ponto de extremidade atual do Livy. Observe que você não pode excluir a sessão iniciada para o próprio kernel. |
 	| limpeza | `%%cleanup -f` | Exclui todas as sessões do ponto de extremidade atual do Livy, incluindo a sessão deste notebook. O sinalizador de força -f é obrigatório. |
 
-3. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas do Hive e do SQL. Você tem a opção de escolher entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
+3. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas Hive e SQL. Você tem a opção de escolher entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
 
 ## Parâmetros compatíveis com a mágica de %%sql
 
@@ -128,7 +128,7 @@ Você pode abrir o notebook **00 - [LEIA-ME PRIMEIRO] Recursos do kernel mágico
 
 ## Onde os blocos de anotações são armazenados?
 
-Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks**. Os blocos de anotações, arquivos de texto e pastas que você criar no Jupyter poderão ser acessados no WASB. Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar o notebook em `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. O inverso também é verdadeiro, ou seja, se você carregar um notebook anotações diretamente para sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, o notebook também ficará visível no Jupyter. Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks**. Os blocos de anotações, arquivos de texto e pastas que você criar no Jupyter poderão ser acessados no WASB. Por exemplo, usando o Jupyter para criar uma pasta **minhapasta** e um notebook **minhapasta/meunotebook.ipynb**, você poderá acessar o notebook em `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`. O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter. Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
 
 A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos como o seguinte:
 
@@ -174,7 +174,7 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -188,4 +188,4 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

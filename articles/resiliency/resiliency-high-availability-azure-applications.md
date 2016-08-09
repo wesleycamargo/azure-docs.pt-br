@@ -28,7 +28,7 @@ O Azure tem muitos recursos internos da plataforma que oferecem suporte a aplica
 
 O controlador de malha do Azure provisiona e monitora a condição das instâncias de computação do Azure. O controlador de malha verifica o status do hardware e software de instâncias do computador host e convidado. Quando ele detecta uma falha, força os SLAs automaticamente, realocando as instâncias da VM. O conceito de domínios de falha e atualização dá ainda mais suporte ao SLA de computação.
 
-Quando várias instâncias de função são implantadas, o Azure implanta essas instâncias em diferentes domínios de falha. Um limite de domínio de falha é basicamente um rack de hardware diferentes na mesma região. Domínios de falha reduzem a probabilidade de que uma falha de hardware localizada interrompa o serviço de um aplicativo. Você não pode gerenciar o número de domínios de falha que são alocados às funções de trabalho ou da Web. O controlador de malha usa os recursos dedicados que são separados dos aplicativos hospedados pelo Azure. Ele tem 100% de tempo de atividade porque atua como núcleo do sistema do Azure. Ele monitora e gerencia instâncias da função em domínios de falha.
+Quando várias instâncias de função do Serviço de Nuvem são implantadas, o Azure implanta essas instâncias em diferentes domínios de falha. Um limite de domínio de falha é basicamente um rack de hardware diferentes na mesma região. Domínios de falha reduzem a probabilidade de que uma falha de hardware localizada interrompa o serviço de um aplicativo. Você não pode gerenciar o número de domínios de falha que são alocados às funções de trabalho ou da Web. O controlador de malha usa os recursos dedicados que são separados dos aplicativos hospedados pelo Azure. Ele tem 100% de tempo de atividade porque atua como núcleo do sistema do Azure. Ele monitora e gerencia instâncias da função em domínios de falha.
 
 O diagrama a seguir mostra recursos compartilhados do Azure que o controlador de malha implanta e gerencia nos diferentes domínios de falha.
 
@@ -143,4 +143,4 @@ Observe que o diagrama anterior mostra uma implementação dessa abordagem desac
 
 Este artigo faz parte de uma série de artigos com foco na [recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). O próximo artigo desta série é [Recuperação de desastre para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Continuidade comercial em nuvem - Backup interno - Banco de Dados SQL | Microsoft Azure"
-   description="Saiba mais sobre backups internos do Banco de Dados SQL que permitem a você reverter um Banco de Dados SQL do Azure para um ponto anterior ou copiar um banco de dados para um novo banco de dados em uma região geográfica (por até 35 dias)."
+   pageTitle="Continuidade dos negócios em nuvem - Backup interno - Banco de Dados SQL | Microsoft Azure"
+   description="Saiba mais sobre os backups internos do Banco de Dados SQL que permitem a você reverter um Banco de Dados SQL do Azure para um momento anterior ou copiar um banco de dados para um novo banco de dados em uma região geográfica (por até 35 dias)."
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
+   ms.workload="NA"
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -32,19 +32,19 @@ Todos os bancos de dados Basic, Standard e Premium são protegidos por backups a
 
 ## Redundância geográfica
 
-Os arquivos de backup são armazenados em uma conta de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para garantir a disponibilidade para fins de recuperação de desastre. A seguir é mostrada a replicação geográfica de backups semanais e diários armazenados em uma conta de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para garantir a disponibilidade para fins de recuperação de desastre.
+Os arquivos de backup são armazenados em uma conta de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para garantir a disponibilidade para fins de recuperação de desastre. Isso garante que os arquivos de backup serão replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md). A seguir é mostrada a replicação geográfica de backups semanais e diários armazenados em uma conta de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) para garantir a disponibilidade para fins de recuperação de desastre.
 
 ![restauração geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
 ## Usando backups automatizados
 
-Você pode [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md) durante seus [período de retenção](sql-database-service-tiers.md) para:
+Você pode [restaurar um banco de dados dos backups automatizados](sql-database-recovery-using-backups.md) durante o [período de retenção](sql-database-service-tiers.md) para:
 
 - Um novo banco de dados no mesmo servidor lógico recuperado para um ponto específico no tempo durante o período de retenção.
 - Um banco de dados no mesmo servidor lógico recuperado para o tempo de exclusão de um banco de dados excluído.
 - Um novo banco de dados em qualquer servidor lógico em qualquer região recuperado para os backups diários mais recentes no armazenamento de blobs com replicação geográfica (RA-GRS).
 
-Você também pode usar os [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md) para criar uma [cópia de banco de dados](sql-database-copy.md) em qualquer servidor lógico de qualquer região que seja transacionalmente consistente com o Banco de Dados SQL atual. Você pode usar a cópia do banco de dados e [exportar para um BACPAC](sql-database-export.md) para arquivar uma cópia transacionalmente consistente do banco de dados para armazenamento de longo prazo após o período de retenção ou para transferir uma cópia do banco de dados para uma instância local ou VM do Azure do SQL Server.
+Você também pode usar os [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md) para criar uma [cópia do banco de dados](sql-database-copy.md) em qualquer servidor lógico de qualquer região que seja consistente de forma transacional com o Banco de Dados SQL atual. Você pode usar a cópia do banco de dados e [exportar para um BACPAC](sql-database-export.md) para arquivar uma cópia consistente de forma transacional de um banco de dados para armazenamento de longo prazo após o período de retenção ou para transferir uma cópia do banco de dados para uma instância VM local ou do Azure do SQL Server.
 
 ## O que acontece com o período de retenção do meu ponto de restauração quando faço downgrade/atualização pela camada de serviço?
 
@@ -57,9 +57,9 @@ O período de retenção é determinado pela camada de serviço do banco de dado
 
 ## Próximas etapas
 
-- Para saber mais sobre como usar backups automatizados de recuperação, consulte [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-- Para saber mais sobre opções de recuperação mais rápidas, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+- Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
-- Para obter uma visão geral sobre a continuidade de negócios, consulte [Visão geral da continuidade de negócios](sql-database-business-continuity.md)
+- Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

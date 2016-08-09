@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -54,7 +54,7 @@ Um conector pode ser criado em um Aplicativo lógico ou diretamente no Azure Mar
 
 ## Configurar o Aplicativo de API do conector SAP recém-criado ##
 
-Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> <Name of the API App just created> e você verá o comportamento a seguir. A instalação está incompleta pois a conexão híbrida ainda não foi estabelecida: ![][2]
+Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> <Nome do Aplicativo de API recém-criado> e você verá o comportamento a seguir. A instalação está incompleta pois a conexão híbrida ainda não foi estabelecida: ![][2]
 
 O conector SAP exige uma conectividade híbrida para conectar *qualquer* ponto de extremidade SAP. Para estabelecer a conectividade híbrida, faça o seguinte:
 
@@ -84,7 +84,7 @@ Conclua o Aplicativo lógico para definir o processo comercial e execute-o para 
 ## Fazer mais com seu conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -99,4 +99,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

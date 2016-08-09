@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -37,15 +37,16 @@ Em um cenário de recuperação de desastre (DR), o dispositivo principal para d
 
 Em caso de desastre, você pode optar por fazer o failover do dispositivo StorSimple:
 
-- Para um dispositivo físico 
+- Para um dispositivo físico
 - Para ele próprio
 - Para um dispositivo virtual
 
 Para o failover de qualquer dispositivo, tenha em mente o seguinte:
 
-- Os pré-requisitos para DR são que todos os volumes em contêineres de volume estejam offline e os contêineres de volume tenham um instantâneo de nuvem associado. 
-- Os dispositivos de destino disponíveis para DR são dispositivos que têm espaço suficiente para acomodar os contêineres de volume selecionados. 
+- Os pré-requisitos para DR são que todos os volumes em contêineres de volume estejam offline e os contêineres de volume tenham um instantâneo de nuvem associado.
+- Os dispositivos de destino disponíveis para DR são dispositivos que têm espaço suficiente para acomodar os contêineres de volume selecionados.
 - Os dispositivos que estão conectados ao serviço, mas não atendem aos critérios de espaço suficiente não estarão disponíveis como dispositivos de destino.
+- Após uma recuperação de desastres, por um período limitado, o desempenho de acesso a dados pode ser afetado significativamente, pois o dispositivo precisará acessar os dados de nuvem e armazená-los localmente.
 
 #### Failover de dispositivo em versões de software
 
@@ -91,7 +92,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 	
 
-		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.** <br></br>
 
 	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
 
@@ -176,4 +177,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

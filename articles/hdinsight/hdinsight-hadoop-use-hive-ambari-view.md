@@ -62,7 +62,7 @@ Use as etapas a seguir no modo de exibição do Hive para executar uma consulta 
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
 	Essas instruções executam as seguintes ações:
@@ -169,13 +169,13 @@ Depois de adicionar uma UDF ao Modo de Exibição do Hive, um botão __Inserir u
 Por exemplo, se você tiver definido uma UDF com as seguintes propriedades:
 
 * Nome de recurso: myudfs
-* Caminho do recurso: wasb:///myudfs.jar
+* Caminho do recurso: wasbs:///myudfs.jar
 * Nome da UDF: myawesomeudf
 * Nome de classe da UDF: com.myudfs.Awesome
 
 O botão __Inserir udfs__ exibirá uma entrada denominada __myudfs__, com outra lista suspensa para cada UDF definida para esse recurso. Nesse caso, __myawesomeudf__. A seleção dessa entrada adicionará o seguinte ao início da consulta:
 
-    add jar wasb:///myudfs.jar;
+    add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
@@ -199,4 +199,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

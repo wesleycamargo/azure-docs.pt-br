@@ -31,7 +31,8 @@ Para saber mais sobre o Banco de Dados de Stretch, confira [Banco de Dados de St
 ## <a name="Intro"></a>Introdução
 Examine o objetivo do assistente e os pré-requisitos.
 
-Entre os pré-requisitos importantes estão os seguintes.
+Entre os pré-requisitos importantes estão os seguintes:
+
 -   Você precisa ser administrador para alterar as configurações de banco de dados.
 -   Você precisa ter uma assinatura do Microsoft Azure.
 -   O SQL Server deve ser capaz de se comunicar com o servidor remoto do Azure.
@@ -190,4 +191,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->
