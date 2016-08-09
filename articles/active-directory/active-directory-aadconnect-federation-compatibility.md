@@ -339,4 +339,4 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 Para saber mais, confira o artigo sobre o [logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0720_2016-->
