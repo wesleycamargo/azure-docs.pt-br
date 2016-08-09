@@ -4,7 +4,7 @@
 	keywords="opções de banco de dados, desempenho do banco de dados"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -58,6 +58,30 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 
 [AZURE.INCLUDE [Descrição de DTU de Banco de Dados SQL](../../includes/sql-database-understanding-dtus.md)]
 
+## Como escolher uma camada de serviço
+
+Para decidir sobre uma camada de serviço, comece determinando se o banco de dados será um banco de dados autônomo ou se fará parte de um pool elástico.
+
+### Como escolher uma camada de serviço para um banco de dados autônomo
+
+Para decidir sobre uma camada de serviço para um banco de dados autônomo, comece determinando os recursos do banco de dados necessários para escolher sua edição do Banco de Dados SQL:
+
+- Tamanho do banco de dados (no máximo 5 GB para o Básico, 250 GB para o Standard e 500 GB a 1 TB para Premium, dependendo do nível de desempenho)
+- Período de retenção de backup do banco de dados (sete dias para Basic, 35 dias para Standard e 35 dias para Premium)
+
+Depois de determinar a edição do Banco de Dados SQL, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Você pode fazer uma suposição e depois [Escalar ou reduzir verticalmente ou horizontalmente](sql-database-scale-up.md) com base na experiência real. Você também pode usar a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários.
+
+### Como escolher uma camada de serviço para um pool de banco de dados elástico.
+
+Para decidir sobre uma camada de serviço para um pool de banco de dados elástico, comece determinando os recursos do banco de dados necessários para escolher a camada de serviço para seu pool.
+
+- Tamanho do banco de dados (2 GB para Básico, 250 GB para Standard e 500 GB para Premium)
+- Período de retenção de backup do banco de dados (sete dias para Basic, 35 dias para Standard e 35 dias para Premium)
+- Número de bancos de dados por pool (400 para Básico, 400 para Standard e 50 para Premium)
+- Armazenamento máximo por pool (117 GB para Básico, 1200 para Standard e 750 para Premium)
+
+Depois de determinar a camada de serviço para o pool, você estará pronto para determinar o nível de desempenho do pool (eDTUs). Você pode fazer uma suposição e depois [Escalar ou reduzir verticalmente ou horizontalmentede modo dinâmico](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) com base na experiência real. Você também pode usar a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários para um banco de dados individual dentro do pool, a fim de ajudar a definir o limite superior para o pool.
+
 ## Próximas etapas
 - Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Conheça os detalhes dos [pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md) e [considerações sobre o preço e o desempenho dos pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md).
@@ -68,4 +92,4 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

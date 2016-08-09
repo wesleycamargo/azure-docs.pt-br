@@ -141,11 +141,11 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P.** Se eu reduzir a capacidade do meu conjunto de dimensionamento de VM de 20 para 15, quais VMs serão removidas?
 
-**A.** Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade.
+**A.** Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
 
 **P.** E se eu aumentar a capacidade de 15 para 18?
 
-**A.** Se você aumentar para 18, as VMs com índice 15, 16, 17 serão criadas. Em ambos os casos, as VMs são balanceadas entre FDs e UDs.
+**A.** Se você aumentar a capacidade para 18, serão criadas três novas VMs. Cada vez que a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre FDs e UDs.
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento de VM, posso impor uma sequência de execução?
 
@@ -155,4 +155,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **A.** Sim. Um conjunto de escala de VM é um conjunto de disponibilidade implícito com 5 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

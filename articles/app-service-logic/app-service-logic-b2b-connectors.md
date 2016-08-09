@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -52,9 +52,9 @@ Quando você cria aplicativos de API B2B, há alguns recursos necessários. Esse
 
 Requisito | Descrição
 --- | ---
-Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
-Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md)
-Namespace do Barramento de Serviço e seus valores de chave | Armazena dados de envio em lote de X12 e EDIFACT. Se você não precisar de envio em lote, não será necessário um namespace de Barramento de Serviço.<br/><br/>**Observação** Se você estiver habilitando o processamento em lote, copie esses valores.<br/><br/>[Criar um Namespace de barramento de serviço](http://msdn.microsoft.com/library/azure/hh690931.aspx)
+Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio Banco de Dados SQL do Azure. <br/><br/>**Observação** Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
+Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar do arquivamento de mensagens AS2, um contêiner de armazenamento não será necessário. <br/><br/>**Observação** Se você estiver habilitando o arquivamento, copie a cadeia de conexão para o Armazenamento de Blobs.<br/><br/>[Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md)
+Namespace do Barramento de Serviço e seus valores de chave | Armazena dados de envio em lote de X12 e EDIFACT. Se você não precisar de envio em lote, não será necessário um namespace de Barramento de Serviço.<br/><br/>**Observação** Se você estiver habilitando o processamento em lote, copie esses valores.<br/><br/>[Criar um namespace de Barramento de Serviço](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 Instância do TPM | Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM. <br/><br/>**Observação** Saiba o nome do seu Aplicativo de API do TPM. 
 
 
@@ -79,8 +79,8 @@ As seguintes etapas criam os aplicativos de API B2B usando a folha de aplicativo
 As etapas a seguir criam a instância de TPM:
 
 1. No quadro inicial (a Home page) do portal do Azure, selecione **Marketplace**. **Aplicativos de API** lista todos os aplicativos de API e conectores existentes. Você também pode **Pesquisar** por aplicativos de API B2B específicos.
-2. Selecione **Gerenciamento de Parceiros Comerciais do BizTalk**. Na folha nova, selecione **Criar**. 
-3. Insira as propriedades: 
+2. Selecione **Gerenciamento de Parceiros Comerciais do BizTalk**. Na folha nova, selecione **Criar**.
+3. Insira as propriedades:
 
 	Propriedade | Descrição
 --- | ---
@@ -101,8 +101,8 @@ Depois que o aplicativo de API do TPM (Instância de TPM) é criado, você pode 
 #### Criar o conector AS2
 
 1. No quadro inicial (a Home page) do portal do Azure, selecione **Marketplace**. **Aplicativos de API** lista todos os aplicativos de API e conectores existentes. Você também pode **Pesquisar** por aplicativos de API B2B específicos.
-2. Selecione **Conector AS2**. Na folha nova, selecione **Criar**. 
-3. Insira as propriedades: 
+2. Selecione **Conector AS2**. Na folha nova, selecione **Criar**.
+3. Insira as propriedades:
 
 	Propriedade | Descrição
 --- | ---
@@ -130,8 +130,8 @@ Nome da instância do TPM | Insira o nome do Aplicativo de API do **Gerenciament
 #### Criar os aplicativos de API X12 ou EDIFACT
 
 1. No quadro inicial (a Home page) do portal do Azure, selecione **Marketplace**. **Aplicativos de API** lista todos os aplicativos de API e conectores existentes. Você também pode **Pesquisar** por aplicativos de API B2B específicos.
-2. Selecione **BizTalk X12** ou **BizTalk EDIFACT**. Na folha nova, selecione **Criar**. 
-3. Insira as propriedades: 
+2. Selecione **BizTalk X12** ou **BizTalk EDIFACT**. Na folha nova, selecione **Criar**.
+3. Insira as propriedades:
 
 	Propriedade | Descrição
 --- | ---
@@ -182,7 +182,7 @@ Dentro de seu aplicativo, a simples seleção dos aplicativos de API B2B da Gale
 
 As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móveis ou da Web:
 
-1. No quadro inicial do portal do Azure (home page), vá até **Marketplace** e procure aplicativos lógicos, móveis ou Web. 
+1. No quadro inicial do portal do Azure (home page), vá até **Marketplace** e procure aplicativos lógicos, móveis ou Web.
 
 	Se você estiver criando um novo aplicativo, pesquise aplicativos lógicos, móveis ou Web. Selecione o aplicativo e, na nova folha, selecione **Criar**. [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md) lista as etapas.
 
@@ -209,4 +209,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e Aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e Aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

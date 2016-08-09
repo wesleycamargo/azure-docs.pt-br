@@ -2,7 +2,7 @@
 - Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
 - Uma conta do [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3)
 
-Antes de usar sua conta do OneDrive em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do OneDrive. Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure.
+Para poder usar sua conta do OneDrive em um aplicativo lógico, autorize-o a se conectar à sua conta do OneDrive. Você pode fazer isso de forma fácil usando seu aplicativo lógico no portal do Azure.
 
 Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do OneDrive:
 
@@ -14,4 +14,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 4. Selecione **Sim** para autorizar o aplicativo lógico para usar sua conta do OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)
 5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico: ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

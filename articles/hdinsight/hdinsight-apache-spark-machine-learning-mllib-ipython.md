@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 ## Comece a desenvolver um aplicativo de aprendizado de máquina usando a MLlib do Spark
 
-1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -85,7 +85,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 Podemos usar `sqlContext` para executar transformações de dados estruturados. A primeira tarefa é carregar os dados de exemplo ((**Food\_Inspections1.csv**)) em um *dataframe* SQL do Spark.
 
-1. Como os dados brutos estão em um formato CSV, precisamos usar o contexto do Spark para efetuar pull de cada linha do arquivo na memória como texto não estruturado; em seguida, use a biblioteca CSV do Python para analisar cada linha individualmente. 
+1. Como os dados brutos estão em um formato CSV, precisamos usar o contexto do Spark para efetuar pull de cada linha do arquivo na memória como texto não estruturado; em seguida, use a biblioteca CSV do Python para analisar cada linha individualmente.
 
 
 		def csvParse(s):
@@ -96,7 +96,7 @@ Podemos usar `sqlContext` para executar transformações de dados estruturados. 
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -222,11 +222,11 @@ Podemos usar `sqlContext` para executar transformações de dados estruturados. 
 
 4. Você pode ver que uma inspeção pode ter cinco resultados distintos:
 	
-	* Negócios não localizados 
+	* Negócios não localizados
 	* Reprovado
 	* Aprovado
 	* Aprovar c/condições e
-	* Fora de negócio 
+	* Fora de negócio
 
 	Vamos desenvolver um modelo que possa adivinhar o resultado de uma inspeção de alimentos, considerando as violações. Uma vez que a regressão logística é um método de classificação binária, faz sentido agrupar os dados em duas categorias: **Reprovado** e **Aprovado**. Um "Passar c/Condições" ainda é uma aprovação, portanto, ao treinar o modelo, consideraremos os dois resultados equivalentes. Dados com os outros resultados ("Negócios não localizados", "Fora Negócio") não são úteis, então iremos removê-los do nosso conjunto de treinamento. Isso deve ser estar ok, já que essas duas categorias compõem uma porcentagem muito pequena dos resultados de qualquer forma.
 
@@ -283,7 +283,7 @@ Podemos usar o modelo criado anteriormente para *prever* quais serão os resulta
 1. O trecho de código a seguir cria um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O trecho de código também cria uma tabela temporária **Predictions** com base na estrutura de dados.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -341,7 +341,7 @@ Podemos usar o modelo criado anteriormente para *prever* quais serão os resulta
 
 Agora podemos construir uma visualização final para ajudar a justificar os resultados deste teste.
 
-1. Vamos começar extraindo as diferentes previsões e os resultados da tabela temporária **Predictions** criada anteriormente. As consultas a seguir separam a saída como *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nas consultas a seguir, vamos desligar as visualização usando `-q` e também salvar a saída (usando `-o`) como quadros de dados que podem ser usados com a mágica `%%local`. 
+1. Vamos começar extraindo as diferentes previsões e os resultados da tabela temporária **Predictions** criada anteriormente. As consultas a seguir separam a saída como *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nas consultas a seguir, vamos desligar as visualização usando `-q` e também salvar a saída (usando `-o`) como quadros de dados que podem ser usados com a mágica `%%local`.
 
 		%%sql -q -o true_positive
 		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -420,4 +420,4 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

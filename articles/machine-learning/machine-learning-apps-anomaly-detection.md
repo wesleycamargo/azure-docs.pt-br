@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/29/2016" 
+	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -34,7 +34,9 @@ Estas APIs podem detectar os seguintes tipos de padrões anômalos nos dados de 
 Esses detectores de aprendizado da máquina rastreiam as alterações nos valores ao longo do tempo e informam as mudanças contínuas em seus valores como pontuações de anomalia. Eles não precisam de ajuste de limite ad hoc e suas pontuações podem ser usadas para controlar a taxa de falsos positivos. A API de detecção de anomalias é útil em vários cenários, como o monitoramento do serviço ao controlar KPIs ao longo do tempo, monitoramento do uso por meio de métricas, como o número de pesquisas, número de cliques, monitoramento do desempenho por meio de contadores, como memória, CPU, leituras de arquivos etc. ao longo do tempo.
 
 A oferta da Detecção de Anomalias vem com ferramentas úteis para você começar.
+
 * O [aplicativo Web](http://anomalydetection-aml.azurewebsites.net/) ajuda a avaliar e visualizar os resultados das APIs de detecção de anomalias em seus dados.
+
 * O [código de exemplo](http://adresultparser.codeplex.com/) mostra como acessar a API e analisar os resultados no C# programaticamente.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -156,10 +158,10 @@ A API de detecção de anomalias suporta detectores em três categorias amplas. 
 |Categoria do Detector|Detector|Descrição|Parâmetros de Entrada|Saídas
 |---|---|---|---|---|
 |Detectores de Pico|Detector TSpike|Detectar picos e quedas de acordo com a sensibilidade definida|*tspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1-10, padrão: 3. Quanto maior, menos sensível|TSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário|
-|Detector ZSpike|Detectar picos e quedas de acordo com a sensibilidade definida|*zspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1-10, padrão: 3. Quanto maior, menos sensível|ZSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário|
-|Detector de Tendências Lentas|Detector de Tendências Lentas|Detectar uma tendência positiva lenta de acordo com a sensibilidade definida|*trenddetector.sensitivity:* limite na pontuação do detector (padrão: 3.25, 3.25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível)|tscore: número flutuante que representa a pontuação de anomalias na tendência|
-|Detectores de Alteração no Nível|Detector de Alteração no Nível Unidirecional|Detectar uma alteração de aumento no nível de acordo com a sensibilidade definida|Igual ao Detector de Tendências Lentas|pscore: número flutuante que representa a pontuação de anomalias na alteração de aumento no nível|
-|Detector de Alteração no Nível Bidirecional|Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida|Igual ao Detector de Tendências Lentas|rpscore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível
+||Detector ZSpike|Detectar picos e quedas de acordo com a sensibilidade definida|*zspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1-10, padrão: 3. Quanto maior, menos sensível|ZSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário|
+|Detector de Tendências Lentas|Detector de Tendências Lentas|Detectar uma tendência positiva lenta de acordo com a sensibilidade definida|*trenddetector.sensitivity:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível)|TScore: número flutuante que representa a pontuação de anomalias na tendência|
+|Detectores de Alteração no Nível|Detector de Alteração no Nível Unidirecional|Detectar uma alteração de aumento no nível de acordo com a sensibilidade definida|*upleveldetector.sensitivity:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível)|PScore: número flutuante que representa a pontuação de anomalias na alteração de aumento no nível|
+||Detector de Alteração no Nível Bidirecional|Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida|*bileveldetector.sensitivity:* limite na pontuação do detector (padrão: 3,25, 3.25 – 5 é um intervalo razoável para selecionar. Quanto maior, menos sensível)|RPScore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível
 
 ###Parâmetros
 
@@ -199,7 +201,7 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 |TAlert|Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada|
 
 
-Esta saída pode ser analisada usando um [Analisador simples](https://adresultparser.codeplex.com/) - tem um código de exemplo que mostra como conectar a API e analisar a saída. As anomalias detectadas podem ser visualizadas em um painel e/ou passadas para especialistas humanos para terem ações corretivas ou serem integradas nos sistemas de emissão de tíquetes.
+Esta saída pode ser analisada usando um [Analisador simples](https://adresultparser.codeplex.com/) – tem um código de exemplo que mostra como conectar a API e analisar a saída. As anomalias detectadas podem ser visualizadas em um painel e/ou passadas para especialistas humanos para terem ações corretivas ou serem integradas nos sistemas de emissão de tíquetes.
 
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection-score.png
@@ -209,4 +211,4 @@ Esta saída pode ser analisada usando um [Analisador simples](https://adresultpa
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

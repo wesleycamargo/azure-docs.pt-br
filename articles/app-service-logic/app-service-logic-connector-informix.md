@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -75,7 +75,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 4. Na folha Gatilhos e ações, escolha **Criar do Zero** em Modelos do Aplicativo lógico.
 5. No painel Aplicativos de API, escolha **Recorrência**, defina a frequência e o intervalo e clique na **marca de seleção**.
 6. No painel Aplicativos de API, escolha **Conector Informix** e expanda a lista de operações para selecionar **Inserir em NEWORDER**.
-7. Expanda a lista de parâmetros para inserir os valores a seguir:  
+7. Expanda a lista de parâmetros para inserir os valores a seguir:
 
 	Nome | Valor
 --- | --- 
@@ -88,8 +88,8 @@ SHIPREG | WA
 SHIPZIP | 99362 
 
 8. Escolha a **marca de seleção** para salvar as configurações da ação e depois escolha **Salvar**.
-9. As configurações devem ter a seguinte aparência: ![][3]  
-10. Na lista **Todas as execuções** em **Operações**, selecione o primeiro item da lista (execução mais recente). 
+9. As configurações devem ter a seguinte aparência: ![][3]
+10. Na lista **Todas as execuções** em **Operações**, selecione o primeiro item da lista (execução mais recente).
 11. Na folha **Execução do aplicativo lógico**, escolha o item de **AÇÃO** **informixconnectorneworders**.
 12. Na folha **Ação do aplicativo lógico**, escolha **LINK DE ENTRADAS**. O conector Informix usa as entradas para processar uma instrução INSERT com parâmetros.
 13. Na folha **Ação do aplicativo lógico**, escolha **LINK DE SAÍDAS**. As entradas devem ter a seguinte aparência: ![][4]
@@ -98,8 +98,8 @@ SHIPZIP | 99362
 
 - O Conector trunca os nomes de tabela do Informix ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em NEWORDERS** será truncada para **Inserir em NEWORDER**.
 - Depois de salvar os **Gatilhos e ações** do aplicativo lógico, a lógica do aplicativo processará a operação. Pode haver um atraso de alguns segundos (por exemplo, 3 a 5 segundos) antes de o aplicativo lógico processar a operação. Opcionalmente, você pode clicar em **Executar Agora** para processar a operação.
-- O conector Informix define os membros de EntitySet com atributos, inclusive se o membro corresponde a uma coluna do Informix com uma coluna padrão ou colunas geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do Informix que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do Informix. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do Informix com valores padrão. 
-- O conector Informix retorna ao Aplicativo lógico a resposta na Postagem para EntitySet, que inclui os valores das colunas de identidade, derivadas do SQLDARD (Dados de Resposta da Área de Dados do SQL) da DRDA na instrução SQL INSERT preparada. O servidor do Informix não retorna os valores inseridos para colunas com valores padrão.  
+- O conector Informix define os membros de EntitySet com atributos, inclusive se o membro corresponde a uma coluna do Informix com uma coluna padrão ou colunas geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do Informix que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do Informix. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do Informix com valores padrão.
+- O conector Informix retorna ao Aplicativo lógico a resposta na Postagem para EntitySet, que inclui os valores das colunas de identidade, derivadas do SQLDARD (Dados de Resposta da Área de Dados do SQL) da DRDA na instrução SQL INSERT preparada. O servidor do Informix não retorna os valores inseridos para colunas com valores padrão.
 
 
 ## Aplicativo lógico com ação do conector Informix para adicionar dados em massa ##
@@ -111,7 +111,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 4. Na folha Gatilhos e ações, escolha **Criar do Zero** em Modelos do Aplicativo lógico.
 5. No painel Aplicativos de API, escolha **Recorrência**, defina a frequência e o intervalo e clique na **marca de seleção**.
 6. No painel Aplicativos de API, escolha **Conector Informix** e expanda a lista de operações para selecionar **Inserir em Massa em NEW**.
-7. Insira o valor de **linhas** como uma matriz. Por exemplo, copie e cole o seguinte:  
+7. Insira o valor de **linhas** como uma matriz. Por exemplo, copie e cole o seguinte:
 
 	```
     [{"custid":10081,"shipid":10000,"shipname":"Trail's Head Gourmet Provisioners","shipaddr":"722 DaVinci Blvd.","shipcity":"Kirkland","shipreg":"WA","shipzip":"98034"},{"custid":10088,"shipid":10000,"shipname":"White Clover Markets","shipaddr":"305 14th Ave. S. Suite 3B","shipcity":"Seattle","shipreg":"WA","shipzip":"98128","shipctry":"USA"}]
@@ -129,7 +129,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 - O Conector trunca os nomes de tabela do Informix ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em Massa em NEWORDERS** será truncada para **Inserir em Massa em NEW**.
 - O banco de dados Informix pode diferenciar letras maiúsculas de minúsculas em nomes de tabela e coluna. Por exemplo, talvez seja necessário especificar os nomes de coluna de matriz da operação Inserir em Massa em letras minúsculas ("custid"), em vez de letras maiúsculas ("CUSTID").
 - Omitindo as colunas de identidade (por exemplo, ORDID), as colunas anuláveis (por exemplo, SHIPDATE) e as colunas com valores padrão (por exemplo, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), o banco de dados do Informix gera valores.
-- Ao especificar "hoje" e "amanhã", o conector Informix gera as funções "CURRENT DATE" e "CURRENT DATE + 1 DAY" (por exemplo, REQDATE). 
+- Ao especificar "hoje" e "amanhã", o conector Informix gera as funções "CURRENT DATE" e "CURRENT DATE + 1 DAY" (por exemplo, REQDATE).
 
 
 ## Aplicativo lógico com o gatilho do conector Informix para ler, alterar ou excluir dados ##
@@ -139,7 +139,7 @@ Você pode definir um gatilho de aplicativo lógico para pesquisar e ler os dado
 --- | --- | ---
 Sondagem de verificação de dados | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToAlterData | <nenhum valor especificado>
 
 
 Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e alterar os dados de uma tabela do Informix usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido do cliente e atualizar os valores da linha, retornando os registros selecionados (antes da atualização) para o Aplicativo lógico. As configurações de pacote /aplicativo da Conexão do Informix são parecidas com as seguintes:
@@ -180,7 +180,7 @@ Você pode definir uma ação de aplicativo lógico para remover dados de uma ta
 ## Criar Aplicativo lógico usando o conector Informix para remover dados ##
 Você pode criar um novo Aplicativo lógico no Azure Marketplace, em seguida, usar o conector Informix como uma ação para remover os pedidos do cliente. Por exemplo, pode usar a operação de Exclusão condicional do conector Informix para processar uma instrução SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. No menu de hub da **Tela Inicial** do Azure, clique em **+** (sinal de adição), clique em **Web + Móvel** e **Aplicativo lógico**. 
+1. No menu de hub da **Tela Inicial** do Azure, clique em **+** (sinal de adição), clique em **Web + Móvel** e **Aplicativo lógico**.
 2. Na folha **Criar Aplicativo lógico**, digite um **Nome**, por exemplo, **RemoveOrdersInformix**.
 3. Selecione ou defina os valores para as outras configurações (por exemplo, o plano de serviço, o grupo de recursos).
 4. As configurações devem ter a seguinte aparência. Clique em **Criar**: ![][12]
@@ -274,4 +274,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

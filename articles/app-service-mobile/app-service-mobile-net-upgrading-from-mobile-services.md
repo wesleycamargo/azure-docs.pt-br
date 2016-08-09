@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/25/2016"
 	ms.author="mahender"/>
 
 # Atualizar o Serviço Móvel do Azure .NET existente para o Serviço de Aplicativo
 
 O Aplicativo Móvel do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são os Aplicativos Móveis?].
 
-Este tópico descreve como atualizar um aplicativo de back-end do .NET usando os Serviços Móveis do Azure para novos Aplicativos Móveis do Serviço de Aplicativo. Durante essa atualização, o seu aplicativo de Serviços Móveis pode continuar sendo executado.
+Este tópico descreve como atualizar um aplicativo de back-end do .NET usando os Serviços Móveis do Azure para novos Aplicativos Móveis do Serviço de Aplicativo. Durante essa atualização, o seu aplicativo de Serviços Móveis pode continuar sendo executado. Se você precisar atualizar um aplicativo back-end em Node.js, consulte [Atualizar seus Serviços Móveis do Node.js](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
 Quando um back-end móvel é atualizado para o Serviço de Aplicativo do Azure, ele tem acesso a todos os recursos do Serviço de Aplicativo e é cobrado de acordo com os [preços do Serviço de Aplicativo] e não com os preços dos Serviços Móveis.
 
@@ -103,7 +103,7 @@ Se o seu aplicativo usar os recursos de autenticação, você também precisará
 2. No Visual Studio, clique com o botão direito do mouse no seu projeto e selecione **Adicionar** -> **Novo Item**. Selecione **Web** -> **Geral** -> **Classe de inicialização OWIN**.
 3. Mova o código acima relativo a MobileAppConfiguration de `WebApiConfig.Register()` para o método `Configuration()` de sua nova classe de inicialização.
 
-Verifique se o método `Configuration()` termina com:
+Verifique se o método `Configuration()` termina em:
 
         app.UseWebApi(config)
         app.UseAppServiceAuthentication(config);
@@ -159,7 +159,7 @@ No iOS, você deve alterar seu esquema de dados básicos para suas entidades de 
 
 #### Consultando propriedades do sistema
 
-Nos Serviços Móveis do Azure, as propriedades do sistema não são enviadas por padrão, mas somente quando são solicitadas usando a cadeia de caracteres de consulta `__systemProperties`. Por outro lado, no sistema de Aplicativos Móveis do Azure, as propriedades estão **sempre selecionadas**, pois fazem parte do modelo de objeto do SDK do servidor.
+Nos Serviços Móveis do Azure, as propriedades do sistema não são enviadas por padrão, mas somente quando são solicitadas usando a cadeia de caracteres de consulta `__systemProperties`. Em contraste, no sistema de Aplicativos Móveis do Azure, as propriedades estão **sempre selecionadas**, pois fazem parte do modelo de objeto do SDK do servidor.
 
 Essa alteração afeta principalmente as implementações personalizadas dos gerenciadores de domínio, como extensões de `MappedEntityDomainManager`. Nos Serviços Móveis, se um cliente nunca solicitar uma propriedade do sistema, será possível usar um `MappedEntityDomainManager` que não mapeie realmente todas as propriedades. No entanto, nos Aplicativos Móveis do Azure, essas propriedades não mapeadas causarão um erro em consultas GET.
 
@@ -223,7 +223,7 @@ Os componentes de autenticação dos Serviços Móveis foram movidos para o recu
 Para alguns provedores, como o AAD, o Facebook e o Google, você deverá aproveitar o registro existente em seu aplicativo de cópia. Basta navegar até o portal do provedor de identidade e adicionar uma nova URL de redirecionamento ao registro. Em seguida, configure a Autenticação/Autorização do Serviço de Aplicativo com a ID do cliente e o segredo.
 
 ### Autorização de ação do controlador
-Todas as instâncias do atributo `[AuthorizeLevel(AuthorizationLevel.User)]` agora devem ser alteradas para usar o atributo ASP.NET padrão `[Authorize]`. Além disso, controladores são agora anônimos por padrão, como em outros aplicativos ASP.NET. Se você estiver usando uma das outras opções de AuthorizeLevel, como administrador ou aplicativo, observe que eles desapareceram. Agora você pode configurar AuthorizationFilters para segredos compartilhados ou configurar uma entidade de serviço do AAD para permitir chamadas serviço a serviço com segurança.
+Todas as instâncias do atributo `[AuthorizeLevel(AuthorizationLevel.User)]` agora devem ser alterados para usar o atributo ASP.NET padrão `[Authorize]`. Além disso, controladores são agora anônimos por padrão, como em outros aplicativos ASP.NET. Se você estiver usando uma das outras opções de AuthorizeLevel, como administrador ou aplicativo, observe que eles desapareceram. Agora você pode configurar AuthorizationFilters para segredos compartilhados ou configurar uma entidade de serviço do AAD para permitir chamadas serviço a serviço com segurança.
 
 ### Obtendo informações adicionais do usuário
 
@@ -274,7 +274,7 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [Visão geral do SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

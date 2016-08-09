@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="05/03/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Gerenciamento de aplicativos com o Active Directory do Azure
@@ -54,14 +54,14 @@ Portanto, o que geralmente impede que as organizações adotem soluções integr
 
 O Active Directory do Azure é a solução IDaaS (Identidade como Serviço) abrangente da Microsoft que:
 
-- Habilita o IAM como um serviço de nuvem 
+- Habilita o IAM como um serviço de nuvem
 
 - Fornece gerenciamento de acesso central, logon único (SSO) e relatórios
 
 - Oferece suporte ao gerenciamento de acesso integrado para [milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) na galeria de aplicativos, incluindo Salesforce, Google Apps, Box, Concur e outros.
 
 
-Com o Active Directory do Azure, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso.<br> Isso permite que você reduza significativamente os custos operacionais.
+Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso.<br> Isso permite que você reduza significativamente os custos operacionais.
 
 E se você precisar implementar um aplicativo que ainda não está listado na galeria de aplicativos? Embora isso seja um pouco mais demorado do que configurar o SSO para aplicativos da galeria de aplicativos, o AD do Azure fornece um assistente que ajuda você com a configuração.
 
@@ -135,4 +135,4 @@ Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de intro
 
 [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

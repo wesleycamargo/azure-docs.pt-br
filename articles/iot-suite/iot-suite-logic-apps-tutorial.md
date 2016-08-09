@@ -161,12 +161,16 @@ No portal, além de receber emails, você também pode ver quando o aplicativo l
 
 ## Próximas etapas
 
-Agora que você já usou um aplicativo lógico para conectar-se à solução pré-configurada um processo empresarial, talvez você queira saber mais sobre [como personalizar soluções pré-configuradas][lnk-customize] ou [como adicionar um dispositivo físico para sua solução][lnk-connect].
+Agora que você já usou um aplicativo lógico para conectar a solução pré-configurada a um processo empresarial, saiba mais sobre as opções de personalização das soluções pré-configuradas:
+
+- [Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto][lnk-dynamic]
+- [Metadados de informações de dispositivo na solução pré-configurada de monitoramento remoto][lnk-devinfo]
+
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [lnk-internetofthings]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-getstarted]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connect]: iot-suite-connecting-devices.md
 [lnk-azureportal]: https://portal.azure.com
 [lnk-logic-apps-actions]: ../connectors/apis-list.md
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
@@ -174,4 +178,4 @@ Agora que você já usou um aplicativo lógico para conectar-se à solução pr�
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

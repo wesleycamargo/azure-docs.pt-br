@@ -1,268 +1,284 @@
 <properties
-pageTitle="Adicionar o conector do Salesforce ao PowerApps Enterprise e a seus Aplicativos Lógicos | Microsoft Azure"
-description="Visão geral do conector do Salesforce com os parâmetros da API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="Aprenda a usar o Conector do Salesforce em seus aplicativos lógicos | Microsoft Azure"
+description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/19/2016"
+ms.workload="integration"
+ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Introdução ao conector do Salesforce 
-Conecte-se ao Salesforce e crie objetos, obtenha objetos muito mais. O conector do Salesforce pode ser usado por meio de:
+# Introdução ao conector do Salesforce
 
-- Aplicativos lógicos 
-- PowerApps
+O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce.
 
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-salesforce.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-&nbsp;
+## Ligar-se ao conector do Salesforce
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
 
-Com o Salesforce, você pode:
+### Criar uma conexão com o conector do Salesforce
 
-- Crie seu fluxo de negócios baseado nos dados obtidos do SalesForce. 
-- Usar gatilhos para quando um objeto for criado ou atualizado.
-- Use ações para criar um objeto, excluí-lo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo objeto é criado no Salesforce, você pode enviar um email usando o Office 365.
-- Adicione o conector do Salesforce ao PowerApps Enterprise. Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o conector do Salesforce](../../includes/connectors-create-api-salesforce.md)]
 
-Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+## Usar um gatilho do conector do Salesforce
 
-Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Gatilhos e ações
-A API do Salesforce inclui o gatilho e ações a seguir.
+>[AZURE.INCLUDE [Etapas para criar um gatilho do Salesforce](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-| Gatilhos | Ações|
-| --- | --- |
-|<ul><li>Quando um objeto é criado</li><li>Quando um objeto é modificado</li></ul> | <ul><li>Criar objeto</li><li>Obter objetos</li><li>Quando um objeto é criado</li><li>Quando um objeto é modificado</li><li>Excluir objeto</li><li>Obter objeto</li><li>Obter tipos de objeto (SObjects)</li><li>Atualizar objeto</li></ul>
+## Adicione uma condição 
+>[AZURE.INCLUDE [Etapas para criar uma condição do Salesforce](../../includes/connectors-create-api-salesforce-condition.md)]
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## Usar uma ação do conector do Salesforce
 
-## Criar uma conexão com o Salesforce 
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Salesforce.
+>[AZURE.INCLUDE [Etapas para criar uma ação do Salesforce](../../includes/connectors-create-api-salesforce-action.md)]
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o Salesforce](../../includes/connectors-create-api-salesforce.md)]
+## Detalhes técnicos
 
-Depois de criar a conexão, insira as propriedades do Salesforce, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
+Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
 
->[AZURE.TIP] Você pode usar essa mesma conexão em outros aplicativos lógicos.
+## Gatilhos do conector do Salesforce
 
-## Referência da API REST do Swaggers
-Aplica-se à versão: 1.0.
+O Conector do Salesforce tem os seguintes gatilhos:
+
+|Gatilho | Descrição|
+|--- | ---|
+|[Quando um objeto é criado](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|Esta operação dispara um fluxo quando um objeto é criado.|
+|[Quando um objeto é modificado](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|Esta operação dispara um fluxo quando um objeto é modificado.|
+
+
+## Ações do conector do Salesforce
+
+O Conector do Salesforce tem as seguintes ações:
+
+
+|Ação|Descrição|
+|--- | ---|
+|[Obter objetos](connectors-create-api-salesforceconnector.md#get-objects)|Esta operação obtém objetos de um determinado tipo, como 'Lead'.|
+|[Criar objeto](connectors-create-api-salesforceconnector.md#create-object)|Esta operação cria um objeto.|
+|[Obter objeto](connectors-create-api-salesforceconnector.md#get-object)|Esta operação obtém um objeto.|
+|[Excluir objeto](connectors-create-api-salesforceconnector.md#delete-object)|Esta operação exclui um objeto.|
+|[Atualizar objeto](connectors-create-api-salesforceconnector.md#update-object)|Esta operação atualiza um objeto.|
+|[Obter tipos de objeto](connectors-create-api-salesforceconnector.md#get-object-types)|Esta operação lista os tipos de objeto disponíveis.|
+### Detalhes da ação
+
+Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
+
+
+
+### Obter objetos
+Esta operação obtém objetos de um determinado tipo, como 'Lead'.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto do Salesforce, como 'Lead'|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir o número de entradas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+ItemsList
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
 
 
 ### Criar objeto
-Cria um objeto do Salesforce.```POST: /datasets/default/tables/{table}/items```
+Esta operação cria um objeto.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|item| |sim|corpo|nenhum|Objeto do Salesforce a ser criado|
 
-### Resposta
-|Nome|Descrição|
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Lead'|
+|item*|Objeto|Objeto a ser criado|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+Item
+
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|ItemInternalId|string|
+
 
 
 
 ### Obter objeto
-Recupera um objeto do Salesforce.```GET: /datasets/default/tables/{table}/items/{id}```
+Esta operação obtém um objeto.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|ID|string|sim|path|nenhum|Identificador exclusivo do objeto do Salesforce a ser recuperado|
 
-### Resposta
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto do Salesforce, como 'Lead'|
+|id*|ID do objeto|Identificador do objeto a ser obtido|
 
-|Nome|Descrição|
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+Item
+
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|ItemInternalId|string|
+
 
 
 
 ### Excluir objeto
-Exclui um objeto do Salesforce.```DELETE: /datasets/default/tables/{table}/items/{id}```
+Esta operação exclui um objeto.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|ID|string|sim|path|nenhum|Identificador exclusivo do objeto do Salesforce a excluir|
 
-### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Lead'|
+|id*|ID do objeto|Identificador do objeto a ser excluído|
+
+Um * indica que uma propriedade é obrigatória
+
 
 
 
 ### Atualizar objeto
-Atualiza um objeto do Salesforce.```PATCH: /datasets/default/tables/{table}/items/{id}```
+Esta operação atualiza um objeto.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|ID|string|sim|path|nenhum|Identificador exclusivo do objeto do Salesforce a ser atualizado|
-|item| |sim|corpo|nenhum|Objeto do Salesforce com propriedades alteradas|
 
-### Resposta
-|Nome|Descrição|
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Lead'|
+|id*|ID do objeto|Identificador do objeto a ser atualizado|
+|item*|Objeto|Objeto com propriedades alteradas|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+Item
+
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|200|OK|
-|padrão|Falha na Operação.|
+|ItemInternalId|string|
+
 
 
 
 ### Quando um objeto é criado
-Dispara um fluxo quando um objeto é criado no Salesforce.```GET: /datasets/default/tables/{table}/onnewitems```
+Esta operação dispara um fluxo quando um objeto é criado.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|$skip|inteiro|não|query|nenhum|Número de entradas a serem ignoradas (padrão = 0)|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas a serem recuperadas (padrão = 256)|
-|$filter|string|não|query|nenhum|Uma consulta de filtro ODATA para restringir o número de entradas|
-|$orderby|string|não|query|nenhum|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
 
-### Resposta
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Lead'|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir o número de entradas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+ItemsList
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+
+
+### Quando um objeto é modificado
+Esta operação dispara um fluxo quando um objeto é modificado.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|table*|Tipo de objeto|Tipo de objeto como 'Lead'|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir o número de entradas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes de saída
+
+ItemsList
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+
+
+### Obter tipos de objeto
+Esta operação lista os tipos de objeto disponíveis.
+
+
+Não há parâmetros para essa chamada
+
+#### Detalhes de saída
+
+TablesList
+
+
+| Nome da Propriedade | Tipo de Dados | 
+|---|---|
+|value|array|
+
+
+
+## Respostas HTTP
+
+As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP:
+
 |Nome|Descrição|
 |---|---|
 |200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido.|
 |padrão|Falha na Operação.|
 
 
 
-### Quando um objeto é modificado 
-Dispara um fluxo quando um objeto é modificado no Salesforce.```GET: /datasets/default/tables/{table}/onupdateditems```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|tabela|string|sim|path|nenhum|Tipo de SObject do Salesforce (exemplo: 'Lead')|
-|$skip|inteiro|não|query|nenhum|Número de entradas a serem ignoradas (padrão = 0)|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas a serem recuperadas (padrão = 256)|
-|$filter|string|não|query|nenhum|Uma consulta de filtro ODATA para restringir o número de entradas|
-|$orderby|string|não|query|nenhum|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
-
-### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-
-
-
-## Definições de objeto 
-
-#### DataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
-
-
-#### TabularDataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
-
-
-#### BlobDataSetsMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-
-
-#### TableMetadata
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|name|string|não|
-|título|string|não|
-|x-ms-permission|string|não|
-|schema|não definido|não|
-
-
-#### DataSetsList
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|value|array|não|
-
-
-#### DataSet
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|Nome|string|
-|DisplayName|string|não|
-
-
-#### Tabela
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
-
-
-#### Item
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|ItemInternalId|string|não|
-
-
-#### ItemsList
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|value|array|não|
-
-
-#### TablesList
-
-| Nome | Tipo de Dados | Obrigatório|
-|---|---|---|
-|value|array|não|
 
 
 ## Próximas etapas
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Voltar para a [Lista de APIs](apis-list.md).
-
-
-[5]: https://developer.salesforce.com
-[6]: ./media/connectors-create-api-salesforce/salesforce-developer-homepage.png
-[7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
-[8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -182,13 +182,13 @@ No **cenário de cópia de nuvem**, onde os armazenamentos de dados de origem e 
 
 ![Cópia em etapas - cenário de nuvem](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-Enquanto isso, no **cenário de cópia híbrida**, onde a origem é local e o coletor está na nuvem, a movimentação de dados do armazenamento de dados de origem para o armazenamento de dados de preparo é executada pelo **Data Management Gateway** e a movimentação de dados do armazenamento de dados de preparo para o armazenamento de dados do coletor dados de preparo é executada pelo **serviço Azure Data Factory**.
+Enquanto isso, no **cenário de cópia híbrida**, onde a origem é local e o coletor está na nuvem, a movimentação de dados do armazenamento de dados de origem para o armazenamento de dados de preparo é executada pelo **Data Management Gateway** e a movimentação de dados do armazenamento de dados de preparo para o armazenamento de dados do coletor dados de preparo é executada pelo **serviço Azure Data Factory**. Copiar dados de um repositório de dados na nuvem para um repositório de dados local por meio de preparo também é possível com o fluxo invertido.
 
 ![Cópia em etapas - cenário híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Ao habilitar a movimentação de dados usando o armazenamento de preparo, você poderá especificar se deseja que os dados a ser compactado antes de mover dados de repositório de dados de origem para o armazenamento de dados provisório/de preparo e descompactados antes da movimentação de dados do armazenamento de dados provisório/de preparo para o armazenamento de dados do coletor.
 
-A cópia de dados de um armazenamento de dados de nuvem para um armazenamento de dados local ou entre dois armazenamentos de dados locais com armazenamento de preparo não tem suporte neste ponto e deve ser habilitada em breve.
+No momento, não é permitida a cópia de dados entre dois repositórios de dados locais com repositório de preparo. Esse recurso será habilitado em breve.
 
 ### Configuração
 Você pode configurar a configuração **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados em um armazenamento de blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você define enableStaging como true, precisa especificar as propriedades adicionais listadas na tabela a seguir. E você precisa criar um Armazenamento do Azure ou o serviço vinculado SAS do Armazenamento do Azure como preparo se ainda não tiver um.
@@ -392,4 +392,4 @@ Aqui estão algumas referências de monitoramento e ajuste de desempenho para al
 - SQL Server local: [monitoramento e ajuste de desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

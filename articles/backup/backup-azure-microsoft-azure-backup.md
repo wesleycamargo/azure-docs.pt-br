@@ -14,8 +14,8 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.date="07/20/2016"
+  ms.author="jimpark;trinadhk;pullabhk;markgal"/>
 
 # Preparação para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure
 
@@ -25,26 +25,39 @@
 - [Servidor de Backup do Azure (clássico)](backup-azure-microsoft-azure-backup-classic.md)
 - [SCDPM (clássico)](backup-azure-dpm-introduction-classic.md)
 
-Este artigo é sobre a preparação do seu ambiente para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure.
+Este artigo explica como preparar seu ambiente para fazer backup das cargas de trabalho usando o Servidor de Backup do Azure. Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho de aplicativo como VMs do Hyper-V, o Microsoft SQL Server, o SharePoint Server, o Microsoft Exchange e os clientes de um único console. Você também pode proteger as informações como cargas de trabalho de um servidor (IaaS), como as VMs no Azure.
 
 > [AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
 
-Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho de aplicativo como VMs do Hyper-V, o Microsoft SQL Server, o SharePoint Server, o Microsoft Exchange e os clientes de um único console.
+O Servidor de Backup do Azure herda grande parte da funcionalidade do backup das cargas de trabalho do Data Protection Manager (DPM). Este artigo tem um link com a documentação do DPM para explicar algumas das funcionalidades compartilhadas. Entretanto, o Servidor de Backup do Azure compartilha grande parte da mesma funcionalidade do DPM. O Servidor de Backup do Azure não fazer backup em fita, nem se integra no System Center.
 
->[AZURE.WARNING] O Servidor de Backup do Azure herda a funcionalidade do Data Protection Manager (DPM) para backup de cargas de trabalho. Você encontrará ponteiros para a documentação DPM para alguns desses recursos. No entanto, o Servidor de Backup do Azure não oferece proteção em fita ou se integra ao System Center.
+## 1\. Escolher uma plataforma de instalação
 
-## 1\. Computador do Windows Server
+A primeira etapa para colocar o Servidor de Backup do Azure em execução é configurar um Windows Server. Seu servidor pode estar no Azure ou ser local.
 
-A primeira etapa para colocar o Servidor de Backup do Azure em execução é ter um computador do Windows Server.
+### Usando um servidor no Azure
 
-| Local | Requisitos mínimos | Instruções adicionais |
-| -------- | -------------------- | ----------------------- |
-| As tabelas | Máquina virtual de IaaS do Azure<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Você pode começar com uma única imagem da galeria do Windows Server 2012 R2 Datacenter. [Proteger cargas de trabalho IaaS usando o Servidor de Backup do Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) apresenta várias nuances. Certifique-se de ler o artigo na íntegra antes de implantar a máquina. |
-| Configuração local | VM do Hyper-V,<br> VM da VMWare<br> ou um host físico<br><br>2 núcleos e 4 GB de RAM | Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados em VMs do Hyper-V. |
+Ao escolher um servidor executando o Servidor de Backup do Azure, é recomendável iniciar com uma imagem da galeria do Windows Server 2012 R2 Datacenter. O artigo [Criar sua primeira máquina virtual do Windows no portal do Azure](..\virtual-machines\virtual-machines-windows-hero-tutorial.md), fornece um tutorial para começar a trabalhar com a máquina virtual recomendada no Azure, mesmo se você nunca usou o Azure antes. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: Standard A2 com 2 núcleos e 3.5 GB de RAM.
 
-> [AZURE.NOTE] É recomendável que o Servidor de Backup do Azure esteja instalado em um computador com Windows Server 2012 R2 Datacenter. Muitos dos pré-requisitos são automaticamente abrangidos pela versão mais recente do sistema operacional Windows.
+Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuanças. O artigo [Instalar o DPM como uma máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explicar essas nuanças. Leia o artigo na íntegra antes de implantar a máquina.
 
-Se você planeja associar este servidor a um domínio em algum momento, é recomendável que a atividade de ingressão no domínio seja concluída antes da instalação do Servidor de Backup do Azure. *Não há suporte* para a movimentação de um computador existente do Servidor de Backup do Azure para um novo domínio após a implantação.
+### Usando um servidor local
+
+Se você não deseja executar o servidor de base no Azure, poderá executar o servidor em uma VM do Hyper-V, uma VM do VMware ou um host físico. Os requisitos mínimos recomendados para o hardware do servidor são 2 núcleos e 4 GB de RAM. Os sistemas operacionais suportados são listados na tabela a seguir.
+
+| Sistema operacional | Plataforma | SKU |
+| :------------- |-------------| :-----|
+|Windows Server 2012 R2 e SPs mais recentes|	64 bits|	Standard, Datacenter, Foundation|
+|Windows Server 2012 e SPs mais recentes|	64 bits|	Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 e SPs mais recentes |64 bits|	Standard, Workgroup|
+|Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup|
+
+
+Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados nas VMs do Hyper-V.
+
+> [AZURE.NOTE]  Você não pode instalar o Servidor de Backup do Azure em uma máquina executada como um controlador de domínio.
+
+Se você planeja associar este servidor a um domínio em algum momento, é recomendável que a atividade de ingressão no domínio seja concluída antes da instalação do Servidor de Backup do Azure. Mover uma máquina do Servidor de Backup do Azure existente para um novo domínio após a implantação *não tem suporte*.
 
 ## 2\. Cofre dos Serviços de Recuperação
 
@@ -54,7 +67,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
+2. No menu Hub, clique em **Procurar** e na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
@@ -64,7 +77,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
 
-    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça um **Nome**, **Assinatura**, **Grupo de recursos** e **Local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
 
@@ -72,7 +85,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
 5. Clique em **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Só haverá múltiplas opções se sua conta organizacional estiver associada a várias assinaturas do Azure.
 
-6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para obter informações completas sobre Grupos de recursos, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md)
+6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para obter informações completas sobre os Grupos de recursos, consulte [Visão geral do Azure Resource Manager](../resource-group-overview.md)
 
 7. Clique em **Local** para selecionar a região geográfica do cofre.
 
@@ -80,13 +93,13 @@ Para criar um cofre dos Serviços de Recuperação:
 
 ### Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
 1. Selecione seu cofre para abrir o painel do cofre e a folha Configurações. Se a folha **Configurações** não abrir, clique em **Todas as configurações** no painel do cofre.
 
-2. Na folha **Configurações**, clique em **Infraestrutura de Backup** > **Configuração de Backup** para abrir a folha **Configuração de Backup**. Na folha **Configuração de Backup**, escolha a opção de replicação de armazenamento para seu cofre.
+2. Na folha **Configurações**, clique em **Infraestrutura do Backup** > **Configuração do Backup** para abrir a folha **Configuração do Backup**. Na folha **Configuração do Backup**, escolha a opção de replicação do armazenamento para seu cofre.
 
     ![Lista de cofres de backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -97,7 +110,7 @@ Para editar a configuração de replicação de armazenamento:
 ### Baixando o pacote de software
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a etapa 3. Se você não tiver um cofre dos Serviços de Recuperação aberto mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
+2. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a etapa 3. Se você não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
 
     - Na lista de recursos, digite **Serviços de Recuperação**.
     - Quando você começar a digitar, a lista será filtrada com base em sua entrada. Quando vir a opção **Cofres dos Serviços de Recuperação**, clique nela.
@@ -105,7 +118,7 @@ Para editar a configuração de replicação de armazenamento:
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
     A lista de cofres de Serviços de Recuperação aparecerá.
-    
+
     - Na lista de cofres de Serviços de Recuperação, selecione um cofre.
 
     O painel de cofres selecionados será aberto.
@@ -120,21 +133,21 @@ Para editar a configuração de replicação de armazenamento:
 
     ![Guia de introdução ao backup](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-5. No guia de Introdução que é aberto, a tela Objetivos de Backup será selecionada automaticamente. ![Backup-metas-padrão-aberto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+5. Na Introdução que é aberta, a tela Objetivos do Backup será selecionada automaticamente. ![Backup-metas-padrão-aberto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-    Na seção **Metas de backup**, selecione *local* para *onde a sua carga de trabalho está sendo executada*.
+    Na seção **Objetivos do backup**, selecione *local* para *onde a sua carga de trabalho está sendo executada*.
 
     ![local e cargas de trabalho como metas](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-6. Selecione as cargas de trabalho que deseja proteger com o Servidor de Backup do Azure em *quais cargas de trabalho você deseja proteger* e clique em **OK**.
+6. Selecione as cargas de trabalho que você deseja proteger usando o Servidor de Backup do Azure em *quais cargas de trabalho você deseja proteger* e clique em **OK**.
 
     > [AZURE.NOTE] Se você planeja proteger apenas arquivos e pastas, é recomendável usar o Agente de Backup do Azure. Se você planeja proteger mais cargas de trabalho do que apenas arquivos e pastas, ou se no futuro planeja expandir as necessidades de proteção, selecione todas as cargas de trabalho.
 
     Isso irá alterar o Assistente de Introdução para preparar a infraestrutura para proteger as cargas de trabalho no local ou no Azure.
 
     ![Guia de Introdução do assistente para alterar](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
-  
-7. Na folha **Preparar infraestrutura** que é aberta, clique em **Baixar o Servidor de Backup do Azure** e nas Credenciais do cofre que você usará durante o registro do Servidor de Backup do Azure no cofre dos Serviços de Recuperação. Isso levará você até a página do Centro de Download, de onde o pacote de software pode ser baixado.
+
+7. Na folha **Preparar infraestrutura** que é aberta, clique nos links de **Download** para instalar o Servidor de Backup do Azure e baixar as credenciais do cofre. Você usa as credenciais do cofre durante o registro do Servidor de Backup do Azure para o cofre dos serviços de recuperação. Os links levam você para o Centro de Download, onde o pacote de software pode ser baixado.
 
     ![Preparar a infraestrutura para o Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -162,7 +175,7 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 
     ![Assistente de Instalação do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. Na tela de Boas-vindas, clique no botão **Avançar**. Isso o levará à seção *Verificações de pré-requisitos*. Nessa tela, clique no botão **Verificar** para determinar se os pré-requisitos de hardware e de software do Servidor de Backup do Azure foram atendidos. Se todos os pré-requisitos tiverem sido atendidos com êxito, você verá uma mensagem indicando que o computador atende aos requisitos. Clique no botão **Avançar**.
+2. Na tela de Boas-Vindas, clique no botão **Avançar**. Isso o levará à seção *Verificações de Pré-Requisitos*. Nessa tela, clique no botão **Verificar** para determinar se os pré-requisitos de hardware e software do Servidor de Backup do Azure foram atendidos. Se todos os pré-requisitos tiverem sido atendidos com êxito, você verá uma mensagem indicando que o computador atende aos requisitos. Clique no botão **Avançar**.
 
     ![Servidor de Backup do Azure - Boas-vindas e Verificação de pré-requisitos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
@@ -211,13 +224,13 @@ Quando a etapa de instalação for concluída, os ícones da área de trabalho d
 
 A primeira cópia de backup é mantida no armazenamento anexado ao computador do Servidor de Backup do Azure. Para saber mais sobre a adição de discos, consulte [Configurar os pools de armazenamento e o armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
 
-> [AZURE.NOTE] Você precisará adicionar armazenamento de backup mesmo se planejar enviar dados para o Azure. Na arquitetura atual do Servidor de Backup do Azure, o Cofre do Backup do Azure mantém a *segunda* cópia dos dados, enquanto o armazenamento local mantém a primeira (e obrigatória) cópia de backup.
+> [AZURE.NOTE] Você precisará adicionar armazenamento de backup mesmo se planejar enviar dados para o Azure. Na arquitetura atual do Servidor de Backup do Azure, o cofre do Backup do Azure mantém a *segunda* cópia dos dados, enquanto o armazenamento local mantém a primeira (e obrigatória) cópia de backup.
 
 ## 4\. Conectividade de rede
 
 O Servidor de Backup do Azure requer conectividade com o serviço de Backup Azure para que o produto funcione com êxito. Para validar se o computador tem conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do PowerShell do Servidor de Backup do Azure. Se a saída do cmdlet for TRUE, existe conectividade; caso contrário, não existe nenhuma conectividade.
 
-Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para descobrir o estado da sua assinatura e para gerenciá-la, faça logon no [portal da assinatura](https://account.windowsazure.com/Subscriptions).
+Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para descobrir o estado de sua assinatura e gerenciá-la, faça logon no [portal da assinatura](https://account.windowsazure.com/Subscriptions).
 
 Quando você souber o estado da conectividade do Azure e da assinatura do Azure, poderá usar a tabela abaixo para descobrir o impacto sobre a funcionalidade de backup/restauração oferecida.
 
@@ -245,7 +258,7 @@ Depois que a conectividade com o Azure tiver sido restaurada para o computador d
 
 É possível fazer uma assinatura do Azure passar de um estado *Expirado* ou *Desprovisionado* para o estado *Ativo*. No entanto, isso terá algumas implicações no comportamento do produto enquanto o estado não for *Ativo*:
 
-- Uma assinatura *Desprovisionada* perderá a funcionalidade pelo período em que estiver desprovisionada. Ao se tornar *Ativa*, a funcionalidade de backup/restauração do produto será reativada. Os dados de backup no disco local também poderão ser recuperados caso tenham sido mantidos por um período de retenção suficientemente grande. No entanto, os dados de backup do Azure serão irremediavelmente perdidos depois que a assinatura entrar no estado *Desprovisionado*.
+- Uma assinatura *Desprovisionada* perderá a funcionalidade durante o período em que estiver desprovisionada. Ao se tornar *Ativa*, a funcionalidade de backup/restauração do produto será reativada. Os dados de backup no disco local também poderão ser recuperados caso tenham sido mantidos por um período de retenção suficientemente grande. No entanto, os dados de backup no Azure serão irremediavelmente perdidos depois da assinatura entrar no estado *Desprovisionado*.
 - Uma assinatura *Expirada* só perderá a funcionalidade até ficar *Ativa* novamente. Nenhum backup agendado para o período em que a assinatura estiver *Expirada* será executado.
 
 
@@ -256,7 +269,7 @@ Se o servidor do Microsoft Azure Backup falhar com erros durante a fase de insta
 
 ## Próximas etapas
 
-É possível obter informações detalhadas sobre como [preparar o seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado.
+É possível obter informações detalhadas sobre como [preparar seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte, nas quais o Servidor de Backup do Azure pode ser implantado e usado.
 
 Você pode usar estes artigos para obter um entendimento mais profundo sobre a proteção da carga de trabalho usando o servidor de Backup do Microsoft Azure.
 
@@ -264,4 +277,4 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 - [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 - [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

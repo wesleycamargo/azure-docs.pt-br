@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -42,7 +42,7 @@ O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 
 ### Gatilho
 - Iniciar o designer de fluxo de Aplicativos Lógicos do Azure
-- Clique no conector do Edifact no painel à direita:  
+- Clique no Conector do Edifact no painel à direita:  
 ![Configurações do gatilho][3]
 - Clique em ->:  
 ![Opções do gatilho][4]
@@ -53,13 +53,13 @@ O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 - Como parte da saída, o conector retorna a carga útil do Edifact, o id do contrato, bem como informações sobre se a mensagem é feita em lotes ou não.
 
 ### Ação
-- Clique no conector do Edifact no painel à direita:  
+- Clique no Conector do Edifact no painel à direita: 
 ![Configurações de ação][7]
-- Clique em ->:  
+- Clique em ->: 
 ![Lista de ações][8]
-- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*:  
+- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*: 
 ![Codificar entrada][9]
-- Fornecer as entradas para a ação e configurá-la:  
+- Fornecer as entradas para a ação e configurá-la: 
 ![Codificação configurada][10]
 
 	Parâmetro|Tipo|Descrição do parâmetro
@@ -100,4 +100,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

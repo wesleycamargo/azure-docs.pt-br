@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Trocar a assinatura do Azure por outra oferta | Microsoft Azure"
-	description="Descreve como um assinante do Azure pode trocar para uma oferta do Azure diferente"
+	description="Saiba mais sobre como alterar sua assinatura do Azure e troque por uma oferta do Azure diferente usando o portal de gerenciamento de assinaturas"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/21/2016"
 	ms.author="genli"/>
 
 # Trocar a assinatura do Azure por outra oferta
@@ -24,12 +24,12 @@ Você pode alterar sua assinatura existente para uma oferta mais favorável sem 
 -	Se você achar que tem um gasto muito alto no Azure, poderá estar qualificado para um desconto ao trocar para a oferta de compromisso monetário. Clique [aqui](billing-usage-rate-card-overview.md) para saber mais sobre como obter informações sobre o consumo de recursos do Microsoft Azure.
 -	Se você quiser aproveitar os benefícios da associação, como o MSDN ou o BizSpark, após sua inscrição em uma assinatura Pré-paga.
 
-## Como trocar sua assinatura por outra oferta
+## Guia para trocar sua assinatura por outra oferta
 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions).
-2.	Selecione a assinatura para transferir.
+2.	Selecione a assinatura para alterar.
 3.	Clique em **Alterar para outra oferta**.
 
 	![switchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
@@ -48,7 +48,7 @@ Você pode alterar sua assinatura existente para uma oferta mais favorável sem 
 
 **Para quais trocas de oferta vocês oferecem suporte?**
 
-Confira [Ofertas disponíveis paras as quais você pode trocar](#available-offers-you-can-switch-to).
+Consulte a lista de [ofertas disponíveis para as quais você pode trocar](#available-offers-you-can-switch-to).
 
 **A troca de ofertas afeta meu serviço de alguma forma?**
 
@@ -66,13 +66,15 @@ No dia da alteração, será gerada uma fatura para todos os encargos pendentes.
 
 **Posso usar esse mecanismo para migrar da Web direto para o CSP ([Provedor de Soluções na Nuvem](https://partner.microsoft.com/Solutions/cloud-reseller-overview)) ou para uma oferta de EA ([Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/))?**
 
-Esse mecanismo pode ser usado para trocar somente de e para ofertas Web Direct. Para mover sua assinatura existente para o EA, peça ao seu administrador de inscrições para adicionar sua conta ao EA. Depois disso, você receberá um email de convite. Ao seguir as instruções para aceitar o convite, as assinaturas serão automaticamente movidas para o Enterprise Agreement. Atualmente, não há uma opção para mover uma assinatura Web Direct existente para o CSP.
+Esse mecanismo pode ser usado para trocar somente de e para as ofertas Web Direct. Para mover sua assinatura existente para o EA, peça ao seu administrador de inscrições para adicionar sua conta ao EA. Depois disso, você receberá um email de convite. Ao seguir as instruções para aceitar o convite, as assinaturas serão automaticamente movidas para o Enterprise Agreement. Atualmente, não há uma opção para mover uma assinatura Web Direct existente para o CSP.
 
 ## Ofertas disponíveis paras as quais você pode trocar
 
-Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Este artigo será atualizado conforme adicionarmos mais opções. Para outras alterações de oferta, [entre em contato com o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
+Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Este artigo será atualizado conforme adicionarmos mais opções.
 
--	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para a [Oferta de 12 Meses de Pagamento Antecipado](https://azure.microsoft.com/offers/ms-azr-0026p/)
--	[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para todas as [ofertas mensais de Crédito Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+-	[Pré-Pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para a [Oferta Pré-Paga de 12 Meses](https://azure.microsoft.com/offers/ms-azr-0026p/)
+-	[Pré-Pago](https://azure.microsoft.com/offers/ms-azr-0003p/) para todas as [ofertas mensais de Crédito do Azure para os assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0720_2016-->
+Para obter outras alterações da oferta, [contate o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+<!---HONumber=AcomDC_0727_2016-->

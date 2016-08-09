@@ -62,13 +62,13 @@ Alterne para o modo PowerShell para usar os cmdlets do Gerenciador de Recursos d
 
 ### Etapa 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 ### Etapa 2
 
 Verificar as assinaturas da conta.
 
-		PS C:\> get-AzureRmSubscription
+		get-AzureRmSubscription
 
 Você deverá se autenticar com suas credenciais.<BR>
 
@@ -77,7 +77,7 @@ Você deverá se autenticar com suas credenciais.<BR>
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Etapa 4
@@ -237,4 +237,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

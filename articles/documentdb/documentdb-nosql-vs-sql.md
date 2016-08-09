@@ -108,7 +108,7 @@ A Microsoft tem cinco ofertas de SQL:
 - [Azure SQL Data Warehouse (visualização)](https://azure.microsoft.com/services/sql-data-warehouse/)
 - [Analytics Platform System (dispositivo local)](https://www.microsoft.com/pt-BR/server-cloud/products/analytics-platform-system/)
 
-Se você estiver interessado no SQL Server em uma Máquina Virtual ou em um Banco de Dados SQL, leia [Escolher uma opção do SQL Server de nuvem: Banco de Dados SQL do Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md) para saber mais sobre as diferenças entre os dois.
+Se você estiver interessado no SQL Server em uma Máquina Virtual ou em um Banco de Dados SQL, leia [Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) para saber mais sobre as diferenças entre os dois.
 
 Se o SQL parece ser a melhor opção, vá para [SQL Server](https://www.microsoft.com/server-cloud/products/) para saber mais sobre o que nossos produtos e serviços Microsoft SQL têm a oferecer.
 
@@ -130,4 +130,4 @@ Convidamos você a saber mais sobre nossos produtos SQL e NoSQL experimentando-o
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [SQL Server nas Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

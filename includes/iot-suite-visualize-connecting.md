@@ -36,10 +36,13 @@ O painel da solução de monitoramento remoto permite que você envie comandos p
 
 O artigo [Personalizando soluções pré-configuradas][lnk-customize] descreve algumas maneiras de estender este exemplo. Extensões possíveis incluem usar sensores reais e implementar comandos adicionais.
 
+Você pode aprender mais sobre as [permissões no site azureiotsuite.com][lnk-permissions].
+
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

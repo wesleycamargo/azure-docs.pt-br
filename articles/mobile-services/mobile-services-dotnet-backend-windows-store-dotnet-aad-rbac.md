@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis usando o JavaScript e o Active Directory do Azure
@@ -32,7 +32,7 @@ O controle de acesso baseado em função (RBAC) é a prática de atribuir permis
 Este tutorial demonstrará o controle de acesso baseado em função, verificando cada associação de usuário ao grupo de Vendas definido no Active Directory do Azure (AAD). A verificação de acesso será feita com o back-end de Serviço Móvel .NET usando a [Graph REST API] para o Azure Active Directory. Somente usuários que pertencem ao grupo de Vendas terão permissão para consultar os dados.
 
 
->[AZURE.NOTE]O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. É esperado que você conclua primeiro o tutorial [Adicionar Autenticação ao aplicativo] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Adicionar Autenticação ao aplicativo].
+>[AZURE.NOTE] O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. É esperado que você conclua primeiro o tutorial [Adicionar Autenticação ao aplicativo] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Adicionar Autenticação ao aplicativo].
 
 ##Pré-requisitos
 
@@ -179,12 +179,12 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 
 9. No AuthorizeAadRole.cs, atualize o método `GetAADToken` na classe `AuthorizeAadRole` com o seguinte código. Este método usa as configurações de aplicativo armazenadas no serviço móvel para obter um token de acesso para o AAD do ADAL.
 
-    >[AZURE.NOTE]O ADAL para .NET inclui um cache de token na memória por padrão para ajudar a minimizar o tráfego de rede adicional no seu Active Directory. No entanto, você pode escrever sua própria implementação de cache ou desabilitar totalmente o cache. Para saber mais, consulte [ADAL para .NET].
+    >[AZURE.NOTE] O ADAL para .NET inclui um cache de token na memória por padrão para ajudar a minimizar o tráfego de rede adicional no seu Active Directory. No entanto, você pode escrever sua própria implementação de cache ou desabilitar totalmente o cache. Para saber mais, consulte [ADAL para .NET].
 
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
         {
-            // Try to get the required AAD authentication app settings from the mobile service.  
+            // Try to get the required AAD authentication app settings from the mobile service.
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
                   services.Settings.TryGetValue("AAD_CLIENT_KEY", out clientkey) &
                   services.Settings.TryGetValue("AAD_TENANT_DOMAIN", out tenantdomain)))
@@ -245,7 +245,7 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 
 11. No AuthorizeAadRole.cs, atualize o método `OnAuthorization` na classe `AuthorizeAadRole` com o seguinte código. Esse código espera que o usuário que chame o Serviço Móvel tenha se autenticado no AAD. Ele obtém a id de objeto do AAD do usuário e verifica a associação de grupo do Active Directory que corresponde à função.
 
-    >[AZURE.NOTE]É possível pesquisar o grupo do Active Directory por nome. No entanto, em muitos casos a melhor prática é armazenar a id do grupo como uma configuração de aplicativo do serviço móvel. Isso porque o nome do grupo pode mudar, mas a ID permanece a mesma.
+    >[AZURE.NOTE] É possível pesquisar o grupo do Active Directory por nome. No entanto, em muitos casos a melhor prática é armazenar a id do grupo como uma configuração de aplicativo do serviço móvel. Isso porque o nome do grupo pode mudar, mas a ID permanece a mesma.
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -393,4 +393,4 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

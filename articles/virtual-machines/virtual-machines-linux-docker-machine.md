@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/22/2016"
 	ms.author="rasquill"/>
 
 # Usar o computador Docker com o driver do Azure
@@ -130,4 +130,6 @@ E verifique o contêiner em execução, digite `docker-machine ip <VM name>` par
 
 Se estiver interessado, você poderá experimentar a [extensão de VM do Docker](virtual-machines-linux-dockerextension.md) do Azure para fazer a mesma operação usando a CLI do Azure ou os modelos do Azure Resource Manager.
 
-<!---HONumber=AcomDC_0427_2016-->
+Para ver mais exemplos de trabalho com o Docker, consulte [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Trabalhando com o Docker) na [demonstração](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) do [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) no Connect 2015. Para ver mais guias de início rápido da demonstração do HealthClinic.biz, consulte [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guias de início rápido das ferramentas de desenvolvedor do Azure).
+
+<!---HONumber=AcomDC_0727_2016-->

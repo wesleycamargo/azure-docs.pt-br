@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Analisar dados de atraso de voo usando o Hadoop no HDInsight
@@ -236,9 +236,9 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial
 
 3. Use o comando a seguir para exportar dados de hivesampletable para a tabela mobiledata:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados que contém a tabela de atrasos e a exportar os dados do wasb:///tutorials/flightdelays/output (onde armazenamos a saída da consulta do hive) para a tabela de atrasos.
+	Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados que contém a tabela de atrasos e a exportar os dados do wasbs:///tutorials/flightdelays/output (onde armazenamos a saída da consulta de hive) para a tabela de atrasos.
 
 4. Depois de concluir o comando, use o seguinte para se conectar ao banco de dados usando TSQL:
 
@@ -291,4 +291,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

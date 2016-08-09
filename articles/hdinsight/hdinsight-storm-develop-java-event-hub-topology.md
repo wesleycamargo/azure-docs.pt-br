@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
@@ -390,7 +390,7 @@ O jar criado por este projeto contém duas topologias; __com.microsoft.example.E
 
 7. No __Console de Consulta__, selecione __Editor do Hive__ e substitua o `select * from hivesampletable` padrão pelo seguinte:
 
-        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
+        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
 
     Clique em __Selecionar__ para executar a consulta. Isso retornará 10 linhas dos dados gravados no Armazenamento do Azure (WASB) pelo EventHubReader. Assim que a consulta for concluída, você deverá ver dados semelhantes aos seguintes:
@@ -453,4 +453,4 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # Usando sincronização de dados offline em Serviços Móveis
@@ -46,7 +46,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Este tutorial exige o seguinte:
 
-* Visual Studio com Xamarin. Veja [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Configuração e instalação para Visual Studio e Xamarin). 
+* Visual Studio com Xamarin. Veja [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Configuração e instalação para Visual Studio e Xamarin).
 * Um Mac com Xcode v7.0 ou posterior e o Xamarin Studio Community instalados. Veja [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Configuração, instalação e verificações para usuários do Mac) (MSDN).
 * Conclusão do tutorial [Introdução aos Serviços Móveis].
 
@@ -184,4 +184,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [Exclusão Reversível]: mobile-services-using-soft-delete.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Migrar do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights" 
-	description="Movemos os seus testes clássicos de monitoramento de ponto de extremidade do Azure para os testes de disponibilidade do Application Insights. Vamos alternar para eles em 4 de abril de 2016."
+	description="Estamos movendo os seus testes clássicos de monitoramento de ponto de extremidade do Azure para os testes de disponibilidade do Application Insights. Esperamos movê-los durante a semana de 22 de agosto de 2016."
 	services="application-insights" 
     documentationCenter=""
 	authors="soubhagyadash" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
  
 # Mudando do monitoramento do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights
 
-Você usa o [Monitoramento de ponto de extremidade](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para seus aplicativos Web do Azure? Em 4 de abril de 2016, substituiremos esse recurso pelos novos e mais avançados [Testes de disponibilidade](app-insights-monitor-web-app-availability.md). Os testes já foram criados, mas permanecerão desabilitados até 4 de abril.
+Você usa o [Monitoramento de ponto de extremidade](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para seus aplicativos do Azure? Durante a semana de 22 de agosto de 2016, substituiremos esse recurso pelos novos e mais avançados [Testes de disponibilidade](app-insights-monitor-web-app-availability.md). Já criamos alguns dos novos testes, mas eles permanecerão desabilitados até 22 de agosto de 2016.
 
 É possível editar os novos testes e fazer a modificação você mesmo, se quiser. Você pode encontrá-los no grupo de recursos Default-ApplicationInsights-CentralUS no [portal do Azure](https://portal.azure.com).
 
@@ -28,10 +28,10 @@ Os testes de disponibilidade são um recurso do Azure que verifica continuamente
 
 No [Portal clássico do Azure](https://manage.windowsazure.com), esses testes eram chamados de Monitoramento de Ponto de Extremidade. O escopo deles era mais limitado. Os novos testes de disponibilidade apresentam uma melhoria significativa:
 
-* Até 10 testes na Web do Visual Studio ou testes de ping por recurso do Application Insights. 
-* Até 16 locais no mundo todo para enviar solicitações de teste ao seu aplicativo Web. Maior controle dos critérios de sucesso de testes. 
+* Até 10 testes na Web do Visual Studio ou testes de ping por recurso do Application Insights.
+* Até 16 locais no mundo todo para enviar solicitações de teste ao seu aplicativo Web. Maior controle dos critérios de sucesso de testes.
 * Teste de qualquer serviço ou site da Web - não apenas aplicativos Web do Azure.
-* Repetições de teste: redução de alertas de falsos positivos devido a problemas de rede temporários. 
+* Repetições de teste: redução de alertas de falsos positivos devido a problemas de rede temporários.
 * Os webhooks podem receber notificações de HTTP POST para os alertas.
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/16-1test.png)
@@ -44,7 +44,7 @@ Os testes de disponibilidade fazem parte do [Visual Studio Application Insights]
 
 ## O que está acontecendo com meus testes de ponto de extremidade?
 
-* Copiamos seus testes de monitoramento de ponto de extremidade para os novos testes de disponibilidade do Application Insights. Nós os copiamos em 4 de março de 2016 e, portanto, seus testes de Ponto de Extremidade criados desde então não serão copiados.
+* Copiamos seus testes de monitoramento de ponto de extremidade para os novos testes de disponibilidade do Application Insights.
 * Os novos testes de disponibilidade estão desabilitados no momento e os testes de Ponto de Extremidade antigos ainda estão funcionando.
 * As regras de alertas *não* foram migradas. Os novos testes, inicialmente, foram configurados com uma regra padrão:
  * Dispara quando mais de um local relata falhas em cinco minutos.
@@ -54,29 +54,29 @@ No [portal do Azure](https://portal.azure.com), você pode encontrar os testes m
 
 ## O que preciso fazer?
 
-* Se você tiver criado os testes herdados após 4 de março de 2016 (ou se nós não os tivermos migrado de alguma forma), os novos testes de disponibilidade serão [fáceis de configurar](app-insights-monitor-web-app-availability.md).
+* Se de alguma maneira não migramos seus testes, os novos testes de disponibilidade são [fáceis de configurar](app-insights-monitor-web-app-availability.md).
 
 ### Opção A: não fazer nada. Deixe conosco.
 
-**Em 4 de abril,** nós vamos:
+**Durante a semana de 22 de agosto de 2016**, iremos:
 
 * Desabilitar os testes de ponto de extremidade antigos.
 * Habilitar os testes de disponibilidade migrados.
 
 ### Opção B: você gerencia e/ou habilita os novos testes.
 
-* Examine e edite os novos testes de disponibilidade no novo [portal do Azure](https://portal.azure.com). 
+* Examine e edite os novos testes de disponibilidade no novo [portal do Azure](https://portal.azure.com).
  * Examine os critérios de disparo
  * Examine os destinatários de email
 * Habilite os novos testes
-* Exclua os testes de ponto de extremidade antigos [no portal clássico](https://manage.windowsazure.com). Isso é aconselhável para evitar alertas duplicados e reduzir a carga do tráfego de teste no seu site. Caso contrário, nos os excluiremos em 4 de abril de 2016.
+* Exclua os testes de ponto de extremidade antigos [no portal clássico](https://manage.windowsazure.com). Isso é aconselhável para evitar alertas duplicados e reduzir a carga do tráfego de teste no seu site. Caso contrário, nós os excluiremos em 22 de agosto de 2016.
 
 
 ### Opção C: recusar
 
 Se você não quer usar os testes de disponibilidade, é possível excluí-los no [portal do Azure](https://portal.azure.com). Também há um link Cancelar assinatura no fim dos emails de notificação.
 
-Mesmo assim, excluiremos os testes de ponto de extremidade antigos em 4 de abril.
+Mesmo assim, excluiremos os testes de ponto de extremidade antigos em 22 de agosto de 2016.
 
 ## Como edito os novos testes?
 
@@ -116,12 +116,12 @@ São preservados dos seus testes antigos de ponto de extremidade:
 * A URL de ponto de extremidade a ser testada.
 * Os locais geográficos dos quais as solicitações são enviadas.
 * A frequência do teste permanece por 5 minutos.
-* O tempo limite do teste permanece por 30 segundos. 
+* O tempo limite do teste permanece por 30 segundos.
 
 Não migrados:
 
 * Regra de gatilho de alerta. A regra que configuramos é disparada quando um local relata falhas em cinco minutos.
-* Os destinatários do alerta. Os emails de notificação serão enviados aos proprietários e aos coproprietários da assinatura. 
+* Os destinatários do alerta. Os emails de notificação serão enviados aos proprietários e aos coproprietários da assinatura.
 
 ## Como encontro os novos testes?
 
@@ -137,4 +137,4 @@ A Opção A será aplicada. Vamos habilitar os testes migrados e configurar as r
 
 Agradecemos os seus comentários. [Envie-nos um email](mailto:vsai@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

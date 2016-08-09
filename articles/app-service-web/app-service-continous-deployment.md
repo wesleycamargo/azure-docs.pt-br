@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Implantação contínua no Serviço de Aplicativo do Azure
@@ -52,7 +52,7 @@ Enviar uma solução do Visual Studio por push para o Serviço de Aplicativo do 
 
 As etapas para enviar sua solução do Visual Studio para o Serviço de Aplicativo são as mesmas que na [seção anterior](#overview), considerando que você configurou sua solução e o repositório da seguinte maneira:
 
--	Use a opção de controle do código-fonte do Visual Studio para gerar um arquivo `.gitignore`, como na imagem abaixo, ou adicione manualmente um arquivo `.gitignore` à raiz de seu repositório com um conteúdo semelhante a este [exemplo de .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
+-	Use a opção de controle do código-fonte do Visual Studio para gerar um arquivo `.gitignore`, como na imagem abaixo, ou adicione manualmente um arquivo `.gitignore` à raiz de seu repositório com um conteúdo semelhante a este [exemplo de .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -72,6 +72,7 @@ Para desabilitar a implantação contínua,
 
 ## Recursos adicionais
 
+* [Como investigar problemas comuns com implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Como usar o PowerShell para o Azure]
 * [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]
 * [Documentação do Git]
@@ -79,7 +80,7 @@ Para desabilitar a implantação contínua,
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-[Serviço de Aplicativo do Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[Serviço de Aplicativo do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/app-service-changes-existing-services/
 [Portal do Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/pt-BR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -92,4 +93,4 @@ Para desabilitar a implantação contínua,
 [Introdução ao VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

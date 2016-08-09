@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta | Microsoft Azure"
 	description="Use estas instruções para ajudá-lo a concluir a configuração com a rotação de chaves e o monitoramento de logs do Cofre de Chaves"
-	services="key-vault, automation,app-service\logic"
+	services="key-vault"
 	documentationCenter=""
 	authors="swgriffith"
 	manager=""
@@ -424,4 +424,4 @@ Para a ação, escolha _Office 365 - send email (Office 365 – enviar email)_. 
 
 Neste ponto, você tem um pipeline de ponta a ponta que, uma vez por minuto, procurará novos logs de auditoria do Cofre de Chaves. Todos os novos logs que encontrar, ele enviará por push para uma Fila de Barramento de Serviço. O aplicativo lógico será disparado assim que uma nova mensagem chegar à fila e, se o appid dentro do evento não corresponder à ID do aplicativo da chamada, enviará um email.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

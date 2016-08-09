@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Armazenar o código de seu projeto de serviço móvel no controle do código-fonte
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [Back-end do .NET](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Back-end do Javascript](mobile-services-store-scripts-source-control.md)
 
 Este tópico mostra como usar o controle de origem fornecido pelos Serviços Móveis do Azure para armazenar o seu projeto de serviço de back-end do .NET. Seu projeto pode ser publicado simplesmente carregando do repositório Git local para o seu serviço móvel de produção.
 
@@ -37,12 +37,12 @@ Para concluir este tutorial, você já deve ter criado um serviço móvel conclu
 
 ##<a name="clone-repo"></a>Instalar o Git e criar o repositório local
 
-1. Instale o Git no seu computador local. 
+1. Instale o Git no seu computador local.
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
 	> [AZURE.NOTE]
-	> Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
+	Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
 2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
@@ -65,18 +65,18 @@ Agora que você criou seu repositório local, você pode publicar seu projeto de
 
 ##<a name="deploy-scripts"></a>Publicar seu projeto usando o Git
 
-1. Crie um novo projeto de serviço móvel de back-end do .NET no Visual Studio 2013 ou mova um projeto existente para o novo repositório local.  
+1. Crie um novo projeto de serviço móvel de back-end do .NET no Visual Studio 2013 ou mova um projeto existente para o novo repositório local.
 
 	Para um teste rápido, baixe e salve o projeto quickstart de Serviços Móveis para essa pasta.
 
 2. Remova quaisquer pastas de pacote NuGet, deixando o arquivo packages.config.
 
 	Os Serviços Móveis irão automaticamente restaurar seus pacotes do NuGet com base no arquivo packages.confign. Você também pode definir um arquivo. gitignore para evitar que os diretórios de pacote sejam adicionados.
- 
+
 3. No prompt de comando do Git, digite o comando a seguir para iniciar o acompanhamento do novo arquivo de script:
 
 		$ git add .
-	
+
 4. Digite o comando a seguir para confirmar as alterações:
 
 		$ git commit -m "adding the .NET backend service project"
@@ -84,7 +84,7 @@ Agora que você criou seu repositório local, você pode publicar seu projeto de
 5. Digite o seguinte comando para carregar as alterações para o repositório remoto e fornecer suas credenciais:
 
 		$ git push origin master
-	
+
 	Você deve ver uma série de comandos que indica que o projeto foi implantado para os Serviços Móveis, que os pacotes foram adicionados e o serviço foi reiniciado.
 
 6. Navegue até a URL do seu serviço móvel de back-end do .NET e você verá o seguinte:
@@ -104,4 +104,4 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

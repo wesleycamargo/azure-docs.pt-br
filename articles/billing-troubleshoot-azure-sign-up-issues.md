@@ -81,4 +81,4 @@ Você já usou uma assinatura do Azure anteriormente? O Contrato de Termos de Us
 Sugestões:
 - Se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere a compra de uma assinatura pré-paga. Você também pode estar qualificado para uma oferta de benefício. Saiba mais na [página de detalhes de oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure. Observe que os planos de benefícios exigem pré-requisitos específicos.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,6 +24,9 @@ Conectores de aplicativos lógicos compatíveis permitem que você configure a c
 
 * É necessário usar um endereço de email corporativo ou de estudante no Azure para associar o gateway de dados local com sua conta (conta do Azure Active Directory)
     * Se estiver usando uma Conta da Microsoft (por exemplo, @outlook.com, @live.com), você poderá usar sua conta do Azure para criar um endereço de email corporativo ou de estudante [seguindo estas etapas](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+
+> [AZURE.WARNING] No momento, há uma limitação em que a instalação do gateway só será concluída quando usando uma conta que tenha sido registrada com o Power BI. Enquanto isso, registre qualquer conta com "Power BI Gratuito" para concluir a instalação.
+
 * É necessário ter o gateway de dados local [instalado em um computador local](app-service-logic-gateway-install.md).
 * O gateway não deve ter sido declarado por outro gateway de dados local do Azure ([a declaração ocorre com a criação da etapa 2 abaixo](#2-create-an-azure-on-premises-data-gateway-resource)) - uma instalação só pode ser associada a um recurso de gateway.
 
@@ -67,4 +70,4 @@ A conexão deve ter sido configurada com êxito para uso em seu aplicativo lógi
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight
@@ -226,25 +226,25 @@ Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só
 
 1. No prompt, digite o seguinte. Substitua __SASCONTAINER__ pelo nome do contêiner criado para a conta de armazenamento SAS. Substitua __SASACCOUNTNAME__ pelo nome da conta de armazenamento usada para a SAS:
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     Isso listará o conteúdo do contêiner, que deve incluir o arquivo carregado quando o contêiner e a SAS foram criados.
     
 2. Use o seguinte para verificar se você pode ler o conteúdo do arquivo. Substitua __SASCONTAINER__ e __SASACCOUNTNAME__ como na etapa anterior. Substitua __FILENAME__ pelo nome do arquivo exibido no comando anterior:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     Isso listará o conteúdo do arquivo.
     
 3. Use o seguinte para baixar o arquivo para o sistema de arquivos local:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     Isso baixará o arquivo para um arquivo local chamado __testfile.txt__.
 
 4. Use o seguinte para carregar o arquivo local para um novo arquivo chamado __testupload.txt__ no armazenamento SAS:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     Você receberá uma mensagem semelhante à seguinte:
     
@@ -252,7 +252,7 @@ Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só
         
     Esse erro só ocorrerá porque o local do armazenamento é somente leitura+lista. Use o seguinte para colocar os dados no armazenamento padrão do cluster, que pode ser gravável:
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     Dessa vez, a operação deverá ser concluída com êxito.
     
@@ -290,4 +290,4 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

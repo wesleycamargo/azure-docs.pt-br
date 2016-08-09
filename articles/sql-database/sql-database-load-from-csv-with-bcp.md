@@ -3,7 +3,7 @@
    description="Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -127,4 +127,4 @@ Para migrar um banco de dados do SQL Server, confira [Migração de banco de dad
 <!--Other Web references-->
 [Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

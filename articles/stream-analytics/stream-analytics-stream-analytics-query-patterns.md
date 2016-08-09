@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Exemplos de consulta para padrões de uso comuns do Stream Analytics | Microsoft Azure"
-	description="Padrões de consulta comuns do Stream Analytics"
+	description="Padrões de consulta comuns do Stream Analytics "
 	keywords="exemplos de consulta"
 	services="stream-analytics"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/13/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -514,4 +514,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

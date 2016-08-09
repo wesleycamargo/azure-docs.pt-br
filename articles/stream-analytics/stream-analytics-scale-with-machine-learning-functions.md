@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -119,7 +119,7 @@ Para resumir os principais pontos, para dimensionar um trabalho do Stream Analyt
 2.  A latência tolerada para execução do trabalho do Stream Analytics (e, portanto, o tamanho do lote das solicitações de serviço Web do Aprendizado de Máquina)
 3.  As SUs do Stream Analytics provisionadas e o número de solicitações de serviço Web do Aprendizado de Máquina (os custos adicionais relacionados à função)
 
-Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Se for necessário ter uma consulta mais complexa, o [Fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics) é um excelente recurso para obter mais ajuda da equipe do Stream Analytics.
+Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Caso seja necessária uma consulta mais complexa, o [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics) é um excelente recurso para obter mais ajuda da equipe do Stream Analytics.
 
 ## Próximas etapas
 
@@ -130,4 +130,4 @@ Para saber mais sobre o Stream Analytics, confira:
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

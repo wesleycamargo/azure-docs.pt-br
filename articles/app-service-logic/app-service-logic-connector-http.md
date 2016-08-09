@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usando o Ouvinte e o Conector HTTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+   pageTitle="Usando o Ouvinte e o Conector HTTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure "
    description="Como criar e configurar o ouvinte HTTP e o Conector de ação HTTP ou o aplicativo de API e usá-los em um aplicativo lógico no Serviço de Aplicativo do Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -89,4 +89,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

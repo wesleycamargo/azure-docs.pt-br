@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # O que são as imagens de modelo do RemoteApp do Azure?
@@ -61,7 +61,7 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- OneDrive for Business (Observe que o agente de sincronização não é suportado para o uso com o Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +94,7 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- OneDrive for Business (Observe que o agente de sincronização não é suportado para o uso com o Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
@@ -104,4 +104,4 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 
 > [AZURE.IMPORTANT]**Informações legais:** esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o RemoteApp do Azure](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

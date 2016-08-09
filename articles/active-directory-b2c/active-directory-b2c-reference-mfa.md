@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do Active Directory B2C do Azure: Multi-Factor Authentication | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: autenticação multifator | Microsoft Azure"
 	description="Como habilitar o Multi-Factor Authentication em aplicativos voltados para o consumidor protegidos pelo Active Directory B2C do Azure"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Visualização do Azure Active Directory B2C: habilitar a Multi-Factor Authentication nos seus aplicativos voltados para o consumidor
+# Azure Active Directory B2C: habilitar a Multi-Factor Authentication nos seus aplicativos voltados para o consumidor
 
 O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Multi-Factor Authentication.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
 A Multi-Factor Authentication também pode ser habilitada durante a criação de políticas de credenciais e de entrada, não apenas na edição de políticas existentes.
@@ -32,7 +30,7 @@ Esse recurso ajuda os aplicativos a lidarem com cenários como os seguintes:
 
 ## Modificar a política de inscrição para habilitar a Multi-Factor Authentication
 
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
 2. Clique em **Políticas de inscrição**.
 3. Clique na sua política de inscrição (por exemplo, "B2C\_1\_SiUp") para abri-la.
 4. Clique em **Autenticação multifator** e ative o **Estado** colocando em **ON**. Clique em **OK**.
@@ -44,7 +42,7 @@ Uma conta de consumidor é criada no diretório antes da etapa de Multi-Factor A
 
 ## Modificar a política de entrada para habilitar a Multi-Factor Authentication
 
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
 2. Clique em **Políticas de entrada**.
 3. Clique na sua política de entrada (por exemplo, "B2C\_1\_SiIn") para abri-la. Clique em **Editar** na parte superior da folha.
 4. Clique em **Autenticação multifator** e ative o **Estado** colocando em **ON**. Clique em **OK**.
@@ -58,4 +56,4 @@ Quando o consumidor entra (usando uma conta local ou social), se um número de t
 
 Conforme descrito para as políticas de inscrição e entrada acima, também é possível habilitar a autenticação multifator nas políticas de inscrição ou entrada e nas políticas de redefinição de senha. Ela estará disponível em breve nas políticas de edição de perfil.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

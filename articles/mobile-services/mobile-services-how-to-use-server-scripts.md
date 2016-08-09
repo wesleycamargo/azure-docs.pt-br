@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="ricksal"/>
 
 
@@ -27,7 +27,7 @@ No serviço móvel de back-end do JavaScript, você pode definir lógica de neg�
 
 + [Operações de inserção, leitura, atualização ou exclusão em uma determinada tabela][Table operations].
 + [Trabalhos agendados][Job Scheduler].
-+ [Métodos HTTP definidos em uma API personalizada][Custom API anchor]. 
++ [Métodos HTTP definidos em uma API personalizada][Custom API anchor].
 
 A assinatura da função principal no script de servidor depende do contexto em que o script é usado. Você também pode definir códigos de script comuns como módulos nodes.js compartilhados entre scripts. Para obter mais informações, consulte [Controle do código-fonte e código compartilhado][Source control, shared code, and helper functions]
 
@@ -64,10 +64,10 @@ Você grava scripts de operação da tabela se for necessário impor uma lógica
 
 Uma função de script de tabela sempre usa três argumentos.
 
-- O primeiro argumento varia de acordo com a operação da tabela. 
+- O primeiro argumento varia de acordo com a operação da tabela.
 
 	- Para inserções e atualizações, trata-se de um objeto **item**, que é uma representação JSON da linha afetada pela operação. Isso permite que você acesse os valores de coluna por nome, por exemplo, *item.Proprietário*, onde *Proprietário* é um dos nomes na representação JSON.
-	- Para uma exclusão, trata-se da ID do registro a ser excluído. 
+	- Para uma exclusão, trata-se da ID do registro a ser excluído.
 	- E para uma leitura, trata-se de um [objeto de consulta] que especifica o conjunto de linhas a ser retornado.
 
 - O segundo argumento é sempre um [objeto de usuário][User object] que representa o usuário que enviou a solicitação.
@@ -336,7 +336,7 @@ O estado global é mantido entre as execuções.
 
 Você pode definir scripts de servidor que são registrados para métodos HTTP em um ponto de extremidade de API personalizada em uma das seguintes maneiras:
 
-+ No [Portal clássico do Azure]. Scripts de API personalizadas são criados e modificados na guia **API**. O código de script de servidor está na guia **Scripts** de uma determinada API personalizada. Aqui está o script invocado por uma solicitação POST para o ponto de extremidade da API personalizada `CompleteAll`. 
++ No [Portal clássico do Azure]. Scripts de API personalizadas são criados e modificados na guia **API**. O código de script de servidor está na guia **Scripts** de uma determinada API personalizada. Aqui está o script invocado por uma solicitação POST para o ponto de extremidade da API personalizada `CompleteAll`.
 
 	![2][2]
 	
@@ -471,7 +471,7 @@ Esta seção mostra como aproveitar o controle do código-fonte para adicionar s
 + [Como carregar módulos node.js]
 + [Como usar funções auxiliares]
 + [Como compartilhar código usando o controle do código-fonte]
-+ [Como trabalhar com configurações de aplicativo] 
++ [Como trabalhar com configurações de aplicativo]
 
 ###<a name="leverage-source-control"></a>Visão geral de aproveitamento de código compartilhado
 
@@ -479,15 +479,15 @@ Como os Serviços Móveis usam o Node.js no servidor, seus scripts já possuem a
 
 A seguir estão apenas alguns dos módulos mais úteis que podem ser aproveitados em seus scripts usando a função global **require**:
 
-+ **azure**: expõe a funcionalidade do SDK do Azure para Node.js. Para saber mais, confira [SDK do Azure para Node.js]. 
++ **azure**: expõe a funcionalidade do SDK do Azure para Node.js. Para saber mais, confira [SDK do Azure para Node.js].
 + **crypto**: oferece a funcionalidade de criptografia do OpenSSL. Para obter mais informações, consulte a [Documentação do Node.js][crypto API].
 + **path**: contém utilitários para trabalhar com caminhos de arquivo. Para obter mais informações, consulte a [Documentação do Node.js][path API].
 + **querystring**: contém utilitários para trabalhar com cadeias de consulta. Para obter mais informações, consulte a [Documentação do Node.js][querystring API].
 + **request**: envia solicitações HTTP aos serviços REST externos, como o Twitter e o Facebook. Para obter mais informações, consulte [Enviar solicitação HTTP].
 + **sendgrid**: envia um email usando o serviço de email Sendgrid do Azure. Para obter mais informações, consulte [Enviar e-mail dos Serviços Móveis com SendGrid].
 + **url**: contém utilitários para analisar e resolver URLs. Para obter mais informações, consulte a [Documentação do Node.js][url API].
-+ **util**: contém vários utilitários, como formatação de cadeia de caracteres e verificação de tipo de objeto. Para obter mais informações, consulte a [Documentação do Node.js][util API]. 
-+ **zlib**: expõe funcionalidade de compactação, como gzip e deflate. Para obter mais informações, consulte a [Documentação do Node.js][zlib API]. 
++ **util**: contém vários utilitários, como formatação de cadeia de caracteres e verificação de tipo de objeto. Para obter mais informações, consulte a [Documentação do Node.js][util API].
++ **zlib**: expõe funcionalidade de compactação, como gzip e deflate. Para obter mais informações, consulte a [Documentação do Node.js][zlib API].
 
 ###<a name="modules-helper-functions"></a>Como aproveitar módulos
 
@@ -796,7 +796,7 @@ Esses métodos oferecem cada vez mais controle de nível baixo sobre o processam
 + [Como executar uma consulta dinâmica]
 + [Como associar tabelas relacionais]
 + [Como executar uma consulta que retorna resultados *brutos*]
-+ [Como obter acesso a uma conexão de banco de dados]	
++ [Como obter acesso a uma conexão de banco de dados]
 
 ####<a name="static-query"></a>Como executar uma consulta estática
 
@@ -1052,4 +1052,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

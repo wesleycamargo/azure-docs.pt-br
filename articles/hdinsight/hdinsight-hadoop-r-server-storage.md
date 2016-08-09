@@ -34,17 +34,17 @@ Se necessário, você pode acessar várias contas de armazenamento ou contêiner
 2. Especifique uma conta de armazenamento adicional chamada **storage2**.
 3. Copie o arquivo mycsv.csv para o diretório /share e execute a análise nesse arquivo.
 
-````
-hadoop fs –mkdir /share
-hadoop fs –copyFromLocal myscsv.scv /share  
-````
+    ````
+    hadoop fs –mkdir /share
+    hadoop fs –copyFromLocal myscsv.scv /share  
+    ````
 
 3.	No código R, defina o nó do nome como **default** e defina o diretório e arquivo a serem processados.
 
-````
-myNameNode <- "default"
-myPort <- 0
-````
+    ````
+    myNameNode <- "default"
+    myPort <- 0
+    ````
 
   Local dos dados:
 
@@ -66,13 +66,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Todas as referências de diretório e arquivo apontam para a conta de armazenamento wasb://container1@storage1.blob.core.windows.net. Essa é a **conta de armazenamento padrão** associada ao cluster do HDInsight.
+Todas as referências de diretório e arquivo apontam para a conta de armazenamento wasbs://container1@storage1.blob.core.windows.net. Essa é a **conta de armazenamento padrão** associada ao cluster do HDInsight.
 
 Agora, suponha que você queira processar um arquivo chamado mySpecial.csv, localizado no diretório /private de **container2** em **storage2**.
 
 No código R, aponte a referência de nó de nome para a conta de armazenamento **storage2**.
 
-    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
   Local dos dados:
@@ -95,13 +95,13 @@ No código R, aponte a referência de nó de nome para a conta de armazenamento 
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Todas as referências de diretório e arquivo agora apontam para a conta de armazenamento wasb://container2@storage2.blob.core.windows.net. Esse é o **Nome de Nó** que você especificou.
+Todas as referências de diretório e arquivo agora apontam para a conta de armazenamento wasbs://container2@storage2.blob.core.windows.net. Esse é o **Nome de Nó** que você especificou.
 
 Observe que você precisa configurar o diretório /user/RevoShare/<nome de usuário do SSH> em **storage2** da seguinte maneira:
 
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 ## Usar um repositório Azure Data Lake
 
@@ -117,7 +117,7 @@ Você pode acessar um repositório Data Lake usando uma Entidade de Serviço do 
 
 Depois que você der um nome à entidade de serviço e criar uma senha para ela, será aberta uma nova guia, em que você pode associar a entidade de serviço aos repositórios Data Lake.
 
-Observe que você também pode adicionar acesso a um repositório Data Lake mais tarde abrindo o repositório Data Lake no portal do Azure e indo para **Gerenciador de Dados** > **Acesso**. Aqui está um exemplo de caixa de diálogo que mostra a criação de uma Entidade de Serviço e sua associação ao Repositório Azure Data Lake "rkadl11".
+Observe que você também pode adicionar acesso a um Data Lake Store mais tarde abrindo o Data Lake Store no Portal do Azure e indo para **Data Explorer** > **Acesso**. Aqui está um exemplo de caixa de diálogo que mostra a criação de uma Entidade de Serviço e sua associação ao Repositório Azure Data Lake "rkadl11".
 
 ![Princípio 1 para criar Serviço do repositório Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
 
@@ -190,4 +190,4 @@ Agora que você aprendeu os fundamentos para usar o console do R em uma sessão 
 - [Add RStudio Server to HDInsight premium (Adicionar o servidor RStudio ao HDInsight premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

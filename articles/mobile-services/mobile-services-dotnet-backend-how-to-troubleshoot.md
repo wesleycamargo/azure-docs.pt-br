@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/13/2016" 
+	ms.date="07/21/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solucionar problemas de back-end .NET dos Serviços Móveis
@@ -164,4 +164,4 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 <!-- Links -->
 [SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -47,7 +47,7 @@ Você pode definir um conector em um Aplicativo lógico ou no Azure Marketplace,
 3. No painel de resultados Pesquisar Tudo, escolha **Conector DB2**.
 4. Na folha de descrição do conector DB2, escolha **Criar**.
 5. Na folha do pacote do conector DB2, digite o Nome (por exemplo, "Db2ConnectorNewOrders"), o Plano de Serviço de Aplicativo e outras propriedades.
-6. Escolha **Configurações do pacote** e defina as seguintes configurações do pacote:  
+6. Escolha **Configurações do pacote** e defina as seguintes configurações do pacote:
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
@@ -75,7 +75,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 4. Na folha Gatilhos e ações, escolha **Criar do Zero** em Modelos do Aplicativo lógico.
 5. No painel Aplicativos de API, escolha **Recorrência**, defina a frequência e o intervalo e clique na **marca de seleção**.
 6. No painel Aplicativos de API, escolha **Conector DB2** e expanda a lista de operações para selecionar **Inserir em NEWORDER**.
-7. Expanda a lista de parâmetros para inserir os valores a seguir:  
+7. Expanda a lista de parâmetros para inserir os valores a seguir:
 
 	Nome | Valor
 --- | --- 
@@ -98,8 +98,8 @@ SHIPZIP | 99362
 
 - O Conector trunca os nomes de tabela do DB2 ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em NEWORDERS** será truncada para **Inserir em NEWORDER**.
 - Depois de salvar os **Gatilhos e ações** do aplicativo lógico, a lógica do aplicativo processará a operação. Pode haver um atraso de alguns segundos (por exemplo, 3 a 5 segundos) antes de o aplicativo lógico processar a operação. Opcionalmente, você pode clicar em **Executar Agora** para processar a operação.
-- O conector DB2 define os membros de EntitySet com atributos, inclusive se o membro corresponde a uma coluna do DB2 com uma coluna padrão ou colunas geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do DB2 que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do DB2. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do DB2 com valores padrão. 
-- O conector DB2 retorna ao Aplicativo lógico a resposta na Postagem para EntitySet, que inclui os valores para as colunas de identidade, derivadas do SQLDARD (Dados de Resposta da Área de Dados do SQL) da DRDA na instrução SQL INSERT preparada. O servidor do DB2 não retorna os valores inseridos para colunas com valores padrão.  
+- O conector DB2 define os membros de EntitySet com atributos, inclusive se o membro corresponde a uma coluna do DB2 com uma coluna padrão ou colunas geradas (por exemplo, identidade). O aplicativo lógico exibe um asterisco vermelho ao lado do nome do ID de membro de EntitySet, para indicar as colunas do DB2 que exigem valores. Você não deve inserir um valor para o membro ORDID, que corresponde à coluna de identidade do DB2. Você pode inserir valores para outros membros opcionais (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que correspondem às colunas do DB2 com valores padrão.
+- O conector DB2 retorna ao Aplicativo lógico a resposta na Postagem para EntitySet, que inclui os valores para as colunas de identidade, derivadas do SQLDARD (Dados de Resposta da Área de Dados do SQL) da DRDA na instrução SQL INSERT preparada. O servidor do DB2 não retorna os valores inseridos para colunas com valores padrão.
 
 
 ## Aplicativo lógico com ação do conector DB2 para adicionar dados em massa ##
@@ -128,7 +128,7 @@ Você pode definir uma ação de aplicativo lógico para adicionar dados a uma t
 
 - O Conector trunca os nomes de tabela do DB2 ao formar nomes de ação do aplicativo lógico. Por exemplo, a operação **Inserir em Massa em NEWORDERS** será truncada para **Inserir em Massa em NEW**.
 - O banco de dados do DB2 gera valores ao omitir as colunas de identidade (por exemplo, ORDID), as colunas anuláveis (por exemplo, SHIPDATE) e as colunas com valores padrão (por exemplo, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY).
-- Ao especificar "hoje" e "amanhã", o conector DB2 gera as funções "CURRENT DATE" e "CURRENT DATE + 1 DAY" (por exemplo, REQDATE). 
+- Ao especificar "hoje" e "amanhã", o conector DB2 gera as funções "CURRENT DATE" e "CURRENT DATE + 1 DAY" (por exemplo, REQDATE).
 
 
 ## Aplicativo lógico com o gatilho do conector DB2 para ler, alterar ou excluir dados ##
@@ -138,7 +138,7 @@ Você pode definir um gatilho de aplicativo lógico para pesquisar e ler os dado
 --- | --- | ---
 PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToAlterData | <nenhum valor especificado>
 
 
 Além disso, você pode definir um gatilho de aplicativo lógico para pesquisar, ler e alterar os dados de uma tabela do DB2 usando uma operação composta Sondar Dados de API. Por exemplo, você pode ler um ou mais registros novos de pedido do cliente e atualizar os valores da linha, retornando os registros selecionados (antes da atualização) para o Aplicativo lógico. As configurações de pacote/aplicativo da Conexão do DB2 são parecidas com as seguintes:
@@ -166,7 +166,7 @@ Neste exemplo, o aplicativo lógico vai pesquisar, ler, atualizar e, em seguida,
 4. Na folha Gatilhos e ações, escolha **Criar do Zero** em Modelos do Aplicativo lógico.
 5. No painel Aplicativos de API, escolha **Conector DB2**, defina a frequência e o intervalo, e clique na **marca de seleção**.
 6. No painel Aplicativos de API, selecione **Conector DB2** e expanda a lista de operações para escolher **Selecionar em NEWORDERS**.
-7. Escolha a **marca de seleção** para salvar as configurações da ação e depois escolha **Salvar**. As configurações devem ter a seguinte aparência: ![][10]  
+7. Escolha a **marca de seleção** para salvar as configurações da ação e depois escolha **Salvar**. As configurações devem ter a seguinte aparência: ![][10]
 8. Clique para fechar a folha **Gatilhos e ações** e, em seguida, clique para fechar a folha **Configurações**.
 9. Na lista **Todas as execuções**, em **Operações**, clique no primeiro item da lista (execução mais recente).
 10. Na folha **Execução do aplicativo lógico**, clique no item **AÇÃO**.
@@ -179,10 +179,10 @@ Você pode definir uma ação de aplicativo lógico para remover dados de uma ta
 ## Criar um Aplicativo lógico usando o conector DB2 para remover os dados ##
 Você pode criar um novo Aplicativo lógico no Azure Marketplace, em seguida, usar o conector DB2 como uma ação para remover os pedidos do cliente. Por exemplo, você pode usar a operação de Exclusão condicional do conector DB2 para processar uma instrução SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. No menu de hub da **Tela Inicial** do Azure, clique em **+** (sinal de adição), clique em **Web + Móvel** e **Aplicativo lógico**. 
+1. No menu de hub da **Tela Inicial** do Azure, clique em **+** (sinal de adição), clique em **Web + Móvel** e **Aplicativo lógico**.
 2. Na folha **Criar Aplicativo lógico**, digite um **Nome**, por exemplo, **RemoveOrdersDb2**.
 3. Selecione ou defina os valores para as outras configurações (por exemplo, o plano de serviço, o grupo de recursos).
-4. As configurações devem ter a seguinte aparência. Clique em **Criar**: ![][12]  
+4. As configurações devem ter a seguinte aparência. Clique em **Criar**: ![][12]
 5. Na folha **Configurações**, clique em **Gatilhos e ações**.
 6. Na folha **Gatilhos e ações**, na lista **Modelos do Aplicativo lógico**, clique em **Criar do Zero**.
 7. Na folha **Gatilhos e ações**, no painel **Aplicativos de API**, no grupo de recursos, clique em **Recorrência**.
@@ -190,7 +190,7 @@ Você pode criar um novo Aplicativo lógico no Azure Marketplace, em seguida, us
 9. Na folha **Gatilhos e ações**, no painel **Aplicativos de API**, no grupo de recursos, clique em **Conector DB2**.
 10. Na superfície de design do Aplicativo lógico, clique no item de ação **conector DB2**, clique nos três pontos (**...**) para expandir a lista de operações e clique em **Exclusão condicional de N**.
 11. No item de ação do conector DB2, digite **ORDID ge 10000** para uma **expressão que identifica um subconjunto de entradas**.
-12. Clique na **marca de seleção** para salvar as configurações da ação e depois clique em **Salvar**. As configurações devem ter a seguinte aparência: ![][13]  
+12. Clique na **marca de seleção** para salvar as configurações da ação e depois clique em **Salvar**. As configurações devem ter a seguinte aparência: ![][13]
 13. Clique para fechar a folha **Gatilhos e ações** e, em seguida, clique para fechar a folha **Configurações**.
 14. Na lista **Todas as execuções**, em **Operações**, clique no primeiro item da lista (execução mais recente).
 15. Na folha **Execução do aplicativo lógico**, clique no item **AÇÃO**.
@@ -271,4 +271,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

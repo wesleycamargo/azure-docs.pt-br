@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Novo esquema versão 2016-04-01-preview | Microsoft Azure" 
+	pageTitle="Novo esquema versão 2016-06-01 | Microsoft Azure" 
 	description="Aprenda a escrever a definição JSON para os aplicativos lógicos mais recentes" 
 	authors="jeffhollan" 
 	manager="dwrede" 
@@ -8,15 +8,15 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
 	
-# Nova versão de esquema 2016-04-01-preview
+# Novo versão de esquema 2016-06-01
 
 A nova versão de esquema e API para aplicativos lógicos tem uma série de aprimoramentos que melhoram a confiabilidade e a facilidade de uso dos aplicativos lógicos. Há três diferenças principais:
 
@@ -24,7 +24,7 @@ A nova versão de esquema e API para aplicativos lógicos tem uma série de apri
 1. Condições e loops são ações de primeira classe
 1. Ordem de execução mais detalhada por meio da propriedade `runAfter` (que substitui o `dependsOn`)
 
-Para obter informações sobre como atualizar seus aplicativos lógicos do esquema 2015-08-01-preview para o esquema de 2016-04-01-preview, [confira a seção de atualização abaixo.](#upgrading-to-2016-04-01-preview-schema)
+Para obter informações sobre como atualizar seus aplicativos lógicos do esquema 2015-08-01-preview para o esquema de 2016-06-01, [confira a seção de atualização abaixo.](#upgrading-to-2016-06-01-schema)
 
 
 ## 1\. Escopos
@@ -94,9 +94,9 @@ A nova propriedade `runAfter` está substituindo a propriedade `dependsOn` para 
 }
 ```
 
-## Atualizando para o esquema 2016-04-01-preview
+## Atualização para o esquema 2016-06-01
 
-A atualização para o novo esquema 2016-04-01-preview demora apenas algumas etapas. Detalhes sobre as alterações de esquema podem ser encontrados [neste artigo](app-service-logic-schema-2016-04-01.md). O processo de atualização inclui executar o script de atualização, salvar como um novo aplicativo lógico e possivelmente substituir um aplicativo lógico anterior, se necessário.
+A atualização para o novo esquema 2016-06-01 exige apenas algumas etapas. Detalhes sobre as alterações de esquema podem ser encontrados [neste artigo](app-service-logic-schema-2016-04-01.md). O processo de atualização inclui executar o script de atualização, salvar como um novo aplicativo lógico e possivelmente substituir um aplicativo lógico anterior, se necessário.
 
 1. Abra seu aplicativo lógico atual.
 1. Clique no botão **Atualizar Esquema** na barra de ferramentas
@@ -169,4 +169,4 @@ As ações agora podem ter uma propriedade adicional (semelhante a `runAfter` e 
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

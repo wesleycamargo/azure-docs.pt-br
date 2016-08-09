@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -52,6 +52,10 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 
 
 ## Locais de provedor de conectividade
+
+> [AZURE.SELECTOR]
+[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
+[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
 
 ### Produção do Azure
 
@@ -102,7 +106,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Suportado | Suportado | Chicago, Washington D.C. |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Suportado | Chicago, Dallas+, Nova York, Washington, D.C. |
-| **[Comunicações de nível 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Com suporte | Em breve | Chicago, Nova York+, Washington, D.C. |
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Suportado | Em breve | Chicago, Nova York+, Washington, D.C. |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Suportado | Chicago, Dallas+, Nova York, Washington, D.C. |
 
 #### China
@@ -140,9 +144,11 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 
 |**Provedor de conectividade**|**Exchange**|**Locais**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Seattle|
-|**[Comunicações XO](http://www.xo.com/)**|Equinix|Vale do Silício|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Cingapura|
+|**Alaska Communications**|Equinix|Seattle|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)**|Equinix|Nova Iorque, Washington, D.C.|
+|**[Comunicações XO](http://www.xo.com/)**|Equinix|Vale do Silício|
+
 
 ## Integradores de sistema de Rota Expressa
 
@@ -155,7 +161,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 |**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|EUA|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Ásia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | EUA |
-|**[Project Leadership](http://www.projectleadership.net/azure)** | EUA |
+|**[Liderança de Projeto](http://www.projectleadership.net/azure)** | EUA |
 
 ## Próximas etapas
 
@@ -165,4 +171,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

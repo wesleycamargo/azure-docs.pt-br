@@ -1,545 +1,113 @@
 <properties
-pageTitle="Usar o conector do SharePoint Online em seus Aplicativos Lógicos ou PowerApps| Microsoft Azure"
-description="Introdução ao uso do conector do SharePoint Online do Serviço de Aplicativo do Azure em seus Aplicativos lógicos e PowerApps."
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="Saiba como usar o conector do SharePoint Online em aplicativos lógicos| Microsoft Azure"
+description="Crie aplicativos lógicos com o conector do SharePoint Online para gerenciar listas no SharePoint."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
+ms.workload="integration"
+ms.date="07/19/2016"
 ms.author="deonhe"/>
 
-# Introdução ao conector do SharePoint Online 
+# Introdução ao conector do SharePoint Online
 
-O conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoint.
+Use o conector do SharePoint Online para gerenciar listas do SharePoint.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Com o SharePoint, você pode:
+## Conectar-se ao SharePoint Online
 
-* Usá-lo para criar aplicativos lógicos
-* Usá-lo para compilar PowerApps  
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Criar uma conexão com o SharePoint Online
 
-## Vamos conversar sobre gatilhos e ações
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
-O Conector do SharePoint pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## Usar um gatilho do SharePoint Online
 
-O conector do SharePoint contém as seguintes ações e/ou gatilhos disponíveis:
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Ações do SharePoint
-Você pode executar as seguintes ações:
+>[AZURE.INCLUDE [Etapas para criar um gatilho SharePoint Online](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
-|Ação|Descrição|
-|--- | ---|
-|GetFileMetadata|Usada para obter metadados de um arquivo da Biblioteca de Documentos|
-|UpdateFile|Usada para atualizar um arquivo na Biblioteca de Documentos|
-|DeleteFile|Usada para excluir um arquivo na Biblioteca de Documentos|
-|GetFileMetadataByPath|Usada para obter metadados de um arquivo da Biblioteca de Documentos|
-|GetFileContentByPath|Usada para obter um arquivo na Biblioteca de Documentos|
-|GetFileContent|Usada para obter um arquivo na Biblioteca de Documentos|
-|CreateFile|Usada para carregar um arquivo na biblioteca de documentos|
-|CopyFile|Usada para copiar um arquivo na Biblioteca de Documentos|
-|ExtractFolderV2|Usada para extrair uma pasta na Biblioteca de Documentos|
-|PostItem|Cria um novo item em uma lista do SharePoint|
-|GetItem|Recupera um único item de uma lista do SharePoint|
-|DeleteItem|Exclui um item de uma lista do SharePoint|
-|PatchItem|Atualiza um item em uma lista do SharePoint|
-### Gatilhos do SharePoint
-Você pode escutar estes eventos:
+## Usar uma ação do SharePoint Online
+
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+>[AZURE.INCLUDE [Etapas para criar uma ação do SharePoint Online](../../includes/connectors-create-api-sharepointonline-action.md)]
+
+## Detalhes técnicos
+
+Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
+
+## Gatilhos do SharePoint Online
+
+O SharePoint tem os seguintes gatilhos:
 
 |Gatilho | Descrição|
 |--- | ---|
-|OnNewFile|Dispara um fluxo quando um novo arquivo é criado em uma pasta do SharePoint|
-|OnUpdatedFile|Dispara um fluxo quando um arquivo é modificado em uma pasta do SharePoint|
-|GetOnNewItems|Quando um novo item é criado em uma lista do SharePoint|
-|GetOnUpdatedItems|Quando um item existente é modificado em uma lista do SharePoint|
+|[Quando um arquivo é criado](connectors-create-api-sharepointonline.md#when-a-file-is-created)|Esta operação dispara um fluxo quando um novo arquivo é criado em uma pasta do SharePoint.|
+|[Quando um arquivo é modificado](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|Esta operação dispara um fluxo quando um arquivo é modificado em uma pasta do SharePoint.|
+|[Quando um novo item é criado](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|Esta operação dispara um fluxo quando um novo item é criado em uma lista do SharePoint.|
+|[Quando um item existente é modificado](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|Esta operação dispara um fluxo quando um item existente é modificado em uma lista do SharePoint.|
 
 
-## Criar uma conexão com o SharePoint
-Para usar o conector do SharePoint, crie primeiro uma **conexão** e, então, forneça os detalhes dessas propriedades:
+## Ações do SharePoint Online
 
-|Propriedade| Obrigatório|Descrição|
+O SharePoint tem as seguintes ações:
+
+
+|Ação|Descrição|
+|--- | ---|
+|[Obter metadados do arquivo](connectors-create-api-sharepointonline.md#get-file-metadata)|Esta operação obtém os metadados do arquivo usando a ID do arquivo.|
+|[Atualizar arquivo](connectors-create-api-sharepointonline.md#update-file)|Esta operação atualiza o conteúdo do arquivo.|
+|[Excluir arquivo](connectors-create-api-sharepointonline.md#delete-file)|Esta operação exclui um arquivo.|
+|[Obter metadados do arquivo usando o caminho](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|Esta operação obtém os metadados do arquivo usando o caminho do arquivo.|
+|[Obter o conteúdo do arquivo usando o caminho](connectors-create-api-sharepointonline.md#get-file-content-using-path)|Esta operação obtém o conteúdo do arquivo usando o caminho do arquivo.|
+|[Obter conteúdo do arquivo](connectors-create-api-sharepointonline.md#get-file-content)|Esta operação obtém o conteúdo do arquivo usando a ID do arquivo.|
+|[Criar arquivo](connectors-create-api-sharepointonline.md#create-file)|Esta operação carrega um arquivo em um site do SharePoint.|
+|[Copiar arquivo](connectors-create-api-sharepointonline.md#copy-file)|Esta operação copia um arquivo em um site do SharePoint.|
+|[Listar pasta](connectors-create-api-sharepointonline.md#list-folder)|Esta operação obtém os arquivos contidos em uma pasta do SharePoint.|
+|[Listar pasta raiz](connectors-create-api-sharepointonline.md#list-root-folder)|Esta operação obtém os arquivos na pasta raiz do SharePoint.|
+|[Extrair pasta](connectors-create-api-sharepointonline.md#extract-folder)|Esta operação extrai um arquivo morto para uma pasta do SharePoint (exemplo: .zip).|
+|[Obter itens](connectors-create-api-sharepointonline.md#get-items)|Esta operação obtém os itens de uma lista do SharePoint.|
+|[Criar item](connectors-create-api-sharepointonline.md#create-item)|Esta operação cria um novo item em uma lista do SharePoint.|
+|[Obter item](connectors-create-api-sharepointonline.md#get-item)|Esta operação obtém um único item por sua ID em uma lista do SharePoint.|
+|[Excluir item](connectors-create-api-sharepointonline.md#delete-item)|Esta operação exclui um item de uma lista do SharePoint.|
+|[Atualizar item](connectors-create-api-sharepointonline.md#update-item)|Esta operação atualiza um item em uma lista do SharePoint.|
+|[Obter valores de entidade](connectors-create-api-sharepointonline.md#get-entity-values)|Esta operação obtém os valores possíveis para uma entidade do SharePoint.|
+|[Obter listas](connectors-create-api-sharepointonline.md#get-lists)|Esta operação obtém as listas do SharePoint em um site.|
+### Detalhes da ação
+
+Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
+
+
+
+### Obter metadados do arquivo
+Esta operação obtém os metadados do arquivo usando a ID do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer credenciais do SharePoint|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|id*|Identificador do arquivo|Selecionar um arquivo|
 
-Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade (nome de usuário e senha, credenciais de cartão inteligente, etc.) para o SharePoint Online. Depois de se autenticar, você poderá continuar e usar o conector do SharePoint Online em seu aplicativo lógico.
+Um * indica que uma propriedade é obrigatória
 
-No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a conexão **conexão** para uso em seu aplicativo lógico:
+#### Detalhes da Saída
 
-1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]  
-2. Selecione **SharePoint Online - Quando um arquivo é criado**   
-3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]    
-4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]     
-5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração do diálogo **Quando um arquivo é criado** do SharePoint.![Configurar o SharePoint][4]  
-6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   
-7. Salve seu trabalho selecionando **Salvar** na barra de menus acima.  
+BlobMetadata
 
->[AZURE.TIP] É possível usar essa conexão em outros aplicativos lógicos, no PowerApps ou em ambos.
 
-## Referência da API REST do SharePoint
-#### Esta documentação destina-se à versão: 1.0
-
-
-### Usada para obter metadados de um arquivo da Biblioteca de Documentos
-**```GET: /datasets/{dataset}/files/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para atualizar um arquivo na Biblioteca de Documentos
-**```PUT: /datasets/{dataset}/files/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
-|corpo| |sim|corpo|nenhum|O conteúdo do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para excluir um arquivo na Biblioteca de Documentos
-**```DELETE: /datasets/{dataset}/files/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para obter metadados de um arquivo da Biblioteca de Documentos
-**```GET: /datasets/{dataset}/GetFileByPath```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|path|string|sim|query|nenhum|Caminho do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para obter um arquivo na Biblioteca de Documentos
-**```GET: /datasets/{dataset}/GetFileContentByPath```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|path|string|sim|query|nenhum|Caminho do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para obter um arquivo na Biblioteca de Documentos
-**```GET: /datasets/{dataset}/files/{id}/content```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para carregar um arquivo na biblioteca de documentos
-**```POST: /datasets/{dataset}/files```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|folderPath|string|sim|query|nenhum|O caminho para a pasta|
-|name|string|sim|query|nenhum|Nome do arquivo|
-|corpo| |sim|corpo|nenhum|O conteúdo do arquivo|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para copiar um arquivo na Biblioteca de Documentos
-**```POST: /datasets/{dataset}/copyFile```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
-|destino|string|sim|query|nenhum|Caminho para o arquivo de destino|
-|substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Dispara um fluxo quando um novo arquivo é criado em uma pasta do SharePoint
-**```GET: /datasets/{dataset}/triggers/onnewfile```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint|
-|folderId|string|sim|query|nenhum|Identificador exclusivo da pasta no SharePoint|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Dispara um fluxo quando um arquivo é modificado em uma pasta do SharePoint
-**```GET: /datasets/{dataset}/triggers/onupdatedfile```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint|
-|folderId|string|sim|query|nenhum|Identificador exclusivo da pasta no SharePoint|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Usada para extrair uma pasta na Biblioteca de Documentos
-**```POST: /datasets/{dataset}/extractFolderV2```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
-|fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
-|destino|string|sim|query|nenhum|Caminho para a pasta de destino|
-|substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Quando um novo item é criado em uma lista do SharePoint
-**```GET: /datasets/{dataset}/tables/{table}/onnewitems```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|$skip|inteiro|não|query|nenhum|Número de entradas a serem ignoradas (padrão = 0)|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas a serem recuperadas (padrão = 256)|
-|$filter|string|não|query|nenhum|Uma consulta de filtro ODATA para restringir o número de entradas|
-|$orderby|string|não|query|nenhum|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Quando um item existente é modificado em uma lista do SharePoint
-**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|$skip|inteiro|não|query|nenhum|Número de entradas a serem ignoradas (padrão = 0)|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas a serem recuperadas (padrão = 256)|
-|$filter|string|não|query|nenhum|Uma consulta de filtro ODATA para restringir o número de entradas|
-|$orderby|string|não|query|nenhum|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Cria um novo item em uma lista do SharePoint
-**```POST: /datasets/{dataset}/tables/{table}/items```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|item| |sim|corpo|nenhum|Item a ser criado|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Recupera um único item de uma lista do SharePoint
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|ID|inteiro|sim|path|nenhum|Identificador exclusivo do item a ser recuperado|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Exclui um item de uma lista do SharePoint
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|ID|inteiro|sim|path|nenhum|Identificador exclusivo do item a ser excluído|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-### Atualiza um item em uma lista do SharePoint
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
-
-
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
-|tabela|string|sim|path|nenhum|Nome de lista do SharePoint|
-|ID|inteiro|sim|path|nenhum|Identificador exclusivo do item a ser atualizado|
-|item| |sim|corpo|nenhum|Item com propriedades alteradas|
-
-
-### Estas são as respostas possíveis:
-
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na Operação.|
-------
-
-
-
-## Definições de objeto: 
-
- **DataSetsMetadata**:
-
-Propriedades obrigatórias para DataSetsMetadata:
-
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
-|---|---|
-|tabular|não definido|
-|blob|não definido|
-
-
-
- **TabularDataSetsMetadata**:
-
-Propriedades obrigatórias para TabularDataSetsMetadata:
-
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
-|---|---|
-|fonte|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
-
-
-
- **BlobDataSetsMetadata**:
-
-Propriedades obrigatórias para BlobDataSetsMetadata:
-
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
-|---|---|
-|fonte|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **BlobMetadata**:
-
-Propriedades obrigatórias para BlobMetadata:
-
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
-|---|---|
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
 |ID|string|
 |Nome|string|
 |DisplayName|string|
@@ -553,152 +121,551 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **Objeto**:
 
-Propriedades obrigatórias para o objeto:
-
-
-Nenhuma das propriedades é obrigatória.
+### Atualizar arquivo
+Esta operação atualiza o conteúdo do arquivo.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|id*|Identificador do arquivo|Selecionar um arquivo|
+|body*|Conteúdo do arquivo|O conteúdo do arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
 
 
-| Nome | Tipo de Dados |
-|---|---|
-
-
-
- **TableMetadata**:
-
-Propriedades obrigatórias para TableMetadata:
-
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
-|---|---|
-|name|string|
-|título|string|
-|x-ms-permission|string|
-|schema|não definido|
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
 
 
 
- **DataSetsList**:
 
-Propriedades obrigatórias para DataSetsList:
-
-
-Nenhuma das propriedades é obrigatória.
+### Excluir arquivo
+Esta operação exclui um arquivo.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|id*|Identificador do arquivo|Selecionar um arquivo|
+
+Um * indica que uma propriedade é obrigatória
 
 
-| Nome | Tipo de Dados |
+
+
+### Obter metadados do arquivo usando o caminho
+Esta operação obtém os metadados do arquivo usando o caminho do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|path*|Caminho do arquivo|Selecionar um arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Obter o conteúdo do arquivo usando o caminho
+Esta operação obtém o conteúdo do arquivo usando o caminho do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|path*|Caminho do arquivo|Selecionar um arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Obter conteúdo do arquivo
+Esta operação obtém o conteúdo do arquivo usando a ID do arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|id*|Identificador do arquivo|Selecionar um arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Criar arquivo
+Esta operação carrega um arquivo em um site do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|folderPath*|Caminho da pasta|Selecionar um arquivo|
+|name*|Nome do arquivo|Nome do arquivo|
+|body*|Conteúdo do arquivo|O conteúdo do arquivo|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copiar arquivo
+Esta operação copia um arquivo em um site do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|source*|Caminho do arquivo de origem|Caminho para o arquivo de origem|
+|destination*|Caminho do arquivo de destino|Caminho para o arquivo de destino|
+|substituir|Sinalizador de substituição|Se o arquivo de destino existir, se ele deve ou não ser substituído|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Quando um arquivo é criado
+Esta operação dispara um fluxo quando um novo arquivo é criado em uma pasta do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint|
+|folderId*|ID da pasta|Selecionar uma pasta|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Quando um arquivo é modificado
+Esta operação dispara um fluxo quando um arquivo é modificado em uma pasta do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint|
+|folderId*|ID da pasta|Selecionar uma pasta|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Listar pasta
+Esta operação obtém os arquivos contidos em uma pasta do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|id*|Identificador do arquivo|Identificador exclusivo da pasta|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Listar pasta raiz
+Esta operação obtém os arquivos na pasta raiz do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extrair pasta
+Esta operação extrai um arquivo morto para uma pasta do SharePoint (exemplo: .zip).
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint, como http://contoso.sharepoint.com/sites/mysite|
+|source*|Caminho do arquivo de origem|Caminho para o arquivo de origem|
+|destination*|Caminho da pasta de destino|Caminho para a pasta de destino|
+|substituir|Sinalizador de substituição|Se o arquivo de destino existir, se ele deve ou não ser substituído|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Quando um novo item é criado
+Esta operação dispara um fluxo quando um novo item é criado em uma lista do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+ItemsList
+
+
+| Nome da Propriedade | Tipo de Dados | 
 |---|---|
 |value|array|
 
 
 
- **DataSet**:
 
-Propriedades obrigatórias para DataSet:
-
-
-Nenhuma das propriedades é obrigatória.
+### Quando um item existente é modificado
+Esta operação dispara um fluxo quando um item existente é modificado em uma lista do SharePoint.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+ItemsList
 
 
-| Nome | Tipo de Dados |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|Nome|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **Tabela**:
 
-Propriedades necessárias para Table:
-
-
-Nenhuma das propriedades é obrigatória.
+### Obter itens
+Esta operação obtém os itens de uma lista do SharePoint.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a serem recuperadas (padrão = 256)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+ItemsList
 
 
-| Nome | Tipo de Dados |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
-|Nome|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **Item**:
 
-Propriedades obrigatórias para Item:
-
-
-Nenhuma das propriedades é obrigatória.
+### Criar item
+Esta operação cria um novo item em uma lista do SharePoint.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|item*|Item|Item a ser criado|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+Item
 
 
-| Nome | Tipo de Dados |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
 |ItemInternalId|string|
 
 
 
- **ItemsList**:
 
-Propriedades obrigatórias para ItemsList:
-
-
-Nenhuma das propriedades é obrigatória.
+### Obter item
+Esta operação obtém um único item por sua ID em uma lista do SharePoint.
 
 
-**Todas as propriedades**:
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|id*|ID|Identificador exclusivo do item a ser recuperado|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+Item
 
 
-| Nome | Tipo de Dados |
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### Excluir item
+Esta operação exclui um item de uma lista do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|id*|ID|Identificador exclusivo do item a ser excluído|
+
+Um * indica que uma propriedade é obrigatória
+
+
+
+
+### Atualizar item
+Esta operação atualiza um item em uma lista do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+|table*|Nome da lista|Nome de lista do SharePoint|
+|id*|ID|Identificador exclusivo do item a ser atualizado|
+|item*|Item|Item com propriedades alteradas|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+Item
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### Obter valores de entidade
+Esta operação obtém os valores possíveis para uma entidade do SharePoint.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site do SharePoint|URL do site do SharePoint|
+|table*|nome da tabela|nome da tabela|
+|id*|id da entidade|id da entidade|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+
+
+
+
+### Obter listas
+Esta operação obtém as listas do SharePoint em um site.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|URL do site|URL do site do SharePoint (exemplo: http://contoso.sharepoint.com/sites/mysite)|
+
+Um * indica que uma propriedade é obrigatória
+
+#### Detalhes da Saída
+
+TablesList
+
+
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
 |value|array|
 
 
 
- **TablesList**:
+## Respostas HTTP
 
-Propriedades obrigatórias para TablesList:
+As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP:
 
-
-Nenhuma das propriedades é obrigatória.
-
-
-**Todas as propriedades**:
-
-
-| Nome | Tipo de Dados |
+|Nome|Descrição|
 |---|---|
-|value|array|
+|200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido.|
+|padrão|Falha na Operação.|
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

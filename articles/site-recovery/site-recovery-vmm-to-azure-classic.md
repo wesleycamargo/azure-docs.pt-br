@@ -126,7 +126,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	![Atualizações da Microsoft](./media/site-recovery-vmm-to-azure-classic/updates.png)
 
 
-5.  O local de instalação para o Provedor é definido como **<SystemDrive>\\Arquivos de Programas\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique em **Instalar**.
+5.  O local de instalação do Provedor é definido para **<UnidadeSistema>\\Arquivos de Programa\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Clique em **Instalar**.
 
 	![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
 
@@ -134,38 +134,39 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor.
+9. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. Clique em *Próximo*.
 
-	![Configurações da Internet](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+	![Registros do servidor](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione **Conectar com as configurações de proxy existentes** para usar as configurações de conexão com a Internet padrão definidas no servidor.
+
+	![Configurações da Internet](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
 	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
 	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
 	- As URLs a seguir devem estar acessíveis no servidor do VMM e nos hosts Hyper-V
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você também deve fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho **Configurações**, expanda **Segurança**, clique em **Executar como Contas**e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
-	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
-8. Em **Chave de registro**, selecione que você baixou a partir de Recuperação de Site do Azure e copiou para o servidor VMM.
-9. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado.
+8. Em **Chave de Registro**, selecione a chave que você baixou no Azure Site Recovery e copiou para o servidor VMM.
 
-	![Registros do servidor](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. Você pode especificar um local para salvar o certificado SSL automaticamente gerado para criptografia de dados. Esse certificado será usado se você habilitar a criptografia de dados para uma nuvem VMM durante a implantação da Recuperação de Site. Mantenha esse certificado protegido. Quando você executa um failover para o Azure, selecione-o para decodificar dados criptografados.
+10.  A configuração de criptografia é usada somente quando você estiver replicando VMs do Hyper-V em nuvens do VMM no Azure. Se estiver replicando para um site secundário, ela não é usada.
 
-	![Registros do servidor](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
+12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
 
-11. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
+13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
+ 	
+	![Últimapágina](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. Na sincronização dos **Metadados de nuvem inicial**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
-
-	![Registros do servidor](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
+Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
 
 ### Instalação de linha de comando
 
@@ -189,18 +190,18 @@ O Provedor do Azure Site Recovery também pode ser instalado usando a linha de c
 
 Em que parâmetros são os seguintes:
 
- - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado  
+ - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado
  - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
  - **/EncryptionEnabled** : parâmetro opcional para especificar se você deseja criptografar suas máquinas virtuais no Azure (criptografia em repouso). O nome de arquivo deve ter uma extensão **.pfx**.
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
- - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de proxy.
- - **/proxyPassword**: parâmetro opcional que especifica a senha de proxy.  
+ - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário proxy.
+ - **/proxyPassword**: parâmetro opcional que especifica a senha proxy.
 
 
 ## Etapa 4: criar uma conta de armazenamento do Azure
 
-1. Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma Conta de Armazenamento do Azure** para criar uma conta.
+1. Se você não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma Conta de Armazenamento do Azure** para criar uma conta.
 2. Crie uma conta com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
 
 	![Conta de armazenamento](./media/site-recovery-vmm-to-azure-classic/storage.png)
@@ -209,7 +210,7 @@ Em que parâmetros são os seguintes:
 
 Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hyper-V na nuvem VMM.
 
-1. No **Início Rápido** > **Baixar o Agente dos Serviços Azure Site Recovery e instalar nos hosts** para obter a versão mais recente do arquivo de instalação do agente.
+1. Clique em **Início Rápido** > **Baixar o Agente dos Serviços Azure Site Recovery e instalar nos hosts** para obter a versão mais recente do arquivo de instalação do agente.
 
 	![Instalar o Agente de Serviços de Recuperação](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
 
@@ -218,7 +219,7 @@ Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hy
 
 	![Agente de Serviços de Recuperação de Pré-requisitos](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
-4. Na página **Configurações de instalação**, especifique onde você deseja instalar o agente e selecione a localização do cache no qual os metadados de backup serão instalados. Em seguida, clique em **Instalar**.
+4. Na página **Configurações de Instalação**, especifique onde você deseja instalar o agente e selecione a localização do cache na qual os metadados de backup serão instalados. Em seguida, clique em **Instalar**.
 5. Após a instalação ser concluída, clique em **Fechar** para concluir o assistente.
 
 	![Registrar o Agente MARS](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
@@ -238,11 +239,11 @@ Após o registro do servidor VMM, você poderá definir as configurações de pr
 1. Na página de Início Rápido, clique em **Configurar a proteção para nuvens VMM**.
 2. Na guia **Itens Protegidos**, clique na nuvem que você deseja configurar e vá até a guia **Configuração**.
 3. Em **Destino**, selecione **Azure**.
-4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para replicação.
+4. Em **Conta de Armazenamento**, selecione a conta de armazenamento do Azure usada para a replicação.
 5. Defina **Criptografar dados armazenados** como **Desligado**. Essa configuração especifica que os dados podem ser criptografados e replicados entre o site local e o Azure.
 6. Em **Copiar frequência**, mantenha a configuração padrão. Esse valor especifica a frequência com que dados devem ser sincronizados entre os locais de origem e de destino.
 7. Em **Manter pontos de recuperação para**, mantenha a configuração padrão. Com um valor padrão de zero, apenas o ponto de recuperação mais recente para uma máquina virtual primária é armazenado em um servidor de host de réplica.
-8. Em **Frequência dos instantâneos consistentes de aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
+8. Em **Frequência dos Instantâneos Consistentes de Aplicativo**, mantenha a configuração padrão. Esse valor especifica a frequência de criação de snapshots. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, certifique-se de que ele seja menor que o número dos pontos de recuperação adicionais que você configurar.
 9. Em **Hora de início para replicação**, especifique quando a replicação inicial dos dados para o Azure deve começar. O fuso horário do servidor de host Hyper-V será usado. Recomendamos que você agende a replicação inicial fora dos horários de pico.
 
 	![Configurações de replicação de nuvem](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
@@ -271,7 +272,7 @@ Observe que, se a rede de destino tiver várias sub-redes, e uma dessas sub-rede
 
 Depois de redes, servidores e nuvens estarem configurados corretamente, você pode ativar a proteção para máquinas virtuais na nuvem. Observe o seguinte:
 
-- As máquinas virtuais devem cumprir os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+- As máquinas virtuais devem atender os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 - Para habilitar a proteção, o sistema operacional e as propriedades do disco do sistema operacional devem estar definidos para as máquinas virtuais. Ao criar uma máquina virtual no VMM usando um modelo de máquina virtual, é possível definir a propriedade. Você também pode definir essas propriedades para máquinas virtuais existentes nas guias **Geral** e **Configuração de Hardware** das propriedades da máquina virtual. Se você não definir essas propriedades no VMM, poderá configurá-las no portal de Recuperação de Site do Azure.
 
 	![Criar máquina virtual](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -284,7 +285,7 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 	![Habilitar a proteção da máquina virtual](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-	Acompanhe o progresso da ação **Habilitar Proteção** na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de **Finalizar Proteção** ser executado, a máquina virtual estará pronta para failover. Após a proteção estar habilitada e as máquinas virtuais serem replicadas, você será capaz de visualizá-los no Azure.
+	Acompanhe o progresso da ação **Habilitar Proteção** na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho **Finalizar Proteção** ser executado, a máquina virtual está pronta para o failover. Após a proteção estar habilitada e as máquinas virtuais serem replicadas, você será capaz de visualizá-los no Azure.
 
 
 	![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
@@ -300,15 +301,15 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 
 
-- **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para saber o número de adaptadores com suporte pelo tamanho da máquina virtual. Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
+- **Número de adaptadores de rede na máquina virtual de destino** - o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique as [especificações de tamanho da máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para saber o número de adaptadores suportado pelo tamanho da máquina virtual. Quando você altera a dimensão de uma máquina virtual e salva as configurações, o número do adaptador de rede é alterado na próxima vez em que você abrir a página **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o número mínimo de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada, conforme indicado a seguir:
 
 	- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 	- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-	- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino der suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
+	- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino der suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
 
-- **Rede da máquina virtual de destino** - a rede à qual a máquina virtual se conecta é determinada pelo mapeamento de rede da rede da máquina virtual de origem. Se a máquina virtual de origem tiver mais de um adaptador de rede e as redes de origem estarem mapeadas para diferentes redes no destino, você precisará escolher entre uma das redes de destino.
-- **Sub-rede de cada adaptador de rede** - para cada adaptador de rede, você pode selecionar a sub-rede à qual a máquina virtual com failover deve se conectar.
-- **Endereço IP de destino** - se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá fornecer o endereço IP da máquina virtual de destino. Use esse recurso para reter o endereço IP de uma máquina virtual de origem após um failover. Se nenhum endereço IP for fornecido, qualquer endereço IP disponível será fornecido ao adaptador de rede no momento do failover. Se o endereço IP de destino for especificado, mas já estiver sendo usado por outra máquina virtual em execução no Azure, o failover falhará.  
+- **Rede da máquina virtual de destino** - a rede que a máquina virtual conecta é determinada pelo mapeamento da rede da máquina virtual de origem. Se a máquina virtual de origem tiver mais de um adaptador de rede e as redes de origem estarem mapeadas para diferentes redes no destino, você precisará escolher entre uma das redes de destino.
+- **Sub-rede de cada adaptador de rede** - para cada adaptador de rede, você pode selecionar a sub-rede que a máquina virtual com failover deve conectar.
+- **Endereço IP de destino** - se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá fornecer o endereço IP da máquina virtual de destino. Use esse recurso para reter o endereço IP de uma máquina virtual de origem após um failover. Se nenhum endereço IP for fornecido, qualquer endereço IP disponível será fornecido ao adaptador de rede no momento do failover. Se o endereço IP de destino for especificado, mas já estiver sendo usado por outra máquina virtual em execução no Azure, o failover falhará.
 
 	![Modificar propriedades de rede](./media/site-recovery-vmm-to-azure-classic/multi-nic.png)
 
@@ -331,7 +332,10 @@ O failover de teste simula o mecanismo de failover e recuperação em uma rede i
 
 	![Criar plano de recuperação](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais para adicionar ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação, o Grupo 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
+2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais para adicionar ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação — Grupo
+3. 
+4. 
+5. 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
 
 	- Se você desejar verificar as propriedades das máquinas virtuais antes de adicioná-las ao plano, clique na máquina virtual na página Propriedades da nuvem na qual ela está localizada. Você também pode configurar as propriedades da máquina virtual no console do VMM.
 	- Todas as máquinas virtuais que são exibidas foram habilitadas para a proteção. A lista inclui as máquinas virtuais que estão habilitadas para proteção com a replicação inicial concluída e as que estão habilitadas para proteção com a replicação inicial pendente. Somente as máquinas virtuais com replicação inicial concluída podem realizar failover como parte de um plano de recuperação.
@@ -339,7 +343,7 @@ O failover de teste simula o mecanismo de failover e recuperação em uma rede i
 
 	![Criar plano de recuperação](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
-Após a criação de um plano de recuperação, ele será exibido na guia **Planos de Recuperação**. Você também pode adicionar [runbooks de automação do Azure](site-recovery-runbook-automation.md) ao plano de recuperação para automatizar ações durante o failover.
+Após a criação de um plano de recuperação, ele será exibido na guia **Planos de Recuperação**. Você também pode adicionar [runbooks de automação do Azure](site-recovery-runbook-automation.md) ao plano de recuperação para automatizar as ações durante o failover.
 
 ### Execute um teste de failover
 
@@ -375,6 +379,6 @@ Para executar um failover de teste, faça o seguinte:
 
 ## Próximas etapas
 
-Saiba mais sobre [como configurar planos de recuperação](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
+Saiba mais sobre [como configurar os planos de recuperação](site-recovery-create-recovery-plans.md) e o [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

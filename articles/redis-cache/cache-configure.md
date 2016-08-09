@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -372,10 +372,11 @@ Para saber mais sobre os comandos do Redis, confira [http://redis.io/commands](h
 
 Você pode emitir com segurança comandos para as suas instâncias do Cache Redis do Azure usando o **Console do Redis**, que está disponível para os caches Standard e Premium.
 
->[AZURE.IMPORTANT] O Console do Redis não funciona com VNET ou cluster.
+>[AZURE.IMPORTANT] O Console Redis não funciona com a Rede Virtual, o clustering e bancos de dados diferentes de 0.
 >
 >-	[VNET](cache-how-to-premium-vnet.md) – quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis usa o cliente redis cli.exe hospedado em máquinas virtuais que não fazem parte da sua VNET, não pode se conectar ao seu cache.
 >-	[Clustering](cache-how-to-premium-clustering.md) - O Console do Redis usa o cliente redis-cli.exe que não dá suporte ao clustering neste momento. O utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub implementa um suporte básico quando iniciado com a opção `-c`. Para saber mais, confira [Reproduzindo com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io) no [tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	O Console Redis cria uma nova conexão com o banco de dados 0 toda vez que você enviar um comando. Não é possível usar o comando `SELECT` para selecionar um banco de dados diferente, pois o banco de dados é redefinido para 0 com cada comando. Para obter informações sobre como executar comandos do Redis, incluindo alteração para outro banco de dados, confira [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
 
 Para acessar o Console do Redis, clique em **Console** na folha **Cache Redis**.
 
@@ -398,4 +399,4 @@ Para saber mais sobre como mover os recursos de um grupo de recursos para outro,
 ## Próximas etapas
 -	Para saber mais sobre como trabalhar com os comandos do Redis, confira [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

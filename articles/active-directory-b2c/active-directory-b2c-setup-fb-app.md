@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visualização do Active Directory B2C do Azure: configuração do Facebook | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: configuração do Facebook | Microsoft Azure"
 	description="Forneça inscrição e entrada para consumidores com contas do Facebook em seus aplicativos protegidos pelo Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Visualização do Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas do Facebook
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas do Facebook
 
 ## Criar um aplicativo do Facebook
 
@@ -67,7 +65,7 @@ Para usar o Facebook como provedor de identidade no Azure AD (Azure Active Direc
 
 ## Configurar o Facebook como um provedor de identidade no seu locatário
 
-1. Siga estas etapas para [navegar até a folha de recursos B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira “FB”.
@@ -75,4 +73,4 @@ Para usar o Facebook como provedor de identidade no Azure AD (Azure Active Direc
 6. Clique em **Configurar este provedor de identidade** e insira a ID e o segredo do aplicativo (do aplicativo do Facebook criado anteriormente) nos campos **ID do Cliente** e **Segredo do cliente**, respectivamente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do Facebook.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

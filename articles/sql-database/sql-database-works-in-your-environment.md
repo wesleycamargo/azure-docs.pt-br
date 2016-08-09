@@ -21,27 +21,23 @@
 
 ## Conecte-se ao que você já conhece
 
-A última coisa que um desenvolvedor quer fazer é aprender algo novo apenas para se conectar com um banco de dados. O Banco de Dados SQL do Azure é fácil com uma variedade de linguagens e plataformas com as quais você está acostumado a trabalhar.
+A última coisa que você quer fazer é aprender algo novo apenas para se conectar a um banco de dados. O Banco de Dados SQL do Azure é fácil com uma variedade de linguagens e plataformas com as quais você está acostumado a trabalhar.
 
 ![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
-## JavaScript, Node.JS e Python apenas para mencionar algumas.
+Ao escolher um banco de dados, você não deve precisar mudar para uma nova plataforma ou aprender uma nova linguagem. O Banco de Dados SQL tem amostras de código para ajudá-lo a começar, onde quer que esteja.
 
-Ao escolher um banco de dados, você não deve precisar aprender uma nova linguagem. O Banco de Dados SQL tem muitos exemplos de código para ajudá-lo a começar, para a plataforma na qual você está trabalhando (isto é, Linux, Mac OS ou Windows). Além disso, o Portal de Gerenciamento do Azure, o PowerShell e as APIs REST o ajudarão a ganhar produtividade adicional durante o desenvolvimento.
-
-[Ler a documentação](sql-database-develop-overview.md)
+[Saiba mais sobre o desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 
 ## As ferramentas certas para o trabalho
 
-Com o Banco de Dados SQL, você não precisa aprender uma nova ferramenta quando estiver desenvolvendo um aplicativo. Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+Você não precisa aprender um novo conjunto de ferramentas para começar a usar o Banco de Dados SQL. Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Você também pode usar o Portal de Gerenciamento do Azure, o PowerShell e a API REST lhe ajudará a ganhar produtividade adicional.
 
 ## Introdução rápida
 
-Com recursos garantidos, tutoriais sobre como criar seu primeiro Banco de Dados SQL, solução de problemas de consultas e exemplos de código de início rápido&mdash;a obtenção da resposta correta à sua pergunta de banco de dados nunca está muito longe de ser encontrada.
+As respostas certas para suas perguntas de Banco de Dados SQL nunca estão muito longe, com tutoriais sobre a criação do seu primeiro Banco de Dados SQL, solução de problemas de consultas e exemplo de código de início rápido.
 
-[Ler a documentação](sql-database-technical-overview.md)
-
-Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
+[Saiba mais sobre o Banco de Dados SQL](sql-database-technical-overview.md)
 
 ## Próximas etapas
 
@@ -49,8 +45,8 @@ Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-start
 
 ## Recursos adicionais
 
-Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
- 
-Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+* Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+* Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+* [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

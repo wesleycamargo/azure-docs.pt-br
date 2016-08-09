@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight do Azure
@@ -36,7 +36,7 @@ O vídeo a seguir mostra como executar o exemplo de análise de tendência do Tw
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou do Portal do Azure.
+Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou no Portal do Azure.
 
 **Para executar um exemplo da Galeria de Introdução**
 
@@ -64,4 +64,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

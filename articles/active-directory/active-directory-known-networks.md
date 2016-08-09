@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"  
+	manager="femila"  
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="07/20/2016" 
 	ms.author="markvi"/>
 
 # Redes conhecidas
@@ -25,7 +25,7 @@ Você pode usar os relatórios de uso e de acesso do Active Directory do Azure p
 
 Por exemplo, isso pode ocorrer quando:
 
-- Um usuário em um escritório em Boston ao conectar-se remotamente a um data center em San Francisco aciona o relatório "Entradas de várias regiões geográficas" 
+- Um usuário em um escritório em Boston ao conectar-se remotamente a um data center em San Francisco aciona o relatório "Entradas de várias regiões geográficas"
 
 - Um usuário de sua organização que tenta entrar diversas vezes com uma senha incorreta aciona o relatório "Entradas de endereços IP com atividade suspeita”
 
@@ -56,4 +56,4 @@ Para impedir que esses casos gerem relatórios de segurança enganadores, você 
 * [Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

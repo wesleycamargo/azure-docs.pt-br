@@ -215,12 +215,15 @@ No caso da Atividade de Cópia, quando a fonte for do tipo **RelationalSource** 
 | -------- | ----------- | -------------- | -------- |
 | query | Utiliza a consulta personalizada para ler os dados. | Consulta SQL-92 ou consulta [SOQL (Salesforce Object Query Language) ](https://developer.salesforce.com/docs/atlas.pt-BR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: select * from MyTable\_\_c. | Não (se **tableName** de **dataset** for especificado) |
 
-> [AZURE.IMPORTANT]  A parte "\_\_c" do Nome da API é necessária para qualquer objeto personalizado.<br> Ao especificar uma consulta, incluindo a cláusula where na coluna de data/hora, use o SOQL, por exemplo, $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+> [AZURE.IMPORTANT]  A parte "\_\_c" do Nome da API é necessária para qualquer objeto personalizado. <br><br> Ao especificar uma consulta, incluindo a cláusula where na coluna de data e hora, use a consulta SOQL, por exemplo, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), ou a consulta SQL, por exemplo, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Data Factory — conexão Salesforce — nome da API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
+## Recuperando dados do relatório do Salesforce
+É possível recuperar dados dos relatórios do Salesforce especificando a consulta como {call "<nome do relatório>"}, por exemplo, "query": "{call "RelatórioDeTeste"}".
+
 ## Limites da solicitação Salesforce
-O Salesforce tem limites para o total de solicitações de API e as solicitações simultâneas de API. Confira a seção **API Request Limits** (Limites de solicitação de API) no artigo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/pt-BR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites de solicitação de API do Salesforce) para obter detalhes.
+O Salesforce tem limites para o total de solicitações de API e as solicitações simultâneas de API. Confira a seção **API Request Limits (Limites de solicitação de API)** no artigo [Salesforce API Request Limits (Limites de solicitação de API do Salesforce)](http://resources.docs.salesforce.com/200/20/pt-BR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) para obter detalhes.
  
 Se o número de solicitações simultâneas exceder o limite, a limitação será atingida e você verá falhas aleatórias. Se o número total de solicitações exceder o limite, a conta do Salesforce será bloqueada por 24 horas. Você também pode receber o erro "REQUEST\_LIMIT\_EXCEEDED" em ambos os cenários.
  
@@ -254,6 +257,6 @@ URL | Cadeia de caracteres
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho do movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

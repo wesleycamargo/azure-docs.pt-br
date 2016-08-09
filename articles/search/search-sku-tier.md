@@ -14,16 +14,16 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/12/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
 # Escolher um tipo de preço ou SKU para a Pesquisa do Azure
 
-Durante o [provisionamento do serviço](search-create-service-portal.md), você precisa especificar qual SKU ou tipo de preço usar. As escolhas incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações de recursos e capacidades.
+Durante o [provisionamento do serviço](search-create-service-portal.md), você precisará especificar um SKU ou tipo de preço. As escolhas incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações e capacidades.
 
-Recomendamos que você sempre forneça um serviço **Gratuito** (um por assinatura, sem prazo de expiração) a fim de tê-lo prontamente disponível para demonstração ou teste. Você pode usar o serviço **Gratuito** para teste e avaliação de serviço e criar um segundo serviço faturável para cargas maiores de trabalho de teste ou produção.
+Recomendamos que você sempre forneça um serviço **Gratuito** (um por assinatura, sem prazo de expiração) a fim de tê-lo prontamente disponível para projetos leves. Use o serviço **Gratuito** para teste e avaliação; crie um segundo serviço faturável para cargas maiores de trabalho de teste ou produção no tipo **Básico** ou **Standard**.
 
-Na Pesquisa do Azure, o SKU determina a capacidade, não a disponibilidade do recurso. Todos os recursos estão disponíveis em todos os tipos de preço.
+Na Pesquisa do Azure, o SKU determina a capacidade, não a disponibilidade do recurso. Todos os recursos estão disponíveis em todos os tipos de preço, incluindo recursos de visualização.
 
 ## Como abordar uma decisão de tipo de preço
 
@@ -58,7 +58,7 @@ Standard 3 de Alta Densidade (**S3 HD**) Preview|Um grande número de índices m
 
 > [AZURE.NOTE] Os limites máximos de partição e de réplica são cobrados como unidades de pesquisa (máximo de 36 unidades por serviço), que impõe um limite eficaz inferior ao limite máximo em valor nominal. Por exemplo, para usar o máximo de 12 réplicas, você pode ter no máximo três partições (12 * 3 = 36 unidades). Da mesma forma, para usar o máximo de partições, reduza as réplicas para três. Confira [Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure](search-capacity-planning.md) para obter um gráfico de combinações permitidas.
 
-## Caminho de decisão para escolher um SKU
+## Revisar os limites por tipo
 
 O gráfico a seguir é um subconjunto dos limites do [Limites de serviço na Pesquisa do Azure](search-limits-quotas-capacity.md). Ele lista os fatores com maior probabilidade de afetar uma decisão de SKU. Você pode consultar esse gráfico ao revisar as perguntas a seguir.
 
@@ -75,7 +75,7 @@ Consultas por segundo|N/D|~3 por réplica|~15 por réplica|~60 por réplica|>60 
 <sup>1</sup> SKUs de visualização e gratuitos não vêm com SLAs. Os SLAs são aplicados depois que um SKU fica disponível para o público geral.
 
 
-### Perguntas comuns ao escolher um SKU
+## Eliminar SKUs que não atendam aos requisitos 
 
 As perguntas a seguir podem ajudar você a chegar a uma decisão certa sobre o SKU para sua carga de trabalho.
 
@@ -101,4 +101,4 @@ Quando você souber qual SKU é adequado, prossiga com estas etapas:
 - [Criar um serviço de pesquisa no portal](search-create-service-portal.md)
 - [Alterar a alocação de partições e réplicas para dimensionar seu serviço](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -17,30 +17,22 @@
 	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Tutorial do Azure Data Factory: criar um pipeline de dados que processa os dados usando o cluster Hadoop 
+# Tutorial: Criar seu primeiro pipeline para processar dados usando cluster Hadoop 
 > [AZURE.SELECTOR]
 - [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
 - [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
 
 Neste tutorial, você criará seu primeiro data factory no Azure com um pipeline de dados que os processa executando o script do Hive em um cluster Azure HDInsight (Hadoop).
 
-> [AZURE.NOTE] Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md).
+Este artigo fornece uma **visão geral** do tutorial e instruções passo a passo para atender aos **pré-requisitos** do tutorial. Depois de concluir as etapas de pré-requisito, você usará um destes procedimentos para fazer o tutorial: Editor do Data Factory no Portal do Azure, Visual Studio, Azure PowerShell e modelo do ARM.
 
-## Visão geral do tutorial
-Este tutorial apresenta as etapas necessárias para você criar seu primeiro data factory. Você criará um pipeline no data factory que transforma/processa dados de entrada para gerar dados de saída.
-
-## Pré-requisitos
-Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
-
-1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
-
-2.	**Armazenamento do Azure** – você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Observe que este artigo não fornece uma visão geral conceitual do Azure Data Factory. Para obter uma visão geral conceitual do serviço, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
 
 ## O que é abordado neste tutorial?	
-O **Azure Data Factory** permite compor tarefas de **movimentação** de dados e de **processamento** de dados como um fluxo de trabalho de orientado a dados. Você aprenderá a criar seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente.
+O **Azure Data Factory** permite compor tarefas de **movimentação** e de **processamento** de dados como fluxos de trabalho de orientados a dados (também chamados de pipelines de dados). Você aprenderá a criar seu primeiro pipeline de dados com uma tarefa de processamento de dados (ou transformação de dados) que usa um cluster HDInsight do Azure para transformar e analisar logs da Web e agendar o pipeline para execução mensalmente.
 
 Neste tutorial, você executará as seguintes etapas:
 
@@ -68,6 +60,14 @@ Quando o arquivo é processado pelo pipeline com a Atividade do Hive do HDInsigh
 
 Das linhas do exemplo mostradas acima, a primeira delas (com 2014-01-01) será gravada no arquivo 000000\_0 na pasta do mês = 1. Da mesma forma, a segunda será gravada no arquivo na pasta do mês = 2 e a terceira será gravada no arquivo na pasta do mês = 3.
 
+
+## Pré-requisitos
+Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
+
+1.	**Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
+
+2.	**Armazenamento do Azure** – você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+
 ## Carregar arquivos no Armazenamento do Azure para seguir o tutorial
 Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com arquivos necessários para o tutorial.
 
@@ -78,8 +78,8 @@ Nesta seção, você fará o seguinte:
 
 ### Criar arquivo de script HQL 
 
-1. Inicie o **Bloco de Notas** e cole o script HQL a seguir. Esse script do Hive cria duas tabelas externas: **WebLogsRaw** e **WebLogsPartitioned**. Clique em **Arquivo** no menu e selecione **Salvar como**. Alterne para a pasta **C:\\adfgettingstarted** no disco rígido. Selecione **Todos os Arquivos (*.*)** para o campo **Salvar como tipo**. Insira **partitionweblogs.hql** para o **Nome do arquivo**. Confirme se o campo **Codificação** na parte inferior da caixa de diálogo está definido como **ANSI**. Se não estiver, defina-o como **ANSI**.
-	
+1. Inicie o **Bloco de Notas** e cole o script HQL a seguir. Esse script do Hive cria duas tabelas: **WebLogsRaw** e **WebLogsPartitioned**. Clique em **Arquivo** no menu e selecione **Salvar como**. Alterne para a pasta **C:\\adfgettingstarted** no disco rígido. Selecione **Todos os Arquivos (*.*)** para o campo **Salvar como tipo**. Insira **partitionweblogs.hql** para o **Nome do arquivo**. Confirme se o campo **Codificação** na parte inferior da caixa de diálogo está definido como **ANSI**. Se não estiver, defina-o como **ANSI**.
+
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -159,6 +159,11 @@ Nesta seção, você fará o seguinte:
 		  month(date)
 		FROM WebLogsRaw
 
+No tempo de execução, a Atividade do Hive no pipeline do Data Factory passa valores para os parâmetros inputtable e partitionedtable, conforme mostrado abaixo; nomedacontadearmazenamento é o nome da sua conta de armazenamento do Azure:
+
+		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+ 
 ### Criar um arquivo de entrada de exemplo
 Usando o bloco de notas, crie um arquivo chamado **input.log** na pasta **c:\\adfgetstarted** com o seguinte conteúdo:
 
@@ -186,7 +191,7 @@ Usando o bloco de notas, crie um arquivo chamado **input.log** na pasta **c:\\ad
 
 ### Carregar o arquivo de entrada e o arquivo HQL no Armazenamento de Blobs do Azure
 
-Você pode usar qualquer ferramenta que desejar (por exemplo: [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), CloudXPlorer da ClumsyLeaf Software) para realizar essa tarefa. Esta seção fornece instruções sobre o uso da ferramenta AzCopy.
+Esta seção fornece instruções sobre o uso da ferramenta **AzCopy** para copiar arquivos para o Armazenamento de Blobs do Azure. Você pode usar qualquer ferramenta que desejar (por exemplo: [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), [CloudXPlorer da ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) para realizar essa tarefa.
 	 
 2. Como preparar o armazenamento do Azure para o tutorial:
 	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [versão de visualização mais recente](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
@@ -215,12 +220,11 @@ Você pode usar qualquer ferramenta que desejar (por exemplo: [Gerenciador de Ar
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
 
-Agora você está pronto para começar o tutorial. Clique em uma das guias na parte superior para criar seu primeiro data factory do Azure usando uma das opções a seguir:
+Agora você está pronto para começar o tutorial. Clique em uma das guias na parte superior para criar seu primeiro data factory do Azure ou clique em um dos links a seguir.
 
+- [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
 
-- Portal do Azure (Editor do Data Factory)
-- PowerShell do Azure
-- Visual Studio
-- Modelos do Gerenciador de Recursos do Azure
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->
