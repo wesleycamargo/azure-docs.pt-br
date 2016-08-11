@@ -449,7 +449,7 @@ Primeiro, defina a variável:
 
 
 
-Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate **(aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
+Depois de criar uma instância do cliente de Serviços Móveis no método **onCreate**(aqui, a variável *mClient*), você cria uma instância de **MobileServiceJsonTable**, com o código a seguir.
 
 
             // Get the Mobile Service Json Table to use
