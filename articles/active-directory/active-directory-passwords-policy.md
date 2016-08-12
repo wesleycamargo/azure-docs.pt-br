@@ -39,7 +39,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 
 | Propriedade | Requisitos |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - \_ ! + = [ ] { } | \\ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Caracteres permitidos | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Caracteres não permitidos | <ul><li>Caracteres Unicode</li><li>Espaços</li><li> **Somente senhas fortes**: não pode conter um caractere ponto '.' imediatamente antes do símbolo '@'</li></ul> |
 | Restrições de senha | <ul><li>Mínimo de 8 caracteres e máximo de 16 caracteres</li><li>**Somente senhas fortes**: exige 3 dos 4 requisitos a seguir:<ul><li>Caracteres minúsculos</li><li>Caracteres maiúsculos</li><li>Números (0-9)</li><li>Símbolos (consulte as restrições de senha acima)</li></ul></li></ul> |
 | Tempo de expiração da senha | <ul><li>Valor padrão: **90** dias </li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy do Módulo do Active Directory do Azure para Windows PowerShell.</li></ul> |
