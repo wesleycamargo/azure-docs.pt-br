@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Configurando o Workday para sincronização de entrada
@@ -19,18 +19,18 @@
 
 O objetivo deste tutorial é mostrar as etapas necessárias para executar no Workday e no AD do Microsoft Azure para importar as pessoas do Workday para o AD do Microsoft Azure. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
--   Uma assinatura válida do Azure  
--   Um locatário no Workday  
+-   Uma assinatura válida do Azure
+-   Um locatário no Workday
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
-1.  Habilitando a integração de aplicativos para o Workday  
-2.  Criação de um usuário do sistema de integração  
-3.  Criação de um grupo de segurança  
-4.  Atribuindo o usuário do sistema de integração ao grupo de segurança  
-5.  Configurando opções de grupo de segurança  
-6.  Ativando alterações de política de segurança  
-7.  Configurando a importação de usuário no AD do Microsoft Azure  
+1.  Habilitando a integração de aplicativos para o Workday
+2.  Criação de um usuário do sistema de integração
+3.  Criação de um grupo de segurança
+4.  Atribuindo o usuário do sistema de integração ao grupo de segurança
+5.  Configurando opções de grupo de segurança
+6.  Ativando alterações de política de segurança
+7.  Configurando a importação de usuário no AD do Microsoft Azure
 
 ##Habilitando a integração de aplicativos para o Workday
 
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o Workday, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.    
+1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")
 
@@ -62,7 +62,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Criação de um usuário do sistema de integração
 
-1.  No **Workday Workbench**, digite **criar usuário** na caixa de pesquisa e clique no link **Criar Usuário do Sistema de Integração**.     
+1.  No **Workday Workbench**, digite **criar usuário** na caixa de pesquisa e clique no link **Criar Usuário do Sistema de Integração**.
 
 	![criar usuário](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "criar usuário")
 
@@ -74,7 +74,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 Para o cenário descrito neste tutorial, você precisa criar um grupo de segurança do sistema de integração irrestrita e atribuí-lo a ele.
 
-1.  Insira Criar grupo de segurança na caixa de pesquisa e, em seguida, clique no link Criar grupo de segurança.     
+1.  Insira Criar grupo de segurança na caixa de pesquisa e, em seguida, clique no link Criar grupo de segurança.
 
 	![Grupo CreateSecurity](./media/active-directory-saas-inbound-synchronization-tutorial/IC750981.png "Grupo CreateSecurity")
 
@@ -84,7 +84,7 @@ Para o cenário descrito neste tutorial, você precisa criar um grupo de seguran
 
 ##Atribuindo o usuário do sistema de integração ao grupo de segurança
 
-1.  Insira Editar grupo de segurança na caixa de pesquisa e clique no link **Editar Grupo de Segurança**.     
+1.  Insira Editar grupo de segurança na caixa de pesquisa e clique no link **Editar Grupo de Segurança**.
 
 	![Editar grupo de segurança](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Editar grupo de segurança")
 
@@ -100,15 +100,15 @@ Para o cenário descrito neste tutorial, você precisa criar um grupo de seguran
 
 Nesta etapa, você deve conceder permissões ao novo grupo de segurança para operações Get e Put nos objetos protegidos pelas seguintes políticas de segurança de domínio:
 
--   Provisionamento de conta externa  
--   Dados de trabalho: Relatórios de trabalho público  
--   Dados de trabalho: Todas as posições  
--   Dados de trabalho: Informações atuais sobre a equipe  
--   Dados de trabalho: Cargo de negócios no perfil de trabalhado  
+-   Provisionamento de conta externa
+-   Dados de trabalho: Relatórios de trabalho público
+-   Dados de trabalho: Todas as posições
+-   Dados de trabalho: Informações atuais sobre a equipe
+-   Dados de trabalho: Cargo de negócios no perfil de trabalhado
 
 &nbsp;
 
-1.  Insira as políticas de segurança de domínio na caixa de pesquisa e, em seguida, clique no link Políticas de segurança de domínio para a área funcional.     
+1.  Insira as políticas de segurança de domínio na caixa de pesquisa e, em seguida, clique no link Políticas de segurança de domínio para a área funcional.
 
 	![Políticas de segurança do domínio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750986.png "Políticas de segurança do domínio")
 
@@ -130,16 +130,16 @@ Nesta etapa, você deve conceder permissões ao novo grupo de segurança para op
 
 6.  Na lista de políticas de segurança para a área funcional de equipe, expanda Dados de trabalho: equipe e repita a etapa 4 acima para cada uma das políticas de segurança restantes:
 
-	-   Dados de trabalho: Relatórios de trabalho público  
-    -   Dados de trabalho: Todas as posições  
-    -   Dados de trabalho: Informações atuais sobre a equipe  
-    -   Dados de trabalho: Cargo de negócios no perfil de trabalhado    
+	-   Dados de trabalho: Relatórios de trabalho público
+    -   Dados de trabalho: Todas as posições
+    -   Dados de trabalho: Informações atuais sobre a equipe
+    -   Dados de trabalho: Cargo de negócios no perfil de trabalhado
 
 	![Políticas de segurança do domínio](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Políticas de segurança do domínio")
 
 ##Ativando alterações de política de segurança
 
-1.  Digite Ativar na caixa de pesquisa e, em seguida, clique no link Ativar alterações de política de segurança pendentes.    
+1.  Digite Ativar na caixa de pesquisa e, em seguida, clique no link Ativar alterações de política de segurança pendentes.
 
 	![Ativar](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Ativar")
 
@@ -157,15 +157,15 @@ O objetivo desta seção é descrever como configurar o AD do Microsoft Azure pa
 
 ###Para configurar a importação de usuário no AD do Microsoft Azure, execute as seguintes etapas:
 
-1.  Na página de integração de aplicativos do **Workday**, clique em **Configurar importação de usuários** para abrir o diálogo **Configurar Provisionamento**.    
+1.  Na página de integração de aplicativos do **Workday**, clique em **Configurar importação de usuários** para abrir o diálogo **Configurar Provisionamento**.
 
 2.  Na página **Configurações e credenciais do administrador**, realize as seguintes etapas e clique em Avançar:
 
 	![Configurações e credenciais do administrador](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Configurações e credenciais do administrador")
 
-	1.  Na caixa de texto **Nome de usuário administrador do Workday**, digite o nome de usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
-    2.  Na caixa de texto **Senha do administrador do Workday**, digite a senha do usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
-    3.  Na caixa de texto **URL de locatário do Workday**, digite a URL ou o seu locatário do Workday.    
+	1.  Na caixa de texto **Nome de usuário administrador do Workday**, digite o nome de usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).
+    2.  Na caixa de texto **Senha do administrador do Workday**, digite a senha do usuário que você criou na seção [Criando um usuário do sistema de integração](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).
+    3.  Na caixa de texto **URL de locatário do Workday**, digite a URL ou o seu locatário do Workday.
 
 3.  Na página **Testar conexão**, clique em **Iniciar teste** para confirmar a conectividade e clique em **Avançar**.
 
@@ -181,4 +181,4 @@ O objetivo desta seção é descrever como configurar o AD do Microsoft Azure pa
 
 Agora, você pode ir para a seção **Usuários** e verificar se o usuário do Workday foi importado.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0810_2016-->
