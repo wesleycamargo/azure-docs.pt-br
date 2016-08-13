@@ -66,8 +66,8 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 |:--|:--|
 | Type=Event | Todos os eventos do Windows. |
 | Type=Event EventLevelName=error | Todos os eventos do Windows com severidade de erro. |
-| Type=Event | Measure count() by Source | Contagem de eventos do Windows por fonte. |
-| Type=Event EventLevelName=error | Measure count() by Source | Contagem de eventos de erro do Windows por fonte. |
+| Type=Event &#124; Measure count() by Source | Contagem de eventos do Windows por fonte. |
+| Type=Event EventLevelName=error &#124; Measure count() by Source | Contagem de eventos de erro do Windows por fonte. |
 
 ## Próximas etapas
 
