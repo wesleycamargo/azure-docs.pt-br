@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral de parceiros e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure" 
 	description="Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -65,4 +65,4 @@ Você pode excluir qualquer contrato seguindo estas etapas de dentro da conta de
 ## Próximas etapas
 - [Criar um contrato AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

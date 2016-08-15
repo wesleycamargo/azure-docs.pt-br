@@ -117,7 +117,7 @@ As configurações de CORS migradas estão disponíveis como a configuração do
 
 Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciamento para o futuro.
 
-> [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
+> [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte o [Traffic Manager tutorial](#next-steps) (Tutorial do Gerenciador de Tráfego) para obter mais informações.
 
 ### <a name="download-publish-profile"></a>Baixar um novo perfil de publicação
 
@@ -287,17 +287,17 @@ Você não poderá utilizar o comando _azure mobile_ para gerenciar o site de Se
 | _nome_ de exibição móvel | _nome_ de exibição do site |
 | _nome_ de reinicialização móvel | _nome_ de reinicialização do site |
 | _nome_ de reimplantação móvel | site deployment redeploy _commitId_ _name_ |
-| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile config list _name_ | site appsetting list _name_ |
 | mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
-| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile domain list _name_ | site domain list _name_ |
 | mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
 | mobile domain delete _name_ | site domain delete _domain_ _name_ |
 | mobile scale show _name_ | _nome_ de exibição do site |
 | mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
 | mobile appsetting list _name_ | site appsetting list _name_ |
-| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_ |
 | mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
 | mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
 
@@ -334,7 +334,7 @@ Solução: estamos trabalhando para corrigir esse problema. Se quiser clonar seu
 
 ### A alteração do web.config não funciona
 
-Se você tiver um site do ASP.NET, alterações no arquivo `Web.config` não funcionarão. O Serviço de Aplicativo do Azure cria um arquivo `Web.config` adequado durante a inicialização para suportar o tempo de execução dos Serviços Móveis. Você pode substituir determinadas configurações (como cabeçalhos personalizados) usando um arquivo de transformação XML. Crie um arquivo chamado `applicationHost.xdt` - esse arquivo deve terminar no diretório `D:\home\site` no Serviço do Azure. Isso pode ser obtido por meio de um script de implantação personalizada ou usando o Kudu. Um documento de exemplo é mostrado abaixo:
+Se você tiver um site do ASP.NET, as alterações no arquivo `Web.config` não funcionarão. O Serviço de Aplicativo do Azure cria um arquivo `Web.config` adequado durante a inicialização compatível com o tempo de execução dos Serviços Móveis. Você pode substituir determinadas configurações (como cabeçalhos personalizados) usando um arquivo de transformação XML. Crie um arquivo chamado `applicationHost.xdt` – esse arquivo deve terminar no diretório `D:\home\site` no Serviço do Azure. Faça isso por meio de um script de implantação personalizada ou usando o Kudu. Veja abaixo um documento de exemplo:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -353,11 +353,11 @@ Se você tiver um site do ASP.NET, alterações no arquivo `Web.config` não fun
 </configuration>
 ```
 
-Para obter mais informações, consulte a documentação de [Exemplos de Transformação XDT] no GitHub.
+Para obter mais informações, consulte a documentação [XDT Transform Samples] (Exemplos de Transformação XDT) no GitHub.
 
 ### Os Serviços Móveis migrados não podem ser adicionados ao Gerenciador de Tráfego
 
-Quando você cria um perfil do Gerenciador de Tráfego, não pode escolher diretamente um serviço móvel migrado para o perfil. Você precisa usar um "ponto de extremidade externo". O ponto de extremidade externo só pode ser adicionado por meio do PowerShell. Consulte o [Tutorial do Gerenciador de Tráfego](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) para obter mais informações.
+Quando você cria um perfil do Gerenciador de Tráfego, não pode escolher diretamente um serviço móvel migrado para o perfil. Você precisa usar um "ponto de extremidade externo". O ponto de extremidade externo só pode ser adicionado por meio do PowerShell. Consulte o [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) (Tutorial do Gerenciador de Tráfego) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -381,17 +381,17 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Dimensionamento automático]: ../app-service-web/web-sites-scale.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
-[região do Azure]: https://azure.microsoft.com/regions/
+[região do Azure]: https://azure.microsoft.com/pt-BR/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
-[implantar continuamente]: ../app-service-web/web-sites-publish-source-control.md
-[Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[implantar continuamente]: ../app-service-web/app-service-continuous-deployment.md
+[Converter seus namespaces mistos]: https://azure.microsoft.com/pt-BR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -407,6 +407,6 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [slots de preparo]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
-[Exemplos de Transformação XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

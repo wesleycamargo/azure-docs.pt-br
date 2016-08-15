@@ -3,7 +3,7 @@
    description="Saiba mais sobre as Soluções de Banco de Dados SQL do Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -18,42 +18,57 @@
 
 # Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure
 
-Este artigo contém uma visão geral dos Guias de Início Rápido da solução de Banco de Dados SQL do Azure. Estes Guias de Início Rápido demonstram o uso do banco de dados SQL na solução completa com base em cenários do mundo real. Para obter tutoriais passo a passo simples que demonstram o uso de um recurso específico do Banco de Dados SQL do Azure, consulte [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md).
+Este artigo contém uma visão geral dos Guias de Início Rápido da solução de Banco de Dados SQL do Azure. Estes Inícios Rápidos estão localizados no repositório de exemplos do SQL Server do GitHub e demonstram o uso do Banco de Dados SQL em uma solução completa com base em cenários do mundo real. Para obter tutoriais passo a passo simples, que demonstram o uso de um recurso específico do Banco de Dados SQL, confira [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md).
+
+## Experimente a Demonstração de WingTipTickets e o laboratório prático
+
+Os arquivos de demonstração e o laboratório prático de [WingTipTickets de Banco de Dados do SQL Azure](https://github.com/microsoft/wingtiptickets) demonstram um Banco de Dados SQL do Azure e um aplicativo de exemplo baseado na Pesquisa do Azure usado para vender ingressos para concertos.
+
 
 ## Coletar e monitorar dados de uso de recursos em vários pools
 
-Este Guia de Início Rápido da Solução fornece uma solução para coletar e monitorar o uso de recursos do Banco de Dados SQL do Azure em vários pools em uma assinatura. Quando você tiver um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente. Para resolver disso, você pode combinar cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL para coletar dados de uso de recursos de vários pools e bancos de dados para monitoramento e análise de uso de recursos.
+[Início Rápido da Solução: a telemetria de pool elástico usando o PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) fornece uma solução para coletar e monitorar o uso de recursos do Banco de Dados SQL em vários pools em uma assinatura. Quando você tem um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente.
 
-[Gerenciar Pools Elásticos Múltiplos no Banco de Dados SQL usando o PowerShell e o Power BI](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) no repositório de exemplos do SQL Server no GitHub fornece um conjunto de scripts do PowerShell e consultas T-SQL, em conjunto com a documentação sobre o que ele faz e como usá-lo.
+Para resolver este problema, você pode combinar cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL para coletar dados de uso de recursos de vários pools e bancos de dados. Isso ajuda a monitorar e analisar o uso de recursos com mais eficiência.
 
-## Introdução ao uso de Pools Elásticos em um cenário de SaaS
+Este Início Rápido fornece um conjunto de scripts do PowerShell e consultas do T-SQL juntamente com a documentação sobre a solução e como implementá-la.
 
-Este Guia de Início Rápido da Solução fornece uma solução para um cenário de SaaS (Software como solução) que utiliza Pools Elásticos para fornecer um back-end de banco de dados econômico e escalonável para um aplicativo SaaS. Nesta solução, você verá um passo a passo da implementação de um aplicativo Web que permite visualizar a carga criada em um Pool Elástico com um gerador de carga usando um painel personalizado que complementa o Portal do Azure.
+## Introdução ao Banco de Dados Elástico em um cenário de SaaS
 
-[Painel personalizado do pool elástico para Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) no repositório de exemplos do SQL Server no GitHub fornece um aplicativo Web de monitoramento e gerador de carga em conjunto com a documentação sobre o que ele faz e como usá-lo.
+ [Início Rápido da Solução: o painel personalizado do pool elástico para SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) fornece uma solução para um cenário de SaaS (software como serviço) que utiliza o recurso Banco de Dados Elástico do Banco de Dados SQL para fornecer um back-end do banco de dados econômico e escalonável para um aplicativo de SaaS.
 
-## Criando um Banco de Dados SQL do Azure usando o Entity Framework e desenvolvimento Code First
+Nesta solução, você verá a implementação de um aplicativo Web. Este aplicativo Web permite que você visualize a carga que é criada em um Banco de Dados Elástico por um gerador de carga que usa um painel personalizado que complementa o Portal do Azure.
 
-Este vídeo e exemplo fornece uma introdução ao desenvolvimento Code First visando a um novo banco de dados. O cenário inclui como meta um banco de dados que não existe e será criado pelo Code First, ou um banco de dados vazio ao qual o Code First adicionará novas tabelas. O Code First permite que você defina seu modelo usando classes C# ou VB.Net. Outras configurações podem ser opcionalmente definidas usando atributos em classes e propriedades ou usando uma API fluente. Confira [Code First para um novo banco de dados](https://msdn.microsoft.com/data/jj193542.aspx).
+Este Início Rápido fornece um gerador de carga e um aplicativo Web de monitoramento junto com a documentação sobre o que o aplicativo faz e como usá-lo.
 
-## Integrar ferramentas de Banco de Dados Elástico a um aplicativo Entity Framework
+## Crie um Banco de Dados SQL do Azure usando o desenvolvimento Code First e o Entity Framework
 
-Este exemplo mostra as alterações em um aplicativo do Entity Framework necessárias para integrar com as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework Code First. O exemplo [Code First – Novo banco de dados para o EF](http://msdn.microsoft.com/data/jj193542.aspx) serve como exemplo de execução para este exemplo. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio. Confira [Biblioteca cliente do Banco de Dados Elástico com Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md).
+O vídeo e o exemplo em [Code First para um novo banco de dados](https://msdn.microsoft.com/data/jj193542.aspx) fornece uma introdução ao desenvolvimento Code First que tem como destino um novo banco de dados. Este cenário tem como objetivo um banco de dados que não existe, mas que será criado pelo Code First. Como alternativa, o cenário cria um banco de dados vazio para o qual o Code First adiciona novas tabelas.
 
-## Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
+O Code First permite que você defina seu modelo usando classes de C# ou do Visual Basic .NET. Você pode executar configurações extras opcionais por meio de atributos em classes e propriedades ou usando uma API fluente.
 
-Este exemplo mostra as alterações em um aplicativo do Entity Framework necessárias para integrar as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md) com [segurança em nível de linha](https://msdn.microsoft.com/library/dn765131). Este exemplo ilustra como usar essas tecnologias em conjunto para criar um aplicativo com uma camada de dados altamente dimensionável e compatível com fragmentos multilocatários usando ADO.NET SqlClient e/ou Entity Framework. Este exemplo amplia a [biblioteca de cliente do Banco de Dados Elástico com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. Ele cria um aplicativo de console simples para a criação de blogs e postagens, com quatro locatários e dois bancos de dados de fragmentos multilocatários. Confira [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md).
+## Integre ferramentas do Banco de Dados Elástico a um aplicativo do Entity Framework
 
-## Aplicativo Tailspin Surveys
+O exemplo da [biblioteca de cliente do Banco de Dados Elástico com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) mostra as alterações que você precisa fazer em um aplicativo do Entity Framework para integrá-lo às [Ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework Code First.
 
-Este exemplo é um aplicativo Web multilocatário, chamado Surveys, que permite aos usuários criar pesquisas online. O exemplo demonstra algumas preocupações importantes com o gerenciamento de identidades de usuário em um aplicativo multilocatário, incluindo a inscrição, a autenticação, a autorização e as funções de aplicativo. Para executar este exemplo, confira [Como executar o aplicativo de exemplo Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
+O [Code First para um novo banco de dados para o EF](http://msdn.microsoft.com/data/jj193542.aspx) serve como exemplo de execução para este exemplo. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas do Banco de Dados Elástico de exemplos nos exemplos de código do Visual Studio.
 
-## Aplicativo de demonstração Contoso Clinic
+## Integre as ferramentas do Banco de Dados Elástico à segurança em nível de linha
 
-Este exemplo demonstra os recursos de segurança do BD SQL do Azure (V12). Para executar este exemplo, consulte [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) (Aplicativo de demonstração Contoso Clinic).
+Os [aplicativos multilocatários com as ferramentas do Banco de Dados Elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md) mostram as alterações que você precisa fazer em um aplicativo do Entity Framework para integrar as [ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md) com a [segurança em nível de linha](https://msdn.microsoft.com/library/dn765131). Este exemplo ilustra como usar essas tecnologias em conjunto para compilar um aplicativo com uma camada de dados altamente escalonável e compatível com fragmentos multilocatários.
+
+Você pode fazer isso usando o ADO.NET SqlClient ou o Entity Framework. Este exemplo amplia a [biblioteca de cliente do Banco de Dados Elástico com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) ao adicionar suporte para bancos de dados de fragmentos multilocatários. Ele compila um aplicativo de console simples para a criação de blogs e postagens, com quatro locatários e dois bancos de dados de fragmentos multilocatários.
+
+## Crie pesquisas online com o aplicativo da Tailspin Surveys
+
+Este [aplicativo de exemplo da Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) é um aplicativo Web multilocatário, chamado Surveys, que permite aos usuários criar pesquisas online. O exemplo aborda algumas preocupações importantes sobre como gerenciar identidades de usuário em um aplicativo multilocatário, incluindo a inscrição, a autenticação, a autorização e as funções de aplicativo.
+
+## Saiba mais sobre os novos recursos de segurança do Banco de Dados SQL com o aplicativo de demonstração da Contoso Clinic
+
+Este [aplicativo de demonstração da Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) demonstra os novos recursos de segurança do Banco de Dados SQL.
 
 ## Próximas etapas
 
 [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="kipandya"/>
    
    
@@ -54,9 +54,7 @@ Por fim, uma vez que o Banco de Dados de Documentos é completamente [independen
 
 ## Habilitando a distribuição global 
 
-Você pode optar por tornar os dados local ou globalmente distribuídos associando uma ou mais regiões do Azure a uma conta do banco de dados do Banco de Dados de Documentos. Você pode optar por distribuir os dados globalmente ou confiná-los a uma única região adicionando ou removendo regiões em sua conta de banco de dados a qualquer momento. As contas de banco de dados do Banco de Dados de Documentos que permitem atribuição de várias regiões podem ser criadas no Azure Marketplace, bastando selecionar 'Banco de Dados de Documentos — conta de banco de dados de várias regiões'.
-
-
+Você pode optar por tornar os dados local ou globalmente distribuídos associando uma ou mais regiões do Azure a uma conta do banco de dados do Banco de Dados de Documentos. Você pode adicionar ou remover regiões à sua conta de banco de dados a qualquer momento.
 
 ## Próximas etapas
 
@@ -89,4 +87,4 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

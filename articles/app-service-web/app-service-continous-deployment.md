@@ -28,7 +28,7 @@ Para habilitar a implantação contínua,
 
 2. Na folha do aplicativo no [Portal do Azure], clique em **Configurações > Origem da Implantação**. Clique em **Escolher Fonte** e depois em **GitHub**, por exemplo.
 
-	![](./media/app-service-continous-deployment/cd_options.png)
+	![](./media/app-service-continuous-deployment/cd_options.png)
 	
     > [AZURE.NOTE] Para configurar uma conta do VSTS para a implantação do Serviço de Aplicativo, consulte este [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
     
@@ -36,7 +36,7 @@ Para habilitar a implantação contínua,
 
 4. Na folha **Origem da Implantação**, escolha o projeto e a ramificação dos quais quer implantar. Quando terminar, clique em **OK**.
   
-	![](./media/app-service-continous-deployment/github_option.png)
+	![](./media/app-service-continuous-deployment/github_option.png)
 
 	> [AZURE.NOTE] Ao habilitar a implantação contínua com GitHub ou BitBucket, os projetos públicos e privados serão exibidos.
 
@@ -54,7 +54,7 @@ As etapas para enviar sua solução do Visual Studio para o Serviço de Aplicati
 
 -	Use a opção de controle do código-fonte do Visual Studio para gerar um arquivo `.gitignore`, como na imagem abaixo, ou adicione manualmente um arquivo `.gitignore` à raiz de seu repositório com um conteúdo semelhante a este [exemplo de .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-    ![](./media/app-service-continous-deployment/VS_source_control.png)
+    ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
 -	Adicionar toda a árvore do diretório da solução para seu repositório, com o arquivo .sln na raiz do repositório.
 
@@ -66,7 +66,7 @@ Para desabilitar a implantação contínua,
 
 1. Na folha do aplicativo no [Portal do Azure], clique em **Configurações > Origem da Implantação**. Em seguida, clique em **Desconectar** na folha **Implantações**.
 
-    ![](./media/app-service-continous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 
 2. Depois de responder **Sim** à mensagem de confirmação, você poderá retornar à folha de seu aplicativo e clicar em **Configurações > Origem da Implantação**, se quiser configurar publicação de outra fonte.
 
@@ -93,4 +93,4 @@ Para desabilitar a implantação contínua,
 [Introdução ao VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN: solucionando problemas de compactação de arquivo"
-	description="Solucione problemas com a compactação de arquivo CDN."
+	pageTitle="Solucionando problemas de compactação de arquivo na CDN do Azure | Microsoft Azure"
+	description="Solucione problemas com a compactação de arquivo da CDN do Azure."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de compactação de arquivo CDN
@@ -99,4 +99,4 @@ O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo
 - **IIS 6**: [Defina HcNoCompressionForProxies="FALSE" nas propriedades do IIS Metabase](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 and up**: [Defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

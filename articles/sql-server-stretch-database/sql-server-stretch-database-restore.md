@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/01/2016"
 	ms.author="douglasl"/>
 
 # Restaurar o backup de bancos de dados habilitados para o Stretch
@@ -27,8 +27,7 @@ Para obter mais informações sobre o backup, consulte [Fazer backup de bancos d
 ## Restaurar os dados do SQL Server
 Para recuperar-se de falhas de hardware ou corrupção, restaure de um backup o banco de dados do SQL Server habilitado para Stretch. Você pode continuar a usar os métodos de restauração do SQL Server que você utiliza atualmente. Para obter mais informações, consulte [Visão geral de recuperação e restauração](https://msdn.microsoft.com/library/ms191253.aspx).
 
-Depois de restaurar o banco de dados do SQL Server, você precisa executar o procedimento armazenado **sys.sp\_rda\_reauthorize\_db** para restabelecer a conexão entre o banco de dados do SQL Server habilitado para o Stretch e o banco de dados remoto do Azure. Para obter mais informações, consulte [Restaurar a conexão entre o banco de dados do SQL Server e banco de dados remoto do Azure](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
+Depois de restaurar o banco de dados do SQL Server, você precisa executar o procedimento armazenado **sys.sp\_rda\_reauthorize\_db** para restabelecer a conexão entre o banco de dados do SQL Server habilitado para o Stretch e o banco de dados remoto do Azure. Para obter mais informações, confira [Restore the connection between the SQL Server database and the remote Azure database](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database) (Restaurar a conexão entre o banco de dados do SQL Server e banco de dados remoto do Azure).
 
 ## Restaurar os dados remotos do Azure
 
@@ -59,11 +58,11 @@ Para restaurar um banco de dados do Azure excluído para o ponto no tempo em que
 
 ## Restaurar a conexão entre o banco de dados do SQL Server e banco de dados remoto do Azure
 
-1.  Se você vai se conectar a um banco de dados do Azure restaurado com um nome diferente ou em uma região diferente, execute o procedimento armazenado [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) para se desconectar do banco de dados do Azure anterior.
+1.  Se você vai se conectar a um banco de dados do Azure restaurado com um nome diferente ou em uma região diferente, execute o procedimento armazenado [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx) para desconectar-se do banco de dados do Azure anterior.
 
 2.  Execute o procedimento armazenado [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) para reconectar o banco de dados habilitado para Stretch local com o banco de dados do Azure.
 
-	-   Forneça as credenciais existentes do banco de dados com escopo como um sysname ou um valor varchar(128). (Não use varchar(max).) Você pode procurar o nome da credencial na exibição **sys.database\_scoped\_credentials**.
+	-   Forneça as credenciais existentes do banco de dados com escopo como um sysname ou um valor varchar(128). (Não use varchar(max).) Você pode procurar o nome da credencial no modo de exibição **sys.database\_scoped\_credentials**.
 
 	-   Especifique se deseja fazer uma cópia dos dados remotos e conecte-se à cópia (recomendado).
 
@@ -84,4 +83,4 @@ Para restaurar um banco de dados do Azure excluído para o ponto no tempo em que
 
 [Backup e restauração de bancos de dados do SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

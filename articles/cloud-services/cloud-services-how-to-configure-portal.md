@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # Como configurar serviços de nuvem
 
@@ -56,7 +53,7 @@ Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você
 - Gravação de disco
 - Rede no
 - Limite de rede
-- Percentual de CPU 
+- Percentual de CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo de 
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

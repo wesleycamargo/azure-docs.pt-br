@@ -42,7 +42,7 @@ A Recuperação de Site pode ser usada em vários cenários e pode proteger dive
 
 ## Pré-requisitos do Azure
 
-- Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
+- Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md). Observe que não há suporte para a movimentação de contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
 - Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
 
@@ -90,7 +90,7 @@ O gráfico abaixo mostra os diferentes canais de comunicação e portas usados p
 
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
 
-5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](pricing/details/site-recovery/).
+5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 6. Clique em **Criar cofre**.
 
@@ -132,31 +132,25 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure-classic/provider1.png)
 
-7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+7. Em **Instalação ** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
 
 8. Após a instalação continue para registrar o servidor no cofre.
 
-	![Instalação concluída](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.png)
+9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
+	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 
-9. Na página **Conexão com a Internet**, especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
+10. Na página **Conexão com a Internet**, especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
 
-	![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure-classic/provider4.png)
-
-9. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
-
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/select-key.png)
-
+	![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
 
 11. Registro começa a registrar o servidor no cofre.
 
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.png)
+	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 
 11. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Sites do Hyper-V** da página **Servidores** no cofre.
-
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider6.png)
 
 
 ### Instalar o provedor usando a linha de comando
@@ -192,7 +186,7 @@ Em que os parâmetros incluem:
 
 	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] Não há suporte à movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+>[AZURE.NOTE] Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos.
 
 
 ## Etapa 5: criar e configurar grupos de proteção
@@ -221,7 +215,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
 >[AZURE.NOTE] Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
 
-1. Na guia **Máquinas** do grupo de proteção, clique em **Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
+1. Na guia **Máquinas** do grupo de proteção, clique** em Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
 2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
 
 	![Habilitar a proteção da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -235,7 +229,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 		- **Tamanho**: o tamanho de destino da máquina virtual que executa o failover.
 
 		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- Defina as configurações adicionais de máquina virtual em *Itens Protegidos* > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais** *nome\_da\_máquina\_virtual* > **Configurar**, incluindo.
+	- Defina as configurações adicionais de máquina virtual em *Itens Protegidos** > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais* nome\_máquina\_virtual* > **Configurar**, incluindo:
 
 		- **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique o número de nics com suporte pelo tamanho da máquina virtual nas [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
 
@@ -245,7 +239,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
 			- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 			- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
-			- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador. 	
+			- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
 		- **Rede Azure**: especifique a rede na qual a máquina virtual devem executar failover. Se a máquina virtual tiver vários adaptadores de rede, todos deverão estar conectados à mesma rede do Azure.
 		- **Sub-rede** Para cada adaptador de rede na máquina virtual, selecione a sub-rede na rede do Azure à qual a máquina deve se conectar após o failover.
 		- **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover. Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
@@ -305,4 +299,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

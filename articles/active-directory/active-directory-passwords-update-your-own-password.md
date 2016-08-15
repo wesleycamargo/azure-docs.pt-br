@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/02/2016"
 	ms.author="asteen"/>
 
 # Como atualizar sua própria senha
@@ -27,6 +27,10 @@ Se não souber como gerenciar a senha de sua conta de trabalho ou escola, você 
 * [**Problemas comuns e suas soluções**](#common-problems-and-their-solutions)
 
 ## Como registrar-se para a redefinição de senha
+
+> [AZURE.IMPORTANT]
+**Por que estou vendo isto?** Se você seguiu um link para chegar aqui, provavelmente está vendo isto porque o administrador requer que você se registre para redefinir a senha e obter acesso ao aplicativo. Você pode ser solicitado a fornecer o telefone ou o email ou definir perguntas de segurança. Não se preocupe: não usaremos essas informações para lhe enviar spam, apenas para manter sua conta mais segura. As etapas apresentadas aqui devem ajudá-lo a alcançar seu objetivo.
+
 A maneira mais rápida de se registrar para redefinição de senha é ir para http://aka.ms/ssprsetup.
 
  1. Navegue até http://aka.ms/ssprsetup.
@@ -253,4 +257,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Substituindo o comportamento HTTP padrão usando o mecanismo de regras"
-	description="O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de certos tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP."
+	pageTitle="Substituindo o comportamento HTTP padrão na CDN do Azure usando o mecanismo de regras | Microsoft Azure"
+	description="O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Substituir o comportamento HTTP padrão usando o mecanismo de regras
@@ -28,7 +28,7 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 1. Na folha do perfil CDN, clique no botão **Gerenciar**.
 
-	![botão gerenciar da folha do perfil CDN](./media/cdn-rules-engine/cdn-rules-manage-btn.png)
+	![botão gerenciar da folha Perfil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
 	O portal de gerenciamento da CDN é aberto.
 
@@ -48,7 +48,7 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 	>[AZURE.TIP] Há vários tipos de condições de correspondência disponíveis no menu suspenso. Clicar no ícone de informação azul à esquerda da condição de correspondência explicará a condição atualmente selecionada em detalhes.
 	>
-	>Para obter a lista completa de condições de correspondência em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](cdn-rules-engine-details.md#match-conditions).
+	>Para obter a lista completa de condições de correspondência em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
 
 5.  Clique no botão **+** próximo aos **Recursos** para adicionar um novo recurso. Na lista suspensa à esquerda, selecione **Force Internal Max-Age**. Na caixa de texto que aparece, digite **300**. Mantenha os valores padrão restantes.
 
@@ -56,7 +56,7 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 	>[AZURE.NOTE] Assim como ocorre com condições de correspondência, clicando no ícone de informação azul à esquerda do novo recurso para exibir detalhes sobre esse recurso. No caso de **Force Internal Max-Age**, estamos substituindo os cabeçalhos **Cache-Control** e **Expires** do ativo para controlar quando o nó de borda da CDN atualizará o ativo da origem. Nosso exemplo de 300 segundos significa que o nó de borda da CDN armazenará em cache o ativo por 5 minutos antes de atualizar o ativo de sua origem.
 	>
-	>Para obter a lista completa de recursos em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](cdn-rules-engine-details.md#features).
+	>Para obter a lista completa de recursos em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
 
 6.  Clique no botão **Adicionar** para salvar a nova regra. A nova regra agora está aguardando aprovação. Depois de aprovado, o status será alterado de **XML Pendente** para **XML Ativo**.
 
@@ -64,6 +64,6 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 ## Consulte também
 * [Azure Fridays: novos recursos Premium poderosos do Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
-* [Condição de correspondência do mecanismo de regras e detalhes do recurso](cdn-rules-engine-details.md)
+* [Condição de correspondência do mecanismo de regras e detalhes do recurso](https://msdn.microsoft.com/library/mt757336.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

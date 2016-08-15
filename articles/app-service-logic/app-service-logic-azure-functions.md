@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso de Azure Functions com Aplicativos Lógicos | Microsoft Azure"
    description="Veja como usar Azure Functions com Aplicativos Lógicos"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -70,4 +70,4 @@ Então, o designer irá gerar um modelo de função que você poderá criar embu
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -64,12 +64,12 @@ As etapas a seguir o orientarão durante o processo de criação de uma nova fó
 
 	- **Nome da fórmula** – digite um nome para a fórmula. Esse valor será exibido na lista de imagens de base quando você criar uma máquina virtual. O nome é validado durante a digitação e, se não servir, uma mensagem indicará os requisitos para um nome válido.
 	- **Descrição** – digite uma descrição relevante para a fórmula. Esse valor está disponível no menu de contexto da fórmula quando você cria uma VM.
-	- **Imagem** – este campo exibe o nome da imagem de base que você selecionou na folha anterior. 
+	- **Imagem** – este campo exibe o nome da imagem de base que você selecionou na folha anterior.
 	- **Tamanho da VM** – Selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
 	- **Rede virtual** – Selecione e escolha a rede virtual desejada.
 	- **Sub-rede** – Selecione e escolha a sub-rede desejada.
 	- **Endereço IP público** – se a política de laboratório for definida para permitir endereços IP públicos para a sub-rede selecionada, especifique se você deseja ou não que o endereço IP seja público selecionando **Sim** ou **Não**. Caso contrário, essa opção será desabilitada e selecionada como **Não**.
-	- **Artefatos** – Selecione e, na lista de artefatos, escolha e configure os artefatos que você deseja adicionar à imagem base. Observe que os parâmetros de artefato que são cadeias de caracteres protegidas não são exibidos, já que a fórmula não salva valores de cadeias de caracteres protegidas. 
+	- **Artefatos** – Selecione e, na lista de artefatos, escolha e configure os artefatos que você deseja adicionar à imagem base. Observe que os parâmetros de artefato que são cadeias de caracteres protegidas não são exibidos, já que a fórmula não salva valores de cadeias de caracteres protegidas.
 
     	![Criar fórmula](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -142,7 +142,11 @@ Para excluir uma fórmula, siga estas etapas:
 
     ![Menu de contexto da Fórmula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+## Postagens de blogs relacionadas
+
+- [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+
 ## Próximas etapas
 Após criar uma fórmula para uso durante a criação de uma VM, a próxima etapa é [adicionar uma VM ao laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -430,7 +430,7 @@ Não importa o que esteja fazendo, o código frequentemente precisa interagir co
 
 O enfileiramento é uma ideia simples: um aplicativo coloca uma mensagem na fila e essa mensagem, por fim, é lida por outro aplicativo. Se seu aplicativo precisar apenas desse serviço direto, as Filas do Azure podem ser a melhor opção.
 
-Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você quer usar um em detrimento do outro são explicados em um documento bastante técnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Filas do Azure e filas do Barramento de Serviço – comparações e contrastes"). Na maioria dos cenários, qualquer uma dessas opções funcionará.
+Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você desejaria utilizar um no lugar do outro são explicadas num folheto bastante técnico [Filas do Azure e Filas do Barramento de Serviço - Comparadas e Contrastadas](http://msdn.microsoft.com/library/azure/hh767287.aspx). Na maioria dos cenários, qualquer uma dessas opções funcionará.
 
 **Cenários para fila**
 
@@ -606,4 +606,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

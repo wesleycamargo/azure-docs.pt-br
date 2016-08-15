@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Limpar um ponto de extremidade da CDN do Azure"
+	pageTitle="Limpar um ponto de extremidade da CDN do Azure | Microsoft Azure"
 	description="Saiba como limpar todo o conteúdo armazenado em cache de um ponto de extremidade da CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Limpar um ponto de extremidade da CDN do Azure
@@ -56,10 +56,10 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 
 	![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
-> [AZURE.IMPORTANT] Solicitações de limpeza levam aproximadamente de 2 a 3 minutos de processamento com a **CDN do Azure da Verizon** (Standard e Premium) e cerca de 7 minutos com **a CDN do Azure do Akamai**. A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez.
+> [AZURE.IMPORTANT] Solicitações de limpeza demoram aproximadamente de 2 a 3 minutos para serem processadas com a **CDN do Azure da Verizon** (Standard e Premium) e cerca de 7 minutos com a **CDN do Azure do Akamai**. A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez.
 
 ## Consulte também
 - [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

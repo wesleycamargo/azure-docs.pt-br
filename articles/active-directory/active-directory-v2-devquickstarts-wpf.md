@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Aplicativo Nativo .NET do Azure AD v2.0 | Microsoft Azure"
-	description="Como criar um aplicativo nativo .NET que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Aplicativo nativo .NET do Azure Active Directory v2.0 | Microsoft Azure"
+description="Como criar um aplicativo nativo .NET que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Adicionar credenciais a um aplicativo da Área de Trabalho do Windows
 
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos do área de trabalho com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante. Ele também permite que seu aplicativo se comunique de forma segura com uma API Web de back-end, bem como com [o Microsoft Graph](https://graph.microsoft.io) e algumas das [APIs Unificadas do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> [AZURE.NOTE] Nem todos os recursos e cenários do Azure Active Directory (AD) têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
 Para [clientes nativos .NET que precisam executar um dispositivo](active-directory-v2-flows.md#mobile-and-native-apps), o Azure AD fornece a Biblioteca de Autenticação do Microsoft Identity, ou MSAL. Única finalidade da MSAL é tornar mais fácil a obtenção de tokens de acesso para seu aplicativo. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de Lista de Tarefas para .NET WPF que:
 
--	Conecta o usuário e obtém tokens de acesso usando o [protocolo de autenticação OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
--	Chama com segurança um serviço da Web de Lista de Tarefas back-end, que também é protegido pelo OAuth 2.0.
--	Faz logout dos usuários.
+- Conecta o usuário e obtém tokens de acesso usando o [protocolo de autenticação OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+- Chama com segurança um serviço da Web de Lista de Tarefas back-end, que também é protegido pelo OAuth 2.0.
+- Desconecta o usuário.
 
 ## Baixar código de exemplo
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 O aplicativo concluído é fornecido também no final desse tutorial.
 
@@ -159,7 +158,7 @@ catch (MsalException ex)
 }
 ```
 
-- Se o usuário entrar com êxito, a MSAL receberá e armazenará em cache um token para você, e você poderá prosseguir e chamar o `GetTodoList()` método com confiança. Tudo o que resta para obter as tarefas do usuário é implementar o `GetTodoList()` método.
+- Se o usuário entrar com êxito, a MSAL receberá e armazenará em cache um token para você, e você poderá prosseguir e chamar o método `GetTodoList()` com confiança. Tudo o que resta para obter as tarefas do usuário é implementar o `GetTodoList()` método.
 
 ```C#
 private async void GetTodoList()
@@ -247,9 +246,10 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 Agora você pode ir para tópicos mais avançados. Você pode desejar experimentar:
 
-- [Protegendo a API Web TodoListService com o ponto de extremidade v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Proteção da API Web TodoListService com o ponto de extremidade v2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Para obter recursos adicionais, consulte:
+
 - [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Marca "msal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ Para obter recursos adicionais, consulte:
 
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

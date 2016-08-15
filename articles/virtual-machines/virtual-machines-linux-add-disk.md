@@ -240,11 +240,13 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
 
+## Solucionar problemas
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Próximas etapas
 
 - Lembre-se de que o novo disco normalmente não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [/etc/fstab](http://en.wikipedia.org/wiki/Fstab).
-- Examine as recomendações em [Otimizar sua VM do Linux no Azure](virtual-machines-linux-optimization.md) para assegurar que sua VM do Linux está configurada corretamente.
+- Examine as recomendações em [Otimizar o desempenho de sua máquina Linux](virtual-machines-linux-optimization.md) para assegurar que sua VM do Linux esteja configurada corretamente.
 - Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](virtual-machines-linux-configure-raid.md) para obter desempenho adicional.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

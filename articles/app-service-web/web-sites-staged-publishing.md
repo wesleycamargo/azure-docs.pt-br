@@ -68,7 +68,7 @@ O aplicativo Web deve estar em execução no modo **Padrão** ou **Premium** par
 
 5. Clique na URL do aplicativo, na folha do slot. Observe que o slot de implantação tem seu próprio nome de host e também é um aplicativo em tempo real. Para limitar o acesso público ao slot de implantação, consulte [Aplicativo Web do Serviço de Aplicativo - bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Não há nenhum conteúdo após a criação do slot de implantação. É possível implantar no slot a partir de uma ramificação diferente do repositório, ou mesmo de um repositório diferente. Você também pode alterar a configuração do slot. Use o perfil de publicação ou as credenciais de implantação associadas ao slot de implantação para atualizar o conteúdo. Por exemplo, você pode [publicar neste slot com o git](web-sites-publish-source-control.md).
+Não há nenhum conteúdo após a criação do slot de implantação. É possível implantar no slot a partir de uma ramificação diferente do repositório, ou mesmo de um repositório diferente. Você também pode alterar a configuração do slot. Use o perfil de publicação ou as credenciais de implantação associadas ao slot de implantação para atualizar o conteúdo. Por exemplo, você pode [publicar neste slot com o git](app-service-deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 ## Configuração de slots de implantação ##
@@ -100,7 +100,7 @@ Para configurar uma cadeia de conexão ou configuração de aplicativo para que 
 
 >[AZURE.IMPORTANT] Antes de permutar um aplicativo Web por meio de um slot de implantação para produção, verifique se todas as configurações específicas de slot estão configuradas exatamente como você deseja tê-las no destino da permuta.
 
-1. Para permutar slots de implantação, clique no botão **Permutar** na barra de comandos do aplicativo Web ou na barra de comandos de um slot de implantação. Verifique se a origem e o destino da permuta estão definidos corretamente. Geralmente, o destino da permuta seria o slot de produção.  
+1. Para permutar slots de implantação, clique no botão **Permutar** na barra de comandos do aplicativo Web ou na barra de comandos de um slot de implantação. Verifique se a origem e o destino da permuta estão definidos corretamente. Geralmente, o destino da permuta seria o slot de produção.
 
 	![Botão permutar][SwapButtonBar]
 
@@ -114,7 +114,7 @@ A Permuta Automática simplifica cenários DevOps em q você deseja implantar co
 
 Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
 
-1. Na folha **Slots de Implantação**, selecione um slot que não seja de produção e clique em **Todas as configurações** para a folha desse slot.  
+1. Na folha **Slots de Implantação**, selecione um slot que não seja de produção e clique em **Todas as configurações** para a folha desse slot.
 
 	![][Autoswap1]
 
@@ -162,7 +162,7 @@ Na folha para um slot de implantação, clique em **Excluir** na barra de comand
 
 O PowerShell do Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação de aplicativos Web no Serviço de Aplicativo do Azure.
 
-- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../powershell-install-configure.md).  
+- Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](../powershell-install-configure.md).
 
 ----------
 
@@ -283,4 +283,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -226,7 +226,7 @@ Privilégios | "limitados" ou "elevados" | qualquer conta de usuário ou computa
 Sequenciamento | "simples", "em segundo plano", "primeiro plano" | a execução de tarefas de inicialização deve ocorrer antes da inicialização do serviço.
 
 ### Serviços de Nuvem
-Nos Serviços de Nuvem, um ponto de entrada de inicialização é configurado por função em ServiceDefintion.csdef.
+Nos Serviços de Nuvem, um ponto de entrada de inicialização é configurado por função em ServiceDefinition.csdef.
 
 ```xml
 
@@ -277,4 +277,4 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

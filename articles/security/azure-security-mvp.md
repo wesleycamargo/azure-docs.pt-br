@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Programa MVP de Segurança do Azure
@@ -28,4 +28,4 @@ Embora não haja qualquer parâmetro para tornar-se um MVP, em parte porque ele 
 
 Você é um especialista em segurança do Azure? Você conhece alguém que é? Então, [Nomeie a si mesmo ou a outra pessoa](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para se tornar um MVP de segurança do Azure hoje mesmo!
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

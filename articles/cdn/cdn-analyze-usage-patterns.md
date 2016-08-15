@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Analisar padrões de uso do CDN"
+	pageTitle="Analisar os padrões de uso da CDN do Azure | Microsoft Azure"
 	description="Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Analisar padrões de uso do CDN
+# Analisar os padrões de uso da CDN do Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 - Status do Cache
 - Taxa de Acertos do Cache
 - Dados IPv4/IPV6 Transferidos
+
+## Acessando relatórios HTTP avançados
+
+1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
+
+	![botão gerenciar da folha Perfil CDN](./media/cdn-reports/cdn-manage-btn.png)
+
+	O portal de gerenciamento da CDN é aberto.
+
+2. Passe o mouse sobre a guia **Análise** e sobre o submenu **Relatórios Principais**. Clique no relatório desejado no menu.
+
+	![Portal de gerenciamento da CDN - menu Relatórios Principais](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## Largura de banda
 
@@ -122,7 +135,7 @@ O relatório não inclui:
 - Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, os cabeçalhos Cache-Control: private, Cache-Control: no-cache ou Pragma: no-cache impedirão que um arquivo seja armazenado em cache.
 - Solicitações de intervalo de bytes para conteúdo parcialmente armazenado em cache.
 
-A fórmula é: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
+A fórmula é: (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100
 
 - Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
 - Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
@@ -144,4 +157,4 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

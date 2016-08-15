@@ -24,7 +24,7 @@ Este tutorial mostra como implantar seu aplicativo para o [Serviço de Aplicativ
 
 Para concluir este tutorial, você precisará:
 
-- Git. Você pode baixar o binário de instalação [aqui](http://www.git-scm.com/downloads).  
+- Git. Você pode baixar o binário de instalação [aqui](http://www.git-scm.com/downloads).
 - Conhecimento básico do Git.
 - Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
@@ -46,7 +46,7 @@ Execute as seguintes tarefas para criar um novo repositório do Git.
 
 O Serviço de Aplicativo dá suporte a aplicativos criados em uma variedade de linguagens de programação.
 
-1. Se seu repositório já inclui conteúdo, ignore esse ponto e passe para o ponto 2 abaixo. Se seu repositório ainda não inclui conteúdo, simplesmente popule-o com um arquivo .html estático da seguinte maneira: 
+1. Se seu repositório já inclui conteúdo, ignore esse ponto e passe para o ponto 2 abaixo. Se seu repositório ainda não inclui conteúdo, simplesmente popule-o com um arquivo .html estático da seguinte maneira:
 
     - Usando um editor de texto, crie um novo arquivo chamado **index.html** na raiz do repositório do Git
     - Adicione o seguinte como o conteúdo do arquivo index.html e salve-o: *Hello Git!*
@@ -166,7 +166,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 * [Documentação do Git](http://git-scm.com/documentation)
 * [Documentação do projeto Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Implantação contínua no Serviço de Aplicativo do Azure](app-service-continous-deployment.md)
+* [Implantação contínua no Serviço de Aplicativo do Azure](app-service-continuous-deployment.md)
 * [Como usar o PowerShell para o Azure](../powershell-install-configure.md)
 * [Como usar as ferramentas da interface de linha de comando do Azure](../xplat-cli-install.md)
 
@@ -175,9 +175,9 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Portal do Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[interface de linha de comando do Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
+[interface de linha de comando do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

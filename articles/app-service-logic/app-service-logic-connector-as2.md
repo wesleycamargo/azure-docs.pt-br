@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Usando o Conector do AS2 em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure" 
    description="Como criar e configurar o conector do AS2 ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -122,4 +122,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

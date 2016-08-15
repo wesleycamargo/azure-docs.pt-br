@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -657,7 +657,13 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 
 **Sintaxe:** `String PCase(string)`
 
-**Exemplo:** `PCase("TEsT")` retorna "Test".
+**Comentários:**
+
+- Essa função atualmente não fornece o uso de maiúsculas apropriado para converter uma palavra que está totalmente em letras maiúsculas, como um acrônimo.
+
+**Exemplo:** `PCase("TEsT")` retorna "TEST".
+
+`PCase(LCase("TEST"))` Retorna "Teste"
 
 ----------
 ### RandomNum
@@ -757,7 +763,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `str RTrim(str value)`
 
-**Exemplo:** `RTrim(" Test ")` retorna "Test".
+**Exemplo:** `RTrim(" Test ")` retorna "TEST".
 
 ----------
 ### Divisão
@@ -818,7 +824,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
-**Exemplo:** `Trim(" Test ")` retorna "Test".
+**Exemplo:** `Trim(" Test ")` retorna "TEST".
 
 `Trim([proxyAddresses])` remove espaços à direita e à esquerda para cada valor no atributo proxyAddress.
 
@@ -859,4 +865,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

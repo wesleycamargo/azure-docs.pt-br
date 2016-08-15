@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Adicionar uma VM com artefatos a um laboratório
 
-> [AZURE.NOTE] Assista ao vídeo que acompanha este artigo: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) (Como criar VMs com artefatos em um laboratório)
+> [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Visão geral
 
@@ -76,13 +76,13 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada laboratório inclui artefatos do Repositório Público de Artefatos de Laboratórios de Desenvolvimento/Teste, bem como artefatos criados e adicionados por você a seu próprio Repositório de Artefatos. Para saber como criar artefatos, confira o artigo [Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 
-1. Na folha **VM do Laboratório**, selecione **Artefatos**. 
+1. Na folha **VM do Laboratório**, selecione **Artefatos**.
 
 1. Na folha **Adicionar Artefatos**, selecione o artefato desejado.
 
 ![Folha Adicionar Artefatos](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
-1. Insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.  
+1. Insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.
 
 1. Selecione **Adicionar** para adicionar o artefato e retornar à folha **Adicionar Artefatos**.
 
@@ -96,7 +96,7 @@ Por padrão, as ações dos artefatos são executadas na ordem em que eles são 
 
 1. Na parte superior da folha **Adicionar Artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Arraste e solte os artefatos na lista para refletir a ordem desejada. **Observação:** se tiver problemas ao arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato.
 
@@ -108,7 +108,7 @@ As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefa
 
 1. Na parte superior da folha **Adicionar Artefatos**, selecione o link que indica o número de artefatos adicionados à VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Na folha **Artefatos Selecionados**, selecione o artefato que você deseja exibir ou editar.
 
@@ -140,4 +140,4 @@ Um modelo de ARM fornece uma forma declarativa de definir uma implantação repe
 - Saiba como [criar artefatos personalizados para sua VM de Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 - Explore a [galeria de modelos de Início Rápido de ARM de Laboratórios de Desenvolvimento/Teste](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

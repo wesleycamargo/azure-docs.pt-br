@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Drivers](sql-data-warehouse-connection-strings.md)
 
 
-Você pode se conectar ao SQL Data Warehouse usando qualquer um dos seguintes protocolos de aplicativo:
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para ajudar na configuração da sua cadeia de conexão. Basta navegar para o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão do banco de dados*.
+Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, como o [ADO.NET][], o [ODBC][], o [PHP][] e o [JDBC][]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para compilar sua cadeia de conexão. Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
 ## Exemplo de cadeia de conexão ADO.NET
 
@@ -58,9 +51,11 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] Considere definir o tempo limite de conexão para 300 segundos a fim de permitir que a conexão perdure a curtos períodos de indisponibilidade.
+
 ## Próximas etapas
 
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Query with Visual Studio][] \(Consultar com o Visual Studio).
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio][] (Consulta com o Visual Studio).
 
 <!--Image references-->
 
@@ -75,4 +70,4 @@ Para começar a consultar o data warehouse com o Visual Studio e outros aplicati
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

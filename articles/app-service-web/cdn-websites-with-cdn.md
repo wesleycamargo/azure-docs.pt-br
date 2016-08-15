@@ -23,7 +23,7 @@ O [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) pode s
 
 A integração de aplicativos Web à CDN do Azure oferece as seguintes vantagens:
 
-- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](web-sites-publish-source-control.md) de seu aplicativo Web
+- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](app-service-continuous-deployment.md) de seu aplicativo Web
 - Atualizar facilmente os pacotes do NuGet em seu aplicativo Web no Serviço de Aplicativo do Azure, como versões de Bootstrap ou jQuery
 - Gerenciar seu aplicativo Web e o conteúdo fornecido por CDN por meio da mesma interface do Visual Studio
 - Integrar agrupamento e minificação ASP.NET à CDN do Azure
@@ -571,4 +571,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Integrar um serviço de nuvem à CDN do Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

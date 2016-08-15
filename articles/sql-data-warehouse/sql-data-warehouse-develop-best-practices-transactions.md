@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess"/>
 
 # Otimização de transações para o SQL Data Warehouse
@@ -33,6 +33,8 @@ O SQL Data Warehouse do Azure confirma as alterações no banco de dados usando 
 ## Registro mínimo em log vs. registro total em log
 
 Ao contrário de operações totalmente registradas em log, que usam o log de transações para acompanhar cada linha alterada, as operações minimamente registradas em log controlam apenas as alocações de extensão e as alterações de metadados. Portanto, o registro mínimo em log só envolve o registro das informações necessárias para reverter a transação no caso de uma falha ou de uma solicitação explícita (`ROLLBACK TRAN`). Como muito menos informações são rastreadas no log de transações, uma operação minimamente registrada em log tem um desempenho melhor do que uma operação totalmente registrada em log de tamanho similar. Além disso, como ocorrem menos gravações no log de transações, uma quantidade menor de dados de log será gerada e, portanto, é mais eficiente em relação à E/S.
+
+Os limites de segurança de transação só se aplicam às operações totalmente registradas em log.
 
 >[AZURE.NOTE] As operações minimamente registradas em log podem participar de transações explícitas. Como todas as alterações nas estruturas de alocação são rastreadas, é possível reverter operações minimamente registradas em log. É importante entender que a alteração é registrada "minimamente" em log, ou seja, não tem o log cancelado.
 
@@ -55,9 +57,11 @@ As seguintes operações podem ser minimamente registradas em log:
 - SELECT..INTO
 -->
 
+>[AZURE.NOTE] As operações de movimentação de dados internos (como `BROADCAST` e `SHUFFLE`) não são afetadas pelo limite de segurança de transação.
+
 ## Registro mínimo em log com carregamento em massa
 
-`CTAS` e `INSERT...SELECT` são operações de carregamento em massa. No entanto, ambas são influenciadas pela definição da tabela de destino e dependem do cenário de carga. A seguir, uma tabela que explica se a operação em massa será total ou minimamente registrada em log:
+`CTAS` e `INSERT...SELECT` são ambas operações de carregamento em massa. No entanto, ambas são influenciadas pela definição da tabela de destino e dependem do cenário de carga. A seguir, uma tabela que explica se a operação em massa será total ou minimamente registrada em log:
 
 | Índice principal | Cenário de carga | Modo de registro em log |
 | --------------------------- | -------------------------------------------------------- | ------------ |
@@ -76,7 +80,7 @@ Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas
 
 ## Otimizando exclusões
 
-`DELETE` é uma operação totalmente registrada em log. Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente faz mais sentido `SELECT` os dados que deseja manter, que pode ser executada como uma operação minimamente registrada em log. Para isso, crie uma nova tabela com [CTAS][]. Depois de criada, use [RENAME][] para alternar sua tabela antiga com a recentemente criada.
+`DELETE` é uma operação totalmente registrada em log. Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log. Para isso, crie uma nova tabela com [CTAS][]. Depois de criada, use [RENAME][] para alternar sua tabela antiga com a recentemente criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -108,7 +112,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## Otimizando atualizações
 
-`UPDATE` é uma operação totalmente registrada em log. Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, geralmente pode ser muito mais eficiente usar uma operação minimamente registrada em log, como [CTAS][].
+`UPDATE` é uma operação totalmente registrada em log. Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, no geral, poderá ser muito mais proveitoso usar uma operação minimamente registrada em log, como [CTAS][].
 
 No exemplo abaixo, uma atualização completa de tabela foi convertida em um `CTAS` para permitir o registro mínimo em log.
 
@@ -168,7 +172,7 @@ RENAME OBJECT [dbo].[FactInternetSales_u] TO [FactInternetSales];
 DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
-> [AZURE.NOTE] A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Data Warehouse. Para obter mais detalhes, consulte a seção de gerenciamento de carga de trabalho no artigo sobre [simultaneidade][].
+> [AZURE.NOTE] A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Data Warehouse. Para obter mais detalhes, confira a seção de gerenciamento de carga de trabalho no artigo sobre [simultaneidade][].
 
 ## Otimizando com alternância de partição
 
@@ -398,16 +402,16 @@ END
 
 O SQL Data Warehouse do Azure permite pausar, retomar e dimensionar seu data warehouse sob demanda. Quando você pausa ou dimensiona o SQL Data Warehouse, deve entender que todas as transações em trânsito serão encerradas imediatamente, fazendo com que qualquer transação aberta seja revertida. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar seu banco de dados do Azure SQL Data Warehouse.
 
-> [AZURE.IMPORTANT] As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que operações minimamente registradas em log semelhantes.
+> [AZURE.IMPORTANT] As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que as operações minimamente registradas em log equivalentes.
 
 O melhor cenário é permitir que as transações de modificação de dados em trânsito sejam concluídas antes da pausa ou do dimensionamento do SQL Data Warehouse. No entanto, isso pode não sempre ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
-- Grave novamente operações de longa duração usando [CTAS][]
+- Grave novamente as operações de longa duração usando [CTAS][]
 - Divida a operação em partes, trabalhando com um subconjunto de linhas
 
 ## Próximas etapas
 
-Confira [Transações no SQL Data Warehouse][] para saber mais sobre níveis de isolamento e limites transacionais. Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse][].
+Confira [Transações no SQL Data Warehouse][] para saber mais sobre os níveis de isolamento e os limites transacionais. Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -424,4 +428,4 @@ Confira [Transações no SQL Data Warehouse][] para saber mais sobre níveis de 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

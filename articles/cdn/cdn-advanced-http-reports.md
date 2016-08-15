@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN – relatórios HTTP avançados"
+	pageTitle="Relatórios HTTP Avançados na CDN do Azure | Microsoft Azure"
 	description="Relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Relatórios HTTP avançados na CDN do Microsoft Azure
@@ -28,11 +28,13 @@ Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure.
 
 1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
 
-	![Botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+	![botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
 	O portal de gerenciamento da CDN é aberto.
 
 2. Passe o mouse sobre a guia **Análise** e sobre o submenu **Relatórios HTTP avançados**. Clique em **Plataforma Grande HTTP**.
+
+	![Portal de gerenciamento da CDN - menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	As opções de relatório são exibidas.
 
@@ -196,4 +198,4 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

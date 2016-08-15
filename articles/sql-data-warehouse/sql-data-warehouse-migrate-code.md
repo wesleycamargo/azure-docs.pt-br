@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/02/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
@@ -80,7 +80,7 @@ As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, 
 
 As CTEs recursivas não têm suporte no SQL Data Warehouse. A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
 
-## Funções do sistema
+## Funções do sistema sem suporte
 
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
 
@@ -91,26 +91,34 @@ Também há algumas funções do sistema que não têm suporte. Estas são algum
 - ROWCOUNT\_BIG
 - ERROR\_LINE()
 
-Novamente, muitos desses problemas podem ser solucionados.
+Alguns desses problemas podem ser solucionados.
 
-Por exemplo, o código abaixo é uma solução alternativa para a recuperação de informações de @@ROWCOUNT:
+## Solução alternativa de @@ROWCOUNT
+
+Para solucionar a falta de suporte para @@ROWCOUNT, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm\_pdw\_request\_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
 
 ```sql
-SELECT  SUM(row_count) AS row_count
-FROM    sys.dm_pdw_sql_requests
-WHERE   row_count <> -1
-AND     request_id IN
-                    (   SELECT TOP 1    request_id
-                        FROM            sys.dm_pdw_exec_requests
-                        WHERE           session_id = SESSION_ID()
-                        AND             resource_class IS NOT NULL
-                        ORDER BY end_time DESC
-                    )
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
 ## Próximas etapas
-Para obter uma lista completa de todas as instruções T-SQL com suporte, consulte [Tópicos do Transact-SQL][].
+Para obter uma lista completa de todas as instruções T-SQL com suporte, confira [Tópicos do Transact-SQL][].
 
 <!--Image references-->
 
@@ -134,4 +142,4 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, consul
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

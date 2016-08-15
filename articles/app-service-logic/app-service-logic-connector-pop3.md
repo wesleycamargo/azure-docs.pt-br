@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o conector POP3 em Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o conector POP3 ou o aplicativo de API e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -65,8 +65,7 @@ Depois de criar seu aplicativo de API, você poderá usar o conector POP3 como g
 5.	Agora você pode usar o conector de POP3 no fluxo. Selecione o gatilho "Obter Email" e configure a frequência e o intervalo. Você pode usar o email recuperado do gatilho de POP3 em outras ações no fluxo.
 		 
 
-	![][5] 
-	![][6]
+	![][5] ![][6]
 
 ## Fazer mais com seu conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -86,4 +85,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

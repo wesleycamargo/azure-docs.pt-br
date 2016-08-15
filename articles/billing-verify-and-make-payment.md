@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Como verificar a forma de pagamento e fazer pagamentos para uma assinatura do Azure | Microsoft Azure"
 	description="Descreve como verificar a forma de pagamento e fazer pagamentos para uma assinatura do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -44,4 +45,4 @@ Se você tiver configurado um cartão de crédito ou débito como a forma de pag
 
 Se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

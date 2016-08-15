@@ -211,6 +211,7 @@ Cada vez que o DSC de Automação do Azure executa uma verificação de consist�
     ![Captura de tela da folha Relatório](./media/automation-dsc-getting-started/NodeReport.png)
 
 Na folha de um relatório individual, você pode ver as seguintes informações de status para a verificação de consistência correspondente:
+
 - Status do relatório — se o nó é "Compatível", a configuração está "Com Falha" ou o nó "Não é Compatível" (quando o nó está no modo **applyandmonitor** e o computador não está no estado desejado).
 - A hora de início para a verificação de consistência.
 - O tempo de execução total para a verificação de consistência.
@@ -266,4 +267,4 @@ Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

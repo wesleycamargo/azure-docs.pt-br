@@ -3,6 +3,14 @@
 
 Este artigo trata de algumas das perguntas mais comuns feitas pelos usuários sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico.
 
+## Posso migrar minha VM criada no modelo de implantação clássico para o novo modelo do Gerenciador de Recursos?
+
+Sim. Para obter instruções de como migrar, consulte:
+
+- [Migrar do modelo clássico para o Azure Resource Manager usando o Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+
+- [Migrar do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+
 ## O que eu posso executar em uma VM do Azure?
 
 Todos os assinantes podem executar software para servidores em uma máquina virtual do Azure. Você pode executar versões recentes do Windows Server, bem como uma variedade de distribuições Linux. Para obter detalhes sobre o suporte, consulte:
@@ -29,7 +37,7 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 
 ## Quais tipos de disco rígido virtual eu posso usar?
 
-O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se tiver um VHDX que deseja usar no Azure, você precisa primeiro convertê-lo usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais.
+O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se tiver um VHDX que deseja usar no Azure, você precisará primeiro convertê-lo usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais.
 
 - Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
@@ -53,7 +61,7 @@ Você precisará especificar a rede à qual deseja que a máquina virtual perten
 
 Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM Linux. Para obter instruções, consulte:
 
-- [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
+- [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.
 - [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 
@@ -138,6 +146,8 @@ Você também pode usar o portal clássico do Azure ou Azure PowerShell para exi
 
 Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, veja [Gerenciar a disponibilidade de máquinas virtuais](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
+
+
 ## Recursos adicionais
 
 [Sobre Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
@@ -145,3 +155,5 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 [Diferentes maneiras de criar uma Máquina Virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0803_2016-->

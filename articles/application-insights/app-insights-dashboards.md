@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/30/2016"
 	ms.author="awills"/>
 
 # Navegação e painéis no portal do Application Insights
@@ -56,18 +56,24 @@ Escolha o que deseja ver na visão geral. Em Personalizar, você pode inserir t�
 A primeira coisa que você vê depois de entrar no [Portal do Microsoft Azure](https://portal.azure.com) é um painel. Aqui, você pode reunir os gráficos que são mais importantes para você em todos os seus recursos do Azure, incluindo a telemetria do [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![Um painel personalizado.](./media/app-insights-dashboards/30.png)
+![Um painel personalizado.](./media/app-insights-dashboards/31.png)
 
-1. Clique no canto superior a qualquer momento para voltar para o painel.
-2. Clique em um gráfico ou bloco no painel para ver mais detalhes sobre os dados.
-3. Use a barra de navegação para ver uma exibição completa de todos os seus recursos.
-4. Edite, crie e compartilhe painéis usando a barra de ferramentas do painel.
+
+1. Edite, crie e compartilhe painéis usando a barra de ferramentas do painel.
+2. Volte para o painel atual ou alterne para outros modos de exibição recentes.
+3. Alterne os painéis.
+4. Crie, edite e compartilhe painéis.
+5. Passe o mouse sobre um bloco e use sua barra superior para movê-lo, personalizá-lo ou removê-lo.
 
 ## Adicionar a um painel
 
 Quando estiver vendo uma folha ou conjunto de gráficos que é particularmente interessante, você poderá fixá-los no painel. Você o verá da próxima vez que retornar.
 
 ![Para fixar um gráfico, passe o mouse sobre ele e clique em "…" no cabeçalho.](./media/app-insights-dashboards/33.png)
+
+1. Fixe um gráfico no painel. Uma cópia do gráfico é exibida no painel.
+2. Fixe a folha inteira no painel - ela aparecerá no painel como um bloco em que você poderá clicar.
+3. Clique o canto superior esquerdo para retornar ao painel atual. Em seguida, você poderá usar o menu suspenso para retornar ao modo de exibição atual.
 
 Observe que os gráficos são agrupados em blocos: um bloco pode conter mais de um gráfico. O bloco inteiro é fixado no painel.
 
@@ -77,7 +83,7 @@ Quando um bloco estiver no painel, você poderá ajustá-lo.
 
 ![Passe o mouse sobre um gráfico para editá-lo.](./media/app-insights-dashboards/36.png)
 
-1. Adicione um gráfico ao bloco. 
+1. Adicione um gráfico ao bloco.
 2. Defina a métrica, a dimensão de grupo e o estilo (tabela, gráfico) de um diagrama.
 3. Defina as propriedades timespan e filtro para os gráficos no bloco. Você pode definir o período do gráfico ou herdá-lo do período do painel.
 4. Defina o título do bloco.
@@ -114,29 +120,29 @@ Saiba mais sobre [Funções e controle de acesso](app-insights-resources-roles-a
 
 O botão Configurações na folha de visão geral não se trata apenas de configuração, mas também fornece uma entrada para vários tipos de gráfico.
 
-* **Logs de auditoria**: examine os alertas e as ações que foram executadas em seu recurso de aplicativo.
-* [Nova solicitação de suporte](app-insights-get-dev-support.md): opções para obter ajuda sobre qualquer aspecto do Azure. Para o Application Insights, você também pode obter ajuda usando o botão smiley na parte superior direita da janela.
-* [Mapa de aplicativos](app-insights-dependencies.md#application-map): mapa ativo mostrando os componentes do aplicativo, derivado das informações de dependência.
-* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream): métricas-chave com uma latência de aproximadamente 1 s, para monitorar uma nova versão.
-* **Falhas**: solicitações com falha, chamada de dependência com falha e exceções. [Folha de métricas editáveis](app-insights-metrics-explorer.md).
-* **Desempenho**: tempo de resposta, tempos de resposta de dependência. [Folha de métricas editáveis](app-insights-metrics-explorer.md).
-* [Servidores](app-insights-web-monitor-performance.md): contadores de desempenho. Disponível se você [instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md).
-* **Navegador**: exibição de página e desempenho do AJAX. Disponível se você [instrumentar suas páginas da Web](app-insights-javascript.md).
-* **Uso**: contagens de sessão, usuário e exibição de página. Disponível se você [instrumentar suas páginas da Web](app-insights-javascript.md).
-* **Introdução**: tutorial embutido.
-* **Propriedades**: chave de instrumentação, assinatura e ID de recurso.
-* [Disponibilidade](app-insights-monitor-web-app-availability.md): configuração e resultados do teste da Web.
-* [Alertas](app-insights-alerts.md): configuração do alerta de métrica.
-* [Exportação contínua](app-insights-export-telemetry.md): configure a exportação de telemetria no armazenamento do Azure.
-* [Teste de desempenho](app-insights-monitor-web-app-availability.md#performance-tests): configure uma carga sintética no seu site.
+* **Logs de auditoria** - examine os alertas e as ações que foram executadas em seu recurso de aplicativo.
+* [Nova solicitação de suporte](app-insights-get-dev-support.md) - opções para obter ajuda sobre qualquer aspecto do Azure. Para o Application Insights, você também pode obter ajuda usando o botão smiley na parte superior direita da janela.
+* [Mapa de aplicativos](app-insights-dependencies.md#application-map) - mapa ativo mostrando os componentes do aplicativo, derivado das informações de dependência.
+* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) - métricas-chave com uma latência de aproximadamente 1 s, para monitorar uma nova versão.
+* **Falhas** - solicitações com falha, chamada de dependência com falha e exceções. [Folha de métricas editáveis](app-insights-metrics-explorer.md).
+* **Desempenho** - tempo de resposta, tempos de resposta de dependência. [Folha de métricas editáveis](app-insights-metrics-explorer.md).
+* [Servidores](app-insights-web-monitor-performance.md) - contadores de desempenho. Disponível se você [instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Navegador** - exibição de página e desempenho do AJAX. Disponível se você [instrumentar suas páginas da Web](app-insights-javascript.md).
+* **Uso** - contagens de sessão, usuário e exibição de página. Disponível se você [instrumentar suas páginas da Web](app-insights-javascript.md).
+* **Introdução** - tutorial embutido.
+* **Propriedades** - chave de instrumentação, assinatura e ID de recurso.
+* [Disponibilidade](app-insights-monitor-web-app-availability.md) - configuração e resultados do teste da Web.
+* [Alertas](app-insights-alerts.md) - configuração do alerta de métrica.
+* [Exportação contínua](app-insights-export-telemetry.md)- configure a exportação de telemetria no armazenamento do Azure.
+* [Teste de desempenho](app-insights-monitor-web-app-availability.md#performance-tests) - configure uma carga sintética no seu site.
 * [Cota e preço](app-insights-pricing.md) e [amostragem de ingestão](app-insights-sampling.md).
-* **Acesso à API**: atualmente usado para criar [anotações de versão](app-insights-annotations.md) e para a API de acesso a dados.
-* [**Itens de trabalho**](app-insights-diagnostic-search.md#create-work-item): conecte-se a um sistema de controle do trabalho de forma que você possa criar bugs enquanto inspeciona a telemetria.
-* [**Usuários**](app-insights-resources-roles-access-control.md): gerencie quem tem acesso ao recurso de aplicativo.
-* [**Funções**](app-insights-resources-roles-access-control.md): gerencie o que os usuários podem fazer.
-* [**Marcações**](..\resource-group-using-tags.md): organize os recursos do Azure.
-* [**Bloqueios**](..\resource-group-lock-resources.md): bloqueie recursos do Azure
-* [**Exportar modelo**](app-insights-powershell.md): exporte uma definição do recurso do Azure para que você possa usá-la como modelo para criar novos recursos.
+* **Acesso à API** - atualmente usado para criar [anotações de versão](app-insights-annotations.md) e para a API de acesso a dados.
+* [**Itens de trabalho**](app-insights-diagnostic-search.md#create-work-item) - conecte-se a um sistema de controle do trabalho de forma que você possa criar bugs enquanto inspeciona a telemetria.
+* [**Usuários**](app-insights-resources-roles-access-control.md) - gerencie quem tem acesso ao recurso de aplicativo.
+* [**Funções**](app-insights-resources-roles-access-control.md) - gerencie o que os usuários podem fazer.
+* [**Marcações**](..\resource-group-using-tags.md) - organize os recursos do Azure.
+* [**Bloqueios**](..\resource-group-lock-resources.md) - bloqueie recursos do Azure
+* [**Exportar modelo**](app-insights-powershell.md) - exporte uma definição do recurso do Azure para que você possa usá-la como modelo para criar novos recursos.
 
 ## O que vem a seguir?
 
@@ -146,4 +152,4 @@ O botão Configurações na folha de visão geral não se trata apenas de config
 |[Pesquisa de diagnóstico](app-insights-diagnostic-search.md)<br/>Localize e inspecione eventos, eventos relacionados e crie bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png)
 |[Análise](app-insights-analytics.md)<br/>Linguagem de consulta poderosa| ![Exemplo de pesquisa](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

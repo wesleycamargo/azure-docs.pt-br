@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral das contas de integração e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba tudo sobre contas de integração, o Enterprise Integration Pack e Aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ Você pode mover facilmente uma conta de integração para uma nova assinatura e
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

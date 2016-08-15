@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -148,13 +148,13 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 |Local desta regra de alerta|	Leste dos EUA|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName do alerta que é criado|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` abaixo para ver como recuperar os nomes exatos das métricas|
-|operator| GreaterThan|
-|Threshold value (count/sec para esta métrica)| 1|
-|WindowSize (formato hh:mm:ss)| 00:05:00|
-|aggregator (estatística da métrica, que usa a contagem média neste caso)| Average|
-|custom emails (matriz da cadeia de caracteres)|'foo@example.com','bar@example.com'|
-|enviar email para proprietários, colaboradores e leitores| -SendToServiceOwners|
+|MetricName do alerta que é criado|	\\PhysicalDisk(\_Total)\\Gravações de Disco/s. Consulte o cmdlet `Get-MetricDefinitions` abaixo sobre como recuperar os nomes de métrica exatos|
+|operator|	GreaterThan|
+|Valor de limite (contagem/s para esta métrica)|	1|
+|WindowSize (formato hh:mm:ss)|	00:05:00|
+|agregador (estatística da métrica, que usa a contagem Média, nesse caso)|	Média|
+|emails personalizados (matriz de cadeia de caracteres)|'foo@example.com','bar@example.com'|
+|enviar email a proprietários, colaboradores e leitores|	-SendToServiceOwners|
 
 Ação Criar um email
 
@@ -384,4 +384,4 @@ Habilitar configuração de diagnóstico com retenção para uma categoria de lo
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0803_2016-->

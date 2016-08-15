@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Limites e configuração do Aplicativo Lógico | Microsoft Azure"
 	description="Visão geral dos limites de serviço e dos valores de configuração disponíveis para Aplicativos Lógicos."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"
@@ -134,4 +134,4 @@ Chamadas feitas diretamente de um aplicativo lógico (isto é, por meio de [HTTP
 - [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

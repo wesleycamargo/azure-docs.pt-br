@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -73,8 +73,8 @@ A migração automática ocorrerá entre 18h e 6h (hora local da região) em alg
 | **Região** | **Data de início estimada** | **Data de término estimada** |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Leste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
-| Sudeste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
-| Sul do Brasil | Ainda não foi determinado | Ainda não foi determinado |
+| Sudeste da Austrália | 10 de agosto de 2016 | 24 de agosto de 2016 |
+| Sul do Brasil | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Canadá Central | 23 de junho de 2016 | 1º de julho de 2016 |
 | Leste do Canadá | 23 de junho de 2016 | 1º de julho de 2016 |
 | Centro dos EUA | 23 de junho de 2016 | 4 de julho de 2016 |
@@ -86,10 +86,10 @@ A migração automática ocorrerá entre 18h e 6h (hora local da região) em alg
 | Centro da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
 | Sul da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
 | Oeste da Índia | Ainda não foi determinado | Ainda não foi determinado |
-| Leste do Japão | Ainda não foi determinado | Ainda não foi determinado |
+| Leste do Japão | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Oeste do Japão | Ainda não foi determinado | Ainda não foi determinado |
 | Centro-Norte dos EUA | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da Europa | Ainda não foi determinado | Ainda não foi determinado |
+| Norte da Europa | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Centro-Sul dos Estados Unidos | 23 de junho de 2016 | 2 de julho de 2016 |
 | Sudeste Asiático | 23 de junho de 2016 | 1º de julho de 2016 |
 | Europa Ocidental | 23 de junho de 2016 | 8 de julho de 2016 |
@@ -98,12 +98,10 @@ A migração automática ocorrerá entre 18h e 6h (hora local da região) em alg
 ## Automigração para o Armazenamento Premium
 Se desejar controlar quando o tempo de inatividade deve ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
 
-> [AZURE.NOTE] O SQL Data Warehouse com Armazenamento Premium não tem redundância geográfica atualmente. Isso significa que quando o Data Warehouse é migrado para o Armazenamento Premium, os dados residem apenas em sua região atual. Quando estiverem disponíveis, os Backups Geográficos copiarão o Data Warehouse a cada 24 horas para a [região emparelhada do Azure][], permitindo que você restaure usando o Backup Geográfico para qualquer região no Azure. Depois que a funcionalidade de Backup Geográfico estiver disponível para automigrações, ela será anunciada em nosso [site de documentação principal][]. Por outro lado, as migrações automáticas não têm essa limitação.
-
 ### Instruções de automigração
 Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Warehouse por conta própria usando backup e restauração. A parte de restauração da migração deve levar cerca de uma hora por TB de armazenamento por DW. Se quiser manter o mesmo nome após a conclusão da migração, siga as etapas abaixo para ver [uma solução alternativa de renomeação][].
 
-1.	[Pause][] o DW que fará um backup automático
+1.	[Pause][] o DW, que fará um backup automático
 2.	[Restaure][] usando o instantâneo mais recente
 3.	Exclua seu DW existente do Armazenamento Standard. **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
 
@@ -112,18 +110,18 @@ Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Wareho
 >	-  Auditing at the Database level will need to be re-enabled
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
-#### Opcional: solução alternativa de renomeação 
-Dois bancos de dados no mesmo servidor lógico não podem ter o mesmo nome. Atualmente, não há suporte para a capacidade de renomear um DW no SQL Data Warehouse. As instruções a seguir ajudarão você a contornar a ausência dessa funcionalidade durante uma migração automática (observe que as migrações automáticas não têm essa limitação).
+#### Opcional: etapas para renomear durante a migração 
+Dois bancos de dados no mesmo servidor lógico não podem ter o mesmo nome. O SQL Data Warehouse agora dá suporte para a capacidade de renomear um DW.
 
 Para este exemplo, imagine que o DW existente no armazenamento padrão atualmente é denominado "MyDW".
 
-1.	[Pause][] "MyDW", que usará um backup automático
-2.	[Restaure][], usando o instantâneo mais recente, um novo banco de dados com um nome diferente, como "MyDWTemp"
-3.	Exclua "MyDW". **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
-4.	Como "MyDWTemp" é um DW recém-criado, o backup não estará disponível para restaurar por determinado período de tempo. É recomendável continuar as operações por umas duas horas em "MyDWTemp" para depois continuar com as etapas 5 e 6.
-5.	[Pause][] "MyDWTemp", que usará um backup automático.
-6.	[Restaure][], usando o instantâneo "MyDWTemp" mais recente, um novo banco de dados chamado "MyDW".
-7.	Exclua "MyDWTemp". **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
+1.	Renomeie "MyDW" usando o comando ALTER DATABASE, que segue para algo como "MyDW\_BeforeMigration". Isso interromperá todas as transações existentes e deverá ser feito no banco de dados mestre para ter êxito.
+```
+ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
+```
+2.	[Pause][] "MyDW\_BeforeMigration", que usará um backup automático
+3.	[Restaure][], do seu instantâneo mais recente, um novo banco de dados com o nome que costumava usar (ex: "MyDW")
+4.	Exclua "MyDW\_BeforeMigration". **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
 
 > [AZURE.NOTE] Estas configurações não serão transferidas como parte da migração:
 > 
@@ -131,7 +129,7 @@ Para este exemplo, imagine que o DW existente no armazenamento padrão atualment
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Próximas etapas
-Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como possível causa.
+Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a causa possível.
 
 <!--Image references-->
 
@@ -140,8 +138,8 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [cronograma de migração automática]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
 [crie um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[região emparelhada do Azure]: ./best-practices-availability-paired-regions.md
-[site de documentação principal]: ./services/sql-data-warehouse.md
+[Azure paired region]: ./best-practices-availability-paired-regions.md
+[main documentation site]: ./services/sql-data-warehouse.md
 [Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Restaure]: ./sql-data-warehouse-manage-database-restore-portal.md
 [uma solução alternativa de renomeação]: #optional-rename-workaround
@@ -153,4 +151,4 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/pt-BR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

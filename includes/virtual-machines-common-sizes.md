@@ -49,18 +49,18 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 
 |Família de SKU |ACU/núcleo |
 |---|---|
-|[Standard\_A0](#a-series)	|50 |
-|[Standard\_A1-4](#a-series)	|100 |
-|[Standard\_A5-7](#a-series)	|100 |
-|[A8-A11](#a-series)	|225*|
-|[D1-14](#d-series)	|160 |
-|[D1-15v2](#dv2-series)	|210 - 250*|
-|[DS1-14](#ds-series)	|160 |
-|[DS1-15v2](#dsv2-series)	|210-250* |
-|[F1-F16](#f-series)	| 210-250*|
-|[F1s-F16s](#fs-series)	| 210-250*|
-|[G1-5](#g-series)	|180 - 240*|
-|[GS1-5](#gs-series)	|180 - 240*|
+|[Standard\_A0](#a-series) |50 |
+|[Standard\_A1-4](#a-series) |100 |
+|[Standard\_A5-7](#a-series) |100 |
+|[A8-A11](#a-series) |225*|
+|[D1-14](#d-series) |160 |
+|[D1-15v2](#dv2-series) |210 - 250*|
+|[DS1-14](#ds-series) |160 |
+|[DS1-15v2](#dsv2-series) |210-250* |
+|[F1-F16](#f-series) | 210-250*|
+|[F1s-F16s](#fs-series) | 210-250*|
+|[G1-5](#g-series) |180 - 240*|
+|[GS1-5](#gs-series) |180 - 240*|
 
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho. A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -219,8 +219,33 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 |Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo | extremamente alta |
 |Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo | extremamente alta |
 
+## Série N
+
+Os tamanhos NC e NV também são conhecidos como instâncias habilitadas para GPU. Trata-se de máquinas virtuais especializadas que incluem as placas GPU da NVIDIA, otimizadas para diferentes cenários e casos de uso. Os tamanhos NV são otimizados e projetados para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX. Os tamanhos NC são mais otimizados para aplicativos que fazem uso intensivo de computação e da rede, algoritmos, incluindo aplicativos baseados em CUDA e OpenCL, e simulações.
 
 
+### Instâncias NV
+As instâncias NV têm a tecnologia das GPUs Tesla M60 da NVIDIA e do NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes poderão visualizar seus dados ou simulações. Os usuários poderão visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. O Tesla M60 oferece 4096 núcleos CUDA em um design de GPU duplo com até 36 fluxos de 1080p H.264.
+
+
+| Tamanho | Núcleos | GPU | Memória | Disco |
+|------|-------|----------------|--------|-------------|
+| NV6 | 6 | 1 x NVIDIA M60 | 56 GB | 380 GB de SSD |
+| NV12 | 12 | 2 x NVIDIA M60 | 112 GB | 680 GB de SSD |
+| NV24 | 24 | 4 x NVIDIA M60 | 224 GB | 1440 GB de SSD | 
+
+
+
+### Instâncias de NC
+
+As instâncias de NC têm a tecnologia Tesla K80 da NVIDIA. Agora, os usuários podem analisar dados muito mais rapidamente tirando proveito do CUDA para aplicativos de exploração de energia, simulações de falhas, renderização com ray tracing, aprendizado aprofundado e muito mais. O Tesla K80 oferece 4992 núcleos CUDA com um design de GPU duplo, desempenho de até 2,91 teraflops de precisão dupla e até 8,93 teraflops de precisão simples.
+
+
+| Tamanho | Núcleos | GPU | Memória | Disco |
+|------|-------|----------------|--------|-------------|
+| NC6 | 6 | 1 x NVIDIA K80 | 56 GB | 380 GB de SSD |
+| NC12 | 12 | 2 x NVIDIA K80 | 112 GB | 680 GB de SSD |
+| NC24 | 24 | 4 x NVIDIA K80 | 224 GB | 1440 GB de SSD |
 
 ## Observações: Standard A0 - A4 usando a CLI e o PowerShell 
 
@@ -239,4 +264,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

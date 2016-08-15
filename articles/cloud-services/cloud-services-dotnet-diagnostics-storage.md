@@ -1,19 +1,19 @@
 <properties
-  pageTitle="Armazenar e exibir dados de diagnóstico no Armazenamento do Azure | Microsoft Azure"
-  description="Obter dados de diagnóstico do Azure no Armazenamento do Azure e exibi-los"
-  services="cloud-services"
-  documentationCenter=".net"
-  authors="rboucher"
-  manager="jwhit"
-  editor="tysonn" />
+	pageTitle="Armazenar e exibir dados de diagnóstico no Armazenamento do Azure | Microsoft Azure"
+	description="Obter dados de diagnóstico do Azure no Armazenamento do Azure e exibi-los"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor="tysonn" />
 <tags
-  ms.service="cloud-services"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="na"
-  ms.date="02/20/2016"
-  ms.author="robb" />
+	ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/01/2016"
+	ms.author="robb" />
 
 # Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
 
@@ -85,7 +85,7 @@ Várias ferramentas estão disponíveis para exibir os dados depois de serem tra
 
 - Gerenciador de Servidores no Visual Studio – Se tiver instalado as Ferramentas do Azure para o Microsoft Visual Studio, será possível usar o nó do Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- O [Gerenciador de Armazenamento do Azure da Neudesic](http://azurestorageexplorer.codeplex.com/) é uma ferramenta útil de interface gráfica do usuário usada para inspecionar e alterar os dados em seus projetos de armazenamento do Azure, incluindo os logs de aplicativos do Azure.
+- [Gerenciamento de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite trabalhar facilmente com os dados de Armazenamento do Azure no Windows, OSX e Linux.
 
 - O [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Gerenciador de Diagnóstico do Azure que permite exibir, baixar e gerenciar os dados de diagnósticos coletados pelos aplicativos em execução no Azure.
 
@@ -94,4 +94,4 @@ Várias ferramentas estão disponíveis para exibir os dados depois de serem tra
 
 [Rastrear o fluxo em um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

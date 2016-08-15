@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Para adicionar um índice não clusterizado em uma tabela, basta especificar o CLUSTERED INDEX na cláusula WITH:
+Para adicionar um índice não clusterizado em uma tabela, basta usar a seguinte sintaxe:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] Um índice não clusterizado é criado por padrão quando CREATE INDEX é usado. Além disso, um índice não clusterizado é permitido somente em uma tabela de armazenamento de linha (HEAP ou CLUSTERED INDEX). Índices não clusterizados sobre um CLUSTERED COLUMNSTORE INDEX não são permitidos neste momento.
+
 
 ## Otimizando índices columnstore clusterizados
 
@@ -213,7 +216,7 @@ Nessas situações, é melhor levar os dados primeiro ao armazenamento de blobs 
 
 ### Número excessivo de partições
 
-Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas. Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados. O particionamento divide ainda mais seus dados. Se você particionar seus dados, desejará considerar que **cada** partição precisará ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado. Se você dividir a tabela em cem partições, a tabela deverá ter pelo menos 6 bilhões de linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições * 100 partições * 1 milhão de linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
+Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas. Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados. O particionamento divide ainda mais seus dados. Se particionar seus dados, você precisará considerar que **cada** partição deverá ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado. Se você dividir a tabela em 100 partições, a tabela deverá ter pelo menos seis bilhões de linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições * 100 partições * um milhão de linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
 
 Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore de cluster abaixo do ideal.
 
@@ -232,7 +235,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
 Faça logon como o usuário da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recurso maior, e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
-Como alternativa, em vez de recriar o índice, você pode copiar a tabela para uma nova tabela utilizando [CTAS][]. Qual é a melhor opção? Para grandes volumes de dados, [CTAS][] é geralmente mais rápida do que [ALTER INDEX][]. Para volumes menores de dados, [ALTER INDEX][] é mais fácil de usar e não requer a troca da tabela. Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recriar índices com CTAS.
+Como alternativa, em vez de recompilar o índice, você pode copiar a tabela para uma nova tabela utilizando [CTAS][]. Qual é a melhor opção? Para grandes volumes de dados, [CTAS][] é geralmente mais rápida do que [ALTER INDEX][]. Para volumes menores de dados, [ALTER INDEX][] é mais fácil de usar e não exigirá a troca da tabela. Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recompilar índices com CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -254,7 +257,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline. Para saber mais sobre a recriação de índices, confira a seção ALTER INDEX REBUILD em [Columnstore Indexes Defragmentation][] (Desfragmentação de índices Columnstore) e o tópico da sintaxe [ALTER INDEX][].
+A recriação de um índice no SQL Data Warehouse é uma operação offline. Para saber mais sobre a recompilação de índices, confira a seção ALTER INDEX REBUILD em [Columnstore Indexes Defragmentation][] (Desfragmentação de Índices Columnstore) e o tópico da sintaxe [ALTER INDEX][].
  
 ### Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou. Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas. Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices. Se for necessário ter mais memória,
@@ -262,7 +265,7 @@ Execute novamente a consulta que identificou a tabela com segmentos de má quali
  
 ## Recriando índices com CTAS e alternância de partição
 
-Este exemplo usa [CTAS][] e a alternância de partição para recriar uma partição de tabela.
+Este exemplo usa [CTAS][] e a alternância de partição para recompilar uma partição de tabela.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -306,7 +309,7 @@ Para obter mais detalhes sobre como recriar partições usando `CTAS`, confira o
 
 ## Próximas etapas
 
-Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados de tabela][Data Types], [Distribuindo uma tabela][Distribute], [Particionando uma tabela][Partition], [Mantendo estatísticas de tabela][Statistics] e [Tabelas temporárias][Temporary]. Para saber mais sobre práticas recomendadas, veja [Práticas recomendadas do SQL Data Warehouse][].
+Para saber mais, confira os artigos em [Visão Geral da Tabela][Overview], [Tipos de Dados de Tabela][Data Types], [Distribuindo uma Tabela][Distribute], [Particionando uma Tabela][Partition], [Mantendo Estatísticas de Tabela][Statistics] e [Tabelas Temporárias][Temporary]. Para saber mais sobre as práticas recomendadas, confira [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -338,4 +341,4 @@ Para saber mais, confira os artigos sobre [Visão geral da tabela][Overview], [T
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

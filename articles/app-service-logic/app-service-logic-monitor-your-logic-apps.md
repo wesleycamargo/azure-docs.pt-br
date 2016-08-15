@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -138,4 +138,4 @@ Você pode aproveitar essa telemetria do Hub de Eventos ou Armazenamento em outr
 - [Criando um Modelo de Implantação do Aplicativo Lógico](app-service-logic-create-deploy-template.md)
 - [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

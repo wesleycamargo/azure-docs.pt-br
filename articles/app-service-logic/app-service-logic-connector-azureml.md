@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o conector de Aprendizado de Máquina do Azure nos Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o conector de Aprendizado de Máquina do Azure e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@ Usando o conector AM do Azure para os Aplicativos lógicos, você pode executar 
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

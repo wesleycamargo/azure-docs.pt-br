@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usando o Gerenciador de Conexão Híbrida | Serviço de aplicativo do Microsoft Azure" 
-	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais no Serviço de Aplicativo do Azure" 
+	pageTitle="Uso do Gerenciador de Conexão Híbrida | Microsoft Azure" 
+	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais nos Aplicativos Lógicos" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Conecte-se aos conectores locais no serviço de aplicativo do Azure usando o Gerenciador de Conexão Híbrida
+# Conecte-se aos conectores locais usando o Gerenciador de Conexão Híbrida
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. A disponibilidade geral (GA) de Aplicativos Lógicos usa um gateway para conectividade local. Leia mais sobre o novo [gateway](app-service-logic-gateway-connection.md) e a [GA de Aplicativos Lógicos](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-Para usar um sistema local, O Serviço de Aplicativo do Azure usa o Gerenciador de Conexão Híbrida. Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante.
+Para usar um sistema local, os Aplicativos Lógicos usam o Gerenciador de Conexão Híbrida. Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante.
 
 O HCM (Gerenciador de Conexão Híbrida) é um instalador com clique único, instalado em um servidor IIS em sua rede, por trás do firewall. Usando uma retransmissão do Barramento de Serviço do Azure, o HCM autentica o sistema local com o conector no Azure.
 
@@ -87,7 +87,7 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
  - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução.
  - Esse site usa o ***HybridListenerAppPool*** executado como a conta interna de usuário local *NetworkService*. Esse AppPool também deve ser iniciado.
 3. No servidor IIS, confirme se o conector está instalado e em execução:
- - Um site é criado para o conector do Serviço de Aplicativo. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado.
+ - Um site é criado para o conector dos Aplicativos Lógicos. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado.
  - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService*. Esse site e o AppPool devem ser iniciados.
  - Procure o conector local. Por exemplo, se o site do seu conector usar a porta 6569, navegue até http://localhost:6569. Como não há documento padrão configurado, espera-se um `HTTP Error 403.14 - Forbidden error`.
 4. Em seu firewall, confirme se as portas TCP listadas neste tópico estão abertas.
@@ -109,7 +109,7 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
 
 ## Perguntas frequentes
 
-**PERGUNTA**: há dois Gerenciadores de Conexões Híbridas. Qual é a diferença?
+**PERGUNTA**: Há dois Gerenciadores de Conexões Híbridas. Qual é a diferença?
 
 **Resposta**: a tecnologia de [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) é usada principalmente por aplicativos Web (antigos sites) e aplicativos móveis (antigos serviços móveis) para estabelecer conexão local. Esse Gerenciador de Conexões Híbridas é sua própria [instalação](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa um serviço BizTalk do Azure (em segundo plano). Ele dá suporte apenas aos protocolos TCP e HTTP.
 
@@ -117,9 +117,9 @@ Com os conectores do Serviço de Aplicativo do Azure, também temos um Gerenciad
 
 Ambos usam o Barramento de Serviço do Azure para se conectar ao sistema local.
 
-**PERGUNTA**: quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local?
+**PERGUNTA**: Quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local?
 
-**Resposta**: não no sentido tradicional. Você pode usar um conector interno e configurar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para se conectar ao sistema local. Em seguida, use esse conector com seu aplicativo de API personalizado, possivelmente usando um aplicativo lógico. No momento, você não pode desenvolver ou criar seu próprio aplicativo de API híbrido (como o conector SQL ou o conector de arquivo).
+**Resposta**: Não no sentido tradicional. Você pode usar um conector interno e configurar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para se conectar ao sistema local. Em seguida, use esse conector com seu aplicativo de API personalizado, possivelmente usando um aplicativo lógico. No momento, você não pode desenvolver ou criar seu próprio aplicativo de API híbrido (como o conector SQL ou o conector de arquivo).
 
 Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e o Gerenciador de Conexão Híbrida. Nesse cenário, um serviço BizTalk do Azure é usado. [Conectar-se a um SQL Server local por meio de um aplicativo Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) pode ajudar.
 
@@ -140,4 +140,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

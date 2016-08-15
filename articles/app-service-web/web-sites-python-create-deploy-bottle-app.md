@@ -55,11 +55,11 @@ Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das v
 
 A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).
 
-1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo. 
+1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo.
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Bottle** e clique em **Criar**.
 5. Configure o novo aplicativo Bottle, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
-6. Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+6. Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação de GIT local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
  
 ## Visão geral do aplicativo
 
@@ -131,7 +131,7 @@ As próximas três seções descrevem como prosseguir com o desenvolvimento de a
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
 Abra o arquivo da solução (.sln) que está incluído na raiz do repositório.
 
@@ -198,7 +198,7 @@ Navegue até a URL do Azure para exibir suas alterações.
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -277,7 +277,7 @@ Navegue até a URL do Azure para exibir suas alterações.
 
 ### Clonar o repositório
 
-Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para obter mais informações, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md).
+Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -396,4 +396,4 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0803_2016-->

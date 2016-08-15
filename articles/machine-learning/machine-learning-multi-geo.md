@@ -44,10 +44,10 @@ Para gerenciar os serviços Web de forma programática, como um novo treinamento
 
 ### Elementos a serem observados
 
-1.	Você só pode copiar experimentos entre espaços de trabalho que pertençam à mesma região. No futuro, habilitaremos a cópia de experimentos entre espaços de trabalho através de várias regiões.
-2.	O seletor de região mostrará apenas os espaços de trabalho para uma região por vez. No futuro, você poderá ver uma lista completa de espaços de trabalho aos quais tem acesso em todas as regiões ao mesmo tempo.  
-3.	Um espaço de trabalho livre ou de acesso de convidado (anônimo) será criado e hospedado no Centro-Sul dos EUA No futuro, você poderá criar espaços de trabalho de acesso livre/de convidado na região que escolher.  
-4.	Os serviços Web implantados por meio de um espaço de trabalho no Sudeste da Ásia também serão hospedados no Sudeste da Ásia. No futuro, você terá a flexibilidade de criar experiências em uma região e implantar pontos de extremidade de serviço Web gerados em regiões diferentes.  
+1.	Dessa maneira, você só pode copiar experimentos entre espaços de trabalho que pertençam à mesma região. Se precisar copiar experimentos entre espaços de trabalho em regiões diferentes, você poderá usar o commandlet [*Copy-AmlExperiment*](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) do [PowerShell](http://aka.ms/amlps) para fazer isso. Outra solução alternativa é publicar o experimento na Galeria no modo não listado e depois abri-lo no espaço de trabalho da outra região.
+2.	O seletor de região mostrará apenas os espaços de trabalho para uma região por vez. No futuro, você poderá ver uma lista completa de espaços de trabalho aos quais tem acesso em todas as regiões ao mesmo tempo.
+3.	Um espaço de trabalho livre ou de acesso de convidado (anônimo) será criado e hospedado no Centro-Sul dos EUA No futuro, você poderá criar espaços de trabalho de acesso livre/de convidado na região que escolher.
+4.	Os serviços Web implantados por meio de um espaço de trabalho no Sudeste da Ásia também serão hospedados no Sudeste da Ásia. No futuro, você terá a flexibilidade de criar experiências em uma região e implantar pontos de extremidade de serviço Web gerados em regiões diferentes.
 
 ## Mais informações
 
@@ -59,4 +59,4 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

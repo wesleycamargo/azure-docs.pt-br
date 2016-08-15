@@ -1,7 +1,7 @@
 <properties
    pageTitle="Loops, escopos e debatching de Aplicativos Lógicos | Microsoft Azure"
    description="Conceitos de loop, escopo e debatching de Aplicativo Lógico"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
