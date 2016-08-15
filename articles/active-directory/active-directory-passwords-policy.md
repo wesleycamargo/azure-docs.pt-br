@@ -29,7 +29,7 @@ Cada conta de usuário que precisa entrar no sistema de autenticação do AD do 
 
 | Propriedade | Requisitos de UserPrincipalName |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! # ^ ~</li></ul> |
+| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Caracteres não permitidos | <ul> <li>Qualquer caractere '@' que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto '.' imediatamente antes do símbolo '@'</li></ul> |
 | Restrições de comprimento | <ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>64 caracteres antes do símbolo ' @'</li><li>48 caracteres depois do símbolo '@'</li></ul>
 
