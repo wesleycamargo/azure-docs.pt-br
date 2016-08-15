@@ -34,7 +34,7 @@ Você criará um aplicativo Web usando a estrutura da Web Bottle (consulte vers�
 - Python 2.7 ou 3.4
 - setuptools, pip, virtualenv (somente Python 2.7)
 - Git
-- [Ferramentas Python 2.2 para Visual Studio][] (PTVS) Observação: isso é opcional
+- [Ferramentas Python 2.2 para Visual Studio][] \(PTVS) Observação: isso é opcional
 
 **Observação**: atualmente não há suporte à a publicação do TFS em projetos de Python.
 

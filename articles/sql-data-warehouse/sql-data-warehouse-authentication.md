@@ -84,7 +84,7 @@ Atualmente, os usuários do Azure Active Directory não são mostrados no Pesqui
 
 ## Próximas etapas
 
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio][] (Consulta com o Visual Studio).
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio][] \(Consulta com o Visual Studio).
 
 <!-- Article references -->
 [Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md

@@ -80,7 +80,7 @@ Para desabilitar a implantação contínua,
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-[Serviço de Aplicativo do Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/app-service-changes-existing-services/
+[Serviço de Aplicativo do Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Portal do Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/pt-BR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

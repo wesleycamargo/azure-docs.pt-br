@@ -126,7 +126,7 @@ O registro A deve ser configurado da seguinte maneira (@ normalmente representa 
   </tr>
 </table>
 
-O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subdomínio*>.& lt;*domínioraiz*> para awverify.&lt;*subdomínio*>. azurewebsites. Veja os exemplos abaixo:
+O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subdomínio*>.&lt;*domínioraiz*> para awverify.&lt;*subdomínio*>. azurewebsites. Veja os exemplos abaixo:
 
 <table cellspacing="0" border="1">
   <tr>

@@ -257,7 +257,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline. Para saber mais sobre a recompilação de índices, confira a seção ALTER INDEX REBUILD em [Columnstore Indexes Defragmentation][] (Desfragmentação de Índices Columnstore) e o tópico da sintaxe [ALTER INDEX][].
+A recriação de um índice no SQL Data Warehouse é uma operação offline. Para saber mais sobre a recompilação de índices, confira a seção ALTER INDEX REBUILD em [Columnstore Indexes Defragmentation][] \(Desfragmentação de Índices Columnstore) e o tópico da sintaxe [ALTER INDEX][].
  
 ### Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou. Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas. Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices. Se for necessário ter mais memória,

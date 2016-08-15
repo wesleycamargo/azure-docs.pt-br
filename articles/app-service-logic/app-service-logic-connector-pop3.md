@@ -65,7 +65,8 @@ Depois de criar seu aplicativo de API, você poderá usar o conector POP3 como g
 5.	Agora você pode usar o conector de POP3 no fluxo. Selecione o gatilho "Obter Email" e configure a frequência e o intervalo. Você pode usar o email recuperado do gatilho de POP3 em outras ações no fluxo.
 		 
 
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 ## Fazer mais com seu conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).

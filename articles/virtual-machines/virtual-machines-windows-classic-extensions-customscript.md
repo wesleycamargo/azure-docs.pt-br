@@ -21,9 +21,11 @@
 
 Este artigo oferece uma visão geral de como usar a extensão de Script Personalizado nas VMs Windows usando cmdlets do Azure PowerShell com APIs de Gerenciamento de Serviços.
 
-As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-windows-extensions-features.md).
+As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja 
+[Recursos e extensões de VM do Azure](virtual-machines-windows-extensions-features.md).
 
-Link: [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
+Link:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
 
 
 ## Visão geral da extensão de Script Personalizado
