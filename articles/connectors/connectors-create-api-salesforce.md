@@ -1,7 +1,7 @@
 <properties
 pageTitle="Aprenda a usar o Conector do Salesforce em seus aplicativos lógicos | Microsoft Azure"
 description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -281,4 +281,4 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

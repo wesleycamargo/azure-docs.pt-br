@@ -4,7 +4,7 @@
 	authors="anuragdalmia" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -117,4 +117,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,8 +3,8 @@
 	description="Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="jwhit"
+	authors="Nkolli1"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="jimpark; aashishr; anuragm"/>
+	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
 # Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
@@ -340,4 +340,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 - Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -132,7 +132,7 @@ Quando você cria um novo back-end de Aplicativo Móvel do Node.js usando a folh
 
 1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) para distribuições específicas de sistemas operacionais e orientações de instalação.
 
-2. Siga as etapas em [Habilitar o repositório do aplicativo Web](../app-service-web/web-sites-publish-source-control.md#Step4) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
+2. Siga as etapas em [Habilitar o repositório de aplicativo do Serviço de Aplicativo](../app-service-web/web-sites-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
 
 3. Na folha de seu back-end do Aplicativo Móvel, anote a configuração de **URL de clone de Git**.
 
@@ -917,4 +917,4 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

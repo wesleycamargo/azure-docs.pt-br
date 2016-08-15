@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral de esquemas e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como usar esquemas com o Enterprise Integration Pack e Aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # Saiba mais esquemas e o Enterprise Integration Pack  
@@ -30,7 +30,7 @@ No Portal do Azure:
 5. Selecione o botão **Adicionar** na folha Esquemas que se abre. ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Insira um **Nome** para o esquema e, para carregar o arquivo de esquema, clique no ícone de pasta à direita da caixa de texto **Esquema**. Após a conclusão do processo de carregamento, selecione o botão **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. Escolha o ícone de notificação de *sino* para ver o progresso do processo de carregamento de esquema. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Escolha o bloco **Esquemas**. Isso atualiza o bloco e você poderá ver o número de esquemas aumentar, refletindo que o novo esquema foi adicionado com êxito. Depois de selecionar o bloco **Esquemas**, você também verá o parceiro recém-adicionado exibido na folha Esquemas, à direita. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. Escolha o bloco **Esquemas**. Isso atualiza o bloco e você poderá ver o número de esquemas aumentar, refletindo que o novo esquema foi adicionado com êxito. Depois de selecionar o bloco **Esquemas**, você também verá o esquema recém-adicionado exibido na folha Esquemas, à direita. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## Como usar esquemas
@@ -57,4 +57,4 @@ No Portal do Azure:
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

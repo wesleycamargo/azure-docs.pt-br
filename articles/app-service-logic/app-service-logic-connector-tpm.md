@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Usando o Conector de Gerenciamento de Parceiros Comerciais do BizTalk em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure" 
    description="Como criar e configurar o Conector de Gerenciamento de Parceiros Comerciais do BizTalk ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -43,4 +43,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

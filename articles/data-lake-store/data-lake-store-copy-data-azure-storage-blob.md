@@ -18,6 +18,10 @@
 
 # Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
 
+> [AZURE.SELECTOR]
+- [Como usar DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Como usar AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
 O Azure Data Lake Store fornece uma ferramenta de linha de comando, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar dados das seguintes fontes:
 
 * Dos Blobs de Armazenamento do Azure no Data Lake Store. Você não pode usar o AdlCopy para copiar dados do Repositório Data Lake para os blobs de Armazenamento do Azure.
@@ -169,4 +173,4 @@ Nesta seção, você aprenderá a usar o AdlCopy para copiar dados de uma origem
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

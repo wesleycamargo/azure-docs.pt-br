@@ -3,7 +3,7 @@
 	description="Recupere os dados já protegidos por um cofre de Backup do Azure de qualquer servidor DPM registrado nesse cofre."
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/05/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Recuperando dados de outro servidor DPM no cofre de backup
 Agora você pode recuperar os dados já protegidos em um cofre de Backup do Azure de qualquer servidor DPM registrado nesse cofre. O processo para isso é totalmente integrado ao console de gerenciamento do DPM e é semelhante a outros fluxos de trabalho de recuperação.
@@ -86,8 +86,8 @@ Para recuperar dados de outro servidor DPM:
 | :-------------: |:-------------| :-----|
 |1\.|		Este servidor não está registrado no cofre especificado nas credenciais do cofre.|	**Causa:** esse erro aparece quando o arquivo de credencial do cofre selecionado não pertence ao cofre de backup associado ao servidor DPM em que ocorre a tentativa de recuperação. <br> **Resolução:** baixe o arquivo de credencial de cofre do cofre de backup no qual o servidor DPM está registrado.|
 |2\.|		Os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM.|	**Causa:** não existem outros servidores DPM com o DPM 2012 R2 UR7 registrado no cofre de backup, ou os servidores DPM com o DPM 2012 R2 UR7 ainda não carregaram os metadados ou o servidor selecionado é não um servidor DPM (também conhecido como Windows Server ou Windows Client). <br> **Resolução:** se houver outros servidores DPM registrados no cofre de backup, assegure-se de que o SCDPM 2012 R2 UR7 e o agente do Backup do Azure mais recente estão instalados. <br>Se houver outros servidores DPM registrados no cofre de backup com DPM 2012 R2 UR7, aguarde um dia após a instalação do UR7 para iniciar o processo de recuperação. A tarefa noturna carregará os metadados de todos os backups protegidos anteriormente para a nuvem. Os dados estarão disponíveis para recuperação.|
-|3\.|		Nenhum outro servidor DPM está registrado no cofre.|	**Causa:** não há nenhum outro servidor DPM com o DPM 2012 R2 UR7 ou posterior que esteja registrado no cofre do qual há uma tentativa de recuperação.<br>**Resolução:** Se houver outros servidores DPM registrados no cofre de backup, garanta que o SCDPM 2012 R2 UR7 e a versão mais recente do agente do Backup do Azure estão instalados.<br>Se houver outros servidores DPM registrados no cofre de backup com o DPM 2012 R2 UR7, aguarde um dia após a instalação do UR7 para iniciar o processo de recuperação. A tarefa noturna carregará os metadados de todos os backups protegidos anteriormente para a nuvem. Os dados estarão disponíveis para recuperação.|
-|4\.|		A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor: **<server name>**|	**Causa:** a senha de criptografia usada no processo de criptografia de dados dos dados do servidor DPM que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao servidor DPM cujos dados serão recuperados.|
+|3\.|		Nenhum outro servidor DPM está registrado no cofre.|	**Causa**: não há nenhum outro servidor DPM com o DPM 2012 R2 UR7 ou posterior que esteja registrado no cofre do qual há uma tentativa de recuperação.<br>**Resolução:** Se houver outros servidores DPM registrados no cofre de backup, garanta que o SCDPM 2012 R2 UR7 e a versão mais recente do agente do Backup do Azure estão instalados.<br>Se houver outros servidores DPM registrados no cofre de backup com o DPM 2012 R2 UR7, aguarde um dia após a instalação do UR7 para iniciar o processo de recuperação. A tarefa noturna carregará os metadados de todos os backups protegidos anteriormente para a nuvem. Os dados estarão disponíveis para recuperação.|
+|4\.|		A senha de criptografia fornecida não corresponde à senha associada ao seguinte servidor: **<nome do servidor>**|	**Causa:** a senha de criptografia usada no processo de criptografia de dados dos dados do servidor DPM que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao servidor DPM cujos dados serão recuperados.|
 
 ## Perguntas frequentes:
 1. **Por que não consigo adicionar um servidor DPM externo de outro servidor DPM após instalar o UR7 e o agente de Backup do Azure mais recente?**
@@ -103,4 +103,4 @@ Para recuperar dados de outro servidor DPM:
 ## Próximas etapas:
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

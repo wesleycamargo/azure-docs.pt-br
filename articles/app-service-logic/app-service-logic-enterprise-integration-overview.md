@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral do Enterprise Integration | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Usar os recursos do Enterprise Integration para permitir cenários de processos e integração corporativa usando Aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
 - [Transformação de XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

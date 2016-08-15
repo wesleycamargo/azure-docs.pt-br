@@ -3,8 +3,8 @@
 	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Azure RemoteApp."
 	services="automation"
 	documentationCenter=""
-	authors="csand-msft"
-	manager="eamono"
+	authors="mgoedtel"
+	manager="jwhit"
 	editor=""/>
 
 <tags
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="csand"/>
-
-
+	ms.date="07/29/2016"
+	ms.author="magoedte;csand"/>
 
 #Gerenciando o Azure RemoteApp usando a Automação do Azure
 
@@ -24,7 +22,7 @@ Este guia apresentará o serviço de Automação do Azure e como ele pode ser us
 
 ## O que é Automação do Azure?
 
-[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas com frequência, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
+[Automação do Azure](../automation/automation-intro.md) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas com frequência, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
 
 A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que é dimensionado para atender às suas necessidades. Na Automação do Azure, processos podem ser inicializados manualmente, por sistemas de terceiros ou em intervalos agendados para que as tarefas acontecem exatamente quando necessário.
 
@@ -42,4 +40,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 * Confira o [Guia de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

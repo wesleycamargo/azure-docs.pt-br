@@ -23,7 +23,7 @@ Você pode usar os projetos de equipe do Visual Studio Team Services para hosped
 Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE] Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial:
+> [AZURE.NOTE] Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial: 
 > você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
@@ -225,7 +225,7 @@ Quando usa o Git, normalmente você faz alterações em uma ramificação em and
 
 ## Próximas etapas
 
-Para obter mais dicas de como usar o Git com Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx); para obter informações de como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](../app-service-web/web-sites-publish-source-control.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para obter mais dicas sobre como usar o Git com o Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando o Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação Contínua para o Serviço de Aplicativo do Azure](../app-service-web/app-service-continuous-deployment.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +273,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Team Services, consul
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

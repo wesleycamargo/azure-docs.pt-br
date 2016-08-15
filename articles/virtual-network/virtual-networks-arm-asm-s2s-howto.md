@@ -40,7 +40,7 @@ Para criar o gateway de VPN para a rede virtual clássica, siga as instruções 
 1. Abra o portal clássico em https://manage.windowsazure.com e insira suas credenciais, se for necessário.
 2. No canto inferior esquerdo da tela, clique no botão **NOVO** e clique em **SERVIÇOS DE REDE**. Em seguida, clique em **REDES VIRTUAIS** e clique em **ADICIONAR REDE LOCAL**.
 3. Na janela **Especificar os detalhes da sua rede local**, digite um nome para a rede virtual ARM a qual você deseja se conectar e, no canto inferior direito da janela, clique no botão de seta.
-3. No espaço de endereço da caixa de texto **IP INICIAL**, digite o prefixo da rede para a rede virtual ARM a qual você deseja se conectar. 
+3. No espaço de endereço da caixa de texto **IP INICIAL**, digite o prefixo da rede para a rede virtual ARM a qual você deseja se conectar.
 4. Na lista suspensa **CIDR (CONTAGEM DE ENDEREÇO)**, selecione o número de bits usados para a parte de rede do bloco CIDR usado pela rede virtual ARM a qual você deseja se conectar.
 5. Em **ENDEREÇO IP DO DISPOSITIVO VPN (OPCIONAL)**, digite qualquer endereço IP público válido. Alteraremos esse endereço IP mais tarde. Em seguida, clique no botão de marca de seleção no canto inferior direito da tela. A figura a seguir mostra exemplos de definições para essa página.
 
@@ -64,7 +64,7 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 
 3. Crie um endereço IP público do gateway executando o comando a seguir.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 
 5. Crie um objeto de configuração de IP do gateway executando o comando a seguir. Observe a ID de uma sub-rede do gateway. Essa sub-rede deve existir na rede virtual.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] Os parâmetros *SubnetId* e *PublicIpAddressId* devem receber a propriedade id da sub-rede e objetos de endereço IP, respectivamente. Você não pode usar uma cadeia de caracteres simples.
 	
 5. Crie o gateway da rede virtual ARM executando o comando a seguir.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Após a criação do gateway de VPN, recupere seu endereço IP público executando o comando a seguir. Copie o endereço IP, você precisará dele para configurar a rede local para a rede virtual clássica.
@@ -118,4 +119,4 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](resource-groups-networking.md).
 - Crie uma [solução completa conectando uma rede virtual clássica a uma rede virtual de ARM usando uma VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/02/2016" 
 	ms.author="stbaro"/>
 
 # Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure
@@ -73,13 +73,13 @@ Agora, vamos implantar nosso primeiro modelo.
 
 7.  Quando a implantação for concluída, a folha do Grupo de recursos será aberta.![Captura de tela da folha Grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)
 
-8.  Para usar o aplicativo, basta navegar até a URL do aplicativo Web (no exemplo acima, a URL seria http://mydemodocdbwebapp.azurewebsites.net)). Você verá o seguinte aplicativo Web:
+8.  Para usar o aplicativo, basta navegar até a URL do aplicativo Web (no exemplo acima, a URL seria http://mydemodocdbwebapp.azurewebsites.net). Você verá o seguinte aplicativo Web:
 
 	![Aplicativo Todo de exemplo](./media/documentdb-create-documentdb-website/image2.png)
 
 9. Vá em frente e crie algumas tarefas no aplicativo Web. Em seguida, retorne à folha do Grupo de recursos no portal do Azure. Clique no recurso de conta do Banco de Dados de Documentos na lista de Recursos e, em seguida, clique em **Gerenciador de Consultas**.![Captura de tela da lente de Resumo com o aplicativo Web myotherdocumentdbwebapp realçado](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)
 
-10. Execute a consulta padrão, "SELECT * FROM" e inspecione os resultados. Observe que a consulta recuperou a representação JSON dos itens de tarefas que você criou na etapa 7 acima. Fique à vontade para experimentar as consultas. Por exemplo, tente executar SELECT * FROM c WHERE c.isComplete = true para retornar todos os itens de tarefas que foram marcados como concluídos.
+10. Execute a consulta padrão, "SELECT * FROM c" e inspecione os resultados. Observe que a consulta recuperou a representação JSON dos itens de tarefas que você criou na etapa 7 acima. Fique à vontade para experimentar as consultas. Por exemplo, tente executar SELECT * FROM c WHERE c.isComplete = true para retornar todos os itens de tarefas que foram marcados como concluídos.
 
 	![Captura de tela das lâminas Gerenciador de Consultas e Resultados mostrando os resultados da consulta](./media/documentdb-create-documentdb-website/image5.png)
 
@@ -141,4 +141,4 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

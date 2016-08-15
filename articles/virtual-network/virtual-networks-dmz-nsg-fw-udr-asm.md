@@ -76,11 +76,11 @@ Se o destino não tiver se aplicado a qualquer um dos prefixos Null ou dos prefi
 
 Se houver dois prefixos idênticos na tabela de rotas, a ordem a seguir será a ordem de preferência baseada no atributo de “origem” das rotas:
 
-1.	<blank> = uma rota definida pelo usuário manualmente adicionada à tabela
+1.	<blank> = uma Rota Definida pelo Usuário adicionada manualmente à tabela
 2.	"VPNGateway" = uma rota dinâmica (BGP quando usada com redes híbridas) adicionadas por um protocolo de rede dinâmico, essas rotas podem ser alteradas ao longo do tempo conforme o protocolo dinâmico reflete automaticamente as alterações na rede emparelhada
 3.	"Padrão" = as Rotas do Sistema, a Rede Virtual local e as entradas estáticas, como mostrado na tabela de rotas acima.
 
->[AZURE.NOTE] Há uma limitação usando o Roteamento Definido pelo Usuário (UDR) e a Rota Expresso devido à complexidade do roteamento dinâmico usado no Gateway Virtual do Azure. As sub-redes que estejam se comunicando com o Gateway do Azure e fornecendo a conexão da Rota Expressa não devem ter o UDR aplicado. Além disso, o Gateway do Azure não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR. A capacidade de integrar totalmente o UDR e a Rota Expressa será habilitada em uma versão futura do Azure.
+>[AZURE.NOTE] Agora você pode usar o UDR (Roteamento Definido pelo Usuário) com Rota Expressa e Gateways de VPN para forçar o roteamento do tráfego de entrada e saída entre locais para um NVA (dispositivo de rede virtual).
 
 #### Criando as rotas locais
 
@@ -265,7 +265,7 @@ Depois que as regras forem criadas e;ou modificadas, elas deverão ser enviadas 
 
 As especificidades de cada regra exigida para a conclusão deste exemplo são descritas desta maneira:
 
-- **Regra de Gerenciamento de Firewall**: essa regra Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo virtual de rede, neste exemplo, um Firewall NextGen Barracuda. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são iguais (isto é, não há tradução de porta). Essa regra, SETUP-MGMT-ACCESS, é uma regra padrão e é habilitada por padrão (no Firewall NextGen Barracuda versão 6.1).
+- **Regra de Gerenciamento de Firewall**: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo de rede virtual, neste exemplo, um Firewall Barracuda NextGen. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são iguais (isto é, não há tradução de porta). Essa regra, SETUP-MGMT-ACCESS, é uma regra padrão e é habilitada por padrão (no Firewall NextGen Barracuda versão 6.1).
 
 	![Regra de gerenciamento do firewall][10]
 
@@ -505,7 +505,7 @@ Lembre-se também de que os Grupos de Segurança de Rede existem para o tráfego
 4.	Se a detecção de ameaças avançada tiver sido habilitada no firewall (o que não será abordado neste documento, consulte a documentação do fornecedor para obter os recursos de ameaça avançados do seu dispositivo de rede específico), mesmo o tráfego que seria permitido pelas regras básicas de encaminhamento discutidas neste documento poderá ser impedido caso contenha assinaturas ou padrões conhecidos que sinalizem uma regra de ameaça avançada.
 
 #### (Negado) Pesquisa DNS da Internet no servidor DNS
-1.	O usuário da Internet tenta pesquisar um registro DNS interno em DNS01 por meio do serviço BackEnd001.CloudApp.Net 
+1.	O usuário da Internet tenta pesquisar um registro DNS interno em DNS01 por meio do serviço BackEnd001.CloudApp.Net
 2.	Como não há nenhum ponto de extremidade aberto para tráfego DNS, isso não passaria pelo Serviço de Nuvem e não alcançaria o servidor
 3.	Se os pontos de extremidade estiverem abertos por algum motivo, a regra NSG (Bloquear Internet) na sub-rede Frontend bloquearia esse tráfego
 4.	Por fim, a rota UDR da sub-rede Backend enviaria todo o tráfego de saída de DNS01 para o firewall como o próximo salto e o firewall veria isso como tráfego assimétrico e descartaria a resposta de saída. Portanto, há pelo menos três camadas de defesa independentes entre a Internet e DNS01 via seu serviço de nuvem impedindo o acesso não autorizado/impróprio.
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

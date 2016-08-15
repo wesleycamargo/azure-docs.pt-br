@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/15/2016"
+   ms.date="08/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
@@ -24,27 +24,37 @@ Para oferecer um desempenho previsível em escala, o SQL Data Warehouse permite 
 
 O SQL Data Warehouse permite até 1.024 conexões simultâneas. Todas as 1.024 conexões podem enviar consultas ao mesmo tempo. No entanto, para otimizar a taxa de transferência, o SQL Data Warehouse pode enfileirar algumas consultas para garantir que cada consulta receba uma concessão de memória mínima. O enfileiramento ocorre no tempo de execução de consulta. Enfileirando consultas quando os limites de simultaneidade são atingidos, o SQL Data Warehouse é capaz de aumentar a taxa de transferência total, garantindo que as consultas ativas obtenham acesso aos recursos de memória muito necessários.
 
-Os limites de simultaneidade são regidos por dois conceitos, **consultas simultâneas** e **slots de simultaneidade**. Para a execução de uma consulta, ela deve ser executada no limite de simultaneidade de consulta e dentro da alocação de slot de simultaneidade.
+Os limites de simultaneidade são regidos por dois conceitos, **consultas simultâneas** e **slots de simultaneidade**. Para a execução de uma consulta, ela deve ser executada tanto no limite de simultaneidade de consulta quanto na alocação de slot de simultaneidade.
 
-- As **consultas simultâneas** são simplesmente o número de consultas em execução ao mesmo tempo. O SQL Data Warehouse dá suporte a até 32 **consultas simultâneas** em tamanhos maiores de DW, DW1000 e acima. No entanto, como o número de consultas simultâneas varia de acordo com o número de DWUs, fornecemos uma tabela abaixo para mostrar as limitações de DWU.
-- **Slots de simultaneidade** é um conceito mais dinâmico. Cada consulta pode consumir um ou mais slots de simultaneidade. O número exato de slots que uma consulta consome depende do tamanho do SQL Data Warehouse e da [classe de recurso](#resource-classes) da consulta.
+- As **consultas simultâneas** são simplesmente o número de consultas em execução ao mesmo tempo. O SQL Data Warehouse dá suporte para até 32 consultas simultâneas.
+- Os **slots de simultaneidade** são alocados com base em DWU. Cada DWU 100 fornece quatro slots de simultaneidade. Por exemplo, um DW100 aloca quatro slots de simultaneidade e um DW1000 aloca 40. Cada consulta consome um ou mais slots de simultaneidade, dependendo da [classe de recurso](#resource-classes) da consulta. As consultas em execução na classe de recurso smallrc consomem um slot de simultaneidade. As consultas em execução em uma classe de recurso superior consomem mais slots de simultaneidade.
 
-A tabela abaixo descreve os limites de consultas simultâneas e slots de simultaneidade.
+A tabela abaixo descreve os limites das consultas simultâneas e dos slots de simultaneidade em vários tamanhos de DWU.
 
 ### Limites de simultaneidade
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :--------------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| Máximo de consultas simultâneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| Máximo de slots simultâneos | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
+| DWU | Máximo de consultas simultâneas | Slots de Simultaneidade Alocados |
+| :----  | :---------------------: | :-------------------------: |
+| DW100 | 32 | 4 |
+| DW200 | 32 | 8 |
+| DW300 | 32 | 12 |
+| DW400 | 32 | 16 |
+| DW500 | 32 | 20 |
+| DW600 | 32 | 24 |
+| DW1000 | 32 | 40 |
+| DW1200 | 32 | 48 |
+| DW1500 | 32 | 60 |
+| DW2000 | 32 | 80 |
+| DW3000 | 32 | 120 |
+| DW6000 | 32 | 240 |
 
 Quando um desses limites é atingido, novas consultas são enfileiradas. As consultas enfileiradas são executadas seguindo o método "primeiro a entrar, primeiro a sair ", à medida que outras consultas são concluídas e o número de consultas e slots fica abaixo dos limites.
 
-> [AZURE.NOTE]  Consultas SELECT em execução exclusivamente em DMVs (exibições de gerenciamento dinâmico) ou exibições de catálogo **não** são governadas por nenhum dos limites de simultaneidade. Isso permite aos usuários monitorar o sistema independentemente do número de consultas em execução no sistema.
+> [AZURE.NOTE]  As consultas SELECT em execução exclusivamente nas DMVs (exibições de gerenciamento dinâmico) ou nas exibições de catálogo **não** são governadas por nenhum dos limites de simultaneidade. Isso permite aos usuários monitorar o sistema independentemente do número de consultas em execução no sistema.
 
 ## Classes de recursos
 
-As classes de recursos são uma parte essencial do gerenciamento de carga de trabalho do SQL Data Warehouse, pois permitem que mais memória e ciclos de CPU sejam alocados para consultas executadas por determinado usuário. Há quatro classes de recursos que podem ser atribuídas a um usuário na forma de uma **função de banco de dados**. As quatro classes de recursos são **smallrc, mediumrc, largerc e xlargerc**. Os usuários em smallrc recebem uma quantidade menor de memória e, assim, podem ter maior simultaneidade. Por outro lado, os usuários atribuídos a xlargerc recebem grandes quantidades de memória e, assim, um número menor dessas consultas pode ser executado simultaneamente.
+As classes de recurso são a maneira em que você controla a alocação de memória e os ciclos de CPU fornecidos para uma consulta. Há quatro classes de recurso que podem ser atribuídas a um usuário na forma de uma **função de banco de dados**. As quatro classes de recurso são **smallrc, mediumrc, largerc e xlargerc**. Os usuários em smallrc recebem uma quantidade menor de memória e, assim, podem ter maior simultaneidade. Por outro lado, os usuários atribuídos a xlargerc recebem grandes quantidades de memória e, assim, um número menor dessas consultas pode ser executado simultaneamente.
 
 Por padrão, cada usuário é um membro da pequena classe de recurso - smallrc. O procedimento `sp_addrolemember` é usado para aumentar a classe de recurso e `sp_droprolemember` é usado para diminuir a classe de recurso. Por exemplo, este comando aumentaria a classe de recurso de loaduser para largerc:
 
@@ -54,7 +64,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 Uma prática recomendada é criar usuários que são permanentemente atribuídos a uma classe de recurso, em vez de alterar a classe de recurso de um usuário. Por exemplo, cargas para tabelas columnstore clusterizadas cria índices de qualidade superiores quando mais memória é alocada. Para garantir que as cargas tenham acesso a mais memória, crie um usuário especificamente para o carregamento de dados e atribua esse usuário permanentemente a uma classe de recurso mais elevada.
 
-Existem alguns tipos de consultas que não se beneficiam da alocação de memória maior e o sistema ignorará sua alocação de classe de recurso e sempre executará essas consultas na classe de recurso pequena em vez disso. Forçar essas consultas a serem sempre executadas na classe de recurso pequena permite que elas sejam executadas quando os slots de simultaneidade estão sob pressão e impede que essas consultas consumam mais slots do que o necessário. Essas [exceções de classe de recurso](#resource-class-exceptions) são abordadas mais adiante neste artigo.
+Existem alguns tipos de consultas que não se beneficiam da alocação de memória maior e o sistema ignorará sua alocação de classe de recurso e sempre executará essas consultas na classe de recurso pequena em vez disso. Forçar essas consultas a serem sempre executadas na classe de recurso pequena permite que elas sejam executadas quando os slots de simultaneidade estão sob pressão e impede que essas consultas consumam mais slots do que o necessário. Essas [exceções de classe de recurso](#query-exceptions-to-concurrency-limits) são abordadas mais adiante neste artigo.
 
 Mais alguns detalhes sobre classes de recurso:
 
@@ -62,62 +72,85 @@ Mais alguns detalhes sobre classes de recurso:
 - Embora um usuário possa ser adicionado a uma ou mais classes com mais recursos, os usuários terão os atributos de classe de recurso mais alta à qual são atribuídos. Ou seja, se um usuário for atribuído a mediumrc e largerc, a classe de recurso mais elevada, largerc, será a classe de recurso que será respeitada.
 - A classe de recurso do usuário administrativo do sistema não pode ser alterada.
  
-Mais detalhes e exemplos de como criar usuários e atribuí-los a classes de recursos podem ser encontrados na seção [Gerenciar usuários](#Managing-users) no fim deste artigo.
+Para obter um exemplo detalhado, confira [Changing user resource class example](#changing-user-resource-class-example) (Alterando o exemplo de classe de recurso de usuário) no final deste artigo
 
 ## Alocação de memória
 
-Há prós e contras quanto ao aumento da classe de recurso do usuário. Embora o aumento de uma classe de recurso para um usuário possa significar que suas consultas têm acesso a mais memória e podem ser executadas mais rapidamente, classes de recurso superiores também reduzem o número de consultas simultâneas que podem ser executadas. Essa é a compensação entre alocar de grandes quantidades de memória para uma única consulta e permitir que outras consultas sejam executadas simultaneamente, as quais também precisam de alocações de memória. Se um usuário receber alocações de memória altas para uma consulta, outros usuários não terão acesso a essa mesma memória para executar uma consulta.
+Há prós e contras quanto ao aumento da classe de recurso do usuário. Embora o aumento de uma classe de recurso para um usuário possa significar que suas consultas têm acesso a mais memória e podem ser executadas mais rapidamente, classes de recurso superiores também reduzem o número de consultas simultâneas que podem ser executadas. Essa é a compensação entre alocar grandes quantidades de memória para uma única consulta e permitir que outras consultas, que também precisam de alocações de memória, sejam executadas simultaneamente. Se um usuário receber alocações de memória altas para uma consulta, outros usuários não terão acesso a essa mesma memória para executar uma consulta.
 
-A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e classe de recurso. No SQL Data Warehouse existem 60 distribuições por banco de dados. Por exemplo, uma consulta em execução em um DW2000 na classe de recurso xlarge teria acesso a 6.400 MB dentro de cada um dos 60 bancos de dados distribuídos.
+A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e classe de recurso. Há 60 distribuições no SQL Data Warehouse. Por exemplo, uma consulta em execução em um DW2000 na classe de recurso xlarge teria acesso a 6.400 MB de memória dentro de cada um dos 60 bancos de dados distribuídos.
 
 ### Alocações de memória por distribuição (MB)
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| smallrc | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 | 100 |
-| mediumrc | 100 | 200 | 200 | 400 | 400 | 400 | 800 | 800 | 800 | 1\.600 | 1\.600 | 3\.200 |
-| largerc | 200 | 400 | 400 | 800 | 800 | 800 | 1\.600 | 1\.600 | 1\.600 | 3\.200 | 3\.200 | 6\.400 |
-| xlargerc | 400 | 800 | 800 | 1\.600 | 1\.600 | 1\.600 | 3\.200 | 3\.200 | 3\.200 | 6\.400 | 6\.400 | 12\.800 |
+| DWU | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100 | 100 | 100 | 200 | 400 |
+| DW200 | 100 | 200 | 400 | 800 |
+| DW300 | 100 | 200 | 400 | 800 |
+| DW400 | 100 | 400 | 800 | 1\.600 |
+| DW500 | 100 | 400 | 800 | 1\.600 |
+| DW600 | 100 | 400 | 800 | 1\.600 |
+| DW1000 | 100 | 800 | 1\.600 | 3\.200 |
+| DW1200 | 100 | 800 | 1\.600 | 3\.200 |
+| DW1500 | 100 | 800 | 1\.600 | 3\.200 |
+| DW2000 | 100 | 1\.600 | 3\.200 | 6\.400 |
+| DW3000 | 100 | 1\.600 | 3\.200 | 6\.400 |
+| DW6000 | 100 | 3\.200 | 6\.400 | 12\.800 |
 
-
-Usando o mesmo exemplo acima, uma consulta em todo o sistema em execução em um DW2000 na classe de recurso xlarge recebe a alocação de um total de 375 GB de memória (6.400 MB * 60 distribuições / 1.024 para converter em GB).
+Usando o mesmo exemplo acima, uma consulta em execução em um DW2000 na classe de recurso xlarge recebe a alocação de um total de 375 GB de memória (6.400 MB * 60 distribuições / 1.024 para converter em GB) por todo o SQL Data Warehouse.
 
 ### Alocações de memória em todo o sistema (GB)
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-|smallrc | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 |
-|mediumrc | 6 | 12 | 12 | 23 | 23 | 23 | 47 | 47 | 47 | 94 | 94 | 188 |
-|largerc | 12 | 23 | 23 | 47 | 47 | 47 | 94 | 94 | 94 | 188 | 188 | 375 |
-|xlargerc | 23 | 47 | 47 | 94 | 94 | 94 | 188 | 188 | 188 | 375 | 375 | 750 |
+| DWU | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100 | 6 | 6 | 12 | 23 |
+| DW200 | 6 | 12 | 23 | 47 |
+| DW300 | 6 | 12 | 23 | 47 |
+| DW400 | 6 | 23 | 47 | 94 |
+| DW500 | 6 | 23 | 47 | 94 |
+| DW600 | 6 | 23 | 47 | 94 |
+| DW1000 | 6 | 47 | 94 | 188 |
+| DW1200 | 6 | 47 | 94 | 188 |
+| DW1500 | 6 | 47 | 94 | 188 |
+| DW2000 | 6 | 94 | 188 | 375 |
+| DW3000 | 6 | 94 | 188 | 375 |
+| DW6000 | 6 | 188 | 375 | 750 |
+
 
 ## Consumo de slot de simultaneidade
 
-Conforme mencionado acima, quanto mais elevada for a classe de recurso, mais memória será concedida. Como a memória é um recurso fixo, quanto mais memória for alocada por consulta, menos simultaneidade terá suporte. A tabela a seguir reitera todos os conceitos acima em uma única exibição mostrando o número de slots de simultaneidade disponíveis por DWU, bem como os slots consumidos por cada classe de recurso.
+As consultas executadas em uma classe de recurso superior recebem mais memória. Como a memória é um recurso fixo, quanto mais memória for alocada por consulta, menos simultaneidade terá suporte. A tabela a seguir reitera todos os conceitos acima em uma única exibição mostrando o número de slots de simultaneidade disponíveis por DWU, bem como os slots consumidos por cada classe de recurso.
 
 ### Alocação e consumo de slots de simultaneidade
 
-| | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| **Alocação** | | | | | | | | | | | | |
-| Máximo de consultas simultâneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
-| Máximo de slots simultâneos | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 120 | 240 |
-| **Consumo de Slot** | | | | | | | | | | | | |
-| smallrc | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| mediumrc | 1 | 2 | 2 | 4 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 32 |
-| largerc | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 64 |
-| xlargerc | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 | 64 | 128 |
+| DWU | Máximo de consultas simultâneas | Slots de Simultaneidade Alocados | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
+| :----  | :---------------------: | :-------------------------: | :-----: | :------: | :-----: | :------: |
+| DW100 | 32 | 4 | 1 | 1 | 2 | 4 |
+| DW200 | 32 | 8 | 1 | 2 | 4 | 8 |
+| DW300 | 32 | 12 | 1 | 2 | 4 | 8 |
+| DW400 | 32 | 16 | 1 | 4 | 8 | 16 |
+| DW500 | 32 | 20 | 1 | 4 | 8 | 16 |
+| DW600 | 32 | 24 | 1 | 4 | 8 | 16 |
+| DW1000 | 32 | 40 | 1 | 8 | 16 | 32 |
+| DW1200 | 32 | 48 | 1 | 8 | 16 | 32 |
+| DW1500 | 32 | 60 | 1 | 8 | 16 | 32 |
+| DW2000 | 32 | 80 | 1 | 16 | 32 | 64 |
+| DW3000 | 32 | 120 | 1 | 16 | 32 | 64 |
+| DW6000 | 32 | 240 | 1 | 32 | 64 | 128 |
 
-Nesta tabela você pode ver que um SQL Data Warehouse em execução como DW1000 oferece um total de 40 slots simultâneos até o máximo de 32 consultas simultâneas. Se todos os usuários estivessem executando na classe de recurso pequena, seriam permitidas 32 consultas simultâneas uma vez que cada uma das consultas consumiria 1 slot de simultaneidade. Se todos os usuários estivessem executando na classe de recurso de média, cada usuário receberia a alocação de 800 MB por distribuição para uma alocação de memória total de 47 GB e a simultaneidade para todos esses usuários da classe de recurso média seria limitada a 8 usuários.
+
+Nesta tabela, você pode ver que um SQL Data Warehouse em execução como DW1000 aloca uma quantidade máxima de 32 consultas simultâneas e um total de 40 slots de simultaneidade. Se todos os usuários estivessem executando na classe de recurso pequena, seriam permitidas 32 consultas simultâneas, uma vez que cada consulta consumiria um slot de simultaneidade. Se todos os usuários em um DW1000 estivessem executando na classe de recurso média, cada consulta receberia a alocação de 800 MB por distribuição de uma alocação de memória total de 47 GB por consulta e a simultaneidade seria limitada a cinco usuários (40 slots de simultaneidade/oito slots por usuário mediumrc).
 
 ## Importância da consulta
 
-Nos bastidores, há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recurso. No entanto, apenas quatro dos oito grupos de carga trabalho são utilizados em qualquer DWU. Isso faz sentido, já que cada grupo de carga de trabalho é atribuído a smallrc, mediumrc, largerc ou xlargerc. A importância de entender esses grupos de cargas de trabalho nos bastidores é que alguns deles são definidos com **IMPORTÂNCIA** maior. A importância é usada para agendamento de CPU. As consultas executadas com alta prioridade obterão três vezes mais ciclos de CPU do que aquelas com prioridade média. Portanto, os mapeamentos de slot de simultaneidade também determinam a importância da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
+De modo oculto, as classes de recurso são implementadas usando grupos de carga de trabalho. Há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recurso entre os vários tamanhos de DWU. Em qualquer DWU, apenas quatro dos oito grupos de carga de trabalho são utilizados. Isso faz sentido, uma vez que cada grupo de carga de trabalho é atribuído a uma das quatro classes de recurso: smallrc, mediumrc, largerc ou xlargerc. A importância de entender esses grupos de carga de trabalho é que alguns deles são definidos com **IMPORTÂNCIA** maior. A importância é usada para agendamento de CPU. As consultas executadas com importância **alta** obterão três vezes mais ciclos de CPU do que aquelas com importância **média**. Portanto, os mapeamentos de slot de simultaneidade também determinam a prioridade da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
 
 A seguir estão os mapeamentos de importância para cada grupo de carga de trabalho.
 
+### Mapeamentos de grupo de carga de trabalho para slots de simultaneidade e importância
+
 | Grupos de carga de trabalho | Mapeamento do slot de simultaneidade | Mapeamento de Importância |
-| :------------------  | :----------------------: | :----------------- |
+| :-------------- | :----------------------: | :----------------- |
 | SloDWGroupC00 | 1 | Média |
 | SloDWGroupC01 | 2 | Média |
 | SloDWGroupC02 | 4 | Média |
@@ -127,10 +160,12 @@ A seguir estão os mapeamentos de importância para cada grupo de carga de traba
 | SloDWGroupC06 | 64 | Alto |
 | SloDWGroupC07 | 128 | Alto |
 
-Para um SQL Data Warehouse DW500, os grupos de cargas de trabalho ativos seriam mapeados para as classes do recurso da maneira a seguir.
+Do gráfico de **Alocação e consumo de slots de simultaneidade**, podemos ver que um DW500 usa um, quatro, oito ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc respectivamente. É possível procurar por esses valores no gráfico acima para obter a importância de cada classe de recurso.
+
+### Mapeamento do DW500 para obter a importância das classes de recurso
 
 | Classe de recursos | Grupo de carga de trabalho | Slots simultâneos usados | Importância |
-| :--------------- | :------------- | :--------------------:   | :--------- |
+| :------------- | :------------- | :--------------------: | :--------- |
 | smallrc | SloDWGroupC00 | 1 | Média |
 | mediumrc | SloDWGroupC02 | 4 | Média |
 | largerc | SloDWGroupC03 | 8 | Média |
@@ -185,9 +220,28 @@ ORDER BY
 ;
 ```
 
-## Exceções de classe de recursos
+## Consultas que respeitam os limites de simultaneidade
 
-A maioria das consultas segue as classes de recursos; no entanto, há algumas exceções. Geralmente, isso ocorre quando os recursos necessários para atender a ação estão baixos. Ou seja, as exceções geralmente são casos em que uma consulta nunca utiliza o máximo de memória alocada por classes com mais recursos. Nesses casos, a classe de recurso padrão ou pequena (smallrc) sempre é usada, não importa a classe de recurso atribuída ao usuário. Por exemplo, `CREATE LOGIN` sempre será executado no smallrc. Os recursos necessários para atender a essa operação são muito baixos, portanto, não faria sentido incluir a consulta no modelo de slot de simultaneidade. Seria um desperdício pré-alocar grandes quantidades de memória para essa ação. Excluir `CREATE LOGIN` do modelo de slot de simultaneidade do SQL Data Warehouse pode ser muito mais eficiente.
+A maioria das consultas é governada pelas classes de recurso. Essas consultas devem se ajustar tanto aos limites de consultas de simultaneidade quanto aos de slots de simultaneidade. Um usuário final não pode optar por excluir uma consulta do modelo de slot de simultaneidade.
+
+Para reiterar, estas instruções **seguem** as classes de recurso:
+
+- INSERT-SELECT
+- UPDATE
+- EXCLUIR
+- SELECT (ao consultar tabelas de usuário)
+- ALTER INDEX REBUILD
+- ALTER INDEX REORGANIZE
+- ALTER TABLE REBUILD
+- CREATE INDEX
+- CREATE CLUSTERED COLUMNSTORE INDEX
+- CREATE TABLE AS SELECT (CTAS)
+- Carregamento de dados
+- Operações de movimentação de dados realizadas pelo Serviço de Movimentação de Dados (DMS)
+
+## Exceções de consulta para limites de simultaneidade
+
+Há algumas consultas que não respeitam a classe de recurso à qual o usuário é atribuído. Essas exceções para os limites de simultaneidade são feitas quando os recursos de memória necessários para um determinado comando estão baixos, geralmente porque o comando é uma operação de metadados. Ao ter essas exceções, as alocações maiores de memória em consultas que jamais precisarão delas são evitadas. Nesses casos, a classe de recurso padrão pequena (smallrc) sempre é usada, independentemente da classe de recurso real atribuída ao usuário. Por exemplo, `CREATE LOGIN` sempre será executado no smallrc. Os recursos necessários para atender a essa operação são muito baixos, portanto, não faria sentido incluir a consulta no modelo de slot de simultaneidade. Seria um desperdício pré-alocar grandes quantidades de memória para essa ação. Excluir `CREATE LOGIN` do modelo de slot de simultaneidade do SQL Data Warehouse pode ser muito mais eficiente.
 
 As instruções a seguir **não** honram classes de recursos:
 
@@ -214,27 +268,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-### Consultas que respeitam os limites de simultaneidade
-
-É importante lembrar-se de que a maioria das consultas do usuário final provavelmente será regida pelas classes de recurso. A regra geral é que a carga de trabalho da consulta ativa deve caber nos limites tanto da consulta simultânea quanto no do slot de simultaneidade, a menos que tenha sido excluída especificamente pela plataforma. Como um usuário final, você não pode optar por excluir uma consulta de modelo de slot de simultaneidade. Assim que um dos limites for excedido, as consultas começarão a ser enfileiradas. Consultas em fila serão tratadas em ordem de prioridade, seguido por hora de envio.
-
-Para reiterar, estas instruções **seguem** as classes de recursos:
-
-- INSERT-SELECT
-- UPDATE
-- EXCLUIR
-- SELECT (ao consultar tabelas de usuário)
-- ALTER INDEX REBUILD
-- ALTER INDEX REORGANIZE
-- ALTER TABLE REBUILD
-- CREATE INDEX
-- CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT
-- Carregamento de dados
-- Operações de movimentação de dados realizadas pelo Serviço de Movimentação de Dados (DMS)
-
-
-## Gerenciando usuários
+## Alteração do exemplo de classe de recurso de usuário
 
 1. **Criar logon:** abra uma conexão com o banco de dados **mestre** para o SQL Data Warehouse e execute os comandos a seguir.
 	
@@ -245,7 +279,7 @@ Para reiterar, estas instruções **seguem** as classes de recursos:
 
 	> [AZURE.NOTE] É recomendável criar usuários para logons no banco de dados mestre, no banco de dados SQL do Azure e no Azure SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em mestre para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No Banco de Dados SQL do Azure e SQL Data Warehouse, essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente para o SQL Server. Para obter mais detalhes, confira o artigo [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][].
 
-2. **Criar conta de usuário:** abra uma conexão com o **banco de dados do SQL Data Warehouse** e execute o comando a seguir.
+2. **Criar conta de usuário:** abra uma conexão com o **banco de dados SQL Data Warehouse** e execute o comando a seguir.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -263,7 +297,7 @@ Para reiterar, estas instruções **seguem** as classes de recursos:
 	EXEC sp_addrolemember 'largerc', 'newperson'
 	```
 
-5. **Diminuir a classe de recursos:** para remover um usuário de uma função de gerenciamento de carga de trabalho, use a consulta a seguir.
+5. **Diminuir a classe de recurso:** para remover um usuário de uma função de gerenciamento de carga de trabalho, use a consulta a seguir.
 
 	```sql
 	EXEC sp_droprolemember 'largerc', 'newperson';
@@ -273,7 +307,7 @@ Para reiterar, estas instruções **seguem** as classes de recursos:
 
 ## Detecção de consulta enfileirada e outros DMVs
 
-O DMV `sys.dm_pdw_exec_requests` pode ser usado para identificar as consultas que estão aguardando em uma fila de simultaneidade.
+O DMV `sys.dm_pdw_exec_requests` pode ser usado para identificar as consultas que estão aguardando em uma fila de simultaneidade. As consultas que estão aguardando um slot de simultaneidade terão um status de **suspensas**.
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
@@ -312,7 +346,7 @@ O SQL Data Warehouse tem os tipos de espera a seguir.
 - DmsConcurrencyResourceType: esperas resultantes de operações de movimentação de dados
 - BackupConcurrencyResourceType: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups foram solicitados ao mesmo tempo, os outros serão colocados em fila.
 
-O DMV `sys.dm_pdw_waits` pode ser usado para ver os recursos que uma solicitação está aguardando.
+O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
 
 ```sql
 SELECT  w.[wait_id]
@@ -394,4 +428,4 @@ Para obter mais informações sobre como gerenciar usuários de banco de dados e
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

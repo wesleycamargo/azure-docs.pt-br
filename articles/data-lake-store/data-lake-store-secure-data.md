@@ -183,5 +183,6 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
+- [Acessar os logs de diagnóstico do Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

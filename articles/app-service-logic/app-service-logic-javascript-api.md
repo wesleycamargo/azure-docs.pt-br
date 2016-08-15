@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o aplicativo de API do JavaScript em um Aplicativo Lógico | Microsoft Azure"
    description="Conector ou aplicativo de API de JavaScript"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
    manager="dwrede"
@@ -99,4 +99,4 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

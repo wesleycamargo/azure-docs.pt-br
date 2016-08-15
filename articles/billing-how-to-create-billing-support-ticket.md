@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como criar um tíquete de suporte para problemas de assinatura e cobrança do Azure | Microsoft Azure"
 	description="Descreve como criar um tíquete de suporte para problemas de cobrança e assinatura do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@ Você também pode enviar uma solicitação de suporte do site de suporte do Azu
 
  >[AZURE.NOTE]Somente o administrador da conta do Azure tem permissão para acessar o Centro de Contas. Para obter mais informações sobre como descobrir quem é o administrador da conta da assinatura, consulte as [Perguntas frequentes](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

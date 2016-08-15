@@ -36,8 +36,8 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 
 **Versão do Framework**. Configurar essas opções se seu aplicativo usa qualquer um desses frameworks:
 
-- **.NET Framework**: configure a versão do .NET framework. 
-- **PHP**: defina a versão PHP ou **DESATIVADO** para desabilitar o PHP. 
+- **.NET Framework**: configure a versão do .NET framework.
+- **PHP**: defina a versão PHP ou **DESATIVADO** para desabilitar o PHP.
 - **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
 - **Python**: selecione a versão do Python ou **DESATIVADO** para desabilitar o Python.
 
@@ -61,7 +61,7 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 
 Esta seção contém pares de nome/valor que seu aplicativo Web carregará na inicialização.
 
-- Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
+- Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes.
 
 - Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING\_. Ambas contêm o mesmo valor.
 
@@ -92,7 +92,7 @@ Use essa área para adicionar processadores de script personalizados para manipu
 
 - **Extensão**. A extensão do arquivo a ser manipulada, como *.php ou handler.fcgi.
 - **Caminho do Processador de script**. O caminho absoluto do processador de script. As solicitações para arquivos que correspondam a extensão do arquivo serão processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
-- **Argumentos adicionais**. Argumentos da linha de comando opcionais para o processador de script 
+- **Argumentos adicionais**. Argumentos da linha de comando opcionais para o processador de script
 
 
 ### Aplicativos e diretórios virtuais 
@@ -105,11 +105,11 @@ Para configurar diretórios e aplicativos virtuais, especifique cada diretório 
 Para habilitar logs de diagnóstico:
 
 1. Na folha do seu aplicativo Web, clique em **Todas as configurações**.
-2. Clique em **Logs de diagnóstico**. 
+2. Clique em **Logs de diagnóstico**.
 
 Opções para gravar os logs de diagnóstico de um aplicativo web que ofereça suporte ao registro em log:
 
-- **Registro do Aplicativo**. Grava logs de aplicativos no sistema de arquivos. O registro em log dura por 12 horas. 
+- **Registro do Aplicativo**. Grava logs de aplicativos no sistema de arquivos. O registro em log dura por 12 horas.
 
 **Nível**. Quando o registro de aplicativo em log estiver habilitado, esta opção especifica a quantidade de informações que serão gravadas (Erro, Aviso, Informações ou Detalhado).
 
@@ -181,7 +181,6 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Usando Git para implantar aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 
@@ -189,4 +188,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

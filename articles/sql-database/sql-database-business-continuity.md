@@ -4,7 +4,7 @@
    keywords="continuidade dos negócios, continuidade dos negócios em nuvem, recuperação de desastre do banco de dados, recuperação de banco de dados"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -31,7 +31,7 @@ O Banco de Dados SQL executa automaticamente uma combinação de backups de banc
 
 Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de uma variedade de eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Na maioria dos casos, o tempo de recuperação é menor que 12 horas. Ao recuperar em outra região de dados, a perda de dados potencial será limitada a uma hora pelo armazenamento com redundância geográfica dos backups de banco de dados diferenciais por hora.
 
-> [AZURE.IMPORTANT] Para recuperar usando os backups automáticos, você deverá ser um membro da função Colaborador do SQL Server ou o proprietário da assinatura - confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
+> [AZURE.IMPORTANT] Para recuperar usando os backups automáticos, você deverá ser um membro da função Colaborador do SQL Server ou o proprietário da assinatura, consulte [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
 
 Use os backups automatizados como o mecanismo de continuidade e recuperação dos negócios se seu aplicativo:
 
@@ -135,4 +135,4 @@ Após recuperar de um dos mecanismos de recuperação, você deverá executar as
 
 Para uma discussão sobre as considerações de design de aplicativo para bancos de dados independentes em pools elásticos, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para Pool Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

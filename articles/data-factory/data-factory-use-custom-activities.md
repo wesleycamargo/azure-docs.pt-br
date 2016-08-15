@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -672,14 +672,17 @@ O diagrama a seguir ilustra o relacionamento entre as tarefas do Azure Data Fact
 ## Depurar o pipeline
 A depuração consiste em algumas técnicas básicas:
 
-1.	Se a fatia de entrada não estiver definida como **Pronto**, confirme se a estrutura da pasta de entrada está correta e se **file.txt** existe nas pastas de entrada.
+1.	Se você vir a seguinte mensagem de erro, confirme se o nome da classe no arquivo CS corresponde ao nome especificado para a propriedade EntryPoint no JSON do pipeline. No passo a passo acima, o nome da classe é MyDotNetActivity e o EntryPoint é especificado como: MyDotNetActivityNS.**MyDotNetActivity**.
+
+			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly  
+2.	Se a fatia de entrada não estiver definida para **Pronto**, confirme se a estrutura da pasta de entrada está correta e se **file.txt** existe nas pastas de entrada.
 2.	No método **Execute** da atividade personalizada, use o objeto **IActivityLogger** para registrar informações que o ajudarão a solucionar problemas. As mensagens registradas aparecerão nos arquivos de log do usuário (um ou mais arquivos denominados: user-0.log, user-1.log, user-2.log, etc...).
 
 	Na folha **OutputDataset**, clique na fatia para ver a folha **FATIA DE DADOS** dessa fatia. Você verá as **execuções de atividade** para essa fatia. Você deverá ver uma execução de atividade para a fatia. Se você clicar em Executar na barra de comandos, poderá iniciar outra execução de atividade para a mesma fatia.
 
 	Quando você clicar na execução da atividade, verá a folha **DETALHES DE EXECUÇÃO DA ATIVIDADE** com uma lista de arquivos de log. Você verá mensagens registradas no arquivo user\_0.log. Quando ocorrer um erro, você verá três execuções de atividade porque a contagem de repetições é definida como 3 no JSON do pipeline/atividade. Quando você clicar na execução da atividade, verá os arquivos de log que pode examinar para solucionar o erro.
 
-	Na lista de arquivos de log, clique em **user-0.loo**. No painel à direita, estão os resultados do uso do método **IActivityLogger.Write**. Se não vir todas as mensagens, verifique se você terá mais arquivos de log chamados: user_1.log, user_2.log etc... Caso contrário, o código pode ter falhado depois da última mensagem registrada.
+	Na lista de arquivos de log, clique em **user-0.loo**. No painel à direita, estão os resultados do uso do método **IActivityLogger.Write**. Se você não vir todas as mensagens, verifique se tem mais arquivos de log denominados: user_1.log, user_2.log etc. ... Caso contrário, o código pode ter falhado depois da última mensagem registrada.
 
 	Você também deve verificar **system-0.log** para quaisquer mensagens de erro e exceções do sistema.
 
@@ -687,9 +690,9 @@ A depuração consiste em algumas técnicas básicas:
 4.	Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior**, sem subpastas.
 5.	Verifique se **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), e **packageLinkedService** (devem apontar para o armazenamento de blobs do Azure que contém o arquivo zip) estão definidos com os valores corretos.
 6.	Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e clique em **Executar**.
-7.	A atividade personalizada não usa o arquivo **app.config** a partir do pacote. Portanto, se o código ler as cadeias de conexão a partir do arquivo de configuração, ele não funcionará no tempo de execução. A prática recomendada ao usar o Lote do Azure é armazenar segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificado para proteger o **keyvault** e distribuir o certificado para o pool de Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
+7.	A atividade personalizada não usa o arquivo **app.config** do pacote. Portanto, se o código ler qualquer cadeia de conexão no arquivo de configuração, ele não funcionará durante a execução. A prática recomendada ao usar o Lote do Azure é armazenar os segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificados para proteger o **keyvault** e distribuir o certificado para o pool de Lotes do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
 
-	Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um novo **serviço vinculado do Azure SQL** com configurações de cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada e isso deve funcionar bem no tempo de execução.
+	Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um novo **serviço vinculado do SQL Azure** com configurações da cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada e isso deve funcionar bem no tempo de execução.
 
 
 
@@ -697,12 +700,12 @@ A depuração consiste em algumas técnicas básicas:
 Se você atualizar o código para a atividade personalizada, compile-o e carregue o arquivo zip que contém os novos binários para o armazenamento de blob.
 
 ## Copiar/mover dados 
-A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. Confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) para ver uma lista de armazenamentos de dados com suporte como fontes e coletores para a Atividade de Cópia.
+A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. Consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) para ver a lista dos armazenamentos de dados com suporte como as origens e coletores da Atividade de Cópia.
 
-Se precisar mover dados para dentro e fora de um repositório de dados que não seja compatível com a **Atividade de Cópia**, você poderá usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Confira [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
+Se você precisar mover os dados para/a partir de um armazenamento de dados sem suporte para a **Atividade de Cópia**, poderá usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Consulte [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
 
 ## Isolamento de Appdomain 
-Confira [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que mostra como criar uma atividade personalizada do .NET para o Azure Data Factory que não esteja restrita a versões de assembly usadas pelo iniciador do Azure Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+Consulte [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que mostra como criar uma atividade personalizada do .NET para o Azure Data Factory que não esteja restrita às versões de assembly usadas pelo iniciador do Azure Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x etc.).
 
 ## Acessar propriedades estendidas
 Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado abaixo:
@@ -718,9 +721,9 @@ Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado
 	  }
 	},
 
-No exemplo acima, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Confira [Variáveis de sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obter uma lista de variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como "CustomActivityFactory".
+No exemplo acima, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Consulte [Variáveis de Sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obter uma lista das variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como "CustomActivityFactory".
 
-Para acessar essas propriedades estendidas no método **Execute**, use código semelhante ao seguinte:
+Para acessar essas propriedades estendidas no método **Execute**, use um código semelhante ao seguinte:
 
 	// to get extended properties (for example: SliceStart)
 	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
@@ -735,7 +738,7 @@ Para acessar essas propriedades estendidas no método **Execute**, use código s
 	}
 
 ## Recurso de dimensionamento automático do Azure Batch
-Você também pode criar um pool de lote do Azure com o recurso **autoscale**. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
+Você também pode criar um pool de Lotes do Azure com o recurso **autoscale**. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
 
 Uma VM por tarefa pendente de cada vez (por exemplo: 5 tarefas pendentes -> 5 VMs):
 
@@ -747,17 +750,17 @@ Máximo de uma VM em um momento, independentemente do número de tarefas pendent
 	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
 	$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
-Veja [Escalar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
+Consulte [Dimensionar automaticamente os nós de computação em um pool de Lotes do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
 
-Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço do Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
+Se o pool estiver usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço Lote poderá demorar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
 
 ## Usar serviços vinculados do Azure HDInsight
 No passo a passo, você usou a computação de Lote do Azure para executar a atividade personalizada. Você também pode usar seu próprio cluster do HDInsight ou fazer com que o Data Factory crie um cluster do HDInsight sob demanda e execute a atividade personalizada no cluster do HDInsight. Estas são as etapas gerais para usar um cluster do HDInsight.
 
 1. Criar um serviço vinculado do Azure HDInsight.
-2. Use um serviço vinculado do HDInsight em vez de **AzureBatchLinkedService** no JSON do pipeline.
+2. Use um serviço vinculado do HDInsight em vez do **AzureBatchLinkedService** no JSON do pipeline.
 
-Você talvez queira alterar as horas de **início** e **término** do pipeline, para que você possa testar o cenário com o serviço do Azure HDInsight.
+Você talvez queira alterar as horas de **início** e **término** do pipeline para que você possa testar o cenário com o serviço do Azure HDInsight.
 
 #### Criar o serviço vinculado do Azure HDInsight 
 O serviço Data Factory do Azure dá suporte à criação de um cluster sob demanda e o usa para processar entrada a fim de gerar dados de saída. Você também pode usar seu próprio cluster para fazer isso. Quando você usa o cluster HDInsight sob demanda, um cluster é criado para cada fatia. Ao passo que, se você usar seu próprio cluster HDInsight, o cluster estará pronto para processar a fatia imediatamente. Portanto, quando você usar cluster sob demanda, não verá os dados de saída mais rapidamente que quando usa seu próprio cluster.
@@ -801,7 +804,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 
 2. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
+Consulte os [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
 No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o seu próprio):
 
@@ -854,7 +857,7 @@ Amostra | Qual atividade personalizada realiza
 ------ | ----------- 
 [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory.
 [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc.
-[Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. 
+[Executar Script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. 
 [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory  
  
 
@@ -891,4 +894,4 @@ Amostra | Qual atividade personalizada realiza
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

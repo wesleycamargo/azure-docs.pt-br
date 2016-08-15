@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor="n/a"
+   editor=""
    tags="billing,top-support-issue"/>
 
 <tags
@@ -76,8 +76,8 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Não há nenhum impacto no serviço. Isso efetivamente cancela a assinatura do atual administrador da conta e cria uma nova na conta do destinatário, mas associa os serviços do Azure subjacentes à nova assinatura. A ID da assinatura permanece a mesma.
 
--   **Como usar esse mecanismo para alterar o diretório para assinatura?**
--Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
+-   **Como usar esse mecanismo para alterar o diretório para assinatura?**-
+	Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
 
 -   **Se eu assumir a propriedade de cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?**
 
@@ -90,7 +90,7 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     1.   Abra o Portal do Azure em [*https://portal.azure.com*](https://portal.azure.com)
 
-    2.    Clique em Procurar tudo - & gt; Todos os recursos
+    2.    Clique em Procurar tudo - &gt; Todos os recursos
 
     3.    Selecione o recurso. Isso abrirá a folha de recursos.
 
@@ -132,4 +132,4 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

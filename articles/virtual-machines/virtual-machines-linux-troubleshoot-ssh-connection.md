@@ -70,7 +70,7 @@ azure vm reset-access -g <resource group> <vm name> -u <username> -p <new passwo
 Se usar autenticação de chave SSH, você poderá redefinir a chave SSH para um determinado usuário:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g <resource group> -n <vm name> -u <username> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 #### Extensão de acesso à VM
@@ -134,4 +134,4 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
 
 - Para obter mais informações sobre como solucionar problemas de máquinas virtuais que foram criadas usando o modelo de implantação clássico, consulte [Como redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Conector SQL em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o Conector SQL ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -64,7 +64,7 @@ Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para 
 Sondar Consulta de Dados | Para suporte de gatilho | Instrução SQL para sondar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM nome\_da\_tabela; DELETE FROM nome\_da\_tabela. <br/><br/>**Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
 5. Após a conclusão, as Configurações do Pacote serão semelhantes às seguintes:  
-![][1]
+![][1]  
 
 6. Selecione **Criar**.
 
@@ -163,4 +163,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

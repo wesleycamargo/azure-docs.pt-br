@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Solucionando problemas de pontos de extremidade CDN que retornam o status 404"
-	description="Solucionar códigos de resposta 404 com pontos de extremidade CDN."
+	pageTitle="Solucionando problemas dos pontos de extremidade da CDN do Azure retornando o status 404 | Microsoft Azure"
+	description="Solucione problemas nos códigos de resposta 404 com pontos de extremidade da CDN do Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de pontos de extremidade CDN que retornam o status 404
@@ -67,7 +67,7 @@ O outro item a ser verificado aqui são as portas **HTTP** e **HTTPS**. Na maior
 
 No entanto, digamos que a URL do arquivo de origem testado anteriormente seja `http://www.contoso.com:8080/file.txt`. Observe o `:8080` no final do segmento do nome do host. Isso informa ao navegador que ele deverá usar a porta `8080` para se conectar ao servidor Web em `www.contoso.com`; portanto, você precisará inserir 8080 no campo **Porta HTTP**. É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
 
-> [AZURE.NOTE] Os pontos de extremidade da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista de portas de origem que não são permitidas, confira [Detalhes do comportamento da CDN do Azure da Akamai](cdn-akamai-behavior-details.md).
+> [AZURE.NOTE] Os pontos de extremidade da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista das portas de origem que não são permitidas, consulte [CDN do Azure a partir das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).
   
 ### Verificar as configurações de ponto de extremidade
 
@@ -97,4 +97,4 @@ Por exemplo, em meu ponto de extremidade, como eu queria que todos os recursos e
 
 Mas e se não quiser usar a CDN para cada caminho na origem? Digamos que eu quisesse apenas expor o caminho `publicblob`. Se eu inserir */publicblob* no campo **Caminho de origem**, isso fará com que o ponto de extremidade insira */publicblob* antes de todas as solicitações feitas para a origem. Isso significa que a solicitação de `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` agora usará, na verdade, a parte da solicitação da URL, `/publicblob/lorem.txt`, e acrescentará `/publicblob` ao início. Isso resulta em uma solicitação de `/publicblob/publicblob/lorem.txt` da origem. Se esse caminho não for resolvido para um arquivo real, a origem retornará um status 404. Na verdade, a URL correta para recuperar lorem.txt neste exemplo seria `https://cdndocdemo.azureedge.net/lorem.txt`. Observe que não incluímos o caminho */publicblob*, porque a parte da solicitação da URL é `/lorem.txt` e o ponto de extremidade adiciona `/publicblob`, fazendo com que `/publicblob/lorem.txt` seja a solicitação transmitida para a origem.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

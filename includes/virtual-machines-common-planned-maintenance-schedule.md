@@ -16,7 +16,7 @@ Você pode escolher a hora em que a manutenção planejada afetará suas VMs que
 
 3.	Você pode remover a VM de seu conjunto de disponibilidade no portal clássico.
    
-    1.	No portal do clássico, clique na VM e selecione “configurar”. 
+    1.	No portal do clássico, clique na VM e selecione “configurar”.
 
     2.	Em "configurações", você pode ver em qual conjunto de disponibilidade a VM está.
 
@@ -43,7 +43,7 @@ Você pode selecionar a hora que a manutenção planejada afeta suas VMs em uma 
 
 Passo a passo
 
-1.	Um email será enviado a você sete dias corridos antes da manutenção planejada nas VMs em uma configuração de instância única. As IDs de assinatura e os nomes das VMs de instância única afetadas serão incluídos no corpo do email. 
+1.	Um email será enviado a você sete dias corridos antes da manutenção planejada nas VMs em uma configuração de instância única. As IDs de assinatura e os nomes das VMs de instância única afetadas serão incluídos no corpo do email.
 
 2.	Durante esses sete dias, você pode escolher a hora em que sua instância será reinicializada, movendo suas VMs de instância única para um conjunto de disponibilidade nessa mesma região. Essa alteração na configuração resulta em uma reinicialização, pois a máquina virtual está passando de um host físico, direcionado para manutenção, para outro host físico que não está direcionado para manutenção.
 
@@ -64,3 +64,5 @@ Isso também pode ser feito usando o Azure PowerShell:
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
+<!---HONumber=AcomDC_0803_2016-->

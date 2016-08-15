@@ -3,8 +3,8 @@
   description="Tenha certeza de que seu ambiente está preparado adequadamente para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure."
   services="backup"
   documentationCenter=""
-  authors="trinadhk"
-  manager="shreeshd"
+  authors="PVRK"
+  manager="shivamg"
   editor=""
   keywords="servidor de backup do Azure; cofre de backup"/>
 
@@ -277,4 +277,4 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 - [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 - [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

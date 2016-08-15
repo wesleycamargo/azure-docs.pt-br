@@ -256,64 +256,81 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
 1. Na página **Início Rápido**, baixe o arquivo de instalação unificada para o servidor.
+
 2. Execute o arquivo de instalação para iniciar a instalação no Assistente de Instalação Unificada de Recuperação de Site.
-3. Em **Antes de começar**, selecione **Install the configuration server and process server (Instalar o servidor de configuração e o servidor de processo)**. Dependendo do tamanho de sua implantação, talvez seja necessário adicionar mais servidores de processo posteriormente, mas não ao configurar essa implantação pela primeira vez.
+
+3.	Em **Antes de começar**, selecione **Install the configuration server and process server (Instalar o servidor de configuração e o servidor de processo)**.
 
 	![Antes de começar](./media/site-recovery-vmware-to-azure-classic/combined-wiz1.png)
+4. Em **Licença de Software de Terceiros**, clique em **Eu Aceito** para baixar e instalar o MySQL.
 
-4. Em **Instalação de Software de Terceiros**, clique em **Aceitar** para baixar e instalar o MySQL.
+	![Software de terceiros](./media/site-recovery-vmware-to-azure-classic/combined-wiz105.PNG)
 
-	![Software de terceiros](./media/site-recovery-vmware-to-azure-classic/combined-wiz2.png)
+5. Em **Registro**, procure e escolha a chave de registro que você baixou do cofre.
 
-5. Em **Configurações da Internet**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
+	![Registro](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
 
-	- Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
-	- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
-	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Connect with custom proxy settings (Conectar com as configurações personalizadas do proxy)**.
-	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
-	- Se você estiver usando um proxy, as seguintes URLs deverão estar acessíveis por meio dele:
+6. Em **Configurações da Internet**, especifique como o Provedor em execução no servidor de configuração se conectará ao Azure Site Recovery pela Internet.
 
-	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
+	- Se você quiser se conectar ao proxy que está configurado atualmente no computador, escolha **Conectar-se com as configurações de proxy existentes**.
+	- Se você quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente sem um proxy**.
+	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, escolha **Conectar-se com configurações de proxy personalizadas**.
+		- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
+		- Se estiver usando um proxy, você já deverá ter permitido as seguintes URLs:
+			- *.hypervrecoverymanager.windowsazure.com;
+			- *.accesscontrol.windows.net;
+			- *.backup.windowsazure.com;
+			- *.blob.core.windows.net;
+			- *.store.core.windows.net
+			
 
-7. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação dos pré-requisitos no servidor.
+	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
-	![Pré-requisitos](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
+7. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação possa ser executada.
 
->[AZURE.WARNING] Se você vir um aviso para a verificação de pré-requisitos de **Sincronização de Horário Global**, verifique se a hora no relógio do sistema é a mesma do fuso horário.
+	
+	![Pré-requisitos](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
-![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
+	 Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
-8. Em **MySQL Configuration (Configuração do MySQL)**, crie credenciais para fazer logon na instância do servidor MySQL. Você pode especificar os seguintes caracteres especiais: '\_', '!', ' @', '$', ' \\', '%'.
+ 	![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
-	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
-
-9. Em **Detalhes do Ambiente**, especifique se você pretende replicar as VMs do VMware. Se a resposta for afirmativa, a instalação verificará se o PowerCLI 6.0 está instalado.
+8. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL que será instalada.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz6.png)
 
-10. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. Recomendamos que a unidade de cache tenha 600 GB ou mais de espaço livre.
+9. Em **Detalhes do Ambiente**, selecione se você replicará ou não as VMs VMware. Se a resposta for positiva, a instalação verificará se o PowerCLI 6.0 está instalado.
 
-	![Local de instalação](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
+	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
 
-11. Em **Seleção de Rede**, especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será aberta no servidor para enviar e receber informações sobre a orquestração da replicação. A 443 não deve ser usada para dados de replicação.
+10. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. Você pode selecionar uma unidade que tem ao menos 5 GB de armazenamento disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
+
+	![Local de instalação](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
+
+11. Em **Seleção da Rede**, especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será usada por um servidor Web que orquestra operações de replicação. A 443 não deve ser usada para receber tráfego de replicação.
 
 
-	![Seleção de rede](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
+	![Seleção de rede](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
-12. Em **Registro**, procure e escolha a chave de registro que você baixou do cofre.
 
-	![Registro](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
+
+12.  Em **Resumo**, examine as informações e clique em **Instalar**. Após a conclusão da instalação, uma frase secreta é gerada. Você precisará dela quando habilitar a replicação, portanto copie-a e guarde-a em um local seguro.
+
+	![Resumo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
+
 
 13.  Em **Resumo**, examine as informações.
 
 	![Resumo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
 >[AZURE.WARNING] O proxy do agente de serviço de recuperação do Microsoft Azure precisa ser configurado. Quando a instalação for concluída, inicie um aplicativo chamado “Shell de Serviços de Recuperação do Microsoft Azure” no menu Iniciar do Windows. Na janela de comando que abre, execute o seguinte conjunto de comandos para configurar as configurações do servidor proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
 	net stop obengine
 	net start obengine
-	 
+
 
 
 ### Executar a instalação a partir da linha de comando
@@ -455,7 +472,7 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 	- Faça logon como raiz.
 	- No arquivo /etc/ssh/sshd\_config, localize a linha que começa com PasswordAuthentication.
 	- Remova a marca de comentário da linha e altere o valor de **no** para **yes**.
-	- Localize a linha que começa com **Subsystem** e remova a marca de comentário dela.
+	- Localize a linha que começa com **Subsystem** e remova a marca de comentário existente nessa linha.
 
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
 
@@ -549,7 +566,7 @@ Além disso, observe que:
 
 Adicionar computadores a um grupo de proteção:
 
-1. Clique em **Itens Protegidos** > **Grupo de Proteção** > **Computadores** > Adicionar Computadores. \\Como a melhor prática
+1. Clique em **Itens Protegidos** > **Grupo de Proteção** > **Computadores** > Adicionar Computadores. \\Como uma melhor prática
 2. Em **Selecionar Máquinas Virtuais**, se estiver protegendo máquinas virtuais VMware, selecione um Servidor vCenter que esteja gerenciando suas máquinas virtuais, ou o host ESXi no qual elas estão em execução, e selecione os computadores.
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection2.png)
@@ -576,7 +593,7 @@ Você pode monitorar o status na página **Trabalhos**.
 
 ![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-Além disso, o status da proteção pode ser monitorado em **Itens Protegidos** > <nome grupo proteção> > **Máquinas Virtuais**. Depois de a replicação inicial ser concluída e os dados serem sincronizados, o status do computador é alterado para** Protegida**.
+Além disso, o status da proteção pode ser monitorado em **Itens Protegidos** > <nome grupo proteção> > **Máquinas Virtuais**. Depois de a replicação inicial ser concluída e os dados serem sincronizados, o status do computador é alterado para **Protegido**.
 
 ![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -594,7 +611,7 @@ Além disso, o status da proteção pode ser monitorado em **Itens Protegidos** 
 
 	-  **Tamanho da VM do Azure**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. [Leia mais](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables) sobre tamanhos e adaptadores. Observe que:
 
-		- Quando você modificar o tamanho de uma máquina virtual e salvar as configurações, o número do adaptador de rede será alterado na próxima vez em que abrir a guia **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada.
+		- Quando você modificar o tamanho de uma máquina virtual e salvar as configurações, o número do adaptador de rede será alterado na próxima vez em que você abrir a guia **Configurar**. O número de adaptadores de rede de máquinas virtuais de destino é o mínimo do número de adaptadores de rede na máquina virtual de origem e o número máximo de adaptadores de rede compatíveis com o tamanho da máquina virtual selecionada.
 			- Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
 			- Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
 			- Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
@@ -693,7 +710,7 @@ Para se conectar a máquinas virtuais replicadas no Azure após o failover, veja
 2. O Firewall do Windows na máquina principal para permitir RDP.
 3. Após o failover, você precisará adicionar o RDP ao ponto de extremidade público para a máquina virtual do Azure.
 
-[Leia mais](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) sobre a configuração.
+[Leia mais](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) sobre como realizar essa configuração.
 
 
 ## Implantar servidores de processo adicionais
@@ -715,6 +732,7 @@ Você pode configurar um servidor de processo adicional da seguinte maneira:
 	![Adicionar servidor de processo](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
 3. Conclua o assistente da mesma forma como fez ao [configurar](#step-5-install-the-management-server) o primeiro servidor de gerenciamento.
+
 4. Em **Configuration Server Details (Detalhes do Servidor de Configuração)**, especifique o endereço IP do servidor de gerenciamento original no qual você instalou o servidor de configuração e a senha. No servidor de gerenciamento original, execute **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** para obter a senha.
 
 	![Adicionar servidor de processo](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
@@ -743,8 +761,8 @@ O servidor de processo pode descobrir as VMs em um servidor vCenter automaticame
 **Função** | **Detalhes** | **Permissões**
 --- | --- | ---
 Função Azure\_Site\_Recovery | Descoberta de máquina virtual VMware |Atribua estes privilégios ao servidor v-Center:<br/><br/>Armazenamento de Dados -> Alocar espaço, Procurar armazenamento de dados, Operações de arquivo de nível baixo, Remover arquivo, Atualizar arquivos da máquina virtual<br/><br/>Rede -> Atribuir rede<br/><br/>Recurso -> Atribuir máquina virtual ao pool de recursos, Migrar máquina virtual desligada, Migrar máquina virtual ligada<br/><br/>Tarefas -> Criar tarefa, atualizar tarefa<br/><br/>Máquina virtual -> Configuração<br/><br/>Máquina virtual -> Interagir -> Responder a pergunta, Conexão de dispositivos, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware<br/><br/>Máquina virtual -> Inventário -> Criar, Registrar, Desfazer registro<br/><br/>Máquina virtual -> Provisionamento -> Permitir download da máquina virtual, Permitir upload de arquivos da máquina virtual<br/><br/>Máquina virtual -> Instantâneos -> Remover instantâneos
-Função de usuário do vCenter | Descoberta de máquina virtual VMware/Failover sem o desligamento da VM de origem | Atribua estes privilégios ao servidor do v-Center:<br/><br/>Objeto do Data Center -> Propagar para Objeto Filho, função=Somente leitura <br/><br/>O usuário é atribuído no nível do data center e, portanto, tem acesso a todos os objetos no data center. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com **Propagar para objeto filho** aos objetos filho (hosts ESX, armazenamentos de dados, VMs e redes).
-Função de usuário do vCenter | Failover e failback | Atribua estes privilégios ao servidor do vCenter:<br/><br/>Objeto do data center – Propagar para objeto filho, função=Azure\_Site\_Recovery<br/><br/>O usuário é atribuído no nível do data center e, portanto, tem acesso a todos os objetos no data center. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com **Propagar para objeto-filho** ao objeto filho (hosts ESX, armazenamentos de dados, VMs e redes).  
+Função de usuário do vCenter | Descoberta de máquina virtual VMware/Failover sem o desligamento da VM de origem | Atribua estes privilégios ao servidor do v-Center:<br/><br/>Objeto do Datacenter -> Propagar para Objeto Filho, função=Somente leitura <br/><br/>O usuário é atribuído no nível do datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com **Propagar para objeto filho** aos objetos filho (hosts ESX, armazenamentos de dados, VMs e redes).
+Função de usuário do vCenter | Failover e failback | Atribua estes privilégios ao servidor do v-Center:<br/><br/>Objeto do datacenter – Propagar para objeto filho, função=Azure\_Site\_Recovery<br/><br/>O usuário é atribuído no nível do datacenter e, portanto, tem acesso a todos os objetos no datacenter. Se você quiser restringir o acesso, atribua a função **Nenhum acesso** com **Propagar para objeto filho** ao objeto filho (hosts ESX, armazenamentos de dados, VMs e redes).  
 
 
 
@@ -764,4 +782,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre o failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

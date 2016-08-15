@@ -3,7 +3,7 @@
    description="Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -150,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

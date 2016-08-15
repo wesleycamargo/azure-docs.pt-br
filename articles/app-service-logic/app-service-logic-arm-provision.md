@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Criar um aplicativo lógico usando modelos do Gerenciador de Recursos do Azure no Serviço de Aplicativo do Azure | Microsoft Azure" 
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um Aplicativo Lógico vazio para definir fluxos de trabalho." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

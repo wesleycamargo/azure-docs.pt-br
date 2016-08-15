@@ -19,11 +19,13 @@
 
 # Extensão de Script Personalizado para máquinas virtuais do Windows
 
-Este artigo fornece uma visão geral de como usar a extensão de Script Personalizado nas VMs do Windows usando cmdlets do Azure PowerShell.
+Este artigo oferece uma visão geral de como usar a extensão de Script Personalizado nas VMs Windows usando cmdlets do Azure PowerShell com APIs de Gerenciamento de Serviços.
 
-As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja [Recursos e extensões de VM do Azure](virtual-machines-windows-extensions-features.md).
+As extensões de VM (máquina virtual) são criadas pela Microsoft e por editores confiáveis de terceiros para estender a funcionalidade da VM. Para obter uma visão geral das extensões de VM, veja 
+[Recursos e extensões de VM do Azure](virtual-machines-windows-extensions-features.md).
 
-Link: [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
+Link:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-machines-windows-classic-extensions-customscript.md).
 
 
 ## Visão geral da extensão de Script Personalizado
@@ -86,9 +88,9 @@ A Extensão de Script Personalizado pode ser desinstalada da VM usando o cmdlet 
 
 ### Usando a extensão de Script Personalizado com modelos
 
-Para saber mais sobre como usar a extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure, confira a documentação [aqui](virtual-machines-windows-classic-extensions-customscript.md).
+Para saber mais sobre como usar a extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure, confira a documentação [aqui](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

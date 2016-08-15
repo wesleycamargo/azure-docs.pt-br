@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Recebi um email sobre a possibilidade de meus serviços serem interrompidos | Microsoft Azure"
 	description="Descreve como resolver o problema de não conseguir usar o cartão de crédito para pagar pela assinatura."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@ Caso seu problema do Azure não seja resolvido neste artigo, visite os fóruns d
 
 Se precisa de ajuda para abrir um tíquete, confira, [Como criar um tíquete de suporte para problemas de cobrança e assinatura do Azure](billing-how-to-create-billing-support-ticket.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

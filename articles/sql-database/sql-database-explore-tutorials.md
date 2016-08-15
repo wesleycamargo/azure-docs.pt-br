@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -133,7 +133,7 @@ Nos tutoriais a seguir, você aprenderá a [criar e gerenciar logons e usuários
 | [Gerenciar regras de firewall de nível de servidor usando o PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-using-powershell) | Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando o PowerShell.|
 | [Gerenciar regras de firewall no nível de servidor usando a API REST](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-service-management-rest-api) | Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando a API REST.|
 | [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor.|
-| [Concedendo acesso ao banco de dados para um logon] (sql-database-manage-logins.md#granting-database-access-to-a-login() | Nesse tutorial, você aprenderá a conceder acesso ao banco de dados a um logon de nível de servidor.|
+| [Concedendo acesso ao banco de dados para um logon](sql-database-manage-logins.md#granting-database-access-to-a-login) | Nesse tutorial, você aprenderá a conceder acesso ao banco de dados a um logon de nível de servidor.|
 | [Criar um novo usuário de banco de dados usando SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) | Nesse tutorial, você aprenderá a criar um novo usuário de banco de dados em um banco de dados existente usando o SSMS.|
 | [Conceder permissões de db\_owner a um novo usuário de banco de dados](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) | Nesse tutorial, você aprenderá a conceder permissões de db\_owner a um usuário de banco de dados existente.|
 | [Conectar-se ao Banco de Dados SQL do Azure como um usuário](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) | Nesse tutorial, você aprenderá a se conectar a um banco de dados SQL do Azure usando uma conta de usuário de nível de banco de dados.|
@@ -184,4 +184,4 @@ Neste tutorial, você aprenderá sobre a [Sincronização de Dados](http://downl
 
 [Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

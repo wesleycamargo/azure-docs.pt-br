@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/23/2016"
+   ms.date="07/29/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticação no Azure SQL Data Warehouse
@@ -37,21 +37,19 @@ Para se conectar ao SQL Data Warehouse, você precisará fornecer as seguintes i
 - Senha
 - Banco de dados padrão (opcional)
 
-É importante observar que os usuários devem autenticar usando a autenticação SQL. Não há suporte para autenticação confiável no momento.
-
 Por padrão, a conexão conectará ao banco de dados mestre e não ao banco de dados do usuário. Para se conectar ao banco de dados do usuário, você pode optar por fazer uma de duas opções:
 
-1. Especifique o banco de dados padrão ao registrar o servidor com o SQL Server Object Explorer no SSDT ou em sua cadeia de conexão do aplicativo. Por exemplo, incluindo o parâmetro InitialCatalog em uma conexão ODBC.
+1. Especifique o banco de dados padrão ao registrar o servidor com o SQL Server Object Explorer no SSDT, SSMS ou em sua cadeia de conexão do aplicativo. Por exemplo, incluindo o parâmetro InitialCatalog em uma conexão ODBC.
 2. Primeiro, selecione o banco de dados do usuário antes de criar uma sessão no SSDT.
 
-> [AZURE.NOTE] Para obter instruções de conexão com o SQL Data Warehouse com SSDT, confira o artigo [Query with Visual Studio (Consulta com o Visual Studio)][].
+> [AZURE.NOTE] Para obter as diretrizes de conexão do SQL Data Warehouse com SSDT, confira o artigo [Query with Visual Studio (Consulta com o Visual Studio)][].
 
 Novamente, é importante observar que a instrução Transact-SQL **USE <seu BD>** não tem suporte para alterar o banco de dados para uma conexão
 
 
 ## Autenticação do AAD (Azure Active Directory)
 
-A autenticação do [Azure Active Directory][What is Azure Active Directory] é um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões.
+A autenticação do [Azure Active Directory][What is Azure Active Directory] é um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure AD (Azure Active Directory). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões.
 
 ### Benefícios
 
@@ -78,7 +76,7 @@ As etapas de configuração incluem os procedimentos a seguir para configurar e 
 5. Criar usuários de banco de dados independente em seu banco de dados, mapeados para identidades do AD do Azure
 6. Conectar-se ao data warehouse usando identidades do Azure AD
 
-As principais diferenças entre usar autenticação do Azure Active Directory com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure é que você deve usar o SQL Server Data Tools em vez do SQL Server Management Studio para se conectar ao SQL Data Warehouse. O SQL Data Warehouse exige pelo menos a versão de abril de 2016 (14.0.60311.1) do SQL Server Data Tools para Visual Studio 2015. Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como uma solução alternativa, exiba os usuários em [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ### Localização dos detalhes
 - Conclua as etapas detalhadas. As etapas detalhadas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure. Siga as etapas detalhadas no tópico [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
@@ -86,7 +84,7 @@ As principais diferenças entre usar autenticação do Azure Active Directory co
 
 ## Próximas etapas
 
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Query with Visual Studio][] (Consultar com o Visual Studio).
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio][] \(Consulta com o Visual Studio).
 
 <!-- Article references -->
 [Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
@@ -94,4 +92,4 @@ Para começar a consultar o data warehouse com o Visual Studio e outros aplicati
 [Query with Visual Studio (Consulta com o Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,12 @@
 <properties
    pageTitle="Obter informações sobre o consumo de recursos do Microsoft Azure | Microsoft Azure"
    description="Fornece uma visão geral conceitual das APIs de Uso de cobrança do Azure e RateCard, que são usadas para fornecer informações sobre o consumo de recursos e as tendências do Azure."
-   services="billing"
+   services=""
    documentationCenter=""
    authors="BryanLa"
    manager="mbaldwin"
-   editor=""/>
+   editor=""
+   tags="billing"/>
 
 <tags
    ms.service="billing"
@@ -50,7 +51,7 @@ Clientes e parceiros podem usar a API RateCard de Recursos do Azure para obter a
 
 Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e RateCard:
 
-- **Gasto do Azure durante o mês** - Os clientes podem usar as APIs de Uso e RateCard em combinação para obter melhores resultados sobre o seu gasto de nuvem durante o mês, analisando os buckets horários e diários das estimativas de custo e de uso. 
+- **Gasto do Azure durante o mês** - Os clientes podem usar as APIs de Uso e RateCard em combinação para obter melhores resultados sobre o seu gasto de nuvem durante o mês, analisando os buckets horários e diários das estimativas de custo e de uso.
 
 - **Configurar alertas** – Os clientes e parceiros podem configurar alertas baseados em recursos ou monetários com base em seu consumo de nuvem obtendo o consumo previsto e o custo estimado usando a API de Uso e RateCard.
 
@@ -78,4 +79,4 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 + Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
 + Para obter informações adicionais sobre o pacote de ferramentas necessárias para ajudá-lo a compreender os gastos de nuvem, consulte o artigo da Gartner [Guia de mercado para as ferramentas de gestão financeira de TI (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

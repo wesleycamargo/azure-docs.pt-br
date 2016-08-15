@@ -3,7 +3,7 @@
 	description="Como configurar um Cofre de Chaves para uso com uma máquina virtual do Azure Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -23,7 +23,11 @@
 
 Na pilha do Azure Resource Manager, os certificados/segredos são modelados como recursos que são fornecidos pelo provedor de recursos do Cofre de Chaves. Para saber mais sobre o Cofre de Chaves, consulte [O que é o Cofre de Chaves do Azure?](../key-vault/key-vault-whatis.md)
 
-Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade *EnabledForDeployment* no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes.
+>[AZURE.NOTE] 
+>
+>1. Para que um Cofre de Chaves seja usado com máquinas virtuais do Azure Resource Manager, a propriedade **EnabledForDeployment** no Cofre de Chaves deverá ser definida como true. Você pode fazer isso em vários clientes.
+>
+>2. O Cofre de Chaves precisa ser criado na mesma assinatura e na mesma localização que a Máquina Virtual.
 
 ## Usar o PowerShell para configurar o Cofre de Chaves
 Para criar um Cofre de Chaves usando o PowerShell, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md#vault).
@@ -37,7 +41,7 @@ Para cofres de chaves existentes, você pode usar este cmdlet do PowerShell:
 	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## Usar a CLI para configurar o Cofre de Chaves
-Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre de Chaves usando a CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Para criar um cofre de chaves usando a CLI (interface de linha de comando), consulte [Gerenciar Cofre da Chave usando a CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
 Para a CLI, você precisa criar o cofre de chaves antes de atribuir a política de implantação. Faça isso usando este comando:
 
@@ -58,6 +62,6 @@ Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` co
       }
     }
 
-Para encontrar outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chaves](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Para saber outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

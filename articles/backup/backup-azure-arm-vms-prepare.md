@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -50,7 +50,7 @@ Antes de preparar seu ambiente, compreenda as limitações.
 - Não há suporte para backup e restauração entre regiões.
 - Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure (consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões com suporte). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - Você pode fazer backup de máquinas virtuais somente para determinadas versões de sistemas operacionais:
-  - **Linux**: confira [a lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
+  - **Linux**: o Backup do Azure suporta [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux. Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 - A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -321,4 +321,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 - [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

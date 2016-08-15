@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Fornecimento contínuo de serviços de nuvem no Azure
@@ -56,7 +56,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
     Essa opção pode ser abreviada como /t:Publish. A opção /t:Publish no MSBuild não deve ser confundida com os comandos Publicar disponíveis no Visual Studio quando você tem o SDK do Azure instalado. A opção /t:Publish compila apenas os pacotes do Azure. Ela não implanta os pacotes como os comandos Publicar no Visual Studio.
 
-    Você também pode especificar o nome do projeto como um parâmetro do MSBuild. Se não for especificado, o diretório atual é usado. Para obter mais informações sobre as opções da linha de comando do MSBuild, consulte [Referência da linha de comando do MSBuild][1].
+    Você também pode especificar o nome do projeto como um parâmetro do MSBuild. Se não for especificado, o diretório atual é usado. Para obter mais informações sobre as opções da linha de comando, consulte [Referência da linha de comando do MSBuild](1).
 
 4.  Localize a saída. Por padrão, esse comando cria um diretório relacionado à pasta raiz do projeto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
 
@@ -69,7 +69,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Especifique o local para a saída. Defina o caminho usando a opção /p:PublishDir=*Directory*\\, incluindo o separador de barra invertida à direita, como no seguinte exemplo:
+6.  Especifique o local para a saída. Defina o caminho usando a opção /p:PublishDir=*Directory*\\, incluindo o separador de barra invertida à direita, como no exemplo a seguir:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
@@ -83,7 +83,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 1.  No Visual Studio, no computador de desenvolvimento, no menu Exibir , escolha **Team Explorer** ou Ctrl+\\, Ctrl+M. Na janela do Team Explorer, expanda o nó **Compilações** ou escolha a página **Compilações** e escolha **Definição de Nova Compilação**.
 
-    ![][0]
+    ![Opção Nova Definição de Compilação][0]
 
 2.  Escolha a guia **Gatilho** e especifique as condições desejadas para quando deseja que o pacote seja compilado. Por exemplo, especifique **Integração Contínua** para compilar o pacote sempre que um check-in de controle do código-fonte ocorrer.
 
@@ -95,7 +95,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 6.  Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\myserver\\drops\** para compilar um pacote e copie os arquivos de pacote para o local \\\myserver\\drops\\:
 
-    ![][2]
+    ![Argumentos do MSBuild][2]
 
     **Nota:** copiar os arquivos para um compartilhamento público torna mais fácil implantar manualmente os pacotes do seu computador de desenvolvimento.
 
@@ -105,7 +105,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 Esta seção descreve como criar um script do Windows PowerShell que publicará a saída do pacote do aplicativo de nuvem para o Azure usando parâmetros opcionais. Esse script pode ser chamado após a etapa de compilação na sua automação de compilação personalizada. Ele também pode ser chamado das atividades do fluxo de trabalho do Modelo de processo no Visual Studio TFS Team Build.
 
-1.  Instale os [cmdlets do PowerShell do Azure][] (v0.6.1 ou superior). Durante a fase de instalação do cmdlet, opte por instalar como um snap-in. Observeque essa versão suportada oficialmente substitui a versão mais antigaoferecida por meio do CodePlex, embora as versões anteriores foram numeradas 2.x.x.
+1.  Instale os [cmdlets do PowerShell do Azure][] \(v0.6.1 ou superior). Durante a fase de instalação do cmdlet, opte por instalar como um snap-in. Observeque essa versão suportada oficialmente substitui a versão mais antigaoferecida por meio do CodePlex, embora as versões anteriores foram numeradas 2.x.x.
 
 2.  Inicie o PowerShell do Azure usando o menu Iniciar. Se você iniciar dessa forma, os cmdlets do PowerShell do Azure serão carregados.
 
@@ -204,7 +204,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![Lista de argumentos][3]
 
     O XAML correspondente tem esta aparência:
 
@@ -256,7 +256,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
 
         -   PublishScriptFilePath, do tipo String
 
-            ![][4]
+            ![Novas variáveis][4]
 
     4.  Se estiver usando o TFS 2012 ou anterior, adicione uma atividade ConvertWorkspaceItem ao início da nova Sequência. Se estiver usando o TFS 2013 ou posterior, adicione uma atividade GetLocalPath ao início da nova sequência. Para um ConvertWorkspaceItem, defina as propriedades da seguinte maneira: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. Para uma atividade GetLocalPath, defina a propriedade IncomingPath como 'PublishScriptLocation’ e o Resultado como 'PublishScriptFilePath'. Esta atividade converte o caminho para o script de publicação dos locais do servidor TFS (se aplicável) para um caminho de disco local padrão.
 
@@ -284,7 +284,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
 
     O resultado final das atividades de fluxo de trabalho de publicação terá a seguinte aparência no designer:
 
-    ![][5]
+    ![Atividades do fluxo de trabalho][5]
 
     O resultado final das atividades de fluxo de trabalho de publicação terá a seguinte aparência neste XAML:
 
@@ -343,7 +343,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
 
     8.  SubscriptionName = 'padrão'
 
-    ![][6]
+    ![Valores de propriedade do parâmetro][6]
 
 10. Salve as alterações para a Definição de Compilação.
 
@@ -573,4 +573,4 @@ Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habil
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

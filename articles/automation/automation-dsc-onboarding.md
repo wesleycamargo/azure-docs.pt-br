@@ -261,7 +261,7 @@ Para carregar genericamente qualquer computador ao DSC de Automação do Azure, 
                     RefreshFrequencyMins = $RefreshFrequencyMins 
                     RefreshMode = $RefreshMode 
                     ConfigurationMode = $ConfigurationMode 
-                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    AllowModuleOverwrite = $AllowModuleOverwrite 
                     RebootNodeIfNeeded = $RebootNodeIfNeeded 
                     ActionAfterReboot = $ActionAfterReboot 
                     ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
@@ -379,4 +379,4 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

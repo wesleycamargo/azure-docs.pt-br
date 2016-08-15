@@ -18,21 +18,21 @@
 
 # Provisionar nós de computação Linux em pools do Lote do Azure
 
-O Lote do Azure permite executar cargas de trabalho de computação paralelas em máquinas virtuais do Linux e do Windows. Este artigo fornece detalhes sobre como criar pools de nós de computação do Linux no serviço do Lote usando as bibliotecas de cliente [Python do Lote][py_batch_package] [.NET do Lote][api_net].
+Você pode usar o Lote do Azure para executar cargas de trabalho de computação paralelas em máquinas virtuais do Linux e do Windows. Este artigo fornece detalhes sobre como criar pools de nós de computação do Linux no serviço do Lote usando as bibliotecas de cliente [Python do Lote][py_batch_package] [.NET do Lote][api_net].
 
-> [AZURE.NOTE] No momento, o suporte para Linux no Lote está em preview. Alguns aspectos do recurso discutidos aqui podem ser alterados antes da disponibilidade geral. Os [pacotes de aplicativos](batch-application-packages.md) **no momento não têm suporte** nos nós de computação do Linux.
+> [AZURE.NOTE] No momento, o suporte para Linux no Lote está em preview. Alguns aspectos do recurso discutidos aqui podem ser alterados antes da disponibilidade geral. Os [Pacotes de aplicativos](batch-application-packages.md) no momento não têm suporte nos nós de computação do Linux.
 
-## Configuração de Máquina Virtual
+## Configuração de máquina virtual
 
-Ao criar um pool de nós de computação no Lote, você tem duas opções das quais pode selecionar o tamanho do nó e o sistema operacional: **Configuração de Serviços de Nuvem** e **Configuração de Máquina Virtual**.
+Ao criar um pool de nós de computação no Lote, você tem duas opções das quais pode selecionar o tamanho do nó e o sistema operacional: Configuração de Serviços de Nuvem e Configuração de Máquina Virtual.
 
-A **Configuração de Serviços de Nuvem** fornece *apenas* os nós de computação do Windows. Os tamanhos de nó de computação disponíveis estão relacionados em [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md) e os sistemas operacionais disponíveis estão relacionados na [Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Quando você cria um pool que contém nós de Serviços de Nuvem, precisa especificar somente o tamanho do nó e sua “Família de Sistemas Operacionais”, que são encontrados nesses artigos. Quando você compra pools de nós de computação do Windows, os Serviços de Nuvem são usados com mais frequência.
+A **Configuração de Serviços de Nuvem** fornece *apenas* nós de computação do Windows. Os tamanhos de nó de computação disponíveis estão relacionados em [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md) e os sistemas operacionais disponíveis estão relacionados na [Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Quando você cria um pool que contém nós de Serviços de Nuvem do Azure, precisa especificar somente o tamanho do nó e sua “Família de Sistemas Operacionais”, que são encontrados nos artigos mencionados anteriormente. No caso de pools de nós de computação do Windows, os Serviços de Nuvem são usados com mais frequência.
 
-A **Configuração de Máquina Virtual** fornece imagens do Linux e do Windows para os nós de computação. Os tamanhos de nó de computação disponíveis estão relacionados em [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) e em [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Ao criar um pool que contém nós de Configuração de Máquina Virtual, você deve especificar não apenas o tamanho dos nós, mas também a **referência de imagem de máquina virtual** e o **SKU do agente de nó** do Lote a ser instalado nos nós.
+A **Configuração de Máquina Virtual** fornece imagens do Linux e do Windows para os nós de computação. Os tamanhos de nó de computação disponíveis estão relacionados em [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) e em [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Ao criar um pool que contém nós de Configuração da Máquina Virtual, você deve especificar o tamanho dos nós, a referência da imagem da máquina virtual e a SKU do agente de nó do Lote a ser instalada nos nós.
 
 ### Referência da imagem da máquina virtual
 
-O serviço do Lote usa [Conjuntos de Escala de Máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) nos bastidores para fornecer nós de computação do Linux, e as imagens do sistema operacional para essas máquinas virtuais são fornecidas pelo [Marketplace de Máquinas Virtuais do Azure][vm_marketplace]. Quando você configura uma referência de imagem de máquina virtual, especifica as propriedades de uma imagem de máquina virtual do Marketplace. As propriedades a seguir são necessárias ao criar uma referência de imagem de máquina virtual:
+O serviço Lote usa [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação Linux. As imagens do sistema operacional para essas máquinas virtuais são fornecidas pelo [Azure Marketplace][vm_marketplace]. Quando você configura uma referência de imagem de máquina virtual, especifica as propriedades de uma imagem de máquina virtual do Marketplace. As propriedades a seguir são necessárias ao criar uma referência de imagem de máquina virtual:
 
 | **Propriedades de referência de imagem** | **Exemplo** |
 | ----------------- | ------------------------ |
@@ -41,23 +41,23 @@ O serviço do Lote usa [Conjuntos de Escala de Máquina Virtual](../virtual-mach
 | SKU | 14\.04.4-LTS |
 | Versão | mais recente |
 
-> [AZURE.TIP] Você pode encontrar mais informações sobre essas propriedades e como relacionar as imagens do Marketplace em [Navegue e selecione imagens da máquina virtual Linux no Azure com o PowerShell ou a CLI](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Observe que nem todas as imagens do Marketplace são compatíveis com o Lote no momento. Confira o [SKU do agente do nó](#node-agent-sku) abaixo.
+> [AZURE.TIP] Você pode saber mais sobre essas propriedades e como relacionar as imagens do Marketplace em [Navegue e selecione imagens da máquina virtual Linux no Azure com o PowerShell ou a CLI](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Observe que nem todas as imagens do Marketplace são compatíveis com o Lote no momento. Para saber mais, confira [SKU do agente do nó](#node-agent-sku).
 
 ### SKU do agente do nó
 
-O agente do nó do Lote é um programa que é executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote. Há diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operacionais. Essencialmente, ao criar uma Configuração de Máquina Virtual, você primeiro especifica a referência de imagem de máquina virtual e depois especifica qual agente do nó instalar na imagem. Normalmente, cada SKU do agente do nó é compatível com várias imagens de máquina virtual. Aqui estão alguns exemplos de SKUs do agente do nó:
+O agente do nó do Lote é um programa que é executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote. Há diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operacionais. Essencialmente, ao criar uma Configuração de Máquina Virtual, você primeiro especifica a referência de imagem de máquina virtual e depois especifica o agente do nó a instalar na imagem. Normalmente, cada SKU do agente do nó é compatível com várias imagens de máquina virtual. Aqui estão alguns exemplos de SKUs do agente do nó:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] Nem todas as imagens de máquina virtual disponíveis no Marketplace são compatíveis no momento com os agentes do nó do Lote disponíveis. Você deve usar os SDKs do Lote para listar os SKUs do agente de nó disponíveis e as imagens de máquina virtual com as quais eles são compatíveis. Confira a [Lista de imagens de máquina virtual](#list-of-virtual-machine-images) abaixo para obter mais informações.
+> [AZURE.IMPORTANT] Nem todas as imagens de máquina virtual que estão disponíveis no Marketplace são compatíveis no momento com os agentes do nó do Lote disponíveis. Você deve usar os SDKs do Lote para listar os SKUs do agente de nó disponíveis e as imagens de máquina virtual com as quais eles são compatíveis. Confira as [imagens da Lista de máquinas virtuais](#list-of-virtual-machine-images) mais adiante neste artigo para saber mais.
 
 ## Criar um pool do Linux: Python do Lote
 
-O trecho de código a seguir mostra a criação de um pool de nós de computação do Ubuntu Server usando a [Biblioteca do cliente do Lote do Microsoft Azure para Python][py_batch_package]. A documentação de referência para o módulo do Python do Lote pode ser encontrada[azure.batch package ][py_batch_docs] em Read the Docs.
+O trecho de código a seguir mostra um exemplo de como usar a [Biblioteca de cliente do Lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo do Python do Lote pode ser encontrada [azure.batch package ][py_batch_docs] em Read the Docs.
 
-Neste trecho de código, criamos um [ImageReference][py_imagereference] explicitamente, especificando cada uma de suas propriedades (editor, oferta, sku, versão). É recomendável, porém, que você use o método [list\_node\_agent\_skus][py_list_skus] no código de produção para determinar e selecionar dentre as combinações de SKU do agente do nó e imagem disponíveis no tempo de execução.
+Esse trecho de código cria uma [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No entanto, recomendamos para o código de produção que você use o método [list\_node\_agent\_skus][py_list_skus] no código de produção para determinar e selecionar dentre as combinações de SKU do agente do nó e imagem disponíveis no tempo de execução.
 
 ```python
 # Import the required modules from the
@@ -113,7 +113,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Conforme mencionado acima, é recomendável que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [list\_node\_agent\_skus][py_list_skus] para selecionar dinamicamente entre as combinações de imagem do agente do nó/Marketplace com suporte no momento. O trecho de código Python a seguir mostra o uso desse método.
+Conforme mencionado anteriormente, recomendamos que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [list\_node\_agent\_skus][py_list_skus] para selecionar dinamicamente entre as combinações de imagem do agente do nó/Marketplace com suporte no momento. O trecho de código Python a seguir mostra o uso desse método.
 
 ```python
 # Get the list of node agents from the Batch service
@@ -134,9 +134,9 @@ vmc = batchmodels.VirtualMachineConfiguration(
 
 ## Criar um pool do Linux: .NET do Lote
 
-O trecho de código a seguir mostra a criação de um pool de nós de computação do Ubuntu Server usando a biblioteca de cliente do [.NET do Lote][nuget_batch_net]. Você pode encontrar a [documentação de referência do .NET do Lote][api_net] no MSDN.
+O trecho de código a seguir mostra um exemplo de como usar a biblioteca de cliente [.NET do Lote][nuget_batch_net] para criar um pool de nós de computação do Ubuntu Server. Você pode encontrar a [documentação de referência do .NET do Lote][api_net] no MSDN.
 
-O trecho de código a seguir usa o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para fazer a seleção na lista de combinações de SKU do agente do nó e imagem do Marketplace com suporte no momento. Essa técnica é desejável porque a lista de combinações com suporte pode ser alterada periodicamente (mais comumente, combinações com suporte são adicionadas).
+O trecho de código a seguir usa o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para fazer a seleção na lista de combinações de SKU do agente do nó e imagem do Marketplace com suporte no momento. Essa técnica é interessante porque a lista de combinações com suporte pode ser alterada periodicamente. Os mais comum é que combinações com suporte sejam adicionadas.
 
 ```csharp
 // Pool settings
@@ -186,7 +186,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-Embora o trecho de código acima use o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para relacionar e selecionar dinamicamente dentre as combinações de SKU do agente do nó e imagem com suporte (recomendado), você também pode configurar um [ImageReference][net_imagereference] explicitamente:
+Embora o trecho de código anterior use o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para relacionar e selecionar dinamicamente dentre as combinações de SKU do agente do nó e imagem com suporte (recomendado), você também pode configurar um [ImageReference][net_imagereference] explicitamente:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -198,13 +198,13 @@ ImageReference imageReference = new ImageReference(
 
 ## Lista de imagens de máquina virtual
 
-A tabela abaixo relaciona quais imagens de máquina virtual do Marketplace são compatíveis com os agentes do nó do Lote disponíveis **no momento que este artigo foi escrito**. É importante observar que essa lista não é definitiva, uma vez que imagens e agentes do nó podem ser adicionados ou removidos a qualquer momento. É recomendável que os aplicativos e serviços do Lote sempre usem [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(.NET do Lote) para determinar e selecionar entre os SKUs disponíveis no momento.
+A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que são compatíveis com os agentes do nó do Lote disponíveis no momento que este artigo foi escrito. É importante observar que essa lista não é definitiva, uma vez que imagens e agentes do nó podem ser adicionados ou removidos a qualquer momento. É recomendável que os aplicativos e serviços do Lote sempre usem [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(.NET do Lote) para determinar e selecionar entre os SKUs disponíveis no momento.
 
 > [AZURE.WARNING] A lista a seguir pode ser alterada a qualquer momento. Sempre use os métodos do **SKU do agente do nó da lista** disponíveis nas APIs do Lote para relacionar e, então, selecionar dentre os SKUs do agente do nó e a máquina virtual compatíveis ao executar seus trabalhos do Lote.
 
-| **Publicador** | **Oferta** | **Imagem do SKU** | **Versão** | **ID do SKU do Agente do Nó** |
+| **Publicador** | **Oferta** | **Imagem do SKU** | **Versão** | **ID do SKU do agente do nó** |
 | ------- | ------- | ------- | ------- | ------- |
-| Canônico | UbuntuServer | 14\.04.0-LTS | mais recente | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 14\.04.0-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 14\.04.1-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 14\.04.2-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 14\.04.3-LTS | mais recente | batch.node.ubuntu 14.04 |
@@ -229,9 +229,9 @@ A tabela abaixo relaciona quais imagens de máquina virtual do Marketplace são 
 
 ## Conectar-se a nós Linux
 
-Durante o desenvolvimento ou durante a solução de problemas, talvez seja necessário fazer logon nos nós em seu pool. Ao contrário dos nós de computação do Windows, não é possível usar o protocolo RDP para se conectar aos nós Linux. Em vez disso, o serviço do Lote habilita acesso do SSH em cada nó para a conexão remota.
+Durante o desenvolvimento ou durante a solução de problemas, talvez seja necessário entrar nos nós em seu pool. Ao contrário dos nós de computação do Windows, não é possível usar o protocolo RDP para se conectar aos nós Linux. Em vez disso, o serviço do Lote habilita acesso do SSH em cada nó para a conexão remota.
 
-O trecho de código Python a seguir cria um usuário em cada nó em um pool, necessário para a conexão remota, em seguida, imprime as informações de conexão SSH para cada nó.
+O trecho de código Python a seguir cria um usuário em cada nó em um pool, requerido para conexão remota. Ele imprime as informações de conexão SSH (secure shell) para cada nó.
 
 ```python
 import getpass
@@ -267,7 +267,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-Aqui está a saída de exemplo para o código acima para um pool que contém quatro nós Linux:
+Aqui está a saída de exemplo de código anterior para um pool que contém quatro nós Linux:
 
 ```
 Password:
@@ -277,25 +277,25 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Observe que, em vez de uma senha, você pode especificar uma chave pública SSH ao criar um usuário em um nó. No SDK do Python, isso é feito usando o parâmetro **ssh\_public\_key** em [ComputeNodeUser][py_computenodeuser] e, no .NET, isso é feito com a propriedade [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key].
+Observe que, em vez de uma senha, você pode especificar uma chave pública SSH ao criar um usuário em um nó. No SDK do Python, isso é feito usando o parâmetro **ssh\_public\_key** do [ComputeNodeUser][py_computenodeuser]. No .NET, isso é feito usando a propriedade [SshPublicKey][net_ssh_key] do [ComputeNodeUser][net_computenodeuser].
 
 ## Preços
 
-O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquinas Virtuais do Azure. O serviço de Lote em si é oferecido sem custos, o que significa que você é cobrado apenas pelos recursos de computação consumidos pelas soluções do Lote. Ao escolher a **Configuração de Serviços de Nuvem**, você será cobrado com base na estrutura de [Preços dos Serviços de Nuvem][cloud_services_pricing]. Ao escolher a **Configuração da Máquina Virtual**, você será cobrado com base na estrutura de [Preços das Máquinas Virtuais][vm_pricing].
+O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquinas Virtuais do Azure. O serviço de Lote em si é oferecido sem custos, o que significa que você é cobrado apenas pelos recursos de computação que as soluções do Lote consomem. Ao escolher a **Configuração de Serviços de Nuvem**, você será cobrado com base na estrutura de [Preços dos Serviços de Nuvem][cloud_services_pricing]. Ao escolher a **Configuração da Máquina Virtual**, você será cobrado com base na estrutura de [Preços das Máquinas Virtuais][vm_pricing].
 
 ## Próximas etapas
 
 ### Tutorial do Python do Lote
 
-Para obter um tutorial mais detalhado sobre como trabalhar com o Lote usando o Python, confira [Get started with the Azure Batch Python client](batch-python-tutorial.md) (Introdução ao cliente Python do Lote do Azure). Seu [exemplo de código][github_samples_pyclient] complementar inclui uma função auxiliar, `get_vm_config_for_distro`, que mostra outra técnica para obter uma configuração de máquina virtual.
+Para obter um tutorial mais detalhado sobre como trabalhar com o Lote usando o Python, confira [Introdução ao cliente Python do Lote do Azure](batch-python-tutorial.md). Seu [exemplo de código][github_samples_pyclient] complementar inclui uma função auxiliar, `get_vm_config_for_distro`, que mostra outra técnica para obter uma configuração de máquina virtual.
 
 ### Exemplos de código do Python do Lote
 
-Confira outros [exemplos de código do Python][github_samples_py] no repositório [azure-batch-samples][github_samples] no GitHub para vários scripts que mostram como executar as operações comuns do Lote como criação de pool, trabalho e tarefa e muito mais. O [LEIAME][github_py_readme] que acompanha os exemplos do Python apresenta detalhes sobre como instalar os pacotes necessários.
+Confira outros [exemplos de código do Python][github_samples_py] no repositório [azure-batch-samples][github_samples] no GitHub para vários scripts que mostram como executar as operações comuns do Lote como criação de pool, trabalho e tarefa. O [LEIAME][github_py_readme] que acompanha os exemplos do Python apresenta detalhes sobre como instalar os pacotes necessários.
 
-### Fórum do Lote
+### Fórum do lote
 
-O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Vá diretamente ler as postagens “fixadas” úteis e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
+O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Leia publicações úteis “fixas” e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -327,4 +327,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nível de pacotes de aplicativos"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

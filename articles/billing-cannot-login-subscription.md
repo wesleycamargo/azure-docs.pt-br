@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Não consigo fazer logon para gerenciar minha assinatura do Azure | Microsoft Azure"
 	description="Descreve as informações de solução de problemas para alguns problemas comuns de logon de assinatura do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -54,4 +54,4 @@ Agora que é possível fazer logon no Azure com uma conta institucional, aqui es
 
 Tente excluir cache/cookies usando o modo de Navegação InPrivate do IE e também usando um navegador diferente.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral do X12 e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como usar contratos X12 para criar aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -177,7 +177,7 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 ### Validação
 |Propriedade|Descrição |
 |----|----|
-|Tipo de Mensagem|Essa opção habilita a validação no destinatário do intercâmbio. Essa validação realiza a validação de EDI em elementos de dados do conjunto de transação, validando tipos de dados, restrições de comprimento, elementos de dados vazios e separadores.|
+|Tipo de Mensagem|Essa opção habilita a validação no destinatário do intercâmbio. Essa validação realiza a validação de EDI em elementos de dados do conjunto de transação, validando tipos de dados, restrições de comprimento, elementos de dados vazios e separadores à direita.|
 |Validação de EDI||
 |Validação Estendida|Essa opção permite a validação estendida de intercâmbios recebidos do remetente de intercâmbio. Isso inclui validação de comprimento do campo, campos opcionais e contagem repetida, além da validação de tipo de dados XSD. Você pode habilitar a validação estendida sem habilitar a validação de EDI ou vice-versa.|
 |Permitir zeros à esquerda/direita|Essa opção especifica que um intercâmbio de EDI recebido não falhará na validação se um elemento de dados em um intercâmbio EDI não atender ao requisito de comprimento devido a espaços à direita, mas estiver de acordo com esse requisito quando os espaços são removidos.|
@@ -189,4 +189,4 @@ Depois de selecionar **OK** nas folhas abertas:
 ## Saiba mais
 - [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="n/a"
+	editor=""
 	tags="billing,top-support-issue"/>
 
 <tags
@@ -77,4 +77,4 @@ Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://acc
 
 Para obter outras alterações da oferta, [contate o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

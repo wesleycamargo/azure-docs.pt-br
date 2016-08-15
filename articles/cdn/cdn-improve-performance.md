@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - melhorar o desempenho ao compactar arquivos"
-	description="Você pode aumentar a velocidade de transferência de arquivos e melhorar o desempenho do carregamento de páginas ao compactar seus arquivos."
+	pageTitle="Melhorar o desempenho ao compactar arquivos na CDN do Azure | Microsoft Azure"
+	description="Saiba como melhorar a velocidade de transferência do arquivo e aumentar o desempenho de carregamento da página compactando os arquivos na CDN do Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Melhorar o desempenho ao compactar arquivos
@@ -126,4 +126,4 @@ Para pontos de extremidade de streaming habilitado para a CDN de Serviços de M�
 ## Consulte também
 - [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

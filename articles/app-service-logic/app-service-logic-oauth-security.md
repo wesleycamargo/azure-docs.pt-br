@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Segurança OAuth em conectores de SaaS e aplicativos de API| Azure"
 	description="Leia sobre a segurança OAuth nos conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços; saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -51,4 +51,4 @@ Agora, você pode usar o conector por meio de Aplicativos Lógicos. Ao usar o co
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

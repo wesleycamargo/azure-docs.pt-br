@@ -1,7 +1,7 @@
 <properties
    pageTitle="Saiba mais e crie um aplicativo de API de regras do BizTalk no seu aplicativo lógico | Microsoft Azure"
    description="Esse tópico aborda os recursos das Regras do BizTalk e fornece instruções sobre o seu uso"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -49,7 +49,7 @@ _IF_ _condição_ _THEN_ _ação_
 
 Considere o exemplo a seguir:
 
-*IF (Se) a quantidade for menor ou igual aos fundos disponíveis*  
+*IF (Se) a quantidade for menor ou igual aos fundos disponíveis*
 *THEN (Então) realize as transações e imprima o recibo*
 
 Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis.
@@ -96,7 +96,7 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 1. Fazer logon no Portal do Azure
 2. Selecione Novo -> Marketplace e procure por *Regras do BizTalk*
 3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
-4. Selecione o botão *Criar* 
+4. Selecione o botão *Criar*
 ![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
@@ -116,7 +116,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
    ![Alt text][4]
 
 2\. Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário 
-3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
+3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário. 
 Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
@@ -143,7 +143,7 @@ Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser e
 
 ### Adicionar em massa
 As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil. 
-Selecionar “Adicionar em Massa” o levará para uma nova folha. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Selecionar esta opção abrirá uma nova folha que permite ao usuário escolher em uma lista esquemas já carregados ou carregar um novo. Agora, a propriedade XPATHS é desbloqueada. Selecionar esta opção abrirá o Visualizador de Esquema, em que vários nós podem ser selecionados. 
+Selecionar “Adicionar em Massa” o levará para uma nova folha. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Selecionar esta opção abrirá uma nova folha que permite ao usuário escolher em uma lista esquemas já carregados ou carregar um novo. Agora, a propriedade XPATHS é desbloqueada. Selecionar esta opção abrirá o Visualizador de Esquema, em que vários nós podem ser selecionados.
 Os nomes de várias definições criadas assumirão como padrão o nome do nó selecionado. Eles podem ser modificados após a criação.
 
 ![Alt text][7]
@@ -255,4 +255,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

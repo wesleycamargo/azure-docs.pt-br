@@ -5,3 +5,7 @@ Número máximo de trabalhos simultâneos em execução na mesma instância de t
 Número máximo de módulos que podem ser importados por conta de automação a cada 30 segundos|5
 Tamanho máximo de um módulo|100 MB
 Tempo de execução do trabalho - camada gratuita|500 minutos por assinatura por mês
+Quantidade máxima de memória fornecida a um trabalho |400 MB
+Número máximo de soquetes de rede permitido por trabalho|1000
+
+<!---HONumber=AcomDC_0803_2016-->

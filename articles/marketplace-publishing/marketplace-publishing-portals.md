@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="07/27/2016"
    ms.author="hascipio" />
 
 
 # Portais que você precisará
 Antes de iniciar o processo de publicação de uma oferta, vamos apresentar os diversos portais que serão necessários. Abaixo está o resumo sobre os portais - Centro de Desenvolvedores, Portal de Publicação do Azure e Portal do Azure - na ordem em que você vai interagir com eles.
 ## Central de Desenvolvedores
-[http://dev.windows.com](http://dev.windows.com/registration?accountprogram=azure)
+[http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 ### Descrição
 Criar sua conta do Centro de Desenvolvedores da Microsoft é uma tarefa única. Certifique-se de que a empresa ainda não tem uma conta do Centro de Desenvolvedores antes de tentar criar uma. Durante o processo, nós coletamos informações de conta bancária, informações fiscais e informações de endereço da empresa.
 
-> [AZURE.NOTE]Se você estiver publicando apenas ofertas gratuitas (ou ofertas “traga sua própria licença”), nós não exigiremos informações de imposto e banco.
+> [AZURE.NOTE] Se você estiver publicando apenas ofertas gratuitas (ou ofertas “traga sua própria licença”), nós não exigiremos informações de imposto e banco.
 
 ### Identidade/conta usada
-Idealmente, isso é uma lista de distribuição ou um grupo de segurança (por exemplo, azurepublishing@*partnercompany*.com). A lista de distribuição ou um grupo de segurança **deve** ser registrado como uma conta da Microsoft.
+De maneira ideal, isso é uma lista de distribuição ou um grupo de segurança (por exemplo, azurepublishing@*partnercompany*.com). A lista de distribuição ou um grupo de segurança **deve** ser registrado como uma conta da Microsoft.
 
-> [AZURE.TIP]Nós recomendamos usar uma lista de distribuição ou um grupo de segurança, pois ele remove a dependência de qualquer pessoa, embora uma conta individual também possa ser usada.
+> [AZURE.TIP] Nós recomendamos usar uma lista de distribuição ou um grupo de segurança, pois ele remove a dependência de qualquer pessoa, embora uma conta individual também possa ser usada.
 
 ## Portal de publicação
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
@@ -50,4 +50,4 @@ Enquanto você estiver preparando uma oferta do portal de publicação, um ID de
 ## Consulte também
 - [Introdução: Como publicar uma oferta para o Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0803_2016-->

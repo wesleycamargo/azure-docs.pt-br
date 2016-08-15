@@ -37,6 +37,7 @@ As etapas de configuração e o código fornecidos neste passo a passo são refe
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] Para ver um tópico que mostra como usar o Scala, em vez do Python, para concluir as tarefas em um processo completo de ciência de dados, confira [Ciência de dados usando Scala com Spark no Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -103,18 +104,18 @@ Pegamos uma amostra de 0,1% desses arquivos e os unimos em um único conjunto de
 
 ## Executar código de um bloco de anotações Jupyter no cluster Spark 
 
-É possível iniciar o Notebook do Jupyter no portal do Azure. Encontre o cluster Spark no painel e clique nele para entrar na página de gerenciamento de seu cluster. Em seguida, clique nos **Painéis do Cluster** -> **Notebook do Jupyter** para abrir o notebook associado ao cluster Spark.
+É possível iniciar o Notebook do Jupyter no portal do Azure. Encontre o cluster Spark no painel e clique nele para entrar na página de gerenciamento de seu cluster. Em seguida, clique nos **Painéis do Cluster** -> **Notebook Jupyter** para abrir o notebook associado ao cluster Spark.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os Notebooks do Jupyter. Basta substituir a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
+Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os Notebooks Jupyter. Basta substituir a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Selecione PySpark para ver um diretório que contém alguns exemplos de notebooks predefinidos que usam a API do PySpark. Os notebooks que contêm os exemplos de código para esse conjunto de tópicos sobre o Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
+Selecione PySpark para ver um diretório que contém alguns exemplos de notebooks predefinidos que usam a API do PySpark. Os notebooks que contêm os exemplos de código para esse conjunto de tópicos do Spark estão disponíveis no [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
 
-Você pode carregar os blocos de anotações diretamente do Github para o servidor do bloco de anotações Jupyter no seu cluster Spark. Na home page do Jupyter, clique no botão **Carregar** na parte direita da tela. Um explorador de arquivos abrirá. Aqui você pode colar a URL do GitHub (conteúdo bruto) do Notebook e clicar em **Abrir**. Os notebooks do PySpark estão disponíveis nas seguintes URLs:
+Você pode carregar os blocos de anotações diretamente do Github para o servidor do bloco de anotações Jupyter no seu cluster Spark. Na home page do seu Jupyter, clique no botão **Carregar** na parte direita da tela. Um explorador de arquivos abrirá. Aqui, você pode colar a URL do Github (conteúdo bruto) do Notebook e clicar em **Abrir**. Os notebooks do PySpark estão disponíveis nas seguintes URLs:
 
 1.	[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
 2.	[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
@@ -122,16 +123,16 @@ Você pode carregar os blocos de anotações diretamente do Github para o servid
 
 Você verá o nome do arquivo em sua lista de arquivos do Jupyter, com um botão **Carregar** novamente. Clique nesse botão **Carregar**. Agora, você importou o bloco de anotações. Repita estas etapas para carregar os seguintes blocos de anotações deste passo a passo.
 
-> [AZURE.TIP] É possível clicar com o botão direito do mouse nos links abaixo em seu navegador e selecionar **Copiar Link** para obter a URL do conteúdo bruto do GitHub que pode ser colada na caixa de diálogo Upload do Jupyter do explorador de arquivos.
+> [AZURE.TIP] É possível clicar com o botão direito do mouse nos links abaixo em seu navegador e selecionar **Copiar Link** para obter a URL do conteúdo bruto do github que pode ser colada na caixa de diálogo Carregamento do Jupyter do explorador de arquivos.
 
 Agora você pode:
 
 - clicar no bloco de anotações e ver o código
-- Executar cada célula pressionando **SHIFT-ENTER**.
+- Executar cada célula pressionando **SHIFT-ENTER**
 - Executar o notebook inteiro clicando em **Célula** -> **Executar**
 - Usar a visualização automática de consultas
 
-> [AZURE.TIP] O kernel PySpark visualiza automaticamente a saída das consultas SQL (HiveQL). Você terá a opção de selecionar entre vários tipos diferentes de visualizações (Tabela, Pizza, Linha, Área ou Barra) usando os botões de menu **Tipo** no notebook:
+> [AZURE.TIP] O kernel PySpark visualiza automaticamente a saída das consultas SQL (HiveQL). Você terá a opção de selecionar entre vários tipos diferentes de visualização (Tabela, Pizza, Linha, Área ou Barra) usando os botões de menu **Tipo** no notebook:
 
 ![Curva ROC de regressão logística de abordagem genérica](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
@@ -139,10 +140,10 @@ Agora você pode:
 
 Agora que configurou um cluster HDInsight Spark e carregou os notebooks do Jupyter, você está pronto para usar os tópicos que correspondem a esses três notebooks do PySpark, que mostram como explorar seus dados, criar e consumir modelos. O bloco de anotações de exploração e modelagem de dados avançadas se aprofunda na inclusão da validação cruzada, limpeza de hiperparâmetro e avaliação de modelo.
 
-**Exploração de Dados e modelagem com o Spark:** explore o conjunto de dados, crie os modelos de aprendizado de máquina a serem pontuados e avaliados aqui usando o tópico [Criar modelos de regressão e classificação binária para dados com o kit de ferramentas MLlib do Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
+**Exploração de Dados e modelagem com o Spark:** explore o conjunto de dados, crie os modelos de aprendizado de máquina a serem pontuados e avaliados aqui usando o tópico [Create binary classification and regression models for data with the Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) (Criar modelos de regressão e classificação binária para dados com o kit de ferramentas MLlib do Spark).
 
-**Consumo de modelo:** para saber como pontuar os modelos de classificação e regressão criados neste tópico, confira [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) (Pontuar e avaliar modelos de aprendizado de máquina criados com o Spark).
+**Consumo de modelo:** para saber como pontuar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md).
 
-**Validação cruzada e limpeza de hiperparâmetro**: veja [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) (Modelagem e exploração de dados avançadas com o Spark) sobre como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
+**Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

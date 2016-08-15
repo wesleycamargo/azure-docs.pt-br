@@ -60,7 +60,7 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
 
 6. Digite **Y** quando solicitado a confirmar a instalação do hotfix.
 
-> [AZURE.IMPORTANT] Se estiver instalando a Atualização 2.2, instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente MDS e Cis precedido por all-cismdsagentupdatebundle. Se você não fizer isso, receberá um erro.
+	> [AZURE.IMPORTANT] Se estiver instalando a Atualização 2.2, instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente MDS e Cis precedido por all-cismdsagentupdatebundle. Se você não fizer isso, receberá um erro.
 
 7. Monitore a atualização usando o cmdlet `Get-HcsUpdateStatus`. Primeiro, a atualização será concluída no controlador passivo. Depois que o controlador passivo for atualizado, haverá um failover e a atualização será, então, aplicada no outro controlador. A atualização é concluída quando ambos os controladores são atualizados.
 
@@ -102,13 +102,13 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     - `MdsAgentVersion: 30.0.4698.16`
 
 	Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter mais ajuda.
+	
+	> [AZURE.IMPORTANT] Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes.
 
 9. Repita as etapas de 3 a 5 para instalar os hotfixes restantes do modo normal.
 
-	> [AZURE.IMPORTANT] Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes.
-	
-	
 	- A atualização do iSCSI KB3146621
+	
 	- A atualização da WMI KB3103616
 	
 
@@ -241,4 +241,4 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
 
 1. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

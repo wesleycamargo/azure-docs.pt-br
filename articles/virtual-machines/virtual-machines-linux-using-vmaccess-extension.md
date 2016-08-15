@@ -97,7 +97,7 @@ Para verificar e então reparar o disco, use este script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -120,7 +120,7 @@ Para redefinir a senha raiz, use este script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -139,7 +139,7 @@ Para redefinir a chave SSH de um usuário não raiz, use este script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -163,7 +163,7 @@ Para criar um novo usuário, use este script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -181,7 +181,7 @@ Para criar um novo usuário, use este script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -203,9 +203,9 @@ Para redefinir a configuração do SSHD use esse script VMAccess:
 Execute o script VMAccess com:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

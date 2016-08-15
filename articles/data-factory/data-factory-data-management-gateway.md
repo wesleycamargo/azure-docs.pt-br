@@ -196,7 +196,7 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 | Nomes de domínio | Portas | Descrição |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço por meio de TCP (requer 443 para aquisição de token de Controle de Acesso) | 
-| *.servicebus.windows.net | 9350-9354 | Retransmissão do barramento de serviço opcional sobre TCP | 
+| *.servicebus.windows.net | 9350-9354, 5671 | Retransmissão do barramento de serviço opcional sobre TCP | 
 | *.core.windows.net | 443 | HTTPS | 
 | *.clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |
@@ -426,4 +426,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureRmDataFactoryGateway
 ## Próximas etapas
 - Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter informações detalhadas sobre o gateway.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

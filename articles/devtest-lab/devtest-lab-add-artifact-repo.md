@@ -117,4 +117,8 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
     4. Selecione **Salvar**.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Postagens de blogs relacionadas
+- [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+<!---HONumber=AcomDC_0803_2016-->

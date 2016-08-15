@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="08/01/2016"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -28,14 +28,18 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
 
   > [AZURE.IMPORTANT] Todos os campos devem ter entradas, incluindo as imagens, a fim de poder mover para o preparo.
 
-### Detalhes
-1. Insira o título da oferta (máximo de 50 caracteres), resumo da oferta (máximo de 100 caracteres), resumo longo da oferta (máximo de 256 caracteres), descrição da oferta (máximo de 1300 caracteres) e logotipos na guia **Detalhes**
-2. Insira o título da SKU (máximo de 50 caracteres), resumo da SKU (máximo de 100 caracteres) e descrição da SKU (máximo de 2000 caracteres) na guia **Planos**
-3. Não insira texto duplicado nas descrições da oferta e da SKU.
-4. Não insira texto duplicado no título da SKU e resumo longo da oferta.
-5. Não insira texto duplicado no título da SKU e resumo da oferta.
-6. Carregue imagens com as especificações necessárias (mencionadas no Portal de Publicação) no formato PNG e uma para cada tamanho.
-7. Verifique se os logotipos seguem as diretrizes de logotipo do Azure Marketplace mencionadas a seguir.
+### Detalhes e planos
+1.	Insira o título da oferta (máximo de 50 caracteres), resumo da oferta (máximo de 100 caracteres), resumo longo da oferta (máximo de 256 caracteres), descrição da oferta (máximo de 1300 caracteres) e logotipos na guia **Detalhes**
+2.	Insira o título do plano (máximo de 50 caracteres), resumo do plano (máximo de 100 caracteres) e descrição do plano (máximo de 2000 caracteres) na guia **Planos**.
+
+    >[AZURE.NOTE] Você pode usar as seguintes marcas HTML para formatar o resumo, o resumo longo e a descrição da oferta e dos planos. As marcas HTML permitidas são h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i.
+
+3.	Não insira texto duplicado nas descrições da oferta e do plano.
+4.	Não insira texto duplicado no título do plano e no resumo longo da oferta.
+5.	Não insira texto duplicado no título do plano e no resumo da oferta.
+6.  Não insira títulos de planos idênticos em uma oferta com vários planos.
+7.	Carregue imagens com as especificações necessárias (mencionadas no Portal de Publicação) no formato PNG e uma para cada tamanho.
+8.	Verifique se os logotipos seguem as diretrizes de logotipo do Azure Marketplace mencionadas a seguir.
 
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
@@ -43,11 +47,10 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
 
 Todos os logotipos carregados no Portal de Publicação devem seguir as diretrizes abaixo:
 
-- O design do Azure tem uma paleta de cores simples. Mantenha um baixo número de cores principais e secundárias em logotipos.
-- Logotipos não devem ser colocados em uma tela de fundo branca. Recomendamos usar cores primárias simples ou planos de fundo transparentes.
+- O design do Azure tem uma paleta de cores simples. Mantenha um baixo número de cores primárias e secundárias no seu logotipo.
+- As cores do tema do portal do Azure são branco e preto. Portanto, evite usar essas cores como a cor de fundo dos seus logotipos. Use uma cor que destaque seus logotipos no portal do Azure. É recomendável usar cores primárias simples. **Se estiver usando um plano de fundo transparente, certifique-se de que os logotipos/o texto não sejam preto ou branco.**
 - Não use uma tela de fundo gradiente no logotipo.
-- Evite colocar texto, até mesmo o nome ou marca da sua empresa, no logotipo.
-- A aparência do seu logotipo deve ser “simples” e deve evitar usar gradientes.
+- Evite colocar texto, até mesmo o nome ou marca da sua empresa, no logotipo. A aparência do seu logotipo deve ser “simples” e deve evitar usar gradientes.
 - O logotipo não deve ser estendido.
 - O logotipo pequeno deve ter o tamanho de 40 X 40 px
 - O logotipo médio deve ter o tamanho de 90 X 90 px
@@ -55,14 +58,15 @@ Todos os logotipos carregados no Portal de Publicação devem seguir as diretriz
 - O logotipo largo deve ter o tamanho de 255 X 115 px
 - O logotipo Hero deve ter o tamanho de 815 X 290 px
 
+>[AZURE.NOTE] O logotipo Hero é opcional. O editor pode optar por não carregar um logotipo Hero. No entanto, uma vez carregado, o ícone Hero não pode ser excluído do portal de Publicação. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones Hero.
+
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
-**Diretrizes adicionais para a faixa de logotipo Hero:**
+**Diretrizes adicionais para o ícone do logotipo Hero (opcional)**
 
-- O logotipo Hero é opcional. Você pode optar por não carregar um logotipo Hero.
-- O nome de exibição do editor, título da SKU, resumo longo da oferta e o botão de criação são inseridos automaticamente no logotipo Hero depois que a oferta fica ativa. Por isso não é necessário inseri-los ao desenhar o logotipo Hero.
-- Como o Nome de Exibição do Editor, título da SKU e o resumo longo da oferta são exibidos na cor branca, você deve evitar manter a tela de fundo do ícone Hero em branco ou qualquer cor clara.
-- Você deve deixar espaço para o texto acima na parte superior do ícone Hero. O espaço para o texto é 415 x 100 e ele é desviado em 370 px da esquerda.
+- O logotipo Hero é opcional. O editor pode optar por não carregar um logotipo Hero. **No entanto, uma vez carregado, o ícone Hero não pode ser excluído do portal de Publicação. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones Hero. Caso contrário, a oferta não será aprovada para produção.**
+- O nome de exibição do editor, o título do plano e o resumo longo da oferta são exibidas em uma fonte branca. Portanto, você deve evitar cores claras no plano de fundo do ícone Hero. Planos de fundo pretos, brancos e transparentes não são permitidos para ícones Hero.
+- O nome de exibição do editor, o título do plano, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Deixe um espaço vazio à direita porque o texto (ou seja, o nome de exibição do editor, o título do plano e o resumo longo da oferta) será incluído programaticamente por nós nessa área. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
 
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -72,7 +76,7 @@ Na guia de **Links** à esquerda da barra, insira quaisquer links com informaç�
 ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Imagens de exemplo (opcionais)
-> [AZURE.NOTE] Incluir uma imagem de exemplo é uma etapa opcional. É possível preencher o conteúdo de marketing para atender aos requisitos de envio por push para o preparo.
+> [AZURE.NOTE] Incluir uma imagem de exemplo é uma etapa opcional. Mesmo que seja possível carregar várias imagens de exemplo no portal de Publicação, somente uma imagem (selecionada aleatoriamente pelo sistema) é exibida no portal do Azure. Por esse motivo, recomendamos que você carregue apenas uma imagem de exemplo.
 
 Na guia **Imagens de Exemplo** no menu à esquerda, carregue uma nova imagem clicando em **Carregar uma nova imagem**. Se você tiver uma imagem existente e deseja substituí-la, clique em **Substituir imagem**.
 
@@ -83,7 +87,23 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 
 ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-> [AZURE.NOTE] Para máquinas virtuais, não é possível alterar o seguinte após um SKU ser preparado ou ficar ativo: **Identificador da oferta**, **Identificador de editor** e **Identificador de SKU**.
+**Observação:** para ofertas de Máquina Virtual, depois que uma oferta/SKU é preparada no Portal do Azure, você não poderá alterar os campos apresentados abaixo:
+
+- **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> sua Oferta -> guia Imagens de VM -> Identificador da Oferta]
+- **Identificador da SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar uma SKU]
+- **Namespace do Editor:** [portal de Publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (encontrado em "Etapa 2 Registrar sua Empresa") -> Namespace do Editor -> Namespace]
+
+Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure Marketplace, você não poderá alterar os campos apresentados abaixo:
+
+- **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> selecione sua Oferta -> Imagens de VM -> Identificador da Oferta]
+- **Identificador da SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar uma SKU]
+- **Namespace do Editor:** [portal de Publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (encontrado em "Etapa 2 Registrar") -> Namespace do Editor -> Namespace]
+- **Portas:** [portal de Publicação -> Máquinas Virtuais -> sua Oferta -> guia Imagens de VM -> Abrir Portas]
+- **Alteração de preços de SKUs listados**
+- **Modelos de cobrança de SKUs listados**
+- **Remoção de regiões de cobrança de SKUs listados**
+- **Alteração da contagem de discos de dados dos SKUs listados**
+
 
 ## Etapa 2: Definir seus preços
 ### Modelos de preços
@@ -106,19 +126,85 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 | Serviço de dados | Sim | Não | Não |
 
 ### 2\.1. Definir seus preços da VM
-> [AZURE.NOTE] Traga sua própria licença (BYOL) só tem suporte para máquinas virtuais.
+No momento, para máquinas virtuais, temos **estes 3 tipos de modelos de cobrança:**
 
-1.	Na guia **Preços**, você verá todos os mercados com suporte. Escolha o mais adequado para abrir os campos de preços.
-2.	O link fornecido no portal de publicação mostrará informações sobre preços para ajudá-lo na determinação dos preços de suas SKUs.
-3.	Se a SKU é BYOL, marque a caixa de seleção para a disponibilidade SKU licenciada externamente (BYOL).
-4.	Se a SKU for por hora, insira o preço do seu software. As SKUs sem preços não estarão disponíveis para compra ou uso.
+- **Por hora:** os clientes são cobrados por hora com base nas taxas de definidas pelos editores para os tamanhos de VM. No caso do modelo de **cobrança por hora** dos SKUs, o preço total será a soma do custo do software cobrado pelo editor com o custo de infraestrutura cobrado pela Microsoft. Esse custo total será exibido para o cliente como um preço por hora e mensal quando ele estiver considerando a compra (consulte a captura de tela abaixo). **O editor recebe 80% do custo de software cobrado.** Portanto, faça o cálculo adequadamente antes de definir preços para seus SKUs.
 
-  > [AZURE.NOTE] Se você tiver BYOL e SKUs por hora, então certifique-se de que os seguintes requisitos sejam atendidos: caixa de seleção marcada como BYOL e valores de preços selecionados como por hora.
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
-5.	Será aberto um assistente de preço. Continue para preencher os preços, incluindo preços de outros países, se você optar por permitir compras de fora do seu mercado específico.
-6.	Alguns países são países de remessa de ISV. Para vender em um país de remessa de ISV, você deve ser capaz de cobrar e recolher imposto sobre suas SKUs, e calcular e pagar imposto ao governo do país. A Microsoft não está em posição de prestar orientação jurídica ou fiscal. Consulte a seção "Países de destino de venda da oferta" na introdução deste documento para obter mais informações sobre os países de destino de venda.
+- **Avaliação gratuita:** esse é outro tipo de modelo de cobrança por hora. Nesse modelo, o cliente não é cobrado o custo do software pelos primeiros 30 dias (gratuitamente) após implantar a VM. Após os 30 dias, o cliente será cobrado por hora com base nas taxas de definidas pelos editores no modelo por hora.
+- **Traga sua própria licença (BYOL):** os editores gerenciam o licenciamento do software executado na VM.
 
-  > [AZURE.NOTE] Para as máquinas virtuais, não é possível alterar o seguinte após um SKU ficar ativo, pois isso afeta a cobrança de clientes existentes: **Mudança de preço**, **Mudança no modelo de cobrança** e **Remoção de regiões de cobrança**.
+**Importante:** depois que uma oferta/SKU for listada no Azure Marketplace, você não poderá alterar os campos apresentados abaixo.
+
+- **Alteração de preços de SKUs listados**
+- **Modelos de cobrança de SKUs listados**
+- **Remoção de regiões de cobrança de SKUs listados**
+- **Alteração da contagem de discos de dados dos SKUs listados**
+- **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> selecione sua Oferta -> Imagens de VM -> Identificador da Oferta]
+- **Identificador da SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar uma SKU]
+- **Namespace do Editor:** [portal de Publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (encontrado em "Etapa 2 Registrar") -> Namespace do Editor -> Namespace]
+- **Portas:** [portal de Publicação -> Máquinas Virtuais -> sua Oferta -> guia Imagens de VM -> Abrir Portas]
+
+### Países de venda da SKU
+Você precisa considerar com atenção onde você pretende disponibilizar suas SKUs. Alguns países são classificados como "Remessa da Microsoft" e outros são classificados como "Remessa do ISV".
+
+- Em países de "Remessa da Microsoft", a Microsoft coleta os impostos dos clientes e os paga (por remessa) ao governo.
+- Em países de "Remessa do ISV", os parceiros são responsáveis por coletar os impostos dos clientes e pagá-los ao governo. Se optar por vender em países de "Remessa do ISV", você deve poder calcular e pagar impostos nos países selecionados.
+
+>[AZURE.NOTE] O SKU não será disponibilizado nos países a menos que você defina seus preços no [portal de Publicação](https://publish.windowsazure.com). Abaixo são fornecidas orientações para definir os preços por hora e de BYOL dos SKUs.
+
+### 2\.1.1 Como configurar o modelo de preços por hora para uma SKU
+Siga as etapas abaixo para configurar o modelo de preços por hora para uma SKU:
+
+1.	Faça logon no [portal de Publicação](https://publish.windowsazure.com).
+2.	Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
+3.	No menu do lado esquerdo, clique na guia **SKUs**.
+4.	Certifique-se de que a SKU esteja marcada como "Modelo de Cobrança por Hora". Se não estiver, clique no botão **EDITAR** para reverter o modelo de cobrança. Uma janela será aberta. Desmarque a caixa de seleção "A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)" e salve as alterações.
+5.	Se quiser habilitar a avaliação gratuita pelos primeiros 30 dias da implantação da SKU, selecione a opção "Um Mês" para a pergunta "Há uma avaliação gratuita disponível?" Caso contrário, selecione a opção "Sem Avaliação". Agora, siga as etapas abaixo.
+6.	No menu do lado esquerdo, clique na guia **PREÇOS**.
+7.	Selecione sua região de base.
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
+
+8. Defina os preços de todos os núcleos. **Você deve fornecer o preço para todos os núcleos de uma SKU mesmo que a SKU não ofereça suporte a ele.**
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
+
+9.	Defina os preços para as outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para definir os preços de outras regiões de acordo com a região de base. Para usar esse assistente, clique no botão **DEFINIR PREÇOS PARA OUTROS MERCADOS AUTOMATICAMENTE COM BASE NOS PREÇOS DOS ESTADOS UNIDOS.** **Observação:** o rótulo do botão pode ser diferente dependendo da região selecionada. Como nós selecionamos Estados Unidos durante a criação desse documento, o botão está rotulado como "Definir preços para outros mercados automaticamente com base nos preços dos Estados Unidos" na captura de tela abaixo.
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
+
+10.	O assistente de definição automática de preços será aberto. A primeira página exibe a seleção do mercado base. Faça sua seleção e passe para a próxima página clicando no botão "->".
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
+
+11.	A opção para selecionar os núcleos e planos será exibida na página 2. Selecione os planos desejados e clique no botão "->". Clique no botão **Ativar/Desativar Tudo** para selecionar todos os **Planos de serviço** e **Medidores** ou marcar manualmente as caixas de seleção. **Você deve fornecer o preço para todos os núcleos de uma SKU mesmo que a SKU não ofereça suporte a ele.** Portanto, certifique-se de que todos os tamanhos de núcleo estejam selecionados.
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
+
+12.	A página 3 exibe os mercados/as regiões. Clique no botão **Ativar/Desativar Tudo** para selecionar todas as regiões ou marque as caixas das regiões manualmente. Clique no botão "->" para passar para a próxima página. **Observação:** os países de remessa de impostos da Microsoft são indicados por um símbolo semelhante a uma casa. Para obter mais detalhes, consulte a seção de países de venda da SKU nesta página.
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
+
+13.	A página 4 exibe as taxas de câmbio. Clique no botão Concluir para concluir as etapas.
+
+### 2\.1.2 Como configurar o modelo de preços BYOL para uma SKU
+Siga as etapas abaixo para configurar o modelo de preços BYOL para uma SKU:
+
+1.	Faça logon no [portal de Publicação](https://publish.windowsazure.com).
+2.	Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
+3.	No menu do lado esquerdo, clique na guia **SKUs**.
+4.	Certifique-se de que a SKU esteja marcada como "SKU Traga sua própria licença". Se não estiver, clique no botão EDITAR para reverter o modelo de cobrança. Uma janela será aberta. Marque a caixa de seleção "A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)" e salve as alterações.
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
+
+5.	No menu do lado esquerdo, clique na guia **PREÇOS**.
+6.	Selecione sua região de base e disponibilize a SKU na região marcando a caixa de seleção para a SKU em questão na seção DISPONIBILIDADE DA SKU COM LICENÇA EXTERNA (BYOL) (consulte a captura de tela abaixo).
+
+    ![desenho](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
+
+7.	Disponibilize a SKU nas outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para essa finalidade. Consulte os tópicos 9 a 13 (que explica o uso do assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS) na seção **"2.1.1 Como configurar o modelo de preços por hora para uma SKU"** nesta página.
 
 ### 2\.2. Definir seus Preços de serviço do desenvolvedor
 Os planos podem ser qualquer combinação de base + consumo, em que a base é o preço mensal e o excedente é o preço de pagamento por uso. (Consulte a seguir para obter mais detalhes.)
@@ -147,7 +233,7 @@ Os detalhes de contato são usados apenas para comunicações internas entre o p
 A guia **Categorias** fornece uma matriz de seleções. Sua oferta pode estar entre elas e você pode selecionar até cinco categorias.
 
 ## Como seu marketing aparecerá
-Abaixo está uma exibição detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [Portal do Azure](https://portal.azure.com).
+Veja abaixo uma exibição detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [Portal do Azure](https://portal.azure.com).
 
 ### Site do Azure Marketplace
 ![desenho](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -175,10 +261,12 @@ Abaixo está uma exibição detalhada de como a oferta de informações de marke
 
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
+
 - [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md)
 - [Testar a oferta de modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## Consulte também
+
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]: media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
@@ -190,4 +278,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Entenda os encargos do Azure Marketplace | Microsoft Azure"
 	description="Descreve como entender os encargos relacionados a seus pedidos no Marketplace."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -98,4 +98,4 @@ Para exibir os encargos reais, siga estas etapas:
 
     ![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

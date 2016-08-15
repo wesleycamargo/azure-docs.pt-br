@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Usar os recursos do Enterprise Integration Pack para habilitar cenários de integração e o processo de negócios usando o Serviço de Aplicativo do Microsoft Azure" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ Agora você pode testar a ação de transformação fazendo uma solicitação ao
 - [Saiba mais sobre mapas](./app-service-logic-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

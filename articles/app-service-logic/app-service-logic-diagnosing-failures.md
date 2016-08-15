@@ -1,7 +1,7 @@
 <properties
    pageTitle="Diagnosticando falhas dos aplicativos lógicos | Microsoft Azure"
    description="Abordagens comuns para compreender onde os aplicativos lógicos estão falhando"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -84,4 +84,4 @@ Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser �
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

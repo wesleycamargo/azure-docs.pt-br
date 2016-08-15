@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Integrando o Repositório Data Lake com outros Serviços do Azure
@@ -82,6 +82,6 @@ Você pode registrar dados do Repositório Data Lake no Catálogo de Dados do Az
 
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 - [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
-- [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)  
+- [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

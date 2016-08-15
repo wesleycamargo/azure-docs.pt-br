@@ -56,7 +56,7 @@ Para configurar a integração do Degreed ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Degreed da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 	![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    a. Na caixa de texto da URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Degreed usando o seguinte padrão: **“https://<nome da empresa>.degreed.com”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo do Showpad usando o seguinte padrão: `https://degreed.com/?orgsso=<company code>`
 
     b. Clique em **Próximo**.
 
@@ -271,4 +271,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

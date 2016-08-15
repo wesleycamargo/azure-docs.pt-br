@@ -3,8 +3,8 @@
 	description="Este artigo fornece uma visão geral da proteção do servidor do DPM/Backup do Azure de um farm do SharePoint no Azure"
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/04/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 
 # Fazer backup do farm do SharePoint para o Azure
@@ -233,4 +233,4 @@ P: Posso recuperar um banco de dados do SharePoint no local original se o ShareP
 - Examine as [Notas de versão do System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Examine as [Notas de versão do Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight
@@ -115,7 +115,7 @@ O armazenamento de Tabela será usado para armazenar valores lidos de Hubs de Ev
 
     ![Gerenciador de nuvem](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
 
-5. Clique com o botão direito do mouse em __Tabelas__ para sua conta de armazenamento e, em seguida, selecione __Criar Tabela__. Quando solicitado, digite **eventos** como o nome da sua tabela. Salve o nome, pois você precisará dele em etapas posteriores.
+5. Clique com o botão direito do mouse em __Tabelas__ para sua conta de armazenamento e, em seguida, selecione __Criar Tabela__. Quando solicitado, insira **eventos** como o nome da sua tabela. Salve o nome, pois você precisará dele em etapas posteriores.
 
 ## Criar EventHubWriter
 
@@ -572,4 +572,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -537,7 +537,7 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - Executar esse exemplo de um computador diferente. Ele não terá acesso às chaves de criptografia e, portanto, não terá acesso aos dados de texto sem formatação e não será executado com êxito.
 - [Girar e limpar suas chaves](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrar dados que já foram criptografados com o Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
-- Implantar certificados do Always Encrypted em outros computadores clientes.
+- [Implantar certificados do Always Encrypted em outros computadores cliente](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (consulte a seção intitulada *Tornando certificados disponíveis para aplicativos e usuários*).
 
 
 ## Informações relacionadas
@@ -548,4 +548,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

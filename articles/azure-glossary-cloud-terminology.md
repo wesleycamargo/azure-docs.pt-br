@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/04/2016"
+    ms.date="08/03/2016"
     ms.author="monicar"/>
 
 
@@ -146,8 +146,8 @@ Uma rede que fornece conectividade entre seus recursos do Azure que estão isola
 
 ###**Consulte também**  
 - [Introdução ao Azure](https://azure.microsoft.com/get-started/)
-- [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  
+- [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)
 - [Azure para seus aplicativos de negócios](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [Azure em seu datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/) 
+- [Azure em seu datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->
