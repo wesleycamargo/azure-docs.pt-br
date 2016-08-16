@@ -3,8 +3,8 @@
 	description="Com o Backup e os Serviços de Recuperação do Azure, você pode fazer backup e restaurar dados e aplicativos de Windows Servers, máquinas de cliente Windows, servidores com System Center DPM e máquinas virtuais do Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"
 	keywords="backup e restauração; serviços de recuperação; soluções de backup"/>
 
@@ -69,7 +69,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
-| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | 
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Suporte para ARM e para Linux
@@ -228,4 +228,4 @@ Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o c
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Saiba mais sobre as redes virtuais (VNets) no Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Visão geral da Rede Virtual
 
@@ -95,4 +95,4 @@ Não há custo adicional para usar Redes Virtuais no Azure. Serão cobradas taxa
 - Saiba mais sobre [NSGs](virtual-networks-nsg.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

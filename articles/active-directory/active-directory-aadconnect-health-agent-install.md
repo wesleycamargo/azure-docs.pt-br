@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="08/05/2016"
 	ms.author="vakarand"/>
 
 
@@ -168,12 +168,11 @@ Isso iniciará um prompt de comando, seguido pelo PowerShell que executará Regi
 
 ![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-
 Depois de entrar, o PowerShell continuará. Depois de concluir feche o PowerShell e a configuração está concluída.
 
 Nesse ponto, os serviços devem ser iniciados automaticamente e o agente estará agora monitorando e coletando dados. A captura de tela abaixo é um exemplo da saída. Lembre-se de que você verá avisos na janela do PowerShell caso não atenda a todos os pré-requisitos descritos nas seções anteriores. Não se esqueça de concluir os requisitos [aqui](active-directory-aadconnect-health-agent-install.md#requirements) antes de instalar o agente.
 
-![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+![Verificar o Azure AD Connect Health para AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
 Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte:
 
@@ -183,6 +182,11 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
 Esses dois serviços não serão iniciados até que a configuração seja concluída.
 
 ![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Instalar o Agente do Azure AD Connect Health Agent para o AD DS no Server Core. 
+Depois de instalar o arquivo .exe, você pode concluir o processo de registro usando o seguinte comando do PowerShell:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Configurar agentes do Azure AD Connect Health para usar HTTP Proxy
 Você pode configurar agentes do Azure AD Connect Health para trabalhar com um HTTP Proxy.
@@ -262,4 +266,4 @@ Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhado
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,26 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/10/2016"
    ms.author="cherylmc" />
 
 # Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site
 
-Um dispositivo VPN é necessário para configurar uma conexão VPN S2S (site a site). Conexões Site a Site podem ser usadas para criar uma solução híbrida ou sempre que desejar uma conexão segura entre sua rede local e sua rede virtual. Este artigo aborda os dispositivos VPN compatíveis e parâmetros de configuração. Observe que, ao configurar uma conexão Site a Site, um endereço IP IPv4 público é necessário para seu dispositivo VPN.
+Um dispositivo VPN é necessário para configurar uma conexão VPN S2S (Site a Site). Conexões Site a Site podem ser usadas para criar uma solução híbrida ou sempre que desejar uma conexão segura entre sua rede local e sua rede virtual. Este artigo aborda os dispositivos VPN compatíveis e parâmetros de configuração. Observe que, ao configurar uma conexão Site a Site, um endereço IP IPv4 público é necessário para seu dispositivo VPN.
 
-Se o dispositivo não aparecer na tabela de dispositivos VPN validados, confira a seção de dispositivos VPN não validados deste artigo. É possível que seu dispositivo ainda possa funcionar com o Azure. Para suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
+Se o dispositivo não aparecer na tabela [Dispositivos VPN validados](#devicetable), consulte a seção [Dispositivos VPN não validados](#additionaldevices) deste artigo. É possível que seu dispositivo ainda possa funcionar com o Azure. Para suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
 
 **Itens a ser observados ao exibir as tabelas:**
 
 - Houve uma mudança de terminologia do roteamento estático e dinâmico. Provavelmente, você executará em ambos os termos. Não há alterações de funcionalidade, somente os nomes estão sendo alterados.
 	- Roteamento estático = baseado em política
 	- Roteamento dinâmico = baseado em rota
-- As especificações de gateway de VPN de Alto Desempenho e de gateway de VPN baseado em rota são as mesmas, salvo indicação em contrário. Por exemplo, os dispositivos VPN validados que são compatíveis com os gateways de VPN baseado em roteamento também serão compatíveis com o novo gateway de VPN de Alto Desempenho do Azure.
+- As especificações de gateway de VPN de Alto Desempenho e de gateway de VPN baseado em rota são as mesmas, salvo indicação em contrário. Por exemplo, os dispositivos VPN validados compatíveis com os gateways de VPN baseado em rota também são compatíveis com o gateway de VPN de Alto Desempenho do Azure.
 
 
-## Dispositivos VPN validados 
+## <a name="devicetable"></a>Dispositivos de VPN validados 
 
-Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos das famílias de dispositivo contidos na lista abaixo devem funcionar com gateways de VPN do Azure. Confira o artigo [gateways de VPN](vpn-gateway-about-vpngateways.md) para verificar o tipo de gateway que você precisará criar para a solução que deseja configurar.
+Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos nas famílias de dispositivos contidos na lista abaixo devem funcionar com os gateways de VPN do Azure. Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) para verificar o tipo de gateway que você precisa criar para a solução que deseja configurar.
 
 Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à família de dispositivos apropriada.
 
@@ -48,7 +48,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | Cisco | ASA | 8\.3 | [Exemplos da Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Não compatível |
 | Cisco | ASR | IOS 15.1 (baseado em política), IOS 15.2 (baseado em rota) | [Exemplos da Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Exemplos da Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco | ISR | IOS 15.0 (baseado em política), IOS 15.1 (baseado em rota*) | [Exemplos da Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Exemplos da Cisco*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix | Dispositivo CloudBridge MPX ou VPX virtual | N/D | [Instruções de integração](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Não compatível |
+| Citrix | NetScaler MPX, SDX, VPX |10\.1 e acima | [Instruções de integração](https://docs.citrix.com/pt-BR/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) | Não compatível |
 | Dell SonicWALL | Séries TZ, NSA, SuperMassive e NSA classe E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instruções - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instruções - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instruções - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instruções - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Série BIG-IP | N/D | [Instruções de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Não compatível |
 | Fortinet | FortiGate | FortiOS 5.2.7 | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Instruções de configuração](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
@@ -65,7 +65,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 
 (*) Os roteadores da Série ISR 7200 só oferecem suporte a VPNs baseadas em política.
 
-## Dispositivos VPN não validados
+## <a name="additionaldevices"></a>Dispositivos VPN não validados
 
 Se você não vir seu dispositivo listado na tabela de dispositivos VPN Validados (acima), ele ainda pode funcionar com uma conexão Site a Site. Verifique se seu dispositivo VPN atende aos requisitos mínimos descritos na seção Requisitos do Gateway do artigo [Sobre Gateways de VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
 
@@ -97,7 +97,7 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 
 ## Parâmetros IPsec
 
->[AZURE.NOTE] Embora os valores listados abaixo tenham suporte do Gateway de VPN do Azure, não há uma forma de especificar ou selecionar uma combinação específica do Gateway de VPN do Azure. Você deve especificar quaisquer restrições no dispositivo VPN local. Além disso, você deve fixar MSS em 1350.
+>[AZURE.NOTE] Embora os valores listados na tabela a seguir sejam suportados pelo Gateway de VPN do Azure, atualmente, não é possível especificar nem selecionar uma combinação específica no Gateway de VPN do Azure. Você deve especificar quaisquer restrições no dispositivo VPN local. Além disso, você deve fixar MSS em 1350.
 
 ### Fase 1 da configuração IKE
 
@@ -118,14 +118,13 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Versão IKE | IKEv1 | IKEv2 |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
-| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | 
-| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) | 
-| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) | 
-| Detecção de Par Inativo | Sem suporte | Com suporte |
+| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
+| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Consulte *Ofertas de SA (Associação de Segurança) de IPsec do Gateway baseado em Rota* (abaixo) |
+| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group 1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
-A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Ofertas estão listadas na ordem de preferência que a oferta é apresentada ou aceita.
+A tabela a seguir lista as Ofertas de Criptografia e Autenticação IPsec SA. Ofertas estão listadas na ordem de preferência que a oferta é apresentada ou aceita.
 
 | **Ofertas de criptografia e autenticação IPsec SA** | **Gateway do Azure como iniciador** | **Gateway do Azure como respondente** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
@@ -145,12 +144,12 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida | 
+| 17 | - | AH SHA, sem tempos de vida |
 | 18 | - | AH MD5, sem tempos de vida |
 
 
-- Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso em cenários de comunicação vnet a vnet, ou quando a criptografia está sendo aplicada em outro lugar na solução.
+- Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso nos cenários de comunicação entre vnets ou quando a criptografia está sendo aplicada em outro lugar na solução.
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

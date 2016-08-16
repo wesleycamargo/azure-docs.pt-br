@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar uma rede virtual com uma conexão de Gateway de VPN site a site usando o Portal Clássico do Azure | Microsoft Azure"
+   pageTitle="Criar uma rede virtual com uma conexão de Gateway de VPN site a site usando o portal clássico do Azure | Microsoft Azure"
    description="Criar uma Rede Virtual com uma conexão de Gateway de VPN site a site para configurações entre locais e híbridas usando o modelo de implantação clássico."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o portal clássico do Azure
@@ -25,7 +25,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artigo o orientará pela criação de uma rede virtual e de uma conexão VPN site a site com sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure.
+Este artigo o orientará na criação de uma rede virtual e uma conexão VPN site a site para sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure. No momento, você não pode criar uma configuração Site a Site de ponta a ponta para o modelo de implantação clássico usando o portal do Azure.
 
 
 **Sobre modelos de implantação do Azure**
@@ -47,7 +47,7 @@ Se você quiser conectar as VNets, mas não estiver criando uma conexão com uma
 
 Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
-- Um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se não estiver familiarizado com a configuração do dispositivo VPN ou com os intervalos de endereços IP localizados na configuração de rede local, você precisará coordenar-se com alguém que possa lhe fornecer os detalhes.
+- Um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 
 -  Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 
@@ -73,7 +73,7 @@ Insira as seguintes informações.
 
 Insira as informações a seguir e, em seguida, clique na seta de avanço no canto inferior direito.
 
-- **Servidores DNS**: insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu de atalho. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes para essa rede virtual.
+- **Servidores DNS**: insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu de atalho. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes dessa rede virtual.
 - **Configurar VPN Site a Site**: marque a caixa de seleção **Configurar uma VPN site a site**.
 - **Rede Local**: uma rede local representa sua localização física no local. Você pode selecionar uma rede local já criada anteriormente ou pode criar uma nova rede local. No entanto, se você optar por usar uma rede local criada anteriormente, vai querer acessar a página de configuração **Redes Locais** e garantir que o endereço IP do Dispositivo VPN (endereço IPv4 voltado para o público) para o dispositivo VPN usado nesta conexão seja preciso.
 
@@ -84,7 +84,7 @@ Se estiver criando uma nova rede local, você verá a página **Conectividade Si
 Insira as informações a seguir e, em seguida, clique na seta de avanço.
 
 - 	**Nome**: o nome que você deseja dar ao site de rede local.
-- 	**Endereço IP do Dispositivo VPN**: é o endereço IPv4 voltado para o público do seu dispositivo VPN local que você usará para conectar-se ao Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
+- 	**Endereço IP do Dispositivo VPN**: é o endereço IPv4 voltado para o público do dispositivo VPN local que você usará para conectar o Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
 - 	**Espaço de Endereço**: inclua o IP Inicial e a Contagem de Endereços (CIDR). É o local onde você especifica o(s) intervalo(s) de endereços que deseja que seja(m) enviado(s) por meio do gateway de rede virtual para o local. Se um endereço IP de destino estiver dentro dos intervalos especificados aqui, ele será roteado por meio do gateway de rede virtual.
 - 	**Adicionar espaço de endereço**: se você tiver vários intervalos de endereço que deseja enviar pelo gateway da rede virtual, aqui será onde especificará cada intervalo de endereço adicional. Você poderá adicionar ou remover intervalos posteriormente na página **Rede Local**.
 
@@ -112,4 +112,4 @@ Em seguida, você configurará o gateway de rede virtual para criar uma conexão
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

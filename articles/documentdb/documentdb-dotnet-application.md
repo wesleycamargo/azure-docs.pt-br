@@ -4,7 +4,7 @@
 	keywords="tutorial do asp.net mvc, desenvolvimento de aplicativos web, aplicativo web mvc, passo a passo do tutorial do asp net mvc"
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -16,7 +16,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="08/01/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 #<a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativos Web com o Banco de Dados de Documentos
 
@@ -592,4 +592,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon√
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 [projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

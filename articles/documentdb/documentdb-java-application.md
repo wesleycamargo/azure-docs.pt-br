@@ -4,7 +4,7 @@
 	keywords="Desenvolvimento de aplicativos, tutorial de banco de dados, aplicativo java, tutorial do aplicativo web java, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter="java"
-	authors="aliuy"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="mimig"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
 	ms.date="03/10/2016"
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 # Criar um aplicativo Web Java usando o Banco de Dados de Documentos
 
@@ -784,4 +784,4 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0810_2016-->

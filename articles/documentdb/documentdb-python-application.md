@@ -4,7 +4,7 @@
 	keywords="Desenvolvimento de aplicativos, tutorial de banco de dados, python flask, aplicativo web python, desenvolvimento web python, banco de dados de documentos, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 # Desenvolvimento de aplicativo Web Python Flask com Banco de Dados de Documentos
 
@@ -44,10 +44,10 @@ Seguindo este tutorial, você criará um aplicativo simples de votação que per
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes itens instalados:
 
 - Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) ou superior, ou [Visual Studio Express](), que é a versão gratuita. As instruções neste tutorial foram escritas especificamente para o Visual Studio 2015. 
-- Ferramentas Python para o Visual Studio do [GitHub](http://microsoft.github.io/PTVS/). Este tutorial usa as Ferramentas Python para o VS 2015. 
+- [Visual Studio 2013](http://www.visualstudio.com/) ou superior, ou [Visual Studio Express](), que é a versão gratuita. As instruções neste tutorial foram escritas especificamente para o Visual Studio 2015.
+- Ferramentas Python para o Visual Studio do [GitHub](http://microsoft.github.io/PTVS/). Este tutorial usa as Ferramentas Python para o VS 2015.
 - SDK do Azure Python para o Visual Studio, versão 2.4 ou superior disponível em [azure.com](https://azure.microsoft.com/downloads/). Nós usamos o SDK do Microsoft Azure para Python 2.7.
-- Python 2.7 de [python.org][2]. Usamos o Python 2.7.11. 
+- Python 2.7 de [python.org][2]. Usamos o Python 2.7.11.
 
 > [AZURE.IMPORTANT] Se você estiver instalando o Python 2.7 pela primeira vez, escolha **Adicionar python.exe ao Caminho** na tela Personalizar o Python 2.7.11.
 > 
@@ -57,7 +57,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 ## Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
 
-Vamos começar criando uma conta do Banco de Dados de Documentos. Se já tiver uma conta, você poderá pular para a [Etapa 2: Criar um novo aplicativo Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se já tiver uma conta, você poderá pular para a [Etapa 2: Criar um novo aplicativo Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -133,7 +133,7 @@ Vamos garantir que tudo esteja instalado corretamente.
 
 Agora vamos criar seu aplicativo de votação adicionando novos arquivos e enviando atualizações para outras pessoas.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **tutorial**, clique em **Adicionar** e em **Novo Item**. Escolha **Arquivo Python Vazio** e nomeie o arquivo como **forms.py**.  
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **tutorial**, clique em **Adicionar** e em **Novo Item**. Escolha **Arquivo Python Vazio** e nomeie o arquivo como **forms.py**.
 2. Adicione o código a seguir ao arquivo forms.py e salve o arquivo.
 
 ```python
@@ -150,7 +150,7 @@ class VoteForm(Form):
 
 ### Adicione as importações necessárias a views.py
 
-1. No Gerenciador de Soluções, expanda a pasta **tutorial** e abra o arquivo **views.py**. 
+1. No Gerenciador de Soluções, expanda a pasta **tutorial** e abra o arquivo **views.py**.
 2. Adicione as seguintes instruções de importação à parte superior do arquivo **views.py**, então salve o arquivo. Elas importarão pacotes PythonSDK do Banco de Dados de Documentos e os pacotes Flask.
 
 	```python
@@ -256,8 +256,8 @@ def vote():
 
 ### Criar os arquivos HTML
 
-1. No Gerenciador de Soluções, na pasta **tutorial**, clique com o botão direito do mouse na pasta **templates**, clique em **Adicionar** e clique em **Novo Item**. 
-2. Escolha **Página HTML** e, na caixa Nome, digite **create.html**. 
+1. No Gerenciador de Soluções, na pasta **tutorial**, clique com o botão direito do mouse na pasta **templates**, clique em **Adicionar** e clique em **Novo Item**.
+2. Escolha **Página HTML** e, na caixa Nome, digite **create.html**.
 3. Repita as etapas 1 e 2 para criar dois arquivos HTML adicionais: results.html e vote.html.
 4. Adicione o código a seguir a **create.html** no elemento `<body>`. Ele exibe uma mensagem indicando que um banco de dados, uma coleção e um documento novos foram criados.
 
@@ -342,7 +342,7 @@ def vote():
 
 3. No [portal do Azure](https://portal.azure.com/), navegue até a folha **Chaves** clicando em **Procurar**, **Contas do Banco de Dados de Documentos**, clique duas vezes no nome da conta a usar e clique no botão **Chaves** na área **Essenciais**. Na folha **Chaves**, copie o valor de **URI** e cole-o no arquivo **config.py** como o valor da propriedade **DOCUMENTDB\_HOST**.
 4. Novamente no portal do Azure, na folha **Chaves**, copie o valor da **Chave Primária** ou da **Chave Secundária** e cole-o no arquivo **config.py** como o valor da propriedade **DOCUMENTDB\_KEY**.
-5. No arquivo **\_\_init\_\_.py**, adicione a linha a seguir. 
+5. No arquivo **\_\_init\_\_.py**, adicione a linha a seguir.
 
         app.config.from_object('config')
 
@@ -385,7 +385,7 @@ def vote():
 
 Agora que você possui o aplicativo completo funcionando corretamente no Banco de Dados de Documentos, vamos implantá-lo nos sites do Azure.
 
-1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções (verifique se ele não está sendo executado localmente) e selecione **Publicar**.  
+1. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções (verifique se ele não está sendo executado localmente) e selecione **Publicar**.
 
  	![Captura de tela do tutorial selecionado no Gerenciador de Soluções, com a opção de Publicar realçada](./media/documentdb-python-application/image20.png)
 
@@ -433,4 +433,4 @@ Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

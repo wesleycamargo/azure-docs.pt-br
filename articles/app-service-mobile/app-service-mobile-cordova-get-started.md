@@ -42,6 +42,8 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
+
 ## Configurar o projeto de servidor
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
@@ -55,7 +57,7 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 Agora que você concluiu este tutorial de início rápido, passe para um dos tutoriais a seguir:
 
 * [Adicionar autenticação] ao aplicativo Apache Cordova.
-* [Adicionar Notificações por push] ao seu aplicativo Apache Cordova.
+* [Adicionar notificações por push] a seu aplicativo Apache Cordova.
 
 Saiba mais sobre os principais conceitos com o Serviço de Aplicativo do Azure.
 
@@ -75,11 +77,11 @@ Saiba como usar os SDKs.
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/pt-BR/features/cordova-vs.aspx
 [Adicionar autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar Notificações por push]: app-service-mobile-cordova-get-started-push.md
+[Adicionar notificações por push]: app-service-mobile-cordova-get-started-push.md
 [Autenticação]: app-service-mobile-auth.md
 [Notificações por Push]: ../notification-hubs/notification-hubs-overview.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -67,7 +67,7 @@ Verificar as assinaturas da conta.
 
 	Get-AzureRmSubscription 
 
-Especifique a assinatura que você deseja usar.
+Especifique a assinatura que você quer usar.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
@@ -183,18 +183,21 @@ Em seguida, você criará a conexão VPN site a site entre o gateway de rede vir
 
 Após um instante, a conexão será estabelecida.
 
-## 9\. Verificar uma conexão VPN
+## <a name="toverify"></a>Para verificar uma conexão VPN
 
 Existem algumas maneiras diferentes de verificar a conexão VPN. A seguir, falaremos sobre como fazer uma verificação básica usando o portal do Azure e o PowerShell.
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="modify"></a>Para modificar os prefixos do endereço IP para um gateway da rede local
+## <a name="modify"></a>Para modificar os prefixos do endereço IP para um gateway de rede local
 
-Se precisar alterar os prefixos do gateway de rede local, use as instruções a seguir. São fornecidos dois conjuntos de instruções. As instruções a serem escolhidas dependerão de você já ter criado ou não a conexão de gateway VPN.
+Se precisar alterar os prefixos do gateway de rede local, use as instruções a seguir. São fornecidos dois conjuntos de instruções. As instruções escolhidas dependem de você já ter criado sua conexão de gateway.
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>Para modificar o endereço IP do gateway para um gateway de rede local
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Próximas etapas
 
@@ -202,4 +205,4 @@ Se precisar alterar os prefixos do gateway de rede local, use as instruções a 
 
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
