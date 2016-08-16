@@ -33,8 +33,8 @@ O aumento do número de nós de trabalho em um cluster pode aproveitar mais mape
 
 - No momento do provisionamento, você pode especificar o número de nós de trabalho usando o Portal do Azure, o PowerShell do Azure ou a interface de linha de comando entre plataformas. Para saber mais, confira [Provisionar clusters HDInsight](hdinsight-provision-clusters.md). A tela a seguir mostra a configuração de nó de trabalho no Portal do Azure:
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
-- Em tempo de execução, você também pode escalar um cluster horizontalmente sem recriar um. Veja abaixo. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
+	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+- Em tempo de execução, você também pode escalar um cluster horizontalmente sem recriar um. Veja abaixo. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 Para obter mais detalhes sobre as diferentes máquinas virtuais com suporte no HDInsight, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -42,7 +42,7 @@ Para obter mais detalhes sobre as diferentes máquinas virtuais com suporte no H
 
 O [Apache Tez](http://hortonworks.com/hadoop/tez/) é um mecanismo de execução alternativo ao mecanismo MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez\_1]
+![tez_1][image-hdi-optimize-hive-tez_1]
 
 
 O Tez é mais rápido porque:
@@ -90,7 +90,7 @@ A operação de E/S é o principal gargalo de desempenho para executar consultas
 
 O particionamento do Hive é implementado reorganizando os dados brutos em novos diretórios, em que cada partição tem seu próprio diretório - onde a partição é definida pelo usuário. O diagrama a seguir ilustra o particionamento de uma tabela do Hive pela coluna *Ano*. Um novo diretório é criado para cada ano.
 
-![partitioning][image-hdi-optimize-hive-partitioning\_1]
+![partitioning][image-hdi-optimize-hive-partitioning_1]
 
 Algumas considerações sobre particionamento:
 
@@ -215,6 +215,9 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 - [Usar o Hive com o HDInsight para analisar logs de sites](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png 
+[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png 
+[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png 
+[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->

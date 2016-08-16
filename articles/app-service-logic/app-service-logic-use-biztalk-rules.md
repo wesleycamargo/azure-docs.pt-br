@@ -49,7 +49,7 @@ _IF_ _condição_ _THEN_ _ação_
 
 Considere o exemplo a seguir:
 
-*IF (Se) a quantidade for menor ou igual aos fundos disponíveis*
+*IF (Se) a quantidade for menor ou igual aos fundos disponíveis*  
 *THEN (Então) realize as transações e imprima o recibo*
 
 Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis.
@@ -96,7 +96,7 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 1. Fazer logon no Portal do Azure
 2. Selecione Novo -> Marketplace e procure por *Regras do BizTalk*
 3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
-4. Selecione o botão *Criar*
+4. Selecione o botão *Criar* 
 ![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
@@ -116,7 +116,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
    ![Alt text][4]
 
 2\. Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário 
-3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário. 
+3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
 Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
@@ -143,18 +143,18 @@ Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser e
 
 ### Adicionar em massa
 As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil. 
-Selecionar “Adicionar em Massa” o levará para uma nova folha. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Selecionar esta opção abrirá uma nova folha que permite ao usuário escolher em uma lista esquemas já carregados ou carregar um novo. Agora, a propriedade XPATHS é desbloqueada. Selecionar esta opção abrirá o Visualizador de Esquema, em que vários nós podem ser selecionados.
+Selecionar “Adicionar em Massa” o levará para uma nova folha. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Selecionar esta opção abrirá uma nova folha que permite ao usuário escolher em uma lista esquemas já carregados ou carregar um novo. Agora, a propriedade XPATHS é desbloqueada. Selecionar esta opção abrirá o Visualizador de Esquema, em que vários nós podem ser selecionados. 
 Os nomes de várias definições criadas assumirão como padrão o nome do nó selecionado. Eles podem ser modificados após a criação.
 
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 
-	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 
-	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras. 
-	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política. 
-	![Alt text][8] 
-	4. Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
+	1.	No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
+	2.	Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras.  
+	3.	Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política.  
+	![Alt text][8]
+	4.	Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
 Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:
@@ -255,4 +255,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->
