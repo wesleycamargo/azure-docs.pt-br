@@ -56,13 +56,13 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. No caso de tráfego HTTPS, terminação SSL ocorre no proxy inverso. Solicitações que são encaminhadas pelo proxy inverso para serviços no cluster são por http.
- - ** FQDN de Gateway| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **FQDN do gateway | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster (por exemplo, mycluster.eastus.cloudapp.azure.com). Por padrão, o proxy reverso é executado em cada nó, então para o tráfego interno, ele pode ser acessado no host local ou em qualquer nó interno de IP (por exemplo, 10.0.0.1).
  - **Porta:** a porta que foi especificada para o proxy inverso. Por exemplo, 19008.
  - **ServiceInstanceName:** esse é o nome da instância de serviço implantado totalmente qualificado do serviço que você está tentando acessar do esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você deve usar *myapp/myservice*.
  - **Caminho de sufixo:** esse é o caminho de URL real para o serviço que você deseja se conectar. Por exemplo, *myapi/values/add/3*
  - **PartitionKey:** para um serviço particionado, esta é a chave de partição computada da partição que você deseja acessar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
  - **PartitionKind:** o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
- - **Tempo limite:** Especifica o tempo limite da solicitação http criada pelo proxy inverso para o serviço em nome da solicitação do cliente. O valor padrão é 60 segundos. Este é um parâmetro opcional.
+ - **Tempo limite:** especifica o tempo limite da solicitação http criada pelo proxy inverso para o serviço em nome da solicitação do cliente. O valor padrão é 60 segundos. Este é um parâmetro opcional.
 
 ### Exemplo de uso
 
@@ -126,7 +126,7 @@ O gateway, portanto, precisa de uma maneira para distinguir entre esses dois cas
 Esse cabeçalho de resposta HTTP indica uma situação de HTTP 404 normal em que o recurso solicitado não existir e o gateway não tentará resolver o endereço do serviço novamente.
 
 ## Instalação e configuração
-O proxy inverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md).
+O proxy inverso do Service Fabric pode ser habilitado para o cluster por meio do [Modelo do Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md).
 
 Depois de obter o modelo do cluster que você deseja implantar (de modelos de exemplo ou criando um modelo do Resource Manager personalizado), o proxy inverso poderá ser habilitado no modelo ao seguir as etapas a seguir.
 
