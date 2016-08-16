@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
 # Criar um emparelhamento de rede virtual usando o Portal do Azure
 
@@ -28,41 +28,41 @@
 Para criar um emparelhamento VNet com base no cenário anterior, usando o Portal do Azure, execute as etapas abaixo.
 
 1. Em um navegador, vá até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
-2. Para estabelecer o emparelhamento VNet, você precisa criar dois links, uma para cada direção, entre duas VNets. Primeiro, você pode criar links de emparelhamento de VNet para VNET1 a VNET2. No portal, clique em **Procurar** > **Escolha Redes Virtuais**
+2. Para estabelecer o emparelhamento VNET, você precisa criar dois links, um para cada direção, entre duas VNets. Primeiro, você pode criar links de emparelhamento de VNET para VNET1 à VNET2. No portal, clique em **Procurar** > **Escolha Redes Virtuais**
 
 	![Criar emparelhamento VNet no Portal do Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 
 3. Na folha Redes Virtuais, escolha VNET1, clique em Emparelhamentos e clique em Adicionar
 
-	![Escolha o emparelhamento](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
+	![Escolher emparelhamento](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
 
-4. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet2 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual VNET2, clique em OK.
+4. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet2 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual VNET2, e clique em OK.
 
 	![Link para VNet](./media/virtual-networks-create-vnetpeering-arm-portal/figure03.png)
 
 5. Após a criação deste link de emparelhamento VNET. Você pode ver o estado do link da seguinte maneira:
 
-	![Estado do Link](./media/virtual-networks-create-vnetpeering-arm-portal/figure04.png)
+	![Estado do link](./media/virtual-networks-create-vnetpeering-arm-portal/figure04.png)
 
-6. Em seguida, crie o link de emparelhamento VNet da VNET2 para a VNET1. Na folha Redes Virtuais, escolha VNET2, clique em Emparelhamentos e clique em Adicionar
+6. Em seguida, crie o link de emparelhamento VNET da VNET2 à VNET1. Na folha Redes Virtuais, escolha VNET2, clique em Emparelhamentos e clique em Adicionar
 
-	![Emparelhar de outra VNet](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
+	![Par de outra VNet](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
 
-7. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet1 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual, clique em OK.
+7. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet1 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual, e clique em OK.
 
 	![Criar bloco de rede virtual](./media/virtual-networks-create-vnetpeering-arm-portal/figure06.png)
 
 8. Após a criação deste link de emparelhamento VNET. Você pode ver o estado do link da seguinte maneira:
 
-	![Estado do link final](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
+	![Estado final do link](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
 
-9. Verifique o estado de LinkToVnet2, que agora também é Conectado.
+9. Verifique o estado de LinkToVnet2, que também foi alterado para Conectado.
 
 	![Estado do link final 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. OBSERVAÇÃO: o emparelhamento VNet será estabelecido somente se ambos os links estiverem conectados.
+10. OBSERVAÇÃO: o emparelhamento VNET somente será estabelecido se ambos os links estiverem conectados.
 
-Há algumas propriedades configuráveis para cada Link:
+Há algumas propriedades configuráveis para cada link:
 
 |Opção|Descrição|Padrão|
 |:-----|:----------|:------|
@@ -77,33 +77,33 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 1. Em um navegador, vá até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
 2. Neste exemplo usaremos duas assinaturas, A e B, e dois usuários, UserA e UserB, com privilégios nas respectivas assinaturas
-2. No portal, clique em Procurar e escolha Redes Virtuais. Clique em VNet e clique em Adicionar.
+3. No portal, clique em Procurar e escolha Redes Virtuais. Clique em VNet e clique em Adicionar.
 
     ![Cenário 2 Procurar](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. Na folha Adicionar acesso, escolha uma função e escolha Colaborador de Rede, clique em Adicionar Usuários, digite o nome de entrada do UserB e clique em OK.
+4. Na folha Adicionar acesso, escolha uma função e escolha Colaborador de Rede, clique em Adicionar Usuários, digite o nome de entrada do UserB e clique em OK.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-   Isso não é obrigatório, o emparelhamento pode ser estabelecido mesmo se os usuários acionarem solicitações de emparelhamento para suas respectivas Vnets, desde que as solicitações coincidam. A adição de um usuário com privilégios da outra VNet como usuários na VNet local facilita a configuração no portal.
+    Isso não é obrigatório, o emparelhamento pode ser estabelecido mesmo se os usuários acionarem solicitações de emparelhamento para suas respectivas Vnets, desde que as solicitações coincidam. A adição de um usuário com privilégios da outra VNet como usuários na VNet local facilita a configuração no portal.
 
-4. Em seguida, faça logon no Portal do Azure com UserB, que é o usuário com privilégios na AssinaturaB. Execute as etapas acima para adicionar UserA como Colaborador de Rede.
+5. Em seguida, faça logon no Portal do Azure com UserB, que é o usuário com privilégios na AssinaturaB. Execute as etapas acima para adicionar UserA como Colaborador de Rede.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
     OBSERVAÇÃO: você pode fazer logoff e logon nas duas sessões de usuário no navegador assegurar a ativação da autorização.
 
-5. Faça logon no portal como UserA, navegue até a folha VNET3, clique em Emparelhamento, marque a caixa de seleção “Sei minha ID de recurso" e digite a ID de recurso para VNET5 no formato abaixo.
+6. Faça logon no portal como UserA, navegue até a folha VNET3, clique em Emparelhamento, marque a caixa de seleção “Sei minha ID de recurso" e digite a ID de recurso para VNET5 no formato abaixo.
 
     /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<nome da VNET>
 
     ![ID de Recurso](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-6. Faça logon no portal como UserB e execute a etapa acima para criar o link de emparelhamento da VNET5 para a VNet3.
+7. Faça logon no portal como UserB e execute a etapa acima para criar o link de emparelhamento da VNET5 para a VNet3.
 
     ![ID de Recurso 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-7. O emparelhamento será estabelecido e qualquer Máquina virtual na VNet3 deve ser capaz de se comunicar com qualquer máquina virtual na VNet5
+8. O emparelhamento será estabelecido e qualquer Máquina virtual na VNet3 deve ser capaz de se comunicar com qualquer máquina virtual na VNet5
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -130,4 +130,4 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 4. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos a remoção dos dois links antes de recriar o emparelhamento VNet.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

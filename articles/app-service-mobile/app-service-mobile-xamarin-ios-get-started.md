@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/28/2016"
+	ms.date="08/04/2016"
 	ms.author="normesta"/>
 
 
@@ -53,15 +53,6 @@ Siga as etapas abaixo para configurar o projeto de servidor para usar o back-end
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (Opcional) Testar seu projeto de back-end localmente
-
-Se você tiver escolhido uma configuração de back-end .NET acima, também poderá testar o back-end localmente.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
-
 ## Baixar e executar o aplicativo Xamarin.iOS
 
 1. Abra o [portal do Azure] em uma janela de navegador.
@@ -82,7 +73,7 @@ Se você tiver escolhido uma configuração de back-end .NET acima, também pode
 
 	![][10]
 
-	Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo back-end de aplicativo móvel, e os dados são exibidos na lista.
+	Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Itens armazenados na tabela são retornados pelo back-end do aplicativo móvel e os dados são exibidos na lista.
 
 >[AZURE.NOTE]Você pode examinar o código que acessa seu back-end de aplicativo móvel para consultar e inserir dados no arquivo C# QSTodoService.cs.
 
@@ -108,4 +99,4 @@ Se você tiver escolhido uma configuração de back-end .NET acima, também pode
 <!-- URLs. -->
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

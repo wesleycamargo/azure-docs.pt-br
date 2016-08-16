@@ -12,15 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="08/10/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Após ter implantado seu aplicativo Web, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O Application Insights envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
+Após ter implantado seu aplicativo Web para qualquer host, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O [Application Insights do Visual Studio](app-insights-overview.md) envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
 
 ![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,11 +37,11 @@ Você pode criar até 10 testes na Web por recurso de aplicativo.
 
 Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os dados de disponibilidade no mesmo local.
 
-Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [Portal do Azure](https://portal.azure.com) e crie um novo recurso do Application Insights.
+Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [Portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights.
 
 ![Novo > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-A folha de Visão Geral para o novo recurso será aberta. Para encontrá-los a qualquer momento no [Portal do Azure](https://portal.azure.com), clique em **Procurar**.
+A folha de Visão Geral para o novo recurso é aberta. Para encontrá-los a qualquer momento no [Portal do Azure](https://portal.azure.com), clique em **Procurar**.
 
 ### <a name="setup"></a>2. Crie um teste na Web
 
@@ -55,16 +52,16 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 - **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta&#151. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento nós a seguiremos, até um máximo de 10 redirecionamentos.
 - **Analisar solicitações dependentes**: imagens, scripts, arquivos de estilo e outros recursos da página são solicitados como parte do teste. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro.
 - **Habilitar tentativas**: quando o teste falha, ele é repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. (Recomendamos essa configuração. Em média, aproximadamente 80% das falhas desaparecem na repetição.)
-- **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site será testado em média a cada minuto.
+- **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
 - Os **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
 
 - **Critérios de sucesso**:
 
-    **Tempo limite do teste**: reduza-o para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.
+    **Tempo limite do teste**: reduza esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.
 
     **Resposta HTTP**: o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.
 
-    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste para comprovar se ela ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
+    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Fazemos o teste para comprovar se ela ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
 
 
 - **Alertas** serão, por padrão, enviados a você se houver falhas em três locais em cinco minutos. Uma falha em um único local provavelmente é um problema de rede, não um problema com seu site. Porém, você pode alterar o limite para ser mais ou menos sensível e também pode alterar a quem os emails devem ser enviados.
@@ -82,13 +79,13 @@ Depois de 1 ou 2 minutos, clique em **Atualizar** na folha de testes de disponib
 
 ![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Clique em qualquer barra no gráfico de resumo, na parte superior, para uma exibição mais detalhada do período de tempo.
+Clique em qualquer barra no gráfico de resumo para obter uma exibição mais detalhada do período de tempo.
 
 Esses gráficos combinam os resultados de todos os testes da Web desse aplicativo.
 
 #### Componentes da sua página da Web
 
-Imagens, scripts e folhas de estilos, assim como outros componentes estáticos da página da Web que você está testando são solicitados como parte do teste.
+Imagens, folhas de estilos, scripts e outros componentes estáticos da página da Web que você está testando são solicitados como parte do teste.
 
 O tempo de resposta gravado é o tempo transcorrido até que o carregamento de todos os componentes tenha sido concluído.
 
@@ -104,7 +101,7 @@ Ou role para baixo e clique em um teste onde você pode ver menos de 100% de êx
 
 ![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-Isso mostrará os resultados do teste em questão.
+Os resultados do teste são abertos.
 
 ![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -123,7 +120,7 @@ Clique no resultado para avaliá-lo no portal e ver o motivo da falha.
 Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio.
 
 
-*Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será ser relatado como falha, mesmo se a página html principal carregar com êxito.
+*Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
 
 
 
@@ -141,7 +138,7 @@ Use o Visual Studio Enterprise ou Ultimate para registrar uma sessão da Web.
 
 1. Crie um projeto de teste de desempenho na Web.
 
-    ![No Visual Studio, crie um novo projeto do modelo de teste de carga e desempenho na Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![No Visual Studio, crie um projeto do modelo de teste de carga e desempenho na Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. Abra o arquivo .webtest e inicie a gravação.
 
@@ -195,7 +192,7 @@ Suponha que você está testando uma ferramenta que obtém dados dependentes de 
 
 Quando você executa o teste, o ideal é que EndTime seja sempre a hora atual e StartTime seja o horário de 15 minutos atrás.
 
-Plug-ins de teste na Web fornecem uma maneira de fazer isso.
+Plug-ins de teste da Web fornecem uma maneira de gerar tempos parametrizados.
 
 1. Adicione um plug-in de teste na Web para cada valor de parâmetro variável desejado. Na barra de ferramentas de teste da Web, escolha **Adicionar Plug-in de Teste na Web**.
 
@@ -219,15 +216,15 @@ Se os usuários entrarem em seu aplicativo, você terá várias opções para si
 
 Em todos os casos, você deverá criar uma conta somente para fins de teste. Se possível, restrinja suas permissões para que ela seja somente leitura.
 
-* Nome de usuário e senha mais simples: basta registrar um teste na Web da maneira usual. Exclua os cookies primeiro.
-* Autenticação SAML. Para isso, você pode usar o plug-in SAML que está disponível para testes na Web.
-* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-o. O Active Directory do Azure o fornece.
+* Nome de usuário e senha mais simples: registre um teste na Web da maneira usual. Exclua os cookies primeiro.
+* Autenticação SAML. Use o plug-in do SAML que está disponível para testes na Web.
+* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-a. O Azure Active Directory fornece uma entrada com segredo do cliente.
 * Autenticação Aberta - por exemplo, entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth oferecem a alternativa do segredo do cliente e, portanto, a primeira tática é investigar isso. Se o teste tiver de entrar usando OAuth, a abordagem geral será:
  * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo.
  * Executar duas ou mais entradas usando computadores ou navegadores diferentes ou em longos intervalos (para permitir que os tokens expirem).
  * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada.
  * Registre um teste na Web usando o Visual Studio.
- * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tentará parametrizar o teste, mas não parametrizará corretamente os tokens).
+ * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site. (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
 
 ## <a name="edit"></a> Editar ou desabilitar um teste
@@ -260,7 +257,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 * *Há suporte para HTTPS?*
 
-    No momento, oferecemos suporte ao SSL 3.0 e ao TLS 1.0.
+    Damos suporte a TLS 1.1 e TLS 1.2.
 
 * *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
 
@@ -312,4 +309,4 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

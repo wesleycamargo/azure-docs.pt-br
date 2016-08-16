@@ -3,7 +3,7 @@
    description="Saiba mais sobre o firewall distribuído no Azure usando os Grupos de Segurança de Rede (NSGs) e como usar os NSGs para isolar e controlar o fluxo do tráfego em suas redes virtuais (VNets)."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # O que é um NSG (grupo de segurança de rede)?
 
@@ -40,7 +40,7 @@ As regras NSG contêm as propriedades a seguir.
 |---|---|---|---|
 |**Nome**|Nome para a regra|Deve ser exclusivo na região<br/>Pode conter letras, números, sublinhados, pontos e hifens<br/>Deve começar com uma letra ou com um número<br/>Deve terminar com uma letra, com um número ou com um sublinhado<br/>Pode ter até 80 caracteres|Você pode ter várias regras em um NSG, portanto, siga uma convenção de nomenclatura que permita a identificação da função da sua regra.|
 |**Protocolo**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *|O uso do * como um protocolo inclui ICMP (apenas tráfego Leste-Oeste), bem como UDP e TCP, pode reduzir o número de regras necessárias<br/>Ao mesmo tempo, o uso do * pode ser uma abordagem muito ampla. Portanto, use-o quando for realmente necessário|
-|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula 
+|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos. <br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/> Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
 |**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
 |**Prefixo de endereço de origem**|Prefixo ou marca de endereço de origem para fazer a correspondência da regra|Endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Prefixo de endereço de destino**|Prefixo ou marca de endereço de destino para fazer a correspondência da regra|endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
@@ -92,7 +92,7 @@ Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de impl
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
  
-- **Associando um NSG a uma VM (apenas para implantações clássicas).** Quando um NSG é associado a uma VM, as regras de acesso à rede no NSG as regras são aplicadas a todo o tráfego de entrada e saída na VM. 
+- **Associando um NSG a uma VM (apenas para implantações clássicas).** Quando um NSG é associado a uma VM, as regras de acesso à rede no NSG as regras são aplicadas a todo o tráfego de entrada e saída na VM.
 
 - **Associando um NSG a uma NIC (apenas implantações do Gerenciador de Recursos).** Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Isso significa que em uma VM com várias NICs, se um NSG for aplicado a uma única NIC, ele não afetará o tráfego associado a outras NICs.
 
@@ -101,21 +101,21 @@ Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de impl
 É possível associar diferentes NSGs a uma VM (ou NIC, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. Quando isso acontece, todas as regras de acesso de rede são aplicadas ao tráfego, por prioridade em cada NSG, na seguinte ordem:
 
 - **Tráfego de entrada**
-	1. NSG aplicado à sub-rede. 
+	1. NSG aplicado à sub-rede.
 	
-        Se o NSG de sub-rede tiver uma regra correspondente para negar o tráfego, o pacote será removido aqui.
-	2. NSG aplicado à NIC (Gerenciador de Recursos) ou à VM (clássica). 
+           Se o NSG de sub-rede tiver uma regra correspondente para negar o tráfego, o pacote será removido aqui.
+	2. NSG aplicado à NIC (Gerenciador de Recursos) ou à VM (clássica).
 	   
-        Se o NSG de VM\\NIC tiver uma regra correspondente para negar o tráfego, o pacote será removido na VM\\NIC, embora o NSG de sub-rede tenha uma regra correspondente para permitir o tráfego.
+           Se o NSG de VM\\NIC tiver uma regra correspondente para negar o tráfego, o pacote será removido na VM\\NIC, embora o NSG de sub-rede tenha uma regra correspondente para permitir o tráfego.
 - **Tráfego de saída**
-	1. NSG aplicado à NIC (Gerenciador de Recursos) ou à VM (clássica). 
+	1. NSG aplicado à NIC (Gerenciador de Recursos) ou à VM (clássica).
 	  
-        Se o NSG de VM\\NIC tiver uma regra correspondente para negar o tráfego, o pacote será removido aqui.
+           Se o NSG de VM\\NIC tiver uma regra correspondente para negar o tráfego, o pacote será removido aqui.
 	2. NSG aplicado à sub-rede.
 	   
            Se o NSG de sub-rede tiver uma regra correspondente para negar o tráfego, o pacote será removido aqui, embora o NSG de VM\\NIC tenha uma regra correspondente para permitir o tráfego.
 
-![ACLs de NSG](./media/virtual-network-nsg-overview/figure2.png)
+	![ACLs de NSG](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Embora seja possível associar apenas um único NSG a uma sub-rede, VM ou NIC, é possível associar o mesmo NSG a quantos recursos você desejar.
 
@@ -125,12 +125,12 @@ Você pode implementar NSGs nos modelos clássicos ou de implantação do Gerenc
 |Ferramenta de implantação|Clássico|Gerenciador de Recursos|
 |---|---|---|
 |Portal clássico|![Não][red]|![Não][red]|
-|Portal do Azure|![Sim][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sim][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sim][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sim][green]</a>|
-|CLI do Azure|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sim][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sim][green]</a>|
-|Modelo de ARM|![Não][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sim][green]</a>|
+|Portal do Azure|![Sim][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Sim][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Sim][green]|[](virtual-networks-create-nsg-arm-ps.md)![Sim][green]|
+|CLI do Azure|[](virtual-networks-create-nsg-classic-cli.md)![Sim][green]|[](virtual-networks-create-nsg-arm-cli.md)![Sim][green]|
+|Modelo de ARM|![Não][red]|[](virtual-networks-create-nsg-arm-template.md)![Sim][green]|
 
-|**Chave**|![Sim][green] com suporte. Clique para ver o artigo.|![Não][red] sem suporte.|
+|**Chave**|![Sim][green] Com suporte. Clique para ver o artigo.|![Não][red] Sem suporte.|
 |---|---|---|
 
 ## Planejamento
@@ -177,7 +177,7 @@ As atuais regras do NSG permitem apenas os protocolos *TCP* ou *UDP*. Não há u
 
 ### Sub-redes
 
-- Considere o número de camadas exigidas pela carga de trabalho. Cada camada pode ser isolada por meio de uma sub-rede, com um NSG aplicado à sub-rede. 
+- Considere o número de camadas exigidas pela carga de trabalho. Cada camada pode ser isolada por meio de uma sub-rede, com um NSG aplicado à sub-rede.
 - Se precisar implementar uma sub-rede para um gateway de VPN ou circuito da Rota Expressa, **NÃO** aplique um NSG a essa sub-rede. Se você fizer isso, a conectividade entre a rede virtual ou entre locais não funcionará.
 - Se precisar implementar um dispositivo virtual, implante-o em sua própria sub-rede, de modo que as UDRs (rotas definidas pelo usuário) possam funcionar corretamente. É possível implementar um NSG de nível de sub-rede para filtrar o tráfego que entra e sai dessa sub-rede. Saiba mais sobre [como controlar o fluxo de tráfego e usar dispositivos virtuais](virtual-networks-udr-overview.md).
 
@@ -250,9 +250,9 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP da Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
+|permitir RDP da Internet|Permitir|100|INTERNET|*|*|3389|TCP|
 
->[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é **\***, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
+>[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é *****, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
 
 ### NSG para gerenciamento de NICs no back-end
 
@@ -260,7 +260,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
+|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|*|*|3389|TCP|
 
 ### NSG para NICs de acesso ao banco de dados no back-end
 
@@ -268,7 +268,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
+|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|*|*|1433|TCP|
 
 Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, você precisa implantar esse cenário como uma implantação do Gerenciador de Recursos. Observe como as regras são combinadas no nível de sub-rede e da NIC, dependendo de como elas precisam ser aplicadas.
 
@@ -282,4 +282,4 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

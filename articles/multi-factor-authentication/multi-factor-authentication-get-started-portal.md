@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/16/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Implantando o portal do usuário para o Servidor Azure Multi-Factor Authentication
@@ -30,16 +30,16 @@ Os Administradores do Portal do Usuário podem receber uma configuração e perm
 
 Os seguintes pré-requisitos são necessários para instalar o Portal do Usuário no mesmo servidor que o Servidor Azure Multi-Factor Authentication
 
-- O IIS precisa ser instalado com a compatibilidade da Metabase do IIS 6 e asp.net (para o IIS 7 ou superior) 
+- O IIS precisa ser instalado com a compatibilidade da Metabase do IIS 6 e asp.net (para o IIS 7 ou superior)
 - O usuário conectado deve ter direitos de administrador para o computador e o domínio, se aplicável. Isso ocorre porque a conta precisa ter permissões para criar grupos de segurança do Active Directory.
 
 ### Para implantar o Portal do Usuário para o Servidor Azure Multi-Factor Authentication
 
-1. Dentro do Servidor Azure Multi-Factor Authentication: clique no ícone do Portal do Usuário no menu à esquerda, clique no botão Instalar Portal do Usuário. 
-1. Clique em Avançar.
-1. Clique em Avançar.
+1. Dentro do Servidor Azure Multi-Factor Authentication: clique no ícone do Portal do Usuário no menu à esquerda, clique no botão Instalar Portal do Usuário.
+1. Clique em Próximo.
+1. Clique em Próximo.
 1. Se o computador tiver ingressado em um domínio e a configuração do Active Directory para proteger a comunicação entre o Portal do Usuário e o serviço Azure Multi-Factor Authentication estiver incompleta, a etapa do Active Directory será exibida. Clique no botão Avançar para cocluir automaticamente essa configuração.
-1. Clique em Avançar.
+1. Clique em Próximo.
 1. Clique em Avançar.
 1. Clique em Fechar.
 1. Abra um navegador da Web em qualquer computador e navegue até a URL onde o Portal do Usuário foi instalado (por exemplo, https://www.publicwebsite.com/MultiFactorAuth). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
@@ -80,7 +80,7 @@ Se o SDK de Serviço Web do Azure Multi-Factor Authentication já não estiver i
 Antes de instalar o Portal do Usuário em um servidor separado, esteja ciente do seguinte:
 
 - É recomendável abrir um navegador Web no servidor Web da Internet e navegar até a URL do SDK de Serviço Web que foi inserido no arquivo web.config. Se o navegador conseguir chegar ao serviço Web com êxito, ele deve solicitar credenciais. Insira o nome de usuário e a senha que foram inseridos no arquivo web.config exatamente como ele aparece no arquivo. Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
-- Se um proxy reverso ou firewall estiver à frente do servidor Web do Portal do Usuário e executando o descarregamento de SSL, você pode editar o arquivo web.config do Portal do Usuário e adicionar a seguinte chave à seção <appSettings>, para que o Portal do Usuário possa usar http em vez de https. <add key="SSL_REQUIRED" value="false"/>
+- Se um proxy reverso ou firewall estiver à frente do servidor Web do Portal do Usuário e executando o descarregamento de SSL, você pode editar o arquivo web.config do Portal do Usuário e adicionar a seguinte chave à seção <appSettings>, para que o Portal do Usuário possa usar http em vez de https. <add key="SSL\_REQUIRED" value="false"/>
 
 #### Para instalar o Portal do Usuário
 
@@ -189,4 +189,4 @@ O auto-registro do usuário está concluído e o usuário está conectado ao Por
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

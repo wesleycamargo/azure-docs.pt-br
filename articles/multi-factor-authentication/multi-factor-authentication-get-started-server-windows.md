@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Autenticação do Windows e Servidor Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ A seção Autenticação do Windows permite que o administrador habilite e confi
 
 -  A reinicialização é necessária antes que o Azure Multi-Factor Authentication para Serviços de Terminal entre em vigor.
 -  Se a opção 'Exigir correspondência de usuário do Azure Multi-Factor Authentication' for marcada e você não estiver na lista de usuários, não será possível fazer logon no computador após a reinicialização.
--  IPs confiáveis dependem de o aplicativo poder fornecer o IP do cliente com a autenticação. Atualmente, apenas os Serviços de Terminal têm suporte.  
+-  IPs confiáveis dependem de o aplicativo poder fornecer o IP do cliente com a autenticação. Atualmente, apenas os Serviços de Terminal têm suporte.
 
 
 
@@ -46,7 +46,7 @@ A seção Autenticação do Windows permite que o administrador habilite e confi
 7. Clique no botão Adicionar...
 8. Selecione IP Único se desejar ignorar um único endereço IP.
 9. Selecione o Intervalo de IP se desejar ignorar um intervalo inteiro de IP. Exemplo 10.63.193.1-10.63.193.100.
-10. Selecione Sub-rede se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa. 
+10. Selecione Sub-rede se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa.
 11. Clique no botão OK.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

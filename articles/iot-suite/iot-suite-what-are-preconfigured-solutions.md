@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Quais são as soluções pré-configuradas do Pacote do Azure IoT?
@@ -34,8 +34,7 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - | 
-| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
+| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - | | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
 - *Identidade do dispositivo*: gerenciar identidades exclusivas de cada dispositivo conectado.
@@ -62,7 +61,7 @@ Quando um dispositivo primeiro se conecta ao Hub IoT na solução pré-configura
 - *Parar Telemetria*: instrui o dispositivo a parar o envio de telemetria.
 - *Alterar Ponto de Definição da Temperatura*: controla os valores de telemetria de temperatura simulados enviados pelo dispositivo. Isso é útil para testar a lógica de back-end:
 - *Diagnosticar Telemetria*: controla se o dispositivo deve enviar a temperatura externa como telemetria.
-- *Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
+- * Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
 
 Você pode adicionar mais dispositivos simulados à solução que emite a mesma telemetria e responde aos mesmos comandos.
 
@@ -111,7 +110,7 @@ O portal da solução é uma interface de usuário baseada na Web implantado na 
 - Envie comandos para dispositivos específicos.
 - Gerencie regras e ações.
 
-Nesta solução pré-configurada, o portal de solução faz parte do **back-end de solução IoT** e parte da **Conectividade de processamento e de negócios** em uma [arquitetura de solução IoT][lnk-what-is-azure-iot] típica.
+Nesta solução pré-configurada, o portal de solução faz parte do **back-end de solução IoT** e parte da **Conectividade de processamento e de negócios** na [arquitetura de solução IoT][lnk-what-is-azure-iot] típica.
 
 ## Próximas etapas
 
@@ -131,4 +130,4 @@ Agora você sabe o que é uma solução pré-configurada, poderá começar pela 
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

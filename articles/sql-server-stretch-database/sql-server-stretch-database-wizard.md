@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Comece ao executar o assistente Habilitar o Banco de Dados de Ampliação
@@ -21,6 +21,8 @@
 Para configurar um banco de dados para Banco de Dados de Stretch, execute o assistente Habilitar Banco de Dados para Stretch. Este tópico descreve as informações que você precisa inserir e as escolhas que você deve fazer no assistente.
 
 Para saber mais sobre o Banco de Dados de Stretch, confira [Banco de Dados de Stretch](sql-server-stretch-database-overview.md).
+
+ >   [AZURE.NOTE] Mais tarde, se você desabilitar o Stretch Database, lembre-se de que desabilitar o Stretch Database para uma tabela ou para um banco de dados não exclui o objeto remoto. Se deseja excluir a tabela remota ou o banco de dados remoto, você deve descartá-la(o) usando o Portal de Gerenciamento do Azure. Os objetos remotos continuam a incorrer em custos do Azure até você excluí-los manualmente.
 
 ## Iniciar o assistente
 
@@ -64,7 +66,7 @@ Se você quiser fornecer uma função de filtro para selecionar as linhas para m
 
     ![Definir uma função de filtro][StretchWizardImage2a]
 
-2.  Na caixa de diálogo **Selecionar linhas para alongar**, selecione **Escolher linhas**.
+2.  Na caixa de diálogo **Selecionar linhas para alongar**, selecione **Escolher Linhas**.
 
 3.  No **campo Nome**, forneça um nome para a função do filtro.
 
@@ -191,4 +193,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

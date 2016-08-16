@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Visão geral da Análise Microsoft Azure Data Lake | Azure" 
-   description="A Análise Data Lake é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho. A Análise Data Lake possibilita isso da maneira mais simples, mais escalonável e mais econômica possível." 
+   description="A Análise Data Lake é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho. A Análise Data Lake possibilita isso da maneira mais simples, mais escalonável e mais econômica possível. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -25,7 +25,7 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
 
 ## Principais recursos
 
-- **Escala dinâmica** 
+- **Escala dinâmica**
 
     A Análise Data Lake foi projetada desde o início para proporcionar escala e desempenho na nuvem. Ela provisiona recursos de maneira dinâmica e permitir a análise de dados em terabytes ou até mesmo em exabytes. Ao final do trabalho, o serviço deixa de usar os recursos automaticamente, e você paga apenas pela potência de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de computação usada aumenta ou diminui, você não precisa reescrever os códigos. Isso permite que você se concentre apenas na lógica dos seus negócios e não em como você processa e armazena grandes conjuntos de dados.
 
@@ -67,6 +67,7 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
     - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
     - [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Acessando os logs de diagnóstico do Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 - Tutorial de ponta a ponta
     - [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +78,4 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
     - [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
     - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

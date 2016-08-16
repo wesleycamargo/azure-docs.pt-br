@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Introdução ao Agendador do Azure no Portal do Azure
@@ -25,7 +25,7 @@
 
 2.  Clique em **+Novo** > digite _Agendador_ na caixa de pesquisa > selecione **Agendador** nos resultados > clique em **Criar**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Trabalho do Agendador**, insira as seguintes informações:
 
@@ -43,7 +43,7 @@
 
     3.  **URL:** ` http://www.microsoft.com`
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Finalmente, vamos definir uma agenda. O trabalho pode ser definido como um único trabalho, mas convém escolher uma agenda de recorrência:
 
@@ -55,7 +55,7 @@
 
     4. **Terminar**: dois dias após a data de hoje
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Clique em **Criar**
 
@@ -73,7 +73,7 @@ Depois que um trabalho é criado, ele aparece no painel principal do Azure. Cliq
 
 5.  Usuários
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Propriedades
 
@@ -182,4 +182,4 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

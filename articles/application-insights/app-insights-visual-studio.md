@@ -98,6 +98,7 @@ Para encontrar anomalias em seus dados, escolha uma das opções de anomalias na
 
 ![Tendências](./media/app-insights-visual-studio/51.png)
 
+[Mais sobre tendências](app-insights-visual-studio-trends.md).
 
 ## O que vem a seguir?
 
@@ -109,4 +110,4 @@ Para encontrar anomalias em seus dados, escolha uma das opções de anomalias na
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->
