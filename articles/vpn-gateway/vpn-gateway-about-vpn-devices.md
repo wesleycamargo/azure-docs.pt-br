@@ -118,7 +118,9 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Versão IKE | IKEv1 | IKEv2 |
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
-| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - | | Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Consulte *Ofertas de SA (Associação de Segurança) de IPsec do Gateway baseado em Rota* (abaixo) | | PFS (Perfect Forward Secrecy) | Não | Sim (DH Group 1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
+| Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
+| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Consulte *Ofertas de SA (Associação de Segurança) de IPsec do Gateway baseado em Rota* (abaixo) |
+| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group 1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -142,7 +144,8 @@ A tabela a seguir lista as Ofertas de Criptografia e Autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida | | 18 | - | AH MD5, sem tempos de vida |
+| 17 | - | AH SHA, sem tempos de vida |
+| 18 | - | AH MD5, sem tempos de vida |
 
 
 - Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN baseados em rota e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso nos cenários de comunicação entre vnets ou quando a criptografia está sendo aplicada em outro lugar na solução.
