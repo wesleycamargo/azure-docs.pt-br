@@ -1,7 +1,7 @@
 <properties
 pageTitle="Saiba como usar o conector do Barramento de Serviço do Azure nos seus aplicativos lógicos | Microsoft Azure"
 description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila, receber da assinatura, etc."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do Barramento de Serviço do Azure
@@ -75,10 +75,28 @@ Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas 
 Esta operação envia uma mensagem para uma fila ou um tópico.
 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|message*|Mensagem|Mensagem a ser enviada|
+|ContentData*|Conteúdo|Conteúdo da mensagem|
+|ContentType|Tipo de conteúdo|Tipo do conteúdo da mensagem|
+|Propriedades|Propriedades|Pares de chave-valor para cada propriedade agenciada|
 |entityName*|Nome da fila/do tópico|Nome da fila ou do tópico|
+
+Esses parâmetros avançados também estão disponíveis:
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|MessageId|ID da Mensagem|Esse é um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|Para|Para|Endereço de envio|
+|ReplyTo|Responder Para|Endereço da fila para a qual responder|
+|ReplyToSessionId|ID da Sessão Responder Para|Identificador da sessão para a qual responder|
+|Rótulo|Rótulo|Rótulo específico do aplicativo|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Data e hora, em UTC, de quando a mensagem será adicionada à fila|
+|SessionId|Id da Sessão|Identificador da sessão|
+|CorrelationId|ID de correlação|Identificador da correlação|
+|TimeToLive|Vida Útil|Essa é a duração, em tiques, pela qual uma mensagem é válida. A duração inicia quando a mensagem é enviada ao Barramento de Serviço.|
+
+
 
 Um * indica que uma propriedade é obrigatória
 
@@ -89,9 +107,10 @@ Um * indica que uma propriedade é obrigatória
 Esta operação dispara um fluxo quando uma mensagem é recebida em uma fila.
 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
 |queueName*|Nome da fila|Nome da fila|
+
 
 Um * indica que uma propriedade é obrigatória
 
@@ -104,7 +123,6 @@ ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem
 |---|---|---|
 |ContentData|string|Conteúdo da mensagem|
 |ContentType|string|Tipo do conteúdo da mensagem|
-|ContentTransferEncoding|string|Codificação de transferência do conteúdo da mensagem. ("nenhuma"|"base64")|
 |Propriedades|objeto|Pares de chave-valor para cada propriedade agenciada|
 |MessageId|string|Esse é um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
 |Para|string|Endereço de envio|
@@ -123,10 +141,11 @@ ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem
 Esta operação dispara um fluxo quando uma mensagem é recebida em uma assinatura de tópico.
 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
 |topicName*|Nome do tópico|Nome do tópico|
 |subscriptionName*|Nome da assinatura do tópico|Nome da assinatura do tópico|
+
 
 Um * indica que uma propriedade é obrigatória
 
@@ -139,7 +158,6 @@ ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem
 |---|---|---|
 |ContentData|string|Conteúdo da mensagem|
 |ContentType|string|Tipo do conteúdo da mensagem|
-|ContentTransferEncoding|string|Codificação de transferência do conteúdo da mensagem. ("nenhuma"|"base64")|
 |Propriedades|objeto|Pares de chave-valor para cada propriedade agenciada|
 |MessageId|string|Esse é um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
 |Para|string|Endereço de envio|
@@ -171,4 +189,4 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

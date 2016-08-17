@@ -101,6 +101,8 @@ Opção 2: especifique um nome, o tamanho e o nome do conjunto de disponibilidad
 
 Para os valores de InstanceSize para máquinas virtuais da série D, DS ou G, confira [Tamanhos de máquina virtual e serviços de nuvem no Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+>[AZURE.NOTE] Se você tiver um Enterprise Agreement com Software Assurance e quiser usufruir do [Benefício de Uso Híbrido](https://azure.microsoft.com/pricing/hybrid-use-benefit/) do Windows Server, adicione o parâmetro **- LicenseType** no cmdlet **New-AzureVMConfig**, passando o valor **Windows\_Server** para um caso de uso típico. Verifique se você está usando uma imagem que carregou. Você não pode usar uma imagem padrão da Galeria com o Benefício de Uso Híbrido.
+
 Opcionalmente, para um computador Windows autônomo, especifique a conta de administrador local e a senha.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
@@ -175,7 +177,7 @@ Se você estiver usando um editor de texto, copie o conjunto de comandos para a 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
 - Salvar este conjunto de comandos como um arquivo de script do PowerShell (*.ps1).
-- Salve esse conjunto de comandos como um runbook da Automação do Azure na seção **Automação** do portal clássico do Azure.
+- Salve este conjunto de comandos como um runbook de Automação do Azure na seção **automação** do portal clássico do Azure.
 
 ## <a id="examples"></a>Exemplos
 
@@ -258,6 +260,6 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 ## Próximas etapas
 
-Se precisar de um disco de sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
+Se precisar de um disco do sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

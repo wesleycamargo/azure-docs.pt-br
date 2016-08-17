@@ -3,7 +3,7 @@
    description="Entenda como os Azure Functions escalam para atender às necessidades das cargas de trabalho orientadas por eventos."
    services="functions"
    documentationCenter="na"
-   authors="eduardolaureano"
+   authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
@@ -15,8 +15,8 @@
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="edlaure"/>
+   ms.date="08/03/2016"
+   ms.author="dariagrigoriu"/>
 
 # Como dimensionar os Azure Functions
 
@@ -47,4 +47,4 @@ Ao criar funções, você pode optar por executá-las em um plano de Serviço Di
 
 [AZURE.INCLUDE [Plano de Serviço Dinâmico](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

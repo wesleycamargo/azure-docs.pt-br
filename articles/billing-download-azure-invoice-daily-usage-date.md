@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como baixar sua fatura de cobrança e dados de uso diário do Azure | Microsoft Azure"
 	description="Descreve como baixar sua fatura de cobrança e dados de uso diário do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -33,4 +33,4 @@ Como o administrador da conta do Azure, é possível exibir a fatura atual no Ce
 6. Selecione **Baixar Fatura** para ver uma cópia de sua última fatura. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Selecione **Baixar Uso** para baixar os dados de uso diário como um arquivo CSV.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

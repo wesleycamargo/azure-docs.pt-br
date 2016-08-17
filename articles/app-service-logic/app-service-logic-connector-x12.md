@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Usando o Conector do BizTalk X12 em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure" 
    description="Como criar e configurar o Conector do BizTalk X12 ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -87,4 +87,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

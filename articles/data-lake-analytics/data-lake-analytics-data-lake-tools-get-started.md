@@ -1,6 +1,6 @@
 <properties
    pageTitle="Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio | Azure"
-   description="Saiba como instalar ferramentas do Data Lake para o Visual Studio, como desenvolver e testar scripts U-SQL."
+   description="Saiba como instalar ferramentas do Data Lake para o Visual Studio, como desenvolver e testar scripts U-SQL. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
@@ -132,18 +132,18 @@ Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
     - **Expandir * colunas**
 
-        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse sobre o sublinhado azul e clique na seta para baixo. ![Expansão das ferramentas do Data Lake para Visual Studio *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Clique em **Expandir Colunas**, a ferramenta substituirá o * pelos nomes de coluna.
 
 	- **Formatação Automática**
 
-		Os usuários podem alterar o recuo do script Escopo com base na estrutura de código em Editar -> Avançado:
+		Os usuários podem alterar o recuo do script U-SQL com base na estrutura de código em Editar -> Avançado:
 
-		- Formatar Documento (Ctrl + E, D): Formata o documento inteiro   
-		- Formatar Seleção (Ctrl + K, Ctrl + F): Formata a seleção. Se nenhuma seleção for feita, esse atalho formatará a linha na qual o cursor está posicionado.  
+		- Formatar Documento (Ctrl + E, D): Formata o documento inteiro
+		- Formatar Seleção (Ctrl + K, Ctrl + F): Formata a seleção. Se nenhuma seleção for feita, esse atalho formatará a linha na qual o cursor está posicionado.
 
-		Todas as regras de formatação podem ser configuradas em Ferramentas -> Opções -> Editor de Texto - > SIP -> Formatação.  
+		Todas as regras de formatação podem ser configuradas em Ferramentas -> Opções -> Editor de Texto - > SIP -> Formatação.
 	- **Recuo Inteligente**
 
 		As Ferramentas do Data Lake para Visual Studio recuam automaticamente as expressões enquanto você escreve os scripts. Esse recurso está desabilitado por padrão, e os usuários precisam habilitá-lo marcando a opção U-SQL -> Opções e Configurações -> Opções -> Habilitar o Recuo Inteligente.
@@ -172,7 +172,7 @@ Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
 	![Gráfico de desempenho de trabalho de Análise Data Lake do SQL-U do Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-	* Resumo do Trabalho. Mostra as informações resumidas do trabalho atual, por exemplo: Estado, Progresso, Tempo de Execução, Nome do Tempo de Execução, Emissor etc.   
+	* Resumo do Trabalho. Mostra as informações resumidas do trabalho atual, por exemplo: Estado, Progresso, Tempo de Execução, Nome do Tempo de Execução, Emissor etc.
 	* Detalhes do Trabalho. Inclui informações detalhadas sobre esse trabalho, incluindo o script, recursos, Exibição de Execuções de Vértice.
 	* Gráfico do Trabalho. Há quatro gráficos para visualização das informações do trabalho: Progresso, Leitura de Dados, Dados Gravados, Tempo de Execução, Tempo de Execução Médio por Nó, Taxa de Transferência de Entrada, Taxa de Transferência de Saída.
 	* Operações de Metadados. Mostra todas as operações de metadados.
@@ -272,7 +272,7 @@ O procedimento a seguir só funciona no Visual Studio 2015. No Visual Studio mai
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Definir pontos de interrupção no código C#.
-4.	Pressione **F5** para depurar o script referenciando o dll do C# localmente.  
+4.	Pressione **F5** para depurar o script referenciando o dll do C# localmente.
 
 ##Consulte também
 
@@ -291,7 +291,7 @@ Para ver mais tópicos de desenvolvimento:
 
 ##Apêndice A - Amostra do PowerShell para preparar o tutorial
 
-O script do PowerShell a seguir prepara uma conta da Análise do Azure Data Lake e os dados de origem para você, de modo que é possível pular para [Desenvolver scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+O script do PowerShell a seguir prepara uma conta do Azure Data Lake Analytics e os dados de origem para você, de modo que é possível pular para [Desenvolver scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -361,4 +361,4 @@ O script do PowerShell a seguir prepara uma conta da Análise do Azure Data Lake
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

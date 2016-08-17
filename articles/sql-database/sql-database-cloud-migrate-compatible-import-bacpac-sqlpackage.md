@@ -3,7 +3,7 @@
    description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, importar arquivo BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@ Use as etapas abaixo para usar o utilitário de linha de comando [SqlPackage.exe
 1. Abra um prompt de comando e altere um diretório com o utilitário de linha de comando sqlpackage.exe - esse utilitário é fornecido com o Visual Studio e o SQL Server.
 2. Execute o seguinte comando sqlpackage.exe com os seguintes argumentos para o seu ambiente:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:< nome\_do\_servidor > /tdn: < nome\_do\_banco\_de\_dados > /tu: /tp < nome\_de\_usuário >: < senha > /sf: < arquivo\_de\_origem >
 
 	| Argumento | Descrição |
 	|---|---|
-	| < server_name > | nome do servidor de destino |
-	| < database_name > | nome do banco de dados de destino |
-	| < user_name > | o nome de usuário no servidor de destino |
-	| < password > | a senha do usuário |
-	| < source_file > | o nome e o local do arquivo BACPAC que está sendo importado |
+	| < nome\_do\_servidor > | nome do servidor de destino |
+	| < nome\_do\_banco\_de\_dados > | nome do banco de dados de destino |
+	| < nome\_de\_usuário > | o nome de usuário no servidor de destino |
+	| < senha > | a senha do usuário |
+	| < arquivo\_de\_origem > | o nome e o local do arquivo BACPAC que está sendo importado |
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -60,4 +60,4 @@ Use as etapas abaixo para usar o utilitário de linha de comando [SqlPackage.exe
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

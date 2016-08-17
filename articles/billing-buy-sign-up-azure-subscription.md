@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como se inscrever, comprar, atualizar ou ativar uma assinatura do Azure | Microsoft Azure"
 	description="Descreve como comprar ou inscrever-se em uma assinatura do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@ Se você comprou créditos do **Azure via Open** de um revendedor e recebeu uma 
 
 3. Insira a chave do produto (Product Key) e marque a opção de contrato.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

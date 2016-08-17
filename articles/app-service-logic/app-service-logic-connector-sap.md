@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o conector SAP em Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o conector SAP ou o aplicativo de API e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
    manager="erikre"
@@ -54,18 +54,21 @@ Um conector pode ser criado em um Aplicativo lógico ou diretamente no Azure Mar
 
 ## Configurar o Aplicativo de API do conector SAP recém-criado ##
 
-Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> <Nome do Aplicativo de API recém-criado> e você verá o comportamento a seguir. A instalação está incompleta pois a conexão híbrida ainda não foi estabelecida: ![][2]
+Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> <Nome do Aplicativo de API recém-criado> e você verá o comportamento a seguir. A instalação está incompleta pois a conexão híbrida ainda não foi estabelecida:  
+![][2]
 
 O conector SAP exige uma conectividade híbrida para conectar *qualquer* ponto de extremidade SAP. Para estabelecer a conectividade híbrida, faça o seguinte:
 
 1. Copie a cadeia de conexão principal
 2. Clique no link “Baixar e configurar”
 3. Siga o processo de instalação que é iniciado e forneça a cadeia de conexão principal quando for solicitado
-4. Quando o processo de instalação for concluído, uma caixa de diálogo semelhante a esta será exibida: ![][3]
+4. Quando o processo de instalação for concluído, uma caixa de diálogo semelhante a esta será exibida:  
+![][3]
 
 Mais detalhes sobre [como integrar um servidor SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
 
-Agora, quando você procurar o Aplicativo de API novamente, observará que o status da conexão híbrida será Conectado: ![][4]
+Agora, quando você procurar o Aplicativo de API novamente, observará que o status da conexão híbrida será Conectado:  
+![][4]
 
 Observação: caso você queira trocar para a cadeia de conexão secundária, basta fazer novamente a configuração híbrida e fornecer a cadeia de conexão secundária em vez da cadeia principal
 
@@ -73,11 +76,14 @@ Observação: caso você queira trocar para a cadeia de conexão secundária, ba
 
 O conector SAP pode ser usado como uma ação/etapa somente em um Aplicativo lógico.
 
-Ao criar/editar um Aplicativo lógico, escolha o Aplicativo de API do conector SAP criado acima. Isso listará todas as ações permitidas que podem ser escolhidas: ![][5]
+Ao criar/editar um Aplicativo lógico, escolha o Aplicativo de API do conector SAP criado acima. Isso listará todas as ações permitidas que podem ser escolhidas:  
+![][5]
 
-Após a seleção de uma ação, ela listará os parâmetros de entrada da ação. Forneça os valores adequados e clique no ícone de Tique: ![][6]
+Após a seleção de uma ação, ela listará os parâmetros de entrada da ação. Forneça os valores adequados e clique no ícone de Tique:  
+![][6]
 
-Agora, a etapa/ação aparece conforme configurada no Aplicativo lógico. As saídas da operação serão mostradas e entradas poderão ser usadas em uma etapa posterior: ![][7]
+Agora, a etapa/ação aparece conforme configurada no Aplicativo lógico. As saídas da operação serão mostradas e entradas poderão ser usadas em uma etapa posterior:  
+![][7]
 
 Conclua o Aplicativo lógico para definir o processo comercial e execute-o para chegar ao objetivo desejado.
 
@@ -99,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0803_2016-->

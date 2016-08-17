@@ -30,10 +30,11 @@ Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperaç
 - VMs clássicas
 - VMs de armazenamento Padrão
 - VMs de armazenamento Premium
+- VMs criptografadas usando o Azure Disk Encryption, com BEK e KEK (com suporte usando o Powershell)
 
 Para obter informações adicionais sobre como proteger VMs de armazenamento Premium, confira [Backup e restauração de VMs de armazenamento Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e tenha tomado medidas para permitir que o serviço de backup acesse a VM. O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Este artigo deve ser usado com o Resource Manager e com as VMs implantadas com o Resource Manager.
+>[AZURE.NOTE] Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e tenha tomado medidas para permitir que o serviço de backup acesse a VM. O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Este artigo deve ser usado com o Resource Manager e com as VMs implantadas com o Resource Manager.
 
 De forma geral, veja as etapas que você concluirá.
 
@@ -86,7 +87,7 @@ Agora que você criou o cofre, saiba como configurar a replicação de armazenam
 
 ### Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e com [redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -159,7 +160,7 @@ Após a implantação de uma política de backup na máquina virtual, isso não 
 
 ![Backup pendente](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-A menos que o backup inicial esteja prestes a começar, é recomendável que você execute o **Backup Agora**.
+A menos que o backup inicial esteja prestes a começar, é recomendável que você execute **Fazer Backup Agora**.
 
 Para executar o **Backup Agora**:
 
@@ -171,7 +172,7 @@ Para executar o **Backup Agora**:
 
     ![Ícone Configurações](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    O Trabalho de backup será disparado. <br/>
+    O trabalho de Backup será disparado. <br/>
 
     ![Trabalho de backup iniciado](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
@@ -213,10 +214,10 @@ Assim que o Agente de VM for instalado na máquina virtual, o serviço Backup do
 A extensão de backup será instalada pelo serviço Backup, esteja a VM em execução ou não. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup do Azure continuará a realizar o backup da VM mesmo quando ela estiver desativada e a extensão não puder ser instalada. Isso é conhecido como VM Offline. Nesse caso, o ponto de recuperação será *consistente com a falha*.
 
 ## Informações sobre solução de problemas
-Se você tiver problemas para realizar algumas das tarefas neste artigo, consulte as [Diretrizes da solução de problemas](backup-azure-vms-troubleshoot.md).
+Se você tiver problemas para realizar algumas das tarefas neste artigo, confira as [Diretrizes da solução de problemas](backup-azure-vms-troubleshoot.md).
 
 
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

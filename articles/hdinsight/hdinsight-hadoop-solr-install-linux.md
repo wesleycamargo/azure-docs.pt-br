@@ -106,7 +106,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Isso emitirá uma consulta à __coleção1__ para qualquer documento correspondente a __*:*__ (codificado como *%3A* na cadeia de consulta), especificando também que a resposta deve ser retornada como JSON. A resposta deve se assemelhar ao seguinte:
+	Isso emitirá uma consulta à __coleção1__ para qualquer documento correspondente a __\*:\*__ (codificado como \*%3A\* na cadeia de consulta), especificando também que a resposta deve ser retornada como JSON. A resposta deve se assemelhar ao seguinte:
 
 			"response": {
 			    "numFound": 2,
@@ -184,7 +184,7 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
 
 3. Nas entradas abaixo de __collection1__, selecione __Consulta__. Use os valores a seguir para preencher a página de pesquisa:
 
-	* Na caixa de texto **q**, digite ***:***. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
+	* Na caixa de texto **q**, digite **\*:**\*. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
 
 	* Na caixa de texto **wt**, selecione o formato de saída. O padrão é **json**.
 

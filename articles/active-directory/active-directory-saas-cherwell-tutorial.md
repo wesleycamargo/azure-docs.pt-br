@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="07/27/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao Cherwell
@@ -62,6 +62,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 7.  No painel de resultados, selecione **Cherwell** e clique em **Concluir** para adicionar o aplicativo.
 ##Configurando o logon único
 
+	![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
+
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Cherwell com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -78,17 +80,21 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no **Cherwell** (por exemplo: **https://pictdev.cherwellondemand.com/cherwellclient*)).
-    2.  Clique em **Próximo**.
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar em **Cherwell** (por exemplo: *https://\<company name>.cherwellondemand.com/cherwellclient*).
+
+    b. Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Cherwell**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configurar o logon único")
 
-    1.  Clique em **Baixar certificado** e salve o certificado localmente no computador.
-    2.  Copie a **URL do Provedor de Identidade**.
-    3.  Copie a **URL de Serviço de Logon Único**.
-    4.  Clique em **Próximo**.
+    a. Clique em **Baixar certificado** e salve o certificado localmente no computador.
+
+    b. Copie a **URL do Provedor de Identidade**.
+
+    c. Copie a **URL de Serviço de Logon Único**.
+
+    d. Clique em **Próximo**.
 
 5.  Envie o certificado de download, a **URL do Provedor de Identidade** e a **URL do Serviço de Logon Único** para a equipe de suporte do Cherwell.
 
@@ -97,6 +103,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
     ![Configurar o logon único](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configurar o logon único")
+
 ##Configurando o provisionamento de usuários
 
 Para permitir que os usuários do AD do Azure façam logon no Cherwell, eles devem ser provisionados no Cherwell. No caso do Cherwell, as contas de usuário precisam ser criadas pela equipe de suporte do Cherwell.
@@ -121,4 +128,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

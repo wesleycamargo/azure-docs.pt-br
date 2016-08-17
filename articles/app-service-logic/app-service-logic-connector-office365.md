@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Conector do Office 365 em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o Conector do Office 365 ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -131,4 +131,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

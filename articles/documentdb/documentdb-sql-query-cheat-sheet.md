@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# PDF de consulta SQL do Banco de Dados de Documentos
+# PDF da folha de consulta SQL do Banco de Dados de Documentos
 
 A **Folha de Consulta SQL do Banco de Dados de Documentos** ajuda a escrever rapidamente consultas de dados do Banco de Dados de Documentos exibindo consultas comuns de banco de dados, palavras-chave, funções internas e operadores em uma folha de referência em PDF fácil de imprimir.
 
@@ -31,7 +31,7 @@ Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usand
 
 ![Roteiro de consulta SQL do Banco de Dados de Documentos: um PDF de referência rápida à sintaxe SQL compatível com o Banco de Dados de Documentos — roteiro do SQL, PDF do roteiro do SQL, referência rápida do SQL][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## Mais ajuda para escrever consultas SQL
@@ -39,4 +39,8 @@ Escreva suas consultas mais rapidamente baixando a folha de consulta SQL e usand
 - Para obter um passo a passo das opções de consulta disponíveis no Banco de Dados de Documentos, veja [Consultar o Banco de Dados de Documentos](documentdb-sql-query.md).
 - Para obter a documentação de referência relacionada, veja [Linguagem de consulta SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+## Notas de versão
+
+Atualizado em 29/07/2016 para incluir TOP.
+
+<!---HONumber=AcomDC_0803_2016-->

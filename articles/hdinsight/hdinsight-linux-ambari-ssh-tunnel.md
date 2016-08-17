@@ -144,14 +144,14 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **clusternodes** – Apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – ***internal.cloudapp.net*** – Isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno de nós do cluster.
+	* **Padrão de URL** – **\*internal.cloudapp.net\*** – Isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno de nós do cluster.
 
 	![padrão do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
 
     Adicione outro padrão, usando as seguintes informações para as configurações:
 
     * __Nome do Padrão__ -headnode
-    * __Padrão da URL__ - *headnodehost*
+    * __Padrão da URL__ - \*headnodehost\*
 
     Selecione OK para salvar esse padrão.
 

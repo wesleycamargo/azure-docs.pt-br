@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure
@@ -25,27 +25,15 @@ Este artigo é uma referência para desenvolvedores implementarem conjuntos de t
 Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
 - Onde posso encontrar um aplicativo cliente do .NET de exemplo para testar o desempenho do Banco de Dados de Documentos do Azure?
-- Quais são os principais fatores que afetam o desempenho de ponta a ponta das solicitações feitas ao Banco de Dados de Documentos do Azure?
 - Como posso obter altos níveis de taxa de transferência com o Banco de Dados de Documentos do Azure do meu aplicativo cliente?
 
 Para começar com o código, baixe o projeto do [Exemplo de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark).
 
 > [AZURE.NOTE] A meta desse aplicativo é demonstrar práticas recomendadas para extrair melhor desempenho do Banco de Dados de Documentos com um número menor de computadores cliente. Ele não foi feito para demonstrar a capacidade máxima do serviço, que pode ser dimensionada sem limites.
 
-## Principais opções de configuração
-O Banco de Dados de Documentos é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e taxa de transferência. Você não precisa fazer grandes alterações de arquitetura ou escrever códigos complexos para dimensionar a camada de banco de dados com o Banco de Dados de Documentos. Escalar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada à API ou chamada de método do SDK. No entanto, ao testar em grande escala, é importante observar que o Banco de Dados de Documentos é acessado por meio de chamadas de rede. Se você estiver escrevendo um aplicativo cliente autônomo para testar o desempenho do Banco de Dados de Documentos, precisará configurá-lo adequadamente para combater o impacto da latência de rede nas suas medições de desempenho.
+Se você estiver procurando opções de configuração do cliente para melhorar o desempenho de Banco de Dados de Documentos, consulte [Dicas de desempenho de Banco de Dados de Documentos](documentdb-performance-tips.md).
 
-Para obter o melhor desempenho de ponta a ponta com o Banco de Dados de Documentos, considere as seguintes opções de configuração de cliente:
-
-- **Aumentar o número de threads/tarefas**: como as chamadas ao Banco de Dados de Documentos são feitas pela rede, talvez seja necessário variar o grau de paralelismo de suas solicitações para que o aplicativo cliente espere bem pouco tempo entre as solicitações. Por exemplo, se você estiver usando a [Biblioteca de Paralelismo de Tarefas](https://msdn.microsoft.com//library/dd460717.aspx) do .NET, crie centenas de tarefas de leitura ou gravação no Banco de Dados de Documentos.
-- **Testar na mesma região do Azure**: quando possível, faça testes de uma máquina virtual ou Serviço de Aplicativo implantado na mesma região do Azure. Para obter uma comparação aproximada, chamadas ao Banco de Dados de Documentos na mesma região são concluídos de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é > 50 ms.
-- **Aumentar Conexões Máximas do System.Net por host**: as solicitações do Banco de Dados de Documentos são feitas por HTTPS/REST por padrão e estão sujeitas aos limites de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir isso como um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas ao Banco de Dados de Documentos. No .NET, isso é [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
-- **Ativar coleta de lixo no lado do servidor**: a redução da frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
-- **Usar Conectividade Direta**: use a [Conectividade direta](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) para obter o melhor desempenho.
-- **Implementar retirada em intervalos RetryAfter**: durante o teste de desempenho, você deverá aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação no intervalo de nova tentativa do servidor especificado. Isso garante que você perca o mínimo de tempo de espera entre as tentativas. Confira [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
-- **Escalar sua carga de trabalho de cliente horizontalmente**: se você estiver testando em altos níveis de produtividade (mais de 50.000 RU/s), o aplicativo cliente poderá fazer um afunilamento devido à limitação do computador na utilização da CPU ou da Rede. Se você chegar a este ponto, poderá continuar a forçar a conta do Banco de Dados de Documentos escalando seus aplicativos clientes horizontalmente entre vários servidores.
-
-## Introdução
+## Execute o aplicativo de teste de desempenho
 A maneira mais rápida de começar é compilar e executar o exemplo do .NET abaixo, conforme descrito nas etapas abaixo. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus aplicativos clientes.
 
 **Etapa 1:** baixe o projeto do [Exemplo de Teste de Desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou divida o repositório GitHub.
@@ -104,14 +92,15 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET abai
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](documentdb-indexing-policies.md) e [Níveis de consistência](documentdb-consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 
-## Resumo
-Neste artigo, nós examinamos como você pode executar testes de desempenho e escalabilidade com o Banco de Dados de Documentos usando um aplicativo de console do .NET e as principais opções de configuração revisadas para obter o melhor desempenho do Banco de Dados de Documentos do Azure. Consulte os links abaixo para saber mais sobre como trabalhar com o Banco de Dados de Documentos.
+## Próximas etapas
+Neste artigo, analisamos como você pode executar testes de documentos e dimensionamento com o Banco de Dados de Documentos usando um aplicativo de console .NET. Consulte os links abaixo para saber mais sobre como trabalhar com o Banco de Dados de Documentos.
 
 * [Exemplo de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Opções de configuração do cliente para melhorar o desempenho do Banco de Dados de Documentos](documentdb-performance-tips.md)
 * [Particionamento do lado servidor no Banco de Dados de Documentos](documentdb-partition-data.md)
 * [Coleções e níveis de desempenho do Banco de Dados de Documentos](documentdb-performance-levels.md)
 * [Documentação do SDK .NET do Banco de Dados de Documentos no MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

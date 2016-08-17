@@ -1,89 +1,69 @@
 <properties
-   pageTitle="Objetos de Aplicativo e de Entidade de Serviço | Microsoft Azure"
-   description="Uma discussão sobre a relação entre objetos de Aplicativo e ServicePrincipal no Active Directory do Azure"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   services="active-directory"
-   editor=""/>
+pageTitle="Objetos de entidade de serviço e aplicativo do Azure Active Directory | Microsoft Azure"
+description="Uma discussão sobre a relação entre objetos de aplicativo e de entidade de serviço no Azure Active Directory"
+documentationCenter="dev-center-name"
+authors="bryanla"
+manager="mbaldwin"
+services="active-directory"
+editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="05/16/2016"
-   ms.author="mbaldwin"/>
+ms.service="active-directory"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="identity"
+ms.date="07/14/2016"
+ms.author="bryanla;mbaldwin"/>
+
+# Objetos de entidade de serviço e aplicativo no Azure Active Directory
+Quando você lê sobre um "aplicativo" do Azure Active Directory (AD), nem sempre é exatamente claro a que o autor se refere. O objetivo deste artigo é deixar isso claro, definindo os aspectos conceituais e concretos de integração de aplicativos do Azure AD, seguidos de um exemplo de registro e consentimento para um [aplicativo multilocatário](active-directory-dev-glossary.md#multi-tenant-application).
+
+## Visão geral
+Um aplicativo do Azure AD é mais amplo do que apenas um software. É um termo conceitual, que se refere não apenas ao software de aplicativo, mas também a seu registro (também conhecido como: configuração de identidade) no Azure AD, o que permite que ele participe de "conversas" de autenticação e autorização em tempo de execução. Por definição, um aplicativo pode funcionar em uma função de [cliente](active-directory-dev-glossary.md#client-application) (consumindo um recurso), uma função de [servidor de recursos](active-directory-dev-glossary.md#resource-server) (expondo APIs a clientes) ou ambos. O protocolo de conversa é definido por um [fluxo de Concessão de Autorização OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), com o objetivo de permitir que o cliente/recurso acesse/proteja dados de um recurso, respectivamente. Agora vamos nos aprofundar e ver como o modelo de aplicativo do Azure AD representa um aplicativo internamente.
+
+## Registro de aplicativo
+Quando você registra um aplicativo no [portal clássico do Azure](https://manage.windowsazure.com), dois objetos são criados no locatário do Azure AD: um objeto de aplicativo e um objeto de entidade de serviço.
+
+#### Objeto de aplicativo
+Um aplicativo do Azure AD é *definido* por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, sendo conhecido como o locatário "inicial" do aplicativo. O objeto de aplicativo fornece informações relacionadas à identidade de um aplicativo e é o modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso em tempo de execução.
+
+Você pode considerar o aplicativo como a representação *global* de seu aplicativo (para uso em todos os locatários) e a entidade de serviço como a representação *local* (para uso em um locatário específico). A [entidade de Aplicativo][AAD-Graph-App-Entity] do Azure AD Graph define o esquema para um objeto de aplicativo. Portanto, um objeto de aplicativo tem uma relação de um a um com o aplicativo de software e uma relação de um a *n* com seus *n* objetos de entidades de serviço correspondentes.
+
+#### Objeto de entidade de serviço
+O objeto de serviço define a política e as permissões para um aplicativo, fornecendo a base para que uma entidade de segurança represente o aplicativo ao acessar recursos em tempo de execução. A [entidade ServicePrincipal][AAD-Graph-Sp-Entity] do Azure AD Graph define o esquema para um objeto de entidade de serviço.
+
+Um objeto de entidade de serviço é necessário em cada locatário para o qual uma instância do uso do aplicativo deve ser representada, habilitando o acesso seguro aos recursos pertencentes a contas de usuário do locatário. Um aplicativo com locatário único terá apenas uma entidade de serviço (em seu locatário inicial); um [aplicativo Web](active-directory-dev-glossary.md#web-client) multilocatário terá o mesmo, além de uma entidade de serviço em cada locatário em que o aplicativo recebeu consentimento de um administrador ou de usuários do locatário para acessar seus recursos. Após o consentimento, o objeto de entidade de serviço será consultado para futuras solicitações de autorização.
+
+> [AZURE.NOTE] As alterações feitas no objeto de aplicativo também são refletidas apenas no objeto de entidade de serviço do locatário inicial do aplicativo (o locatário em que ele foi registrado). Se o aplicativo for configurado para acesso multilocatário, as alterações no objeto de aplicativo não serão refletidas em objetos de entidade de serviço de locatários de consumidor até que o locatário do consumidor remova o acesso e o conceda novamente.
+
+## Exemplo
+O diagrama a seguir ilustra o relacionamento entre o objeto de aplicativo de um aplicativo e os objetos de entidade de serviço correspondentes, no contexto de um aplicativo multilocatário de exemplo chamado **aplicativo de HR**. Há três locatários do Azure AD nesse cenário:
+
+- **Adatum** - o locatário usado pela empresa que desenvolveu o **aplicativo de HR**
+- **Contoso** - locatário utilizado pela empresa Contoso, que é consumidora do **aplicativo de HR**
+- **Fabrikam** - o locatário usado pela organização Fabrikam, que também consome o **aplicativo de HR**
+
+![Relação entre um objeto de aplicativo e um objeto de entidade de serviço](./media/active-directory-application-objects/application-objects-relationship.png)
+
+No diagrama acima, a Etapa 1 é o processo de criação do aplicativo e dos objetos de entidade de serviço no locatário inicial do aplicativo.
+
+Na Etapa 2, quando os administradores da Contoso e da Fabrikam concluem o consentimento e concedem acesso ao aplicativo, um objeto de entidade de serviço é criado no locatário do Azure AD da empresa e recebe as permissões concedidas pelo administrador da empresa. Observe também que o aplicativo de RH pode ser configurado/projetado para permitir o consentimento pelos usuários para uso individual.
+
+Na Etapa 3, os locatários de consumidor do aplicativo de RH (por exemplo, Contoso e Fabrikam) têm seus próprios objetos de entidade de serviço que representam seu uso de uma instância do aplicativo em tempo de execução, controlado pelas permissões fornecidas pelo administrador.
+
+## Próximas etapas
+Um objeto de aplicativo do aplicativo pode ser acessado por meio da API do Graph do Azure AD, conforme representado por sua [entidade de Aplicativo](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ApplicationEntity) OData
+
+Um objeto de entidade de serviço do aplicativo pode ser acessado por meio da API do Graph do Azure AD, conforme representado por sua [entidade ServicePrincipal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference?branch=master#ServicePrincipalEntity) OData
 
 
-# Objetos de Aplicativo e de Entidade de Serviço
 
-Este diagrama ilustra a relação entre um objeto de Aplicativo e um objeto ServicePrincipal no contexto de um aplicativo de exemplo chamado **aplicativo HR**. Há três locatários: **Adatum**, o locatário que desenvolve o aplicativo, e **Contoso** e **Fabrikam**, os locatários que consomem o **aplicativo HR**.
+<!--Image references-->
 
-![Relação entre um objeto de Aplicativo e um objeto ServicePrincipal](./media/active-directory-application-objects/application-objects-relationship.png)
+<!--Reference style links -->
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
+[AZURE-classic-portal]: https://manage.windowsazure.com
 
-
-Quando você registra um aplicativo no Portal de Gerenciamento do Azure, dois objetos são criados em seu locatário de diretório:
-
-- **Objeto de aplicativo**: esse objeto representa uma definição para seu aplicativo. Você pode encontrar uma descrição detalhada de suas propriedades na seção **Objeto de Aplicativo** abaixo.
-
-- **Objeto ServicePrincipal**: esse objeto representa uma instância de seu aplicativo em seu locatário de diretório. Você pode aplicar políticas a objetos ServicePrincipal, incluindo a atribuição de permissões para o ServicePrincipal que permitem que o aplicativo leia dados de diretório do locatário. Sempre que você altera o objeto de Aplicativo, as alterações também são aplicadas ao objeto ServicePrincipal associado em seu locatário.
-
-
-> [AZURE.NOTE] Se seu aplicativo estiver configurado para acesso externo, as alterações no objeto de aplicativo não serão refletidas no ServicePrincipal de um locatário consumidor até que o locatário do consumidor remova o acesso e conceda-o novamente.
-
-
-
-No diagrama acima, a etapa "1" é o processo de criação de objetos de Aplicativo e ServicePrincipal.
-
-Na etapa 2, quando um administrador de empresa concede acesso, um objeto ServicePrincipal é criado no locatário do AD do Azure da empresa e é atribuído a ele o nível de acesso de diretório que o administrador da empresa concedeu.
-
-Na etapa 3, os locatários do consumidor de um aplicativo (por exemplo, Contoso e Fabrikam) têm, cada um, seu próprio objeto ServicePrincipal que representa sua instância do aplicativo. Nesse exemplo, cada um deles tem um ServicePrincipal que representa o aplicativo de RH.
-
-
-
-
-
-## Propriedades de Objeto de Aplicativo
-
-As tabelas a seguir listam todas as propriedades de um objeto de aplicativo e incluem detalhes importantes para os desenvolvedores. Essas propriedades se aplicam a aplicativos Web, APIs Web e aplicativos cliente nativos que são registrados com o AD do Azure.
-
-
-### Geral
-
-Propriedade | Descrição
-| ------------- | -----------
-| Nome | Nome de exibição do aplicativo. Propriedade necessária no assistente para **Adicionar Aplicativo**.
-| Logotipo | Logotipo do aplicativo que representa seu aplicativo ou empresa. Esse logotipo permite que usuários externos associem mais facilmente a solicitação de concessão de acesso a seu aplicativo. Ao carregar um logotipo, siga as especificações no assistente para **Carregar logotipo**. Se você não fornecer um logotipo, o logotipo padrão será exibido.
-| Acesso externo | Determina se os usuários em organizações externas podem conceder a seu aplicativo o logon único e o acesso aos dados no diretório da organização. Esse controle afeta apenas a capacidade de conceder acesso. Ele não altera o acesso já foi concedido. Somente Administradores de Empresas podem conceder acesso.
-
-
-### Logon Único
-
-Propriedade | Descrição
-| ------------- | -----------
-| URI da ID do Aplicativo | Um identificador exclusivo lógico para seu aplicativo. Propriedade necessária no assistente para **Adicionar Aplicativo**. <br><br>Como o URI de ID do aplicativo é um identificador lógico, ele não precisa ser resolvido como um endereço da Internet. Ele é apresentado por seu aplicativo ao enviar uma solicitação de logon único ao AD do Azure. O AD do Azure identifica seu aplicativo e envia a resposta de logon (um token SAML) à URL de resposta que foi fornecida durante o registro do aplicativo. Use o valor do URI de ID de Aplicativo para definir a propriedade wtrealm (para WS-Federation) ou a propriedade Issuer (para SAML-P) ao fazer uma solicitação de entrada. O **URI de ID de Aplicativo** deve ser um valor exclusivo no AD do Azure de sua organização.<br><br>**Observação**: ao se habilitar um aplicativo para usuários externos, o valor do URI de ID de Aplicativo do aplicativo deve ser um endereço em um dos domínios verificados do diretório. Como resultado, ele não pode ser um URN. Essa segurança impede que outras organizações especifiquem (e utilizem) uma propriedade exclusiva que pertence à sua organização. Durante o desenvolvimento, você pode alterar o URI de ID de aplicativo para um local no domínio inicial de sua organização (se você ainda não verificou um domínio personalizado/intuitivo) e atualizar seu aplicativo para usar esse novo valor. O domínio inicial é o domínio de nível 3 que você cria durante a inscrição, como contoso.onmicrosoft.com.
-| URL do aplicativo | O endereço de uma página da Web em que os usuários podem entrar e usar seu aplicativo. Propriedade em necessária no assistente para **Adicionar Aplicativo**.<br><BR>**Observação**: o valor definido para essa propriedade no assistente para Adicionar Aplicativo também é definido como o valor da URL de resposta.
-| URL de resposta | O endereço físico de seu aplicativo. O AD do Azure envia um token com a resposta de logon único para esse endereço. Durante o primeiro registro no assistente para **Adicionar Aplicativo**, o valor definido para a URL do aplicativo também é definido como o valor da URL de resposta. Ao fazer uma solicitação de entrada, use o valor de URL de resposta para definir a propriedade wreply (para WS-Federation) ou a propriedade **AssertionConsumerServiceURL** (para SAML-P).<br><BR>**Observação**: ao se habilitar um aplicativo para usuários externos, a URL de resposta deve ser um endereço **https://**. 
-| URL de metadados de Federação | (Opcional). Representa a URL física do documento de metadados de federação para seu aplicativo. É necessário para dar suporte à saída de SAML-P. O AD do Azure baixa o documento de metadados que é hospedado nesse ponto de extremidade e usa-o para descobrir a parte pública do certificado que você usa para verificar a assinatura em suas solicitações de saída e a URL de saída do aplicativo. Você não pode configurar essa propriedade ao adicionar seu aplicativo. Ele só pode ser configurado mais tarde.<br><BR>**Observação**: se você precisar dar suporte à saída de SAML-P, mas não tiver um ponto de extremidade de metadados de federação para seu aplicativo, entre em contato com o Atendimento ao Cliente para obter outras opções.
-
-
-### Chamar o Graph API ou APIs Web
-
-Propriedade | Descrição
-| ------------- | -----------
-| ID do cliente | O identificador exclusivo lógico para seu aplicativo. Você precisa usar esse identificador em chamadas para o Graph API ou outras APIs Web registradas no AD do Azure. O AD do Azure gera automaticamente esse valor durante o registro do aplicativo e ele não pode ser alterado.<BR><BR>Para habilitar seu aplicativo a acessar o diretório (para acesso de leitura ou gravação) por meio do Graph API, você precisa de uma ID de Cliente e de uma chave (conhecida no OAuth 2.0 como um segredo do cliente). Seu aplicativo usa a ID do cliente e a chave para solicitar um token de acesso do ponto de extremidade de token OAuth do 2.0 do AD do Azure. (Para exibir todos os pontos de extremidade do AD do Azure, na barra de comandos, clique em **Exibir pontos de extremidade**.) Ao usar o Graph API para obter ou definir dados de diretório (alteração), seu aplicativo usa esse token de acesso no cabeçalho de Autorização da solicitação para o Graph API.
-| Chaves | Se seu aplicativo lê ou grava dados no AD do Azure, como dados que são disponibilizados por meio do Graph API, seu aplicativo precisa de uma chave. Quando você solicita um token de acesso para chamar o Graph API, seu aplicativo fornece sua **ID de cliente** e **Chave**. O ponto de extremidade do token usa a ID e a chave para autenticar seu aplicativo antes de emitir o token de acesso. Você pode criar várias chaves para lidar com cenários de substituição de chave. Além disso, pode excluir chaves expiradas, comprometidas ou não mais em uso.
-| Gerenciar acesso | Escolha um dos três diferentes níveis de acesso: SSO (logon único), SSO e dados de diretório de leitura ou SSO e dados de diretório de leitura/gravação. Você também pode remover o acesso. <br><BR>**Observação**: as alterações no nível de acesso do diretório do seu aplicativo aplicam-se somente ao seu diretório. As alterações não se aplicam aos clientes que têm acesso a seu aplicativo.
-
-
-### Clientes nativos
-
-Propriedade | Descrição
-| ------------- | -----------
-| URI de redirecionamento | O URI para o qual o AD do Azure redirecionará o agente do usuário em resposta a uma solicitação de autorização OAuth 2.0. O valor não precisa ser um ponto de extremidade físico, mas deve ser um URI válido.
-
-##
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

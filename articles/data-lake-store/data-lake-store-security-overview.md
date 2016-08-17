@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/18/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Segurança no Armazenamento do Azure Data Lake
@@ -68,7 +68,7 @@ Para obter instruções, confira [Atribuir usuários ou grupos de segurança às
 
 ### Usando ACLs para as operações nos sistemas de arquivos
 
-O Azure Data Lake Store é um sistema de arquivos hierárquico, como o HDFS, compatível com [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), que permite ler (r), gravar (w) e executar (x) os direitos de acesso aos recursos concedidos para o proprietário, grupo proprietário e outros usuários/grupos. Na Visualização Pública do Repositório Data Lake (versão atual), as ACLs estão habilitadas somente na pasta-raiz, que significa que as ACLs aplicadas na pasta-raiz também são aplicáveis a todas as pastas/arquivos filhos também. Nas futuras versões, você poderá definir as ACLs em qualquer arquivo ou pasta.
+O Azure Data Lake Store é um sistema de arquivos hierárquico, como o HDFS, compatível com [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists), que permite ler (r), gravar (w) e executar (x) os direitos de acesso aos recursos concedidos para o proprietário, grupo proprietário e outros usuários/grupos. No Data Lake Store Visualização Pública (versão atual), as ACLs podem ser habilitadas na pasta raiz, nas subpastas, bem como em arquivos individuais. As ACLs que se aplicam à pasta raiz também se aplicarão a todos os arquivos/pastas filhos também.
 
 É recomendável definir as ACLs para muitos usuários usando [grupos de segurança](../active-directory/active-directory-accessmanagement-manage-groups.md). Agrupe os usuários em um grupo de segurança, em seguida, atribua as ACLs do arquivo e da pasta a esse grupo de segurança. Isso é útil ao fornecer um acesso personalizado, pois há um limite no qual você pode adicionar apenas um máximo de nove entradas como parte do acesso personalizado. Confira [Atribuir usuários ou grupo de segurança como ACLs ao sistema de arquivos do Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions) para obter mais informações sobre como proteger os dados armazenados no Data Lake Store usando grupos de segurança do AAD.
 
@@ -109,6 +109,8 @@ Você pode habilitar as trilhas de auditoria de acesso aos dados no portal do Az
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico**.
 
+Para saber mais sobre como trabalhar com logs de diagnóstico com o Azure Data Lake Store, consulte [Acessar logs de diagnóstico para o Azure Data Lake](data-lake-store-diagnostic-logs.md).
+
 ## Resumo
 
 Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que seja segura e fácil de usar. O Repositório Azure Data Lake foi projetado para endereçar esses requisitos com o gerenciamento da identidade e a autenticação através da integração do Azure Active Direction, das ACLs baseadas na autorização, isolamento da rede, criptografia do dados em trânsito e repouso (no futuro) e auditoria.
@@ -121,4 +123,4 @@ Se você quiser ver os novos recursos incluídos no Data Lake Store, envie seus 
 - [Introdução ao Repositório Data Lake](data-lake-store-get-started-portal.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -35,7 +35,7 @@ As Máquinas Virtuais do Azure, o Gerenciador de Recursos do Azure e o Cofre da 
       - os modelos para implantar as chaves
       - os modelos para implantar uma VM com referências às chaves
       - os materiais de chave reais no Cofre. Cada modelo (e ação) pode estar em diferentes funções RBAC para separação total das tarefas.
-- O carregamento de segredos em uma VM no momento da implantação ocorre por meio do canal direto entre a Malha do Azure e o Cofre da Chave nos limites do datacenter da Microsoft. Depois que as chaves estiverem no Cofre da Chave, elas nunca mais verão a "luz do sol" em um canal não confiável fora do datacenter.  
+- O carregamento de segredos em uma VM no momento da implantação ocorre por meio do canal direto entre a Malha do Azure e o Cofre da Chave nos limites do datacenter da Microsoft. Depois que as chaves estiverem no Cofre da Chave, elas nunca mais verão a "luz do sol" em um canal não confiável fora do datacenter.
 - Os Cofres das Chaves são sempre regionais, de modo que os segredos mantêm sempre a localidade (e a soberania) em relação às máquinas virtuais. Não há nenhum Cofre da Chave global.
 
 ### Separação das chaves de implantações
@@ -339,4 +339,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para configurar o roteamento e o encaminhamento de IP, consulte [Criar UDRs (Rotas Definidas pelo Usuário) no Resource Manager usando um modelo](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

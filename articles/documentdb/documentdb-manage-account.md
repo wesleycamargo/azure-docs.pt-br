@@ -144,4 +144,4 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 [azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
 [offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!------HONumber=AcomDC_0727_2016-->

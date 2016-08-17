@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Serviço Web de Aplicativos Móveis do Servidor MFA
@@ -51,9 +51,9 @@ Se o SDK de Serviço Web do Azure Multi-Factor Authentication já não estiver i
 ## Instalar o Serviço Web de Aplicativos Móveis
 Antes de instalar o Serviço Web de Aplicativos Móveis, esteja ciente do seguinte:
 
-- Se o Portal do Usuário do Azure Multi-Factor Authentication já estiver instalado no servidor da Internet, o nome de usuário, senha e URL do SDK do Serviço Web podem ser copiados do arquivo web.config do Portal do usuário. 
+- Se o Portal do Usuário do Azure Multi-Factor Authentication já estiver instalado no servidor da Internet, o nome de usuário, senha e URL do SDK do Serviço Web podem ser copiados do arquivo web.config do Portal do usuário.
 - É recomendável abrir um navegador Web no servidor Web da Internet e navegar até a URL do SDK de Serviço Web que foi inserido no arquivo web.config. Se o navegador conseguir chegar ao serviço Web com êxito, ele deve solicitar credenciais. Insira o nome de usuário e a senha que foram inseridos no arquivo web.config exatamente como ele aparece no arquivo. Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
-- Se um proxy reverso ou firewall estiver à frente do servidor Web do Serviço Web de Aplicativos Móveis e executar o descarregamento de SSL, você pode editar o arquivo web.config do Serviço Web de Aplicativos Móveis e adicionar a seguinte chave à seção <appSettings> para que o Serviço Web de Aplicativos Móveis possa usar http em vez de https. No entanto, o SSL ainda é exigido do Aplicativo Móvel para o firewall/proxy reverso. <add key="SSL_REQUIRED" value="false"/> 
+- Se um proxy reverso ou firewall estiver à frente do servidor Web do Serviço Web de Aplicativos Móveis e executar o descarregamento de SSL, você pode editar o arquivo web.config do Serviço Web de Aplicativos Móveis e adicionar a seguinte chave à seção <appSettings> para que o Serviço Web de Aplicativos Móveis possa usar http em vez de https. No entanto, o SSL ainda é exigido do Aplicativo Móvel para o firewall/proxy reverso. <add key="SSL\_REQUIRED" value="false"/>
 
 ### Para instalar o Serviço Web de Aplicativos Móveis
 
@@ -83,11 +83,11 @@ Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa c
 2. Marque a caixa Permitir que usuários ativem o aplicativo móvel.
 3. Marque a caixa Permitir registro de usuário.
 4. Clique no ícone Aplicativos Móveis.
-5. Insira a URL que está sendo usada com o diretório virtual que foi criado ao instalar o Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Um Nome da conta pode ser inserido no espaço fornecido. Este nome de empresa será exibido no aplicativo móvel. Se ficar em branco, o nome do seu Provedor de Autenticação Multifator criado no Portal de Gerenciamento do Azure será exibido. 
+5. Insira a URL que está sendo usada com o diretório virtual que foi criado ao instalar o Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. Um Nome da conta pode ser inserido no espaço fornecido. Este nome de empresa será exibido no aplicativo móvel. Se ficar em branco, o nome do seu Provedor de Autenticação Multifator criado no Portal de Gerenciamento do Azure será exibido.
 
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

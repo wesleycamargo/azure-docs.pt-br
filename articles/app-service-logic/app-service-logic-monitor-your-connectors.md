@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gerenciar e monitorar conectores e aplicativos de API no Serviço de Aplicativo | Microsoft Azure"
-	description="Visualizar o desempenho de conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços"
+	description="Exibir o desempenho de conectores e de Aplicativos de API nos Aplicativos Lógicos; arquitetura de microsserviços"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # Gerenciar e monitorar aplicativos de API e conectores internos
@@ -110,14 +110,14 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 - Selecione **Definição de API** para abrir o arquivo de Swagger criado automaticamente para o seu aplicativo de API específico.
 - Selecione **Dependências** para exibir os arquivos exigidos pelo aplicativo de API. Por exemplo: ao usar o conector SAP, você instala alguns arquivos adicionais no Gerenciador de Conexão Híbrida local. Essas dependências são mostradas na folha do aplicativo de API.
 
-> [AZURE.IMPORTANT] Quando você abre as propriedades do aplicativo de API e visualiza **Fundamentos**, há links de **Host** e **Gateway** que abrem novas folhas:
+>[AZURE.IMPORTANT] Quando você abre as propriedades do aplicativo de API e visualiza **Fundamentos**, há links de **Host** e **Gateway** que abrem novas folhas:
 >
 > ![][host]
 >
-> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway.
+>Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se você tiver criado seu aplicativo de API no Visual Studio e o implantado em sua assinatura do Azure, poderá usar as folhas Host e Gateway. <br/><br/>
 
 
->[AZURE.NOTE] Se quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Criar seu aplicativo do Serviço de Aplicativo Azure](https://tryappservice.azure.com/?appservice=logic). Você pode criar um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+>[AZURE.NOTE] Para começar a usar os Aplicativos Lógicos antes de se inscrever para uma conta do Azure, vá para [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar um aplicativo lógico de início e de curta duração. Nenhum cartão de crédito é exigido e não há compromissos.
 
 ## Leia mais
 
@@ -137,4 +137,4 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

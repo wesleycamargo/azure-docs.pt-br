@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Cartão de crédito ou débito recusado durante a inscrição | Microsoft Azure"
 	description="Discute as causas comuns de problemas de inscrição do Microsoft Azure como a recusa de um cartão de crédito ou débito."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="cartão de crédito recusado, cartão de débito recusado, seu cartão de crédito foi recusado, não aceita o cartão de crédito"/>
 
 <tags
@@ -41,4 +41,4 @@ Para usar a opção de pagamento por fatura, você deverá representar uma empre
 
 Para iniciar o processo de configuração de uma fatura, confira [Cobrança do Azure – como faturar](https://azure.microsoft.com/pricing/invoicing/) para obter detalhes.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

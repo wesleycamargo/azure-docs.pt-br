@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/21/2016" 
+	ms.date="08/09/2016" 
 	ms.author="daviste"/>
 
 
@@ -58,7 +58,7 @@ Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e e
 
 Execute seu aplicativo com F5 e experimente: abra páginas diferentes para gerar alguma telemetria.
 
-No Visual Studio, você verá uma contagem dos eventos que foram registrados.
+No Visual Studio, você vê uma contagem dos eventos que foram registrados.
 
 ![No Visual Studio, no botão Application Insights é exibido durante a depuração.](./media/app-insights-asp-net/54.png)
 
@@ -88,10 +88,22 @@ Abra o recurso Application Insights no [Portal do Azure](https://portal.azure.co
 
 O portal é aberto em uma exibição da telemetria do aplicativo: ![](./media/app-insights-asp-net/66.png)
 
-* Eventos individuais são mostrados em **Pesquisar** (1). Os dados são mostrados aqui pela primeira vez (e no[Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Clique em qualquer evento para ver suas propriedades.
+* A primeira telemetria aparece no [Fluxo de Métricas Ativo](app-insights-metrics-explorer.md#live-metrics-stream).
+* Eventos individuais são mostrados em **Pesquisar** (1). Os dados podem levar alguns minutos para serem mostrados. Clique em qualquer evento para ver suas propriedades.
 * As métricas agregadas são exibidas nos gráficos (2). Pode levar alguns minutos para que os dados sejam exibidos aqui. Clique em qualquer gráfico para abrir uma folha com mais detalhes.
 
 [Saiba mais sobre como usar o Application Insights no portal do Azure](app-insights-dashboards.md).
+
+## 4\. Publicar seu aplicativo
+
+Publica seu aplicativo no servidor IIS ou no Azure. Observe o [Fluxo de Métricas Ativo](app-insights-metrics-explorer.md#live-metrics-stream) para verificar se tudo está funcionando corretamente.
+
+Você verá a telemetria se acumulando no portal do Application Insights, em que você pode monitorar as métricas, pesquisar a telemetria e configurar [painéis](app-insights-dashboards.md). Você também pode usar a poderosa [Linguagem de consulta de análise](app-insights-analytics.md) para analisar o uso e o desempenho ou encontrar eventos específicos.
+
+Você também pode continuar a analisar a telemetria no [Visual Studio](app-insights-visual-studio.md) com ferramentas como pesquisa de diagnóstico e [Trends](app-insights-visual-studio-trends.md).
+
+> [AZURE.NOTE] Se seu aplicativo enviar telemetria suficiente para se aproximar das [limitações](app-insights-pricing.md#limits-summary), a [amostragem](app-insights-sampling.md) automática será ativada. A amostragem reduz a quantidade de telemetria enviada do seu aplicativo, preservando dados correlacionados para fins de diagnóstico.
+
 
 ##<a name="land"></a> Qual a função de "Adicionar o Application Insights"?
 
@@ -107,7 +119,7 @@ O comando fazia três coisas:
 
 Se desejar, você poderá executar essas etapas manualmente para [ASP.NET 4](app-insights-asp-net-manual.md) ou [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
-## Como atualizar para versões futuras do SDK
+### Como atualizar para versões futuras do SDK
 
 Para atualizar para uma [nova versão do SDK](app-insights-release-notes-dotnet.md), abra o Gerenciador de pacotes do NuGet e filtre os pacotes instalados. Selecione Microsoft.ApplicationInsights.Web e escolha Atualizar.
 
@@ -119,8 +131,8 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
 | | 
 |---|---
-|**[Trabalhar com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Depurar com telemetria, pesquisa de diagnóstico, detalhar para o código.|![Visual studio](./media/app-insights-asp-net/61.png)
+|**[Trabalhar com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Depurar com telemetria, pesquisa de diagnóstico, detalhar para o código.|![Visual Studio](./media/app-insights-asp-net/61.png)
 |**[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

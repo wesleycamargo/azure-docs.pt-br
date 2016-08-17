@@ -1,13 +1,14 @@
-<properties 
-	pageTitle="Tutorial: Análise de sentimento usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure | Microsoft Azure" 
-	description="Como aproveitar o UDF e o aprendizado de máquina em trabalhos do stream analytics"
+<properties
+	pageTitle="Análise de sentimento usando o Stream Analytics do Azure e o Aprendizado de Máquina do Azure | Microsoft Azure"
+	description="Como usar uma função definida pelo usuário e o Aprendizado de Máquina em um trabalho do Stream Analytics"
 	keywords=""
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
+
 
 <tags 
 	ms.service="stream-analytics" 
@@ -19,135 +20,129 @@
 	ms.author="jeffstok"
 />
 
-# Tutorial: Executar análise de sentimento usando o Stream Analytics e o Aprendizado de Máquina #
+# Análise de sentimento usando o Stream Analytics do Azure e o Aprendizado de Máquina do Azure #
 
-Este tutorial é projetado para ajudá-lo a configurar rapidamente um trabalho de Stream Analytics simples com a integração do Aprendizado de Máquina. Vamos aproveitar um Modelo do Aprendizado de Máquina da Análise de Sentimento da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Este é um bom tutorial para entender cenários como análise de sentimento em tempo real do fluxo de dados do Twitter, análise de registro do chat do cliente com a equipe de suporte, comentários em fóruns/blogs/vídeos e muitos outros cenários preditivos com pontuação em tempo real.
-  
-Neste tutorial, um arquivo CSV com texto (como mostrado na Figura 1 abaixo) é fornecido como entrada no Armazenamento de Blobs do Azure. O trabalho aplicará o modelo de análise de sentimento como uma UDF (função definida pelo usuário) nos dados de texto de exemplo do armazenamento de blob. O resultado final será colocado no mesmo Armazenamento de Blobs do Azure em outro arquivo CSV. Um diagrama dessa configuração é fornecido na Figura 2 abaixo. Para um cenário mais realista, essa entrada do armazenamento de blob pode ser substituída pelo fluxo de dados do Twitter usando uma entrada de Hub de Eventos do Azure. Além disso, uma visualização em tempo real do sentimento total pode ser criada com o [Power BI](https://powerbi.microsoft.com/) As próximas iterações deste artigo incluirão essas extensões.
+Este artigo é projetado para ajudar você a configurar rapidamente um trabalho simples do Stream Analytics do Azure com a integração do Aprendizado de Máquina do Azure. Usaremos um modelo de análise de sentimento do Aprendizado de Máquina da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. As informações neste artigo podem ajudar você a compreender cenários, como a análise de sentimento em tempo real sobre o fluxo de dados do Twitter, analisar os registros de chats de clientes com a equipe de suporte e avaliar comentários em fóruns, blogs e vídeos, além de muitos outros cenários de pontuação preditiva em tempo real.
 
-Figura 1:
+Este artigo oferece um arquivo CSV com texto como entrada no Armazenamento de Blobs do Azure, mostrado na imagem a seguir. O trabalho aplica o modelo de análise de sentimento como uma UDF (função definida pelo usuário) nos dados de texto de exemplo do armazenamento de blob. O resultado final é colocado no mesmo armazenamento de blob em outro arquivo CSV.
 
-![figura 1 tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
+![Aprendizado de Máquina do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
 
-Figura 2:
+A imagem a seguir demonstra essa configuração. Para um cenário mais realista, você pode substituir o Armazenamento de Blobs pela transmissão de dados do Twitter de uma entrada de Hubs de Eventos do Azure. Além disso, você pode compilar uma visualização em tempo real do [Microsoft Power BI](https://powerbi.microsoft.com/) do sentimento agregado.
 
-![figura 2 tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
+![Aprendizado de Máquina do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
 
 ## Pré-requisitos
 
-Os pré-requisitos para este artigo são os seguintes:
+Os pré-requisitos para concluir as tarefas que são demonstradas neste artigo são da seguinte maneira:
 
-1.	Uma assinatura ativa do Azure
-2.	Um arquivo CSV com alguns dados. O arquivo mostrado na Figura 2 [em GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) para download, ou você pode criar um. Este tutorial foi escrito presumindo o uso do arquivo disponível para download.
+-	Uma assinatura ativa do Azure.
+-	Um arquivo CSV com alguns dados. Você pode baixar o arquivo mostrado na Figura 1 do [GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) ou pode criar seu próprio arquivo. Neste artigo, presumimos que você use aquele fornecido para download no GitHub.
 
-Em um alto nível, estas etapas serão executadas:
+Em um nível alto, para concluir as tarefas demonstradas neste artigo, você fará o seguinte:
 
-1.	Carregar o arquivo CSV de entrada no Armazenamento de Blobs
-2.	Adicionar um modelo de Análise de Sentimento da Galeria do Cortana Intelligence ao seu espaço de trabalho do Aprendizado de Máquina
-3.	Implantar esse modelo como um serviço Web no espaço de trabalho do Aprendizado de Máquina do Azure
-4.	Criar um trabalho do Stream Analytics que chama o serviço Web como uma função para determinar o sentimento da entrada de texto
-5.	Iniciar o trabalho do Stream Analytics e observar a saída
+1.	Carregue o arquivo CSV de entrada para o Armazenamento de Blobs do Azure.
+2.	Adicione um modelo de Análise de Sentimento da Galeria do Cortana Intelligence ao seu espaço de trabalho do Aprendizado de Máquina do Azure.
+3.	Implante este modelo como um serviço Web no espaço de trabalho do Aprendizado de Máquina.
+4.	Crie um trabalho do Stream Analytics que chama o serviço Web como uma função para determinar o sentimento da entrada de texto.
+5.	Inicie o trabalho do Stream Analytics e observe a saída.
 
+## Carregue o arquivo CSV de entrada para o Armazenamento de Blobs
 
-## Carregar o arquivo CSV de entrada para o Armazenamento de Blobs
+Nesta etapa, você pode usar qualquer arquivo CSV, como já foi especificado, como disponível para download no GitHub. Você pode usar o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) ou o Visual Studio para carregar o arquivo, ou pode usar um código personalizado. Podemos usar exemplos com base no Visual Studio.
 
-Nesta etapa, você pode usar qualquer arquivo CSV, incluindo aquele especificado na introdução. O [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) e o Visual Studio podem ser usados para carregar o arquivo, bem como o código personalizado. Para este tutorial, os exemplos fornecidos são para o Visual Studio.
+1.	No Visual Studio, clique em **Azure** > **Armazenamento** > **Anexar Armazenamento Externo**. Insira um **Nome da Conta** e uma **Chave de Conta**.
 
-1.	Expanda o Azure e clique com o botão direito do mouse em **Armazenamento**. Escolha **Anexar Armazenamento Externo** e forneça o **Nome da Conta** e a **Chave de Conta**.
+    ![Aprendizado de Máquina do Stream Analytics, Gerenciador de Servidores](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
-    ![gerenciador de servidores tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
+2.	Expanda o armazenamento conectado na etapa 1, clique em **Criar contêiner de blob** e, em seguida, insira um nome lógico. Depois de criar o contêiner, abra-o para exibir seu conteúdo. (Ele estará vazio neste momento).
 
-2.	Expanda o armazenamento que você acabou de anexar, escolha **Criar Contêiner de Blob** e forneça um nome lógico. Uma vez criado, clique duas vezes no contêiner para exibir seu conteúdo (que está vazio neste momento).
+    ![Aprendizado de Máquina do Stream Analytics, criar blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
 
-    ![criar blob tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
-
-3.	Carregue o arquivo CSV clicando no ícone **Carregar Blob** e escolha **arquivo do disco local**.
+3.	Para carregar o arquivo CSV, clique em **Carregar blob** e, em seguida, clique no **arquivo do disco local**.
 
 ## Adicione o modelo de análise de sentimento da Galeria do Cortana Intelligence
 
-1.	Baixe o [modelo preditivo de análise de sentimento](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) na Galeria do Cortana Intelligence.
-2.	Clique em **Abrir** no Estúdio:
+1.	Baixe o [modelo preditivo de análise de sentimento](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) da Galeria do Cortana Intelligence.
+2.	No Estúdio de Aprendizado de Máquina, clique em **Abrir no Studio**.
 
-    ![abrir estúdio de aprendizado de máquina tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
+    ![Aprendizado de Máquina do Stream Analytics, abrir o Estúdio de Aprendizado de Máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
-3.	Entre para ser levado ao espaço de trabalho. Escolha o local mais adequado à sua localização.
-4.	Agora clique em **Executar** na parte inferior do Estúdio
-5.	Depois que ele tiver sido executado com êxito, clique em **Implantar o Serviço Web**.
-6.	O modelo de análise de sentimento está pronto para uso. Para validá-lo, clique no botão **testar** e insira o texto de entrada, como "Eu adoro a Microsoft", e o teste deve retornar um resultado semelhante ao mostrado abaixo:
+3.	Entre para acessar o espaço de trabalho. Selecione o local mais adequado à sua localização.
+4.	Clique em **Executar** na parte inferior da página.
+5.	Depois que o processo tiver sido executado com êxito, clique em **Implantar Serviço Web**.
+6.	O modelo de análise de sentimento está pronto para uso. Para validar, clique no botão **Testar** e forneça o texto de entrada, como "Eu adoro a Microsoft". O teste deve retornar um resultado semelhante ao seguinte:
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
-![dados de análise tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
+![Aprendizado de Máquina do Stream Analytics, dados de análise](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
 
-Clique no link da pasta de trabalho do **Excel 2010 ou anterior** para obter a chave de API e a URL necessária para configurar mais tarde o trabalho do Stream Analytics. (Esta etapa só é necessária para aproveitar um modelo de aprendizado de máquina do espaço de trabalho de outra conta do Azure. Este tutorial presume que é pertinente tratar desse cenário.)
+Na coluna **Aplicativos**, clique no link da pasta de trabalho do **Excel 2010 ou anterior** para obter a chave de API e a URL necessária para configurar o trabalho do Stream Analytics posteriormente. (Esta etapa só é necessária para usar um modelo de Aprendizado de Máquina do espaço de trabalho de outra conta do Azure. Este artigo presume que é pertinente tratar desse cenário.)
 
-![tutorial stream analytics aprendizado de máquina experimento de análise](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
+Observe a URL do serviço Web e a tecla de acesso do arquivo Excel baixado, como mostrado abaixo:
 
-Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, como mostrado abaixo:
+![Aprendizado de Máquina do Stream Analytics, visão rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)
 
-![tutorial stream analytics aprendizado de máquina visão rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)
+## Criar um trabalho do Stream Analytics que usa o modelo de Aprendizado de Máquina
 
-## Criar um trabalho de Stream Analytics que usa o modelo de aprendizado de máquina
+1.	Vá para o [Portal do Azure](https://manage.windowsazure.com).
+2.	Clique em **Novo** > **Serviços de Dados** > **Stream Analytics** > **Criação Rápida**. Insira um nome para o trabalho em **Nome do trabalho**, insira a região apropriada para o trabalho em **Região** e, em seguida, selecione a conta em **Conta de armazenamento de monitoramento regional**.
+3.	Depois que o trabalho for criado, na guia **Entradas**, clique em **Adicionar uma entrada**.
 
-1.	Navegue até o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
-2.	Clique em **Novo**, **Serviços de Dados**, **Stream Analytics** e **Criação Rápida**. Forneça o **Nome do Trabalho**, a **Região** adequada para o trabalho e escolha uma **Conta de armazenamento de monitoramento regional**.
-3.	Depois que o trabalho for criado, navegue até a guia **Entradas** e clique em **Adicionar Entrada**.
+    ![Aprendizado de Máquina do Stream Analytics, adicionar entrada do Aprendizado de Máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
-    ![tutorial stream analytics aprendizado de máquina adicionar entrada de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
+4.	Na primeira página do assistente **Adicionar entrada**, clique em **Fluxo de dados** e, em seguida, clique em **Avançar**. Na página seguinte, clique em **Armazenamento de Blobs** como a entrada e, em seguida, clique em **Próximo**.
+5.	Na página **Configurações de Armazenamento de Blobs** do Assistente, indique o nome do contêiner de blob da conta de armazenamento definida anteriormente ao carregar os dados. Clique em **Próximo**. Para o **Formato de Serialização de Evento**, clique em **CSV**. Aceite os valores padrão para o restante da página **Definições de serialização**. Clique em **OK**.
+6.	Na guia **Saídas**, clique em **Adicionar uma saída**.
 
-4.	Na primeira página da janela do assistente **Adicionar Entrada**, selecione **Fluxo de dados** e clique em Avançar. Na segunda página, selecione **Armazenamento de Blobs** como entrada e clique em **Avançar**.
-5.	Na página **Configurações de Armazenamento de Blobs** do Assistente, indique o nome do contêiner de blob da conta de armazenamento definida anteriormente quando os dados foram carregados. Clique em **Avançar**. Escolha **CSV** como **Formato de Serialização de Evento**. Aceite os padrões para o restante das **Definições de serialização**. Clique em **OK**.
-6.	Navegue até a guia **Saídas** e clique em **Adicionar uma Saída**.
+    ![Aprendizado de Máquina do Stream Analytics, adicionar saída](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-    ![tutorial stream analytics aprendizado de máquina adicionar saída](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
+7.	Clique em **Armazenamento de Blobs** e, em seguida, insira os mesmos parâmetros, exceto para o contêiner. O valor para a **Entrada** foi configurado para ler o contêiner chamado "test" no qual o arquivo **CSV** foi carregado. Para a **Saída**, digite “testoutput”. Os nomes de contêiner devem ser diferentes. Verifique se esse contêiner existe.
+8.	Clique em **Avançar** para definir as **Configurações de serialização** de saída. Assim como acontece com a **Entrada**, clique em **CSV** e, em seguida, clique no botão **OK**.
+9.	Na guia **Funções**, clique em **Adicionar uma Função de Aprendizado de Máquina**.
 
-7.	Escolha **Armazenamento de Blobs** e forneça os mesmos parâmetros, com exceção do contêiner. A **Entrada** foi configurada para ler o contêiner chamado "test" no qual o arquivo **CSV** foi carregado. Em **Saída**, coloque "testoutput". Os nomes de contêiner precisam ser diferentes; verifique se o contêiner já existe.
-8.	Clique em **Avançar** para configurar as **Configurações de serialização** de saída. Assim como com a entrada, escolha **CSV** e clique no botão **OK**.
-9.	Navegue até a guia **Funções** e clique em **Adicionar uma Função de Aprendizado de Máquina**.
+    ![Aprendizado de Máquina do Stream Analytics, adicionar função do Aprendizado de Máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
-    ![tutorial stream analytics aprendizado de máquina adicionar função de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
+10.	Na página **Configurações do serviço Web Machine Learning** localize o espaço de trabalho do Aprendizado de Máquina, o serviço Web e o ponto de extremidade padrão. Para este artigo, aplique as configurações manualmente para se familiarizar com a configuração de um serviço Web para qualquer espaço de trabalho, desde que você saiba a URL e tenha a chave de API. Insira a **URL** e a **chave de API** do ponto de extremidade. Clique em **OK**.
 
-10.	Na página **Configurações do Serviço Web de Aprendizado de Máquina** localize o espaço de trabalho do Aprendizado de Máquina, o serviço Web e o ponto de extremidade padrão. Para este tutorial, aplique as configurações manualmente para se familiarizar com a configuração de um serviço Web para qualquer espaço de trabalho, desde que você saiba a URL e tenha a chave. Forneça a **URL** e a **chave de API** do ponto de extremidade. Em seguida, clique em **OK**.
+    ![Aprendizado de Máquina do Stream Analytics, serviço Web Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
-    ![tutorial stream analytics aprendizado de máquina serviço web de aprendizado de máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
+11.	Na guia **Consulta**, modifique a consulta da seguinte maneira:
 
-11.	Navegue até a guia **Consultar** e modifique a consulta da seguinte forma:
+ ```
+ 	WITH subquery AS (  
+ 		SELECT text, sentiment(text) as result from input  
+  	)  
+ 
+ 	Select text, result.[Score]  
+ 	Into output  
+ 	From subquery  
+ ```    
+12.	Clique em **Salvar** para salvar a consulta.
 
-```
-	WITH subquery AS (  
-		SELECT text, sentiment(text) as result from input  
-	)  
-	  
-	Select text, result.[Score]  
-	Into output  
-	From subquery  
-```    
+## Iniciar o trabalho do Stream Analytics e observar a saída
 
-Depois, basta clicar em **Salvar** para salvar a consulta.
+1.	Clique em **Iniciar** na parte inferior da página de trabalho.
+2.	No **Diálogo Iniciar Consulta**, clique em **Hora Personalizada** e, então, selecione uma hora anterior ao momento que você carregou o CSV para o Armazenamento de Blobs. Clique em **OK**.
 
-## Iniciar o Trabalho do Stream Analytics e observar a saída
+    ![Aprendizado de Máquina do Stream Analytics, hora personalizada](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)
 
-1.	Clique em **Iniciar** na parte inferior do trabalho.
-2.	No **Diálogo Iniciar Consulta**, escolha **Hora Personalizada** e selecione uma hora anterior à do upload do CSV para o Armazenamento de Blobs. Clique em **OK**.
+3.	Acesse o Armazenamento de Blobs usando a ferramenta utilizada para carregar o arquivo CSV, por exemplo, o Visual Studio.
+4.	Depois de alguns minutos do início do trabalho, o contêiner de saída é criado e um arquivo CSV é carregado nele.
+5.	Abra o arquivo no editor padrão CSV. Deve ser exibido algo semelhante ao seguinte:
 
-    ![tutorial stream analytics aprendizado de máquina hora personalizada](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)
-
-3.	Navegue até o Armazenamento de Blobs usando a ferramenta utilizada para carregar o arquivo CSV. Este tutorial usou o Visual Studio.
-4.	Depois de alguns minutos do início do trabalho, o contêiner de saída é criado e um arquivo CSV é carregado para ele.
-5.	Um clique duplo no arquivo abrirá o editor de CSV padrão e deverá mostrar algo semelhante a isto:
-
-    ![tutorial stream analytics aprendizado de máquina exibição csv](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)
+    ![Aprendizado de Máquina do Stream Analytics, exibição de CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)
 
 ## Conclusão
 
-Neste tutorial, um trabalho de Stream Analytics foi criado para ler fluxo de dados de texto e analisar o sentimento nele em tempo real. Você conseguiu fazer tudo isso sem precisar se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do Cortana Intelligence Suite.
+Este artigo demonstra como criar um trabalho do Stream Analytics que lê dados de transmissão de texto e aplica a análise de sentimento nos dados em tempo real. Você pode fazer tudo isso sem a necessidade de se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do Cortana Intelligence Suite.
 
-A métrica relativa à função de Aprendizado de Máquina do Azure também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
-  
-- SOLICITAÇÕES DE FUNÇÃO indica o número de solicitações para o serviço Web de aprendizado de máquina.
-- EVENTOS DE FUNÇÃO indica o número de eventos na solicitação. Por padrão, cada solicitação ao serviço Web do AM contém até mil eventos.
-- FALHAS NAS SOLICITAÇÕES DE FUNÇÃO indica o número de solicitações com falha para o serviço Web de aprendizado de máquina.
+Você também pode exibir as métricas relacionadas à função de Aprendizado de Máquina do Azure. Para fazer isso, clique na guia **Monitorar**. Três métricas relativas à função são exibidas.
 
-    ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
+- **Solicitações de Função** indica o número de solicitações enviadas para o serviço Web Machine Learning.
+- **Eventos de função** indica o número de eventos na solicitação. Por padrão, cada solicitação para um serviço Web Machine Learning contém até 1.000 eventos.
+- **Falhas nas Solicitações de Função** indica o número de solicitações com falha no serviço Web Machine Learning.
 
-<!---HONumber=AcomDC_0727_2016-->
+    ![Aprendizado de Máquina do Stream Analytics, exibição de monitor do Aprendizado de Máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
+
+<!---HONumber=AcomDC_0803_2016-->

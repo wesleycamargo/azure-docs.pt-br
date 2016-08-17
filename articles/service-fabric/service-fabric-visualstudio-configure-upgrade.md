@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/14/2016"
+   ms.date="07/29/2016"
    ms.author="cawa" />
 
 # Configurar a atualização de um aplicativo do Service Fabric no Visual Studio
@@ -94,4 +94,4 @@ O exemplo a seguir mostra como aplicar uma política de verificação de integri
 ## Próximas etapas
 Para saber mais sobre como implantar um aplicativo, confira [Implantar um aplicativo existente no Service Fabric do Azure](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -86,8 +86,8 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 | Type=Perf | Todos os dados de desempenho |
 | Type=Perf Computer="MyComputer" | Todos os dados de desempenho de um computador específico |
 | Type=Perf CounterName="Current Disk Queue Length" | Todos os dados de desempenho de um contador específico |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total | measure Avg(Average) as AVGCPU by Computer | Utilização média da CPU em todos os computadores |
-| Type=Perf (CounterName="% Processor Time") | measure max(Max) by Computer &#124; Utilização máxima da CPU em todos os computadores |
+| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total &#124; measure Avg(Average) as AVGCPU by Computer | Utilização média da CPU em todos os computadores |
+| Type=Perf (CounterName="% Processor Time") &#124; measure max(Max) by Computer &#124; Utilização máxima da CPU em todos os computadores |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName | Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
 | Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer | 95º percentil de transferências de disco/s em todos os computadores |
 | Type=Perf CounterName="% Processor Time" InstanceName="\_Total" &#124; measure avg(CounterValue) by Computer Interval 1HOUR | Média por hora do uso da CPU em todos os computadores |

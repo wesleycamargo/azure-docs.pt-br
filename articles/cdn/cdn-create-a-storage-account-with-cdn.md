@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Como usar a CDN | Microsoft Azure"
-	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático."
+	pageTitle="Integrar uma Conta de Armazenamento com a CDN | Microsoft Azure"
+	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -33,13 +33,13 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
 1.  Entre no [Portal do Azure](https://portal.azure.com).
-2.  No canto superior esquerdo, selecione **Novo**. No Diálogo **Novo**, selecione **Dados + Armazenamento** e clique em **Conta de armazenamento**. Mantenha **Clássico** selecionado como o modelo de implantação e clique em **Criar**.
+2.  No canto superior esquerdo, selecione **Novo**. No Diálogo **Novo**, selecione **Dados + Armazenamento** e clique em **Conta de armazenamento**.
 
-    A folha **Conta de armazenamento** é exibida.
+    A folha **Criar conta de armazenamento** aparece.
 
     ![Criar Conta de Armazenamento][create-new-storage-account]
 
-4. No campo **Armazenamento**, digite um nome de subdomínio. Essa entrada pode conter de 3 a 24 letras minúsculas e números.
+4. No campo **Nome**, digite um nome do subdomínio. Essa entrada pode conter de 3 a 24 letras minúsculas e números.
 
     Esse valor torna-se o nome de host no URI que é usado para lidar com os recursos de Blob, Fila ou Tabela da assinatura em questão. Para atender a um recurso de contêiner no serviço Blob, você usaria um URI no seguinte formato, em que *<StorageAccountLabel>* refere-se ao valor digitado em **Inserir uma URL**:
 
@@ -49,15 +49,15 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 	Esse valor também é usado como o nome dessa conta de armazenamento no portal ou ao acessar essa conta programaticamente.
 
-5.  Selecione um **Tipo de preço** ou use o padrão. Para obter mais informações sobre tipos de preço, veja [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+5. Mantenha os padrões para **Modelo de implantação**, **Tipo de conta**, **Desempenho** e **Replicação**.
 
-6.  Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
+6. Selecione a **assinatura** que será usada com a conta de armazenamento.
 
-7. Selecione a **assinatura** que será usada com a conta de armazenamento.
+7. Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
 
-8.  Clique em **Criar**. O processo de criação da conta de armazenamento pode levar vários minutos para ser concluído.
+8. Selecione um local para sua conta de armazenamento.
 
-9.  Para verificar se a conta de armazenamento foi criada com êxito, verifique se a conta aparece nos itens listados para **Armazenamento** com um status de **Online**.
+8. Clique em **Criar**. O processo de criação da conta de armazenamento pode levar vários minutos para ser concluído.
 
 
 ## Etapa 2: criar um novo perfil CDN
@@ -135,4 +135,4 @@ Um objeto que já está armazenado em cache na CDN permanecerá em cache até qu
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

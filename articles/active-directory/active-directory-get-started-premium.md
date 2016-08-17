@@ -19,11 +19,11 @@
 # Introdução ao Active Directory Premium do Azure
 
 
-Para se inscrever para o Active Directory Premium, você tem várias opções:
+Para se inscrever no Active Directory Premium, você tem várias opções:
 
 **Azure ou Office 365** ‒ como assinante do Azure ou do Office 365, você pode comprar o Active Directory Premium online. Para obter etapas detalhadas, confira [Como comprar o Azure Active Directory Premium ‒ clientes existentes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) ou [Como comprar o Azure Active Directory Premium ‒ novos clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
-**Enterprise Mobility Suite** ‒ o Enterprise Mobility Suite é uma forma econômica para que as organizações usem os seguintes serviços em conjunto em um plano de licenciamento: Active Directory Premium, Azure Rights Management e Microsoft Intune. Para obter mais informações, consulte o site [Enterprise Mobility Suite](https://www.microsoft.com/pt-BR/server-cloud/enterprise-mobility/overview.aspx). Para obter uma avaliação gratuita de 30 dias, clique [aqui](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility Suite** ‒ o Enterprise Mobility Suite + Security (conhecido anteriormente como Enterprise Mobility Suite) é uma forma econômica para que as organizações usem os seguintes serviços em conjunto em um plano de licenciamento: Active Directory Premium, Azure Rights Management e Microsoft Intune. Para obter mais informações, confira o site [Enterprise Mobility + Security](https://www.microsoft.com/pt-BR/server-cloud/enterprise-mobility/overview.aspx). Para obter uma avaliação gratuita de 30 dias, clique [aqui](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Microsoft Volume Licensing** ‒ o Azure Active Directory Premium está disponível por meio de um [Microsoft Enterprise Agreement](https://www.microsoft.com/pt-BR/licensing/licensing-programs/enterprise.aspx) (250 ou mais licenças) ou um programa [Open Volume License](https://www.microsoft.com/pt-BR/licensing/licensing-programs/open-license.aspx) (5 – 250 licenças).
@@ -72,11 +72,11 @@ Quando terminar, o diálogo a seguir será mostrado como a confirmação da ativ
 
 ## Etapa 3: ativar o acesso ao Active Directory do Azure
 
-Se tiver usado o Microsoft Azure anteriormente, você poderá ir para a [Etapa 4](#step-4-assign-license-to-user-accounts).
+Se já tiver usado o Microsoft Azure anteriormente, prossiga para a [Etapa 4](#step-4-assign-license-to-user-accounts).
 
 Quando as licenças forem provisionadas no diretório, um **Email de boas-vindas** será enviado a você. O email confirma que você pode começar a gerenciar suas licenças e seus recursos do Azure Active Directory Premium ou do Enterprise Mobility Suite.
 
-Se fizer uma tentativa de ativar o acesso ao Azure Active Directory antes de receber o email de boas-vindas, você poderá obter a mensagem de erro a seguir.
+Caso tente ativar o acesso ao Azure Active Directory antes de receber o email de boas-vindas, a mensagem de erro abaixo poderá ser exibida.
 
 ![O acesso não está disponível][9]
 
@@ -91,7 +91,7 @@ Os novos administradores em sua assinatura também podem ativar o acesso ao port
 
 **Para ativar o acesso ao Azure Active Directory, execute as seguintes etapas:**
 
-1. No **Email de boas-vindas**, clique em **Entrar**. 
+1. No **Email de boas-vindas**, clique em **Entrar**.
     
     ![Email de boas-vindas][4]
 
@@ -160,4 +160,4 @@ A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,7 +4,7 @@
 	authors="msftman" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -26,4 +26,4 @@ Removemos o conteúdo (que se destinava à versão 2014-12-01-preview dos Aplica
 - [Saiba mais sobre o novo conector](../connectors/connectors-create-api-slack.md)
 - Veja [a lista completa](../connectors/apis-list.md) de todos os conectores que são executados na nova versão de esquema 2015-08-01-preview dos Aplicativos Lógicos
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

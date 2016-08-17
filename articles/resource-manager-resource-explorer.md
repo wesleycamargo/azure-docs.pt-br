@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="08/01/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Usar o Gerenciador de Recursos do Azure para exibir e modificar recursos
@@ -34,7 +34,7 @@ Depois de carregado, o modo de exibição de árvore à esquerda permite fazer u
 
 Nesse local, é possível fazer uma busca detalhada nas instâncias de recurso. Na captura de tela abaixo, é possível ver a instância do `sltest` SQL Server no modo de exibição de árvore. No lado direito, é possível ver informações sobre as solicitações API REST que podem ser usadas com esse recurso. Ao navegar até o nó de um recurso, o Gerenciador de Recursos, automaticamente, faz com que a solicitação GET recupere informações sobre o recurso. Na área de texto grande abaixo da URL, você verá a resposta da API.
 
-À medida que se familiariza com os modelos do ARM, você vai se acostumando com o conteúdo do corpo. A seção **propriedades** da resposta corresponde aos valores que podem ser fornecidos na seção **propriedades** do modelo.
+À medida que se familiariza com os modelos do Resource Manager, você vai se acostumando com o conteúdo do corpo! A seção **propriedades** da resposta corresponde aos valores que podem ser fornecidos na seção **propriedades** do modelo.
 
 ![sql server](./media/resource-manager-resource-explorer/are-03-sqlserver-with-response.png)
 
@@ -70,8 +70,8 @@ A guia PowerShell no Gerenciador de Recursos mostra os cmdlets a ser usados para
 Para obter mais informações sobre os cmdlets do Azure PowerShell, veja [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md)
 
 ## Resumo
-Ao trabalhar com o ARM, o Gerenciador de Recursos pode ser uma ferramenta muito útil. É uma ótima maneira de encontrar formas de usar o PowerShell para consultar e fazer alterações. Se estiver trabalhando com a API REST, será uma ótima maneira de começar e testar rapidamente as chamadas à API antes de começar a escrever código. E caso esteja escrevendo modelos do ARM, essa pode ser uma ótima maneira de entender a hierarquia de recursos e encontrar o local em que a configuração deve ser colocada – é possível fazer uma alteração no Portal e encontrar as entradas correspondentes no Gerenciador de Recursos.
+Ao trabalhar com o Resource Manager, o Gerenciador de Recursos pode ser uma ferramenta muito útil. É uma ótima maneira de encontrar formas de usar o PowerShell para consultar e fazer alterações. Se estiver trabalhando com a API REST, será uma ótima maneira de começar e testar rapidamente as chamadas à API antes de começar a escrever código. E caso esteja escrevendo modelos do Resource Manager, essa pode ser uma ótima maneira de entender a hierarquia de recursos e encontrar o local em que a configuração deve ser colocada – é possível fazer uma alteração no Portal e encontrar as entradas correspondentes no Gerenciador de Recursos!
 
 Para obter mais informações, assista ao [vídeo do Channel 9 com Scott Hanselman e David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

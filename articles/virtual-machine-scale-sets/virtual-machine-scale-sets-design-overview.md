@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="07/28/2016"
 	ms.author="gatneil"/>
 
 # Projetar conjuntos de escala de VM para dimensionamento
@@ -30,9 +30,9 @@ Um conjunto de escala usa contas de armazenamento para armazenar os discos do si
 
 ## Provisionamento em excesso
 
-A partir da versão de API 2016-03-30, os Conjuntos de Escala de VM realizarão "provisionamento em excesso" de VMs por padrão. Isso significa que o conjunto de escala criará mais VMs do que o solicitado para então excluir as VMs desnecessárias. Isso melhora as taxas de êxito do provisionamento, pois, se até mesmo uma VM não for provisionada com êxito, toda a implantação será considerada "Com Falha" pelo Azure Resource Manager. Você não será cobrado por essas VMs extras e elas não contarão no seus limites de cota.
+A partir da versão de API 2016-03-30, os Conjuntos de Escala de VM realizam "provisionamento em excesso" de VMs por padrão. Isso significa que o conjunto de escala criará mais VMs do que o solicitado para então excluir as VMs que foram criadas por último. Isso melhora as taxas de êxito do provisionamento, pois, se até mesmo uma VM não for provisionada com êxito, toda a implantação será considerada "Com Falha" pelo Azure Resource Manager. Você não será cobrado por essas VMs extras e elas não contarão no seus limites de cota.
 
-Embora melhore as taxas de sucesso de provisionamento, tal comportamento pode ser confuso para um aplicativo que não foi projetado para lidar com VMs que estão desaparecendo sem aviso. Para desativar o provisionamento em excesso, verifique se você tem a seguinte cadeia de caracteres no seu modelo: "overprovision": false.
+Embora melhore as taxas de sucesso de provisionamento, tal comportamento pode ser confuso para um aplicativo que não foi projetado para lidar com VMs que estão desaparecendo sem aviso. Para desativar o provisionamento em excesso, verifique se você tem a seguinte cadeia de caracteres no seu modelo: "overprovision": "false"
 
 Se desativar o provisionamento em excesso, você poderá acabar com uma taxa maior de VMs por conta de armazenamento, mas não recomendamos ir além de 40.
 
@@ -40,8 +40,8 @@ Se desativar o provisionamento em excesso, você poderá acabar com uma taxa mai
 ## Limites
 Um conjunto de escala criado com base em uma imagem personalizada (criada por você) deve criar todos os VHDs de disco do sistema operacional em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento compilado em uma imagem personalizada é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
 
-Um conjunto de dimensionamento criado em uma imagem da plataforma é limitado a 100 VMs (recomendamos 5 contas de armazenamento para esse dimensionamento).
+Um conjunto de escala criado em uma imagem da plataforma atualmente é limitado a 100 VMs (recomendamos 5 contas de armazenamento para esse dimensionamento).
 
 Para ter mais VMs que esses limites permitem, você precisará implantar vários conjuntos de dimensionamento. [Para obter um exemplo de como fazer isso, consulte este modelo.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

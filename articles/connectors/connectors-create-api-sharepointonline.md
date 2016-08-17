@@ -1,7 +1,7 @@
 <properties
 pageTitle="Saiba como usar o conector do SharePoint Online em aplicativos lógicos| Microsoft Azure"
 description="Crie aplicativos lógicos com o conector do SharePoint Online para gerenciar listas no SharePoint."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -668,4 +668,4 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

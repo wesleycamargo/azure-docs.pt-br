@@ -1,7 +1,7 @@
 <properties
    pageTitle="Criar um modelo de implantação do aplicativo lógico | Microsoft Azure"
    description="Saiba como criar um modelo de implantação do aplicativo lógico e usá-lo para gerenciamento de versão"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@ Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta 
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

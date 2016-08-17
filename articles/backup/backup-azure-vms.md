@@ -21,14 +21,14 @@
 # Fazer backup de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Fazer backup de VMs ARM no Azure](backup-azure-arm-vms.md)
-- [Fazer backup de máquinas virtuais do Azure](backup-azure-vms.md)
+- [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
+- [Fazer backup de VMs no cofre de Backup](backup-azure-vms.md)
 
-Este artigo fornece os procedimentos para fazer backup de VMs (máquinas virtuais) do Azure.
-
-Primeiro, há algumas coisas que você precisa fazer antes de poder fazer backup de uma máquina virtual do Azure. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-azure-vms-prepare.md) para preparar o ambiente para o backup de VMs.
+Este artigo mostra os procedimentos para fazer backup de uma VM (máquina virtual) do Azure com implantação clássica em um cofre de Backup. Há algumas tarefas que você precisa fazer antes de poder fazer backup de uma máquina virtual do Azure. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-azure-vms-prepare.md) para preparar o ambiente para o backup de VMs.
 
 Para obter informações adicionais, confira os artigos em [planejamento da infraestrutura de backup de VM no Azure](backup-azure-vms-introduction.md) e em [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
+
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Um cofre de Backup só pode proteger VMs com implantação clássica. Você não pode proteger VMs implantadas pelo Resource Manager com um cofre de Backup. Confira [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md) para obter detalhes sobre como trabalhar com cofres dos Serviços de Recuperação.
 
 Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
@@ -39,7 +39,7 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 ## Etapa 1 - Descobrir máquinas virtuais do Azure
 Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura seja identificada antes do registro, execute o processo de descoberta. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
 
-1. Entre no [portal clássico](http://manage.windowsazure.com/).
+1. Entrar no [portal clássico](http://manage.windowsazure.com/)
 
 2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site. ![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
 
@@ -169,7 +169,7 @@ Quando o backup inicial terminar, o status da máquina virtual na guia **Itens P
 ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Exibindo detalhes e status do backup
-Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** para filtrar os trabalhos.
+Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** a fim de filtrar os trabalhos.
 
 ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -183,4 +183,4 @@ Se você enfrentar problemas durante o backup da sua máquina virtual, examine o
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -122,7 +122,7 @@ A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.micros
 
 Em seguida, você adicionará controladores de API Web a `Player` e a `PlayerRank`. Em vez de controladores de API Web simples, você adicionará um tipo especial de controlador chamado *controlador de tabela*, projetado especialmente para os Serviços Móveis do Azure.
 
-Clique com o botão direito do mouse na pasta Controladores > **Adicionar**** > Novo item Scaffolded**.
+Clique com o botão direito do mouse na pasta Controladores > **Adicionar** > **Novo item Scaffolded**.
 
 ![][6]
 

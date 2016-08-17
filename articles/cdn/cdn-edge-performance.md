@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Analisar o desempenho de borda"
+	pageTitle="Analisar o Desempenho de Borda na CDN | Microsoft Azure"
 	description="Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Analisar o desempenho do nó de borda no CDN do Microsoft Azure
@@ -192,4 +192,4 @@ Erros 5xx | Contém um gráfico de barras que permite que você visualize as 10 
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

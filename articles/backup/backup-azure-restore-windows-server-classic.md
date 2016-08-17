@@ -3,8 +3,8 @@
    description="Saiba como restaurar de um Windows Server ou Windows Client."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/09/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do clásico
@@ -123,4 +123,4 @@ A terminologia usada nessas etapas inclui:
 - [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 - [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

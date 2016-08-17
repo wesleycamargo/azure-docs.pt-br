@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Usando o Conector de Espera em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure" 
    description="Como criar e configurar o Conector de Espera ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -56,4 +56,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

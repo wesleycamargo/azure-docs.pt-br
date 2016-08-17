@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Perguntas frequentes sobre VMs | Microsoft Azure"
-	description="Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico."
+	pageTitle="Perguntas frequentes sobre VMs clássicas | Microsoft Azure"
+	description="Fornece respostas para algumas perguntas comuns sobre as máquinas virtuais Windows do Azure criadas com o modelo de implantação clássico."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
-# Perguntas frequentes sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico
+# Perguntas frequentes sobre as máquinas virtuais Windows do Azure criadas com o modelo de implantação clássico
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior | Microsoft Azure"
 	description="Descreve como fazer um pagamento se a sua assinatura do Azure tiver um saldo devido anterior"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@ Para obter instruções sobre como alterar a forma de pagamento no Azure, veja [
 
 > [AZURE.NOTE] Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for cancelada?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

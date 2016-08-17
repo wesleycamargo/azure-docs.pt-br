@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/15/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Preparar seu ambiente de desenvolvimento
- Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, você precisará instalar o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
+ Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, instale o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
 
 ## Pré-requisitos
 ### Versões de sistema operacional com suporte
@@ -28,7 +28,7 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] O Windows 7 inclui, por padrão, apenas o Windows PowerShell 2.0. Você precisará instalar o PowerShell 3.0 ou mais recente para usar os cmdlets do PowerShell do Service Fabric. É possível [baixar o Windows PowerShell 5.0][powershell5-download] do Centro de Download da Microsoft.
+>[AZURE.NOTE] O Windows 7 inclui, por padrão, apenas o Windows PowerShell 2.0. Cmdlets de PowerShell do Service Fabric exigem o PowerShell 3.0 ou superior. É possível [baixar o Windows PowerShell 5.0][powershell5-download] do Centro de Download da Microsoft.
 
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
@@ -48,7 +48,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
 ## Próximas etapas
-Agora que seu ambiente de desenvolvimento está configurado, você pode começar a criar e executar aplicativos.
+Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a compilar e executar aplicativos.
 
 - [Criar seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Saiba como implantar e gerenciar aplicativos no seu cluster local](service-fabric-get-started-with-a-local-cluster.md)
@@ -64,4 +64,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Link do WebPI do SDK principal"
 [powershell5-download]: https://www.microsoft.com/pt-BR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,18 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
-#Práticas recomendadas para atualizações de software no Microsoft Azure IaaS
+# Práticas recomendadas para atualizações de software no Microsoft Azure IaaS
 
-Antes de entrar em qualquer tipo de discussão sobre as práticas recomendadas para um ambiente de [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) do Azure, é importante entender quais são os cenários que farão com que você gerencie atualizações de software. O diagrama abaixo deve explicar melhor:
+Antes de entrar em qualquer tipo de discussão sobre as práticas recomendadas para um ambiente de [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) do Azure, é importante entender quais são os cenários que farão com que você gerencie atualizações de software e responsabilidades. O diagrama a seguir deve ajudar a compreender esses limites:
 
-![Modelos de nuvem e responsabilidades](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
+![Modelos de nuvem e responsabilidades](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-No modelo de data center tradicional, em que toda a infraestrutura está localizada no local, você é totalmente responsável por gerenciar atualizações de sistemas operacionais, de aplicativos, de rede, de dispositivos (roteadores, opções, etc.) e de hardware (firmware). Em um cenário de IaaS, você ainda terá que gerenciar atualizações para sistemas operacionais e aplicativos. No entanto, toda a infraestrutura dos sistemas operacionais e dos aplicativos é gerenciada pela Microsoft. Nesses modelos, os clientes ainda são proprietários dos dados e os responsáveis pela proteção no nível do ponto de extremidade.
+A coluna mais à esquerda mostra sete responsabilidades (definidas nas seções a seguir) que as organizações devem considerar, o que contribuem para a segurança e a privacidade de um ambiente de computação.
+ 
+Classificação de dados e responsabilidade e proteção de ponto de extremidade do cliente são as responsabilidades exclusivamente no domínio dos clientes, e as responsabilidades físicas, de host e rede estão no domínio de provedores de serviços de nuvem nos modelos de PaaS e o SaaS.
 
-Em um cenário de PaaS, você terá ainda menos responsabilidade sobre as atualizações de software, já que o gerenciamento de atualizações para o sistema operacional é de responsabilidade da Microsoft. Em um cenário de SaaS, a responsabilidade pelas atualizações de software para toda a pilha é da Microsoft.
+As responsabilidades restantes são compartilhadas entre clientes e provedores de serviço de nuvem. Algumas responsabilidades exigem que o CSP e o cliente gerenciem e administrem a responsabilidade, incluindo a auditoria de seus domínios. Por exemplo, considere a Gerenciamento de identidade e acesso ao usar os Serviços do Azure Active Directory; a configuração de serviços, como autenticação multifator depende do cliente, mas garantir a funcionalidade efetiva é responsabilidade do Microsoft Azure.
+
+> [AZURE.NOTE] Para obter mais informações sobre responsabilidades compartilhadas na nuvem, leia [Responsabilidades compartilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
 
 Esses mesmos princípios se aplicam a um cenário híbrido em que sua empresa esteja usando as VMs de IaaS do Azure que se comunicam com recursos locais, conforme mostrado no diagrama a seguir.
 
@@ -118,4 +122,4 @@ Além das considerações gerais que foram explicadas neste artigo, você també
 
 Use as diretrizes descritas neste artigo para ajudar a determinar as melhores opções para as atualizações de software de máquinas virtuais no Azure IaaS. Existem muitas semelhanças entre as práticas recomendadas de atualização de software em um datacenter tradicional versus o IaaS do Azure; portanto, é recomendável que você avalie suas diretivas de atualização de software atual para incluir as VMs do Azure e as práticas recomendadas relevantes deste artigo em seu processo geral de atualização de software.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

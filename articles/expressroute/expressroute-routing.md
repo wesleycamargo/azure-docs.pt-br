@@ -3,8 +3,8 @@
    description="Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos da Rota Expressa."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Requisitos de roteamento da Rota Expressa  
 
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos descritos abaixo.
 
-Consulte o artigo sobre [Circuitos e domínios de roteamento](expressroute-circuit-peerings.md) para obter uma descrição das sessões de roteamento que precisam ser configuradas para possibilitar a conectividade.
+Veja o artigo sobre [Circuitos e domínios de roteamento](expressroute-circuit-peerings.md) para obter uma descrição das sessões de roteamento que precisam ser configuradas para possibilitar a conectividade.
 
 **Observação:** a Microsoft não dá suporte a protocolos de redundância de roteador (HSRP e VRRP) para configurações de alta disponibilidade. Contamos com um par redundante de sessões BGP por emparelhamento para alta disponibilidade.
 
@@ -35,10 +35,10 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
  - Você deve reservar uma sub-rede /29 ou duas sub-redes /30 para interfaces de roteamento.
  - As sub-redes usadas para roteamento podem ser endereços IP privados ou endereços IP públicos.
  - As sub-redes não devem entrar em conflito com o intervalo reservado pelo cliente para uso na nuvem da Microsoft.
- - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
+ - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30.
 	 - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	 - Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
+	 - Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 #### Exemplo para emparelhamento privado
 
@@ -55,11 +55,11 @@ Considere um caso em que você seleciona 192.168.100.128/29 para configurar o em
 
 Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet.
 
-- Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um). 
-- Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
+- Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um).
+- Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30.
 	- A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
 	- Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-	- Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
+	- Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
 
@@ -124,6 +124,8 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 | | Leste dos EUA | 12076:51004 |
 | | Leste dos EUA 2 | 12076:51005 |
 | | Oeste dos EUA | 12076:51006 |
+| | Oeste dos EUA 2 | 12076:51022 |
+| | Centro-Oeste dos EUA | 12076:51023 |
 | | Centro-Norte dos EUA | 12076:51007 |
 | | Centro-Sul dos Estados Unidos | 12076:51008 |
 | | Centro dos EUA | 12076:51009 |
@@ -171,6 +173,6 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Azure Resource Manager](expressroute-howto-circuit-arm.md)
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
-	- [Vincular uma VNet clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
+	- [Vincular uma Rede Virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma Rede Virtual do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

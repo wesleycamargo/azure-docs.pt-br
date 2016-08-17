@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Como configurar alertas do Azure para enviar para outros sistemas"
+	pageTitle="Como configurar alertas do Azure para enviar para outros sistemas | Microsoft Azure"
 	description="Redirecionar alertas do Azure para outros sistemas que não são do Azure."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,8 +33,8 @@ Na tela Criar/Atualizar Alertas no [Portal do Azure](https://portal.azure.com/),
 
 A autenticação pode ser de dois tipos:
 
-1. **Autenticação baseada em token** - neste caso, você salvará o URI do webhook com uma ID de token, como **https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
-2.	**Autenticação básica** - usando uma ID de usuário e senha: neste caso, você salvará o URI do webhook como **https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
+1. **Autenticação baseada em token** - neste caso, você salvará o URI do webhook com uma ID de token, como *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
+2.	**Autenticação básica** - usando uma ID de usuário e senha: neste caso, você salvará o URI do webhook como *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
 
 ## Esquema de conteúdo
 
@@ -100,7 +100,7 @@ A operação POST conterá o seguinte esquema e conteúdo JSON para todos os ale
 |resourceId |S | |URI de ID do recurso que identifica exclusivamente o recurso|
 |resourceRegion |S | |região/local do recurso que é afetado|
 |portalLink |S | |link direto do Portal do Azure para a página de resumo de recursos|
-|propriedades |N |Opcional |É um conjunto de pares <Key  Value> (ou seja, Dicionário<String  String>) que inclui detalhes sobre o evento. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou UI, os usuários podem inserir chaves/valores que podem ser transmitidos por meio do conteúdo. O modo alternativo para transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta)|
+|propriedades |N |Opcional |É um conjunto de pares <Chave, Valor> (ou seja, Dicionário <Cadeia, Cadeia>) que inclui detalhes sobre o evento. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou UI, os usuários podem inserir chaves/valores que podem ser transmitidos por meio do conteúdo. O modo alternativo para transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta)|
 
 
 >[AZURE.NOTE] Você não pode usar o campo de propriedades por meio do Portal. Em nossa próxima versão do SDK do Insights, você poderá definir as propriedades por meio da API de Alerta.
@@ -123,4 +123,4 @@ Use os Alertas do Azure para enviar mensagens para outros serviços. Use os mode
 
 [Usar Aplicativo Lógico para enviar mensagens para uma Fila do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

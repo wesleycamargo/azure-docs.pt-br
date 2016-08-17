@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Arquivar mensagens do Conector AS2 | Serviço de Aplicativo do Microsoft Azure" 
    description="Como arquivar ou armazenar mensagens do Conector AS2 no Serviço de Aplicativo do Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="dwrede" 
@@ -42,4 +42,4 @@ Use a URL recuperada acima para recuperar a mensagem arquivada do Armazenamento 
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

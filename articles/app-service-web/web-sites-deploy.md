@@ -103,7 +103,7 @@ A desvantagem de implantar de um serviço de controle de código-fonte baseado e
 ###<a name="vsts"></a>Como implantar continuamente de um sistema de controle do código-fonte baseado em nuvem
 No [Portal do Azure](https://portal.azure.com), você pode configurar a implantação contínua do GitHub, do Bitbucket e do Visual Studio Team Services.
 
-* [Implantação contínua no Serviço de Aplicativo do Azure](app-service-continous-deployment.md).
+* [Implantação contínua no Serviço de Aplicativo do Azure](app-service-continuous-deployment.md).
 
 ## <a name="localgitdeployment"></a>Implantar por meio do Git local
 Se sua equipe de desenvolvimento usar um serviço SCM (gerenciamento de código-fonte local) baseado em Git, você poderá configurar isso como uma fonte de implantação para o Serviço de Aplicativo.
@@ -234,4 +234,4 @@ Para saber mais sobre como usar o Controle de Acesso Baseado em Função do Azur
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

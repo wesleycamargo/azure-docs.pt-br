@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Extrator de XPath do BizTalk em aplicativos lógicos do Serviço de Aplicativo do Azure | Microsoft Azure"
    description="Extrator de XPath do BizTalk"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -29,9 +29,13 @@ O conector do Extrator de XPath do BizTalk ajuda seu aplicativo a pesquisar e ex
 	>[AZURE.NOTE] Não há definições de configuração associadas com o BizTalk Xpath Extractor
 2. [Criar um novo aplicativo lógico]. Abra "Gatilhos e Ações" no Aplicativo Lógico para abrir o Designer de Aplicativos Lógicos para configurar seu fluxo.
 3. No designer, o painel direito mostra os Aplicativos de API disponíveis para compilar seu fluxo. Encontre o "Extrator de XPath do BizTalk". Selecionar isso adiciona o Extrator de XPath ao seu fluxo e provisiona uma instância dele.
-4. Depois de configurado, o designer mostra a ação associada ao aplicativo de API do BizTalk do Extrator XPath: ![Escolher Ação do Extrator de XPath do BizTalk][1]
+4. Depois de configurado, o designer mostra a ação associada ao aplicativo de API do BizTalk do Extrator XPath: 
 
-5. Escolha "Extrair Usando XPath". "Extrair Usando XPath" avalia a expressão xpath de entrada em um determinado XML de entrada: ![Entrada do Extrator de XPath do BizTalk][2]
+	![Escolher Ação do Extrator de XPath do BizTalk][1]
+
+5. Escolha "Extrair Usando XPath". "Extrair Usando XPath" avalia a expressão xpath de entrada em um determinado XML de entrada:
+
+	![Entrada do Extrator de XPath do BizTalk][2]
 
 	Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---
@@ -47,4 +51,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Resultado. O resulta
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

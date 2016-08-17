@@ -9,14 +9,14 @@ Total de pontos de dados por mês de solicitação, evento, dependência, rastre
 Taxa de dados de [Log e Rastreamento](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
 Taxa de dados de [exceção](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
 Taxa total de dados de solicitação, evento, dependência e telemetria de exibição de página | 200 dp/s | 500 dp/s
-Retenção de [dados brutos](../articles/application-insights/app-insights-diagnostic-search.md) | 7 dias
-Retenção de [dados agregados](../articles/application-insights/app-insights-metrics-explorer.md) | 90 dias
+Retenção de dados brutos para [Pesquisa](../articles/application-insights/app-insights-diagnostic-search.md) e [Análise](../articles/application-insights/app-insights-analytics.md) | 7 dias
+Retenção de dados agregados para [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md) | 90 dias
 Contagem de nome de [propriedade](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Comprimento do nome da propriedade | 100 | 
-Comprimento do valor da propriedade | 1000 | 
+Comprimento do nome da propriedade | 150 | 
+Comprimento do valor da propriedade | 8192 | 
 Comprimento da mensagem de rastreamento e exceção | 10000 |
 Contagem de nome de [métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Comprimento do nome da métrica | 100 | 
+Comprimento do nome da métrica | 150 | 
 [Testes de disponibilidade](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> Um ponto de dados é um valor ou evento de métrica individual, com propriedades e medidas anexadas.
@@ -27,4 +27,4 @@ Comprimento do nome da métrica | 100 |
  
 [Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

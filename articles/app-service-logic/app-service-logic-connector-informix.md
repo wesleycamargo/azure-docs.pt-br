@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o conector Informix no Serviço de Aplicativo do Microsoft Azure | Microsoft Azure"
    description="Como usar o conector Informix com gatilhos e ações do Aplicativo lógico"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -274,4 +274,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

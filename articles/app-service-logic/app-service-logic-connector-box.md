@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Conector do Box em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o conector do Box ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -26,4 +26,4 @@ Removemos o conteúdo (que se destinava à versão 2014-12-01-preview dos Aplica
 - [Saiba mais sobre o novo conector](../connectors/connectors-create-api-box.md)
 - Veja [a lista completa](../connectors/apis-list.md) de todos os conectores que são executados na nova versão de esquema 2015-08-01-preview dos Aplicativos Lógicos
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
@@ -65,15 +65,15 @@ A recuperação de banco de dados excluído permite que você restaure um banco 
 
 > [AZURE.IMPORTANT] Se você excluir uma instância de servidor do Banco de Dados SQL, todos os seus bancos de dados também serão excluídos e não poderão ser recuperados. No momento, não há suporte para restaurar um servidor excluído.
 
-Você pode usar o mesmo ou um novo nome de banco de dados para o banco de dados restaurado. Você pode usar o [Portal do Azure](sql-database-restore-deleted-database-portal.md), o [PowerShell](sql-database-restore-deleted-database-powershell.md) ou a [API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Você pode usar o mesmo ou um novo nome de banco de dados para o banco de dados restaurado. Você pode usar o [Portal do Azure](sql-database-restore-deleted-database-portal.md), o [PowerShell](sql-database-restore-deleted-database-powershell.md) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
-- [Restauração de banco de dados excluído: Portal do Azure](sql-database-restore-deleted-database-portal.md)
-- [Restauração de banco de dados excluído: PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Restauração de banco de dados excluída: Portal do Azure](sql-database-restore-deleted-database-portal.md)
+- [Restauração pontual excluída: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Restauração geográfica
 
-A restauração geográfica permite que você restaure um Banco de Dados SQL em qualquer servidor e em qualquer região do Azure com base no [backup diário automatizado](sql-database-automated-backups.md) com replicação geográfica mais recente. A restauração geográfica usará um backup com redundância geográfica como sua fonte, e ele poderá ser usado para recuperar um banco de dados, mesmo se o banco de dados ou o datacenter estiver inacessível devido a uma interrupção. Você pode usar o [Portal do Azure](sql-database-geo-restore-portal.md), o [PowerShell](sql-database-geo-restore-powershell.md) ou o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+A restauração geográfica permite que você restaure um Banco de Dados SQL em qualquer servidor e em qualquer região do Azure com base no [backup diário automatizado](sql-database-automated-backups.md) com replicação geográfica mais recente. A restauração geográfica usará um backup com redundância geográfica como sua fonte, e ele poderá ser usado para recuperar um banco de dados, mesmo se o banco de dados ou o datacenter estiver inacessível devido a uma interrupção. Você pode usar o [Portal do Azure](sql-database-geo-restore-portal.md), o [PowerShell](sql-database-geo-restore-powershell.md) ou o [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 > [AZURE.SELECTOR]
 - [Restauração geográfica: Portal do Azure](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@ Conforme discutido acima, além do Portal do Azure, a recuperação de banco de 
 
 |API|Descrição|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaura um banco de dados|
+|[REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restaura um banco de dados|
 |[Obter, Criar ou Atualizar o Status de um Banco de Dados](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retorna o status durante uma operação de restauração|
 ||||
 
@@ -122,4 +122,4 @@ Backups automáticos protegem seus bancos de dados contra erros de usuário e de
 - Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

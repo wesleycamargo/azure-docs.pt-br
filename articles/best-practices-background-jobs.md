@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
 
 # Diretrizes de trabalhos em segundo plano
@@ -89,6 +89,7 @@ Você pode hospedar as tarefas em segundo plano usando diversos serviços difere
 - [**Aplicativos Web do Azure e Azure WebJobs**](#azure-web-apps-and-webjobs). Você pode usar o WebJobs para executar trabalhos personalizados com base em uma variedade de diferentes tipos de scripts ou programas executáveis no contexto de um aplicativo Web.
 - [**Funções de web e de trabalho dos Serviços de Nuvem do Azure**](#azure-cloud-services-web-and-worker-roles). Você pode gravar código dentro de uma função que é executada como uma tarefa em segundo plano.
 - [**Máquinas Virtuais do Azure**](#azure-virtual-machines). Caso tenha um serviço Windows ou queira usar o Agendador de Tarefas do Windows, é comum hospedar as suas tarefas em segundo plano em uma máquina virtual dedicada.
+- [**Lote do Azure**](./batch/batch-technical-overview.md). É um serviço de plataforma que agenda o trabalho de computação intensiva para executar em uma coleção gerenciada de máquinas virtuais e que pode dimensionar automaticamente os recursos de computação para atender às necessidades dos trabalhos.
 
 As seções a seguir descrevem cada uma dessas opções em mais detalhes e incluem considerações para ajudá-lo a escolher a opção apropriada.
 
@@ -98,7 +99,7 @@ Você pode usar os Azure WebJobs para executar trabalhos personalizados como tar
 
 Quando você configura um WebJob:
 
-- se desejar que o trabalho responda a um gatilho acionado por evento, você deverá configurá-lo como **Executar continuamente**. O script ou programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/continuous.
+- Se desejar que o trabalho responda a um gatilho acionado por evento, você deverá configurá-lo como **Executar continuamente**. O script ou programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/continuous.
 - Se desejar que o trabalho responda a um gatilho acionado por agendamento, configure-o como **Executar segundo agendamento**. O script ou o programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/triggered.
 - Se você escolher a opção **Executar sob demanda** ao configurar um trabalho, ele executará o mesmo código que a opção **Executar em um agendamento** quando você iniciá-lo.
 
@@ -134,9 +135,9 @@ Tarefas em segundo plano podem ser executadas dentro de uma função web ou em u
 Há várias maneiras de implementar tarefas em segundo plano em uma função de Serviços de Nuvem:
 
 - Criar uma implementação da classe **RoleEntryPoint** na função e usar os seus métodos para executar tarefas em segundo plano. As tarefas são executadas no contexto de WaIISHost.exe. Elas podem usar o método **GetSetting** da classe **CloudConfigurationManager** para carregar definições de configuração. Para obter mais informações, consulte [Ciclo de Vida (Serviços de Nuvem)](#lifecycle-cloud-services).
-- Use as tarefas de inicialização para executar tarefas em segundo plano quando o aplicativo for iniciado. Para forçar as tarefas a continuar sendo executadas em segundo plano, configure a propriedade **taskType** como **background** (se você não fizer isso, o processo de inicialização do aplicativo será interrompido e aguardará até que a tarefa seja concluída). Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
+- Use as tarefas de inicialização para executar tarefas em segundo plano quando o aplicativo for iniciado. Para forçar as tarefas a continuar sendo executadas em segundo plano, configure a propriedade **taskType** como **background** (se você não fizer isso, o processo de inicialização do aplicativo será interrompido e aguardará até que a tarefa seja concluída). Para saber mais, confira [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
 - Use o SDK do WebJobs para implementar tarefas em segundo plano como WebJobs, que são iniciados como uma tarefa de inicialização. Para obter mais informações, consulte [Comece a Usar o SDK do Azure WebJobs](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
-- Use uma tarefa de inicialização para instalar um serviço do Windows que executa uma ou mais tarefas em segundo plano. Você deve definir a propriedade **taskType** para **background** para que o serviço seja executado em segundo plano. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
+- Use uma tarefa de inicialização para instalar um serviço do Windows que executa uma ou mais tarefas em segundo plano. Você deve definir a propriedade **taskType** para **background** para que o serviço seja executado em segundo plano. Para saber mais, confira [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
 
 ### Executando tarefas em segundo plano na função web
 
@@ -255,7 +256,7 @@ Ao planejar como você executará tarefas em segundo plano em uma função de tr
 - Se uma tarefa em segundo plano lançar uma exceção sem tratamento, essa tarefa deve ser reciclada, permitindo que outras tarefas de segundo plano na função continuem em execução. No entanto, se a exceção for causada por corrupção de objetos fora da tarefa, como armazenamento compartilhado, a exceção deverá ser tratada pela sua classe **RoleEntryPoint**, todas as tarefas devem ser canceladas e deve ser permitido que o método **Run** seja encerrado. Em seguida, o Azure reiniciará a função.
 - Use o método **OnStop** para pausar ou interromper as tarefas em segundo plano e limpar os recursos. Isso pode envolver a interrupção de tarefas de longa execução ou com várias etapas. É essencial considerar como isso pode ser feito para evitar inconsistências de dados. Se uma instância de função para por algum motivo que não seja um desligamento iniciado pelo usuário, o código em execução no método **OnStop** deve ser concluído em cinco minutos antes da finalização forçada. Certifique-se de que o seu código possa ser concluído naquele momento ou que ele possa tolerar não estar em execução até a conclusão.
 - O balanceador de carga do Azure inicia o direcionamento do tráfego para a instância de função quando o método **RoleEntryPoint.OnStart** retorna o valor **true**. Portanto, considere colocar todo o código de inicialização no método **OnStart** para que as instâncias de função não inicializadas com êxito não recebam qualquer tráfego.
-- Você pode usar as tarefas de inicialização além dos métodos da classe **RoleEntryPoint**. Você deve usar as tarefas de inicialização para inicializar as configurações que precisa alterar no balanceador de carga do Azure, pois essas tarefas serão executadas antes de a função receber quaisquer solicitações. Para obter mais informações, consulte [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
+- Você pode usar as tarefas de inicialização além dos métodos da classe **RoleEntryPoint**. Você deve usar as tarefas de inicialização para inicializar as configurações que precisa alterar no balanceador de carga do Azure, pois essas tarefas serão executadas antes de a função receber quaisquer solicitações. Para saber mais, confira [Executar Tarefas de Inicialização no Azure](./cloud-services/cloud-services-startup-tasks.md).
 - Se houver um erro em uma tarefa de inicialização, isso poderá forçar a função a reiniciar continuamente. Isso pode impedir que você execute uma Permuta de endereço de VIP (IP virtual) para uma versão preparada anteriormente porque a permuta requer acesso exclusivo à função. Não é possível obtê-lo enquanto a função estiver reiniciando. Para resolver esse problema:
 	-  Adicione o seguinte código ao início dos métodos **OnStart** e **Run** em sua função:
 
@@ -320,4 +321,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure | Microsoft Azure"
 	description="Descreve as diretrizes ao usar o utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -63,4 +64,4 @@ Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->
