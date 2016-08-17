@@ -100,7 +100,7 @@ A amostra do **Microsoft Power BI Embedded** é um aplicativo Web de painel de e
 
 O código de exemplo do **Microsoft Power BI Embedded** é separado conforme demonstrado a seguir. Cada seção inclui o nome do arquivo na solução PowerBI-embedded.sln para que você possa localizar facilmente o código no exemplo.
 
-> [AZURE.NOTE] Esta seção é um resumo do código de exemplo que mostra como o código foi escrito. Expandiremos a descrição do exemplo à medida que avançarmos em direção à DG (Disponibilidade Geral). Para ver o exemplo completo, carregue a solução PowerBI-embedded.sln no Visual Studio.
+> [AZURE.NOTE] Esta seção é um resumo do código de exemplo que mostra como o código foi escrito. Para ver o exemplo completo, carregue a solução PowerBI-embedded.sln no Visual Studio.
 
 ### Modelo
 O exemplo conta com um **ReportsViewModel** e um **ReportViewModel**.
@@ -120,6 +120,15 @@ O exemplo conta com um **ReportsViewModel** e um **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Cadeia de conexão
+A cadeia de conexão deve estar no seguinte formato:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+Usar atributos comuns de servidor e de banco de dados falhará. Por exemplo: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### Visualizar
 A **Exibição** gerencia a exibição de **Relatórios** do Power BI e de um **Relatório** do Power BI.
@@ -220,7 +229,7 @@ Quando tiver um **Relatório**, use um **IFrame** para incorporar o **Relatório
 
 ## Filtrar relatórios inseridos no seu aplicativo
 
-Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** ao seu URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** à sua url src do iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

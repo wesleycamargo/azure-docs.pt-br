@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Pré-carregar ativos em um ponto de extremidade da CDN do Azure"
+	pageTitle="Pré-carregar ativos em um ponto de extremidade da CDN do Azure | Microsoft Azure"
 	description="Saiba como pré-carregar o conteúdo armazenado em cache em um ponto de extremidade da CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Pré-carregar ativos em um ponto de extremidade da CDN do Azure
@@ -60,4 +60,4 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 - [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

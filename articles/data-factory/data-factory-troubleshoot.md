@@ -47,7 +47,7 @@ A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet E
 - Use o link de **Instalação Manual** mostrado na mesma folha no portal para baixar o arquivo de instalação e executá-lo manualmente. Depois que a instalação for bem-sucedida, você verá a caixa de diálogo de Configuração de Gateway de Gerenciamento de Dados. Copie a **chave** na tela do portal e use-a no gerenciador de configuração para registrar manualmente o gateway com o serviço.
 
 ### Problema: falha ao se conectar ao SQL Server local 
-Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solução de problemas do gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obter detalhes.
+Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
  
 
 ### Problema: as fatias de entrada ficam sempre no estado Aguardando
@@ -85,7 +85,7 @@ Consulte o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obt
 Para resolver o erro, adicione a propriedade **external** e a seção opcional **externalData** à definição de JSON da tabela de entrada e recrie a tabela.
 
 ### Problema: Falha na operação de cópia híbrida
-Consulte [Solução de problemas do gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obter as etapas de solução de problemas de cópia de dados de/para um armazenamento de dados local usando o Gateway de Gerenciamento de Dados.
+Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver as etapas para solucionar os problemas de cópia para/a partir de um armazenamento de dados local usando o Gateway de Gerenciamento de Dados.
 
 ### Problema: falha no provisionamento sob demanda do HDInsight
 Ao usar um serviço vinculado do tipo HDInsightOnDemand, você deve especificar um linkedServiceName que aponta para o Armazenamento de Blobs do Azure. O serviço do Data Factory usa esse armazenamento para armazenar logs e arquivos de suporte para seu cluster do HDInsight sob demanda. Às vezes, o provisionamento de um cluster de HDInsight sob demanda falha com o seguinte erro:
@@ -143,4 +143,4 @@ Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-fa
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

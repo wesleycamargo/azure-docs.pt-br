@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/30/2016" 
 	ms.author="tarcher"/>
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
@@ -30,15 +30,15 @@ Este artigo aborda o método de Amostragem de CPU de criação de perfil, que po
 
 Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**. Você também pode consultar http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
 
-![][4]
+![Opções de símbolo][4]
 
 Se desejar, você pode simplificar os relatórios que o criador de perfis gera definindo Apenas Meu Código. Com a opção Apenas Meu Código habilitada, as pilhas de chamadas de função são simplificadas de maneira que as chamadas inteiramente internas às bibliotecas e ao .Net Framework sejam ocultados dos relatórios. No menu **Ferramentas**, escolha **Opções**. Em seguida, expanda o nó **Ferramentas de Desempenho** e escolha **Geral**. Marque a caixa de seleção **Habilitar Apenas Meu Código para relatórios do criador de perfis**.
 
-![][17]
+![Opções Apenas Meu Código][17]
 
 Você pode usar essas instruções com um projeto existente ou com um novo projeto. Se você criar um novo projeto para testar as técnicas descritas a seguir, escolha um projeto C# do **Serviço de Nuvem do Azure** e selecione uma **Função Web** e uma **Função de Trabalho**.
 
-![][5]
+![Funções de projeto do Serviço de Nuvem do Azure][5]
 
 Para fins de exemplo, adicione um código ao seu projeto que demore muito tempo e demonstre alguns problemas óbvios de desempenho. Por exemplo, adicione o seguinte código a um projeto de função de trabalho:
 
@@ -76,11 +76,11 @@ Em vez de criar o perfil do aplicativo iniciando-o no IDE do Visual Studio 2010,
 
 Para anexar o criador de perfis a um processo, no menu **Analisar**, escolha **Criador de Perfis** e **Anexar/Desanexar**.
 
-![][6]
+![Opção Anexar perfil][6]
 
 Para uma função de trabalho, localize o processo WaWorkerHost.exe.
 
-![][7]
+![Processo WaWorkerHost][7]
 
 Se a pasta de seu projeto estiver em uma unidade de rede, o criador de perfis solicitará que você forneça outro local para salvar os relatórios de criação de perfis.
 
@@ -92,17 +92,17 @@ Se a pasta de seu projeto estiver em uma unidade de rede, o criador de perfis so
 
 Para exibir o log, inicie a interface do usuário do Emulador de Computação.
 
-![][8]
+![Iniciar a IU do Emulador de Computação][8]
 
 Abra a janela do console do log da função de trabalho na interface do usuário do Emulador de Computação clicando na barra de títulos da janela do console. Você pode ver a ID do processo no log.
 
-![][9]
+![Exibir ID do processo][9]
 
 Depois de conectar-se, execute as etapas na interface do usuário do seu aplicativo (se necessário) para reproduzir o cenário.
 
 Quando desejar parar a criação de perfis, escolha o link **Parar Criação de Perfis**.
 
-![][10]
+![Opção Parar perfil][10]
 
 ## 3: Exibir relatórios de desempenho
 
@@ -110,18 +110,18 @@ O relatório de desempenho de seu aplicativo é exibido.
 
 Nesse ponto, o criador de perfis interromperá a execução, salvará os dados em um arquivo .vsp e exibirá um relatório que mostra uma análise dos dados.
 
-![][11]
+![Relatório do criador de perfil][11]
 
 
 Se você vir String.wstrcpy no Afunilamento, clique em Apenas Meu Código para alterar a exibição para mostrar somente o código do usuário. Se você vir String.Concat, tente pressionar o botão Mostrar Todo o Código.
 
 Você verá o método Concatenate e o String.Concat tomando uma grande parte do tempo de execução.
 
-![][12]
+![Análise do relatório][12]
 
 Se você adicionou o código de concatenação de cadeia de caracteres deste artigo, verá um aviso na Lista de Tarefas por isso. Você também poderá ver um aviso de que há uma quantidade excessiva de coleta de lixo, devido ao número de cadeias de caracteres que são criadas e descartadas.
 
-![][14]
+![Avisos do desempenho][14]
 
 ## 4: Fazer alterações e comparar o desempenho
 
@@ -140,11 +140,11 @@ Você também pode comparar o desempenho antes e depois de uma alteração no c�
 
 Realize outra execução de desempenho e, em seguida, compare o desempenho. No Gerenciador de Desempenho, se as execuções forem na mesma sessão, você poderá selecionar os dois relatórios, abrir o menu de atalho e escolher **Comparar Relatórios de Desempenho**. Se desejar comparar com uma execução em outra sessão de desempenho, abra o menu **Analisar** e escolha **Comparar Relatórios de Desempenho**. Especifique os dois arquivos na caixa de diálogo que é exibida.
 
-![][15]
+![Opção Comparar relatórios do desempenho][15]
 
 Os relatórios destacam as diferenças entre as duas execuções.
 
-![][16]
+![Relatório da comparação][16]
 
 Parabéns! Você começou a usar o criador de perfis.
 
@@ -186,4 +186,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

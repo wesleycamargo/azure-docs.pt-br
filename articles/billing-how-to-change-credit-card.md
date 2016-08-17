@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Como alterar o cartão de crédito usado para pagar uma assinatura do Azure | Microsoft Azure"
 	description="Descreve como alterar o cartão de crédito usado para pagar uma assinatura do Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -51,4 +51,4 @@ Se seu número de cartão de crédito for alterado devido a perda, roubo ou venc
 3. No lado direito da página, clique em **Alterar forma de pagamento**.
 4. Na página **Escolher forma de pagamento**, clique na seta suspensa ao lado do cartão de crédito, selecione o cartão de crédito que deseja usar e em seguida, selecione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para fechar a janela.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

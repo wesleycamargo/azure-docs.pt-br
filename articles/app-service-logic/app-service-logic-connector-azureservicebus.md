@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Conector do Barramento de Serviço do Azure em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
    description="Como criar e configurar o Conector do Barramento de Serviço do Azure ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -95,4 +95,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

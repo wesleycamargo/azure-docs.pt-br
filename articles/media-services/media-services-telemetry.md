@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2016"   
+	ms.date="07/27/2016"   
 	ms.author="juliako"/>
 
 # Telemetria dos Serviços de Mídia do Azure com o .NET
@@ -21,18 +21,24 @@
 
 A telemetria/monitoramento dos Serviços de Mídia permite que os clientes de Serviços de Mídia acessem dados de métricas para seus serviços. A versão atual dá suporte a dados de telemetria para entidades "Channel" e "StreamingEndpoint". Você pode configurar a telemetria com granularidade no nível de componente. Há dois níveis de detalhe, "Normal" e "Detalhado". A versão atual dá suporte somente a "Normal".
 
-A telemetria é gravada em uma conta de armazenamento do Azure fornecida pelo cliente (uma conta de armazenamento deve ser anexada à conta dos Serviços de Mídia). A telemetria é gravada em uma Tabela de Armazenamento do Azure na conta de armazenamento especificada. O sistema de telemetria criará uma tabela separada para cada novo dia com base em 00:00 UTC. Como um exemplo, "TelemetryMetrics20160321", em que "20160321" é a data da tabela criada. Para cada dia, haverá uma tabela separada.
+A telemetria é gravada em uma tabela de armazenamento em uma conta de Armazenamento do Azure fornecida pelo cliente (a conta de armazenamento deve ser anexada à conta dos Serviços de Mídia). O sistema de telemetria criará uma tabela separada para cada novo dia com base em 00:00 UTC. Como um exemplo, "TelemetryMetrics20160321", em que "20160321" é a data da tabela criada. Para cada dia, haverá uma tabela separada.
 
-O sistema de telemetria não fornece a retenção de dados ou exclui registros antigos automaticamente. Por esse motivo, você precisa gerenciar e excluir registros antigos. Ter tabelas separadas para cada dia facilita a exclusão de registros antigos. Você pode apenas excluir tabelas antigas.
+Observe que o sistema de telemetria não gerencia a retenção de dados. Você pode remover os dados de telemetria antigos excluindo as tabelas de armazenamento.
 
-Este tópico mostra como habilitar a telemetria para os serviços AMS especificados e como consultar as métricas usando o .NET.
+É possível consumir os dados de telemetria das seguintes maneiras:
+
+- Leia os dados diretamente no Armazenamento de Tabelas do Azure (por exemplo, usando o SDK de Armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, confira **Consumindo informações de telemetria** [neste](https://msdn.microsoft.com/library/mt742089.aspx) tópico.
+
+Ou
+
+- Use o suporte do SDK para .NET dos Serviços de Mídia para leitura de dados de armazenamento. Este tópico mostra como habilitar a telemetria para a conta AMS especificada e como consultar as métricas usando o SDK para .NET dos Serviços de Mídia do Azure.
 
 ## Configurando a telemetria para uma conta dos Serviços de Mídia
 
 As etapas abaixo são necessárias para habilitar a telemetria:
 
 - Obter as credenciais da conta de armazenamento anexada à conta dos Serviços de Mídia.
-- Criar um ponto de extremidade de notificação com **EndPointType** definido como **AzureTable** e endPontAddress apontando para a tabela de armazenamento.
+- Criar um Ponto de Extremidade de Notificação com **EndPointType** definido como **AzureTable** e endPontAddress apontando para a tabela de armazenamento.
 
 	    INotificationEndPoint notificationEndPoint = 
 	                  _context.NotificationEndPoints.Create("monitoring", 
@@ -52,7 +58,7 @@ As etapas abaixo são necessárias para habilitar a telemetria:
 
 A telemetria é gravada em uma Tabela de Armazenamento do Azure na conta de armazenamento especificada durante a configuração da telemetria para a conta de Serviços de Mídia. O sistema de telemetria criará uma tabela separada para cada novo dia com base em 00:00 UTC. Como um exemplo, "TelemetryMetrics20160321", em que "20160321" é a data da tabela criada. Para cada dia, haverá uma tabela separada.
 
-Você pode consultar as tabelas em busca das seguintes informações de métricas.
+Você pode consultar as tabelas de telemetria em busca das informações de métricas a seguir. O exemplo, mostrado mais adiante neste tópico, demonstra como usar o SDK para .NET dos Serviços de Mídia para consultar métricas.
 
 ### Log StreamingEndpoint
 
@@ -94,8 +100,10 @@ Propriedade|Descrição|Valor de exemplo
 **DiscontinuityCount**|Obtém a contagem de descontinuidade.|0
 **LastTimestamp**|Obtém o último carimbo de data/hora.|1800488800
  
-## Exemplo de métricas de StreamingEndpoint
-		
+## Exemplo  
+	
+O exemplo a seguir mostra habilitar a telemetria para a conta AMS especificada e como consultar as métricas usando o SDK para .NET dos Serviços de Mídia do Azure.
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -246,4 +254,4 @@ Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

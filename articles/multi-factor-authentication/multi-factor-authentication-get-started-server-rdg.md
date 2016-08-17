@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Gateway de Área de Trabalho Remota e Servidor Azure Multi-Factor Authentication usando RADIUS
@@ -55,8 +55,8 @@ O Servidor Azure Multi-Factor Authentication é configurado como um proxy RADIUS
 1. Abra o Servidor Azure Multi-Factor Authentication e clique no ícone Autenticação RADIUS. Marque a caixa de seleção Habilitar autenticação RADIUS.
 2. Na guia Clientes, verifique se as portas correspondem ao que foi configurado no NPS e clique no botão Adicionar. Adicione o endereço IP, o nome do aplicativo (opcional) e um segredo compartilhado do servidor do Gateway de Área de Trabalho Remota. O segredo compartilhado deve ser o mesmo no Servidor Azure Multi-Factor Authentication e no Gateway de Área de Trabalho Remota.
 3. Clique na guia Destino e escolha o botão de opção Servidores RADIUS.
-4. Clique no botão Adicionar... Insira o endereço IP, o segredo compartilhado e as portas do servidor NPS. A não ser que esteja usando um NPS central, o cliente RADIUS e o destino de RADIUS serão iguais. O segredo compartilhado deve corresponder ao configurado na seção do cliente RADIUS no servidor NPS. 
+4. Clique no botão Adicionar... Insira o endereço IP, o segredo compartilhado e as portas do servidor NPS. A não ser que esteja usando um NPS central, o cliente RADIUS e o destino de RADIUS serão iguais. O segredo compartilhado deve corresponder ao configurado na seção do cliente RADIUS no servidor NPS.
 
 ![Autenticação Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

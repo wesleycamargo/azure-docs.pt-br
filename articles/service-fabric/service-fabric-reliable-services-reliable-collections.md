@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/19/2016"
+   ms.date="07/28/2016"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -48,42 +48,28 @@ Hoje, **Microsoft.ServiceFabric.Data.Collections** contém duas coleções:
 - [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa uma fila PEPS (primeiro a entrar, primeiro a sair) estrita, assíncrona, transacional e replicada. Semelhante a **ConcurrentQueue**, a chave pode ser de qualquer tipo.
 
 ## Níveis de isolamento
-Nível de isolamento é uma medida do grau de isolamento alcançado. Isolamento significa que uma transação se comporta como se estivesse em um sistema que permite que somente uma transação esteja em andamento em qualquer determinado momento.
-
-As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser usado para uma determinada operação de leitura dependendo da operação e da função da réplica.
-
-Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
+Nível de isolamento define o grau no qual a transação deve ser isolada de modificações feitas por outras transações. Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
 - **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 - **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. Os instantâneos são consistentes entre as Coleções Confiáveis. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
-O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
+As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser usado para uma determinada operação de leitura dependendo da operação e da função da réplica no momento da criação da transação. A seguir está a tabela que descreve os padrões de nível de isolamento para operações de Dicionário Confiável e Fila.
 
-### Dicionário Confiável
 | Operação\\função | Primário | Secundário |
 | --------------------- | :--------------- | :--------------- |
 | Leitura de entidade única | Leitura repetida | Instantâneo |
 | Enumeração\\contagem | Instantâneo | Instantâneo |
 
-### Fila Confiável
-| Operação\\função | Primário | Secundário |
-| --------------------- | :--------------- | :--------------- |
-| Leitura de entidade única | Instantâneo | Instantâneo |
-| Enumeração\\contagem | Instantâneo | Instantâneo |
+>[AZURE.NOTE] Exemplos comuns de Operações de Entidade Única são `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 
-## Modelo de persistência
-O Gerenciador de Estado Confiável e as Coleções Confiáveis seguem um modelo de persistência chamado Log e Ponto de Verificação. Esse é um modelo em que cada alteração de estado é registrada no disco e aplicada apenas na memória. O estado de conclusão em si é persistido apenas ocasionalmente (também conhecido como ponto de verificação). O benefício que ele oferece é:
-
-- Os Deltas são transformados em gravações sequenciais somente de acréscimo em disco para melhorar o desempenho.
-
-Para entender melhor o modelo de Log e Ponto de verificação, primeiro vamos analisar o cenário de disco infinito. O Gerenciador de Estado Confiável registra cada operação antes que ela seja replicada. Isso permite que a Coleção Confiável se aplique somente à operação na memória. Como os logs são persistidos, mesmo quando a réplica falha e precisa ser reiniciada, o Gerenciador de Estado Confiável tem informações suficientes em seus logs para repetir todas as operações que a réplica perdeu. Como o disco é infinito, registros de log nunca precisam ser removidos e a Coleção Confiável precisa apenas gerenciar o estado na memória.
-
-Agora vamos examinar o cenário de disco finito. Em um ponto, o Gerenciador de Estado Confiável ficará sem espaço em disco. Antes que isso ocorra, o Gerenciador de Estado Confiável precisa truncar seu log para liberar espaço para os registros mais recentes. Ele solicitará às Reliable Collections para criar um ponto de verificação do seu estado na memória em disco. É responsabilidade da Coleção Confiável persistir seu estado até esse ponto. Depois que as Coleções Confiáveis concluírem seus pontos de verificação, o Gerenciador de Estado Confiável poderá truncar o log para liberar espaço em disco. Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiáveis irão recuperar seu estado com ponto de verificação, e o Gerenciador de Estado Confiável irá recuperar e reproduzir todas as alterações de estado que ocorreram desde o ponto de verificação.
+O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
 ## Bloqueio
 Nas Coleções Confiáveis, todas as transações têm duas fases: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
 
-Coleções Confiáveis sempre utilizam bloqueios exclusivos. Para leituras, o bloqueio depende de alguns fatores. Qualquer operação de leitura feita usando o isolamento de Instantâneo é livre de bloqueio. Qualquer operação de Leitura Repetida por padrão recebe bloqueios compartilhados. No entanto, para qualquer operação de leitura que dá suporte à Leitura Repetida, o usuário pode solicitar um bloqueio de atualização, em vez do bloqueio compartilhado. Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma forma comum de deadlock que ocorre quando várias transações bloqueiam recursos para atualização potencial em um momento posterior.
+Dicionário Confiável usa bloqueio para todas as operações de entidade única em nível de linha. Fila Confiável compensa simultaneidade para propriedade PEPS transacional estrita. Fila Confiável usa bloqueios de nível de operação permitindo que uma transação com `TryPeekAsync` e/ou `TryDequeueAsync` e uma transação com `EnqueueAsync` por vez. Observe que, para preservar PEPS, se um `TryPeekAsync` ou `TryDequeueAsync` nunca observarem que a Fila Confiável está vazia, também bloquearão `EnqueueAsync`.
+
+Operações de gravação sempre utilizam bloqueios exclusivos. Para operações de leitura, o bloqueio depende de alguns fatores. Qualquer operação de leitura feita usando o isolamento de Instantâneo é livre de bloqueio. Qualquer operação de Leitura Repetida por padrão recebe bloqueios compartilhados. No entanto, para qualquer operação de leitura que dá suporte à Leitura Repetida, o usuário pode solicitar um bloqueio de atualização, em vez do bloqueio compartilhado. Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma forma comum de deadlock que ocorre quando várias transações bloqueiam recursos para atualização potencial em um momento posterior.
 
 A matriz de compatibilidade de bloqueio pode ser encontrada abaixo:
 
@@ -97,16 +83,27 @@ Observe que o argumento de tempo-limite nas APIs de Coleções Confiáveis é us
 
 Observe que o cenário de deadlock acima é um ótimo exemplo de como um Bloqueio de atualização pode evitar deadlocks.
 
+## Modelo de persistência
+O Gerenciador de Estado Confiável e as Coleções Confiáveis seguem um modelo de persistência chamado Log e Ponto de Verificação. Esse é um modelo em que cada alteração de estado é registrada no disco e aplicada apenas na memória. O estado de conclusão em si é persistido apenas ocasionalmente (também conhecido como ponto de verificação). O benefício é que deltas são transformados em gravações sequenciais somente de acréscimo em disco para melhorar o desempenho.
+
+Para entender melhor o modelo de Log e Ponto de verificação, primeiro vamos analisar o cenário de disco infinito. O Gerenciador de Estado Confiável registra cada operação antes que ela seja replicada. Isso permite que a Coleção Confiável se aplique somente à operação na memória. Como os logs são persistidos, mesmo quando a réplica falha e precisa ser reiniciada, o Gerenciador de Estado Confiável tem informações suficientes em seus logs para repetir todas as operações que a réplica perdeu. Como o disco é infinito, registros de log nunca precisam ser removidos e a Coleção Confiável precisa apenas gerenciar o estado na memória.
+
+Agora vamos examinar o cenário de disco finito. Os registros do log se acumulam, o Gerenciador de Estado Confiável ficará sem espaço em disco. Antes que isso ocorra, o Gerenciador de Estado Confiável precisa truncar seu log para liberar espaço para os registros mais recentes. Ele solicitará às Reliable Collections para criar um ponto de verificação do seu estado na memória em disco. É responsabilidade da Coleção Confiável persistir seu estado até esse ponto. Depois que as Coleções Confiáveis concluírem seus pontos de verificação, o Gerenciador de Estado Confiável poderá truncar o log para liberar espaço em disco. Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiáveis irão recuperar seu estado com ponto de verificação, e o Gerenciador de Estado Confiável irá recuperar e reproduzir todas as alterações de estado que ocorreram desde o ponto de verificação.
+
+>[AZURE.NOTE] A adição de outro valor de ponto de verificação aprimora o desempenho recuperação em casos comuns. Isso ocorre porque os pontos de verificação contêm somente as versões mais recentes.
+
 ## Recomendações
 
 - Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetValueAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
 - Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como structs e tipos internos são pass-by-value, você não precisa fazer uma cópia em profundidade neles.
 - Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 - Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
-- Os enumeradores construídos dentro do escopo de uma transação não devem ser usados fora do escopo da transação.
+- Não use uma enumeração fora do escopo da transação que em foi criado.
 - Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
 - Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende disso para mesclar os pontos de verificação.
+- Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
 - Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
+- Evite a mistura de operações de entidade única e operações de várias entidades (por exemplo, de `GetCountAsync`, `CreateEnumerableAsync`) na mesma transação devido a níveis de isolamento diferentes.
 
 Eis aqui algumas coisas que se deve manter em mente:
 
@@ -119,6 +116,7 @@ Eis aqui algumas coisas que se deve manter em mente:
 ## Próximas etapas
 
 - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+- [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
 - [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 - [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
@@ -126,4 +124,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

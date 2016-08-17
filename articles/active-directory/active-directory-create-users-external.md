@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="08/02/2016"
+	ms.author="curtand"/>
 
 # Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory
 
-Adicione usuários para preencher seu diretório. Este artigo explica como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras. Para saber mais sobre como adicionar novos usuários da sua organização e como adicionar os usuários com contas da Microsoft, veja [Adicionar novos usuários ao Azure Active Directory](active-directory-create-users.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
+Este artigo explica como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras. Para saber mais sobre como adicionar novos usuários da sua organização e como adicionar os usuários com contas da Microsoft, veja [Adicionar novos usuários ao Azure Active Directory](active-directory-create-users.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
 
 ## Adicionar um usuário
 
@@ -84,4 +84,4 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 - [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

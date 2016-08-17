@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="spelluru"/>
 
 # Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET da Data Factory
@@ -24,7 +24,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 ## Pré-requisitos
 
-- Visual Studio 2012 ou 2013
+- Visual Studio 2012 ou 2013 ou 2015.
 - Baixar e instalar o [SDK .NET do Azure][azure-developer-center]
 - Baixe e instale os pacotes NuGet para Data Factory do Azure. As instruções estão no passo a passo.
 
@@ -43,19 +43,23 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 3.	No <b>Console do Gerenciador de Pacotes</b>, digite os comandos a seguir, um por vez.</b>
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Adicione a seção **appSetttings** a seguir ao arquivo **App.config**. Eles são usados pelo método auxiliar: **GetAuthorizationHeader**.
 
-	Substitua os valores por **SubscriptionId** e **ActiveDirectoryTenantId** por suas IDs de assinatura e locatário do Azure. Você pode obter esses valores, executando **Get-AzureAccount** o PowerShell do Azure (talvez seja necessário fazer logon primeiro usando Add-AzureAccount).
+	Substitua os valores para **AdfClientId**, **RedirectUri**, **SubscriptionId** e **ActiveDirectoryTenantId** por seus próprios valores.
+
+	Você pode obter os valores da ID da assinatura e do locatário executando **Get-AzureAccount -Format-List** a partir do Azure PowerShell (talvez seja necessário fazer logon primeiro usando Add-AzureAccount) depois de fazer logon usando Login-AzureRmAccount.
+
+	Você pode obter a ID do CLIENTE e o URI de redirecionamento para seu aplicativo do AD no portal do Azure.
  
 		<appSettings>
-		    <!--CSM Prod related values-->
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		    <!--Make sure to write your own tenenat id and subscription ID here-->
+
+		    <!-- Replace the following values with your own -->
+		    <add key="AdfClientId" value="Your AD application ID" />
+		    <add key="RedirectUri" value="Your AD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -205,7 +209,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 
 11. Adicione o código a seguir, que **cria e ativa um pipeline** no método **Principal**. Essa pipeline tem uma **CopyActivity** que usa **BlobSource** como fonte e **BlobSink** como coletor.
 
-A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é alimentada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é alimentada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -263,7 +267,7 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 
 	
 
-12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal do Azure.
+12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite fornecer o **nome de usuário** e a **senha** que você usa para fazer logon no Portal do Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -380,9 +384,52 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 18. Verifique se um arquivo de saída foi criado na pasta **apifactoryoutput** no contêiner **adftutorial**.
 
 
+## Logon sem caixa de diálogo pop-up 
+O código acima inicia uma caixa de diálogo para inserção das credenciais do Azure. Se você precisar entrar programaticamente sem usar uma caixa de diálogo, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
-> [AZURE.NOTE] O código acima inicia uma caixa de diálogo para inserção das credenciais do Azure. Se você precisar entrar programaticamente sem usar uma caixa de diálogo, consulte [Autenticar uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+### Exemplo
 
+Crie o método GetAuthorizationHeaderNoPopup conforme mostrado abaixo:
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+
+Substitua a chamada **GetAuthorizationHeader** por uma chamada para **GetAuthorizationHeaderNoPopup** na função **Main**:
+
+        TokenCloudCredentials aadTokenCredentials =
+            new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeaderNoPopup());
+
+Aqui está como você pode criar o aplicativo do Active Directory, a entidade de serviço e, em seguida, atribuí-lo à função de Colaborador do Data Factory:
+
+1. Configurar o aplicativo do AD.
+
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
+
+2. Crie a entidade de serviço do AD.
+
+		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+3. Adicione a entidade de serviço à função de Colaborador do Data Factory.
+
+		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+
+4. Obtenha a ID do aplicativo.
+
+		$azureAdApplication
+
+
+Anote a ID do aplicativo e a senha (secreta do cliente), e use-a no código acima.
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
@@ -393,4 +440,4 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

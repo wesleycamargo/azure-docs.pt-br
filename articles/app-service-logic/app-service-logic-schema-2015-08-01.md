@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -464,4 +464,4 @@ Como incluiremos em breve mais tipos de conteúdo, a função `parse()` foi reno
 ## Em breve: APIs de Integração Corporativa
 Neste momento, ainda não temos versões gerenciadas das APIs de Integração Corporativa disponíveis (como AS2). Eles estarão disponíveis em breve, conforme abordado no [mapa](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Enquanto isso, você pode usar suas APIs BizTalk implantadas existentes por meio da ação HTTP, conforme abordado acima em "Como usar seus aplicativos de API já implantados".
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -107,7 +107,7 @@ Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns c
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) para a área de transferência.
+3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência.
  - O script T-SQL cria os objetos necessários Na Memória no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
 
 4. Cole o script T-SQL no SSMS e execute o script.
@@ -286,7 +286,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copie o texto da linha de comando anterior do ostress.exe para a área de transferência.
 
-3. Substitua o <placeholders> para os parâmetros -S -U -P -d pelos valores reais corretos.
+3. Substitua os <espaços reservados> para os parâmetros -S -U -P -d pelos valores reais corretos.
 
 4. Execute a linha de comando editada em uma janela Cmd RML.
 
@@ -310,7 +310,7 @@ Depois de ter o resultado da execução do \_inmem, realize as seguintes etapas 
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Edite a linha de comando do ostress.exe para substituir todos *\_inmem* por *\_ondisk*.
+2. Edite a linha de comando do ostress.exe para substituir todos os *\_inmem* por *\_ondisk*.
 
 3. Execute novamente o ostress.exe pela segunda vez e capture o resultado da duração.
 
@@ -319,7 +319,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Resultados esperados para a comparação
 
-Os testes In-Memory mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM do Azure na mesma região do Azure que o banco de dados.
+Os testes Em memória mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM do Azure na mesma região do Azure que o banco de dados.
 
 
 
@@ -348,7 +348,7 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
  - Use esse nome exato.
  - Escolha qualquer camada de serviço Premium.
 
-2. Copie o [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) para sua área de transferência.
+2. Copie o [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) para sua área de transferência.
  - O script T-SQL cria os objetos necessários Na Memória no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
  - O script cria a tabela Dimension e duas tabelas de fatos. As tabelas de fatos são preenchidas com 3,5 milhões de linhas cada.
  - O script pode levar 15 minutos para ser concluído.
@@ -371,7 +371,7 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
 #### Consultas cruciais para comparar o índice columnstore
 
 
-[Estes](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) são os diversos tipos de consulta T-SQL que você pode executar para ver as melhorias de desempenho. Na Etapa 2 no script T-SQL, há um par de consultas que são de interesse direto. As duas consultas diferem apenas em uma única linha:
+[Estes](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) são os diversos tipos de consulta T-SQL que você pode executar para ver as melhorias de desempenho. Na Etapa 2 no script T-SQL, há um par de consultas que são de interesse direto. As duas consultas diferem apenas em uma única linha:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -537,4 +537,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

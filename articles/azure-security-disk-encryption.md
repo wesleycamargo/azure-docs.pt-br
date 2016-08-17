@@ -34,9 +34,9 @@ O Azure Disk Encryption para VMs IaaS do Windows agora está em [Disponibilidade
 A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente:
 
 - Habilitar a criptografia na nova VM IaaS criada usando chaves de criptografia e VHD previamente criptografado
-- Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure 
-- Ativar a criptografia em VMs IaaS existentes já em execução no Azure 
-- Desabilitar a criptografia em VMs IaaS do Windows 
+- Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure
+- Ativar a criptografia em VMs IaaS existentes já em execução no Azure
+- Desabilitar a criptografia em VMs IaaS do Windows
 
 A solução dá suporte aos seguintes itens para VMs IaaS quando habilitada no Microsoft Azure:
 
@@ -91,7 +91,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 A criptografia de disco do Azure para VMs IaaS para solução Windows e Linux inclui a extensão de criptografia de disco para Windows, a extensão de criptografia de disco para Linux, os cmdlets de criptografia de disco do PowerShell, os cmdlets CLI de criptografia de disco e os modelos de Gerenciador de Recursos do Azure de criptografia de disco. Há suporte para a solução de criptografia de disco do Azure em VMs IaaS executando o Windows ou o sistema operacional Linux. Para obter mais detalhes sobre os sistemas operacionais com suporte, consulte a seção de pré-requisitos abaixo.
 
-**Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
+**Observação:** não são cobradas taxas para criptografar discos de VM com o Azure Disk Encryption.
 
 ### Proposta de valor
 
@@ -195,9 +195,9 @@ O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: clien
 
 **Observação:** se a sua política de segurança limitar o acesso das VMs do Azure à Internet, você poderá resolver o URI acima ao qual você precisa de conectividade e configurar uma regra específica para permitir a conectividade de saída para o IPs.
 
-- Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [Azure PowerShell versão 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e acima
+- Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [Azure PowerShell versão 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e superiores
 
-**Observação:**não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se você estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, consulte o artigo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0).
+**Observação:** não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se você estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, confira o artigo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0).
 
 - Para executar qualquer um dos comandos do Azure CLI e associá-lo a sua assinatura do Azure, você primeiro deve instalar a versão do Azure CLI:
 
@@ -253,7 +253,7 @@ Use o cmdlet do PowerShell abaixo para criar um novo aplicativo Azure AD:
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
-**Observação:** $azureAdApplication.ApplicationId é o ClientID do AD do Azure e $aadClientSecret é o Segredo do cliente que deve ser usado posteriormente para habilitar o ADE. Você deve proteger de forma adequada o segredo do cliente do Azure AD.
+**Observação:** $azureAdApplication.ApplicationId é o ClientID do AD do Azure e $aadClientSecret é o segredo do cliente que deve ser usado posteriormente para habilitar o ADE. Você deve proteger adequadamente o segredo do cliente no Azure AD.
 
 
 ##### Provisionando a ID do cliente e o segredo do AD do Azure usando o Portal de Gerenciamento de Serviço do Azure
@@ -366,7 +366,7 @@ Depois de concluir o carregamento de PFX, use as etapas abaixo para implantar um
     $sourceVaultId = (Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName).ResourceId
     $vm = Get-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore "My" -CertificateUrl $certUrl
-    Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
+    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 
 
 #### Configurando a política de acesso ao Cofre da Chave para o aplicativo Azure AD
@@ -593,7 +593,7 @@ Detalhes de parâmetros do modelo ARM para desabilitar a criptografia na VM IaaS
 
 | ​vmName | ​Nome da VM em que a operação de criptografia deve ser realizada |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType | ​Tipo de volume em que a operação de descriptografia é executada. Os valores válidos são "OS", "Data", "All". **Observação:** não é possível desabilitar a criptografia no volume de inicialização/sistema operacional da VM IaaS do Windows em execução sem desabilitar a criptografia no volume “Data”. |
+| ​volumeType | ​Tipo de volume em que a operação de descriptografia é executada. Os valores válidos são “OS”, “Data”, “All”. <br>**Observação:** você não pode desabilitar a criptografia no volume de inicialização/sistema operacional da VM IaaS do Windows em execução sem desabilitar a criptografia no volume "Data". |
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão cada vez que uma operação de descriptografia de disco for executada na mesma VM |
 
 ##### Desabilitar a criptografia em IaaS do Windows existente/em execução no Azure usando o cmdlet do PS
@@ -845,4 +845,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

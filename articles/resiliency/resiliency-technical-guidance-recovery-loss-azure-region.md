@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de uma interrupção de serviço em toda a região
 
@@ -106,7 +106,7 @@ A [Restauração Geográfica](../sql-database/sql-database-recovery-using-backup
 
 ####Replicação geográfica ativa
 
-A [Replicação Geográfica Ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Projetar um aplicativo em nuvem para recuperação de desastres usando a Replicação Geográfica Ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Atualização de aplicativo sem tempo de inatividade](../sql-database/sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como projetar e implementar aplicativos e atualizações de aplicativos sem tempo de inatividade.
+A [Replicação Geográfica Ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Projetar um aplicativo em nuvem para recuperação de desastres usando a Replicação Geográfica Ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Atualização de aplicativo sem tempo de inatividade](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obter detalhes sobre como projetar e implementar aplicativos e atualizações de aplicativos sem tempo de inatividade.
 
 ###SQL Server em máquinas virtuais
 
@@ -214,4 +214,4 @@ Os arquivos de configuração fornecem a maneira mais rápida de configurar uma 
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se concentra em [recuperação de um datacenter local para o Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

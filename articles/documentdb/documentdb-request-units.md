@@ -189,7 +189,7 @@ Selecionar os 10 principais|15|Total de 150|155|1275
 
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s. Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 
-##Exceder os limites de taxa de transferência reservada
+##<a id="RequestRateTooLarge"></a> Exceder os limites de taxa de transferência reservada
 Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que ultrapassam a taxa de unidades solicitação provisionada para uma coleção, as solicitações a essa coleção são limitadas até que a taxa caia para baixo do nível reservado. Quando ocorre uma restrição, o servidor encerra preventivamente a solicitação com RequestRateTooLargeException (código de status HTTP 429) e retorna o cabeçalho x-ms-retry-after-ms, indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 
 	HTTP Status 429
@@ -211,7 +211,7 @@ Para saber mais sobre a produtividade reservada com os bancos de dados do Banco 
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
-Para começar com os testes de desempenho e escala com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+Para começar os testes de desempenho e de escalabilidade com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
@@ -220,4 +220,4 @@ Para começar com os testes de desempenho e escala com o Banco de Dados de Docum
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,10 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Use Distcp para copiar dados entre o Repositório do Data Lake e os Blobs de Armazenamento do Azure
+
+> [AZURE.SELECTOR]
+- [Como usar DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Como usar AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
 
 Depois de criar um cluster do HDInsight que tem acesso a uma conta de Repositório do Data Lake, você pode usar ferramentas do ecossistema Hadoop, como Distcp, para copiar dados **do e para** um armazenamento de cluster do HDInsight (WASB) em uma conta do Repositório do Data Lake. Esse artigo fornece instruções sobre como fazer isso.
 
@@ -26,7 +31,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **Cluster Azure HDInsight** com acesso a uma conta do Repositório do Data Lake. Consulte [Criar um cluster do HDInsight com o Repositório do Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
+- **Cluster HDInsight do Azure** com acesso a uma conta do Data Lake Store. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 
 ## Você aprende rapidamente com vídeos?
 
@@ -71,4 +76,4 @@ Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usad
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

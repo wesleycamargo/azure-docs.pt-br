@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de dados corrompidos ou exclusão acidental
 
@@ -91,4 +91,4 @@ Para saber mais sobre recursos de backup e restauração no Azure, confira [Cen�
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). Se você estiver procurando mais recursos de resiliência, recuperação de desastre e alta disponibilidade, confira os [recursos adicionais](./resiliency-technical-guidance.md#additional-resources) das orientações técnicas de resiliência do Azure.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

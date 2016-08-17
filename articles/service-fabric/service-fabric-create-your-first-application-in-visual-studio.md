@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Criar seu primeiro aplicativo do Azure Service Fabric no Visual Studio
@@ -42,7 +42,7 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 
 	![Caixa de diálogo Novo projeto no Visual Studio][1]
 
-4. Na próxima página, será solicitado que você escolha o primeiro tipo de serviço a ser incluído em seu aplicativo. Para os fins deste tutorial, escolheremos **Serviço com Estado**. Nomeie-o e clique em **OK**.
+4. Na próxima página, escolha **Com Estado** como o primeiro tipo de serviço a ser incluído em seu aplicativo. Nomeie-o e clique em **OK**.
 
 	![Caixa de diálogo Novo serviço no Visual Studio][2]
 
@@ -56,35 +56,35 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 
 	- **Perfis de publicação**: usados para gerenciar preferências de ferramentas para ambientes diferentes.
 
-	- **Scripts**: inclui um script do PowerShell para a implantação/atualização de seu aplicativo. Esse script é usado em segundo plano pelo Visual Studio e pode ser chamado diretamente na linha de comando.
+	- **Scripts**: inclui um script do PowerShell para a implantação/atualização de seu aplicativo. O Visual Studio usa o script de bastidores do Visual Studio. O script também pode ser chamado diretamente na linha de comando.
 
-	- **Definição de aplicativo**: inclui o manifesto de aplicativo em *ApplicationPackageRoot* e arquivos de parâmetro de aplicativo associados em *ApplicationParameters* que definem o aplicativo e permitem que você o configure especificamente para um determinado ambiente.
+	- **Definição de aplicativo**: inclui o manifesto do aplicativo em *ApplicationPackageRoot*. Os arquivos de parâmetros do aplicativo associados estão em *ApplicationParameters*, que definem o aplicativo e permitem que você o configure especificamente para determinado ambiente.
 
     Para obter uma visão geral do conteúdo do projeto de serviço, confira [Introdução aos Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Implantar e depurar o aplicativo
 
-Agora que você tem um aplicativo, poderá tentar executá-lo.
+Agora que você tem um aplicativo, tente executá-lo.
 
 1. Pressione F5 no Visual Studio para implantar o aplicativo para depuração.
 
-	>[AZURE.NOTE] Isso levará algum tempo na primeira vez em que o Visual Studio estiver criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você criará em um cluster com vários computadores, só que em um único computador. Você verá o status de criação do cluster na janela de saída do Visual Studio.
+	>[AZURE.NOTE] A implantação leva algum tempo na primeira vez em que o Visual Studio está criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você criará em um cluster com vários computadores, só que em um único computador. O status de criação do cluster aparece na janela de saída do Visual Studio.
 
 	Quando o cluster estiver pronto, você receberá uma notificação do aplicativo gerenciador da bandeja do sistema do cluster local incluído com o SDK.
 
 	![Notificação de bandeja do sistema de cluster local][4]
 
-2. Assim que o aplicativo for iniciado, o Visual Studio abrirá automaticamente o Visualizador de Eventos de Diagnóstico, onde você poderá ver a saída de rastreamento do serviço.
+2. Assim que o aplicativo for iniciado, o Visual Studio abre automaticamente o Visualizador de Eventos de Diagnóstico, onde você poderá ver a saída de rastreamento do serviço.
 
 	![Visualizador de eventos de diagnóstico][5]
 
-	No caso do modelo de serviço com estado, as mensagens simplesmente mostram o valor do contador sendo incrementado no método `RunAsync` de MyStatefulService.cs.
+	No caso do modelo de serviço com estado, as mensagens simplesmente mostram o valor do contador aumentando no método `RunAsync` de MyStatefulService.cs.
 
-3. Expanda um dos eventos para ver mais detalhes, inclusive o nó onde o código estiver em execução. Nesse caso, é o \_Node\_2, que pode ser diferente em seu computador.
+3. Expanda um dos eventos para ver mais detalhes, inclusive o nó onde o código estiver em execução. Nesse caso, é o _Node_2, que pode ser diferente em seu computador.
 
 	![Detalhe do visualizador de eventos de diagnóstico][6]
 
-	O cluster local contém cinco nós hospedados em um único computador. Ele simula um cluster de cinco nós, onde os nós estão em computadores diferentes. Vamos desativar um dos nós no cluster local para simular a perda de uma máquina e experimentar o depurador do Visual Studio ao mesmo tempo.
+	O cluster local contém cinco nós hospedados em um único computador. Ele simula um cluster de cinco nós, onde os nós estão em computadores diferentes. Vamos desativar um dos nós no cluster local para simular a perda de uma máquina enquanto experimentamos o depurador do Visual Studio.
 
     >[AZURE.NOTE] Os eventos de diagnóstico de aplicativo emitidos pelo modelo de projeto usam a classe `ServiceEventSource` incluída. Para saber mais, confira [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
@@ -100,7 +100,7 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 
 6. No painel esquerdo, expanda **Cluster > Nós** e localize o nó onde o código está sendo executado.
 
-7. Clique em **Ações > Desativar (Reiniciar)** para simular uma reinicialização do computador. (Observe que você também pode fazer isso em um menu de contexto na exibição de lista de nós no painel esquerdo selecionando o ícone de três pontos.)
+7. Clique em **Ações > Desativar (Reiniciar)** para simular uma reinicialização do computador. (Observe que você também pode desativar o menu de contexto no modo de exibição de lista de nós no painel esquerdo.)
 
 	![Parar um nó no Service Fabric Explorer][sfx-stop-node]
 
@@ -112,11 +112,11 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 
 ## Limpando
 
-  Antes da conclusão, é importante lembrar que o cluster local é muito real. Parar o depurador removerá a instância do aplicativo e cancelará o registro do tipo de aplicativo. Porém, o cluster continuará em execução em segundo plano. Você tem várias opções para gerenciar isto:
+  Antes da conclusão, é importante lembrar que o cluster local é muito real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
 
   1. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 
-  2. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Use isso somente se você não pretender usar o cluster local por algum tempo ou se precisar recuperar recursos.
+  2. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Somente exclua o cluster se você não pretende usar o cluster local por algum tempo ou se precisa recuperar recursos.
 
 ## Próximas etapas
 
@@ -138,4 +138,4 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

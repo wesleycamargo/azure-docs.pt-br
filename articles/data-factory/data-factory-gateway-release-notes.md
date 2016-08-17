@@ -13,29 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/17/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão para o Gateway de Gerenciamento de Dados
 
 Um dos desafios da integração de dados moderna é mover dados continuamente para e do local para a nuvem. O data factory torna perfeita essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
-Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) para obter mais informações.
+Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) e [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter mais informações.
 
-## VERSÃO ATUAL (2.0.6013.1)
+## VERSÃO ATUAL (2.1.6040.1)
+
+- O driver DB2 agora está incluído no pacote de instalação do gateway. Você não precisa instalá-lo separadamente.
+- O driver DB2 agora oferece suporte ao z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, Unix e Windows).
+- Oferece suporte ao uso do Banco de Dados de Documentos como uma origem ou destino para os armazenamentos de dados locais
+- Dá suporte à cópia dos dados de/para o armazenamento de blobs quente/frio junto com a conta de armazenamento de uso geral já com suporte.
+- Permite que você conecte o SQL Server local por meio do gateway com privilégios de logon remoto.
+
+## Versões anteriores
+
+## 2\.0.6013.1
 
 - Você pode selecionar o idioma/cultura a ser usada por um gateway durante a instalação manual.
 - Quando o gateway não funciona conforme o esperado, você pode optar por enviar logs de gateway dos últimos sete dias à Microsoft para facilitar a solução de problemas do problema. Se gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar logs de gateway.
 - Aprimoramentos na interface do usuário para o gerenciador de configuração de gateway:
 	- Torne o status do gateway mais visível na guia Página Inicial.
 	- Controles reorganizados e simplificados.
-- Você pode copiar dados de um armazenamento que não seja o Blob do Azure para o Azure SQL Data Warehouse via Polybase e blob de preparo usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em estágios](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
+- Você pode copiar os dados de um armazenamento que não seja o Blob do Azure para o Azure SQL Data Warehouse via Polybase e blob de preparo usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Consulte [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
 - Você pode aproveitar o Gateway de Gerenciamento de Dados para ingerir dados diretamente de um banco de dados do SQL Server local para o Aprendizado de Máquina do Azure.
 - Aprimoramentos de desempenho
 	- Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de visualização de cópia sem código.
 
 
-## Versões anteriores
 
 ## 1\.12.5953.1
 - Correções de bug
@@ -161,4 +170,4 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 ### Por que o Gerenciador de Fonte de Dados está tentando se conectar a um gateway?
 Esse é um design de segurança em que você só pode configurar fontes de dados locais para acesso à nuvem na rede corporativa, e suas credenciais não fluirão para fora do firewall corporativo. Verifique se o seu computador pode acessar o computador em que o gateway está instalado.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/29/2016"
    ms.author="cawa"/>
 
 # Usar um comando do Azure PowerShell para criar um contêiner de serviço de nuvem vazio
@@ -48,4 +48,4 @@ Get-help New-AzureService
 
  * Para publicar seu projeto de serviço de nuvem no Azure, consulte o exemplo de código **PublishCloudService.ps1** em [Fornecimento contínuo de serviço de nuvem no Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

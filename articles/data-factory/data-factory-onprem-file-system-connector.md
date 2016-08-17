@@ -25,7 +25,7 @@ A data factory dá suporte à conexão com e do sistema de arquivos local por me
 > [AZURE.NOTE] 
 Com exceção do Gateway de Gerenciamento de Dados, não é necessário instalar nenhum outro binário para se comunicar de e para o Sistema de Arquivos local.
 > 
-> Confira [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) (Solução de problemas de Gateway) para ver dicas sobre como solucionar problemas de conexão/gateway.
+> Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## Compartilhamento de arquivos do Linux 
 
@@ -574,4 +574,4 @@ Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

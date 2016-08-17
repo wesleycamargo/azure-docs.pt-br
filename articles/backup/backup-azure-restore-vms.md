@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Com as etapas a seguir, restaure uma máquina virtual em uma nova VM a partir de
 
 1. Na tela **Selecionar instância de restauração**, especifique os detalhes de onde restaurar a máquina virtual.
 
-  - Especifique o nome da máquina virtual: em um determinado serviço de nuvem, o nome da máquina virtual deve ser exclusivo. Não há suporte para substituição de VM existente. 
+  - Especifique o nome da máquina virtual: em um determinado serviço de nuvem, o nome da máquina virtual deve ser exclusivo. Não há suporte para substituição de VM existente.
   - Selecione um serviço de nuvem para a VM: isso é obrigatório para a criação de uma VM. Você pode optar por usar um serviço de nuvem existente ou criar um novo serviço de nuvem.
 
         O nome do serviço de nuvem deve ser globalmente exclusivo. Geralmente, o nome do serviço de nuvem é associado a uma URL pública no formato [serviçodenuvem].cloudapp.net. O Azure não permitirá a criação de um novo serviço de nuvem se o nome já estiver em uso. Se você optar por criar, selecione Criar novo serviço de nuvem". O serviço receberá o mesmo nome que a máquina virtual, portanto, o nome escolhido para a VM deverá ser exclusivo o suficiente para ser aplicado ao serviço de nuvem associado.
@@ -102,11 +102,14 @@ Quando a operação de restauração for concluída, ela será marcada como conc
 
 Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) para a máquina virtual no portal do Azure.
 
+## Etapas de pós-restauração
+Se você estiver usando uma distribuição do Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Recomendamos o uso de chaves SSH nessas distribuições para evitar a redefinição de senha após a restauração.
+
 ## Backup de VMs restauradas
-Se você tiver restaurado a VM no mesmo serviço de nuvem com o mesmo nome conforme feito backup originalmente da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM para um serviço de nuvem diferente ou especificar um nome diferente para a VM restaurada, isso será tratado como uma nova VM e você precisa configurar o backup para a VM restaurada.
+Se você tiver restaurado a VM no mesmo serviço de nuvem com o mesmo nome que o backup original da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM em um serviço de nuvem diferente ou especificado um nome diferente para a VM restaurada, isso será tratado como uma nova VM e você precisará configurar o backup para a VM restaurada.
 
 ## Restaurando uma máquina virtual durante desastres de data center do Azure
-O Backup do Azure permite restaurar backups de VMs para o data center emparelhado caso o principal data center onde as VMs estão em execução sofra um desastre e você configurou o Cofre de Backup para ser redundante geograficamente. Durante esses cenários, você precisa selecionar uma conta de armazenamento que está presente no datacenter emparelhado e o restante do processo de restauração permanece o mesmo. O Backup do Azure usa o serviço de computação da área geográfica emparelhada para criar a máquina virtual restaurada.
+O Backup do Azure permite restaurar backups de VMs em um data center emparelhado caso ocorra um desastre no data center principal onde as VMs estão sendo executadas e você tenha configurado o Cofre de Backup para ser redundante geograficamente. Durante esses cenários, você precisa selecionar uma conta de armazenamento que está presente no data center emparelhado e o restante do processo de restauração permanece o mesmo. O Backup do Azure usa o serviço de computação da área geográfica emparelhada para criar a máquina virtual restaurada.
 
 ## Restaurando VMs do controlador de domínio
 O backup de máquinas virtuais de controlador de domínio (DC) é um cenário com suporte no Backup do Azure. No entanto, deve-se tomar algum cuidado durante o processo de restauração. A experiência de restauração é muito diferente para VMs do controlador de domínio em uma configuração de DC único em comparação a VMs em uma configuração de vários DCs.
@@ -155,4 +158,4 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Habilitar monitoramento e diagnóstico" 
-	description="Saiba como configurar o diagnóstico para os seus recursos no Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="Habilitar o monitoramento e diagnóstico no Microsoft Azure | Microsoft Azure "
+	description="Saiba como configurar o diagnóstico para os seus recursos no Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Habilitar monitoramento e diagnóstico
@@ -26,7 +26,7 @@ Dados de diagnóstico, monitoramento e métrica no Azure são salvos em uma cont
 
 A maioria dos serviços permite que você habilite diagnósticos ao criá-los no [Portal Azure](https://portal.azure.com).
 
-1. Vá para **Novo** e escolha o recurso em que você está interessado. 
+1. Vá para **Novo** e escolha o recurso em que você está interessado.
 
 2. Selecione **Configuração opcional**. ![Folha de diagnósticos](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
 
@@ -49,12 +49,12 @@ Se você criou um recurso e quer alterar as configurações de diagnóstico (alt
 ### Categorias de coleta de dados para máquinas virtuais
 Todas as métricas e logs de máquinas virtuais serão registrados em intervalos de um minuto, para que você tenha sempre as informações mais atualizadas sobre seu computador.
 
-- **Métricas básicas**: métricas de integridade sobre sua máquina virtual, como processador e memória 
+- **Métricas básicas**: métricas de integridade sobre sua máquina virtual, como processador e memória
 - **Métricas de rede e Web**: métricas sobre suas conexões de rede e serviços Web
 - **Métricas .NET**: métricas sobre aplicativos .NET e ASP.NET em execução em sua máquina virtual
 - **Métricas SQL**: se você estiver executando o Microsoft SQL Service, suas métricas de desempenho
 - **Logs de aplicativo de eventos do Windows**: eventos do Windows que são enviados para o canal de aplicativos
-- **Logs do sistema de eventos do Windows**: eventos do Windows que são enviados para o canal do sistema. Isso também inclui todos os eventos do [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
+- **Logs do sistema de eventos do Windows**: eventos do Windows que são enviados para o canal do sistema. Isso também inclui todos os eventos do [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409).
 - **Logs de segurança de eventos do Windows**: eventos do Windows que são enviados para o canal de segurança
 - **Logs de infraestrutura de diagnósticos**: registro em log sobre a infraestrutura de coleta de diagnósticos
 - **Logs de IIS**: logs sobre o servidor IIS
@@ -68,7 +68,6 @@ Observe que, neste momento, determinadas distribuições do Linux não têm supo
 * [Dimensionar contagem de instâncias automaticamente](insights-how-to-scale.md) para garantir que o serviço seja dimensionado conforme a demanda.
 * [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
-* [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho. 
- 
+* [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

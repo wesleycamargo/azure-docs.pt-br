@@ -3,7 +3,7 @@
    description="Restauração pontual, Banco de Dados SQL do Microsoft Azure, banco de dados de restauração, banco de dados de recuperação, Portal Clássico do Azure, portal Clássico do Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -56,4 +56,4 @@ Para saber mais sobre regras de alerta do banco de dados, confira [Como receber 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

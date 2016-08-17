@@ -1,7 +1,7 @@
 <properties
    pageTitle="Aplicativos lógicos como pontos de extremidade escaláveis"
    description="Como criar e configurar pontos de extremidade de gatilho e usá-los em um Aplicativo Lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ Essa funcionalidade está disponível por meio do **Gerenciamento de API**:
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

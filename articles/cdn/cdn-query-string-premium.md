@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN – Controlando o comportamento do cache de solicitações com cadeias de caracteres de consulta - Premium"
-	description="O caching da cadeia de caracteres de consulta CDN controla como os arquivos devem ser armazenados em cache quando contêm cadeias de caracteres de consulta."
+	pageTitle="Controlando o comportamento de cache da CDN Premium do Azure da Verizon para as solicitações com cadeias de caracteres da consulta | Microsoft Azure"
+	description="O cache da cadeia de caracteres de consulta da CDN do Azure controla como os arquivos devem ser armazenados em cache quando contêm cadeias de caracteres de consulta."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Controlando o comportamento do cache de solicitações CDN com cadeias de caracteres de consulta - Premium
@@ -38,7 +38,7 @@ Existem três modos disponíveis:
 
 1. Na folha do perfil CDN, clique no botão **Gerenciar**.
 
-	![Botão gerenciar folha do Perfil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
+	![botão gerenciar da folha Perfil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
 
 	O portal de gerenciamento da CDN é aberto.
 
@@ -53,4 +53,4 @@ Existem três modos disponíveis:
 
 > [AZURE.IMPORTANT] As mudanças de configuração podem não estar visíveis imediatamente, pois o registro demora um pouco para se propagar pela CDN. Para perfis da <b>CDN do Azure da Verizon</b>, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

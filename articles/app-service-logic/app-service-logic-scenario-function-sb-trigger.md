@@ -1,7 +1,7 @@
 <properties
    pageTitle="Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure Functions | Microsoft Azure"
    description="Saiba como usar as Azure Functions como um gatilho do Barramento de Serviço para um aplicativo lógico"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@ Para testar, adicionar uma mensagem na fila por meio de uma ferramenta como o [E
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

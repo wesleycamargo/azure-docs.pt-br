@@ -71,9 +71,9 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 |:--|:--|
 | Type=IISLog | Todos os registros de log do IIS. |
 | Type=IISLog EventLevelName=error | Todos os eventos do Windows com severidade de erro. |
-| Type=W3CIISLog | Measure count() by cIP | Contagem das entradas do log do IIS por endereço IP do cliente. |
-| Type=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
-| Type=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| Total de bytes recebidos por cada computador com IIS. |
+| Type=W3CIISLog &#124; Measure count() by cIP | Contagem das entradas do log do IIS por endereço IP do cliente. |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Total de bytes recebidos por cada computador com IIS. |
 
 ## Próximas etapas
 

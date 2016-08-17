@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Acompanhar mensagens B2B em seus aplicativos lógicos no Serviço de Aplicativo do Azure | Microsoft Azure" 
    description="Este tópico aborda o acompanhamento do processamento B2B" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -47,4 +47,4 @@ Se os lotes tiverem sido criados como parte de acordos X12 no aplicativo de API 
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

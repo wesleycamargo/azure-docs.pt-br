@@ -1,7 +1,7 @@
 <properties
    pageTitle="Saiba mais e crie um aplicativo de API de regras do BizTalk no seu aplicativo lógico | Microsoft Azure"
    description="Esse tópico aborda os recursos das Regras do BizTalk e fornece instruções sobre o seu uso"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -149,12 +149,12 @@ Os nomes de várias definições criadas assumirão como padrão o nome do nó s
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 
-	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 
-	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras. 
-	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política. 
-	![Alt text][8] 
-	4. Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
+	1.	No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
+	2.	Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras.  
+	3.	Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política.  
+	![Alt text][8]
+	4.	Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
 Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:
@@ -255,4 +255,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0803_2016-->

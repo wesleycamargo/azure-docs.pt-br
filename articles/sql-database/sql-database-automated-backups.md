@@ -3,7 +3,7 @@
    description="Saiba mais sobre os backups internos do Banco de Dados SQL que permitem a você reverter um Banco de Dados SQL do Azure para um momento anterior ou copiar um banco de dados para um novo banco de dados em uma região geográfica (por até 35 dias)."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -62,4 +62,4 @@ O período de retenção é determinado pela camada de serviço do banco de dado
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 - Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

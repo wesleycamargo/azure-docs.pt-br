@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/05/2016"
    ms.author="yurid"/>
 
 # Recursos de detecção da Central de Segurança do Azure
@@ -49,12 +49,12 @@ A Microsoft tem uma grande quantidade de inteligência contra ameaças globais. 
 
 ## Análise de comportamento
 
-A análise de comportamento é uma técnica que analisa e compara dados em uma coleção de padrões conhecidos. No entanto, esses padrões não são assinaturas simples. Eles são determinados por meio de algoritmos de aprendizado de máquina complexos que são aplicados a grandes conjuntos de dados. A Central de Segurança do Azure pode usar a análise de comportamento para identificar recursos comprometidos baseado na análise dos logs de máquina virtual, dos logs de dispositivo de rede virtual, dos logs da malha e de outras fontes.
+A análise de comportamento é uma técnica que analisa e compara dados em uma coleção de padrões conhecidos. No entanto, esses padrões não são assinaturas simples. Eles são determinados por meio de algoritmos de aprendizado de máquina complexos que são aplicados a grandes conjuntos de dados. Eles também são determinados pela análise cuidadosa de comportamentos mal-intencionados por analistas especialistas. A Central de Segurança do Azure pode usar a análise de comportamento para identificar recursos comprometidos baseado na análise dos logs de máquina virtual, dos logs de dispositivo de rede virtual, dos logs da malha, dos despejos de memória e de outras fontes.
 
 Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada. Isso ajuda a identificar os eventos que são consistentes com os indicadores de comprometimento estabelecidos. Alguns exemplos incluem:
 
 - **Execução de processo suspeito**: invasores empregam algumas técnicas para executar software mal-intencionado sem detecção. Por exemplo, um invasor pode dar os mesmos nomes de arquivos de sistema legítimos ao malware, mas colocar esses arquivos em locais alternativos, usar um nome que é muito semelhante a um arquivo benigno ou mascarar a extensão verdadeira do arquivo. Os modelos da Central de Segurança processam comportamentos e monitoram execuções de processo para detectar exceções como essas.
-- **Malware oculto e explorações de falha**: malware sofisticados são capazes de escapar de produtos antimalware tradicionais não gravando em disco ou criptografando componentes de software armazenados no disco. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, já que o malware deve deixar rastreamentos na memória para poder funcionar. Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. Analisando a memória no despejo, a Central de Segurança do Azure pode detectar técnicas usadas para explorar vulnerabilidades no software, acessar dados confidenciais e se manter em uma máquina comprometida de maneira furtiva sem afetar o desempenho do seu computador.
+- **Malware oculto e tentativas de exploração**: malware sofisticados são capazes de escapar de produtos antimalware tradicionais não gravando em disco ou criptografando componentes de software armazenados no disco. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, já que o malware deve deixar rastreamentos na memória para poder funcionar. Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. Analisando a memória no despejo, a Central de Segurança do Azure pode detectar técnicas usadas para explorar vulnerabilidades no software, acessar dados confidenciais e se manter em uma máquina comprometida de maneira furtiva sem afetar o desempenho do seu computador.
 - **Movimentação lateral e reconhecimento interno**: para persistir em uma rede comprometida e localizar/coletar dados valiosos, os invasores geralmente tentam se mover lateralmente da máquina comprometida para outras dentro da mesma rede. A Central de Segurança monitora as atividades de processo e de logon para detectar tentativas de expandir a presença do invasor dentro da rede, como sondagem de rede de execução de comando remoto e a enumeração de contas.
 - **Scripts do PowerShell mal-intencionados**: o PowerShell está sendo usado pelos invasores para executar código mal-intencionado em máquinas virtuais de destino com diversas finalidades. A Central de Segurança inspeciona a atividade do PowerShell para obter evidência de atividades suspeitas.
 - **Ataques de saída**: os invasores costumam atacar recursos de nuvem com o objetivo de usá-los para montar ataques adicionais. Máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar SPAM ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. No caso de SPAM, a Central de Segurança também correlaciona o tráfego de email incomum com inteligência do Office 365 para determinar se o email é possivelmente perigoso ou o resultado de uma campanha de email legítima.
@@ -76,7 +76,7 @@ A Central de Segurança do Azure têm equipes de pesquisas de segurança e de ci
 
 Esses esforços combinados culminam em detecções novas e aprimoradas de que você pode se beneficiar instantaneamente. Não há nenhuma ação a ser tomada.
 
-## Próximas etapas
+## Consulte também
 Neste documento, você aprendeu como funcionam os recursos de detecção da Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 - [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
@@ -86,4 +86,4 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

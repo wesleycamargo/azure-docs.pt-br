@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -171,4 +171,4 @@ Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e 
 | Zâmbia | USD |
 | Zimbábue | USD |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

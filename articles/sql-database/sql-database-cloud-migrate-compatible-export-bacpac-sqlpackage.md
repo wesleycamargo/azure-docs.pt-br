@@ -3,7 +3,7 @@
    description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, exportar banco de dados, exportar arquivo BACPAC, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -27,13 +27,13 @@ Este artigo mostra como exportar o banco de dados do SQL Server para um arquivo 
 1. Abra um prompt de comando e altere um diretório com o utilitário de linha de comando sqlpackage.exe - esse utilitário é fornecido com o Visual Studio e o SQL Server. Use a pesquisa em seu computador para localizar o caminho em seu ambiente.
 2. Execute o seguinte comando sqlpackage.exe com os seguintes argumentos para o seu ambiente:
 
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+	'sqlpackage.exe /Action:Export /ssn:< nome\_do\_servidor > /sdn:< nome\_do\_banco\_de\_dados > /tf:< arquivo\_de\_destino >
 
 	| Argumento | Descrição |
 	|---|---|
-	| < server_name > | nome do servidor de origem |
-	| < database_name > | nome do banco de dados de origem |
-	| < target_file > | nome do arquivo e um local para o arquivo BACPAC |
+	| < nome\_do\_servidor > | nome do servidor de origem |
+	| < nome\_do\_banco\_de\_dados > | nome do banco de dados de origem |
+	| < arquivo\_de\_destino > | nome do arquivo e um local para o arquivo BACPAC |
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -52,4 +52,4 @@ Este artigo mostra como exportar o banco de dados do SQL Server para um arquivo 
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

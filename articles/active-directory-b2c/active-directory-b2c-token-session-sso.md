@@ -27,7 +27,7 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 Você pode usar esse recurso em seu locatário B2C da seguinte maneira:
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de entrada**. *Observação: você pode usar esse recurso em qualquer tipo de política, não apenas em *Políticas de entrada**.
+2. Clique em **Políticas de entrada**. *Observação: você pode usar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada***.
 3. Clique em uma política para abri-la. Por exemplo, clique em **B2C\_1\_SiIn**.
 4. Clique em **Editar** na parte superior da folha.
 5. Clique em **Configuração de token, de sessão e de logon único**.

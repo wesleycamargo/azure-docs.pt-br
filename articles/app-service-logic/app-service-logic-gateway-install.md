@@ -1,7 +1,7 @@
 <properties
    pageTitle="Instalação de Aplicativos Lógicos no gateway de dados local | Microsoft Azure"
    description="Informações sobre como instalar o gateway de dados local para uso em um Aplicativo Lógico."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ O [Fiddler](http://www.telerik.com/fiddler) é uma ferramenta gratuita da Teleri
 - [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 - [Conectores de Aplicativos Lógicos](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

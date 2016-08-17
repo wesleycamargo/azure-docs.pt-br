@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transações no SQL Data Warehouse
@@ -56,19 +56,21 @@ Para otimizar e minimizar a quantidade de dados gravados no log, confira o artig
 ## Estado da transação
 O SQL Data Warehouse usa a função XACT\_STATE() para relatar uma transação com falha usando o valor -2. Isso significa que a transação falhou e está marcada para reversão somente
 
-> [AZURE.NOTE] O uso de -2 pela função XACT\_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, SELECT 1/0 poderia causar um erro mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, em SQLDW, este não é o caso. Se ocorrer um erro dentro de uma transação SQLDW, ele irá inserir automaticamente o estado de-2: incluindo os erros SELECT 1/0. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT\_STATE().
+> [AZURE.NOTE] O uso de -2 pela função XACT\_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, `SELECT 1/0` poderia causar um erro, mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, o SQL Data Warehouse não permite que você faça isso. Se um erro ocorrer dentro de uma transação do SQL Data Warehouse, ele entrará automaticamente no estado -2 e você não poderá mais dar instruções do tipo select até que a instrução seja revertida. Portanto, é importante verificar o código do aplicativo para ver se ele usa XACT\_STATE(), uma vez que você poderá precisar fazer modificações no código.
 
-No SQL Server, talvez você veja um fragmento de código com esta aparência:
+Por exemplo, no SQL Server, você verá uma transação com esta aparência:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,49 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Observe que a instrução `SELECT` ocorre antes da instrução `ROLLBACK`. Observe também que a configuração da variável `@xact` usa DECLARE e não `SELECT`.
+Se deixar o código como está acima, você receberá a seguinte mensagem de erro:
 
-No SQL Data Warehouse, o código precisa ter esta aparência:
+Mensagem 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual foi anulada e todas as alterações pendentes foram revertidas. Causa: uma transação no estado somente reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
+
+Você também não receberá a saída das funções ERROR\_*.
+
+No SQL Data Warehouse, o código precisa ser ligeiramente alterado:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,13 +130,21 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Observe que a reversão da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
+O comportamento esperado é observado agora. O erro na transação é gerenciado e as funções ERROR\_* fornecem valores conforme o esperado.
+
+Tudo o que mudou é que a `ROLLBACK` da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
 
 ## Função Error\_line()
-Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR\_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][] para obter mais detalhes sobre esse recurso.
+Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR\_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Confira o artigo [LABEL][] para obter mais detalhes sobre este recurso.
 
 ## Uso de THROW e RAISERROR
 THROW é a implementação mais moderna para lançar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
@@ -129,6 +161,8 @@ Elas são as seguintes:
 - Sem transações distribuídas
 - Não há transações aninhadas permitidas
 - Não são permitidos pontos de salvamento
+- Nenhuma transação nomeada
+- Nenhuma transação marcada
 - Não há suporte para DDL, como `CREATE TABLE`, em uma transação definida pelo usuário
 
 ## Próximas etapas
@@ -147,4 +181,4 @@ Para saber mais sobre a otimização das transações, confira [Práticas recome
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

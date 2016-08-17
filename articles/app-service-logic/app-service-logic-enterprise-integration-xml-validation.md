@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral da validação de XML no Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como funciona a validação no Enterprise Integration Pack e nos Aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -40,4 +40,4 @@ Agora você pode testar a ação de validação fazendo uma solicitação ao pon
 
 [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

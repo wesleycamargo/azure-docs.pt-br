@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Usar a CDN do Azure com o CORS"
+	pageTitle="Usando a CDN do Azure com o CORS | Microsoft Azure"
 	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure com o CORS (Compartilhamento de Recursos entre Origens)."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Usar a CDN do Azure com o CORS     
@@ -23,7 +23,7 @@
 O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy). Isso impede que uma página da Web chame APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio.
  
 ## Como ele funciona
-1.	O navegador envia a solicitação OPTIONS com um cabeçalho HTTP **Origin**. O valor desse cabeçalho é o domínio que forneceu a página pai. Quando uma página de https://www.contoso.com tenta acessar os dados de um usuário no domínio fabrikam.com, o seguinte cabeçalho de solicitação é enviado para fabrikam.com: 
+1.	O navegador envia a solicitação OPTIONS com um cabeçalho HTTP **Origin**. O valor desse cabeçalho é o domínio que forneceu a página pai. Quando uma página de https://www.contoso.com tenta acessar os dados de um usuário no domínio fabrikam.com, o seguinte cabeçalho de solicitação é enviado para fabrikam.com:
     
     `Origin: https://www.contoso.com`
  
@@ -81,4 +81,4 @@ Em vez de expressões regulares, você pode criar uma regra separada para cada o
 
 Em perfis Padrão do Azure CDN, o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o [armazenamento em cache da cadeia de caracteres de consulta](cdn-query-string.md). Você precisa habilitar a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

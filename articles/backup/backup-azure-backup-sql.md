@@ -3,8 +3,8 @@
 	description="Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Backup do Azure para cargas de trabalho do SQL Server usando o DPM
@@ -174,4 +174,4 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

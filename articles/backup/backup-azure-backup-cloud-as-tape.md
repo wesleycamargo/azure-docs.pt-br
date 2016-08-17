@@ -3,8 +3,8 @@
    description="Saiba como o Backup do Azure fornece semântica semelhante à fita que permite fazer backup e restaurar dados no Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="trinadhk"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="06/08/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Usar o Backup do Azure para substituir a infraestrutura de fita
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
@@ -45,7 +45,7 @@ O número total de “pontos de retenção” especificado nessa política é de
 ![Tela de exemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Política de retenção diária**: os backups diários são armazenados por 7 dias.
-2. **Política de retenção semanal**: os backups feitos aos sábados à meia-noite e às 18h serão preservados por quatro semanas
+2. **Política de retenção semanal**: os backups feitos aos sábados, à meia-noite e às 18h, serão preservados por quatro semanas
 3. **Política de retenção mensal**: os backups feitos à meia-noite e às 18h no último sábado de cada mês serão preservados por 12 meses
 4. **Política anual de retenção**: os backups feitos à meia-noite no último sábado de cada mês de março serão preservados por 10 anos
 
@@ -71,4 +71,4 @@ Para obter mais informações sobre consulte Backup do Azure, consulte
 - [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 - [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

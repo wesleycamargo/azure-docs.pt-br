@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Compilando configurações no DSC de Automação do Azure | Microsoft Azure" 
-   description="Visão geral de duas maneiras para compilar as configurações de DSC (Configuração de Estado Desejado): no portal do Azure e com o Windows PowerShell." 
+   description="Visão geral de duas maneiras para compilar as configurações de DSC (Configuração de Estado Desejado): no portal do Azure e com o Windows PowerShell. " 
    services="automation" 
    documentationCenter="na" 
    authors="coreyp-at-msft" 
@@ -118,13 +118,13 @@ O PowerShell requer parâmetros em uma [tabela de hash](http://technet.microsoft
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
-Para obter informações sobre como transmitir PSCredentials como parâmetros, veja <a href="#credential-assets">**Ativos de credencial**</a> abaixo.
+Para obter informações sobre como transmitir PSCredentials como parâmetros, confira <a href="#credential-assets">**Ativos de credencial**</a> abaixo.
 
 ##ConfigurationData##
 
 **ConfigurationData** permite que você separe a configuração estrutural de qualquer configuração específica do ambiente durante o uso da DSC do PowerShell. Veja [Separar “O que” de “Onde” na DSC do PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
 
->[AZURE.NOTE] É possível usar **ConfigurationData** durante a compilação no DSC de Automação do Azure usando o Azure PowerShell, mas não no portal do Azure.
+>[AZURE.NOTE] É possível usar **ConfigurationData** durante a compilação na DSC de Automação do Azure usando o Azure PowerShell, mas não no portal do Azure.
 
 A configuração DSC de exemplo a seguir usa **ConfigurationData** por meio das palavras-chave **$ConfigurationData** e **$AllNodes**. Você também precisará do [módulo **xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo:
 
@@ -189,7 +189,7 @@ Embora as Configurações DSC na Automação do Azure possam fazer referência a
 
 Manter as credenciais seguras em configurações de nó (documentos de configuração do MOF) requer a criptografia das credenciais no arquivo MOF da configuração de nó. A Automação do Azure vai além e criptografa todo o arquivo MOF. No entanto, atualmente, você deve informar a DSC do PowerShell que as credenciais podem ser exportadas em texto sem formatação durante a geração do MOF da configuração de nó, pois a DSC do PowerShell não está ciente de que a Automação do Azure criptografará todo o arquivo MOF após sua geração por meio de um trabalho de compilação.
 
-Você pode informar à DSC do PowerShell que não há problema nas credenciais serem exportadas em texto sem formatação nos MOFs gerados da configuração de nó usando <a href="#configurationdata">**ConfigurationData**</a>. Você deve transmitir o `PSDscAllowPlainTextPassword = $true` por meio do **ConfigurationData** para o nome do bloco de cada nó que aparece na configuração DSC e que usa credenciais.
+Você pode informar à DSC do PowerShell que não há problema nas credenciais serem exportadas em texto sem formatação nos MOFs gerados da configuração de nó usando <a href="#configurationdata">**ConfigurationData**</a>. Você deve transmitir `PSDscAllowPlainTextPassword = $true` por meio do **ConfigurationData** para o nome do bloco de cada nó que aparece na configuração DSC e que usa credenciais.
 
 O exemplo a seguir mostra uma configuração DSC que usa um ativo de credencial da Automação.
 
@@ -228,4 +228,4 @@ Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

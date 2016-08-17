@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Apresentando o DocumentDB - Um banco de dados NoSQL para Microsoft Azure 
+
+> [AZURE.NOTE] Este white paper foi atualizado pela última vez em 2015 e ainda não foi atualizado para considerar as atualizações de Bancos de Dados de Documentos como [distribuição global de dados](documentdb-distribute-data-globally.md) e [coleções particionadas](documentdb-partition-data.md). Para obter uma introdução atual ao Banco de Dados de Documentos, veja [Introdução ao Banco de Dados de Documentos: um banco de dados JSON NoSQL](documentdb-introduction.md).
 
 Não tem certeza se o Banco de Dados de Documentos é adequado para seu aplicativo ou seus dados? Deseja saber mais sobre como dados JSON são armazenados e acessados no Banco de Dados de Documentos do Azure? Nesse caso, este white paper introdutório de David Chappell é um bom lugar para começar. Ele aborda como você pode aproveitar a flexibilidade que dados JSON sem esquema fornecem, permitindo manipular alterações na estrutura de dados com facilidade.
 
@@ -31,4 +33,4 @@ Este white paper também explica o seguinte:
 **Download do PDF**: [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

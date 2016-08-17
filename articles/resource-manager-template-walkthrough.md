@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Passo a passo do modelo do Gerenciador de Recursos
@@ -579,4 +579,4 @@ Você pode reimplantar o modelo usando os mesmos comandos que usou ao implantar 
 - Para saber mais sobre a estrutura de um modelo, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar um modelo, consulte [Implantar um Grupo de Recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

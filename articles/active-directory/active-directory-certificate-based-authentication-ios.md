@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/22/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -98,7 +98,7 @@ Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD F
 ### Suporte aos clientes do Exchange ActiveSync 
 
 
-Há suporte para determinados aplicativos do Exchange ActiveSync no iOS 9 ou superior. Para determinar se seu aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo.
+No iOS 9 ou posterior, há suporte para o cliente de email do iOS nativo. Para todos os outros aplicativos do Exchange ActiveSync, para determinar se há suporte para esse recurso, contate o desenvolvedor do aplicativo.
 
 
 
@@ -278,4 +278,4 @@ A data que você define deve estar no futuro. Se a data não estiver no futuro, 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

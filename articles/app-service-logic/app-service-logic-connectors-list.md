@@ -32,7 +32,7 @@ A tabela a seguir lista todos os conectores e aplicativos de API criados pela Mi
 Nome | Descrição
 --- | ---
 [Barramento de Serviço do Azure](app-service-logic-connector-azureservicebus.md) | Pode enviar mensagens de tópicos e filas do Barramento de Serviço e receber mensagens de assinaturas e filas do Barramento de Serviço.
-[Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use o Bing para traduzir textos para outro idioma.
+[Bing Translator](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use o Bing para traduzir textos para outro idioma.
 [HTTP](app-service-logic-connector-http.md) | O ouvinte HTTP abre um ponto de extremidade que atua como um servidor HTTP e escuta solicitações HTTP ou HTTPS. A ação de HTTP não exige um aplicativo de API e há suporte nativo para esse tipo de ação nos Aplicativos Lógicos.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | O Conector do Office 365 pode enviar e receber emails, gerenciar seu calendário e gerenciar seus contatos usando sua conta do Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Você pode concluir tarefas diferentes, incluindo criar, atualizar e consultar diferentes entidades da Intuit QuickBooks como clientes, itens, notas fiscais e assim por diante.
@@ -80,4 +80,4 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 ## Mais informações sobre conectores e aplicativos de API
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md) [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md) [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

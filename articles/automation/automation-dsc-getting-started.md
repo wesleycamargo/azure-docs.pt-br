@@ -19,7 +19,7 @@
 
 # Introdução ao DSC de Automação do Azure
 
-Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação da DSC, consulte [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Este tópico explica como realizar as tarefas mais comuns com o DSC (Configuração de Estado Desejado) de Automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral do que o DSC de Automação do Azure é, consulte [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md). Para obter a documentação do DSC, consulte [Visão geral da configuração de estado desejado do Windows PowerShell](Visão geral da configuração de estado desejado do Windows PowerShell).
 
 Este tópico fornece um guia passo a passo para usar o DSC de Automação do Azure. Se você quiser um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste tópico, poderá usar [o seguinte modelo de ARM](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Esse modelo define um ambiente completo do DSC de Automação do Azure, incluindo uma VM do Azure que é gerenciada pelo DSC de Automação do Azure.
  
@@ -211,6 +211,7 @@ Cada vez que o DSC de Automação do Azure executa uma verificação de consist�
     ![Captura de tela da folha Relatório](./media/automation-dsc-getting-started/NodeReport.png)
 
 Na folha de um relatório individual, você pode ver as seguintes informações de status para a verificação de consistência correspondente:
+
 - Status do relatório — se o nó é "Compatível", a configuração está "Com Falha" ou o nó "Não é Compatível" (quando o nó está no modo **applyandmonitor** e o computador não está no estado desejado).
 - A hora de início para a verificação de consistência.
 - O tempo de execução total para a verificação de consistência.
@@ -266,4 +267,4 @@ Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

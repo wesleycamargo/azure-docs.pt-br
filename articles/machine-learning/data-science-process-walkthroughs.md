@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2016" 
+	ms.date="08/03/2016" 
 	ms.author="bradsev" />
 
 
@@ -36,17 +36,24 @@ O passo a passo [Team Data Science Process in action: using HDInsight Hadoop clu
 O passo a passo [Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md) (Processo de Ciência de Dados de Equipe em ação — usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB) apresenta um cenário completo que usa um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia, bem como reduzir dados de exemplo de um conjuntos de dados, [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), publicamente disponível.
 
 
-## Usar o Spark no Azure HDInsight
-O passo a passo [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Ciência de Dados usando o Spark no Azure HDInsight) usa o Processo de Ciência de Dados de Equipe no cenário completo usando um [cluster Spark do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível de corridas de táxi e tarifas em NYC
+## Ciência de Dados usando o Python com Spark no Azure
+O passo a passo [Ciência de Dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) usa o Processo de Ciência de Dados de Equipe no cenário completo usando um [cluster Spark do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível de corridas de táxi e tarifas em NYC.
+
+## Ciência de dados usando o Scala com Spark no Azure
+O passo a passo [Ciência de Dados usando o Scala com Spark no Azure](machine-learning-data-science-process-scala-walkthrough.md) mostra como usar o Scala para tarefas de aprendizado de máquina supervisionado com a biblioteca de aprendizado de máquina escalonável do Spark (MLlib) e pacotes SparkML em um cluster Spark do Azure HDInsight. Ele explica as tarefas que constituem o [Processo de ciência de dados](http://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos criados incluem a regressão logística e linear, florestas aleatórias e árvores aumentadas gradientes.
 
 
 ## Usar o armazenamento e a análise do Azure Data Lake
-O passo a passo [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md) (Ciência de Dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta) mostra como usar o Azure Data Lake para tarefas de exploração de dados e classificação binária em um exemplo do conjunto de dados de tarifas e corridas de táxis de NYC para prever se uma corrida será paga ou não por uma tarifa.
+O artigo [Ciência de Dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta](machine-learning-data-science-process-data-lake-walkthrough.md) mostra como usar o Azure Data Lake para tarefas de exploração de dados e classificação binária em um exemplo do conjunto de dados de tarifas e corridas de táxis de NYC para prever se uma corrida será paga ou não por uma tarifa.
 
 ## Usar o R com os serviços de R do SQL Server
-O passo a passo [Data Science End-to-End Walkthrough using SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) (Passo a passo de ponta a ponta de ciência de dados usando os Serviços de R do SQL Server) fornece aos cientistas de dados uma combinação do código R, dos dados do SQL Server e das funções personalizadas do SQL para compilar e implantar um modelo de R para o SQL Server.
+O artigo [Passo a passo de ponta a ponta de ciência de dados usando os Serviços de R do SQL Server](https://msdn.microsoft.com/library/mt612857.aspx) fornece aos cientistas de dados uma combinação do código R, dos dados do SQL Server e das funções personalizadas do SQL para compilar e implantar um modelo de R para o SQL Server.
 
 ## Usar o T-SQL com os serviços de R do SQL Server
-O passo a passo [In-Database Advanced Analytics for SQL Developers](https://msdn.microsoft.com/library/mt683480.aspx) (Análise Avançada no banco de dados para desenvolvedores do SQL) proporciona aos programadores de SQL uma experiência prática de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R.
+O passo a passo [Análise avançada no banco de dados para desenvolvedores do SQL](https://msdn.microsoft.com/library/mt683480.aspx) proporciona aos programadores de SQL uma experiência prática de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R.
 
-<!---HONumber=AcomDC_0629_2016-->
+## O que vem a seguir?
+
+Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](http://aka.ms/datascienceprocess).
+
+<!---HONumber=AcomDC_0803_2016-->

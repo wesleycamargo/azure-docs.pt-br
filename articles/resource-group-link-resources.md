@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/01/2016" 
 	ms.author="tomfitz"/>
 
 # Vinculando recursos no Gerenciador de Recursos do Azure
@@ -73,4 +73,4 @@ Para obter mais exemplos, incluindo como recuperar informações sobre vínculos
 - Você também pode organizar seus recursos com marcas. Para saber mais sobre marcação de recursos, consulte [Usando marcas para organizar os recursos](resource-group-using-tags.md).
 - Para obter uma descrição de como criar modelos e definir os recursos a serem implantados, consulte [Criando modelos](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

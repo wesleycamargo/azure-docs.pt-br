@@ -4,7 +4,7 @@
 	keywords="Desenvolvimento de aplicativos, tutorial de banco de dados, aprender node.js, tutorial do node.js, banco de dados de documentos, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
 
@@ -570,4 +570,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

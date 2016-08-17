@@ -26,7 +26,7 @@ Com o recurso de Roteamento de Tráfego no [Serviço de Aplicativo do Azure](htt
 
 - Descobrir bugs funcionais ou identificar afunilamentos de desempenho em suas atualizações antes da implantação em todo o site
 - Execute “voos de teste controlado” de suas alterações, medindo métricas de usabilidade no aplicativo beta
-- Aumente gradualmente para uma nova atualização e normalmente volte para a versão atual se ocorrer um erro 
+- Aumente gradualmente para uma nova atualização e normalmente volte para a versão atual se ocorrer um erro
 - Otimize os resultados de negócios do seu aplicativo executando [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) ou [testes multivariados](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) em vários slots de implantação
 
 ### Requisitos para usar o Roteamento de Tráfego em Aplicativos Web
@@ -39,7 +39,7 @@ Com o recurso de Roteamento de Tráfego no [Serviço de Aplicativo do Azure](htt
 
 No nível básico em cada cenário do TiP, encaminhe um percentual predefinido do seu tráfego em tempo real em um slot de implantação que não seja de produção. Para fazer isso, siga as etapas abaixo:
 
->[AZURE.NOTE] Nessas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-publish-source-control.md) nele.
+>[AZURE.NOTE] Nessas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-deploy.md) nele.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Na folha de seu aplicativo Web, clique em **Configurações** > **Roteamento de Tráfego**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
@@ -86,4 +86,4 @@ Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâ
 -   [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 -	[Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

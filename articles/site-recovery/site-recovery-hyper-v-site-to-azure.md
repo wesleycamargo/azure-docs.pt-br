@@ -190,25 +190,23 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 1. Execute o de arquivo de instalação do Provedor.
 2. Em **Microsoft Update**, você pode aceitar as atualizações para que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
 3. Em **Instalação**, aceite ou modifique a localização de instalação padrão do Provedor e clique em **Instalar**.
-3. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre.
-
-	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
-
-4. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
-
-	- Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
-	- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
-	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Connect with custom proxy settings (Conectar com as configurações personalizadas do proxy)**.
-	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
-	- Se você estiver usando um proxy, verifique se as URLs descritas nos [pré-requisitos](#on-premises-prerequisites) são permitidas através dele.
-
-	![internet](./media/site-recovery-hyper-v-site-to-azure/provider5.png)
-
 5. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre baixado. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
 	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-6. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Configurações** > **Infraestrutura de Recuperação de Site** > folha **Hosts do Hyper-V**.
+4\. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
+
+- Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
+- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
+- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Connect with custom proxy settings (Conectar com as configurações personalizadas do proxy)**.
+- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
+- Se você estiver usando um proxy, verifique se as URLs descritas nos [pré-requisitos](#on-premises-prerequisites) são permitidas através dele.
+
+	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
+
+5\. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre. ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+
+6\. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Configurações** > **Infraestrutura de Recuperação de Site** > folha **Hosts do Hyper-V**.
 
 
 ### Instalação de linha de comando
@@ -244,17 +242,17 @@ Especifique a conta de armazenamento do Azure a ser usada para a replicação e 
 
 	![Armazenamento](./media/site-recovery-hyper-v-site-to-azure/select-target.png)
 
-4.	Se você não tiver criado uma conta de armazenamento e se deseja criar uma usando o ARM, clique em conta **+Armazenamento** para fazer isso de forma embutida. Na folha **Criar conta de armazenamento**, especifique um nome de conta, um tipo, uma assinatura e um local. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
+4.	Se você não tiver criado uma conta de armazenamento e se desejar criar uma usando o ARM, clique em conta **+Armazenamento** para fazer isso de forma embutida. Na folha **Criar conta de armazenamento**, especifique um nome de conta, um tipo, uma assinatura e uma localização. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
 	![Armazenamento](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
-	Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
+	Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso no [portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
 	
-5.	Se você não tiver criado uma rede do Azure e se quiser criar uma usando o ARM, clique em **+Rede** para fazer isso de forma embutida. Na folha **Criar rede virtual**, especifique um nome de rede, um intervalo de endereços, detalhes de sub-rede, uma assinatura e um local. A rede deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
+5.	Se você não tiver criado uma rede do Azure e se quiser criar uma usando o ARM, clique em **+Rede** para fazer isso de forma embutida. Na folha **Criar rede virtual**, especifique um nome de rede, um intervalo de endereços, detalhes de sub-rede, uma assinatura e uma localização. A rede deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
 	![Rede](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
-	Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+	Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso no [portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 	
 
 ## Etapa 4: Definir as configurações da replicação
@@ -282,7 +280,7 @@ A Recuperação de Site fornece um planejador de capacidade para ajudar você a 
 - Reunir informações sobre seu ambiente de replicação, inclusive VMs, discos por VMs e armazenamento por disco.
 - Estimar a taxa de alteração (variação) diária de dados replicados. Você pode usar o [Planejador de Capacidade para Réplica do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para ajudá-lo a fazer isso.
 
-1.	Clique em **Baixar** para baixar a ferramenta e então a execute. [Leia o artigo](site-recovery-capacity-planner.md) que acompanha a ferramenta.
+1.	Clique em **Baixar** para baixar a ferramenta e, então, executá-la. [Leia o artigo](site-recovery-capacity-planner.md) que acompanha a ferramenta.
 2.	Quando terminar, selecione **Sim** em **Você executou o Planejador de Capacidade**?
 
 	![Planejamento da capacidade](./media/site-recovery-hyper-v-site-to-azure/gs-capacity-planning.png)
@@ -291,7 +289,7 @@ A Recuperação de Site fornece um planejador de capacidade para ajudar você a 
 
 Você pode usar a ferramenta de planejador de capacidade para calcular a largura de banda necessária para a replicação (replicação inicial e depois a delta). Para controlar a quantidade de uso de largura de banda para a replicação, você tem algumas opções:
 
-- **Limitar largura de banda**: o tráfego do Hyper-V replicado para o Azure passa por um host específico do Hyper-V. Você pode limitar a largura de banda no servidor host.
+- **Restringir a largura de banda**: o tráfego do Hyper-V replicado para o Azure passa por um host específico do Hyper-V. Você pode limitar a largura de banda no servidor host.
 - **Ajustar largura de banda**: você pode influenciar a largura de banda usada para a replicação usando algumas chaves do Registro.
 
 #### Limitar a largura de banda
@@ -322,14 +320,14 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
 
 Agora habilite a replicação da seguinte maneira:
 
-1. Clique em **Etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
+1. Clique em **Etapa 2: replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
 
 	![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/enable-replication.png)
 
 2. No folha **Origem** > selecione o site do Hyper-V. Em seguida, clique em **OK**.
 3. Em **Destino**, selecione a assinatura de cofre e o modelo de failover que você deseja usar no Azure (gerenciamento de recursos ou clássico) após o failover.
 4. Selecione a conta de armazenamento que você deseja usar. Se quiser usar uma conta de armazenamento diferente da que você tem, poderá [criar uma](#set-up-an-azure-storage-account). Para criar uma conta de armazenamento usando o modelo ARM, clique em **Criar novo**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md). Em seguida, clique em **OK**.
-5.  Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede para todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede por computador do Azure. Se quiser usar uma rede diferente da que você tem, poderá [criar uma](#set-up-an-azure-network). Para criar uma rede usando o modelo ARM, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, fará isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
+5.  Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se quiser usar uma rede diferente da que você tem, poderá [criar uma](#set-up-an-azure-network). Para criar uma rede usando o modelo ARM, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, fará isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
 
 	![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 
@@ -468,4 +466,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

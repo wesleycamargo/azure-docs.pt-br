@@ -3,7 +3,7 @@
 	description="Este tópico explica considerações de segurança para gerenciar a segurança após uma restauração ou failover de um banco de dados."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -95,4 +95,4 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 
 ## Recursos adicionais
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

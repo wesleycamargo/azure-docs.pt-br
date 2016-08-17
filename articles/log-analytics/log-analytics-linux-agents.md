@@ -146,7 +146,7 @@ Para os contadores de desempenho do Windows, você pode escolher uma instância 
 | --- | --- |
 | \_Total | Total de todas as instâncias |
 | * | Todas as instâncias |
-| (/|/var) | Corresponde às instâncias chamadas: / ou /var |
+| (/&#124;/var) | Corresponde às instâncias chamadas: / ou /var |
 
 
 Da mesma forma, o intervalo de exemplo escolhido para um contador pai se aplicará a todos os contadores filho. Em outras palavras, todos os intervalos e instâncias de exemplo do contador filho são vinculados.

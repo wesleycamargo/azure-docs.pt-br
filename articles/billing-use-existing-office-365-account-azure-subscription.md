@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Compartilhar um único locatário do Azure AD entre assinaturas do Office 365 e do Azure | Microsoft Azure"
 	description="Aprenda a compartilhar seu locatário do Azure AD do Office 365 e seus usuários com sua assinatura do Azure ou vice-versa"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -147,4 +147,4 @@ Consulte [Como assinaturas do Azure são associadas ao Azure Active Directory](.
 ##Próximas etapas
 Este é um cenário relacionado no qual você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado, e deseja ser capaz de acessar o locatário do Office 365 a partir da assinatura do Azure. Para saber como realizar essa tarefa, confira [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

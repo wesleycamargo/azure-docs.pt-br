@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando o Codificador JSON do BizTalk em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure "
    description="Como criar e configurar o Conector do Codificador JSON do BizTalk ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -72,4 +72,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 <!--Links -->
 [Criando um Aplicativo Lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

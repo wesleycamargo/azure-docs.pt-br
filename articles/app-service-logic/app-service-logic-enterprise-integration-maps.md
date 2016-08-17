@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visão geral de mapas e do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como usar mapas com o Enterprise Integration Pack e Aplicativos lógicos" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -58,4 +58,4 @@ Execute estas etapas para carregar um novo mapa que substitui um mapa existente:
 - [Saiba mais sobre contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
 - [Saiba mais sobre transformações](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

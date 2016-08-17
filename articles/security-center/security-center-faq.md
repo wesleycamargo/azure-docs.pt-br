@@ -124,9 +124,9 @@ VMs do Linux com suporte:
 
 - Ubuntu versões 12.04, 14.04, 15.10, 16.04
 - Debian versões 7, 8
-- CentOS versões 6.*, 7.*
-- Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
-- SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
+- CentOS versões 6.\*, 7.*
+- Red Hat Enterprise Linux (RHEL) versões 6.\*, 7.*
+- SUSE Linux Enterprise Server (SLES) versões 11.\*, 12.*
 
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
 

@@ -72,7 +72,7 @@ Nesta seção você criará um novo aplicativo de nó e usará o npm para adicio
 
 ### Instalar o express e gerar scaffolding
 
-1. Na linha de comando, crie um novo diretório chamado **tasklist** e alterne para esse diretório.  
+1. Na linha de comando, crie um novo diretório chamado **tasklist** e alterne para esse diretório.
 
 2. Digite o comando a seguir para instalar o módulo Express.
 
@@ -545,7 +545,7 @@ Nesta etapa, você irá adicionar variáveis de ambiente à configuração do ap
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua ** <chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
+Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua **<chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
 
 Como alternativa, você pode definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com/):
 
@@ -602,7 +602,6 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 
 [Criar e implantar um aplicativo Web Node.js no Serviço de Aplicativo do Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Criar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -615,7 +614,6 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [Aplicativo Web Node.js com o MongoDB]: web-sites-nodejs-store-data-mongodb.md
 [CLI do Azure]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -639,4 +637,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

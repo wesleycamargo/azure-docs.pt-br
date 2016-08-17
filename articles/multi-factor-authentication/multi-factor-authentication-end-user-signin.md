@@ -28,12 +28,12 @@ Sua experiência variará de acordo com o modo que você se conecta e usa a aute
 
 O que você está fazendo?|Descrição
 :------------- | :------------- | 
-[Conectando-se com o telefone celular ou comercial](#conectando-se-com-o-telefone-celular-ou-comercial) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
-[Conectando-se com o aplicativo móvel usando notificação](#conectando-se-com-o-aplicativo-mvel-usando-notificao) | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
-[Conectando-se com o aplicativo móvel usando o código de verificação](#conectando-se-com-o-aplicativo-mvel-usando-o-cdigo-de-verificao)|Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
-[Conectando-se com um método alternativo](#conectando-se-com-um-mtodo-alternativo)|Isso mostrará o que esperar se você desejar usar um método alternativo.
+<a href="#1">Conectando-se com o telefone celular ou comercial</a> | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
+<a href="#2">Conectando-se com o aplicativo móvel usando notificação</a> | Isso é que você pode esperar ao entrar no aplicativo móvel com notificações.
+<a href="#3">Conectando-se com o aplicativo móvel usando o código de verificação</a> |Isso é que você pode esperar ao entrar no aplicativo móvel com um código de verificação.
+<a href="#4">Conectando-se com um método alternativo</a> |Isso mostrará o que esperar se você desejar usar um método alternativo.
 
-## Conectando-se com o telefone celular ou comercial
+<h2 id="1">Conectando-se com o telefone celular ou comercial</h2>
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com seu telefone celular ou comercial.
 
@@ -50,7 +50,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 
 - Agora você deve estar conectado.</li>
 
-## Conectando-se com o aplicativo móvel usando notificação
+<h2 id="2">Conectando-se com o aplicativo móvel usando notificação</h2>
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com seu aplicativo móvel quando você recebe uma notificação.
 
@@ -70,7 +70,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 - Agora você deve estar conectado.
 
 
-## Conectando-se com o aplicativo móvel usando o código de verificação
+<h2 id="3">Conectando-se com o aplicativo móvel usando o código de verificação</h2>
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com seu aplicativo móvel quando você a está usando com um código de verificação.
 
@@ -88,7 +88,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 - Agora você deve estar conectado.
 
 
-## Conectando-se com um método alternativo
+<h2 id="4">Conectando-se com um método alternativo</h2>
 
 
 A seção a seguir mostrará como se conectar com um método alternativo quando seu método principal não estiver disponível.

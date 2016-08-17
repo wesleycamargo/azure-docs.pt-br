@@ -67,7 +67,6 @@ Clique na guia **CONFIGURAR**.
 Na guia Configuração, você pode
 
 - Suspender o acesso ao espaço de trabalho do Aprendizado de Máquina clicando em NEGAR. Os usuários não poderão mais abrir o espaço de trabalho no Estúdio de Aprendizado de Máquina. Para restaurar o acesso, clique em PERMITIR.
-- Altere o proprietário do espaço de trabalho especificando uma Conta da Microsoft diferente.
 
 Para gerenciar as contas adicionais quem têm acesso ao espaço de trabalho no Estúdio de Aprendizado de Máquina, clique em **Entrar no Estúdio AM** na guia **PAINEL** (consulte a observação acima sobre **Entrar no Estúdio AM**). Isso abre o espaço de trabalho no Estúdio de Aprendizado de Máquina. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para fornecer aos usuários acesso ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
 
@@ -97,4 +96,4 @@ Clique na guia **CONFIGURAR** para editar a descrição, controlar o número de 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

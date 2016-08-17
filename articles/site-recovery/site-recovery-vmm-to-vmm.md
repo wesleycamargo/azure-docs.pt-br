@@ -213,29 +213,38 @@ Instale o Provedor do Azure Site Recovery nos servidores VMM e registre servidor
 
 	![Local de instalação](./media/site-recovery-vmm-to-vmm/provider-register.png)
 
-4. Em **Configurações de Proxy**, especifique como o Provedor em execução no servidor VMM se conectará à Recuperação de Site pela Internet.
+9. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. Clique em *Próximo*.
 
-	- Se você quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente sem um proxy**.
-	- - Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Conectar com as configurações de proxy existentes**.
-	- Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Conectar com as configurações personalizadas do proxy**.
-	- Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais.
-	- Se estiver usando um proxy, você já deverá ter permitido as URLs descritas em [pré-requisitos](#provider-and-agent-prerequisites).
-	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Em **Configurações**, expanda **Segurança** > **Executar como Contas** e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
+	![Registros do servidor](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
-	![internet](./media/site-recovery-vmm-to-vmm/provider3.png)
+7. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione **Conectar-se com as configurações de proxy existentes** para usar as configurações de conexão com a Internet padrão definidas no servidor.
 
-4. Em **Configurações do Cofre**, clique **Procurar** para selecionar o arquivo de chave baixado. Especifique a assinatura do Azure e o nome do cofre.
+	![Configurações da Internet](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
-	![Registros do servidor](./media/site-recovery-vmm-to-vmm/provider-key2.png)
+	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
+	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
+	- As URLs a seguir devem estar acessíveis no servidor do VMM e nos hosts Hyper-V
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
+	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho **Configurações**, expanda **Segurança**, clique em **Executar como Contas**e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
-5. Em **Registro** > **Local para salvar o certificado**, clique **Próximo**. Um certificado para criptografia não é relevante nesse cenário. Ele é usado somente quando você replica para o armazenamento do Azure.
 
-8. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-9. Habilite **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM. Clique em **Avançar** para concluir o processo.
+8. Em **Chave de Registro**, selecione a chave que você baixou no Azure Site Recovery e copiou para o servidor VMM.
 
-	![Registros do servidor](./media/site-recovery-vmm-to-vmm/provider-sync.png)
 
-10. O registro é iniciado. Após a conclusão do registro, o servidor VMM é exibido na folha **Configurações** > **Servidores** no cofre.
+10.  A configuração de criptografia é usada somente quando você estiver replicando VMs do Hyper-V em nuvens do VMM no Azure. Se estiver replicando para um site secundário, ela não é usada.
+
+11.  Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
+12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
+
+13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
+ 	
+	![Última página](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+
 11. Depois que o servidor estiver disponível no console de Recuperação de Site, em **Origem** > **Preparar origem** selecione o servidor VMM e selecione a nuvem na qual o host Hyper-V está localizado. Em seguida, clique em **OK**.
 
 #### Instalação de linha de comando
@@ -389,7 +398,7 @@ Agora habilite a replicação da seguinte maneira:
 
 	![Habilitar a replicação](./media/site-recovery-vmm-to-vmm/enable-replication2.png)
 
-3. Na folha de **destino**, verifique o servidor secundário do VMM e a nuvem.
+3. Na folha de **Destino**, verifique o servidor secundário do VMM e a nuvem.
 4. Em **Máquinas virtuais**, selecione as VMs que deseja proteger na lista.
 
 	![Habilitar a proteção da máquina virtual](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
@@ -484,4 +493,4 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

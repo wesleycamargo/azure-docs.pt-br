@@ -2,7 +2,9 @@ O Emparelhamento VNet é um mecanismo para conectar duas Redes Virtuais na mesma
 
 O Emparelhamento VNet está em visualização pública. Para poder usá-lo, você deverá registrar-se usando o comando abaixo:
 
-> [AZURE.NOTE] Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network –force
+    Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,40 +1,40 @@
-## How to create VNet Peering in Azure portal
+## Como criar emparelhamento VNet no Portal do Azure
 
-To create a VNet peering based on the scenario above by using the Azure portal, follow the steps below.
+Para criar um emparelhamento VNet com base no cenário acima, usando o Portal do Azure, siga as etapas abaixo.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. To establish VNET peering, you need to create two links, one for each direction, between two VNets. You can create VNET peering link for VNET1 to VNET2 first. On the portal, 
-Click **Browse** > **choose Virtual Networks** 
+1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
+2. Para estabelecer o emparelhamento VNET, você precisa criar dois links, um para cada direção, entre duas VNets. Primeiro, você pode criar links de emparelhamento de VNET para VNET1 à VNET2. No portal, clique em **Procurar** > **escolha Redes Virtuais**
 
-	![Create VNet peering in Azure portal](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure01.png)
+	![Criar emparelhamento VNet no Portal do Azure](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure01.png)
 
-3. In Virtual Networks blade, choose VNET1, click Peerings, then click Add
+3. Na folha Redes Virtuais, escolha VNET1, clique em Emparelhamentos e clique em Adicionar
 
-	![Choose peering](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure02.png)
+	![Escolher emparelhamento](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure02.png)
 
-4. In the Add Peering blade, give a peering link name LinkToVnet2, choose the subscription and the peer Virtual Network VNET2, click OK.
+4. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet2 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual VNET2, e clique em OK.
 
-	![Link to VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure03.png)
+	![Link para VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure03.png)
 
-5. Once this VNET peering link is created. You can see the link state as following:
+5. Após a criação deste link de emparelhamento VNET. Você pode ver o estado do link da seguinte maneira:
 
-	![Link State](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure04.png)
+	![Estado do link](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure04.png)
 
-6. Next create the VNET peering link for VNET2 to VNET1. In Virtual Networks blade, choose VNET2, click Peerings, then click Add 
+6. Em seguida, crie o link de emparelhamento VNET da VNET2 à VNET1. Na folha Redes Virtuais, escolha VNET2, clique em Emparelhamentos e clique em Adicionar
 
-	![Peer from other VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure05.png)
+	![Par de outra VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure05.png)
 
-7. In the Add Peering blade, give a peering link name LinkToVnet1, choose the subscription and the peer Virtual Network, Click OK.
+7. Na folha Adicionar Emparelhamento, dê o nome LinkToVnet1 ao link de emparelhamento, escolha a assinatura e o par Rede Virtual, e clique em OK.
 
-	![Creating virtual network tile](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure06.png)
+	![Criar bloco de rede virtual](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure06.png)
 
-8. Once this VNET peering link is created. You can see the link state as following:
+8. Após a criação deste link de emparelhamento VNET. Você pode ver o estado do link da seguinte maneira:
 
-	![Final link state](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure07.png)
+	![Estado final do link](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure07.png)
 
-9. Check the state for LinkToVnet2 and it now changes to Connected as well.  
+9. Verifique o estado de LinkToVnet2, que também foi alterado para Conectado.
 
-	![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure08.png)
+	![Estado final do link 2](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure08.png)
 
-10. NOTE: VNET peering is only established if both links are connected. 
+10. OBSERVAÇÃO: o emparelhamento VNET somente será estabelecido se ambos os links estiverem conectados.
 
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,23 +13,17 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/07/2016"
    ms.author="yurid"/>
 
 # Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
 
 ## O que são alertas de segurança?
-A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque.
+A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque. A Central de Segurança do Azure também agrega alertas que se alinham para eliminar os padrões em cadeia como [Incidentes](security-center-incident.md).
 
 > [AZURE.NOTE] Para saber mais sobre como funciona os recursos de detecção da Central de Segurança, leia [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
 
-Os pesquisadores de segurança da Microsoft estão constantemente analisando ameaças emergentes em todo o mundo, incluindo novos padrões de ataque e tendências vistos em seus produtos de consumidor e empresariais e serviços online. Como resultado, a Central de Segurança pode atualizar seus algoritmos de detecção à medida que novas vulnerabilidades e explorações são descobertas, ajudando os clientes a acompanhar o ritmo das ameaças em constante evolução. Os exemplos de alguns dos tipos de ameaças que pode detectar a Central de Segurança incluem:
-
-- **Detecção de força bruta em dados de rede**: usa modelos de aprendizado de máquina que entendem os padrões de tráfego de rede típica para seus aplicativos e habilita a detecção mais eficaz de tentativas de acesso que estão sendo executadas por indivíduos mal-intencionados, em vez de usuários legítimos.
-- **Detecção de força bruta em dados de ponto de extremidade**: baseada em análise de logs de máquina; habilita a diferenciação entre tentativas com falha e bem-sucedidas.
-- **VMs se comunicando com IPs mal-intencionados**: compara o tráfego de rede às informações da Microsoft sobre ameaças globais, descobre máquinas que estão comprometidas e se comunicando com servidores de C&C (Comando e Controle) e vice-versa.
-- **VMs comprometidas**: com base na análise de comportamento de logs de máquina e na correlação com outros sinais, identifica eventos irregulares que provavelmente são resultado de comprometimento e exploração de máquinas.
 
 ## Configurando alertas de segurança
 
@@ -79,7 +73,7 @@ Nesse caso, os alertas disparados referem-se à atividade suspeita do protocolo 
 
 No campo **Descrição** dessa folha, você encontrará mais detalhes sobre esse evento. Esses detalhes adicionais oferecem informações sobre o que disparou o alerta de segurança, o recurso de destino e, quando aplicável, o endereço IP de origem e as recomendações sobre como corrigir. Em alguns casos, o endereço IP de origem ficará vazio (não disponível) porque nem todos os logs de eventos de segurança do Windows incluem o endereço IP.
 
-> [AZURE.NOTE] A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista negra usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+> [AZURE.NOTE] A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista de contatos bloqueados usando uma[ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
 ## Alertas de segurança por tipo
 As mesmas etapas que foram usadas para acessar o alerta de atividade suspeita RDP podem ser usadas para acessar outros tipos de alertas. Veja alguns exemplos de alertas que você pode ver nos alertas da Central de Segurança:
@@ -109,16 +103,109 @@ Esse alerta fornece informações que permitem a identificação do recurso usad
 
 > [AZURE.NOTE] Endereços IP ativos foram removidos nesta captura de tela por fins de privacidade.
 
+### Shellcode descoberto 
+
+Shellcode é a carga executada depois que o malware explorou uma vulnerabilidade do software. Esse alerta indica que a análise do despejo de memória detectou código executável com comportamento normalmente executado por cargas mal-intencionadas. Embora software que não seja mal-intencionado possa executar esse comportamento, não é comum às práticas de desenvolvimento de software normal.
+
+Os campos abaixo são comuns a todos os alertas de despejo de memória:
+
+- DUMPFILE: nome do arquivo de despejo
+- PROCESSNAME: nome do processo de falha
+- PROCESSVERSION: versão do processo de falha
+
+Esse alerta fornece o seguinte campo adicional:
+
+- ADDRESS: o local do shellcode na memória
+
+Eis um exemplo desse tipo de alerta:
+
+![Alerta de shellcode](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig10-ga.png)
+
+### Injeção de código descoberta
+
+Injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por malware para acessar dados, ocultar ou impedir sua remoção (por exemplo, persistência). O alerta indica que a análise de despejo de memória detectou um módulo injetado com o despejo de memória.
+ 
+Desenvolvedores de software legítimos executam ocasionalmente injeção de código por motivos lícitos, por exemplo, para modificar ou estender um aplicativo ou um componente do sistema operacional existente. Para ajudar a diferenciar entre módulos injetados mal-intencionados e bem-intencionados, a Central de Segurança do Azure verifica se o módulo injetado se encaixa em um perfil de comportamento suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta.
+
+Além dos campos comuns descritos na seção "Shellcode descoberto" acima, o alerta fornece os seguintes campos adicionais:
+
+- ADDRESS: o local do módulo injetado na memória
+- IMAGENAME: o nome do módulo injetado. Observe que isso poderá estar em branco se não for fornecido o nome da imagem dentro da imagem.
+- SIGNATURE: indica se o módulo injetado se encaixa em um perfil de comportamento suspeito. A tabela abaixo mostra exemplos de resultados e suas descrições:
+
+| **Valor de assinatura** | **Descrição** |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Exploração de carregador reflexivo suspeito | Esse comportamento suspeito geralmente se correlaciona com o carregamento de código injetado independentemente do carregador do sistema operacional |
+| Exploração injetada suspeita | Indica uma má intenção que geralmente se correlaciona com a injeção de código na memória |
+| Exploração de injeção suspeita | Indica uma má intenção que normalmente se correlaciona com o uso de código injetado na memória |
+| Exploração de depurador injetado suspeito | Indica uma má intenção que muitas vezes se correlaciona com a detecção ou o contorno de um depurador |
+| Exploração remota injetada suspeita | Indica uma má intenção que normalmente se correlaciona com cenários de controle de comando n (C2) |
+
+Eis um exemplo desse tipo de alerta:
+
+![Injeção de código descoberta](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig11-ga.png)
+
+### Descoberta de sequestro de módulo
+
+O Windows se baseia em DLLs (bibliotecas de vínculo dinâmico) para permitir que o software use funcionalidades comuns de sistema do Windows. O sequestro de DLL ocorre quando o malware altera a ordem de carregamento de DLL para carregar cargas maliciosas na memória, onde o código arbitrário pode ser executado. O alerta indica que a análise de despejo de memória detectou um módulo de nome semelhante carregado de dois caminhos diferentes, e que um dos caminhos carregados vem de um local de binários de sistema comum do Windows.
+
+Os desenvolvedores de software legítimos ocasionalmente alteram a ordem de carregamento de DLL por motivos lícitos, por exemplo, para instrumentação, extensão do sistema operacional Windows ou de aplicativos do Windows. Para ajudar a diferenciar as alterações mal-intencionadas das bem-intencionadas na ordem de carregamento de DLL, a Central de Segurança do Azure verifica se um módulo carregado se encaixa em um perfil suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta. A análise da cópia em disco no módulo de sequestro, como a verificação da assinatura digital dos arquivos ou a execução de uma verificação antivírus, pode fornecer mais informações sobre a natureza legítima ou mal-intencionada desse módulo.
+
+Além dos campos comuns descritos na seção "Código descobertos" acima, esse alerta fornece os seguintes campos:
+
+- SIGNATURE: indica se o módulo de sequestro se encaixa em um perfil de comportamento suspeito
+- HIJACKEDMODULE: o nome do módulo do sistema Windows sequestrado
+- HIJACKEDMODULEPATH: caminho do módulo do sistema Windows sequestrado
+- HIJACKINGMODULEPATH: o caminho do módulo de sequestro
+
+Eis um exemplo desse tipo de alerta:
+
+![Alerta de sequestro de DLL](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig12-ga.png)
+
+### Módulo do Windows simulado detectado
+
+Malware pode usar nomes comuns de binários (por exemplo, SVCHOST.EXE) ou módulos (por exemplo, NTDLL. DLL) do sistema Windows para "se misturar" e ocultar a natureza de software mal-intencionado dos administradores de sistema. O alerta indica que a análise de despejo de memória detectou que o arquivo de despejo de memória contém módulos que usam nomes de módulo do sistema Windows, mas não atendem a outros critérios típicos de módulos do Windows. A análise da cópia em disco do módulo simulado pode fornecer mais informações sobre a natureza legítima e mal-intencionada do módulo. A análise pode incluir:
+
+- A confirmação de que o arquivo em questão é enviado como parte de um pacote de software legítimo
+- A verificação da assinatura digital do arquivo
+- A execução de uma varredura antivírus no arquivo
+
+Além dos campos comuns descritos na seção "Shellcode descoberto" acima, o alerta fornece os seguintes campos adicionais:
+
+- DETAILS: descreve se os metadados dos módulos são válidos e se o módulo foi carregado de um caminho do sistema.
+- NAME: o nome do módulo do Windows simulado
+- PATH: o caminho do módulo do Windows simulado.
+
+Esse alerta também extrai e exibe determinados campos do cabeçalho do módulo, como "CHECKSUM" e "TIMESTAMP". Esses campos serão exibidos somente se os campos estiverem presentes no módulo. Confira a [Especificação Microsoft PE e COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) para obter detalhes sobre esses campos.
+
+Eis um exemplo desse tipo de alerta:
+
+![Alerta de simulação](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig13-ga.png)
+
+### Binário do sistema modificado descoberto 
+
+Malware pode modificar os principais binários do sistema para acessar dados secretamente ou persistir furtivamente em um sistema comprometido. O alerta indica que a análise de despejo de memória detectou binários principais do sistema operacional Windows que foram modificados na memória ou no disco.
+
+Os desenvolvedores de software legítimos ocasionalmente modificam módulos do sistema na memória por motivos lícitos, por exemplo, para desvios ou para compatibilidade de aplicativos. Para ajudar a diferenciar módulos bem-intencionadas de mal-intencionados, a Central de Segurança do Azure verifica se um módulo alterado se encaixa em um perfil suspeito. O resultado dessa verificação é indicado pela severidade, pela descrição e pelas etapas de solução do alerta.
+
+Além dos campos comuns descritos na seção "Shellcode descoberto" acima, o alerta fornece os seguintes campos adicionais:
+
+- MODULENAME: nome do binário do sistema modificado
+- MODULEVERSION: versão do binário do sistema modificado
+
+Eis um exemplo desse tipo de alerta:
+
+![Alerta de binário modificado](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig14-ga.png)
+
 
 ## Consulte também
 
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
+- [Manipulação de incidente de segurança na Central de Segurança do Azure](security-center-incident.md)
+- [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md)
 - [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
-- [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
-- [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) -- saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização.
+- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

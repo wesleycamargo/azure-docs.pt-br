@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal | Microsoft Azure"
+	pageTitle="Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (visualização) | Microsoft Azure"
 	description="Explore a criação e o gerenciamento de um trabalho de banco de dados elástico."
 	services="sql-database"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/27/2016"
 	ms.author="ddove"/>
 
-# Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal (visualização)
+# Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (preview)
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

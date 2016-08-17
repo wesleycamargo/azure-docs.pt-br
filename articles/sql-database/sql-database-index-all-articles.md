@@ -189,8 +189,8 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 | --: | :-- | :-- |
 | 90 | [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md) | Saiba mais sobre backups internos do Banco de Dados SQL que permitem a você reverter um Banco de Dados SQL do Azure para um ponto anterior ou copiar um banco de dados para um novo banco de dados em uma região geográfica (por até 35 dias). |
 | 91 | [Continuidade dos negócios com o Banco de Dados SQL do Azure](sql-database-business-continuity.md) | Saiba como o Banco de Dados SQL do Azure dá suporte para a continuidade dos negócios em nuvem e para a recuperação de banco de dados, além de ajudar a manter os aplicativos em nuvem críticos em execução. |
-| 92 | [Atualizar um aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) | Esta seção fornece diretrizes para evitar tempo de inatividade durante uma atualização de aplicativo. |
-| 93 | [Cenários de continuidade de negócios para Banco de Dados SQL do Azure](sql-database-business-continuity-scenarios.md) | Cenários de continuidade de negócios para Banco de Dados SQL do Azure |
+| 92 | [Atualizar um aplicativo sem tempo de inatividade](sql-database-manage-application-rolling-upgrade.md) | Este artigo fornece diretrizes para evitar tempo de inatividade durante uma atualização de aplicativo. |
+| 93 | [Cenários de continuidade de negócios para Banco de Dados SQL do Azure](sql-database-business-continuity.md) | Cenários de continuidade de negócios para Banco de Dados SQL do Azure |
 | 94 | [Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Saiba como restaurar uma única tabela do backup do Banco de Dados SQL do Azure. |
 | 95 | [Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação geográfica ativa no Banco de Dados SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Aprenda a criar soluções de recuperação de desastre em nuvem para planejamento de continuidade de negócios usando a replicação geográfica para backup de dados de aplicativo com o banco de dados SQL. |
 | 96 | [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md) | Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Restauração geográfica e Replicação geográfica Ativa do Banco de Dados SQL do Azure. |
@@ -205,7 +205,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 | 105 | [Restaurar um Banco de Dados SQL do Azure excluído usando o Portal do Azure](sql-database-restore-deleted-database-portal.md) | Restaure um Banco de Dados SQL do Azure (Portal do Azure). |
 | 106 | [Restaurar um Banco de Dados SQL do Azure usando o PowerShell](sql-database-restore-deleted-database-powershell.md) | Restaure um Banco de Dados SQL do Azure (PowerShell). |
 | 107 | [Restaurar um banco de dados para um ponto anterior no tempo, restaurar um banco de dados excluído ou recuperar-se de uma interrupção do datacenter](sql-database-troubleshoot-backup-and-restore.md) | Saiba como recuperar um banco de dados de nuvem que enfrentou erros e falhas usando réplicas e backups no Banco de Dados SQL. |
-| 108 | [Recuperar um Banco de Dados SQL do Azure de uma erro](sql-database-user-error-recovery.md) | Saiba como fazer a recuperação de um erro do usuário, da corrupção de dados acidental ou de um banco de dados excluído usando o recurso PITR (Restauração Pontual) do Banco de Dados SQL do Azure. |
+| 108 | [Recuperar um Banco de Dados SQL do Azure de uma erro](sql-database-business-continuity.md) | Saiba como fazer a recuperação de um erro do usuário, da corrupção de dados acidental ou de um banco de dados excluído usando o recurso PITR (Restauração Pontual) do Banco de Dados SQL do Azure. |
 | 109 | [Usar o armazenamento do Azure para o backup e restauração do SQL Server](storage-use-storage-sql-server-backup-restore.md) | Saiba como fazer backup do SQL Server no Armazenamento do Azure. Explica os benefícios de fazer backup de bancos de dados SQL no Armazenamento do Azure. |
 
 
@@ -396,4 +396,4 @@ This bullet link is improperly disallowed by publishing automation due to presen
 - [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
 -->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

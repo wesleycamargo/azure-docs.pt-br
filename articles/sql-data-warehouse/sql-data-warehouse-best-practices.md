@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Práticas recomendadas para o Azure SQL Data Warehouse
@@ -80,35 +80,35 @@ Como as tabelas columnstore geralmente não enviam os dados em um segmento colum
 
 Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se você selecionar apenas as colunas necessárias.
 
-Confira também [Índices de tabela][], [Guia dos índices columnstore][]
+Confira também [Índices de tabela][], [Guia dos índices columnstore][] e [Recompilando índices columnstore][]
 
 ## Usar uma classe maior de recursos para melhorar o desempenho da consulta
 O SQL Data Warehouse usa grupos de recursos como uma maneira de alocar memória para as consultas. Para o uso imediato, todos os usuários são atribuídos à classe de recurso pequena, que concede 100 MB de memória por distribuição. Como sempre há 60 distribuições e cada distribuição recebe um mínimo de 100 MB, a alocação de memória total de todo o sistema é de 6.000 MB ou menos de 6 GB. Determinadas consultas, como junções grandes ou cargas para as tabelas columnstore clusterizado, se beneficiarão das alocações de memória maiores. Algumas consultas, como as varreduras puras, não terão qualquer benefício. Por outro lado, usar classes de recurso maiores afeta a simultaneidade, portanto, você deve levar isso em consideração antes de mover todos os usuários para uma classe de recurso grande.
  
-[Gerenciamento da simultaneidade e da carga de trabalho][]
+Confira também [Gerenciamento de simultaneidade e carga de trabalho][]
 
 ## Usar uma Classe de Recurso Menor para Aumentar a Simultaneidade
 Se você estiver percebendo que as consultas do usuário parecem atrasar muito, é possível que os usuários estejam executando classes de recurso maiores e consumindo muitos slots de simultaneidade, fazendo com que outras consultas entrem na fila. Para saber se as consultas dos usuários estão em fila, execute `SELECT * FROM sys.dm_pdw_waits` para ver se alguma linha é retornada.
 
-Consulte também [gerenciamento da simultaneidade e da carga de trabalho][], [sys.dm\_pdw\_waits][]
+Confira também [Gerenciamento de simultaneidade e carga de trabalho][], [sys.dm\_pdw\_waits][]
 
 ## Usar DMVs para monitorar e otimizar suas consultas
 O SQL Data Warehouse tem várias DMVs que podem ser usadas para monitorar a execução da consulta. O artigo de monitoramento abaixo apresenta instruções passo a passo sobre como analisar os detalhes de uma consulta em execução. Para encontrar rapidamente as consultas nessas DMVs, usar a opção LABEL com suas consultas poderá ajudar.
 
-Confira também [Monitorar sua carga de trabalho usando DMVs][], [LABEL][], [OPTION][], [sys.dm\_exec\_sessions][], [sys.dm\_pdw\_exec\_requests][], [sys.dm\_pdw\_request\_steps][], [sys.dm\_pdw\_sql\_requests][], [sys.dm\_pdw\_dms\_workers], [DBCC PDW\_SHOWEXECUTIONPLAN][], [sys.dm\_pdw\_waits][]
+Confira também [Monitore sua carga de trabalho usando DMVs][], [LABEL][], [OPTION][], [sys.dm\_exec\_sessions][], [sys.dm\_pdw\_exec\_requests][], [sys.dm\_pdw\_request\_steps][], [sys.dm\_pdw\_sql\_requests][], [sys.dm\_pdw\_dms\_workers], [DBCC PDW\_SHOWEXECUTIONPLAN][], [sys.dm\_pdw\_waits][]
 
 ## Outros recursos
-Confira também nosso artigo [Solução de problemas][] para os problemas e soluções comuns.
+Confira também nosso artigo de [Solução de problemas][] para conhecer os problemas e as soluções comuns.
 
-Se você não encontrar o que estava procurando nesse artigo, tente usar a "Pesquisa de documentos" à esquerda da página para pesquisar todos os documentos do SQL Data Warehouse do Azure. O [Fórum do MSDN do Azure SQL Data Warehouse][] foi criado como um local para fazer perguntas a outros usuários e ao Grupo de Produtos do SQL Data Warehouse. Monitoramos ativamente esse fórum para garantir que sua pergunta seja respondida por outro usuário ou um de nós. Se você preferir fazer perguntas sobre Stack Overflow, também temos um [Fórum sobre Stack Overflow do Azure SQL Data Warehouse][].
+Se você não encontrar o que estava procurando nesse artigo, tente usar a "Pesquisa de documentos" à esquerda da página para pesquisar todos os documentos do SQL Data Warehouse do Azure. O [Fórum do MSDN do Azure SQL Data Warehouse][] foi criado como um local para você fazer perguntas a outros usuários e ao Grupo de Produtos do SQL Data Warehouse. Monitoramos ativamente esse fórum para garantir que sua pergunta seja respondida por outro usuário ou um de nós. Caso você prefira fazer perguntas sobre o Stack Overflow, também temos um [Fórum sobre o Stack Overflow do Azure SQL Data Warehouse][].
 
-Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer solicitações de recursos. Adicionar suas solicitações ou recomendar outras solicitações realmente nos ajudará a priorizar os recursos.
+Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer solicitações de recurso. Adicionar suas solicitações ou recomendar outras solicitações realmente nos ajudará a priorizar os recursos.
 
 <!--Image references-->
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Gerenciamento da simultaneidade e da carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
+[Gerenciamento de simultaneidade e carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Visão geral da tabela]: ./sql-data-warehouse-tables-overview.md
 [Tipos de dados da tabela]: ./sql-data-warehouse-tables-data-types.md
@@ -116,6 +116,7 @@ Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer s
 [Índices da tabela]: ./sql-data-warehouse-tables-index.md
 [Índices de tabela]: ./sql-data-warehouse-tables-index.md
 [Causas da baixa qualidade do índice columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Recompilando índices columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Particionamento da tabela]: ./sql-data-warehouse-tables-partition.md
 [Gerenciar as estatísticas da tabela]: ./sql-data-warehouse-tables-statistics.md
 [Tabelas temporárias]: ./sql-data-warehouse-tables-temporary.md
@@ -125,7 +126,7 @@ Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer s
 [Carregar os Dados com o Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Monitorar sua carga de trabalho usando DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Monitore sua carga de trabalho usando DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pausar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Retomar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Dimensionar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
@@ -157,7 +158,7 @@ Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer s
 [Selecionando a distribuição de tabelas]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [Comentários do Azure SQL Data Warehouse]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum do MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Fórum sobre Stack Overflow do Azure SQL Data Warehouse]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Fórum sobre o Stack Overflow do Azure SQL Data Warehouse]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Padrões e estratégias de carregamento do Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

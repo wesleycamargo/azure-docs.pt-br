@@ -3,7 +3,7 @@
 	description="Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
+	authors="Nkolli1"
 	manager="shreeshd"
 	editor=""
 	keywords="Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark"/>
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 
@@ -209,4 +209,4 @@ E os seguintes não têm suporte:
 
 >[AZURE.NOTE] No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

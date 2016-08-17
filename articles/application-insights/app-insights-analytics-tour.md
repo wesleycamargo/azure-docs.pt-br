@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -148,8 +148,10 @@ Você pode mesclá-lo escolhendo as propriedades que te interessam:
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Observe que você precisa usar uma [conversão](app-insights-analytics-reference.md#casts) para o tipo apropriado.
 
 ## Medidas e propriedades personalizadas
 
@@ -173,14 +175,14 @@ Para extrair esses valores na Análise:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
-> [AZURE.NOTE] Em [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntos na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. Porém no Analytics, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual elas tenham sido realizadas, e as métricas exibidas em seus próprios fluxos `metrics`.
+> [AZURE.NOTE] No [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntos na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. Porém, no Analytics, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual elas tenham sido realizadas, e as métricas exibidas em seus próprios fluxos de `metrics`.
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): agregar grupos de linhas
+## [Resumir](app-insights-analytics-reference.md#summarize-operator): agregar grupos de linhas
 
 `Summarize` aplica uma *função de agregação* especificada em grupos de linhas.
 
@@ -249,7 +251,7 @@ Podemos fazer melhor do que a exibição de tabela. Vamos examinar os resultados
 Observe que, embora não tenhamos classificado os resultados por tempo (como você pode ver na exibição de tabela), a exibição de gráfico sempre mostra datetimes na ordem correta.
 
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtrando uma condição
+## [Where](app-insights-analytics-reference.md#where-operator): filtragem de uma condição
 
 Se você tiver configurado o monitoramento do Application Insights para os lados do [cliente](app-insights-javascript.md) e do servidor de seu aplicativo, alguma telemetria do banco de dados virá de navegadores.
 
@@ -271,7 +273,7 @@ O operador `where` usa uma expressão booliana. Eis alguns pontos importantes so
  * `==`, `<>`: igual a e diferente de
  * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas "igual a" e "diferente de". Há muitos outros operadores de comparação de cadeia de caracteres.
 
-Leia mais sobre [expressões escalares](app-insights-analytics-reference.md#scalars).
+Leia tudo sobre [expressões escalares](app-insights-analytics-reference.md#scalars).
 
 ### Filtragem de eventos
 
@@ -479,4 +481,4 @@ Use [let](./app-insights-analytics-reference.md#let-statements) para separar as 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

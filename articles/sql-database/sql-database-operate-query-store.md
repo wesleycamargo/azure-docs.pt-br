@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -53,7 +53,7 @@ Para garantir a operação contínua e confiável, o Banco de Dados SQL do Azure
 
 O Banco de Dados SQL do Azure usa os dados coletados para:
 
-- ***Aprender os padrões de uso em um grande número de bancos de dados e, consequentemente, melhorar a qualidade e a confiabilidade do recurso:*** o Repositório de Consultas é aprimorado a cada atualização do Banco de Dados SQL do Azure. 
+- ***Aprender os padrões de uso em um grande número de bancos de dados e, consequentemente, melhorar a qualidade e a confiabilidade do recurso:*** o Repositório de Consultas é aprimorado a cada atualização do Banco de Dados SQL do Azure.
 - ***Solucionar ou atenuar problemas causados pelo Repositório de Consultas:*** o Banco de Dados SQL do Azure pode detectar e reduzir os problemas que têm um impacto substancial sobre a carga de trabalho do cliente, com baixa latência (menos de uma hora). Com frequência, os problemas são tratados configurando o Repositório de Consultas para ***DESLIGADO*** temporariamente.
 
 De tempos em tempos, as atualizações do Repositório de Consultas introduzem alterações com as configurações padrão aplicadas a configurações internas e raramente externas (voltadas para o cliente). Consequentemente, a experiência do cliente com Repositório de Consultas no Banco de Dados SQL pode diferir de ambientes locais devido às ações automáticas realizadas pela plataforma do Azure:
@@ -93,7 +93,7 @@ Se você quiser manter suas configurações personalizadas, use [ALTER DATABASE 
 
 Para obter mais informações, confira os seguintes artigos:
 
-- [Uma caixa-preta de bordo para seu banco de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [Uma caixa-preta de bordo para seu banco de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
 - [Monitorando o desempenho usando o Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
@@ -101,4 +101,4 @@ Para obter mais informações, confira os seguintes artigos:
 
 - [Monitorando o desempenho usando o Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

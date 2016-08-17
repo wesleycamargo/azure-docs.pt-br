@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
@@ -90,4 +90,4 @@ Para obter mais informações sobre os estados do usuário, confira [Estados do 
 ## Próximas etapas
 Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Consulte [Configurando a Autenticação Multifator do Azure.]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

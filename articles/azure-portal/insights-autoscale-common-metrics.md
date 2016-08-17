@@ -4,16 +4,16 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
 # Métricas comuns de dimensionamento automático do Azure Insights
@@ -51,33 +51,33 @@ Você pode criar um alerta para as métricas a seguir.
 
 |Nome da métrica|	Unidade|
 |---|---|
-|\\Processor(\_Total)\\% Processor Time |Porcentagem|
-|\\Processor(\_Total)\\% Privileged Time |Porcentagem|
-|\\Processor(\_Total)\\% User Time |Porcentagem|
-|\\Processor Information(\_Total)\\Processor Frequency |Contagem|
-|\\System\\Processes| Contagem|
-|\\Process(\_Total)\\Thread Count| Contagem|
-|\\Process(\_Total)\\Handle Count |Contagem|
-|\\Memory\\% Committed Bytes In Use |Porcentagem|
-|\\Memory\\Available Bytes| Bytes|
-|\\Memory\\Committed Bytes |Bytes|
-|\\Memory\\Commit Limit| Bytes|
-|\\Memory\\Pool Paged Bytes| Bytes|
-|\\Memory\\Pool Nonpaged Bytes| Bytes|
-|\\PhysicalDisk(\_Total)\\% Disk Time| Porcentagem|
-|\\PhysicalDisk(\_Total)\\% Disk Read Time| Porcentagem|
-|\\PhysicalDisk(\_Total)\\% Disk Write Time| Porcentagem|
-|\\PhysicalDisk(\_Total)\\Disk Transfers/sec |CountPerSecond|
-|\\PhysicalDisk(\_Total)\\Disk Reads/sec |CountPerSecond|
-|\\PhysicalDisk(\_Total)\\Disk Writes/sec |CountPerSecond|
-|\\PhysicalDisk(\_Total)\\Disk Bytes/sec |BytesPerSecond|
-|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| BytesPerSecond|
-|\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |BytesPerSecond|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| Contagem|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| Contagem|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length |Contagem|
-|\\LogicalDisk(\_Total)\\% Free Space| Porcentagem|
-|\\LogicalDisk(\_Total)\\Free Megabytes| Contagem|
+|\\Processador(\_Total)\\% Tempo do processador |Porcentagem|
+|\\Processador(\_Total)\\% Tempo Privilegiado |Porcentagem|
+|\\Processador(\_Total)\\% Tempo de Usuário |Porcentagem|
+|\\Informações do Processador (\_Total)\\Frequência do Processador |Contagem|
+|\\Sistema\\Processos|	Contagem|
+|\\Processo(\_Total)\\Contagem de Thread|	Contagem|
+|\\Processo(\_Total)\\Contagem de Manipulador |Contagem|
+|\\Memória\\% Bytes Confirmados em Uso |Porcentagem|
+|\\Memória\\Bytes Disponíveis|	Bytes|
+|\\Memória\\Bytes Confirmados |Bytes|
+|\\Memória\\Limite de Confirmação|	Bytes|
+|\\Memória\\Bytes de Pool Pagináveis|	Bytes|
+|\\Memória\\Bytes de Pool Não Pagináveis|	Bytes|
+|\\PhysicalDisk(\_Total)\\% Tempo de Disco|	Porcentagem|
+|\\PhysicalDisk(\_Total)\\% Tempo de Leitura de Disco|	Porcentagem|
+|\\PhysicalDisk(\_Total)\\% Tempo de Gravação de Disco|	Porcentagem|
+|\\Disco físico(\_Total)\\Transferências do disco/seg |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Leituras de Disco/s |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Gravações de Disco/s |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Bytes de Disco/s |BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Bytes de Leitura de Disco/s|	BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Bytes de Gravação de Disco/s |BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Média Tamanho da fila do disco|	Contagem|
+|\\PhysicalDisk(\_Total)\\Média Tamanho de Fila de Leitura de Disco|	Contagem|
+|\\PhysicalDisk(\_Total)\\Média Tamanho de Fila de Gravação de Disco |Contagem|
+|\\LogicalDisk(\_Total)\\% de Espaço Livre|	Porcentagem|
+|\\LogicalDisk(\_Total)\\Megabytes Livres|	Contagem|
 
 
 
@@ -171,7 +171,7 @@ Você pode definir essas configurações na folha **Configurações** do Portal 
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
+ ```
 
 ## Métricas do Barramento de Serviço usadas frequentemente
 
@@ -187,5 +187,4 @@ Para conjuntos de escala de VM, você pode atualizar a configuração de Autoesc
 
 >[AZURE.NOTE] Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 
-<!----HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0803_2016-->
