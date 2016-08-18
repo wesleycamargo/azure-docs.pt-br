@@ -53,7 +53,8 @@ Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação 
  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, onde é possível procurar qualquer ação que você deseja realizar. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, onde é possível procurar qualquer ação que você deseja realizar.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. Insira *dropbox* para pesquisar as ações relacionadas ao Dropbox.
 
