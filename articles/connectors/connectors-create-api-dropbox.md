@@ -37,9 +37,11 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 Neste exemplo, usaremos o gatilho **Quando um arquivo é criado**. Quando esse gatilho ocorrer, chamaremos a ação do Dropbox **Obter conteúdo do arquivo usando o caminho**.
 
-1. Insira *dropbox* na caixa de pesquisa no designer de Aplicativos Lógicos e escolha o gatilho **Dropbox – Quando um arquivo é criado**. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
+1. Insira *dropbox* na caixa de pesquisa no designer de Aplicativos Lógicos e escolha o gatilho **Dropbox – Quando um arquivo é criado**.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. Escolha a pasta na qual você deseja controlar a criação do arquivo. Escolha ... (identificado na caixa vermelha) e navegue até a pasta que deseja selecionar para entrada do gatilho. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+2. Escolha a pasta na qual você deseja controlar a criação do arquivo. Escolha ... (identificado na caixa vermelha) e navegue até a pasta que deseja selecionar para entrada do gatilho.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
 ## Usar uma ação do Dropbox
 
@@ -47,15 +49,20 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação que obterá o novo conteúdo do arquivo.
 
-1. Escolha **+ Nova Etapa** para adicionar a ação que deseja executar quando um novo arquivo é criado. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+1. Escolha **+ Nova Etapa** para adicionar a ação que deseja executar quando um novo arquivo é criado.  
+ 
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
 2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, onde é possível procurar qualquer ação que você deseja realizar. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. Insira *dropbox* para pesquisar as ações relacionadas ao Dropbox.
 
-4. Escolha **Dropbox – Obter conteúdo do arquivo usando o caminho** como a ação a ser tomada quando um novo arquivo for criado na pasta Dropbox selecionada. O bloco de controle de ação é aberto. Será solicitado que você autorize o aplicativo lógico a acessar sua conta no Dropbox, caso não tenha feito isso anteriormente. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
+4. Escolha **Dropbox – Obter conteúdo do arquivo usando o caminho** como a ação a ser tomada quando um novo arquivo for criado na pasta Dropbox selecionada. O bloco de controle de ação é aberto. Será solicitado que você autorize o aplicativo lógico a acessar sua conta no Dropbox, caso não tenha feito isso anteriormente.  
 
-5. Escolha ... (localizado no lado direito do controle **Caminho do Arquivo**) e navegue até o caminho do arquivo que deseja usar. Ou use o token do **caminho do arquivo** para agilizar a criação do aplicativo lógico. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+5. Escolha ... (localizado no lado direito do controle **Caminho do Arquivo**) e navegue até o caminho do arquivo que deseja usar. Ou use o token do **caminho do arquivo** para agilizar a criação do aplicativo lógico.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
 6. Salve seu trabalho e crie um novo arquivo no Dropbox para ativar o fluxo de trabalho.
 
