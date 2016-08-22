@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="antonba"/>
 
 # Como delegar o registro de usuário e a assinatura do produto
@@ -36,7 +36,7 @@ Para começar, vamos configurar o Gerenciamento de API para encaminhar as solici
 
 ![Página de delegação][api-management-delegation-signin-up]
 
-* Decida qual será o URL do seu ponto de extremidade de delegação especial e insira-o no campo **URL do ponto de extremidade de delegação**. 
+* Decida qual será o URL do seu ponto de extremidade de delegação especial e insira-o no campo **URL do ponto de extremidade de delegação**.
 
 * No campo **Chave de autenticação de delegação**, insira um segredo que será usado para calcular uma assinatura fornecida a você para verificação, para garantir que a solicitação realmente venha do Gerenciamento de API do Azure. Você pode clicar no botão **Gerar** para o Gerenciamento de API gerar aleatoriamente uma chave para você.
 
@@ -178,4 +178,4 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

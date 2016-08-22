@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="07/18/2016"
+   ms.date="08/03/2016"
    ms.author="robinsh" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -74,7 +74,7 @@ Por outro lado, entidades que estão na mesma tabela mas têm chaves de partiç�
 
 Recomendações detalhadas para a criação de estratégias de particionamento de tabelas podem ser encontradas [aqui](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
-## Veja também
+## Consulte também
 
 - [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
@@ -83,4 +83,4 @@ Recomendações detalhadas para a criação de estratégias de particionamento d
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Saiba como implantar VMs com um IP público estático usando o PowerShell no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Implantar uma VM com um IP público estático usando o PowerShell
 
@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Etapa 1: iniciar o script
+## Etapa 1 – Iniciar o script
 
 Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
@@ -135,7 +135,7 @@ Agora que todos os recursos necessários estão prontos, você pode criar uma no
 
 7. Salve o arquivo de script.
 
-## Etapa 4: executar o script
+## Etapa 4 – Executar o script
 
 Depois de fazer quaisquer alterações necessárias e de compreender o script mostrado acima, execute o script.
 
@@ -216,4 +216,4 @@ Depois de fazer quaisquer alterações necessárias e de compreender o script mo
 
    
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/10/2016"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -33,6 +33,16 @@ As diretrizes neste tutorial se aplicam a dispositivos físicos e virtuais do St
 
 Em um cenário de recuperação de desastre (DR), o dispositivo principal para de funcionar. Nessa situação, você pode mover os dados de nuvem associados ao dispositivo com falha para outro dispositivo por meio do dispositivo principal como a *origem* e especificando outro dispositivo como o *destino*. Você pode selecionar um ou mais contêineres de volume para migrar para o dispositivo de destino. Esse processo é conhecido como *failover*. Durante o failover, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino.
 
+Normalmente, depois de uma DR, o backup mais recente é usado para restaurar os dados no dispositivo de destino. No entanto, se houver várias políticas de backup para o mesmo volume, a política de backup com o maior número de volumes é escolhida e o backup mais recente dessa política é usado para restaurar os dados no dispositivo de destino.
+
+Por exemplo, se houver duas políticas de backup (uma padrão e uma personalizada) *defaultPol*, *customPol* com os seguintes detalhes:
+
+- *defaultPol*: um volume, *vol1*, é executado diariamente começando às 22:30.
+- *customPol*: quatro volumes, *vol1*, *vol2*, *vol3*, *vol4*, são executados diariamente começando às 22:00.
+
+Nesse caso, *customPol* será usada, pois ela tem mais volumes, e priorizamos o controle de falhas. O backup mais recente dessa política é usado para restaurar os dados.
+
+
 ## Considerações para failover de dispositivo
 
 Em caso de desastre, você pode optar por fazer o failover do dispositivo StorSimple:
@@ -47,9 +57,6 @@ Para o failover de qualquer dispositivo, tenha em mente o seguinte:
 - Os dispositivos de destino disponíveis para DR são dispositivos que têm espaço suficiente para acomodar os contêineres de volume selecionados.
 - Os dispositivos que estão conectados ao serviço, mas não atendem aos critérios de espaço suficiente não estarão disponíveis como dispositivos de destino.
 - Após uma recuperação de desastres, por um período limitado, o desempenho de acesso a dados pode ser afetado significativamente, pois o dispositivo precisará acessar os dados de nuvem e armazená-los localmente.
-- Ao realizar um failover entre dispositivos após uma recuperação de desastre, os instantâneos usados para recuperar os dados são selecionados da seguinte maneira:
-	1.  	Identifique a política de backup com o maior número de volumes.
-	2.  	Escolha o instantâneo de nuvem conhecido mais recente para essa política de backup e use-o para restaurar os dados no dispositivo de recuperação.
 
 #### Failover de dispositivo em versões de software
 
@@ -92,10 +99,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 1. No assistente que é aberto, em **Escolher contêiner de volume para failover**:
 
-	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
-	
-
-		>[AZURE.NOTE] **Somente os contêineres de volume com instantâneos de nuvem e volumes offline associados são exibidos.** <br></br>
+	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover. **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
 
@@ -149,9 +153,9 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 													
 	a. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-	>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+	**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
-	b. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
+	b. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. **Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.**
 	
 
 1. Finalmente, revise as configurações de failover em **Confirmar failover**. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
@@ -180,4 +184,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

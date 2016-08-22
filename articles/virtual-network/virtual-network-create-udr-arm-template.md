@@ -3,7 +3,7 @@
    description="Saiba como controlar o roteamento e usar dispositivos virtuais no Azure Resource Manager usando um modelo"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Criar UDR (Rotas de Definida pelo Usuário) no Gerenciador de Recursos usando um modelo
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação do Gerenciador de Recursos.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -183,7 +183,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-3. No navegador, navegue até ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
+3. No navegador, navegue até**https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -396,4 +396,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 >[AZURE.TIP] Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

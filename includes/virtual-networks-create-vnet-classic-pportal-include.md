@@ -11,7 +11,7 @@ Para criar uma rede virtual clássica com base no cenário acima, siga as etapas
 
 	![Folha Espaço de endereço](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. Clique em **Grupo de Recursos** e selecione um grupo de recursos ao qual adicionar a rede virtual ou clique em **Criar novo grupo de recursos** para adicionar a rede virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de um novo grupo de recursos denominado **TestRG**. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+4. Clique em **Grupo de Recursos** e selecione um grupo de recursos ao qual adicionar a rede virtual ou clique em **Criar novo grupo de recursos** para adicionar a rede virtual a um novo grupo de recursos. A figura a seguir mostra as configurações de um novo grupo de recursos denominado **TestRG**. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
 	![Folha Criar grupo de recursos](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 
@@ -35,4 +35,4 @@ Para criar uma rede virtual clássica com base no cenário acima, siga as etapas
 
 	![Criar rede virtual no portal do Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

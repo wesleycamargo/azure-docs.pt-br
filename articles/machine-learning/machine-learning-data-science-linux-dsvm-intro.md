@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provisionar a Máquina Virtual de Ciência de Dados Linux 
-
 
 A Máquina Virtual de Ciência de Dados Linux é uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com uma coleção de ferramentas que são normalmente usadas para análise de dados e aprendizado de máquina. Os componentes de software principais incluídos são:
 
@@ -31,16 +30,16 @@ A Máquina Virtual de Ciência de Dados Linux é uma imagem de máquina virtual 
     - [CNTK (Kit de Ferramentas de Rede Computacional)](https://github.com/Microsoft/CNTK): um software de aprendizado aprofundado da Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa
-    - [Rattle](http://rattle.togaware.com/) (a Ferramenta Analítica do R para Aprender com Facilidade): ferramenta que torna muito fácil a introdução à análise de dados e aprendizado de máquina em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática. 
+    - [Rattle](http://rattle.togaware.com/) (a Ferramenta Analítica do R para Aprender com Facilidade): ferramenta que torna muito fácil a introdução à análise de dados e aprendizado de máquina em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
 - SDK do Azure em Java, Python, node.js, Ruby, PHP
 - Bibliotecas em R e Python para uso em Aprendizado de Máquina do Azure e outros serviços do Azure
 - Ferramentas de desenvolvimento e editores (Eclipse, Emacs, gedit, vi)
 
 Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
 
-- localizar, carregar e pré-processar dados 
-- compilar e testar modelos 
-- implantar os modelos para consumo em aplicativos inteligentes 
+- localizar, carregar e pré-processar dados
+- compilar e testar modelos
+- implantar os modelos para consumo em aplicativos inteligentes
 
 Não é incomum que os cientistas de dados usem uma variedade de ferramentas para executar essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e depois baixar, compilar e instalar estas versões.
 
@@ -65,12 +64,13 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 2.	 Clique no botão **Criar** na parte inferior para ser levado para um assistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 As seções a seguir fornecem as **entradas** para cada uma das **5 etapas** (enumeradas à direita da figura acima) do assistente usado para criar a Máquina Virtual de ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
+
   **a. Noções básicas**:
 
    - **Nome**: o nome do servidor de ciência de dados que você está criando.
    - **Nome de Usuário**: primeira ID de logon da conta
    - **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha)
-   - **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado OBSERVAÇÃO: Você deve ter privilégios de criação de recurso nesta assinatura. 
+   - **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado OBSERVAÇÃO: Você deve ter privilégios de criação de recurso nesta assinatura.
    - **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente
    - **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede
 
@@ -90,7 +90,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 
   **e. Comprar**:
 
-   - Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**. 
+   - Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**.
 
 
 O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal do Azure.
@@ -106,33 +106,18 @@ Depois de criar a VM, é possível fazer logon nela usando SSH com as credenciai
 
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM Linux, você precisa fazer o descrito a seguir no seu cliente.
 
-1. Baixe e instale o cliente X2Go para sua plataforma de cliente [daqui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Execute o cliente X2Go e selecione "*Nova Sessão*". Ela abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração: 
+1. Baixe e instale o cliente X2Go para sua plataforma de cliente [daqui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+2. Execute o cliente X2Go e selecione "*Nova Sessão*". Ela abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
     * **Guia Sessão**:
         - **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
         - **Logon**: nome de usuário de logon na VM Linux.
         - **Porta SSH**: deixe-a em 22, o valor padrão.
         - **Tipo de Sessão**: altere o valor para XFCE. OBSERVAÇÃO: no momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
-    * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los. 
-    * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia. 
+    * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
+    * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
 Uma vez que você fizer logon na VM usando o cliente SSH ou área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
 
-## Como criar uma senha forte no servidor do bloco de anotações do Jupyter 
-
-Execute o comando a seguir em um prompt de comando na Máquina Virtual de Ciência de Dados para criar sua própria senha forte para o servidor de bloco de anotações do Jupyter instalado na máquina.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-Insira uma senha forte quando solicitado.
-
-Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do bloco de anotações localizado em: **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** por um nome de parâmetro ***c.NotebookApp.password***. Você precisará editar esse arquivo como o **usuário raiz**.
-
-Você só deve substituir o valor de hash existente que está entre aspas. As aspas e o prefixo ***sha1:*** para o valor do parâmetro precisam ser mantidos.
-
-Por fim, você precisa parar e reiniciar o serviço Jupyter que é instalado na pasta /etc/init.d/jupyter.
-
->[AZURE.NOTE] Se a nova senha não for aceita após a reinicialização do jupyter ou você tiver problemas ao parar o jupyter, tente reiniciar a máquina virtual.
 
 ## Ferramentas Instaladas na Máquina Virtual de Ciência de Dados Linux
 
@@ -163,12 +148,19 @@ O Python 3.5 está instalado em */anaconda/envs/py35/bin*
 
 Agora, para invocar a sessão interativa do python, basta digitar ***python*** no shell. Se você estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando ***spyder*** para iniciar o IDE do Python.
 
-### Bloco de anotações do Jupyter
-A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de bloco de anotações do Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se você estiver usando a VM por meio de cliente SSH ou X2go, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor de bloco de anotações do Jupyter.
+### Bloco de anotações do Jupyter 
+
+A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. O Notebook Jupyter é acessado com o JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
+
+O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se você estiver usando a VM por meio de cliente SSH ou X2go, também poderá visitar [https://localhost:8000/](https://localhost:8000/) para acessar o servidor do notebook Jupyter.
 
 >[AZURE.NOTE] Continue se você obtiver quaisquer avisos de certificado.
 
-Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qualquer host. Basta digitar "https://<endereço IP ou nome DNS da VM>:9999/". Empacotamos exemplos de alguns blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na home page do bloco de anotações após a autenticação no bloco de anotações do Jupyter usando a senha criada anteriormente. Você pode criar um novo bloco de anotações, selecionando "Novo" e, em seguida, o kernel de idioma. Se você não vir o botão "Novo", clique no ícone do Jupyter na parte superior esquerda para ir para a home page do servidor de notebook.
+Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qualquer host. Basta digitar "https://<endereço IP ou nome DNS da VM>:8000/".
+
+>[AZURE.NOTE] A porta 8000 é aberta no firewall por padrão quando a VM é provisionada.
+
+Empacotamos exemplos de alguns blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na página inicial do bloco de anotações após a autenticação no notebook Jupyter usando a senha e o nome de usuário Linux locais. Você pode criar um novo bloco de anotações, selecionando "Novo" e, em seguida, o kernel de idioma. Se você não vir o botão "Novo", clique no ícone do Jupyter na parte superior esquerda para ir para a home page do servidor de notebook.
 
 
 ### IDEs e Editores 
@@ -216,12 +208,12 @@ Mais informações podem ser encontradas em [Conectando-se com o sqlcmd](https:/
 
 Há bibliotecas disponíveis em Python e R para acessar bancos de dados.
 
-- No R, o pacote **RODBC** ou pacote **dplyr** permite que você consulte ou execute instruções SQL no servidor de banco de dados. 
-- No Python, a biblioteca **pyodbc** fornece acesso ao banco de dados com o ODBC como a camada subjacente.  
+- No R, o pacote **RODBC** ou pacote **dplyr** permite que você consulte ou execute instruções SQL no servidor de banco de dados.
+- No Python, a biblioteca **pyodbc** fornece acesso ao banco de dados com o ODBC como a camada subjacente.
 
 Para acessar o **Postgres**:
 
-- do Python: use a biblioteca **psycopg2**. 
+- do Python: use a biblioteca **psycopg2**.
 - do R: use o pacote **RPostgreSQL**.
 
 
@@ -229,13 +221,10 @@ Para acessar o **Postgres**:
 As ferramentas do Azure a seguir são instaladas na VM:
 
 - **Interface de Linha de Comando do Azure**: a CLI (Interface de Linha de Comando) do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas ***azure help***. Para saber mais, confira a [página de documentação da CLI do Azure](../virtual-machines-command-line-tools.md).
-- **Gerenciador do Armazenamento do Microsoft Azure**: o Gerenciador do Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar/baixar os dados de e para os blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando ***StorageExplorer***. Você precisa estar conectado de um cliente X2go ou ter a configuração do encaminhamento X11. 
+- **Gerenciador do Armazenamento do Microsoft Azure**: o Gerenciador do Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar/baixar os dados de e para os blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando ***StorageExplorer***. Você precisa estar conectado de um cliente X2go ou ter a configuração do encaminhamento X11.
 - **Bibliotecas do Azure**: a seguir estão algumas das bibliotecas que foram instaladas e estão, portanto, disponíveis para você:
-
 - **Python**: as bibliotecas relacionadas ao Azure no Python que estão instaladas são ***azure***, ***azureml***, ***pydocumentdb***, ***pyodbc***. As três primeiras bibliotecas permitem que você acesse os serviços de armazenamento do Azure, o Aprendizado de Máquina do Azure e o Banco de Dados de Documentos do Azure (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao Microsoft SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Digite ***pip list*** para ver toda a biblioteca listada. Certifique-se de executar este comando nos ambientes do Python 2.7 e o 3.5.
-
 - **R**: as bibliotecas relacionadas ao Azure em R que estão instaladas são ***AzureML*** e ***RODBC***.
-
 - **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório ***/dsvm/sdk/AzureSDKJava*** na VM. As bibliotecas principais são APIs de armazenamento e gerenciamento do Azure, Banco de Dados de Documentos e JDBC drivers para SQL Server.
 
 Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox previamente instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
@@ -248,8 +237,8 @@ Depois que fizer logon no Estúdio de Aprendizado de Máquina do Azure, você te
 
 Você pode também criar seus modelos em R ou Python na VM e, em seguida, implantá-los em produção no AM do Azure. Instalamos bibliotecas em R e Python para habilitar essa funcionalidade.
 
-- A biblioteca em R chama-se ***AzureML***. 
-- Em Python, chama-se ***azureml***. 
+- A biblioteca em R chama-se ***AzureML***.
+- Em Python, chama-se ***azureml***.
 
 Para obter informações sobre como implantar modelos em R e Python no AM do Azure, consulte a seção *Compilar modelos usando R ou Python e Operacionalizá-los usando o Aprendizado de Máquina do Azure* de [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](machine-learning-data-science-vm-do-ten-things.md).
  
@@ -263,7 +252,7 @@ A VM vem com algumas ferramentas/algoritmos de AM que foram pré-compilados e pr
 * **Vowpal Wabbit** -um algoritmo de aprendizado rápido online
 * **xgboost** -uma ferramenta que fornece algoritmos de árvore aumentados e otimizados
 * **Python** - o Anaconda Python é fornecido com os algoritmos de AM com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas executando a instalação do pip
-* **R** - uma vasta biblioteca de funções de AM estão disponíveis para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando 
+* **R** - uma vasta biblioteca de funções de AM estão disponíveis para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando
 
 		install.packages(<lib name>)
 
@@ -340,8 +329,8 @@ Agora, uma interface gráfica se abrirá com um conjunto de guias. Aqui estão e
 2. Uma caixa de diálogo será exibida perguntando se você deseja usar o conjunto de dados meteorológicos. Clique em Sim para carregar o exemplo
 3. Clique na guia Modelo
 4. Clique em Executar para compilar uma árvore de decisão
-5. Clique em Desenhar para exibir a árvore de decisão 
-6. Clique no botão de opção Floresta e clique em Executar para compilar uma floresta aleatória 
+5. Clique em Desenhar para exibir a árvore de decisão
+6. Clique no botão de opção Floresta e clique em Executar para compilar uma floresta aleatória
 7. Clique no botão Avaliar
 8. Clique no botão de opção Risco e clique em Executar para exibir dois gráficos de desempenho de risco (cumulativos)
 9. Clique na guia Log para mostrar o código R de geração para as operações acima (observação: há um bug na versão atual do Rattle - Insira '#' antes de 'Exportar este log...' no texto do log).
@@ -353,8 +342,8 @@ Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerad
 ## Próximas etapas
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
-* Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
+* Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite. 
+* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

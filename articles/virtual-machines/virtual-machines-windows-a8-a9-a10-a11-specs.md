@@ -1,5 +1,5 @@
 <properties
- pageTitle="Sobre as instâncias A8 a A11 com o Windows | Microsoft Azure"
+ pageTitle="Sobre os tamanhos A8, A9, A10, A11 de VM e Windows | Microsoft Azure"
  description="Obter informações básicas e considerações sobre o uso dos tamanhos A8, A9, A10 e A11 do Azure com computação intensiva para VMs do Windows e serviços de nuvem"
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/26/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # Sobre as instâncias de computação intensiva A8, A9, A10 e A11
@@ -28,7 +28,7 @@ Apresentamos a seguir informações básicas e algumas considerações sobre o u
 
 Em um único serviço de nuvem, conjunto de disponibilidade ou pool do Lote do Azure, as instâncias A8 e A9 podem acessar a rede RDMA no Azure para executar aplicativos MPI do Windows que utilizam a interface direta da rede da Microsoft para a comunicação entre instâncias.
 
-Consulte a tabela a seguir a fim de obter os pré-requisitos para que os aplicativos MPI acessem a rede RDMA em máquinas virtuais Windows, serviços de nuvem e pools do Lote do Azure das instâncias A8 e A9. Para cenários comuns de implantação, consulte [Configurar um cluster do Windows RDMA com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) e [Usar tarefas de várias instâncias para executar aplicativos de MPI (interface de transmissão de mensagens) no Lote do Azure](../batch/batch-mpi.md).
+Veja a seguir os pré-requisitos para que os aplicativos MPI acessem a rede RDMA em máquinas virtuais Windows, serviços de nuvem e pools do Lote do Azure das instâncias A8 e A9. Para cenários comuns de implantação, consulte [Configurar um cluster do Windows RDMA com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) e [Usar tarefas de várias instâncias para executar aplicativos de MPI (interface de transmissão de mensagens) no Lote do Azure](../batch/batch-mpi.md).
 
 
 Pré-requisito | Máquinas virtuais | Serviços de nuvem ou pool do Lote 
@@ -58,4 +58,4 @@ Para obter mais informações e listas de verificação para usar as instâncias
 
 * Para obter informações sobre como usar as instâncias A8 e A9 para executar aplicativos MPI com o Lote do Azure, veja [Usar tarefas de várias instâncias para executar aplicativos de MPI (interface de transmissão de mensagens) no Lote do Azure](../batch/batch-mpi.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

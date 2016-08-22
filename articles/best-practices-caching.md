@@ -77,7 +77,7 @@ Caching pode melhorar drasticamente o desempenho, a escalabilidade e a disponibi
 
 Por exemplo, um banco de dados pode oferecer suporte a uma quantidade limitada de conexões simultâneas. No entanto, recuperar dados de um cache compartilhado em vez de no banco de dados subjacente possibilita a um aplicativo cliente acessar esses dados, mesmo que o número de conexões disponíveis esteja esgotado no momento. Além disso, se o banco de dados ficar indisponível, os aplicativos cliente poderão continuar usando os dados mantidos no cache.
 
-Considere a possibilidade de armazenar em cache os dados lidos com frequência, mas que não são modificados frequentemente (por exemplo, os dados com uma proporção maior de operações de leitura em relação às operações de gravação). No entanto, não recomendamos o uso do cache como o repositório autoritativo de informações críticas. Em vez disso, certifique-se de que todas as alterações que seu aplicativo não pode perder sejam salvas sempre um armazenamento de dados persistente. Isso significa que se o cache ficar indisponível, o aplicativo ainda poderá continuar a operar usando o repositório de dados e você não perderá informações importantes.
+Uma opção é armazenar em cache os dados lidos com frequência, mas que não são modificados frequentemente (por exemplo, os dados com uma proporção maior de operações de leitura em relação às operações de gravação). No entanto, não recomendamos o uso do cache como o repositório autoritativo de informações críticas. Em vez disso, certifique-se de que todas as alterações que seu aplicativo não pode perder sejam salvas sempre um armazenamento de dados persistente. Isso significa que se o cache ficar indisponível, o aplicativo ainda poderá continuar a operar usando o repositório de dados e você não perderá informações importantes.
 
 ### Determinar como armazenar os dados em cache com eficiência
 
@@ -210,7 +210,7 @@ O Cache Redis do Azure é uma solução de caching de alto desempenho que oferec
 
 ### Recursos do Redis
 
- O Redis é mais do que um simples servidor de cache. Ele fornece um banco de dados distribuído na memória com um conjunto abrangente de comandos que oferece suporte a vários cenários comuns. Eles serão descritos posteriormente neste documento, na seção Como usar o caching Redis. Esta seção resume alguns dos principais recursos oferecidos pelo Redis.
+ O Redis é mais do que um simples servidor de cache. Ele fornece um banco de dados distribuído na memória com um conjunto abrangente de comandos que oferece suporte a vários cenários comuns. Eles serão descritos posteriormente neste documento, na seção Como usar o caching Redis. Essa seção resume alguns dos principais recursos oferecidos pelo Redis.
 
 ### Redis como um banco de dados na memória
 
@@ -270,11 +270,11 @@ Para saber mais, visite a página [Redis security](http://redis.io/topics/securi
 
 O Cache Redis do Azure fornece acesso a servidores Redis executados em servidores hospedados em um datacenter do Azure; ele atua como uma fachada que fornece controle de acesso e segurança. Você pode provisionar um cache usando o Portal de Gerenciamento do Azure. O portal fornece várias configurações predefinidas, variando de um cache de 53 GB em execução como um serviço dedicado, que oferece suporte a comunicações SSL (para privacidade) e replicação de mestre/subordinados com uma disponibilidade de SLA de 99,9%, até um cache de 250 MB sem replicação (nenhuma garantia de disponibilidade) em execução em hardware compartilhado.
 
-Usando o Portal de Gerenciamento do Azure, você também pode configurar a política de remoção do cache, além de controlar o acesso ao cache adicionando usuários às funções fornecidas; Proprietário, Colaborador, Leitor. Essas funções definem as operações que os membros podem executar. Por exemplo, os membros da função Proprietário têm controle completo sobre o cache (incluindo segurança) e seu conteúdo; os membros da função Colaborador podem ler e gravar informações no cache, enquanto os membros da função Leitor só podem recuperar dados por meio do cache.
+Usando o Portal de Gerenciamento do Azure, você também pode configurar a política de remoção do cache, além de controlar o acesso ao cache adicionando usuários às funções fornecidas: Proprietário, Colaborador e Leitor. Essas funções definem as operações que os membros podem executar. Por exemplo, os membros da função Proprietário têm controle completo sobre o cache (incluindo segurança) e seu conteúdo; os membros da função Colaborador podem ler e gravar informações no cache, enquanto os membros da função Leitor só podem recuperar dados por meio do cache.
 
 A maioria das tarefas administrativas são executadas por meio do Portal de Gerenciamento do Azure e, por esse motivo, muitos dos comandos administrativos disponíveis na versão padrão do Redis não estão disponíveis, incluindo a capacidade de modificar a configuração programaticamente, desligar o servidor Redis, configurar servidores subordinados adicionais ou salvar dados em disco de modo forçado.
 
-O Portal de Gerenciamento do Azure inclui uma exibição gráfica prática, que permite a você monitorar o desempenho do cache. Por exemplo, você pode exibir o número de conexões que estão sendo feitas, o número de solicitações realizadas, o volume de leituras e gravações e o número de ocorrências no cache versus perdas no cache. Usando essas informações você pode determinar a eficiência do cache e, se necessário, alternar para uma configuração diferente ou alterar a política de remoção. Além disso, você pode criar alertas que enviam mensagens de email para um administrador se uma ou mais métricas de tipo crítico estiverem fora de um intervalo esperado. Por exemplo, se o número de erros de cache na última hora exceder um valor especificado, um administrador poderia ser alertado, já que o cache pode ser pequeno demais ou os dados podem estar sendo removidos demasiadamente rápido.
+O Portal de Gerenciamento do Azure inclui uma exibição gráfica prática, que permite a você monitorar o desempenho do cache. Por exemplo, você pode exibir o número de conexões que estão sendo feitas, o número de solicitações realizadas, o volume de leituras e gravações e o número de ocorrências no cache versus perdas no cache. Usando essas informações, você pode determinar a eficiência do cache e, se necessário, mudar para uma configuração diferente ou alterar a política de remoção. Além disso, você pode criar alertas que enviam mensagens de email para um administrador se uma ou mais métricas de tipo crítico estiverem fora de um intervalo esperado. Por exemplo, se o número de erros de cache na última hora exceder um valor especificado, um administrador poderia ser alertado, já que o cache pode ser pequeno demais ou os dados podem estar sendo removidos demasiadamente rápido.
 
 Você também pode monitorar a CPU, memória e uso de rede para o cache.
 
@@ -897,11 +897,12 @@ Há vários pontos que você deve compreender sobre o mecanismo de publicação/
 - Vários assinantes podem se inscrever no mesmo canal, e todos eles receberão as mensagens publicadas nesse canal.
 - Os assinantes só recebem mensagens que foram publicadas depois de sua inscrição. Os canais não são armazenados em buffer e, assim que uma mensagem é publicada, a infraestrutura de Redis envia a mensagem por push para cada assinante e depois a remove.
 - Por padrão, as mensagens são recebidas pelos assinantes na ordem em que são enviadas. Em um sistema muito ativo com um grande número de mensagens e muitos editores e assinantes, entrega sequencial garantida de mensagens pode diminuir o desempenho do sistema. Se cada mensagem for independente e a ordem for irrelevante, você poderá habilitar processamento simultâneo pelo sistema Redis, que pode ajudar a melhorar a capacidade de resposta. Você pode obter isso em um cliente StackExchange definindo a PreserveAsyncOrder da conexão usada pelo assinante como false:
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  redisHostConnection.PreserveAsyncOrder = false;
-  ISubscriber subscriber = redisHostConnection.GetSubscriber();
-  ```
+
+```csharp
+ConnectionMultiplexer redisHostConnection = ...;
+redisHostConnection.PreserveAsyncOrder = false;
+ISubscriber subscriber = redisHostConnection.GetSubscriber();
+```
 
 ## Diretrizes e padrões relacionados
 
@@ -934,4 +935,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 - O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

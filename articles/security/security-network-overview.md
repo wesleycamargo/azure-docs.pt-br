@@ -1,10 +1,10 @@
 <properties
    pageTitle="Visão geral de Segurança de Rede do Azure | Microsoft Azure"
-   description="Este artigo facilita o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede, além de informações sobre o que o Azure tem a oferecer em cada uma dessas áreas."
+   description=" Este artigo facilita o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede, além de informações sobre o que o Azure tem a oferecer em cada uma dessas áreas. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Azure Network Security Overview (Visão geral da segurança de rede do Azure)
@@ -83,7 +83,7 @@ Por exemplo, seus requisitos de segurança podem incluir:
 
 - Autenticação e autorização antes da permissão do acesso ao seu aplicativo
 - Detecção de intrusões e resposta a intrusões
-- Inspeção da camada de aplicativo para protocolos de nível alto
+- Inspeção da camada do aplicativo para os protocolos de nível alto
 - Filtragem de URL
 - Antimalware e antivírus no nível de rede
 - Proteção contra bots
@@ -179,7 +179,7 @@ Ao contrário do balanceamento de carga baseado em HTTP, o balanceamento de carg
 - Suporte para qualquer protocolo de camada de aplicativo
 - Balanceia a carga para máquinas virtuais e instâncias de função dos serviços de nuvem do Azure
 - Pode ser usado para aplicativos e máquinas virtuais para a Internet (balanceamento de carga externo) e não voltadas à Internet (balanceamento de carga interno)
-- Monitoramento do ponto de extremidade, que é usado para determinar se um dos serviços por trás do balanceador de carga se tornou indisponível
+- Monitoramento do ponto de extremidade, que é usado para determinar se um dos serviços por trás do balanceador de carga ficou indisponível
 
 Saiba mais:
 
@@ -216,7 +216,7 @@ Resolução de nomes é uma função crítica para todos os serviços hospedados
 Há dois tipos de resolução de nomes que precisam ser abordados:
 
 - Resolução de nomes interna – usada pelos serviços nas Redes Virtuais do Azure, nas redes locais ou em ambas. Os nomes usados para a resolução de nomes interna não são acessíveis pela Internet. Para uma segurança ideal, é importante que seu esquema de resolução de nomes interna não seja acessível a usuários externos.
-- Resolução de nome externa – usada por pessoas e dispositivos fora das redes locais e das Redes Virtuais do Azure. Esses são os nomes visíveis para a Internet e que são usados para direcionar a conexão aos serviços baseados na nuvem.
+- Resolução de nome externa – usada por pessoas e dispositivos fora das redes locais e das Redes Virtuais do Azure. Esses são os nomes visíveis para a Internet e que são usados para direcionar a conexão para os serviços baseados na nuvem.
 
 Para a resolução de nomes interna, você tem duas opções:
 
@@ -265,4 +265,4 @@ Saiba mais:
 
 - [Introdução à Central de Segurança do Azure](../security-center/security-center-intro.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

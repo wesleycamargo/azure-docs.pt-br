@@ -1,4 +1,4 @@
-Agora que você adicionou um gatilho, é hora de fazer algo interessante com os dados gerados por ele. Siga estas etapas para adicionar à ação **Barramento de Serviço - Enviar mensagem**. Esta ação enviará uma mensagem para o Barramento de Serviço.
+Agora que você adicionou um gatilho, é hora de fazer algo interessante com os dados gerados por ele. Siga estas etapas para adicionar à ação **Barramento de Serviço - enviar mensagem**. Essa ação envia uma mensagem para o barramento de serviço.
 
 Siga estas etapas para criar a ação de enviar mensagem:
 
@@ -17,4 +17,4 @@ Siga estas etapas para criar a ação de enviar mensagem:
   
   
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"/>
 
-#Hospedagem de alta densidade no Serviço de Aplicativo do Azure#
+# Hospedagem de alta densidade no Serviço de Aplicativo do Azure#
 
-##Entendendo o dimensionamento de aplicativos##
+## Entendendo o dimensionamento de aplicativos##
 
 Ao usar o Serviço de Aplicativo, o aplicativo será desassociado da capacidade alocada por 2 conceitos:
  
@@ -32,14 +32,14 @@ Isso significa que a plataforma fornece flexibilidade para isolar um único apli
 
 No entanto, quando vários aplicativos compartilham um **Plano do Serviço de Aplicativo**, haverá uma instância do aplicativo em execução em cada instância desse **Plano do Serviço de Aplicativo**.
 
-##Dimensionamento por aplicativo##
+## Dimensionamento por aplicativo##
 **Escala por Aplicativo** é um recurso que pode ser habilitado no nível do **Plano do Serviço de Aplicativo**, sendo posteriormente aproveitado por aplicativo.
 
 A **Escala por Aplicativo** permite escalar um aplicativo independentemente do **Plano do Serviço de Aplicativo** usado para hospedá-lo. Dessa forma, um **Plano do Serviço de Aplicativo** podem ser configurado para fornecer 10 instâncias, mas um aplicativo pode ser definido para escalar para apenas 5 delas.
 
 O modelo ARM abaixo criará uma **Plano do Serviço de Aplicativo** escalado verticalmente para 10 instâncias e um aplicativo configurado para usar **Escala por Aplicativo** para escalar para apenas 5 instâncias.
 
-Para fazer isso, o Plano do Serviço de Aplicativo define a propriedade de escala por site verdadeira ( `"perSiteScaling": true`) e o Aplicativo define o número de trabalhadores a serem usado como 1 `"properties": { "numberOfWorkers": "1" }`
+Para fazer isso, o Plano do Serviço de Aplicativo define a propriedade de **escala por site** como verdadeira (`"perSiteScaling": true`) e o Aplicativo define o **número de trabalhadores** a serem usado como 1 `"properties": { "numberOfWorkers": "1" }`
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -87,20 +87,20 @@ Para fazer isso, o Plano do Serviço de Aplicativo define a propriedade de escal
     }
 
 
-##Configuração recomendada para Hospedagem de Alta Densidade##
+## Configuração recomendada para Hospedagem de Alta Densidade
 
-A **Escala por Aplicativo** é um recurso que está habilitado tanto em regiões públicas do Azure quanto em Ambientes do Serviço de Aplicativo, no entanto, a estratégia recomendada é usar Ambientes de Serviço de Aplicativo para aproveitar seus recursos avançados e pools de maior capacidade.
+A **Escala por Aplicativo** é um recurso que está habilitado tanto em regiões públicas do Azure quanto em Ambientes do Serviço de Aplicativo, no entanto, a estratégia recomendada é usar Ambientes de Serviço de Aplicativo para aproveitar seus recursos avançados e pools capacidade maiores.
 
 Siga as etapas listadas abaixo como orientação sobre como configurar **Hospedagem de Alta Densidade** para seus aplicativos.
 
-1. Configure o **Ambiente de Serviço de Aplicativo** e escolha um **pool de trabalho** que será dedicado ao cenário de *Hospedagem de Alta Densidade*.
+1. Configure o **Ambiente de Serviço de Aplicativo** e escolha um **pool de trabalho** que será dedicado ao cenário de *hospedagem de alta densidade*.
 
-1. Crie um único **Plano do Serviço de Aplicativo** e escale-o para usar toda a capacidade disponível no **pool de trabalho**.
+1. Crie um único **Plano do Serviço de Aplicativo** e o dimensione para usar toda a capacidade disponível no **pool de trabalho**.
 
 1. Defina a marca de Escala por site como verdadeira no **Plano do Serviço de Aplicativo**.
 
-1. Novos sites são criados e atribuídos ao **Plano do Serviço de Aplicativo** com a propriedade *numberOfWorkers* definida como *1*. Isso produzirá a mair densidade possível neste **pool de trabalho**
+1. Novos sites são criados e atribuídos ao **Plano do Serviço de Aplicativo** com a propriedade *numberOfWorkers* definida como *1*. Isso produzirá a maior densidade possível neste **pool de trabalho**
 
-1. O número de trabalhadores pode ser configurado independentemente por site, a fim de conceder recursos adicionais conforme necessário. Por exemplo, um site de alto uso poderia definir *numberOfWorkers* para *3* para ter mais capacidade de processamento para este aplicativo, enquanto sites de baixo uso poderiam definir *numberOfWorkers* para *1*.
+1. O número de trabalhadores pode ser configurado independentemente por site, a fim de conceder recursos adicionais conforme necessário. Por exemplo, um site de alto uso poderia definir *numberOfWorkers* como *3* para ter mais capacidade de processamento para este aplicativo, enquanto sites de baixo uso poderiam definir *numberOfWorkers* como *1*.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

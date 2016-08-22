@@ -20,8 +20,8 @@
 #Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure
 
 > [AZURE.SELECTOR]
-- [Comprar certificado SSL para aplicativos Web](web-sites-purchase-ssl-web-site.md)
-- [Habilitar SSL para seu domínio personalizado](web-sites-configure-ssl-certificate.md)
+- [Comprar certificado SSL no Azure](web-sites-purchase-ssl-web-site.md)
+- [Usar certificado SSL de outro lugar](web-sites-configure-ssl-certificate.md)
 
 Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como com todos os *[domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
 
@@ -208,4 +208,4 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

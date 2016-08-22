@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Central de Confiabilidade da Microsoft
 
-Embora o site de Informações de Segurança do Azure em Azure.com se esforce para fornecer as informações de que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança, a Central de Confiabilidade da Microsoft oferece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual você executa seus serviços é segura.
+O site de Informações de Segurança do Azure em Azure.com fornece as informações que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança. Com a Central de Confiança da Microsoft, você também tem as informações necessárias para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.
 
 Sabemos que, quando entregar seus aplicativos e seus dados ao Azure, você terá dúvidas. Onde estão? Quem pode acessá-los? O que a Microsoft está fazendo para protegê-los? Como você pode verificar que a Microsoft está fazendo o que diz?
 
-E nós temos as respostas. Como são seus dados, você decide quem terá acesso e trabalha conosco para decidir onde eles ficarão. Para proteger seus dados, usamos tecnologia de segurança de última geração e criptografia de nível internacional. Nossa conformidade é auditada de forma independente e somos transparentes em vários níveis — de como lidamos com as exigências legais para os dados do cliente até a segurança do nosso código.
+E nós temos as respostas. Como são seus dados, você decide quem terá acesso e trabalha conosco para decidir onde eles ficarão. Para proteger seus dados, usamos uma tecnologia de segurança de última geração e criptografia de nível internacional. Nossa conformidade é auditada de forma independente e somos transparentes em vários níveis — de como lidamos com as exigências legais para os dados do cliente até a segurança do nosso código.
 
 Veja o que você encontrará na Central de Confiabilidade da Microsoft:
 
@@ -37,4 +37,4 @@ Veja o que você encontrará na Central de Confiabilidade da Microsoft:
 
 A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) tem o que você precisa para entender o que podemos fazer para proteger o Microsoft Cloud.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

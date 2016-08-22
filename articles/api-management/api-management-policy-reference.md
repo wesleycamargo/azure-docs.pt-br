@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
@@ -46,16 +46,16 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
 	-	[Autenticar com o certificado de cliente][] - Autenticar com um serviço de back-end usando certificados de cliente.
--	[Políticas de cache][] 
+-	[Políticas de cache][]
 	-	[Obter do cache][] - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.
 	-	[Armazenar em cache][] - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.
 	-	[Obter valor do cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Recupere um item em cache por chave.
 	-	[Armazenar valor em cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -Armazene um item no cache por chave.
--	[Políticas entre domínios][] 
+-	[Políticas entre domínios][]
 	-	[Permitir chamadas entre domínios][] - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
 	-	[CORS][] - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
 	-	[JSONP][] - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.
--	[Políticas de transformação][] 
+-	[Políticas de transformação][]
 	-	[Converter JSON para XML][] - Converte o corpo da solicitação ou da resposta de JSON para XML.
 	-	[Converter XML para JSON][] - Converte o corpo da solicitação ou da resposta de XML para JSON.
 	-	[Localizar e substituir cadeia no corpo][] - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
@@ -119,4 +119,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

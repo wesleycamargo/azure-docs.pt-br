@@ -14,20 +14,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"
 />
 	
-#Dimensionamento automático e Ambiente de Serviço de Aplicativo
+# Dimensionamento automático e Ambiente de Serviço de Aplicativo
 
-##Introdução
+## Introdução
+
 Os **ambientes de Serviço de Aplicativo** dão suporte a dimensionamento automático. Isso é possível ao permitir dimensionar automaticamente pools de trabalho individuais com base em métricas ou agenda.
  
 ![][intro]
  
 O dimensionamento automático permite otimizar a utilização de recursos, escalar e reduzir verticalmente um **ambiente de Serviço de Aplicativo** de forma automática para ajustar seu orçamento e/ou perfil de carregamento.
 
-##Configurar o dimensionamento automático de pool de trabalho 
+## Configurar o dimensionamento automático de pool de trabalho 
+
 Você pode acessar a funcionalidade de dimensionamento automático na guia Configurações do **pool de trabalho**.
  
 ![][settings-scale]
@@ -50,23 +52,28 @@ Após definir um perfil, as métricas com base em regras de dimensionamento auto
 
  Qualquer métrica de **pool de trabalho** ou **front-end** pode ser usada para definir regras de dimensionamento automático. Essas são as mesmas métricas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
  
-##Exemplo de dimensionamento automático
-O dimensionamento automático de um **ambiente de Serviço de Aplicativo** pode ser melhor ilustrado examinando um cenário. Neste artigo, guiarei por meio de todas as considerações necessárias ao configurar o dimensionamento automático e todas as interações que entram em jogo quando devemos fatorar **ambientes de Serviço de Aplicativo** de dimensionamento automático que são hospedados em um ASE.
+## Exemplo de dimensionamento automático
 
-###Introdução ao cenário
+O dimensionamento automático de um **ambiente de Serviço de Aplicativo** pode ser melhor ilustrado examinando um cenário.
+
+Neste artigo, guiarei por meio de todas as considerações necessárias ao configurar o dimensionamento automático e todas as interações que entram em jogo quando devemos fatorar **ambientes de Serviço de Aplicativo** de dimensionamento automático que são hospedados em um ASE.
+
+### Introdução ao cenário
+
 Matheus é um SysAdmin de uma empresa, e migrou uma parte das cargas de trabalho que ele gerencia para um **ambiente de Serviço de Aplicativo**.
 
 O **ambiente do Serviço de Aplicativo** está configurado para a escala manual da seguinte maneira:
-* Front-Ends: 3
-* Pool de Trabalho 1: 10
-* Pool de Trabalho 2: 5
-* Pool de Trabalho 3: 5
+
+* **Front-ends:** 3
+* **Pool de trabalho 1**: 10
+* **Pool de trabalho 2**: 5
+* **Pool de trabalho 3:** 5
 
 **O pool de trabalho 1** é usado para cargas de trabalho de produção, embora o **pool de trabalho 2** e o **pool de trabalho 3** sejam usados para cargas de trabalho de desenvolvimento e controle de qualidade.
 
 Os **planos de Serviço de Aplicativo** usados para garantia da qualidade e desenvolvimento são configuradas para **escala manual** de produção, mas o **plano de Serviço do Aplicativo** é definido como **dimensionamento automático** para lidar com variações na carga e tráfego.
 
-Matheus está familiarizado com o aplicativo e sabe que os horários de pico de carga são entre 9:00 e 18:00, como este é um **aplicativo LOB** e é usado por funcionários enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários terminam o dia de trabalho. Mas ainda há alguma carga, já que os usuários podem acessá-lo remotamente com seus dispositivos móveis ou computadores domésticos. O **plano de Serviço de Aplicativo** de produção já está configurado para **dimensionamento automático** com base no uso de CPU com as seguintes regras:
+Matheus está familiarizado com o aplicativo e sabe que os horários de pico de carga são entre 9:00 e 18:00, como este é um *aplicativo LOB* e é usado por funcionários enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários terminam o dia de trabalho. Mas ainda há alguma carga, já que os usuários podem acessá-lo remotamente com seus dispositivos móveis ou computadores domésticos. O **plano de Serviço de Aplicativo** de produção já está configurado para **dimensionamento automático** com base no uso de CPU com as seguintes regras:
 
 ![][asp-scale]
 
@@ -99,10 +106,11 @@ Matheus está familiarizado com o aplicativo e sabe que os horários de pico de 
 |	**Ação:** Reduzir a contagem em 1 |	**Ação:** Reduzir a contagem em 1 |
 |	**Tempo de resfriamento (minutos):** 20 |	**Tempo de resfriamento (minutos):** 10 |
 
-###Taxa de inflação do plano de Serviço de Aplicativo
+### Taxa de inflação do plano de Serviço de Aplicativo
+
 Os **planos de Serviço de Aplicativo** configurados para dimensionamento automático escalam ou reduzem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
 
-Compreender e calcular a **taxa de inflação do plano de Serviço de Aplicativo** é importante para o dimensionamento automático do **pool de trabalho** do **ambiente de Serviço de Aplicativo**, já que as alterações de escala em um **pool de trabalho** não são instantâneas e levam algum tempo para serem aplicadas.
+Compreender e calcular a **Taxa de Inflação do Plano do Serviço de Aplicativo** é importante para o dimensionamento automático do **ambiente de Serviço de Aplicativo**, já que as alterações de escala em um **pool de trabalho** não são instantâneas e levam algum tempo para serem aplicadas.
 
 A taxa de inflação do **plano do Serviço de Aplicativo** é calculada da seguinte maneira:
 
@@ -118,7 +126,7 @@ No caso da regra *Dimensionamento automático - escalar verticalmente* do perfil
 
 Esse valor também pode ser calculado para operações de redução:
 
-Com base na regra *Dimensionar automaticamente - reduzir verticalmente* do perfil *Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
+Com base na regra *Dimensionar automaticamente - reduzir verticalmente do perfil* *Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
 
 ![][Equation3]
 
@@ -128,11 +136,12 @@ No caso da regra *Dimensionar automaticamente - reduzir verticalmente* do perfil
 
 Isso significa que o **plano de Serviço de Aplicativo** pode crescer em uma taxa máxima de **8** instâncias por hora durante a semana e **4** instâncias por hora durante o fim de semana. E ele pode liberar instâncias em uma taxa máxima de **4** instâncias por hora durante a semana e **6** instâncias por hora durante os finais de semana.
 
-Se vários **planos do Serviço de Aplicativo** estiverem sendo hospedados em um **pool de trabalho**, a **taxa total de inflação** precisará ser calculada, e isso pode ser expresso como a *soma* da taxa de inflação de todos os **planos do Serviço de Aplicativo** hospedados nesse **pool de trabalho**.
+Se vários **Planos do Serviço de Aplicativo** estiverem sendo hospedados em um **pool de trabalho**, a **taxa total de inflação** precisará ser calculada, e isso poderá ser expresso como a *soma* da taxa de inflação de todos os **Planos do Serviço de Aplicativo** hospedados nesse **pool de trabalho**.
 
 ![][ASP-Total-Inflation]
 
-###Usar a taxa de inflação de plano de Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
+### Usar a taxa de inflação de plano de Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
+
 Os **pools de trabalho** que hospedam **planos de Serviço de Aplicativo** configurados para serem dimensionados automaticamente precisarão ter um buffer de capacidade alocado para permitir que as operações de dimensionamento automático aumentem/reduzam o **plano de Serviço de Aplicativo** conforme necessário. O buffer mínimo seria a **taxa de inflação total do plano de Serviço de Aplicativo** calculada.
 
 Como as operações de dimensionamento do **ambiente de Serviço de Aplicativo** demoram algum tempo para serem aplicadas, qualquer alteração deve levar em consideração outras alterações sob demanda que poderiam acontecer enquanto uma operação de escala está em andamento. Para isso, recomendamos usar o **plano de Serviço de Aplicativo** como o número mínimo de instâncias adicionado a cada operação de dimensionamento automático.
@@ -178,7 +187,8 @@ A contagem de Aumento das regras de escala vertical deve ser definida como, pelo
 
 A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a **taxa de inflação do plano de Serviço de Aplicativo** para reduzir verticalmente.
 
-###Dimensionamento automático do pool de front-end
+### Dimensionamento automático do pool de front-end
+
 As regras de dimensionamento automático de **Front-end** são mais simples do que para os **pools de trabalho**. As principais coisas a observar são: garantir que a duração da medição e os temporizadores de resfriamento levem em consideração o fato de que as operações de dimensionamento em um **plano de Serviço de Aplicativo** não são instantâneas.
 
 Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends atingem 80% de utilização de CPU. Para evitar isso, ele define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
@@ -231,4 +241,4 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta quando os front-ends
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

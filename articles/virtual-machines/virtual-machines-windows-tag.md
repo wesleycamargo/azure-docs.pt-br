@@ -43,7 +43,7 @@ Se sua Máquina Virtual já contiver marcas, você verá todas elas no seu recur
 
 Se desejar adicionar marcas por meio do PowerShell, você poderá usar o comando `Set-AzureRmResource`. Observe que, ao atualizar marcas pelo PowerShell, as marcas são atualizadas como um todo. Desse modo, se estiver adicionando uma marca a um recurso que já tenha marcas, você precisará incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar mais marcas a um recurso usando cmdlets do PowerShell.
 
-Este primeiro cmdlet define todas as marcas colocadas em *MyTestVM* para a variável *tags* usando as funções `Get-AzureRmResource` e `Tags`.
+Este primeiro cmdlet define todas as marcações colocadas em *MyTestVM* para a variável *$tags* usando as propriedades `Get-AzureRmResource` e `Tags`.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -62,11 +62,11 @@ O segundo comando exibe as marcas para a variável fornecida.
         Value		Production
         Name		Environment
 
-O terceiro comando adiciona uma marca extra à variável *tags*. Observe o uso de **+=** para acrescentar o novo par de Chave/Valor à lista *tags*.
+O terceiro comando adiciona uma marcação extra à variável *$tags*. Observe o uso de **+=** para acrescentar o novo par de chave/valor à lista *$tags*.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-O quarto comando define todas as marcas definidas na variável *tags* para o recurso determinado. Nesse caso, é MyTestVM.
+O quarto comando define todas as marcações definidas na variável *$tags* para o recurso determinado. Nesse caso, é MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
@@ -103,4 +103,4 @@ Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recurs
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,21 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
 # Criar relatório de histórico de alterações de acesso
 
-Quando você não é o proprietário exclusivo de suas assinaturas do Azure, ou dos recursos e dos grupos de recursos nelas, precisa ser capaz de controlar todas as alterações de acesso. Sempre que alguém concede ou revoga acesso em suas assinaturas, as alterações são registradas em log em eventos do Azure. Você pode criar relatórios de histórico de alterações de acesso para ver todas as alterações nos últimos 90 dias.
+Sempre que alguém concede ou revoga acesso em suas assinaturas, as alterações são registradas em log em eventos do Azure. Você pode criar relatórios de histórico de alterações de acesso para ver todas as alterações nos últimos 90 dias.
 
 ## Criar um relatório com o Azure PowerShell
-Para criar um relatório de histórico de alterações de acesso no PowerShell, use o seguinte comando:
+Para criar um relatório de histórico de alterações de acesso no PowerShell, use o comando `Get-AzureRMAuthorizationChangeLog`. Mais detalhes sobre esse cmdlet estão disponíveis na [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
 
-```
-Get-AzureRMAuthorizationChangeLog
-```
-
-Você pode especificar quais propriedades das atribuições deseja listar, incluindo o seguinte:
+Ao chamar esse comando, você pode especificar quais propriedades das atribuições deseja listar, incluindo o seguinte:
 
 | Propriedade | Descrição |
 | -------- | ----------- |
@@ -53,18 +49,15 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ![PowerShell Get-AzureRMAuthorizationChangeLog - captura de tela](./media/role-based-access-control-configure/access-change-history.png)
 
 ## Criar um relatório com a CLI do Azure
-Para criar um relatório de histórico de alterações de acesso na CLI (Interface de Linha de Comando) do Azure, use o seguinte comando:
-```
-azure role assignment changelog list
-```
+Para criar um relatório de histórico de alterações de acesso na CLI (Interface de Linha de Comando) do Azure, use o comando `azure role assignment changelog list`.
 
 ## Exportar para uma planilha
 Para salvar o relatório ou manipular os dados, exporte as alterações de acesso para um arquivo .csv. Você pode exibir o relatório em uma planilha para análise.
 
 ![Log de alteração exibido como planilha - captura de tela](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## Consulte também
+## Confira também
 - Introdução ao [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md)
 - Trabalhe com [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

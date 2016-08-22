@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/03/2016"
 	ms.author="guybo"/>
 
 # Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquina Virtual
@@ -37,27 +37,20 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 3. Adicione um webhook ao seu Runbook.
 4. Adicione um alerta ao seu Conjunto de Escala de VM usando uma notificação de webhook.
 
-> [AZURE.NOTE] O dimensionamento automático vertical só pode ocorrer em determinadas faixas de tamanhos de VM. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
+> [AZURE.NOTE] O dimensionamento automático vertical só pode ocorrer em determinadas faixas de tamanhos de VM. Compare as especificações de cada tamanho antes de decidir dimensionar de um para outro (o número mais alto nem sempre indica uma VM maior). Você pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 >| Par de dimensionamento de tamanhos de VM | |
 |---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| Standard\_D1 | Standard\_D4 |
-| Standard\_D11 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_A0 | Standard\_A11 |
+| Standard\_D1 | Standard\_D14 |
+| Standard\_DS1 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D15v2 |
 | Standard\_G1 | Standard\_G5 |
 | Standard\_GS1 | Standard\_GS5 |
 
 ## Criar uma Conta de Automação do Azure com a funcionalidade executar como
 
-A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os Runbooks usados para dimensionar as instâncias do Conjunto de Escala de VM. A [Automação do Azure](https://azure.microsoft.com/services/automation/) introduziu recentemente o recurso "Executar como conta" que facilita a configuração da Entidade de Serviço para execução automática de Runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
+A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os Runbooks usados para dimensionar as instâncias do Conjunto de Escala de VM. A [Automação do Azure](https://azure.microsoft.com/services/automation/) introduziu recentemente o recurso "Executar como conta", que facilita a configuração da Entidade de Serviço para execução automática de runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
 
 * [Autenticar runbooks com uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -127,4 +120,4 @@ Este artigo mostrou exemplos simples de dimensionamento vertical. Com essa base 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

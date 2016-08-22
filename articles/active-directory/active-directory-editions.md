@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="08/10/2016"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -51,13 +51,6 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 ##Comparação de recursos geralmente disponíveis
 
 > [AZURE.NOTE] Para obter uma exibição diferente dos dados, confira os [Recursos do Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
-
-| | AD do Azure Gratuito | AD Basic do Azure | AD Premium do Azure |
-| ---                      | :-:           | :-:            | :-:              |
-| Recursos comuns | ![Verificação][12] | ![Verificação][12] | ![Verificação][12] |
-| Recursos Básicos | | ![Verificação][12] | ![Verificação][12] |
-| Recursos Premium | | | ![Verificação][12] |
-
 
 
 
@@ -167,7 +160,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 1. Com o Azure AD Free e o Azure AD Basic, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
 
-2. Integração de autoatendimento de qualquer aplicativo que dê suporte à autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para mais detalhes, confira [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](active-directory-saas-custom-apps.md).
+2. Integração de autoatendimento de qualquer aplicativo que dê suporte à autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para obter mais detalhes, confira [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Mais detalhes:**
 
@@ -314,10 +307,10 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 
-## Recursos premium
+## Recursos Premium
 #### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos
 
-**Tipo:** recursos premium
+**Tipo:** recursos Premium
 
 
 **Disponibilidade:**
@@ -332,7 +325,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
          
 #### Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local
 
-**Tipo:** recursos premium
+**Tipo:** recursos Premium
 
 
 **Disponibilidade:**
@@ -347,7 +340,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 #### Multi-Factor Authentication (nuvem e local [Servidor MFA])
 
-**Tipo:** recursos premium
+**Tipo:** recursos Premium
 
 
 **Disponibilidade:**
@@ -398,7 +391,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Connect Health
 
-**Tipo:** recursos premium
+**Tipo:** recursos Premium
 
 
 **Disponibilidade:**
@@ -415,7 +408,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Substituição automática de senha para contas de grupo
 
-**Tipo:** recursos premium
+**Tipo:** recursos Premium
 
 
 **Disponibilidade:**
@@ -430,7 +423,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 ## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
 #### Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 
-**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
 **Disponibilidade:**
@@ -444,7 +437,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure
 
-**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
 **Disponibilidade:**
@@ -456,7 +449,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 #### Enterprise State Roaming
 
-**Tipo:** Ingresso do Azure Active Directory – recursos relacionados somente ao Windows 10
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
 **Disponibilidade:**
@@ -497,4 +490,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/09/2016"
 	ms.author="spelluru"/>
 
 
@@ -83,7 +83,7 @@ Pontos a serem observados:
 ## Cópia paralela
 Uma das maneiras de melhorar a taxa de transferência de uma operação de cópia e reduzir o tempo para mover os dados é ler os dados da origem e/ou gravar dados no destino **em paralelo dentro de uma execução de Atividade de Cópia**.
  
-Observe que essa configuração é diferente da propriedade **concurrency** na definição da atividade. A propriedade de simultaneidade determina o número de **execuções de Atividade de Cópia simultâneas** que são executadas juntas no tempo de execução para processar dados de diferentes janelas de atividade (1h a 2h, 2h a 3h, 3h a 4h, etc...). Isso é muito útil ao executar uma carga histórica. Por outro lado, a capacidade de cópia paralela discutida aqui aplica-se a uma **única execução de atividade**.
+Observe que essa configuração é diferente da propriedade **concurrency** na definição da atividade. A propriedade de simultaneidade determina o número de **execuções de Atividade de Cópia simultâneas** que são executadas juntas no tempo de execução para processar dados de diferentes janelas de atividade (1h a 2h, 2h a 3h, 3h a 4h etc...). Isso é muito útil ao executar uma carga histórica. Por outro lado, a capacidade de cópia paralela discutida aqui aplica-se a uma **única execução de atividade**.
 
 Vamos examinar um **cenário de exemplo**: considere o exemplo a seguir, em que há várias fatias do passado e que precisam ser processadas. O serviço do Data Factory executa uma instância da Atividade de Cópia (execução de atividade) para cada fatia.
 
@@ -252,7 +252,7 @@ Se você estiver copiando dados do **Armazenamento de Blobs do Azure** para o **
 ### Armazenamentos de dados relacionais
 *(Inclui o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure, o Banco de Dados SQL Server, o Oracle Database, o Banco de Dados MySQL, o Banco de Dados DB2, o Banco de Dados Teradata, o Banco de Dados Sybase, o Banco de Dados PostgreSQL)*
 
-- **Padrão de dados**: o esquema de tabela afeta a taxa de transferência de cópia. Para copiar a mesma quantidade de dados, um tamanho de linha grande proporcionará um desempenho melhor do que um tamanho de linha pequeno porque o banco de dados poderá recuperar com mais eficiência menos lotes de dados contendo um menor número de linhas.
+- **Padrão de dados**: o esquema de tabela afeta a taxa de transferência de cópia. Para copiar a mesma quantidade de dados, um tamanho de linha grande proporcionará um desempenho melhor do que um tamanho de linha pequeno porque o banco de dados poderá recuperar com mais eficiência menos lotes de dados contendo menos linhas.
 - **Consulta ou procedimento armazenado**: otimize a lógica da consulta ou o procedimento armazenado especificado na fonte de atividade de cópia para buscar os dados com mais eficiência.
 - Além disso, para **bancos de dados relacionais locais**, como o SQL Server e Oracle, nos quais o uso do **Gateway de Gerenciamento de Dados** é obrigatório, consulte a seção de [Considerações sobre gateway](#considerations-on-data-management-gateway).
 
@@ -327,7 +327,7 @@ Para obter recomendações de configuração de gateway, consulte [Consideraçõ
 
 **Ambiente de máquina de gateway:** é recomendável que você use um computador dedicado para hospedar o Gateway de Gerenciamento de Dados. Use ferramentas como o PerfMon para examinar o uso de CPU, memória e largura de banda durante uma operação de cópia em sua máquina de gateway. Alterne para uma máquina mais potente se CPU, memória ou largura de banda da rede se tornar um gargalo.
 
-**Execuções de atividade de cópia simultânea:** uma única instância do Gateway de gerenciamento de dados pode atender a várias execuções de atividade de cópia ao mesmo tempo, por exemplo, um gateway pode executar vários trabalhos de cópia simultaneamente (o número de trabalhos simultâneos é calculado com base na configuração de hardware do computador do gateway). Trabalhos de cópia adicionais são colocados na fila até que sejam capturados pelo gateway ou até que o trabalho expire, o que ocorrer primeiro. Para evitar contenção de recursos no gateway, você pode preparar o agendamento de suas atividades para reduzir a quantidade de trabalhos de cópia na fila de uma só vez, ou considere dividir a carga em vários gateways.
+**Execuções de atividade de cópia simultânea:** uma única instância do Gateway de gerenciamento de dados pode atender a várias execuções de atividade de cópia ao mesmo tempo, por exemplo, um gateway pode executar vários trabalhos de cópia simultaneamente (o número de trabalhos simultâneos é calculado com base na configuração de hardware do computador do gateway). Trabalhos de cópia adicionais são colocados na fila até que sejam capturados pelo gateway ou até que o trabalho expire, o que ocorrer primeiro. Para evitar contenção de recursos no gateway, você pode preparar o agendamento de suas atividades para reduzir o número de trabalhos de cópia na fila de uma só vez, ou considere dividir a carga em vários gateways.
 
 
 ## Outras considerações
@@ -358,7 +358,7 @@ Um ou mais dos seguintes fatores pode ser o gargalo de desempenho:
 	2.	A **carga no computador do gateway** alcançou suas limitações para realizar o seguinte:
 		1.	**Serialização:** a transmissão de dados de serialização para CSV tem a taxa de transferência lenta
 		2.	**Compactação:** o codec de compactação lenta foi escolhido (por exemplo, BZIP2, que é de 2,8 MB/s com Core i7)
-	3.	**WAN:** baixa largura de banda entre a rede corporativa e o Azure (ex.: T1 = 1.544 kbps, T2 = 6.312 kbps)
+	3.	**WAN:** baixa largura de banda entre a rede corporativa e o Azure (por exemplo: T1 = 1.544 kbps, T2 = 6312 kbps)
 4.	**Coletor:** o Blob do Azure tem baixa taxa de transferência (embora muito improvável, já que seu SLA garante um mínimo de 60 MB/s).
 
 Nesse caso, a compactação de dados BZIP2 poderia estar desacelerando todo o pipeline. Alternar para o codec de compactação GZIP pode aliviar esse gargalo.
@@ -392,4 +392,4 @@ Aqui estão algumas referências de monitoramento e ajuste de desempenho para al
 - SQL Server local: [monitoramento e ajuste de desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

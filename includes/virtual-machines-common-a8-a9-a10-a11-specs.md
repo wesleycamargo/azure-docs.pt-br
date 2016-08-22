@@ -43,11 +43,11 @@ As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps qu
 
 * **Assinatura do Azure** – Se desejar implantar mais do que um pequeno número de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 
-* **Cota de núcleos** – Talvez você precise aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (se usar o modelo de implantação clássica) ou 20 núcleos por região (se usar o modelo de implantação do Gerenciador de Recursos). Para solicitar um aumento de cota, abra um tíquete de suporte gratuitamente, conforme mostrado em [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (Entendendo os limites e aumentos do Azure).
+* **Cota de núcleos** – Talvez você precise aumentar a cota de núcleos em sua assinatura do Azure do padrão de 20 núcleos por assinatura (se usar o modelo de implantação clássica) ou 20 núcleos por região (se usar o modelo de implantação do Gerenciador de Recursos). Para solicitar um aumento de cota, abra um tíquete de suporte gratuitamente, conforme mostrado em [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (Entendendo os limites e aumentos do Azure). (Os limites padrão podem variar dependendo de sua categoria de assinatura.)
 
     >[AZURE.NOTE]Entre em contato com o Suporte do Azure se precisar de capacidade em larga escala. Cotas do Azure são limites de crédito, não garantias de capacidade. Independentemente de sua cota, você é cobrado apenas pelo núcleos utilizados.
 
-* **Rede virtual** – Não é necessário ter uma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) do Azure para usar instâncias de computação intensiva. No entanto, talvez você precise ter, pelo menos, uma rede virtual do Azure baseada em nuvem para vários cenários ou uma conexão site a site se precisar acessar recursos locais, como um servidor de licença de aplicativo. Você precisará criar uma nova rede virtual para implantar as instâncias. Não há suporte para a adição de uma VM A8, A9, A10 ou A11 a uma rede virtual em um grupo de afinidades.
+* **Rede virtual** – Não é necessário ter uma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) do Azure para usar instâncias de computação intensiva. No entanto, talvez você precise ter, pelo menos, uma rede virtual do Azure baseada em nuvem para vários cenários ou uma conexão site a site se precisar acessar recursos locais, como um servidor de licença de aplicativo. Se for necessário, você precisará criar uma nova rede virtual para implantar as instâncias. Não há suporte para a adição de uma VM A8, A9, A10 ou A11 a uma rede virtual em um grupo de afinidades.
 
 * **Serviço de nuvem ou conjunto de disponibilidade** – Para se conectar por meio da rede RDMA, deverão ser implantadas VMs de tamanho A8 e A9 no mesmo serviço de nuvem (se usar o modelo de implantação clássica) ou no mesmo conjunto de disponibilidade (se usar o modelo de implantação do Azure Resource Manager).
 
@@ -57,4 +57,4 @@ As instâncias A10 e A11 têm um único adaptador de rede Ethernet de 10 Gbps qu
 
 * **Espaço de endereço de rede RDMA** - A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/16. Se você planeja executar aplicativos MPI em instâncias A8 e A9 em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

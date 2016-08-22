@@ -3,7 +3,7 @@
    description="Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no Gerenciador de Recursos"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,10 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Criar uma investigação personalizada para o Azure Application Gateway usando o PowerShell do Gerenciador de Recursos do Azure
+
+> [AZURE.SELECTOR]
+- [Portal do Azure](application-gateway-create-probe-portal.md)
+- [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -40,7 +47,7 @@ Verificar as assinaturas da conta.
 
 		get-AzureRmSubscription
 
-Você deverá se autenticar com as suas credenciais.<BR>
+Você deve se autenticar com suas credenciais.<BR>
 
 ### Etapa 3
 
@@ -56,9 +63,9 @@ Crie um novo grupo de recursos (ignore esta etapa se você estiver usando um gru
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usarão o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Application Gateway usam o mesmo grupo de recursos.
 
-No exemplo anterior, criamos um grupo de recursos chamado "appgw-RG" e o local "Oeste dos EUA".
+No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o local "Oeste dos EUA".
 
 ## Criar uma rede virtual e uma sub-rede para o gateway de aplicativo
 
@@ -87,7 +94,7 @@ Atribua uma variável de sub-rede para as próximas etapas, o que criará um gat
 ## Criar um endereço IP público para a configuração de front-end
 
 
-Crie um recurso IP público "publicIP01" no grupo de recursos "appgw-rg" para a região Oeste dos EUA.
+Crie um recurso de IP público "publicIP01" no grupo de recursos "appgw-rg" para a região Oeste dos EUA.
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
@@ -99,7 +106,7 @@ Você precisa configurar todos os itens de configuração antes de criar o gatew
 
 ### Etapa 1
 
-Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway for iniciado, ele escolherá um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Lembre-se de que cada instância usará um endereço IP.
+Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -107,7 +114,7 @@ Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Qu
 ### Etapa 2
 
 
-Configure o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses serão os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
+Configure o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -120,9 +127,9 @@ A investigação personalizada é configurada nesta etapa.
 Os parâmetros usados são:
 
 - **-Interval**: configura as verificações de intervalo de investigação em segundos.
-- **Timeout**: define o tempo limite da investigação para uma verificação de resposta HTTP.
-- **-Hostname e -path**: caminho completo da URL invocado pelo gateway de aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
-- **UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *não íntegra*
+- **-Timeout**: define o tempo limite da investigação para uma verificação de resposta HTTP.
+- **-Hostname e -path**: caminho completo da URL invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
+- **-UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
 
 <BR>
 
@@ -182,7 +189,7 @@ Você tem quatro etapas para adicionar uma investigação personalizada a um App
 
 ### Etapa 1
 
-Carregue o recurso de gateway de aplicativo em uma variável do PowerShell usando **Get-AzureRmApplicationGateway**.
+Carregue o recurso de Application Gateway em uma variável do PowerShell usando **Get-AzureRmApplicationGateway**.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -204,7 +211,7 @@ Adicione a investigação à configuração do pool de back-end e o tempo limite
 
 ### Etapa 4
 
-Salve a configuração no gateway de aplicativo usando **Set-AzureRmApplicationGateway**.
+Salve a configuração no Application Gateway usando **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
@@ -214,14 +221,14 @@ Estas são as etapas para remover uma investigação personalizada de um Applica
 
 ### Etapa 1
 
-Carregue o recurso de gateway de aplicativo em uma variável do PowerShell usando **Get-AzureRmApplicationGateway**.
+Carregue o recurso de Application Gateway em uma variável do PowerShell usando **Get-AzureRmApplicationGateway**.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ### Etapa 2
 
-Remova a configuração de investigação do gateway de aplicativo usando **Remove-AzureRmApplicationGatewayProbeConfig**.
+Remova a configuração de investigação do Application Gateway usando **Remove-AzureRmApplicationGatewayProbeConfig**.
 
 	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
@@ -234,8 +241,8 @@ Atualize a configuração do pool de back-end para remover a configuração de i
 
 ### Etapa 4
 
-Salve a configuração no gateway de aplicativo usando **Set-AzureRmApplicationGateway**.
+Salve a configuração no Application Gateway usando **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

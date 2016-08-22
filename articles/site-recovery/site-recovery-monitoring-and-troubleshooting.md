@@ -192,7 +192,7 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 -   [Ocorreu uma operação fora de banda em uma máquina virtual e não foi possível confirmar o failover](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Failover de Teste
     -   [Não foi possível iniciar o failover, pois o failover de teste está em andamento](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
--   <span style="color:green;">NOVO</span> O failover atinge o tempo limite com 'WaitForScriptExecutionTask da tarefa PreFailoverWorkflow atingiu o tempo limite' devido às definições de configuração do Grupo de Segurança de Rede associado à Máquina Virtual ou a sub-rede à qual o computador pertence. Veja ['WaitForScriptExecutionTask da tarefa PreFailoverWorkflow atingiu o tempo limite'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para obter detalhes.
+-   <span style="color:green;">NOVO</span> O failover atinge o tempo limite com 'WaitForScriptExecutionTaskTimeout da tarefa PreFailoverWorkflow' devido às definições de configuração do Grupo de Segurança de Rede associado à Máquina Virtual ou a sub-rede à qual o computador pertence. Veja ['WaitForScriptExecutionTaskTimeout da tarefa PreFailoverWorkflow'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para obter detalhes.
 
 
 ### Servidor de Configuração, Servidor de Processo, Destino Mestre
@@ -202,4 +202,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 ### Solução de problemas da área de trabalho remota após failover
 -   Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. [Use o documento de solução de problemas para fazer o RDP na VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

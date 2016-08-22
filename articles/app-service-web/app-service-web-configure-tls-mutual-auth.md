@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2016" 
+	ms.date="08/08/2016" 
 	ms.author="naziml"/>
 
 # Como configurar a autenticação mútua TLS para Aplicativo Web
@@ -37,9 +37,9 @@ substituindo tudo que está entre {} pelas informações do seu aplicativo Web e
 
 > { "location": "My Web App Location", "properties": { "clientCertEnabled": true } }
 
-
 Não se esqueça de alterar o valor de “location” em todo lugar que o aplicativo Web estiver localizado; por exemplo, região central do norte dos EUA ou oeste dos EUA.
 
+> **Observação:** se você executar o ARMClient do Powershell, você deverá usar um acento grave ` como o caractere de escape para o símbolo @ para o arquivo JSON.
 
 ## Acessando o certificado do cliente do aplicativo Web ##
 Se você estiver usando ASP.NET e configurar seu aplicativo para usar a autenticação de certificado de cliente, o certificado estará disponível por meio da propriedade **HttpRequest.ClientCertificate**. Para outras pilhas de aplicativo, o certificado do cliente estará disponível no seu aplicativo por meio de um valor codificado na base64 no cabeçalho da solicitação "X-ARR-ClientCert". O aplicativo pode criar um certificado a partir desse valor e, em seguida, usá-lo para fins de autenticação e autorização.
@@ -182,4 +182,4 @@ O certificado do cliente que é enviado ao aplicativo não passa por qualquer va
         }
     }
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0810_2016-->

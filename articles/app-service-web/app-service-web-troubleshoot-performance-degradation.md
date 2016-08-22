@@ -1,4 +1,13 @@
-<properties pageTitle="Desempenho lento do aplicativo Web no Serviço de Aplicativo | Microsoft Azure" description="Isso ajuda a solucionar problemas de desempenho de aplicativo Web no Serviço de Aplicativo do Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="desempenho do aplicativo Web, aplicativo lento, lento aplicativo"/>
+<properties
+	pageTitle="Desempenho lento do aplicativo Web no Serviço de Aplicativo | Microsoft Azure"
+	description="Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo"/>
 
 <tags
 	ms.service="app-service-web"
@@ -11,7 +20,7 @@
 
 # Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 
-Este artigo ajuda você a solucionar problemas de desempenho d aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
@@ -51,14 +60,14 @@ Essa opção permite que você descubra se seu aplicativo está com problemas. N
 Algumas das métricas que deseja monitorar para seu aplicativo Web são
 
 -	Conjunto de trabalho de memória média
--	Tempo de resposta média
+-	Tempo médio de resposta
 -	Tempo de CPU
 -	Conjunto de trabalho de memória
 -	Solicitações
 
 ![monitorar o desempenho do aplicativo Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 -	[Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 -	[Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md)
@@ -178,4 +187,4 @@ Esta é geralmente a maneira mais simples de se recuperar de problemas de uso ú
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

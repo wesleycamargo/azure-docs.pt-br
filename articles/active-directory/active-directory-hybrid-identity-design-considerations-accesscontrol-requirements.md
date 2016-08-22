@@ -4,7 +4,7 @@
 	description="Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
@@ -64,7 +64,7 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
  - Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
 
 >[AZURE.NOTE]
-Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
+Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 
 ## Próximas etapas
 
@@ -73,4 +73,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás da resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

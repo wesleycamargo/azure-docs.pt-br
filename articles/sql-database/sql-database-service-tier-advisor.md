@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
 
- São fornecidas recomendações tipo de preço que recomendam a camada de serviços e o nível de desempenho mais adequados para executar a carga de trabalho do banco de dados SQL do Azure.
+ As recomendações de tipo de preço sugerem a camada de serviço e o nível de desempenho mais adequados para execução de uma carga de trabalho existente do banco de dados SQL do Azure.
 
 > [AZURE.NOTE] As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal do Azure](https://portal.azure.com/).
 
@@ -96,4 +96,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

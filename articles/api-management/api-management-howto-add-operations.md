@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Como adicionar operações a uma API no Gerenciamento de API do Azure
@@ -67,7 +67,7 @@ O cache de respostas reduz a latência percebida pelos consumidores da API, redu
 
 Para habilitar o cache para a operação de modo fácil e rápido, selecione a guia **Cache** e marque a caixa de seleção **Habilitar**.
 
-![Colocação em cache][api-management-caching-tab]
+![Cache][api-management-caching-tab]
 
 **Duração** especifica o período de tempo durante o qual a resposta da operação permanece armazenada em cache. O valor padrão é 3.600 segundos, ou uma hora.
 
@@ -86,7 +86,7 @@ Para adicionar um novo parâmetro de consulta, clique em **Adicionar parâmetro 
 -	**Descrição** - uma breve descrição do parâmetro (opcional).
 -	**Tipo** - tipo do parâmetro, selecionado no menu suspenso.
 -	**Valores** - valores que podem ser atribuídos a esse parâmetro. Um dos valores pode ser marcado como padrão (opcional).
--	**Obrigatório** - faça com que o parâmetro seja obrigatório marcando a caixa de seleção. 
+-	**Obrigatório** - faça com que o parâmetro seja obrigatório marcando a caixa de seleção.
 
 ![Parâmetros da solicitação][api-management-request-parameters]
 
@@ -168,4 +168,4 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [Como criar e publicar um produto]: api-management-howto-add-products.md
 [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

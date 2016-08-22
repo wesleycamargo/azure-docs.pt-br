@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
-   manager="cliffdi"
+   manager="femila"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="05/09/2016"
-   ms.author="viviali"/>
+   ms.date="08/09/2016"
+   ms.author="femila"/>
 
 # Visualização da colaboração B2B do AD do Azure: integração simples e segura com parceiros de nuvem
 
@@ -23,13 +23,14 @@
 
 - **Simples**: cada usuário do parceiro usa uma conta existente do AD do Azure ou uma que seja facilmente criada durante a aceitação do convite. Você pode fornecer a esse usuário o acesso direto ao seu aplicativo corporativo escolhido ou a um conjunto de aplicativos por meio do Painel de Acesso do Aplicativo.
 
-- **Seguro**: o administrador controla todo o acesso aos seus aplicativos corporativos por meio de seu diretório do AD do Azure. Quando terminar a colaboração, os usuários do parceiro podem ser removidos do AD do Azure e seu acesso aos aplicativos é imediatamente revogado. Além disso, quando o usuário do parceiro deixar a organização do parceiro, o acesso será perdido automaticamente.
+- **Seguro**: o administrador controla todo o acesso aos seus aplicativos corporativos por meio de seu diretório do AD do Azure. Quando a colaboração for encerrada, os usuários parceiros poderão ser removidos
+- do seu Azure AD e o acesso aos seus aplicativos será imediatamente revogado. Além disso, quando o usuário do parceiro deixar a organização do parceiro, o acesso será perdido automaticamente.
 
-- **Gratuito**: a colaboração AD B2B do Azure é um recurso gratuito que é fornecido com o AD do Azure. As empresas parceiras que precisam acessar seus aplicativos corporativos **não precisam ter o AD do Azure.** A colaboração AD B2B do Azure oferece uma experiência simples de inscrição de usuário para fornecer a esses parceiros o acesso imediato aos seus aplicativos.
+- **Direto**: as empresas parceiras que precisam acessar seus aplicativos corporativos **não precisam ter o Azure AD.** A colaboração AD B2B do Azure oferece uma experiência simples de inscrição de usuário para fornecer a esses parceiros o acesso imediato aos seus aplicativos.
 
 Confira [a postagem no blog anunciando a visualização pública](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) e [este vídeo detalhado](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) que explica a colaboração do AD B2B do Azure.
 
-Para obter uma comparação entre os casos de uso da colaboração B2B do AD do Azure, de B2C do AD do Azure e do Aplicativo Multilocatário do AD do Azure, confira [Comparando recursos para o gerenciamento de identidades externas usando o AD do Azure](active-directory-b2b-compare-external-identities.md).
+Para obter uma comparação entre os casos de uso da colaboração B2B do Azure AD, de B2C do Azure AD e do Aplicativo Multilocatário do Azure AD, confira [Comparando recursos para o gerenciamento de identidades externas usando o Azure AD](active-directory-b2b-compare-external-identities.md).
 
 ## Artigos relacionados
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
@@ -42,4 +43,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

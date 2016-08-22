@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
 
 1. Em seu projeto ASP.NET, adicione uma referência à biblioteca de classes que contém a interface `ICounter`.
 
-2. Adicione o pacote Microsoft.ServiceFabric.Services ao projeto do ASP.NET, exatamente como fez anteriormente para o projeto de biblioteca de classe. Isso fornecerá a classe `ServiceProxy`.
+2. No menu **Compilar**, abra o **Gerenciador de Configurações**. Você deverá ver algo assim:
 
-3. Na pasta **Controladores**, abra a classe `ValuesController`. Observe que o método `Get` atualmente retorna somente uma matriz de cadeia de caracteres codificados "value1" e "value2", que coincide com o que vimos anteriormente no navegador. Substitua essa implementação pelo seguinte código:
+    ![Gerenciador de configurações mostrando a biblioteca de classes como AnyCPU][vs-configuration-manager]
+
+    Observe que o projeto da biblioteca de classes, **MyStatefulService.Interface**, está configurado para criar para Qualquer CPU. Para funcionar corretamente com o Service Fabric, ele deve ser explicitamente destinado a x64. Clique na lista suspensa Plataforma e escolha **Novo**, em seguida, crie uma configuração da plataforma x64.
+
+    ![Criando uma nova plataforma para a biblioteca de classes][vs-create-platform]
+
+3. Adicione o pacote Microsoft.ServiceFabric.Services ao projeto do ASP.NET, exatamente como fez anteriormente para o projeto de biblioteca de classe. Isso fornecerá a classe `ServiceProxy`.
+
+4. Na pasta **Controladores**, abra a classe `ValuesController`. Observe que o método `Get` atualmente retorna somente uma matriz de cadeia de caracteres codificados "value1" e "value2", que coincide com o que vimos anteriormente no navegador. Substitua essa implementação pelo seguinte código:
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -198,14 +206,14 @@ Agora, nosso serviço com estado está pronto para receber o tráfego de outros 
 
     Assim que tivermos o proxy, podemos simplesmente chamar o método `GetCountAsync` e retornar seu resultado.
 
-4. Pressione F5 novamente para executar o aplicativo modificado. Como antes, o Visual Studio iniciará automaticamente o navegador na raiz do projeto Web. Adicione o caminho "api/values" e você deve ver o valor atual do contador retornado.
+5. Pressione F5 novamente para executar o aplicativo modificado. Como antes, o Visual Studio iniciará automaticamente o navegador na raiz do projeto Web. Adicione o caminho "api/values" e você deve ver o valor atual do contador retornado.
 
     ![O valor do contador com estado exibido no navegador][browser-aspnet-counter-value]
 
     Atualize o navegador periodicamente para ver o valor do contador de atualização.
 
 
->[AZURE.WARNING] O servidor Web do ASP.NET Core fornecido no modelo, conhecido como Kestrel, [não tem suporte no momento para tratar o tráfego direto da internet](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Para cenários de produção, considere a hospedagem de seus pontos de extremidade do ASP.NET Core atrás do [Gerenciamento de API][api-management-landing-page] ou de outro gateway voltado para a internet. Observe que não há suporte para o Service Fabric para implantação no IIS.
+>[AZURE.WARNING] O servidor Web do ASP.NET Core fornecido no modelo, conhecido como Kestrel, [não tem suporte no momento para lidar com o tráfego direto da Internet](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Para os cenários de produção, considere hospedar seus pontos de extremidade do ASP.NET Core no [Gerenciamento de API][api-management-landing-page] ou outro gateway voltado para a Internet. Observe que não há suporte para o Service Fabric para implantação no IIS.
 
 
 ## E os atores?
@@ -218,7 +226,7 @@ Quando você cria um projeto de ator, o Visual Studio gera automaticamente um pr
 
 Em geral, você pode implantar exatamente o mesmo aplicativo do Service Fabric em um cluster com vários computadores implantados no cluster local, e ter a certeza de que ele funcionará conforme o esperado. Isso ocorre porque o cluster local é simplesmente uma configuração de cinco nós recolhidos em um único computador.
 
-No entanto, quando se trata de serviços Web, há uma nuance essencial. Quando o cluster fica atrás de um balanceador de carga, como é o caso no Azure, você deve verificar se seus serviços Web estão implantados em todos os computadores, já que o balanceador de carga simplesmente fará round-robin com o tráfego entre as máquinas. Isso pode ser feito pela configuração de `InstanceCount` para o serviço com o valor especial “-1”.
+No entanto, quando se trata de serviços Web, há uma nuance essencial. Quando o cluster fica atrás de um balanceador de carga, como é o caso no Azure, você deve verificar se seus serviços Web estão implantados em todos os computadores, já que o balanceador de carga simplesmente fará round-robin com o tráfego entre as máquinas. Isso pode ser feito configurando `InstanceCount` do serviço para o valor especial “-1”.
 
 Por outro lado, quando você executa um serviço Web localmente, você precisa garantir que apenas uma instância de serviço esteja em execução. Caso contrário, você enfrentará conflitos de vários processos que estão escutando no mesmo caminho e na mesma porta. Como resultado, a contagem de instâncias de serviço Web deve ser definida como "1" para implantações locais.
 
@@ -240,9 +248,12 @@ Para saber como configurar valores diferentes para um ambiente diferente, confir
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
+
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/pt-BR/services/api-management/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

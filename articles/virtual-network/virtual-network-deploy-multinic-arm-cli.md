@@ -3,7 +3,7 @@
    description="Saiba como implantar VMs com várias NICs usando a CLI do Azure no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Implantar VMs de várias NICs usando a CLI do Azure
 
@@ -330,4 +330,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

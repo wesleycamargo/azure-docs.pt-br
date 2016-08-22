@@ -2,7 +2,7 @@ Este artigo descreve um conjunto de práticas comprovadas para a execução de u
 
 > [AZURE.NOTE] O Azure tem dois modelos de implantação diferentes: [Azure Resource Manager][resource-manager-overview] e clássico. Este artigo usa o Gerenciador de Recursos, recomendado pela Microsoft para novas implantações.
 
-Não recomendamos usar uma única VM para cargas de trabalho de produção, pois não há nenhum SLA de tempo de atividade para VMs únicas no Azure. Para obter o SLA, é necessário implantar várias VMs em um conjunto de disponibilidade. Para obter mais informações, veja [Running multiple Windows VMs on Azure][multi-vm] \(Executando várias VMs Windows no Azure).
+Não recomendamos usar uma única VM para cargas de trabalho de produção, pois não há nenhum SLA (contrato de nível de serviço) de tempo de atividade para VMs únicas no Azure. Para obter o SLA, é necessário implantar várias VMs em um [conjunto de disponibilidade][availability-set]. Para saber mais, veja [Executando várias VMs Windows no Azure][multi-vm].
 
 ## Diagrama da arquitetura
 
@@ -12,9 +12,9 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - **Grupo de recursos.** Um [_grupo de recursos_][resource-manager-overview] é um contêiner que armazena os recursos relacionados. Crie um grupo de recursos para armazenar os recursos desta VM.
 
-- **VM**. Você pode provisionar uma VM de uma lista de imagens publicadas ou de um arquivo VHD que você carrega no Armazenamento de Blobs do Azure.
+- **VM**. Você pode provisionar uma VM de uma lista de imagens publicadas ou de um arquivo VHD (disco rígido virtual) que carrega no Armazenamento de Blobs do Azure.
 
-- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar.
+- **Disco do sistema operacional.** O disco do sistema operacional é um VHD armazenado no [Armazenamento do Azure][azure-storage]. Isso significa que ele persistirá mesmo se a máquina host falhar.
 
 - **Disco temporário.** A VM é criada com um disco temporário (a unidade `D:` no Windows). Esse disco é armazenado em uma unidade física no computador host. Ele _não_ é salvo no armazenamento do Azure e poderá desaparecer durante as reinicializações e outros eventos de ciclo de vida da VM. Use esse disco somente para dados temporários, como arquivos de paginação ou de permuta.
 
@@ -26,7 +26,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - **NIC (adaptador de rede)**. A NIC permite que a VM se comunique com a rede virtual.
 
-- **NSG (Grupo de segurança de rede)**. O [NSG][nsg] é usado para permitir/negar o tráfego de rede para a sub-rede. É possível associar um NSG a uma NIC individual ou a uma sub-rede. Se você associá-lo a uma sub-rede, as regras do NSG se aplicarão a todas as VMs na sub-rede.
+- **NSG (grupo de segurança de rede)**. O [NSG][nsg] é usado para permitir/negar o tráfego de rede para a sub-rede. É possível associar um NSG a uma NIC individual ou a uma sub-rede. Se você associá-lo a uma sub-rede, as regras do NSG se aplicarão a todas as VMs na sub-rede.
  
 - **Diagnósticos.** O registro de diagnóstico é crucial para o gerenciamento e solução de problemas da VM.
 
@@ -34,25 +34,25 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ### Recomendações de VM
 
-- Recomendamos as séries DS e GS, a menos que você tenha uma carga de trabalho especializada, como computação de alto desempenho. Para obter detalhes, veja [Tamanhos das máquinas virtuais][virtual-machine-sizes]. Ao mover uma carga de trabalho existente para o Azure, comece com o tamanho da VM que mais se aproxima de seus servidores locais. Em seguida, meça o desempenho da carga de trabalho real com relação à CPU, memória e IOPS de disco e ajuste o tamanho, se necessário. Além disso, se você precisar de várias NICs, esteja ciente do limite de NIC para cada tamanho.
+- Recomendamos as séries DS e GS, a menos que você tenha uma carga de trabalho especializada, como computação de alto desempenho. Para obter detalhes, veja [Tamanhos das máquinas virtuais][virtual-machine-sizes]. Ao mover uma carga de trabalho existente para o Azure, comece com o tamanho da VM que mais se aproxima de seus servidores locais. Em seguida, meça o desempenho da carga de trabalho real com relação à CPU, memória e operações de entrada/saída de disco e ajuste o tamanho, se necessário. Além disso, se você precisar de várias NICs, esteja ciente do limite de NIC para cada tamanho.
 
-- Quando você provisiona a VM e outros recursos, é necessário especificar um local. Em geral, escolha um local mais próximo de seus usuários internos ou de seus clientes. No entanto, nem todos os tamanhos de VM estão disponíveis em todas as localizações. Para obter detalhes, veja [Serviços por região][services-by-region]. Para listar os tamanhos de VM disponíveis em determinada localização, execute o seguinte comando da CLI do Azure:
+- Quando você provisiona a VM e outros recursos, é necessário especificar um local. Em geral, escolha um local mais próximo de seus usuários internos ou de seus clientes. No entanto, nem todos os tamanhos de VM estão disponíveis em todas as localizações. Para obter detalhes, veja [Serviços por região][services-by-region]. Para listar os tamanhos de VM disponíveis em determinada localização, execute o seguinte comando da CLI (interface de linha de comando) do Azure:
 
     ```
     azure vm sizes --location <location>
     ```
 
-- Para obter mais informações sobre como escolher uma imagem de VM publicada, confira [Navegar e selecionar imagens da máquina virtual do Azure][select-vm-image].
+- Para saber mais sobre como escolher uma imagem de VM publicada, confira [Navegar e selecionar imagens da máquina virtual do Azure][select-vm-image].
 
 ### Recomendações de disco e de armazenamento
 
-- Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência (por exemplo, a taxa de transferência de dados) também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência).
+- Para um melhor desempenho de E/S de disco, recomendamos o [Armazenamento Premium][premium-storage], que armazena dados em SSDs (unidades de estado sólido). O custo se baseia no tamanho do disco provisionado. O IOPS e a taxa de transferência também dependem do tamanho do disco. Portanto, ao provisionar um disco, considere todos os três fatores (capacidade, IOPS e taxa de transferência).
 
 - Uma conta de armazenamento pode oferecer suporte de até 1 a 20 VMs.
 
 - Adicione um ou mais discos de dados. Quando você cria um novo VHD, ele não está formatado. Faça logon na VM para formatar o disco.
 
-- Se você tiver uma grande quantidade de discos de dados, esteja ciente dos limites totais de E/S da conta de armazenamento. Para obter mais informações, confira [Limites de disco da máquina virtual][vm-disk-limits].
+- Se você tiver uma grande quantidade de discos de dados, esteja ciente dos limites totais de E/S da conta de armazenamento. Para saber mais, veja [Limites de disco da máquina virtual][vm-disk-limits].
 
 - Para obter o melhor desempenho, crie uma conta de armazenamento separada para armazenar logs de diagnóstico. Uma conta LRS (armazenamento com redundância local) padrão é suficiente para os logs de diagnóstico.
 
@@ -64,7 +64,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
     - Reserve um [endereço IP estático][static-ip] se precisar de um endereço IP fixo que não mudará – por exemplo, se você precisar criar um registro A no DNS ou se precisar do endereço IP para colocar na lista de permissões.
 
-    - Você também pode criar um FQDN (nome de domínio totalmente qualificado) para o endereço IP. Em seguida, é possível registrar um [registro CNAME][cname-record] no DNS que aponta para o FQDN. Para obter mais informações, veja [Criar um nome de domínio totalmente qualificado no portal do Azure][fqdn].
+    - Você também pode criar um FQDN (nome de domínio totalmente qualificado) para o endereço IP. Em seguida, é possível registrar um [registro CNAME][cname-record] no DNS que aponta para o FQDN. Para saber mais, veja [Criar um nome de domínio totalmente qualificado no portal do Azure][fqdn].
 
 - Todos os NSGs contêm um conjunto de [regras padrão][nsg-default-rules], incluindo uma regra que bloqueia todo o tráfego de Internet de entrada. As regras padrão não podem ser excluídas, mas outras regras podem substituí-las. Para habilitar o tráfego de Internet, crie regras que permitam o tráfego de entrada em portas específicas – por exemplo, a porta 80 para HTTP.
 
@@ -74,13 +74,13 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - Você pode escalar ou reduzir uma VM verticalmente [alterando o tamanho da VM][vm-resize].
 
-- Para escalar horizontalmente, coloque duas ou mais VMs em um conjunto de disponibilidade atrás de um balanceador de carga. Para obter detalhes, veja [Running multiple Windows VMs on Azure][multi-vm] \(Executando várias VMs Windows no Azure).
+- Para escalar horizontalmente, coloque duas ou mais VMs em um conjunto de disponibilidade atrás de um balanceador de carga. Para obter detalhes, veja [Executando várias VMs Windows no Azure][multi-vm].
 
 ## Considerações sobre disponibilidade
 
 - Como observamos acima, não há nenhum SLA para uma única VM. Para obter o SLA, é necessário implantar várias VMs em um conjunto de disponibilidade.
 
-- Sua VM pode ser afetada por uma [manutenção planejada][planned-maintenance] ou [manutenção não planejada][manage-vm-availability]. Você pode usar os [logs de reinicialização da VM][reboot-logs] para determinar se uma reinicialização da VM foi causada por uma manutenção planejada.
+- Sua VM pode ser afetada por uma [manutenção planejada][planned-maintenance] ou [manutenção não planejada][manage-vm-availability]. Você pode usar os [logs de reinicialização da VM][reboot-logs] para determinar se uma reinicialização da VM foi causada por manutenção planejada.
 
 - Os VHDs têm suporte no [Armazenamento do Azure][azure-storage], que é replicado para obter durabilidade e disponibilidade.
 
@@ -88,9 +88,9 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Considerações sobre capacidade de gerenciamento
 
-- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenções de nomenclatura recomendadas para recursos do Azure).
+- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
 
-- **Diagnóstico da VM.** Habilite o monitoramento e diagnóstico, incluindo métricas de integridade básicas, logs de infraestrutura de diagnóstico e [diagnóstico de inicialização][boot-diagnostics]. O diagnóstico de inicialização poderá ajudar a diagnosticar uma falha de inicialização se sua VM entrar em um estado não inicializável. Para obter mais informações, veja [Habilitar monitoramento e diagnóstico][enable-monitoring]. Use a extensão [Coleção de Logs do Azure][log-collector] para coletar logs da plataforma Azure e carregá-los no Armazenamento do Azure.
+- **Diagnóstico da VM.** Habilite o monitoramento e diagnóstico, incluindo métricas de integridade básicas, logs de infraestrutura de diagnóstico e [diagnóstico de inicialização][boot-diagnostics]. O diagnóstico de inicialização poderá ajudar a diagnosticar uma falha de inicialização se sua VM entrar em um estado não inicializável. Para saber mais, veja [Habilitar monitoramento e diagnóstico][enable-monitoring]. Use a extensão [Coleção de Logs do Azure][log-collector] para coletar logs da plataforma Azure e carregá-los no Armazenamento do Azure.
 
     O seguinte comando da CLI habilita o diagnóstico:
 
@@ -124,7 +124,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 - **Antimalware.** Se for habilitada, a Central de Segurança verificará se o software antimalware está instalado. Você também pode usar a Central de Segurança para instalar o software antimalware por meio do Portal do Azure.
 
-- Use o [RBAC]\[rbac] \(controle de acesso baseado em função) para controlar o acesso aos recursos do Azure implantados. O RBAC permite atribuir funções de autorização aos membros de sua equipe de DevOps. Por exemplo, a função Leitor pode exibir os recursos do Azure, mas não criar, gerenciar nem excluí-los. Algumas funções são específicas a determinados tipos de recursos do Azure. Por exemplo, a função Colaborador da Máquina Virtual pode reiniciar ou desalocar uma VM, redefinir a senha de administrador, criar uma nova VM e assim por diante. Outras [funções RBAC internas][rbac-roles] que podem ser úteis para esta arquitetura de referência incluem [Usuário de DevTest Lab][rbac-devtest] e [Colaborador de Rede][rbac-network]. Um usuário pode ser atribuído a várias funções, e você pode criar funções personalizadas para permissões ainda mais refinadas.
+- Use o [RBAC][rbac] (controle de acesso baseado em função) para controlar o acesso aos recursos do Azure implantados. O RBAC permite atribuir funções de autorização aos membros de sua equipe de DevOps. Por exemplo, a função Leitor pode exibir os recursos do Azure, mas não criar, gerenciar nem excluí-los. Algumas funções são específicas a determinados tipos de recursos do Azure. Por exemplo, a função Colaborador da Máquina Virtual pode reiniciar ou desalocar uma VM, redefinir a senha de administrador, criar uma nova VM e assim por diante. Outras [funções RBAC internas][rbac-roles] que podem ser úteis para esta arquitetura de referência incluem [Usuário de DevTest Lab][rbac-devtest] e [Colaborador de Rede][rbac-network]. Um usuário pode ser atribuído a várias funções, e você pode criar funções personalizadas para permissões ainda mais refinadas.
 
     > [AZURE.NOTE] O RBAC não limita as ações que podem ser executadas por um usuário conectado a uma VM. Essas permissões são determinadas pelo tipo de conta no SO convidado.
 
@@ -140,11 +140,11 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Componentes da solução
 
-Um exemplo de script de solução, [Deploy-ReferenceArchitecture.ps1][solution-script], está disponível, e você pode usá-lo para implementar a arquitetura que segue as recomendações descritas neste artigo. Esse script usa modelos do [Gerenciador de recursos][ARM-Templates]. Os modelos estão disponíveis como um conjunto de blocos de construção fundamentais, cada uma das quais executa uma ação específica, como criar uma rede virtual ou configurar um NSG. A finalidade do script é orquestrar a implantação de modelo.
+Um exemplo de script de solução, [Deploy-ReferenceArchitecture.ps1][solution-script], está disponível, e você pode usá-lo para implementar a arquitetura que segue as recomendações descritas neste artigo. Esse script usa modelos do [Resource Manager][ARM-Templates]. Os modelos estão disponíveis como um conjunto de blocos de construção fundamentais, cada uma das quais executa uma ação específica, como criar uma rede virtual ou configurar um NSG. A finalidade do script é orquestrar a implantação de modelo.
 
 Os modelos são parametrizados com os parâmetros contidos em arquivos separados de JSON. Você pode modificar os parâmetros nesses arquivos para configurar a implantação para atender a seus requisitos. Você não precisa modificar os modelos em si. Observe que você não deve alterar os esquemas dos objetos nos arquivos de parâmetro.
 
-Ao editar os modelos, crie objetos que sigam as convenções de nomenclatura descritas em [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenções de nomenclatura recomendadas para recursos do Azure).
+Ao editar os modelos, crie objetos que sigam as convenções de nomenclatura descritas em [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
 
 O script faz referência a arquivos de parâmetro para compilar a VM e a infraestrutura envolvida:
 
@@ -216,7 +216,7 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
 
 	Você deve especificar uma imagem na seção `imageReference`. Os valores mostrados abaixo criam uma VM com o build mais recente do Windows Server 2012 R2 Datacenter. Você pode usar o seguinte comando da CLI do Azure para obter uma lista de todas as imagens do Windows disponíveis em uma região (o exemplo usa a região do oeste dos EUA):
 
-	```powershell
+	```text
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
@@ -293,25 +293,21 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
   }
 	```
 
-## Implantação
+## Implantação da solução
 
 A solução pressupõe os seguintes pré-requisitos:
 
 - Você tem uma assinatura do Azure existente na qual você pode criar grupos de recursos.
 
-- Você baixou e instalou o build mais recente do Azure PowerShell. Para obter instruções, consulte [este item][azure-powershell-download].
+- Você baixou e instalou a compilação mais recente do Azure PowerShell. Para obter instruções, veja [este item][azure-powershell-download].
 
 Para executar o script que implanta a solução:
 
-1. Mova para uma pasta adequada no computador local e crie as duas subpastas a seguir:
-
-	- Scripts
-
-	- Modelos
+1. Crie uma pasta que contém subpastas nomeadas `Scripts` e `Templates`.
 
 2. Na pasta Modelos, crie outra subpasta nomeada Windows.
 
-3. Baixe o arquivo [Deploy-ReferenceArchitecture.ps1][solution-script] na pasta Scripts
+3. Baixe o arquivo [Deploy-ReferenceArchitecture.ps1][solution-script] na pasta Scripts.
 
 4. Baixe os seguintes arquivos na pasta Modelos/ Windows:
 
@@ -326,11 +322,11 @@ Para executar o script que implanta a solução:
 	```powershell
 	$resourceGroupName = "app1-dev-rg"
 	```
-6. Edite cada um dos arquivos json na pasta Modelos/Windows para definir os parâmetros para a rede virtual, um NSG e uma VM, conforme descrito na seção Componentes da Solução acima.
+6. Edite cada um dos arquivos JSON na pasta Modelos/Windows para definir os parâmetros para a rede virtual, um NSG e uma VM, conforme descrito na seção Componentes da Solução acima.
 
 	>[AZURE.NOTE] Certifique-se de ter definido o parâmetro `resourceGroup` na seção `virtualNetworkSettings` do arquivo virtualMachineParameters.json para ser o mesmo que você especificou no arquivo de script Deploy-ReferenceArchitecture.ps1.
 
-7. Abra uma janela do Azure PowerShell, vá para a pasta Scripts e execute o seguinte comando:
+7. Abra uma janela do PowerShell, vá para a pasta Scripts e execute o seguinte comando:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
@@ -344,23 +340,24 @@ Para executar o script que implanta a solução:
 
 ## Próximas etapas
 
-Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário implantar duas ou mais instâncias em um Conjunto de Disponibilidade. Para obter mais informações, veja [Executando várias VMs no Azure][multi-vm].
+Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário implantar duas ou mais instâncias em um conjunto de disponibilidade. Para saber mais, veja [Executando várias VMs no Azure][multi-vm].
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/pt-BR/blog/analyze-azure-audit-logs-in-powerbi-more/
+[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/pt-BR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/pt-BR/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/pt-BR/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -372,22 +369,22 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/pt-BR/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/pt-BR/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/pt-BR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/pt-BR/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/pt-BR/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Usar a Central de Segurança]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/pt-BR/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
 [vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
@@ -396,4 +393,4 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Única arquitetura de VM do Windows no Azure"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

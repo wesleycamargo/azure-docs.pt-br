@@ -3,7 +3,7 @@
    description="Saiba como gerenciar NSGs existentes usando o PowerShell no Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Gerenciar NSGs usando o PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -472,7 +472,7 @@ Para associar o NSG **NSG-FrontEnd** à sub-rede **FronEnd** novamente, siga as 
 Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso. Para excluir um NSG, siga as etapas abaixo.
 
 1. Para verificar os recursos associados a um NSG, execute `azure network nsg show` conforme mostrado em [Exibir associações de NSGs](#View-NSGs-associations).
-2. Se o NSG estiver associado a alguma NIC, execute `azure network nic set` para cada NIC, conforme mostrado em [Desassociar um NSG de uma NIC](#Dissociate-an-NSG-from-a-NIC). 
+2. Se o NSG estiver associado a alguma NIC, execute `azure network nic set` para cada NIC, conforme mostrado em [Desassociar um NSG de uma NIC](#Dissociate-an-NSG-from-a-NIC).
 3. Se o NSG estiver associado a alguma sub-rede, execute `azure network vnet subnet set` para cada sub-rede, conforme mostrado em [Desassociar um NSG de uma sub-rede](#Dissociate-an-NSG-from-a-subnet).
 4. Para excluir o NSG, execute o cmdlet `Remove-AzureRmNetworkSecurityGroup`, como mostrado abaixo.
 
@@ -484,4 +484,4 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 
 - [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

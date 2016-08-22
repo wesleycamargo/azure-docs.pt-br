@@ -60,7 +60,7 @@ Para evitar esse problema, use um dos seguintes métodos:
 
 ## Como reabilitar sua assinatura
 
-Para reabilitar uma assinatura, você deve criar um tíquete de suporte: entre no [portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
+Para reabilitar uma assinatura desabilitada, crie um tíquete de suporte: entre no [Portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -71,4 +71,4 @@ Se você não conseguir acessar o portal, envie a solicitação de suporte pelo 
 
 Para saber mais, confira [Como Criar um Tíquete de Suporte para Problemas de Cobrança e Assinatura do Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

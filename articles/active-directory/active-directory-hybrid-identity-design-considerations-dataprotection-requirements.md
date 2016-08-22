@@ -3,7 +3,7 @@
 	description="Ao planejar sua solução de identidade híbrida, identifique os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #Planejar para aumentar a segurança de dados usando solução de identidade forte
 
@@ -69,10 +69,10 @@ Dados em trânsito entre o dispositivo e o datacenter ou entre o dispositivo e a
 A legislação e a conformidade regulatória variará de acordo com a indústria a que sua empresa pertence. As empresas em indústrias muito reguladas devem lidar com questões de gerenciamento de identidades relacionadas a problemas de conformidade. Leis americanas como a Sarbanes-Oxley (SOX), a Health Insurance Portability and Accountability Act (HIPAA), a Gramm-Leach-Bliley Act (GLBA) e a Payment Card Industry Data Security Standard (PCI DSS) são muito rígidas em relação a identidade e acesso. A solução de identidade híbrida que sua empresa adotar deve ter os recursos principais que atenderão às exigências de uma ou mais dessas leis. Para essa área, verifique se as seguintes perguntas são feitas:
 
 - A solução de identidade híbrida está em conformidade com as exigências regulatórias para a sua empresa?
-- A solução de identidade híbrida tem recursos internos que permitem que sua empresa seja compatível com esses requisitos regulatórios? 
+- A solução de identidade híbrida tem recursos internos que permitem que sua empresa seja compatível com esses requisitos regulatórios?
  
 >[AZURE.NOTE]
-Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 ## Próximas etapas
  [Determinar requisitos de gerenciamento de conteúdo](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
@@ -81,4 +81,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás da resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->
