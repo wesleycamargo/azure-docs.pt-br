@@ -68,7 +68,7 @@ No exemplo inferior, a carga máxima em um nó é 10, enquanto a mínima é 2 (r
 Observe que ficar abaixo do limite de equilíbrio não é um objetivo explícito, Balanceamento de limites são apenas o *gatilho* que informa o Resource Manager de Cluster do Service Fabric que ele deve ser o cluster para determinar quais melhorias ele pode realizar.
 
 ## Limites de atividade
-Às vezes, os nós estão relativamente desequilibrados, e a quantidade total de carga no cluster é baixa. Isso pode ser devido à hora do dia ou porque o cluster é novo e está apenas começando a ser inicializado. Em ambos os casos, não é ideal gastar tempo com balanceamento porque há realmente muito pouca vantagem: você vai gastar recursos de computação e rede para mover as coisas. Há outro controle dentro do Gerenciador de Recursos, conhecido como limite de atividade, que permite que você especifique um limite inferior absoluto para a atividade. Se nenhum nó tiver pelo menos essa quantidade de carga, o balanceamento não será disparado mesmo se o Limite de Balanceamento for atingido. Como exemplo, digamos que temos relatórios com os totais para consumo a seguir nos nós. Vamos supor também que o Limite de Balanceamento seja mantido em 3, mas agora também temos um limite de atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo limite de balanceamento, nenhum nó atende ao limite mínimo de atividade e, portanto, tudo fica como está. No exemplo inferior, o Node1 está bem acima do Limite de Atividade e, portanto, o balanceamento será executado.
+Às vezes, os nós estão relativamente desequilibrados, e a quantidade total de carga no cluster é baixa. Isso pode ser devido à hora do dia ou porque o cluster é novo e está apenas começando a ser inicializado. Em ambos os casos, não é ideal gastar tempo com balanceamento porque há realmente muito pouca vantagem: você vai gastar recursos de computação e rede para mover as coisas. Há outro controle dentro do Gerenciador de Recursos, conhecido como Limite de Atividade, que permite que você especifique um limite inferior absoluto para a atividade. Se nenhum nó tiver excedido essa carga, o balanceamento não será disparado mesmo se o Limite de Balanceamento for atingido. Como exemplo, digamos que temos relatórios com os totais para consumo a seguir nos nós. Vamos supor também que o Limite de Balanceamento seja mantido em 3, mas agora também temos um limite de atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo limite de balanceamento, nenhum nó atende ao limite mínimo de atividade e, portanto, tudo fica como está. No exemplo inferior, o Node1 está bem acima do Limite de Atividade e, portanto, o balanceamento será executado.
 
 ![Exemplo de limite de atividade][Image3]
 
@@ -81,6 +81,8 @@ ClusterManifest.xml
       <Parameter Name="Memory" Value="1536"/>
     </Section>
 ```
+
+Observe que os limites de balanceamento e atividade estão ambos vinculados à métrica. O balanceamento só será acionado se os limites de balanceamento e atividade forem excedidos para a mesma métrica. Assim, se excedermos o Limite de Balanceamento de Memória e o Limite de Atividade de CPU, o balanceamento não disparará desde que os limites restantes (Limite de Balanceamento de CPU e Limite de Atividade de Memória) não sejam excedidos.
 
 ## Balanceamento dos serviços em conjunto
 Algo interessante de se observar é que a decisão sobre o cluster estar desequilibrado ou não é uma decisão em todo o cluster, mas a maneira que usamos para corrigi-lo é movendo instâncias e réplicas de serviço individuais. Isso faz sentido, certo? Se a memória é empilhada em um nó, várias réplicas ou instâncias podem contribuir para ele. Portanto, isso poderia mover todas as réplicas ou instâncias que usam a métrica afetada e desequilibrada.
@@ -98,8 +100,8 @@ O Gerenciador de Recursos detecta automaticamente os serviços relacionados semp
 ![Balanceamento dos Serviços em Conjunto][Image5]
 
 ## Próximas etapas
-- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre elas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, veja [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
+- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre eles e como configurá-los, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 - O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md) caso eles sejam necessários
 
 
@@ -109,4 +111,4 @@ O Gerenciador de Recursos detecta automaticamente os serviços relacionados semp
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

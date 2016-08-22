@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Exibir eventos e logs de auditoria"
 	description="Saiba como ver todos os eventos que acontecem em sua assinatura do Azure."
-	authors="HaniKN-MSFT"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="hanikn"/>
+	ms.author="robb"/>
 
 # Exibir eventos e logs de auditoria
 
@@ -72,4 +72,4 @@ Depois de escolher o que você deseja ver, clique no botão **Atualizar** na par
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

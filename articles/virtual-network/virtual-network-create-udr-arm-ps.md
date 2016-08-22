@@ -3,7 +3,7 @@
    description="Saiba como controlar o roteamento e usar dispositivos virtuais no Gerenciador de Recursos usando o PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Criar UDR (Rotas de Definida pelo Usuário) no Gerenciador de Recursos usando o PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar UDRs no modelo de implantação clássica](virtual-network-create-udr-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar UDRs no modelo de implantação clássica](virtual-network-create-udr-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -236,4 +236,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, siga as etapas a
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

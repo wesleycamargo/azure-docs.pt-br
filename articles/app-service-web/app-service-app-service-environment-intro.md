@@ -51,7 +51,7 @@ O pool de front-end contém recursos de computação responsáveis pela termina�
 
 Cada pool de trabalho contém recursos de computação alocados para [planos de serviço do aplicativo][AppServicePlan], que por sua vez contêm um ou mais aplicativos de serviço de aplicativo do Azure. Como pode haver até três pools de trabalho diferentes em um ambiente de serviço de aplicativo, você tem a flexibilidade de escolher os recursos de computação diferentes para cada pool de trabalho.
 
-Por exemplo, isso permite a criação de um pool de trabalho com menos recursos de computação poderosos para planos de serviço de aplicativo destinados a aplicativos de desenvolvimento ou teste. Um segundo (ou até mesmo terceiro) pool de trabalho de pode usar recursos de computação mais poderosos para planos de serviço de aplicativo executando aplicativos de produção.
+Por exemplo, isso permite a criação de um pool de trabalho com menos recursos de computação poderosos para Plano do Serviço de Aplicativo destinados a aplicativos de desenvolvimento ou teste. Um segundo (ou até mesmo terceiro) pool de trabalho de pode usar recursos de computação mais poderosos para planos de serviço de aplicativo executando aplicativos de produção.
 
 Para obter mais detalhes sobre a quantidade de recursos de computação disponíveis para os pools de front-end e de trabalho, consulte [Como configurar um ambiente de serviço de aplicativo][HowToConfigureanAppServiceEnvironment].
 
@@ -108,4 +108,4 @@ Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a 
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

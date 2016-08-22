@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -27,8 +27,8 @@ Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenam
 | **Região** | **DW criado antes desta data** |
 | :------------------ | :-------------------------------- |
 | Leste da Austrália | Armazenamento Premium ainda não disponível |
-| Sudeste da Austrália | Armazenamento Premium ainda não disponível |
-| Sul do Brasil | Armazenamento Premium ainda não disponível |
+| Sudeste da Austrália | 5 de agosto de 2016 |
+| Sul do Brasil | 5 de agosto de 2016 |
 | Canadá Central | 25 de maio de 2016 |
 | Leste do Canadá | 26 de maio de 2016 |
 | Centro dos EUA | 26 de maio de 2016 |
@@ -40,10 +40,10 @@ Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenam
 | Centro da Índia | 27 de maio de 2016 |
 | Sul da Índia | 26 de maio de 2016 |
 | Oeste da Índia | Armazenamento Premium ainda não disponível |
-| Leste do Japão | Armazenamento Premium ainda não disponível |
+| Leste do Japão | 5 de agosto de 2016 |
 | Oeste do Japão | Armazenamento Premium ainda não disponível |
 | Centro-Norte dos EUA | Armazenamento Premium ainda não disponível |
-| Norte da Europa | Armazenamento Premium ainda não disponível |
+| Norte da Europa | 5 de agosto de 2016 |
 | Centro-Sul dos Estados Unidos | 27 de maio de 2016 |
 | Sudeste Asiático | 24 de maio de 2016 |
 | Europa Ocidental | 25 de maio de 2016 |
@@ -99,7 +99,7 @@ A migração automática ocorrerá entre 18h e 6h (hora local da região) em alg
 Se desejar controlar quando o tempo de inatividade deve ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
 
 ### Instruções de automigração
-Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Warehouse por conta própria usando backup e restauração. A parte de restauração da migração deve levar cerca de uma hora por TB de armazenamento por DW. Se quiser manter o mesmo nome após a conclusão da migração, siga as etapas abaixo para ver [uma solução alternativa de renomeação][].
+Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Warehouse por conta própria usando backup e restauração. A parte de restauração da migração deve levar cerca de uma hora por TB de armazenamento por DW. Se você quiser manter o mesmo nome após a conclusão da migração, siga as etapas abaixo para [renomear durante a migração][].
 
 1.	[Pause][] o DW, que fará um backup automático
 2.	[Restaure][] usando o instantâneo mais recente
@@ -129,7 +129,35 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Próximas etapas
-Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a causa possível.
+Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Se você encontrar problemas de desempenho, recomendamos que reconstrua seus Índices de Columnstore Clusterizados usando o script a seguir. Isso forçará alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
+
+**Pré-requisitos:**
+
+1.	O Data Warehouse deve ser executado com 1.000 DWUs ou mais (consulte [capacidade de computação de escala][])
+2.	O usuário que executa o script deve estar na [função mediumrc][] ou superior
+	1.	Para adicionar um usuário a essa função, execute o seguinte:
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+
+````sql
+-------------------------------------------------------------------------------
+-- Etapa 1: Criar Tabela para controlar a Recompilação do Índice
+-- Executar como usuário no mediumrc ou superior
+--------------------------------------------------------------------------------
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+ 
+--------------------------------------------------------------------------------
+-- Etapa 2: Executar Recompilações do Índice. Se o script falhar, é possível executar novamente para reiniciar onde o último parou
+-- Executar como usuário no mediumrc ou superior
+--------------------------------------------------------------------------------
+
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+go
+-------------------------------------------------------------------------------
+-- Etapa 3: Limpar Tabela Criada na Etapa 1
+--------------------------------------------------------------------------------
+drop table sql\_statements; go ````
+
+Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a possível causa.
 
 <!--Image references-->
 
@@ -142,13 +170,15 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [main documentation site]: ./services/sql-data-warehouse.md
 [Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Restaure]: ./sql-data-warehouse-manage-database-restore-portal.md
-[uma solução alternativa de renomeação]: #optional-rename-workaround
+[renomear durante a migração]: #optional-steps-to-rename-during-migration
+[capacidade de computação de escala]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[função mediumrc]: ./sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/pt-BR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

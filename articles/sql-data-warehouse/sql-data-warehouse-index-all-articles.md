@@ -47,7 +47,6 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 | 10 | get-started-create-support-ticket | [Como criar um tíquete de suporte para o SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) | Como criar um tíquete de suporte no Azure SQL Data Warehouse. |
 | 11 | get-started-load-with-azure-data-factory | [Carregar dados com o Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Saiba como carregar dados com o Azure Data Factory |
 | 12 | get-started-load-with-polybase | [Carregar dados com o PolyBase no SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) | Saiba o que é o PolyBase e como usá-lo em cenários de data warehouse. |
-| 13 | get-started-new-server | [Configurar um novo servidor lógico](sql-data-warehouse-get-started-new-server.md) | Saiba como criar um Azure SQL Data Warehouse no Portal do Azure |
 | 14 | get-started-provision | [Criar um Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) | Saiba como criar um Azure SQL Data Warehouse no Portal do Azure |
 | 15 | get-started-provision-powershell | [Criar um SQL Data Warehouse usando o Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Criar SQL Data Warehouse usando o Powershell |
 | 16 | get-started-visualize-with-power-bi | [Visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualizar os dados do SQL Data Warehouse com o Power BI |
@@ -120,7 +119,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 
 
 
-## Carga
+## Carregar
 
 | &nbsp; | Url-Id | Title | Descrição |
 | --: | :-- | :-- | :-- |
@@ -193,4 +192,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 | 86 | service-capacity-limits | [Limites de capacidade do SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) | Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse. |
 | 87 | troubleshoot | [Solução de problemas do Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) | Solução de problemas do Azure SQL Data Warehouse. |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

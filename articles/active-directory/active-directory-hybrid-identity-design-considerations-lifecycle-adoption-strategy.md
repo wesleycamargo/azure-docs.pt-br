@@ -4,7 +4,7 @@
 	description="Auxilia na definição de tarefas de gerenciamento de identidade híbrida de acordo com as opções disponíveis para cada fase do ciclo de vida."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
@@ -95,4 +95,4 @@ Para saber mais, veja o artigo [Integrando identidades locais com o Active Direc
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

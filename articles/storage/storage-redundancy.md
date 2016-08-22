@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
@@ -90,7 +90,7 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 | Sudeste da Austrália | Leste da Austrália |
 | Sul da Índia | Centro da Índia |
 | Centro da Índia | Sul da Índia |
-| Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia |
+| Gov do Iowa nos EUA | Gov. dos EUA – Virgínia |
 | Gov. dos EUA – Virgínia | Gov. dos EUA – Iowa |
 | Canadá Central | Leste do Canadá |
 | Leste do Canadá | Canadá Central |
@@ -117,4 +117,4 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

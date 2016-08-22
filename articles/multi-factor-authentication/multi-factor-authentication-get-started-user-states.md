@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Estados do usuário no Azure Multi-Factor Authentication
@@ -63,4 +63,4 @@ Um estado de usuários será alterado dependendo se ele tiver sido configurado p
 8.  Sua confirmação será solicitada. Clique em **Sim**. ![Desabilitar usuário](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  Em seguida, você verá que foi bem-sucedida. Clique em **fechar.** ![Desabilitar usuário](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

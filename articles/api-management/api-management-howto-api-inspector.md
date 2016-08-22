@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
@@ -261,4 +261,4 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

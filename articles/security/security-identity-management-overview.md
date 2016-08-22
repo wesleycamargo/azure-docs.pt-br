@@ -1,10 +1,10 @@
 <properties
    pageTitle="Visão geral da segurança de gerenciamento de identidade do Azure | Microsoft Azure"
-   description="As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades."
+   description=" As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Visão geral da segurança de gerenciamento de identidade do Azure
@@ -157,4 +157,4 @@ Saiba mais:
 - [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
 - [Blog da equipe do Active Directory](https://blogs.technet.microsoft.com/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

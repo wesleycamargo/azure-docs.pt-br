@@ -3,7 +3,7 @@
    description="Saiba como implantar VMs com um IP público estático usando um modelo no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Implantar uma VM com um IP público estático usando um modelo
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -163,7 +163,7 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo em seu computador. Neste exemplo, os parâmetros são salvos em um arquivo chamado *parameters.json*. Altere os valores de parâmetro dentro do arquivo, se desejado. No mínimo, é recomendável que você altere o valor do parâmetro adminPassword para uma senha exclusiva e complexa.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. No comando a seguir, substitua <path> pelo caminho no qual você salvou o arquivo.
+4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. No comando abaixo, substitua <path> pelo caminho no qual você salvou o arquivo.
 
 		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
@@ -184,4 +184,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

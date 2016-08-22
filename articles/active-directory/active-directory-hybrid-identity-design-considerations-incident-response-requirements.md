@@ -1,10 +1,10 @@
 
 <properties
-	pageTitle="Considerações de design de identidade híbrida do Active Directory do Azure - determinar os requisitos de resposta a incidentes | Requisitos do Microsoft Azure"
+	pageTitle="Considerações de design de identidade híbrida do Active Directory do Azure - determinar os requisitos de resposta a incidentes | Requisitos do Microsoft Azure "
 	description="Determine recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
 
@@ -52,7 +52,7 @@ Durante o controle de danos e a fase de redução de riscos, é importante reduz
 
 - Sua empresa tem políticas in-loco para impedir que os usuários acessem a rede se necessário?
  - Em caso afirmativo, a solução atual integra o sistema de gerenciamento de identidade híbrida que vocês adotam?
-- Sua empresa precisará garantir acesso condicional a usuários que estiverem em quarentena? 
+- Sua empresa precisará garantir acesso condicional a usuários que estiverem em quarentena?
  
 >[AZURE.NOTE]
 Faça anotações de cada resposta e entenda o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
@@ -63,4 +63,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás de resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Relatórios no Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@ O Azure Multi-Factor Authentication fornece vários relatórios que podem ser us
 
 Você pode acessar relatórios por meio do Portal de Gerenciamento do Azure
 
-Nome| Descrição
+Name| Descrição
 :------------- | :------------- | 
 Uso | Os relatórios de uso exibem informações sobre o uso geral, resumo do usuário e detalhes do usuário.
 Status do servidor|Este relatório exibe o status dos servidores da autenticação multifator associada à sua conta.
@@ -34,7 +34,7 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 ## Para exibir relatórios
 
 1.	Faça logon no http://azure.microsoft.com
-2.	À esquerda, selecione Active Directory.
+2.	Selecione Active Directory à esquerda.
 3.	Selecione uma das seguintes opções:
 	- **Opção 1**: clique na guia Provedores de Multi-Factor Authentication. Selecione seu provedor de MFA e clique no botão Gerenciar na parte inferior.
 	- **Opção 2**: selecione o diretório e clique na guia Configurar. Na seção multi-factor authentication, clique em Gerenciar configurações de serviço. Na parte inferior da página Configurações do Serviço de MFA, clique em Ir para o link para portal.
@@ -49,4 +49,4 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

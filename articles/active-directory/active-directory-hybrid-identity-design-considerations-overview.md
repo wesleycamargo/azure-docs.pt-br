@@ -3,7 +3,7 @@
 	description="Visão geral e mapa de conteúdo do guia de considerações de design de identidade híbrida"
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/25/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Considerações do design de identidade híbrida do Active Directory do Azure
 
@@ -55,4 +55,4 @@ Você pode baixar uma versão em pdf do guia de Considerações de Design de Ide
 
                                                              
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

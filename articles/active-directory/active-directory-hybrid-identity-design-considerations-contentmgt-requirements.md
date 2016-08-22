@@ -3,7 +3,7 @@
 	description="Fornece informações sobre como determinar os requisitos de gerenciamento de conteúdo da sua empresa. Normalmente quando o usuário tem seu próprio dispositivo, ele terá também várias credenciais que serão alternadas de acordo com o aplicativo que usa. É importante diferenciar o conteúdo que foi criado usando credenciais pessoais em comparação com aquelas criadas usando credenciais corporativas. Sua solução de identidade deve ser capaz de interagir com os serviços de nuvem para fornecer uma experiência perfeita ao usuário final ao garantir a sua privacidade e aumentar a proteção contra a perda de dados."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Determinar os requisitos de gerenciamento de conteúdo para sua solução de identidade híbrida
 
@@ -29,7 +29,7 @@ Sua solução de identidade será aproveitada por controles de técnicos diferen
 Em geral, os requisitos de gerenciamento de conteúdo aproveitará o sistema de gerenciamento de identidade nas seguintes áreas:
 
 - Privacidade: identificação do usuário que possui um recurso e aplica os controles apropriados para manter a integridade.
-- Classificação de dados: identificar o usuário ou grupo e nível de acesso a um objeto de acordo com sua classificação. 
+- Classificação de dados: identificar o usuário ou grupo e nível de acesso a um objeto de acordo com sua classificação.
 - Proteção contra vazamento de dados: controles de segurança responsáveis pela proteção de dados para evitar vazamento precisam interagir com o sistema de identidade para validar a identidade do usuário. Isso também é importante para a finalidade de trilha de auditoria.
 
 >[AZURE.NOTE]
@@ -41,7 +41,7 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
  - Em caso positivo, esses controles de segurança poderão integrar com a solução de identidade híbrida que você vai adotar?
 - Sua empresa usa a classificação de dados?
  - Em caso positivo, a solução atual é capaz de se integrar com a solução de identidade híbrida que você vai adotar?
-- Sua empresa atualmente tem qualquer solução de vazamento de dados? 
+- Sua empresa atualmente tem qualquer solução de vazamento de dados?
  - Em caso positivo, a solução atual é capaz de se integrar com a solução de identidade híbrida que você vai adotar?
 - Sua empresa precisa auditar o acesso a recursos?
  - Em caso afirmativo, que tipo de recursos?
@@ -52,7 +52,7 @@ Quando planejar sua solução de identidade híbrida, certifique-se de que as se
 - Sua empresa precisa impor políticas corporativas em determinados tipos de emails (não responder a todos, não encaminhar)?
  
 >[AZURE.NOTE]
-Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados definir](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) ultrapassará as opções disponíveis e vantagens/desvantagens de cada opção. Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 
 ## Próximas etapas
@@ -61,4 +61,4 @@ Certifique-se de fazer anotações de cada resposta e entender o raciocínio por
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

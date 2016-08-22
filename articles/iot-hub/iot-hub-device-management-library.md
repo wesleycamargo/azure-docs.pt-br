@@ -3,7 +3,7 @@
  description="Biblioteca do cliente de gerenciamento de dispositivos (DM) do Hub IoT do Azure"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Introdução à biblioteca do cliente de DM (gerenciamento de dispositivos) do Hub IoT do Azure
 
@@ -200,7 +200,7 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 
 | Nome do Recurso | Operação | Tipo | Intervalo e Unidades | Descrição |
 |---------------|------------|--------|-----------------|-------------|
-| Nome | Leitura Gravação | Cadeia de caracteres | | Identifica exclusivamente o nome da configuração do dispositivo para ler ou atualizar. |
+| Name | Leitura Gravação | Cadeia de caracteres | | Identifica exclusivamente o nome da configuração do dispositivo para ler ou atualizar. |
 | Valor | Leitura Gravação | Cadeia de caracteres | | Identifica exclusivamente o valor da configuração para ler ou atualizar. |
 | Aplicar | Executar | | | Aplica-se à alteração da configuração no dispositivo. |
 
@@ -235,4 +235,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

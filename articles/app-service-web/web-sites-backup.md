@@ -40,7 +40,7 @@ O backup dessas informações é feito no contêiner e na conta de armazenamento
 
 * O recurso de Backup e Restauração exige que o plano do Serviço de Aplicativo esteja na camada **Standard** ou superior. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que a camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
 * Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
-* É possível fazer backup de até 10 GB de conteúdo do aplicativo e do banco de dados. Você obterá um erro se o tamanho do backup exceder esse limite.
+* Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Você obterá um erro se o tamanho do backup exceder esse limite.
 
 <a name="manualbackup"></a>
 ## Criar um backup manual
@@ -176,4 +176,4 @@ Para obter informações sobre como restaurar um aplicativo por um backup, veja 
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -19,13 +19,13 @@
 # Visão geral do Enterprise Integration Pack
 
 ## O que é o Enterprise Integration Pack?
-O Enterprise Integration Pack é a solução baseada em nuvem da Microsoft que permite uma comunicação perfeita entre empresas (B2B). O pacote usa protocolos padrão da indústria, incluindo [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) e EDIFACT (em breve) para trocar mensagens entre parceiros comerciais. Como opção, as mensagens podem ser protegidas usando criptografia e assinaturas digitais.
+O Enterprise Integration Pack é a solução baseada em nuvem da Microsoft que permite uma comunicação perfeita entre empresas (B2B). O pacote usa protocolos padrão da indústria, incluindo [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) e [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) para trocar mensagens entre parceiros comerciais. Como opção, as mensagens podem ser protegidas usando criptografia e assinaturas digitais.
 
 O pacote permite que as organizações que usam protocolos e formatos diferentes troquem mensagens eletronicamente, transformando os diferentes formatos em um formato que os sistemas de ambas as organizações possam interpretar e, assim, executar ações.
 
 Se você estiver familiarizado com o BizTalk Server ou os Serviços BizTalk do Microsoft Azure, achará fácil usar os recursos do Enterprise Integration, pois a maioria dos conceitos é semelhante. A principal diferença é que o Enterprise Integration utiliza contas de integração para simplificar o armazenamento e o gerenciamento de artefatos usados em comunicações B2B.
 
-Em termos de arquitetura, o Enterprise Integration Pack tem base em **contas de integração** que armazenam todos os artefatos que podem ser usados para criar, implantar e manter seus aplicativos B2B. Uma conta de integração é basicamente um contêiner baseado em nuvem onde você armazena artefatos como esquemas, parceiros, certificados, mapas e contratos. Esses artefatos podem ser usados em Aplicativos lógicos para criar fluxos de trabalho B2B. Antes de poder usar os artefatos em um Aplicativo lógico, basta vincular sua conta de integração ao seu Aplicativo lógico. Depois de vinculá-los, seu Aplicativo lógico terá acesso aos artefatos da conta de integração.
+Em termos de arquitetura, o Enterprise Integration Pack é baseado em **contas de integração** que armazenam todos os artefatos que podem ser usados para criar, implantar e manter seus aplicativos B2B. Uma conta de integração é basicamente um contêiner baseado em nuvem onde você armazena artefatos como esquemas, parceiros, certificados, mapas e contratos. Esses artefatos podem ser usados em Aplicativos lógicos para criar fluxos de trabalho B2B. Antes de poder usar os artefatos em um Aplicativo lógico, basta vincular sua conta de integração ao seu Aplicativo lógico. Depois de vinculá-los, seu Aplicativo lógico terá acesso aos artefatos da conta de integração.
 
 ## Por que você deve usar a integração corporativa?
 - Com a integração corporativa, você é capaz de armazenar todos os artefatos em um único local, que é a sua conta de integração.
@@ -61,4 +61,4 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
 - [Transformação de XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

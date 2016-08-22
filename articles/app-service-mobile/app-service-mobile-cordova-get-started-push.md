@@ -44,6 +44,8 @@ Embora as notificações por push recebam suporte em emuladores Android, percebe
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
+
 ##Atualizar o projeto de servidor para enviar notificações por push
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
@@ -78,7 +80,7 @@ Execute o seguinte comando:
 
 2.  Clique na seta ao lado da fonte de instalação.
 
-3. Em **SENDER\_ID**, se você já tiver uma ID numérica do projeto para o projeto de Console de Desenvolvedor do Google, poderá adicioná-lo aqui. Caso contrário, insira um valor de espaço reservado, como 777777 e, se tiver como alvo o Android, atualize esse valor no arquivo config.xml mais tarde.
+3. Em **SENDER\_ID**, se você já tiver uma ID numérica do projeto para o projeto de Console de Desenvolvedor do Google, poderá adicioná-la aqui. Caso contrário, insira um valor de espaço reservado, como 777777 e, se tiver como alvo o Android, atualize esse valor no arquivo config.xml mais tarde.
 
 4. Clique em **Adicionar**.
 
@@ -124,7 +126,7 @@ Inicialmente, incluiremos alguns códigos mínimos para o Android. Posteriorment
 		      ios: { alert: 'true', badge: 'true', sound: 'true' },
 		      wns: {}
 		  });
-		
+
 		// Handle the registration event.
 		pushRegistration.on('registration', function (data) {
 		  // Get the native platform of the device.
@@ -151,11 +153,11 @@ Inicialmente, incluiremos alguns códigos mínimos para o Android. Posteriorment
 		      });
 		  }
 		});
-		
+
 		pushRegistration.on('notification', function (data, d2) {
 		  alert('Push Received: ' + data.message);
 		});
-		
+
 		pushRegistration.on('error', handleError);
 		}
 
@@ -170,6 +172,8 @@ Conclua esta seção para habilitar notificações por push para o Android.
 Como nosso alvo é a plataforma Google Android, primeiro você deve habilitar o Google Cloud Messaging. Da mesma forma, se o alvo fosse dispositivos Microsoft Windows, seria necessário habilitar o suporte para WNS.
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
 
 ####<a name="configure-backend"></a>Configurar seu back-end de Aplicativo Móvel para enviar solicitações por push usando GCM
 
@@ -226,7 +230,7 @@ Agora é possível testar notificações por push executando o aplicativo e inse
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	Se você quiser usar um emulador x86 mais rápido, você [instale o driver HAXM](https://taco.visualstudio.com/pt-BR/docs/run-app-apache/#HAXM) e configure o emulador para usá-lo.
+	Se você quiser usar um emulador x86 mais rápido, [instale o driver HAXM](https://taco.visualstudio.com/pt-BR/docs/run-app-apache/#HAXM) e configure o emulador para usá-lo.
 
 	Adicione uma conta do Google ao dispositivo Android clicando em **Aplicativos** > **Configurações** > **Adicionar conta**, siga os prompts para adicionar uma conta existente do Google ao dispositivo (recomendamos usar uma conta existente em vez de criar uma nova).
 
@@ -259,6 +263,8 @@ Depois, use esse identificador ao criar uma ID de aplicativo no portal do desenv
 ####Registrar o aplicativo nas notificações por push no portal do desenvolvedor da Apple
 
 [AZURE.INCLUDE [Hubs de notificação Xamarin habilitam as notificações por push da Apple](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
 
 ####Configurar o Azure para enviar notificações por push
 
@@ -300,9 +306,11 @@ Esta seção é para executar o projeto de aplicativo do Apache Cordova em dispo
 
 ####Registrar seu aplicativo Windows para notificações por push com WNS
 
-Para usar as opções de armazenamento no Visual Studio, selecione um destino do Windows na lista Plataformas da Solução, como **Windows x64** ou **Windows x86** (evite **Windows AnyCPU** para notificações por push).
+Para usar as opções de Loja no Visual Studio, selecione um destino do Windows na lista Plataformas da Solução, como **Windows x64** ou **Windows x86** (evite **Windows AnyCPU** para notificações por push).
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
+
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push)
 
 ####Configurar o hub de notificação para WNS
 
@@ -340,7 +348,7 @@ Compile o aplicativo e verifique se não há erros. Agora, o aplicativo cliente 
 
 ####Testar as notificações por push em seu aplicativo para Windows
 
-No Visual Studio, verifique se uma plataforma Windows está selecionada como o destino de implantação, como **Windows x64** ou **Windows x86**. Para executar o aplicativo em um PC com Windows 10 hospedando o Visual Studio, escolha **Máquina Local**.
+No Visual Studio, verifique se uma plataforma Windows está selecionada como o destino de implantação, como **Windows x64** ou **Windows x86**. Para executar o aplicativo em um PC com Windows 10 hospedando o Visual Studio, escolha **Computador Local**.
 
 Pressione o botão Executar para compilar o projeto e iniciar o aplicativo.
 
@@ -351,7 +359,7 @@ Verifique se uma notificação é recebida quando o item é adicionado.
 ##<a name="next-steps"></a>Próximas etapas
 
 * Leia sobre os [Hubs de Notificação] para saber mais sobre notificações por push.
-* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo Apache Cordova.
+* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] para o seu aplicativo Apache Cordova.
 
 Saiba como usar os SDKs.
 
@@ -376,4 +384,4 @@ Saiba como usar os SDKs.
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

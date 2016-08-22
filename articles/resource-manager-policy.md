@@ -88,8 +88,9 @@ Uma condição avalia se um **campo** ou uma **fonte** atende a determinados cri
 | É igual a | "equals" : "&lt;value&gt;" |
 | Como | "like" : "&lt;value&gt;" |
 | Contém: | "contains" : "&lt;value&gt;"|
-| No | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
+| Nesse | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | containsKey" : "&lt;keyName&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
 ### Campos
 
@@ -97,7 +98,7 @@ As condições são formadas por meio do uso de campos e fontes. Um campo repres
 
 Há suporte para os seguintes campos e fontes:
 
-Campos: **nome**, **variante**, **tipo**, **local**, **marcas**, **marcas.*** e **alias de propriedade**.
+Campos: **nome**, **variante**, **tipo**, **localização**, **marcações**, **marcações.*** e **alias de propriedade**.
 
 ### Aliases de propriedade 
 Alias de propriedade é um nome que pode ser usado em uma definição de política para acessar as propriedades específicas do tipo de recurso, como SKUs e configurações. Ele funciona em todas as versões de API que contêm a propriedade. Aliases podem ser recuperados usando a API REST mostrada abaixo (o suporte ao PowerShell será adicionado no futuro):
@@ -254,7 +255,7 @@ O exemplo abaixo mostra uma política que negará todas as solicitações em que
 
 ### Curadoria de serviço: Selecione o catálogo de serviços
 
-O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* são permitidas. Todo o resto será negado.
+O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/* são permitidas. Todo o resto será negado.
 
     {
       "if" : {
@@ -468,4 +469,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

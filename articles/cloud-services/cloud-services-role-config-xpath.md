@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
+ms.date="08/10/2016" 
 ms.author="adegeo"/>
 
 # Expor as definições de configuração da função como uma variável de ambiente com o XPath
@@ -189,4 +189,4 @@ Crie um pacote [ServicePackage.cspkg](cloud-services-model-and-package.md#servic
 
 Habilite a [área de trabalho remota](cloud-services-role-enable-remote-desktop.md) para uma função.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

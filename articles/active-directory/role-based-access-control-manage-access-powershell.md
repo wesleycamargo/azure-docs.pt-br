@@ -24,7 +24,7 @@
 - [API REST](role-based-access-control-manage-access-rest.md)
 
 
-O RBAC (Controle de Acesso Baseado em Função) no Portal do Azure e na API de Gerenciamento de Recursos do Azure permite que você gerencie o acesso à sua assinatura em um nível refinado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azure e na API de Gerenciamento de Recursos do Azure para gerenciar o acesso à sua assinatura em um nível refinado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
 Para poder usar o PowerShell para gerenciar o RBAC, você deve ter o seguinte:
 
@@ -67,7 +67,7 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 ![RBAC PowerShell - Get-AzureRmRoleAssignment para um grupo de recursos - captura de tela](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### Listar funções atribuídas a um usuário
-Para listar todas as funções atribuídas a um usuário especificado, incluindo as funções atribuídas aos grupos que ele pertence, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
+Para listar todas as funções que são atribuídas a um usuário específico e as funções que são atribuídas aos grupos aos quais o usuário pertence, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
@@ -77,8 +77,8 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 
 ![RBAC PowerShell - Get-AzureRmRoleAssignment para um usuário - captura de tela](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
-### Relacionar atribuições de função de administrador e coadministrador de serviços clássicos
-Para relacionar as atribuições para administrador e coadministradores da assinatura clássica, use:
+### Listar atribuições de função de administrador e coadministrador de serviços clássicos
+Para listar as atribuições para administrador e coadministradores da assinatura clássica, use:
 
     Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
@@ -86,9 +86,9 @@ Para relacionar as atribuições para administrador e coadministradores da assin
 ### Pesquisar IDs de objeto
 Para atribuir uma função, você precisa identificar o objeto (usuário, grupo ou aplicativo) e o escopo.
 
-Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Ou saiba como consultá-la com [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
+Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
 
-Para obter a ID de objeto para um grupo do AD do Azure, use:
+Para obter a ID de objeto para um grupo do Azure AD, use:
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
@@ -96,21 +96,21 @@ Para obter a ID de objeto de uma Entidade de Serviço do Azure AD ou um aplicati
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
-### Atribuir função ao aplicativo no escopo da assinatura
+### Atribuir uma função a um aplicativo no escopo da assinatura
 Para conceder acesso a um aplicativo no escopo da assinatura, use:
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
-### Atribuir função ao usuário no escopo do grupo de recursos
-Para conceder acesso a um usuário no escopo do grupo de recursos:
+### Atribuir uma função ao usuário no escopo do grupo de recursos
+Para conceder acesso a um usuário no escopo do grupo de recursos, use:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
-### Atribuir função ao grupo no escopo de recursos
+### Atribuir uma função a um grupo no escopo de recursos
 Para conceder acesso a um grupo no escopo de recursos, use:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
@@ -124,10 +124,10 @@ Para remover o acesso a usuários, grupos e aplicativos, use:
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
-## Criar função personalizada
+## Criar uma função personalizada
 Para criar uma função personalizada, use o comando `New-AzureRmRoleDefinition`.
 
-Quando você cria uma função personalizada no PowerShell, precisa começar com uma das [funções internas](role-based-access-built-in-roles.md). Edite os atributos e adicione quaisquer Ações, não Ações ou escopos que você deseja, em seguida, salve as alterações como uma nova função.
+Quando você cria uma função personalizada usando o PowerShell, precisa começar com uma das [funções internas](role-based-access-built-in-roles.md). Edite os atributos para adicionar as *Ações*, *notActions*, ou *escopos* que você deseja, em seguida, salve as alterações como uma nova função.
 
 O exemplo a seguir inicia com a função *Colaborador da Máquina Virtual* e utiliza-a para criar uma função personalizada denominada *Operador da Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network*, e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
 
@@ -155,7 +155,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ## Modificar uma função personalizada
-Para modificar uma função personalizada, use o comando `Get-AzureRmRoleDefinition` para recuperar a definição da função. Em seguida, faça as alterações desejadas à definição de função. Por fim, use o comando `Set-AzureRmRoleDefinition` para salvar a definição da função modificada.
+Para modificar uma função personalizada, primeiro use o comando `Get-AzureRmRoleDefinition` para recuperar a definição da função. Depois, faça as alterações desejadas na definição da função. Por fim, use o comando `Set-AzureRmRoleDefinition` para salvar a definição da função modificada.
 
 O exemplo a seguir adiciona a operação `Microsoft.Insights/diagnosticSettings/*` à função personalizada *Operador de Máquina Virtual*.
 
@@ -167,7 +167,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-O exemplo a seguir adiciona uma assinatura do Azure para os escopos atribuíveis da função personalizada de operador da Máquina Virtual.
+O exemplo a seguir adiciona uma assinatura do Azure para os escopos atribuíveis da função personalizada de *Operador da Máquina Virtual*.
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -208,8 +208,7 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
-## Consulte também
-- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Confira também
+- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 # Carregar dados do SQL Server no Azure SQL Data Warehouse (SSIS)
@@ -61,9 +61,9 @@ Para acompanhar este tutorial, você precisará:
 ## Etapa 1: Criar um novo projeto do Integration Services
 
 1. Inicie o Visual Studio 2015.
-2. No menu **Arquivo**, selecione **Novo | Projeto**.
-3. Navegue até os tipos de projeto **Instalado | Modelos | Business Intelligence | Integration Services**.
-4. Selecione **Projeto do Integration Services**. Forneça os valores para **Nome** e **Local**, e, em seguida, selecione **OK**.
+2. No menu **Arquivo**, selecione **Novo| Project**.
+3. Navegue até **Instalado| Templates | Business Intelligence | Integration Services** project types.
+4. Selecione **Projeto dos Serviços de Integração**. Forneça valores para **Nome** e **Local**, em seguida, selecione **OK**.
 
 O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em seguida, o Visual Studio abre o designer para o único novo pacote SSIS (Package.dtsx) no projeto. Você vê as seguintes áreas de tela:
 
@@ -75,7 +75,7 @@ O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em s
 
 ## Etapa 2: Criar o fluxo de dados básico
 
-1. Arraste uma Tarefa de Fluxo de Dados da Caixa de Ferramentas para o centro da superfície de design (na guia **Fluxo de Controle**).
+1. Arraste uma Tarefa do Fluxo de Dados da Caixa de Ferramentas para o centro da superfície de design (na guia **Fluxo de Controle**).
 
     ![][02]
 
@@ -91,20 +91,20 @@ O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em s
 
     ![][03]
 
-2. Na guia **Gerenciador de Conexões** do **Editor de Fonte do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões ADO.NET** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e criar configurações de conexão para o banco de dados do SQL Server do qual este tutorial carrega dados.
+2. Na guia **Gerenciador de Conexões** do **Editor de Fonte do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões ADO.NET** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e crie as configurações de conexão para o banco de dados do SQL Server a partir do qual este tutorial carrega os dados.
 
     ![][04]
 
-3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e criar uma nova conexão de dados.
+3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e crie uma nova conexão de dados.
 
     ![][05]
 
 4. Na caixa de diálogo **Gerenciador de Conexões**, realize as ações descritas a seguir.
 
     1. Para **Provedor**, selecione o Provedor de Dados SqlClient.
-    2. Para **Nome do servidor**, insira o nome do SQL Server.
+    2. Para o **Nome do servidor**, insira o nome do SQL Server.
     3. Na seção **Fazer logon no servidor**, selecione ou insira as informações de autenticação.
-    4. Na seção **Conectar-se a um banco de dados**, selecione o banco de dados de exemplo AdventureWorks.
+    4. Na seção **Conectar um banco de dados**, selecione o banco de dados de exemplo AdventureWorks.
     5. Clique em **Testar conexão**.
     
         ![][06]
@@ -117,7 +117,7 @@ O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em s
 
     ![][07]
 
-7. Clique em **Visualização** para ver, na caixa de diálogo **Visualizar Resultados da Consulta**, as primeiras 200 linhas de dados da tabela de origem.
+7. Clique em **Visualização** para ver as primeiras 200 linhas de dados na tabela de origem na caixa de diálogo **Visualizar Resultados da Consulta**.
 
     ![][08]
 
@@ -139,18 +139,18 @@ O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em s
 
     ![][11]
 
-2. Na guia **Gerenciador de Conexões** do **Editor de Destino do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e criar configurações de conexão para o banco de dados do SQL Data Warehouse no qual este tutorial carrega dados.
-3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e criar uma nova conexão de dados.
+2. Na guia **Gerenciador de Conexões** do **Editor de Destino do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e crie as configurações de conexão para o banco de dados do SQL Data Warehouse no qual este tutorial carrega os dados.
+3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e crie uma nova conexão de dados.
 4. Na caixa de diálogo **Gerenciador de Conexões**, realize as ações descritas a seguir.
     1. Para **Provedor**, selecione o Provedor de Dados SqlClient.
     2. Para **Nome do servidor**, digite o nome do SQL Data Warehouse.
     3. Na seção **Fazer logon no servidor**, selecione **Usar autenticação do SQL Server** e insira as informações de autenticação.
-    4. Na seção **Conectar-se a um banco de dados**, selecione um banco de dados do SQL Data Warehouse existente.
+    4. Na seção **Conectar um banco de dados**, selecione um banco de dados do SQL Data Warehouse existente.
     5. Clique em **Testar conexão**.
     6. Na caixa de diálogo que relata os resultados do teste de conexão, clique em **OK** para retornar à caixa de diálogo **Gerenciador de Conexões**.
     7. Na caixa de diálogo **Gerenciador de Conexões**, clique em **OK** para retornar à caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**.
 5. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique em **OK** para retornar ao **Editor de Destino do ADO.NET**.
-6. No **Editor de Destino do ADO.NET**, clique em **Novo** ao lado da lista **Usar uma tabela ou exibição** para abrir a caixa de diálogo **Criar Tabela** para criar uma nova tabela de destino com uma lista de colunas que corresponda à tabela de origem.
+6. No **Editor de Destino do ADO.NET**, clique em **Novo** ao lado da lista **Usar uma tabela ou exibição** para abrir a caixa de diálogo **Criar Tabela** para criar uma nova tabela de destino com uma lista de colunas que corresponde à tabela de origem.
 
     ![][12a]
 
@@ -158,7 +158,7 @@ O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em s
 
     1. Altere o nome da tabela de destino para **SalesOrderDetail**.
     2. Remova a coluna **rowguid**. Não há suporte para o tipo de dados **uniqueidentifier** no SQL Data Warehouse.
-    3. Altere o tipo de dados da coluna **LineTotal** para **money**. Não há suporte para o tipo de dados **decimal** no SQL Data Warehouse. Para obter informações sobre tipos de dados com suporte, consulte [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
+    3. Altere o tipo de dados da coluna **LineTotal** para **money**. Não há suporte para o tipo de dados **decimal** no SQL Data Warehouse. Para obter informações sobre os tipos de dados com suporte, consulte [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
     
         ![][12b]
     
@@ -186,9 +186,9 @@ Parabéns! Você usou com êxito o SQL Server Integration Services para carregar
 
 ## Próximas etapas
 
-- Saiba mais sobre o fluxo de dados do SSIS. Comece por aqui: [Fluxo de Dados][].
-- Saiba como depurar e solucionar problemas de seus pacotes direto do ambiente de design. Comece aqui: [Solução de problemas de ferramentas para o desenvolvimento de pacotes][].
-- Saiba como implantar seus pacotes e projetos do SSIS no servidor do Integration Services ou em outro local de armazenamento. Comece por aqui: [Implantação de projetos e pacotes][].
+- Saiba mais sobre o fluxo de dados do SSIS. Comece aqui: [Fluxo de Dados][].
+- Saiba como depurar e solucionar problemas de seus pacotes direto do ambiente de design. Comece aqui: [Solução de Problemas das Ferramentas para o Desenvolvimento de Pacotes][].
+- Saiba como implantar seus pacotes e projetos do SSIS no servidor do Integration Services ou em outro local de armazenamento. Comece aqui: [Implantação de Projetos e Pacotes][].
 
 <!-- Image references -->
 [01]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
@@ -215,8 +215,8 @@ Parabéns! Você usou com êxito o SQL Server Integration Services para carregar
 [Baixar o SSDT (SQL Server Data Tools)]: https://msdn.microsoft.com/library/mt204009.aspx
 [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Fluxo de Dados]: https://msdn.microsoft.com/library/ms140080.aspx
-[Solução de problemas de ferramentas para o desenvolvimento de pacotes]: https://msdn.microsoft.com/library/ms137625.aspx
-[Implantação de projetos e pacotes]: https://msdn.microsoft.com/library/hh213290.aspx
+[Solução de Problemas das Ferramentas para o Desenvolvimento de Pacotes]: https://msdn.microsoft.com/library/ms137625.aspx
+[Implantação de Projetos e Pacotes]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
 [Feature Pack do Microsoft SQL Server 2016 Integration Services para o Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
@@ -224,4 +224,4 @@ Parabéns! Você usou com êxito o SQL Server Integration Services para carregar
 [Visual Studio Community]: https://www.visualstudio.com/pt-BR/products/visual-studio-community-vs.aspx
 [Bancos de Dados de Exemplo do AdventureWorks 2014]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

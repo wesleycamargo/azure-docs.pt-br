@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capturar uma VM do Windows no Gerenciador de Recursos | Microsoft Azure"
-	description="Saiba como capturar uma imagem de uma máquina virtual (VM) do Azure baseada no Windows criada com o modelo de implantação do Gerenciador de Recursos do Azure."
+	pageTitle="Criar uma imagem da VM de uma VM do Azure | Microsoft Azure"
+	description="Saiba como criar uma imagem generalizada da VM de uma VM existente do Azure criada no modelo de implantação do Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,28 +14,28 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/04/2016"
 	ms.author="cynthn"/>
 
-# Como capturar uma máquina virtual do Windows no modelo de implantação do Gerenciador de Recursos
+# Como criar uma imagem de VM de uma VM existente do Azure
 
 
-Este artigo mostra como usar o Azure PowerShell para capturar uma máquina virtual (VM) do Azure executando Windows para que você a use para criar outras máquinas virtuais. Esta imagem inclui o disco do sistema operacional e os discos de dados anexados à máquina virtual. Ela não inclui os recursos da rede virtual de que você precisará para criar uma VM do Windows, de modo que será preciso configurá-los antes de criar outra máquina virtual que use a imagem. Essa imagem também será preparada para ser uma [imagem generalizada do Windows](https://technet.microsoft.com/library/hh824938.aspx).
-
+Este artigo mostra como usar o Azure PowerShell para criar uma imagem generalizada de uma VM existente do Azure. Depois você pode usar a imagem para criar outra VM. Esta imagem inclui o disco do sistema operacional e os discos de dados anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, de modo que você precisará configurar esses recursos quando criar uma VM usando a imagem. Esse processo cria uma [imagem generalizada do Windows](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Pré-requisitos
 
-Estas etapas pressupõem que você já criou uma máquina virtual do Azure no modelo de implantação do Gerenciador de Recursos e configurou o sistema operacional, inclusive anexou todos os discos de dados e fez outras personalizações, como a instalação de aplicativos. Se não tiver feito isso ainda, leia [Como criar uma VM do Windows com o Gerenciador de Recursos e o PowerShell](virtual-machines-windows-ps-create.md). Você pode criar facilmente uma máquina virtual do Windows usando o [portal do Azure](https://portal.azure.com). Leia [Como criar uma máquina virtual do Windows no portal do Azure](virtual-machines-windows-hero-tutorial.md).
+- Estas etapas pressupõem que você já tenha uma máquina virtual do Azure no modelo de implantação do Resource Manager que deseja usar para criar a imagem. Você precisa do nome da VM e do nome do grupo de recursos. É possível obter uma lista dos grupos de recursos na sua assinatura digitando o cmdlet `Get-AzureRmResourceGroup` do PowerShell. É possível obter uma lista de VMs em sua assinatura digitando `Get-AzureRMVM`.
 
+- Você precisa ter a versão 1.0.x do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para ver as etapas de instalação.
 
-## Preparar a VM para captura de imagem
+## Preparar a VM de origem 
 
-Esta seção mostra como generalizar a máquina virtual do Windows. Isso remove todas as informações da sua conta pessoal, entre outros itens. Normalmente, você desejará fazer isso quando quiser usar essa imagem de VM para implantar rapidamente máquinas virtuais semelhantes.
+Esta seção mostra como generalizar a máquina virtual do Windows para que ela possa ser usada como uma imagem.
 
-> [AZURE.WARNING] Observe que a máquina virtual não pode ser conectada pelo RDP após ser generalizada, pois o processo remove todas as contas de usuário. Essa é uma alteração irreversível.
+> [AZURE.WARNING] Você não pode fazer logon na VM por RDP depois que ela for generalizada, pois o processo remove todas as contas de usuário. As alterações são irreversíveis.
 
-1. Conecte-se à sua máquina virtual do Windows. No [portal do Azure](https://portal.azure.com), navegue por **Procurar** > **Máquinas virtuais** > Sua máquina virtual do Windows > **Conectar**.
+1. Conecte-se à sua máquina virtual do Windows. No [Portal do Azure](https://portal.azure.com), navegue por **Procurar** > **Máquinas virtuais** > Sua máquina virtual do Windows > **Conectar**.
 
 2. Abra uma janela de Prompt de comando como administrador.
 
@@ -51,139 +51,135 @@ Esta seção mostra como generalizar a máquina virtual do Windows. Isso remove 
 
 	![Executar o Sysprep](./media/virtual-machines-windows-capture-image/SysprepGeneral.png)
 
-   O Sysprep desliga a máquina virtual. O status muda para **Parado** no portal do Azure.
+   O Sysprep desliga a máquina virtual. O status muda para **Parado** no Portal do Azure.
 
-</br>
-## Capturar a VM
 
-É possível capturar a VM do Windows generalizada usando o Azure PowerShell ou a nova ferramenta Gerenciador do Azure Resource Manager. Esta seção mostra as etapas para ambos.
-
-### Usando o PowerShell
-
-Este artigo pressupõe que você instalou a versão 1.0.x do Azure PowerShell. É recomendável usar esta versão, uma vez que os novos recursos do Gerenciador de Recursos não serão adicionados às versões mais antigas do PowerShell. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter as etapas de instalação.
+## Fazer logon no Azure PowerShell
 
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure.
 
 		Login-AzureRmAccount
 
-	Esse comando abrirá uma janela pop-up para inserir as credenciais do Azure.
+	Uma janela pop-up é aberta para inserir as credenciais da conta do Azure.
 
-2. Se a ID da assinatura selecionada por padrão for diferente daquela na qual você quer trabalhar, use um dos métodos a seguir para definir a assinatura correta.
+2. Obtenha as IDs de assinatura das assinaturas disponíveis.
 
-		Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Get-AzureRmSubscription
 
-	ou o
+3. Defina a assinatura correta usando a ID da assinatura.
 
-		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 
-	Você pode encontrar as assinaturas da sua conta do Azure usando o comando `Get-AzureRmSubscription`.
 
-3. Agora, você precisará desalocar os recursos usados por essa máquina virtual utilizando este comando:
+## Desalocar a VM e definir o estado como generalizada		
 
-		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
+1. Desaloque os recursos da VM.
 
-	Você verá que o *Status* da VM no portal do Azure mudou de **Parado** para **Parado (desalocado)**.
+		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
-	>[AZURE.TIP] Também é possível descobrir o status da sua máquina virtual no PowerShell usando:</br> `$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br> `$vm.Statuses`</br> O campo **DisplayStatus** corresponde ao **Status** mostrado no Portal do Azure.
+	O *Status* da VM no Portal do Azure muda de **Parado** para **Parado (desalocado)**.
 
-4. Em seguida, você precisa definir o status da máquina virtual como **Generalizado**. Observe que você precisará fazer isso porque a etapa de generalização acima (`sysprep`) não faz isso de maneira que o Azure possa entender.
+2. Defina o status da máquina virtual como **Generalizado**.
 
-		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
+		Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
 
-	>[AZURE.NOTE] O estado generalizado, conforme definido acima, não será mostrado no portal. No entanto, você pode verificá-lo usando o comando Get-AzureRmVM, conforme mostrado na dica acima.
+3. Verifique o status da VM. A seção **OSState/generalizado** da VM deve ter **DisplayStatus** definido como **VM generalizada**.
+		
+		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status
+		$vm.Statuses
 
-5. Capture a imagem da máquina virtual em um contêiner de armazenamento de destino usando este comando.
+		
+## Criar a imagem 
+
+1. Copie a imagem da máquina virtual para o contêiner de armazenamento de destino usando este comando. A imagem é criada na mesma conta de armazenamento que a máquina virtual original. A variável `-Path` salva uma cópia do modelo JSON localmente. A variável `-DestinationContainerName` é o nome do contêiner em que você quer manter as imagens. Se o contêiner não existir, ele será criado para você.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	A variável `-Path` é opcional. Você pode usá-la para salvar o modelo JSON localmente. A variável `-DestinationContainerName` é o nome do contêiner em que você quer manter as imagens. A URL da imagem armazenada será semelhante a `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. Ela será criada na mesma conta de armazenamento da máquina virtual original.
+	Você pode obter a URL da imagem no modelo do arquivo JSON. Vá para a seção **recursos** > **storageProfile** > **osDisk** > **imagem** > **uri** para obter o caminho completo da imagem. A URL da imagem parece com esta: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+	
+	Você também pode verificar o URI no portal. A imagem é copiada para um blob denominado **sistema** em sua conta de armazenamento.
 
-	>[AZURE.NOTE] Para encontrar o local da imagem, abra o modelo de arquivo JSON local. Vá para a seção **recursos** > **storageProfile** > **osDisk** > **imagem** > **uri** para obter o caminho completo da imagem. Você também pode verificar o URI do portal; ele será copiado para um blob denominado **sistema** em sua conta de armazenamento.
+2. Crie uma variável para o caminho até a imagem.
 
-
-### Usando o Gerenciador de Recursos do Azure (Preview)
-
-O [Azure Resource Manager (Preview)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) é uma nova ferramenta que você pode usar para gerenciar os recursos do Azure criados no modelo de implantação do Gerenciador de Recursos. Com essa ferramenta, você pode facilmente:
-
-- Descobrir as APIs do Gerenciamento de Recursos do Azure.
-- Obter a documentação das APIs.
-- Fazer chamadas de API diretamente em suas assinaturas do Azure.
-
-Para saber mais sobre tudo o que você pode fazer com essa avançada ferramenta, assista ao vídeo [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
-
-Você pode usar o Gerenciador de Recursos para capturar a máquina virtual, como uma alternativa ao método do PowerShell.
-
-1. Abra o [site do Gerenciador de Recursos](https://resources.azure.com/) e conecte-se à sua conta do Azure.
-
-2. No lado superior direito da ferramenta, selecione **Leitura/Gravação** para permitir operações _PUT_ e _POST_. Ela é definida como **Somente Leitura** por padrão, o que significa que você pode apenas realizar operações _GET_.
-
-	![Leitura/gravação do Gerenciador de Recursos](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
-
-3. Em seguida, encontre sua máquina virtual do Windows. Você pode digitar o nome na *Caixa de Pesquisa* na parte superior da ferramenta ou pode navegar pelo menu à esquerda em **assinaturas** > *sua assinatura do Azure* > **resourceGroups** > *seu grupo de recursos* > **provedores** > **Microsoft.Compute** > **virtualMachines** > *sua máquina virtual do Windows*. Ao clicar na máquina virtual no painel de navegação esquerdo, você verá seu modelo no lado direito da ferramenta.
-
-4. No lado superior direito da página do modelo, você deverá ver guias para várias operações disponíveis para essa máquina virtual. Clique na guia **Ações (POST/DELETE)**.
-
-	![Menu Ação do Gerenciador de Recursos](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
-
-	- Você verá uma lista de todas as ações que podem ser realizadas na máquina virtual.
-
-		![Itens de Ação do Gerenciador de Recursos](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
-
-5. Desaloque a máquina virtual clicando no botão de ação para **desalocar**. O status da sua VM mudará de **Parado** para **Parado (desalocado)**.
-
-6. Marque a máquina virtual como generalizada clicando no botão de ação para **generalizar**. Você pode verificar as alterações de status clicando no menu **InstanceView** sob o nome da sua máquina virtual, no lado esquerdo, e navegando até a seção **status** no lado direito.
-
-7. Ao clicar no botão de ação **capturar**, você pode definir os valores para capturar a imagem. Os valores de preenchimento podem ser parecidos com os seguintes:
-
-	![Captura do Gerenciador de Recursos](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
-
-	Clique no botão de ação **capturar** para capturar a imagem da sua máquina virtual. Isso cria um novo VHD para a imagem, bem como um arquivo de modelo JSON.
-
-8. Para acessar o novo VHD da imagem, bem como o modelo, baixe e instale a ferramenta do Azure para gerenciar recursos de armazenamento, o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/). O instalador instalará o Gerenciador de Armazenamento do Azure localmente no seu computador.
-
-	- Abra o Gerenciador de Armazenamento e conecte-se à sua assinatura do Azure. Ele deverá mostrar todas as contas de armazenamento disponíveis para a sua assinatura.
-
-	- No lado esquerdo, você deverá ver a conta de armazenamento da máquina virtual que capturamos nas etapas acima. Clique duas vezes no menu **sistema** abaixo dela. Você deverá ver o conteúdo da pasta **sistema** no lado direito.
-
-		![Sistema do Gerenciador de Armazenamento](./media/virtual-machines-windows-capture-image/StorageExplorer1.png)
-
-	- Clique duas vezes em **Microsoft.Compute** > **Imagens**, que mostrará a você todas as suas pastas de imagem. Clique duas vezes no nome da pasta que você inseriu para a variável **destinationContainerName** ao capturar a imagem do Gerenciador de Recursos. Ela mostrará o VHD e o arquivo de modelo JSON.
-
-	- A partir desse ponto, você pode descobrir a URL ou baixar o VHD/modelo clicando nele com o botão direito do mouse.
-
-		![Modelo do Gerenciador de Armazenamento](./media/virtual-machines-windows-capture-image/StorageExplorer2.png)
+		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
 
 
-## Implantar uma nova VM a partir da imagem capturada
+## Criar uma rede virtual
 
-Agora, você pode usar a imagem capturada para criar uma nova VM do Windows. Estas etapas mostram como usar o Azure PowerShell e a imagem da VM, capturada nas etapas acima para criar a VM em uma nova rede virtual.
+Crie a rede virtual e a sub-rede da [rede virtual](../virtual-network/virtual-networks-overview.md).
+		
 
->[AZURE.NOTE] A imagem da VM deve estar presente na mesma conta de armazenamento que a máquina virtual real que será criada.
+1. Substitua o valor das variáveis pelas suas próprias informações. Forneça o prefixo do endereço da sub-rede no formato CIDR. Crie as variáveis e a sub-rede.
 
-### Criar recursos da rede
+    	$rgName = "<resourceGroup>"
+		$location = "<location>"
+        $subnetName = "<subNetName>"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+        
+2. Substitua o valor de **$vnetName** por um nome de rede virtual. Forneça o prefixo do endereço da rede virtual no formato CIDR. Crie a variável e a rede virtual com a sub-rede.
 
-Use o exemplo de script do PowerShell a seguir para configurar uma rede virtual e a NIC para sua nova VM. Use valores para as variáveis (representadas pelo símbolo **$**), conforme apropriado para o aplicativo.
+        $vnetName = "<vnetName>"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        
+            
+## Criar um endereço IP público e um adaptador de rede
 
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
 
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
+1. Substitua o valor de **$ipName** por um nome de endereço IP público. Criar a variável e o endereço IP público.
 
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
+        $ipName = "<ipName>"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        
+2. Substitua o valor de **$nicName** por um nome de adaptador de rede. Crie a variável e a interface de rede.
 
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nicName = "<nicName>"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Criar uma nova VM
 
-O script do PowerShell a seguir mostra como definir as configurações da máquina virtual e usar a imagem da VM capturada como fonte para a nova instalação. </br>
+## Criar a VM
 
-	#Enter a new user name and password in the pop-up for the following
+O script do PowerShell a seguir mostra como definir as configurações da máquina virtual e usar a imagem da VM carregada como a fonte da nova instalação.
+
+>[AZURE.NOTE] A VM precisa estar na mesma conta de armazenamento que o VHD original.
+
+</br>
+
+	
+	
+	
+	#Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
 	$cred = Get-Credential
+	
+	# Name of the storage account 
+	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
+	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
+	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
+	$osDiskName = "<osDiskName>"
+	
+	# Assign a SKU name
+	# Valid values for -SkuName are: **Standard_LRS** - locally redundant storage, **Standard_ZRS** - zone redundant storage, **Standard_GRS** - geo redundant storage, **Standard_RAGRS** - read access geo redundant storage, **Premium_LRS** - premium locally redundant storage. 
+	$skuName = "<skuName>"
+	
+	# Create a new storage account for the VM
+	New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $storageAccName -Location $location -SkuName $skuName -Kind "Storage"
 
-	#Get the storage account where the captured image is stored
+	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
 	#Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+	#Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
+	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
 	#Set the Windows operating system configuration and add the NIC
 	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
@@ -191,16 +187,18 @@ O script do PowerShell a seguir mostra como definir as configurações da máqui
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 	#Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
-	#Configure the OS disk to be created from image (-CreateOption fromImage) and give the URL of the captured image VHD for the -SourceImageUri parameter.
-	#We found this URL in the local JSON template in the previous sections.
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfCapturedImageVhd -Windows
+	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
+	#You set this variable when you uploaded the VHD
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-Você deverá ver a VM recém-criada no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas virtuais** OU usando os seguintes comandos do PowerShell:
+
+
+Ao concluir, a VM recém-criada deverá aparecer no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas virtuais** ou usando os seguintes comandos do PowerShell:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -208,6 +206,6 @@ Você deverá ver a VM recém-criada no [Portal do Azure](https://portal.azure.c
 
 ## Próximas etapas
 
-Para gerenciar sua nova máquina virtual com o Azure PowerShell, leia [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](virtual-machines-windows-ps-manage.md).
+Para gerenciar sua nova máquina virtual com o Azure PowerShell, confira [Gerenciar máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

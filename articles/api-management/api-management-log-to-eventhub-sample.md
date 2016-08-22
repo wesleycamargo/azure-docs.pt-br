@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/25/2016"
-    ms.author="v-darmi"/>
+    ms.date="08/09/2016"
+    ms.author="darrmi"/>
 
 # Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope
 
@@ -268,4 +268,4 @@ O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o 
 	-	[referência de política de log ao hub de eventos](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Problemas com a Multi-Factor Authentication do Azure
@@ -47,7 +47,7 @@ Ao entrar em contato com o suporte, é recomendável incluir as seguintes inform
  
 ![ID de Correlação](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
- - **ID de usuário**: qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
+ - **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
  - **Informações sobre o usuário**: o usuário era federado, a senha era sincronizada com hash, somente na nuvem? O usuário tinha uma licença do Azure AD Premium, Enterprise Mobility ou Azure AD Básico atribuída? O usuário está usando o Office 365? etc.
 
 A inclusão dessas informações nos ajudará a resolver o problema o mais rápido possível.
@@ -101,8 +101,8 @@ Se você não tiver certeza de como usar a multi-factor authentication, você se
 
 #### Para alterar as configurações no portal do Myapps
 
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)	
-2. Na parte superior, selecione perfil.
+1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. Na parte superior, selecione Perfil.
 3. Escolha Verificação de Segurança Adicional. ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Isso levará você à página que permitirá alterar as configurações.
 
@@ -145,7 +145,7 @@ Primeiro, você precisa verificar o seguinte:
 
 - Se você tiver escolhido receber um telefonema em seu celular, verifique se o sinal é adequado. A velocidade de entrega e a disponibilidade podem variar de acordo com o local e o provedor do serviço.
 - Se você selecionou a opção para receber os códigos de verificação por mensagem de texto em seu celular, verifique se o seu plano de serviço e dispositivo oferecem suporte à entrega de mensagens de texto. A velocidade de entrega e a disponibilidade podem variar de acordo com o local e o provedor do serviço. Além disso, certifique-se de que o celular esteja com um sinal adequado ao tentar receber esses códigos.
-- Se você optar por receber uma verificação por meio do aplicativo móvel, verifique se o sinal do celular está bom. Lembre-se também que a velocidade de entrega e a disponibilidade podem variar de acordo com o local e o provedor do serviço. 
+- Se você optar por receber uma verificação por meio do aplicativo móvel, verifique se o sinal do celular está bom. Lembre-se também que a velocidade de entrega e a disponibilidade podem variar de acordo com o local e o provedor do serviço.
 
 Se você tiver um smartphone, recomendamos o uso do [aplicativo Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
 
@@ -172,4 +172,4 @@ Você também pode contatar o administrador ou a pessoa que configurou a autenti
 
 Por fim, deixe alguns comentários detalhados nesta página para que possamos atualizá-la e aprimorá-la sempre com mais informações.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

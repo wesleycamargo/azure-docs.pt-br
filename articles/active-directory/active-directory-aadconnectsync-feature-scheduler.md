@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: agendador
@@ -60,6 +60,13 @@ Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os 
 
 A configuração do agendador é armazenada no Azure AD. Se tiver um servidor de preparo, qualquer alteração no servidor primário também afetará o servidor de preparo (com exceção de IsStagingModeEnabled).
 
+### CustomizedSyncCycleInterval
+Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d - dias, HH - horas, mm - minutos, ss - segundos
+
+Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` alterará o Agendador para executar a cada três horas.
+
+Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` alterará o Agendador para executar diariamente.
+
 ## Iniciar o agendador
 Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
@@ -69,9 +76,9 @@ Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é 
 - Sincronização delta em todos os conectores
 - Exportação em todos os conectores
 
-É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, no PowerShell, execute `Start-ADSyncSyncCycle -PolicyType Delta`.
+É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, execute `Start-ADSyncSyncCycle -PolicyType Delta` no PowerShell.
 
-**Ciclo de sincronização completo** Caso tenha feito uma das seguintes alterações de configuração, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
+**Ciclo de sincronização completo** Caso tenha feito uma das alterações de configuração a seguir, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
 
 - Adicionou mais objetos ou atributos para serem importados de um diretório de origem
 - Realizou alterações nas regras de sincronização
@@ -144,4 +151,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

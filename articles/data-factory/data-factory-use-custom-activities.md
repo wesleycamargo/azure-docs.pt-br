@@ -620,7 +620,7 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 	- **PackageLinkedService** é definido como **AzureStorageLinkedService** que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 	- **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: containerforthezip/nameofthezip.zip.
 	- A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
-	- A propriedade linkedServiceName da atividade personalizada aponta para o **HDInsightLinkedService**, que informa ao Azure Data Factory que a atividade personalizada precisa ser executada em um cluster do Azure HDInsight.
+	- A propriedade linkedServiceName da atividade personalizada aponta para o **AzureBatchLinkedService**, que informa ao Azure Data Factory que a atividade personalizada precisa ser executada em VMs do Lote do Azure.
 	- A propriedade **isPaused** está definida como **falsa** por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Você pode definir essa propriedade como verdadeira para pausar o pipeline e defini-lo novamente como falsa para reiniciar.
 	- As horas de **início** e **fim** são distantes **5** horas e as fatias são produzidas por hora, portanto 5 fatias são produzidas pelo pipeline.
 
@@ -894,4 +894,4 @@ Amostra | Qual atividade personalizada realiza
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

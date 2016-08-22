@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Habilitar o Banco de Dados de Stretch para uma tabela
@@ -28,12 +28,14 @@ Para configurar uma tabela para o Banco de dados de Stretch, escolha **Stretch |
 
 **Permissões**. A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exige permissões db\_owner. A habilitação do Banco de Dados de Stretch em uma tabela também exige permissões ALTERAR na tabela.
 
+ >   [AZURE.NOTE] Mais tarde, se você desabilitar o Stretch Database, lembre-se de que desabilitar o Stretch Database para uma tabela ou para um banco de dados não exclui o objeto remoto. Se deseja excluir a tabela remota ou o banco de dados remoto, você deve descartá-la(o) usando o Portal de Gerenciamento do Azure. Os objetos remotos continuarão gerando custos no Azure até você excluí-los manualmente.
+ 
 ## <a name="EnableWizardTable"></a>Usar o assistente para habilitar o Stretch Database em uma tabela
 **Iniciar o assistente**
 
 1.  No SQL Server Management Studio, no Pesquisador de Objetos, selecione a tabela na qual você deseja habilitar o Stretch.
 
-2.  Clique com o botão direito do mouse e selecione **Stretch** e, em seguida, selecione **Habilitar** para iniciar o assistente.
+2.  Clique com o botão direito do mouse, escolha **Stretch** e, em seguida, **Habilitar** para iniciar o assistente.
 
 **Introdução**
 
@@ -43,11 +45,11 @@ Examine o objetivo do assistente e os pré-requisitos.
 
 Confirme se a tabela que você deseja habilitar está sendo exibida e foi selecionada.
 
-Você pode migrar uma tabela inteira ou especificar uma função de filtro simples no assistente. Se você quiser usar um tipo diferente de função de filtro para selecionar as linhas a serem migradas, faça um dos procedimentos a seguir.
+Você pode migrar uma tabela inteira ou especificar uma função de filtro simples no assistente. Se você quiser usar um tipo diferente de função de filtro para selecionar as linhas a serem migradas, faça um destes procedimentos.
 
 -   Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para a tabela e especificar uma função de filtro.
 
--   Execute a instrução ALTER TABLE para especificar uma função de filtro depois de sair do assistente. Para conhecer as etapas necessárias, consulte [Adicionar uma função de filtro após executar o Assistente](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Execute a instrução ALTER TABLE para especificar uma função de filtro depois de sair do assistente. Para conhecer as etapas necessárias, confira [Add a filter function after running the Wizard (Adicionar uma função de filtro após executar o assistente)](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 A sintaxe ALTER TABLE é descrita posteriormente neste tópico.
 
@@ -65,7 +67,7 @@ Revise os resultados.
 ### Opções
 Use as seguintes opções ao executar CREATE TABLE ou ALTER TABLE para habilitar o Stretch Database em uma tabela.
 
--   Como opção, use a cláusula `FILTER_PREDICATE = <function>` para especificar uma função a fim de selecionar as linhas para migrar se a tabela contiver dados ativos e inativos. O predicado deve chamar uma função embutida com valor de tabela. Para obter mais informações, consulte [Selecionar linhas para migrar pelo uso de uma função de filtro](sql-server-stretch-database-predicate-function.md). Se você não especificar uma função de filtro, toda a tabela será migrada.
+-   Como opção, use a cláusula `FILTER_PREDICATE = <function>` para especificar uma função a fim de selecionar as linhas para migrar se a tabela contiver dados ativos e inativos. O predicado deve chamar uma função embutida com valor de tabela. Para saber mais, confira [Select rows to migrate by using a filter function (Selecionar linhas para migração usando uma função de filtro)](sql-server-stretch-database-predicate-function.md). Se você não especificar uma função de filtro, toda a tabela será migrada.
 
     >   [AZURE.NOTE] Se você fornecer uma função de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Banco de Dados de Stretch aplica a função de filtro à tabela usando o operador CROSS APPLY.
 
@@ -83,7 +85,7 @@ ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
 GO
 ```
-Veja um exemplo que migra apenas as linhas identificadas pela função embutida com valor de tabela `dbo.fn_stretchpredicate` e adia a migração de dados. Para obter mais informações sobre a função de filtro, consulte [Selecionar linhas para migrar usando uma função de filtro](sql-server-stretch-database-predicate-function.md).
+Veja um exemplo que migra apenas as linhas identificadas pela função embutida com valor de tabela `dbo.fn_stretchpredicate` e adia a migração de dados. Para saber mais sobre a função de filtro, confira [Select rows to migrate by using a filter function (Selecionar linhas para migração usando uma função de filtro)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -95,7 +97,7 @@ ALTER TABLE <table name>
  GO
 ```
 
-Para obter mais informações, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Para saber mais, confira [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 ### Criar uma nova tabela com o Stretch Database habilitado
 Para criar uma nova tabela com o Stretch Database habilitado, execute o comando CREATE TABLE.
@@ -111,7 +113,7 @@ CREATE TABLE <table name>
 GO
 ```
 
-Veja um exemplo que migra apenas as linhas identificadas pela função embutida com valor de tabela `dbo.fn_stretchpredicate` e adia a migração de dados. Para obter mais informações sobre a função de filtro, consulte [Selecionar linhas para migrar usando uma função de filtro](sql-server-stretch-database-predicate-function.md).
+Veja um exemplo que migra apenas as linhas identificadas pela função embutida com valor de tabela `dbo.fn_stretchpredicate` e adia a migração de dados. Para saber mais sobre a função de filtro, confira [Select rows to migrate by using a filter function (Selecionar linhas para migração usando uma função de filtro)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -124,13 +126,13 @@ CREATE TABLE <table name>
 GO  
 ```
 
-Para obter mais informações, consulte [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
+Para saber mais, confira [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
 
 
-## Consulte também
+## Confira também
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

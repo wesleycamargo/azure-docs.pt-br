@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar a persistência de dados para um Cache Redis do Azure Premium
@@ -85,7 +85,7 @@ Sim, a persistência do Redis pode ser configurada na criação do cache e em ca
 
 ### Posso alterar a frequência de backup depois de criar o cache?
 
-Sim, você pode alterar a frequência de backup na folha de **Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
+Sim, você pode alterar a frequência de backup na folha de ** Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
 
 ### Por que se eu tiver uma frequência de backup de 60 minutos haverá mais de 60 minutos entre os backups?
 
@@ -119,4 +119,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

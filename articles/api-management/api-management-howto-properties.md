@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -26,9 +26,9 @@ Cada instância de serviço do Gerenciamento de API tem uma coleção de proprie
 
 | Atributo | Tipo | Descrição |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Nome | string | O nome da propriedade. Ele pode conter apenas letras, dígitos, ponto, traço e caracteres de sublinhado. |
+| Name | string | O nome da propriedade. Ele pode conter apenas letras, dígitos, ponto, traço e caracteres de sublinhado. |
 | Valor | string | O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-| Segredo | booleano | Determina se o valor é um segredo e se deve ser criptografado ou não. |
+| Segredo | Booliano | Determina se o valor é um segredo e se deve ser criptografado ou não. |
 | Marcas | matriz de cadeias de caracteres | Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
 As propriedades são configuradas no portal do editor na guia **Propriedades**. No exemplo a seguir, três propriedades são configuradas.
@@ -37,7 +37,7 @@ As propriedades são configuradas no portal do editor na guia **Propriedades**. 
 
 Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). A tabela a seguir mostra as propriedades dos três exemplos anteriores e seus atributos. O valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres com a data e a hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
 
-| Nome | Valor | Segredo | Marcas |
+| Name | Valor | Segredo | Marcas |
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader | TrackingId | Falso | Contoso |
 | ContosoHeaderValue | •••••••••••••••••••••• | Verdadeiro | Contoso |
@@ -149,4 +149,4 @@ Para filtrar a lista de propriedades por valores de marca, insira uma ou mais ma
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

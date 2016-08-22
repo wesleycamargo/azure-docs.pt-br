@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Usar o telefone celular como método de contato com o Azure Multi-Factor Authentication
@@ -29,7 +29,7 @@ Se desejar usar seu telefone celular como o método de contato principal, você 
 
 <li>Especifique o seu país na lista suspensa e insira o número do celular.</li>
 <li>Selecione o modo que você prefere usar com o celular — texto ou ligação.</li>
-<li>Clique em Avançar.</li>
+<li>Clique em Próximo.</li>
 <li>Clique no botão Verificar Agora. Isso iniciará uma ligação ou enviará um texto para seu celular. Certifique-se de que ele esteja com você. Dependendo do modo selecionado, Texto ou Ligação, sua resposta será diferente. <ul><li>Se o modo de texto foi selecionado, um código de 6 dígitos será enviado como texto para você. Insira esse código na caixa que é exibida no navegador</li> <li>Se o modo de ligação foi selecionado, você receberá uma chamada telefônica. Atenda à ligação usando a tecla # do telefone.</li></ul>
 <li>Clique em Avançar</li>
 <li>Até aqui, você configurou o método de contato e agora é hora de configurar as senhas de aplicativo para aplicativos que não usam navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, clique em **Concluído**. Caso contrário, passe para a próxima etapa.
@@ -45,4 +45,4 @@ Se desejar usar seu telefone celular como o método de contato principal, você 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

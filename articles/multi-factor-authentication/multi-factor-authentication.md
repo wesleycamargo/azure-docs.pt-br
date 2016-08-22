@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -116,7 +116,7 @@ Desvio único| | | *
 Saudações personalizadas para chamadas telefônicas| | | *
 Personalização da ID do chamador para chamadas telefônicas| | | *
 Confirmação de evento| | | *
-IPs Confiáveis| | | *
+IPs confiáveis| | | *
 Lembrar MFA para dispositivos confiáveis |* | * | *
 SDK de MFA | | | * exige o provedor de Multi-Factor Authentication e a assinatura completa do Azure
 MFA para aplicativos locais usando o servidor MFA| | | *
@@ -147,12 +147,12 @@ Escolha o modelo baseado em consumo que funciona melhor para sua organização. 
 
 Como há vários tipos de Azure Multi-Factor Authentication, precisamos determinar algumas coisas para descobrir qual versão é a correta para usar. Esses elementos são:
 
--	<a href="#1">O que estou tentando proteger?</a>
--	<a href="#2">Onde os usuários estão localizados</a>
+-	[O que estou tentando proteger](#what-am-i-trying-to-secure)
+-	[Onde os usuários estão localizados](#where-are-the-users-located)
 
 As seções a seguir fornecem orientações sobre como determinar a cada um deles.
 
-<h3 id="1">O que estou tentando proteger?</h3>
+### O que estou tentando proteger?
 
 Para determinar a solução de autenticação multifator correta, precisamos responder primeiro à pergunta de o que você está tentando proteger com um segundo método de autenticação. É um aplicativo no Azure? Ou é um sistema de acesso remoto, por exemplo. Ao determinar o que estamos tentando proteger, passaremos a responder à pergunta de onde a autenticação multifator precisa ser habilitada.
 
@@ -168,7 +168,7 @@ Acesso remoto, como VPN, RDG| |* |
 
 
 
-<h3 id="2">Onde os usuários estão localizados</h3>
+### Onde os usuários estão localizados
 
 Em seguida, dependendo de onde os usuários estão localizados, podemos determinar a solução correta para usar, seja a autenticação multifator na nuvem ou no local usando o Servidor MFA.
 
@@ -176,7 +176,7 @@ Em seguida, dependendo de onde os usuários estão localizados, podemos determin
 
 Local do usuário| Solução
 ------------- | :------------- |
-Active Directory do Azure| Autenticação multifator na nuvem|
+Azure Active Directory| Autenticação multifator na nuvem|
 Azure AD e AD local usando federação com AD FS| O MFA na nuvem e o Servidor MFA são opções disponíveis
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - sem sincronização de senha|O MFA na nuvem e o Servidor MFA são opções disponíveis
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - com sincronização de senha|Autenticação multifator na nuvem
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

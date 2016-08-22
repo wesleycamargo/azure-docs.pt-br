@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Controle de acesso baseado em função do Azure Active Directory | Microsoft Azure"
+	pageTitle="Controle de acesso baseado em função | Microsoft Azure"
 	description="Introdução ao gerenciamento de acesso com o controle de acesso baseado em função do Azure no Portal do Azure. Use as atribuições de função para atribuir permissões em seu diretório."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,17 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/03/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
 # Introdução ao gerenciamento de acesso no portal do Azure
 
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Este artigo apresenta as noções básicas sobre gerenciamento de acesso e o ajuda a colocar o RBAC em funcionamento no portal do Azure.
+As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
+
+Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações. Por exemplo, use o RBAC para permitir que um funcionário gerencie máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL dentro da mesma assinatura.
 
 ## Noções básicas de gerenciamento de acesso no Azure
-Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD). Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Esses direitos de acesso são concedidos usando o portal do Azure, ferramentas de linha de comando do Azure e APIs de gerenciamento do Azure.
+Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD). Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Atribua esses direitos de acesso usando o portal do Azure, ferramentas de linha de comando do Azure e APIs de gerenciamento do Azure.
 
-O acesso é concedido atribuindo-se a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Uma função atribuída a um escopo pai também concede acesso aos filhos contidos nele. Por exemplo, um usuário com acesso a um grupo de recursos pode gerenciar todos os recursos que ele contém, como sites, máquinas virtuais e sub-redes.
+Conceda acesso ao atribuir a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Uma função atribuída a um escopo pai também concede acesso aos filhos contidos nele. Por exemplo, um usuário com acesso a um grupo de recursos pode gerenciar todos os recursos que ele contém, como sites, máquinas virtuais e sub-redes.
 
 ![Relação entre os elementos do Azure Active Directory - diagrama](./media/role-based-access-control-what-is/rbac_aad.png)
 
@@ -32,7 +34,7 @@ A função RBAC que você atribui determina quais recursos o usuário (grupo ou 
 ## Funções internas
 O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recurso:
 
-- O **proprietário** tem acesso completo a todos os recursos, inclusive o direito de delegar acesso a outros usuários.
+- O **proprietário** tem acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários.
 - O **colaborador** pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 - O **leitor** pode exibir os recursos existentes do Azure.
 
@@ -51,16 +53,16 @@ O acesso concedido em escopos pai é herdado em escopos filho. Por exemplo:
 - Você pode atribuir a função Colaborador para um aplicativo no escopo do grupo de recursos. Ele pode gerenciar recursos de todos os tipos nesse grupo de recursos, mas não em outros grupos de recursos na assinatura.
 
 ## RBAC do Azure versus administrador de assinatura clássico
-Os administradores de assinatura clássicos têm acesso completo à assinatura do Azure. Eles podem gerenciar recursos usando o [Portal do Azure](https://portal.azure.com) com APIs do Azure Resource Manager ou o [Portal Clássico do Azure](https://manage.windowsazure.com) com APIs de Gerenciamento de Serviços do Azure. No modelo RBAC, aos administradores clássicos é atribuída a função de proprietário no nível de assinatura.
+Os administradores de assinatura clássicos têm acesso completo à assinatura do Azure. Eles podem gerenciar recursos usando o [Portal do Azure](https://portal.azure.com) com APIs do Azure Resource Manager ou o [Portal Clássico do Azure](https://manage.windowsazure.com) e o modelo de implantação clássico do Azure. No modelo RBAC, aos administradores clássicos é atribuída a função de proprietário no nível de assinatura.
 
-Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar o portal de gerenciamento clássico ou as APIs de Gerenciamento de Serviços do Azure.
+Somente o Portal do Azure e as novas APIs do Azure Resource Manager dão suporte ao RBAC do Azure. Os usuários e aplicativos aos quais são atribuídas funções RBAC não podem usar o portal de gerenciamento clássico e o modelo de implantação clássico do Azure.
 
 ## Autorização para o gerenciamento versus operações de dados
-O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Nem todas as operações no nível de dados para os recursos do Azure podem ser autorizadas por meio do RBAC. Por exemplo, as Contas de Armazenamento podem ser gerenciadas com o RBAC, mas os blobs ou tabelas dentro de uma Conta de Armazenamento, não. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.
+O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Ele não pode autorizar todas as operações no nível de dados para os recursos do Azure. Por exemplo, você pode autorizar alguém para gerenciar Contas de Armazenamento, mas não para blobs ou tabelas em uma Conta de Armazenamento. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.
 
 ## Próximas etapas
 - Introdução ao [Controle de Acesso Baseado em Função](role-based-access-control-configure.md) no Portal do Azure.
 - Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 - Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

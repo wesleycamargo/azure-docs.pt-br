@@ -26,7 +26,7 @@ Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Ser
 
 >[AZURE.NOTE] Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 >
->-    [Criar um namespace do Barramento de Serviço com um Hub de Eventos e grupo de consumo](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 >-    [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
@@ -154,4 +154,4 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Perguntas frequentes sobre rede virtual do Azure (VNet)"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Perguntas frequentes sobre rede virtual
 
@@ -23,4 +23,4 @@
 
 Para ver as perguntas frequentes mais recentes sobre VPNs de rede virtual, consulte as [Perguntas frequentes sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

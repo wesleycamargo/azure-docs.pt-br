@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Análise de Armazenamento
@@ -69,7 +69,7 @@ Todas as outras solicitações anônimas com falha não estão conectadas. Uma l
 ### Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
 
->[Azure.NOTE]O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
+>[Azure.NOTE] O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
 
 Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando o **RequestId** e o número da **Operação**.
 
@@ -84,9 +84,9 @@ A tabela a seguir descreve cada atributo no nome do log.
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | <service-name> | O nome do serviço de armazenamento. Por exemplo: blob, tabela ou fila. |
 | AAAA | O ano de quatro dígitos para o log. Por exemplo: 2011. |
-| MM | O mês de dois dígitos para o log. Por exemplo: 07. |
-| DD | O mês de dois dígitos para o log. Por exemplo: 07. |
-| hh | A hora de dois dígitos que indica a hora inicial para os logs, no formato de 24 horas UTC. Por exemplo: 18. |
+| MM | O mês de dois dígitos do log. Por exemplo: 07. |
+| DD | O mês de dois dígitos do log. Por exemplo: 07. |
+| hh | A hora de dois dígitos que indica a hora inicial dos logs, no formato de 24 horas UTC. Por exemplo: 18. |
 | mm | O número de dois dígitos que indica o minuto inicial dos logs. Esse valor não tem suporte na versão atual da análise de armazenamento e seu valor será sempre 00. |
 | <counter> | Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerado para o serviço de armazenamento em um período de uma hora. Esse contador começa em 000000. Por exemplo: 000001. |
 
@@ -128,7 +128,7 @@ Todos os dados no contêiner `$logs` podem ser acessados usando as APIs do servi
 
 A análise de armazenamento pode armazenar métricas que incluem estatísticas de transação agregadas e os dados de capacidade sobre solicitações para um serviço de armazenamento. As transações são relatadas no nível de operação da API, bem como no nível de serviço de armazenamento, e a capacidade é relatada no nível de serviço de armazenamento. Os dados de métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com solicitações feitas no serviço de armazenamento e melhorar o desempenho de aplicativos que usam um serviço.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações **Obter Propriedades do Serviço** para habilitar a Análise de Armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, confira [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações **Obter Propriedades do Serviço** para habilitar a Análise de Armazenamento para cada serviço.
 
 ### Métricas de transação
 
@@ -156,7 +156,7 @@ Para saber mais sobre as métricas de capacidade, consulte [Esquema da tabela de
 
 ### Como as métricas são armazenadas
 
-Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para informações de transação, uma tabela de informações de transações de minutos e outra tabela para informações de capacidade. Informações de transações de transação de minuto consistem em dados de solicitação e resposta, e informações de capacidade consistem em dados de uso de armazenamento. As métricas de horas, minutos e capacidade para um serviço Blob da conta de armazenamento podem ser acessados nas tabelas que são nomeadas conforme descrito na tabela a seguir.
+Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para informações de transação, uma tabela de informações de transações de minutos e outra tabela para informações de capacidade. Informações de transações de transação de minuto consistem em dados de solicitação e resposta, e informações de capacidade consistem em dados de uso de armazenamento. As métricas de horas, as métricas de minutos e a capacidade de um serviço Blob da conta de armazenamento podem ser acessadas nas tabelas que são nomeadas conforme descrito na tabela a seguir.
 
 | Nível de métricas | Nomes da tabela | Versões com suporte |
 |------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -180,7 +180,7 @@ A análise de armazenamento é habilitada por um proprietário de conta de armaz
 
 As seguintes ações executadas pela análise de armazenamento são faturáveis:
 
-- Solicitações para criar blobs para registro em log. 
+- Solicitações para criar blobs para registro em log.
 
 - Solicitações para criar entidades de tabela para métricas.
 
@@ -206,6 +206,6 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 ### Métricas da Análise de Armazenamento
 - [Sobre as métricas de análise de armazenamento](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
-- [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
+- [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

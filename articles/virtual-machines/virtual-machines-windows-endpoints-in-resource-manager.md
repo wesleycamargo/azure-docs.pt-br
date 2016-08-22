@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # Pontos de extremidade clássicos no Resource Manager
@@ -22,10 +22,10 @@
 ## Próximas etapas
 Você pode ler informações mais detalhadas sobre as tecnologias abordadas aqui, juntamente com os guias de início rápido para usar grupos de segurança de rede, nos seguintes artigos:
 
-- [Início rápido - criar uma regra de grupo de segurança de rede e a ACL usando o Portal do Azure](virtual-machines-windows-nsg-quickstart-portal.md)  
-- [Início rápido - criar uma regra de grupo de segurança de rede e a ACL usando o Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
-- [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)  
-- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)  
-- [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md) 
+- [Quick-start - Create a Network Security Group and ACL rules using the Azure portal (Início rápido: criar um grupo de segurança de rede e regras de ACL usando o portal do Azure)](virtual-machines-windows-nsg-quickstart-portal.md)
+- [Início rápido - criar uma regra de grupo de segurança de rede e a ACL usando o Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)
+- [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
+- [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

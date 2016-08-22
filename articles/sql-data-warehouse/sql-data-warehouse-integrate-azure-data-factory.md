@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Use o Azure Data Factory com o SQL Data Warehouse
@@ -25,7 +25,7 @@ O Azure Data Factory fornece um método totalmente gerenciado para orquestrar a 
 O Azure Data Factory permite a movimentação de dados entre fontes locais e diferentes serviços do Azure. De forma geral, a integração atual com o Azure Data Factory oferece suporte à movimentação de dados de e para os seguintes locais:
 
 + Armazenamento do blob do Azure
-+ Banco de Dados SQL do Azure
++ Banco de Dados SQL Azure
 + SQL Server local
 + SQL Server na IaaS
 
@@ -50,4 +50,4 @@ Para obter uma visão geral da integração, consulte [Visão geral de integraç
 <!--Other Web references-->
 [documentação do Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

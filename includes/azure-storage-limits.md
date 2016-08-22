@@ -1,6 +1,6 @@
 Recurso|Limite padrão
 ---|---
-Número máximo de contas de armazenamento por assinatura|100<sup>1</sup>
+Número máximo de contas de armazenamento por assinatura|200<sup>1</sup>
 TB por conta de armazenamento|500 TB
 Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento|O único limite é a capacidade de conta de armazenamento de 500 TB
 Tamanho máximo de um único contêiner de blob, tabela ou fila|500 TB
@@ -28,15 +28,15 @@ Saída máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA)|20 Gbps
 Entrada máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|5 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 10 Gbps para o LRS
 Saída máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|10 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 15 Gbps para o LRS
 
-<sup>1</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
+<sup>1</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
-<sup>2</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
+<sup>2</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
 
 <sup>3</sup>As opções de replicação do Armazenamento do Azure incluem:
 
 - **RA-GRS**: armazenamento com redundância geográfica com acesso de leitura. Se o RA-GRS estiver habilitado, os destinos de saída para o local secundário serão idênticos àqueles para o local principal.
-- **GRS**: armazenamento com redundância geográfica. 
-- **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
-- **LRS**: armazenamento com redundância local. 
+- **GRS**: armazenamento com redundância geográfica.
+- **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos.
+- **LRS**: armazenamento com redundância local.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-O V12 de banco de dados SQL é a versão mais recente para atualizar para o V12 do banco de dados do SQL que é recomendado. O V12 do banco de dados SQL tem muitas [vantagens em relação à versão anterior](sql-database-v12-whats-new.md) incluindo:
+O Banco de Dados SQL V12 é a versão mais recente, de modo que é recomendável fazer a atualização dos servidores existentes para o Banco de Dados SQL V12. O V12 do banco de dados SQL tem muitas [vantagens em relação à versão anterior](sql-database-v12-whats-new.md) incluindo:
 
 - Maior compatibilidade com o SQL Server.
 - Desempenho premium melhorado e novos níveis de desempenho.
@@ -53,10 +53,12 @@ Após a atualização para V12, as [recomendações de camada de serviço](sql-d
 
 ## Inicie a atualização
 
-1. No [Portal do Azure](https://portal.azure.com/), navegue até o servidor que deseja atualizar selecionando **PROCURAR TUDO** > **SQL Servers** e selecionando o servidor desejado.
-2. Selecione **Atualização mais recente do banco de dados SQL** e, em seguida, selecione **Atualizar este servidor**.
+1. No [portal do Azure](https://portal.azure.com/), navegue até o servidor que deseja atualizar, selecionando **PROCURAR** > **SQL Servers** e o servidor v2.0 a ser atualizado.
+2. Escolha **Última Atualização do Banco de Dados SQL** e **Atualizar este servidor**.
 
       ![atualizar servidor][1]
+
+3. A atualização de um servidor para a Última Atualização do Banco de Dados SQL é permanente e irreversível. Para confirmar a atualização, digite o nome do servidor e clique em **OK**.
 
 ## Atualize todos os bancos de dados da Web e Empresarial
 
@@ -102,7 +104,7 @@ No [Portal do Azure](https://portal.azure.com/), procure o servidor V12 e clique
 
 -ou-
 
-Se você receber uma mensagem dizendo **Clique aqui para ver os pools de banco de dados elásticos recomendados para este servidor**, clique nela para criar facilmente um pool que é otimizado para os bancos de dados do seu servidor. Para obter detalhes, veja [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
+Se você receber uma mensagem dizendo **Clique aqui para ver os pools de banco de dados elásticos recomendados para este servidor**, clique nela para criar facilmente um pool que é otimizado para os bancos de dados do seu servidor. Para obter detalhes, confira o artigo sobre [considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
 ![Adicionar pool a um servidor][7]
 
@@ -110,14 +112,14 @@ Siga as instruções no artigo [Criar um pool de banco de dados elástico](sql-d
 
 ## Monitorar bancos de dados após a atualização para V12 do banco de dados SQL
 
->[AZURE.IMPORTANT] Atualize para a versão mais recente do SSMS (SQL Server Management Studio) para tirar proveito dos novos recursos v12. [Baixe o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Atualize para a versão mais recente do SSMS (SQL Server Management Studio) para tirar proveito dos novos recursos v12. [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 Após a atualização, monitore o banco de dados ativamente para garantir que os aplicativos estão sendo executados no desempenho esperado e otimize as configurações conforme necessário.
 
-Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico. [Monitorar e gerenciar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis através do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
+**Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis por meio do DMV [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -167,4 +169,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

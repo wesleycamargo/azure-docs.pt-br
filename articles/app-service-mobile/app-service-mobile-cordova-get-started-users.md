@@ -28,6 +28,8 @@ Neste tutorial, você adiciona a autenticação ao projeto de início rápido to
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+[Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
+
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -92,7 +94,7 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 ##<a name="next-steps"></a>Próximas etapas
 
 * Saiba mais [Sobre autenticação] com o Serviço de Aplicativo do Azure.
-* Continue o tutorial adicionando [Notificações por push] a seu aplicativo Apache Cordova.
+* Continue o tutorial adicionando [Notificações por push] a seu aplicativo do Apache Cordova.
 
 Saiba como usar os SDKs.
 
@@ -109,4 +111,4 @@ Saiba como usar os SDKs.
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

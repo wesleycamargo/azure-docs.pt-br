@@ -3,7 +3,7 @@
    description="Saiba como criar uma investigação personalizada para o Application Gateway usando o PowerShell no modelo de implantação clássico"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -14,11 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Criar uma investigação personalizada para o Application Gateway (clássico) pelo uso do PowerShell
 
+> [AZURE.SELECTOR]
+- [Portal do Azure](application-gateway-create-probe-portal.md)
+- [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
@@ -27,7 +33,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## Criar um novo gateway de aplicativo
+## Criar um Application Gateway
 
 Para criar um Application Gateway:
 
@@ -37,9 +43,9 @@ Para criar um Application Gateway:
 
 ### Criar um recurso de Application Gateway
 
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
-O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1".
+O exemplo a seguir cria um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede chamada "subnet-1".
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -71,7 +77,7 @@ Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-Azur
 >[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Small, Medium e Large.
 
 
- O *VirtualIPs* e o *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
+ *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
 ## Configurar um Application Gateway
 
@@ -160,14 +166,14 @@ Um novo item de configuração <Probe> é adicionado para configurar investigaç
 
 Os parâmetros de configuração são:
 
-- **Name** - nome de referência da investigação personalizada.
-- **Protocol** - protocolo usado (os valores possíveis são HTTP ou HTTPS).
-- **Host** e **Path** - caminho de URL completo que é invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/caminho/caminhopersonaliado.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
-- **Interval** - configura as verificações de intervalo de investigação em segundos.
-- **Timeout** - define o tempo limite da investigação para uma verificação de resposta HTTP.
-- **UnhealthyThreshold** - o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *não íntegra*.
+- **Name**: nome de referência da investigação personalizada.
+- **Protocol**: protocolo usado (os valores possíveis são HTTP ou HTTPS).
+- **Host** e **Path**: caminho de URL completo que é invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
+- **Interval**: configura as verificações de intervalo de investigação em segundos.
+- **Timeout**: define o tempo limite da investigação para uma verificação de resposta HTTP.
+- **UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
 
-O nome da investigação é referenciado na configuração <BackendHttpSettings> para atribuir qual pool de back-end usará as configurações da investigação personalizada.
+O nome da investigação é referenciado na configuração <BackendHttpSettings> para atribuir qual pool de back-end usa as configurações da investigação personalizada.
 
 ## Adicionar uma configuração de investigação personalizada a um Application Gateway existente
 
@@ -175,7 +181,7 @@ Alterar a configuração atual de um Application Gateway exige três etapas: obt
 
 ### Etapa 1
 
-Obtenha o arquivo XML usando get-AzureApplicationGatewayConfig. Isso exportará o XML de configuração a ser modificada para adicionar uma configuração de investigação.
+Obtenha o arquivo XML usando get-AzureApplicationGatewayConfig. Isso exporta o XML de configuração a ser modificada para adicionar uma configuração de investigação.
 
 	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
 
@@ -211,15 +217,15 @@ Salve o arquivo XML.
 
 ### Etapa 3
 
-Atualize o objeto de configuração do recurso de Application Gateway usando **Set-AzureApplicationGatewayConfig**. Isso atualizará seu Application Gateway com a nova configuração.
+Atualize a configuração do Application Gateway com o novo arquivo XML usando **Set-AzureApplicationGatewayConfig**. Isso atualiza seu Application Gateway com a nova configuração.
 
 	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
 
 
 ## Próximas etapas
 
-Se você quiser configurar o descarregamento de protocolo SSL, veja [Configurar um Application Gateway para descarregamento SSL](application-gateway-ssl.md).
+Se você quiser configurar o descarregamento de protocolo SSL, consulte [Configurar um Application Gateway para o descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um Application Gateway para usar com um balanceador de carga interno, veja [Criar um Application Gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

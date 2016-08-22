@@ -3,8 +3,8 @@
    description="Este artigo fornece instruções para criar um Application Gateway com descarregamento de protocolo SSL usando o modelo de implantação clássica do Azure."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
+   authors="georgewallace"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
 O Azure Application Gateway pode ser configurado para encerrar a sessão de protocolo SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no Web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
@@ -28,7 +29,7 @@ O Azure Application Gateway pode ser configurado para encerrar a sessão de prot
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
-3. Os servidores que você configurará para usar o gateway de aplicativo deverão existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
+3. Os servidores que você configura para usar o Application Gateway devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 Para configurar o descarregamento de SSL em um Application Gateway, execute as seguintes etapas na ordem listada:
 
@@ -40,9 +41,9 @@ Para configurar o descarregamento de SSL em um Application Gateway, execute as s
 6. [Verificar o status do gateway](#verify-the-gateway-status)
 
 
-## Criar um novo gateway de aplicativo
+## Criar um Application Gateway
 
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
@@ -104,6 +105,7 @@ Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
+>[AZURE.NOTE] A senha do certificado deve ser entre 4 a 12 caracteres, letras ou números. Caracteres especiais não são aceitos.
 
 ## Configurar o gateway
 
@@ -113,15 +115,15 @@ Os valores são:
 
 - **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-- **Porta front-end:** essa porta é a porta pública aberta no Application Gateway. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento de protocolo SSL).
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *basic* é a distribuição de carga round robin.
+- **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *básica* é a distribuição de carga round robin.
 
 **Observações adicionais sobre a configuração**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCert** precisa ser adicionado ao **HttpListener** com o valor definido como o mesmo nome que foi usado no upload de certificados SSL acima. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCert** é adicionado ao **HttpListener** com o valor definido como o mesmo nome que foi usado no upload de certificados SSL acima. A porta front-end deve ser atualizada para 443.
 
-**Para habilitar a afinidade baseada em cookie**: um Application Gateway pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no Web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
 
 
 
@@ -208,7 +210,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet **Start-AzureApplicati
 
 ## Verificar o status do gateway
 
-Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se **Start-AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *VirtualIPs* e *DnsName* deverão ter entradas válidas.
+Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se **Start-AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *State* deverá ser Running e *VirtualIPs* e *DnsName* deverão ter entradas válidas.
 
 Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para receber tráfego.
 
@@ -233,4 +235,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0810_2016-->

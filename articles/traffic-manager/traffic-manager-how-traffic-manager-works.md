@@ -55,7 +55,7 @@ Quando um usuário final solicita a página https://partners.contoso.com/login.a
 
 1.	O cliente (PC, telefone, etc) faz uma consulta DNS para “partners.contoso.com” para seu serviço DNS recursivo configurado. (Um serviço DNS recursivo, às vezes chamado de serviço “DNS local”, não hospeda domínios DNS diretamente. Em vez disso, ele é usado pelo cliente para descarregar o trabalho de entrar em contato com os diversos serviços DNS de autoridade através da Internet necessários para resolver um nome DNS.)
 2.	O serviço DNS recursivo agora resolve o nome DNS de “partners.contoso.com”. Em primeiro lugar, o serviço DNS recursivo localiza os servidores de nomes para o domínio "contoso.com". Ele então contata os servidores de nomes para solicitar o registro de DNS de “partners.contoso.com”. O CNAME contoso.trafficmanager.net é retornado.
-3.	O serviço DNS recursivo agora localiza os servidores de nomes para o domínio “trafficmanager,net”, que são fornecidos pelo serviço do Gerenciador de Tráfego do Azure. Ele contata os servidores de nomes para solicitar o registro de DNS de “contoso.trafficmanager.net”.
+3.	O serviço DNS recursivo agora localiza os servidores de nomes para o domínio 'trafficmanager.net', que são fornecidos pelo serviço Gerenciador de Tráfego do Azure. Ele contata os servidores de nomes para solicitar o registro de DNS de “contoso.trafficmanager.net”.
 4.	Os servidores de nomes do Gerenciador de Tráfego recebem a solicitação. Em seguida, eles escolhem qual ponto de extremidade deve ser retornado, com base em: a. O estado habilitado/desabilitado de cada ponto de extremidade (pontos de extremidade desabilitados não são retornados) b. A integridade atual de cada ponto de extremidade, conforme determinado pela integridade Gerenciador de Tráfego. Para obter mais informações, consulte Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego. c. O método de roteamento de tráfego escolhido. Para obter mais informações, consulte Métodos de roteamento de tráfego do Gerenciador de Tráfego.
 5.	O ponto de extremidade escolhido é retornado como outro registro de DNS CNAME, nesse caso, vamos supor que contoso us.cloudapp.net é retornado.
 6.	O serviço DNS recursivo localiza os servidores de nomes para o domínio "cloudapp.net". Ele contata os servidores de nomes para solicitar o registro de DNS de “contoso-us.cloudapp.net”. Um registro DNS “A” que contém o endereço IP do ponto de extremidade de serviço dos EUA é retornado.
@@ -131,4 +131,4 @@ Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

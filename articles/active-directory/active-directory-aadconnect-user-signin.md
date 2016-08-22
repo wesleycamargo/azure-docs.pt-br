@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -107,7 +107,7 @@ Para as informações a seguir, suponhamos que estamos preocupados com o sufixo 
 ###### Configurações Expressas/Sincronização de Senha
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
 |:-------------:|:----------------------------------------|
-| Não adicionado | Nesse caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório do Azure AD. Os usuários que têm o UPN local com o sufixo @contoso.com não poderão usar seus UPNs locais para entrar no Azure. Em vez disso, eles precisarão usar um novo UPN fornecido pelo Azure AD adicionando o sufixo ao diretório do Azure AD padrão. Por exemplo, se você estiver sincronizando usuários com o diretório do Azure AD azurecontoso.onmicrosoft.com, o usuário local user@contoso.com terá um UPN de user@azurecontoso.onmicrosoft.com|
+| Não adicionado | Nesse caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório do Azure AD. Os usuários que têm o UPN local com o sufixo @contoso.com não poderão usar seus UPNs locais para entrar no Azure. Em vez disso, eles precisarão usar um novo UPN fornecido pelo Azure AD adicionando o sufixo ao diretório do Azure AD padrão. Por exemplo, se você estiver sincronizando usuários com o diretório do Azure AD azurecontoso.onmicrosoft.com, um UPN de user@azurecontoso.onmicrosoft.com será atribuído ao usuário local user@contoso.com|
 | Não verificado | Nesse caso, temos um domínio personalizado contoso.com adicionado ao diretório do Azure AD, mas ainda não verificado. Se você prosseguir com a sincronização dos usuários sem verificar o domínio, os usuários serão atribuídos a um novo UPN pelo Azure AD, exatamente como no cenário “Não adicionado”.|
 | Verificado | Nesse caso, temos um domínio personalizado contoso.com já adicionado e verificado no Azure AD para o sufixo UPN. Os usuários poderão usar o nome UPN local, por exemplo, user@contoso.com, para entrar no Azure depois de serem sincronizados com o Azure AD|
 
@@ -118,7 +118,7 @@ Se você selecionou a opção entrada Usuário como "Federação com o AD FS", d
 
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
 |:-------------:|:----------------------------------------|
-| Não adicionado | Nesse caso, o Azure AD Connect não pode localizar um domínio personalizado para o sufixo UPN contoso.com correspondente no diretório do Azure AD. Você precisará adicionar um domínio personalizado contoso.com se precisar que os usuários entrem usando o AD FS com seus UPNS locais, como user@contoso.com.|
+| Não adicionado | Nesse caso, o Azure AD Connect não pode localizar um domínio personalizado para o sufixo UPN contoso.com correspondente no diretório do Azure AD. Você precisará adicionar um domínio personalizado contoso.com se precisar que os usuários entrem usando o AD FS com seus UPNs locais, como user@contoso.com.|
 | Não verificado | Nesse caso, o Azure AD Connect avisará os detalhes adequados sobe como verificar seu domínio em um estágio posterior|
 | Verificado | Nesse caso, prossiga com a configuração sem qualquer ação adicional|  
 
@@ -136,11 +136,11 @@ Na página **Entrada do usuário**, selecione **Sincronização de Senha**. Isso
 
 ![Conecte-se ao AD do Azure](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
->[AZURE.NOTE] Se você estiver fazendo apenas uma chave temporária para a sincronização de senha, marque **Não converter contas de usuário**. Não marcar a opção levará à conversão de cada usuário federado, o que pode demorar
+>[AZURE.NOTE] Se você estiver fazendo apenas uma chave temporária para a sincronização de senha, marque **Não converter contas de usuário**. Não marcar a opção levará à conversão de cada usuário federado, o que pode demorar várias horas.
   
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
 Saiba mais sobre [Azure AD Connect: conceitos de design](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

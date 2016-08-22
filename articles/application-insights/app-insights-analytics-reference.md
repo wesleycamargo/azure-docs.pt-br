@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Referência da Análise
@@ -105,7 +105,7 @@ A cláusula set define uma opção para a duração da consulta. As opções de 
     set OptionName [= OptionValue] ; query
 
 
-|Nome | Implicação se definido como verdadeiro
+|Name | Implicação se definido como verdadeiro
 |---|---
 |querytrace| Aumenta o nível de rastreamentos de depuração gerados por uma consulta. 
 |noexecute| Desabilita a execução real da consulta (apenas a fase de planejamento da consulta é executada). 
@@ -1684,17 +1684,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -1736,7 +1726,7 @@ O múltiplo mais próximo de *roundTo* abaixo de *value*.
 
 **Exemplos**
 
-Expressão | Resultado
+Expressão | Result
 ---|---
 `bin(4.5, 1)` | `4.0`
 `bin(time(16d), 7d)` | `14d`
@@ -1858,7 +1848,7 @@ A função da raiz quadrada.
 
 ### Expressões de data e hora
 
-Expressão |Resultado
+Expressão |Result
 ---|---
 `datetime("2015-01-02") - datetime("2015-01-01")`| `1d`
 `datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
@@ -2124,16 +2114,18 @@ Operador|Descrição|Diferencia maiúsculas de minúsculas|Exemplo verdadeiro
 `!~`|Diferente de |Não| `"aBc" !~ "xyz"`
 `has`|O lado direito (RHS) é um termo completo no lado esquerdo (LHS)|Não| `"North America" has "america"`
 `!has`|RHS não é um termo completo no LHS|Não|`"North America" !has "amer"` 
-`hasprefix`|RHS é um prefixo de termo no LHS|Não|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS não é um prefixo de termo no LHS|Não|`"North America" !hasprefix "mer"`
-`contains` | RHS ocorre como uma subsequência do LHS|Não| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS é um prefixo de um termo na LHS|Não|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS não é um prefixo de um termo na LHS|Não|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS é um sufixo de um termo na LHS|Não|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS não é um sufixo de um termo na LHS|Não|`"North America" !hassuffix "mer"`
+`contains` | RHS ocorre como uma subcadeia de caracteres do LHS|Não| `"FabriKam" contains "BRik"`
 `!contains`| RHS não ocorre no LHS|Não| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS ocorre como uma subsequência do LHS|Sim| `"FabriKam" contains "Kam"`
+`containscs` | RHS ocorre como uma subcadeia de caracteres do LHS|Sim| `"FabriKam" contains "Kam"`
 `!containscs`| RHS não ocorre no LHS|Sim| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS é uma subsequência inicial do LHS.|Não|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS não é uma subsequência inicial do LHS.|Não|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS é uma subsequência terminal do LHS.|Não|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS não é uma subsequência terminal do LHS.|Não|`"Fabrikam" !endswith "ka"`
+`startswith`|RHS é uma subcadeia de caracteres inicial do LHS.|Não|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS não é uma subcadeia de caracteres inicial do LHS.|Não|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS é uma subcadeia de caracteres terminal do LHS.|Não|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS não é uma subcadeia de caracteres terminal do LHS.|Não|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contém uma correspondência para o RHS|Sim| `"Fabrikam" matches regex "b.*k"`
 `in`|Igual a qualquer um dos elementos|Sim|`"abc" in ("123", "345", "abc")`
 `!in`|Diferente de qualquer um dos elementos|Sim|`"bc" !in ("123", "345", "abc")`
@@ -2508,7 +2500,7 @@ T
 |[`range(`from,to,step`)`](#range)| Uma matriz de valores
 |[`mvexpand` listColumn](#mvexpand-operator) | Replica uma linha para cada valor em uma lista em uma célula especificada.
 |[`summarize buildschema(`column`)`](#buildschema) |Infere o esquema de tipo a partir do conteúdo da coluna
-|[`summarize makelist(`column`)` ](#makelist)| Mescla os grupos de linhas e coloca os valores da coluna em uma matriz.
+|[`summarize makelist(`column`)`](#makelist)| Mescla os grupos de linhas e coloca os valores da coluna em uma matriz.
 |[`summarize makeset(`column`)`](#makeset) | Mescla os grupos de linhas e coloca os valores da coluna em uma matriz, sem duplicação.
 
 ### Objetos dinâmicos em cláusulas let
@@ -2722,4 +2714,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

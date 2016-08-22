@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -44,11 +44,11 @@ Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar. 
 
 Como você usa a autenticação multifator|Descrição
 :------------- | :------------- | 
-<a href="#Office">Eu a uso com o Office 365</a> | Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
-<a href="#Microsoft">Não sei</a>|Isso significa que você desejará criar senhas de aplicativo por meio de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-<a href="#vai">Eu a uso com o Microsoft Azure</a> | Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
+[Eu a uso com o Office 365](#creating-and-deleting-app-passwords-with-office-365)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
+[Não sei](#creating-and-deleting-app-passwords-with-myapps-portal)|Isso significa que você desejará criar senhas de aplicativo por meio de [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[Eu a uso com o Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
 
-<h2 id="Office">Eu a uso com o Office 365</h2> 
+## Criação e exclusão de senhas de aplicativo com o Office 365 
 
 Se você usar uma multi-factor authentication com o Office 365, talvez seja conveniente criar e excluir senhas de aplicativo por meio do portal do Office 365.
 
@@ -81,13 +81,13 @@ Se você usar uma multi-factor authentication com o Office 365, talvez seja conv
 9. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Microsoft">Eu a uso com o Microsoft Azure</h2>
+## Criação e exclusão de senhas de aplicativo com portal do Myapps.
 Se você não tiver certeza de como usar a multi-factor authentication, você sempre pode criar e excluir senhas de aplicativo por meio do portal do Myapps.
 
 ### Para criar uma senha de aplicativo usando o portal do Myapps
 
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)	
-2. Na parte superior, selecione perfil.
+1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. Na parte superior, selecione Perfil.
 3. Selecione verificação de Segurança Adicional.![Nuvem](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Isso levará você à página que permitirá que altere suas configurações. ![Configuração](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 5. Na parte superior, ao lado de verificação de segurança adicional, clique em **senhas de aplicativo.**
@@ -97,8 +97,8 @@ Se você não tiver certeza de como usar a multi-factor authentication, você se
 
 ### Para excluir uma senha de aplicativo usando o portal do Myapps
 
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)	
-2. Na parte superior, selecione perfil.
+1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. Na parte superior, selecione Perfil.
 3. Selecione verificação de Segurança Adicional.![Nuvem](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Isso levará você à página que permitirá que altere suas configurações. ![Configuração](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 5. Na parte superior, ao lado de verificação de segurança adicional, clique em **senhas de aplicativo.**
@@ -107,7 +107,7 @@ Se você não tiver certeza de como usar a multi-factor authentication, você se
 8. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="vai">Crie senhas de aplicativo no portal do Azure</h2>
+## Crie senhas de aplicativo no portal do Azure
 
 Se você usar uma autenticação multifator com o Azure, talvez seja conveniente criar senhas de aplicativo por meio do portal do Azure.
 
@@ -129,4 +129,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 5. Confirme a exclusão clicando em **sim**.
 6. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

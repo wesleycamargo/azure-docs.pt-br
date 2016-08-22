@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="SDK do Python para o Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba tudo sobre o SDK do Python, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Python para o Banco de Dados de Documentos." 
+	pageTitle="SDK e API do Python para o Banco de Dados de Documentos | Microsoft Azure" 
+	description="Saiba tudo sobre o SDK e a API do Python, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Python para o Banco de Dados de Documentos." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# SDK do Banco de Dados de Documentos
+# SDKs e APIs de Banco de Dados de Documentos
 
 > [AZURE.SELECTOR]
-- [SDK .NET](documentdb-sdk-dotnet.md)
-- [SDK do Node.js](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [SDK do Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##SDK do Python para o Banco de Dados de Documentos
+## SDK e API do Python para o Banco de Dados de Documentos
 
 <table>
-<tr><td>**Baixar**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**Colaborar**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**Documentação**</td><td>[Documentação de referência do SDK do Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
-<tr><td>**Guia de introdução**</td><td>[Introdução ao SDK do Python](documentdb-python-application.md)</td></tr>
+<tr><td>***Baixe o SDK***</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API do Python] (http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do SDK do Python] (http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao SDK do Python](documentdb-python-application.md)</td></tr>
 <tr><td>**Plataforma atual com suporte**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
@@ -53,7 +56,7 @@
 - Correções de bugs relacionadas ao particionamento no lado do servidor a fim de permitir caracteres especiais no caminho de partitionkey.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- [Coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md) implementados.
+- Implementação de [coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md).
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Adicionar resolvedores de hash e intervalo para ajudar com a fragmentação de arquivos em várias partições.
@@ -81,7 +84,7 @@ A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desati
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
-As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto serão rejeitadas pelo serviço.
+Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsoleto será rejeitada pelo serviço.
 
 > [AZURE.WARNING]
 Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
@@ -90,29 +93,13 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python an
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 7 de julho de 2016 |---
-| [1\.8.0](#1.8.0) | 14 de junho de 2016 |---
-| [1\.7.0](#1.7.0) | 26 de abril de 2016 |---
-| [1\.6.1](#1.6.1) | 8 de abril de 2016 |---*
-| [1\.6.0](#1.6.0) | 29 de março de 2016 |---
-| [1\.5.0](#1.5.0) | 3 de janeiro de 2016 |---
-| [1\.4.2](#1.4.2) | 6 de outubro de 2015 |---
-| [1\.4.1](#1.4.1) | 6 de outubro de 2015 |---
-| [1\.2.0](#1.2.0) | 6 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 9 de julho de 2015 |---
-| [1\.0.1](#1.0.1) | 25 de maio de 2015 |---
-| [1\.0.0](#1.0.0) | 7 de abril de 2015 |---
-| 0.9.4-pré-concessão | 14 de janeiro de 2015 | 29 de fevereiro de 2016
-| 0.9.3-pré-concessão | 9 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.2-pré-concessão | 25 de novembro de 2014 | 29 de fevereiro de 2016
-| 0.9.1-pré-concessão | 23 de setembro de 2014 | 29 de fevereiro de 2016
-| 0.9.0-pré-concessão | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.9.0](#1.9.0) | 7 de julho de 2016 |--- | [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- | [1\.6.1](#1.6.1) | 8 de abril de 2016 |--- | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- | [1\.5.0](#1.5.0) | 3 de janeiro de 2016 |--- | [1\.4.2](#1.4.2) | 6 de outubro de 2015 |--- | [1\.4.1](#1.4.1) | 6 de outubro de 2015 |--- | [1\.2.0](#1.2.0) | 6 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- | [1\.0.1](#1.0.1) | 25 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 7 de abril de 2015 |--- | 0.9.4-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.3-prelease | 9 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.2-prelease | 25 de novembro de 2014 | 29 de fevereiro de 2016 | 0.9.1-prelease | 23 de setembro de 2014 | 29 de fevereiro de 2016 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## Consulte também
+## Confira também
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

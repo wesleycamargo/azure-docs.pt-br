@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/08/2016"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -123,28 +123,27 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 |---|---|---|---|
 | Imagem de máquina virtual | Não | Sim | Não|
 | Serviço do desenvolvedor | Sim | Sim | Sim |
-| Serviço de dados | Sim | Não | Não |
 
 ### 2\.1. Definir seus preços da VM
-No momento, para máquinas virtuais, temos **estes 3 tipos de modelos de cobrança:**
+No momento, para as máquinas virtuais, temos os ** três tipos de modelos de cobrança a seguir:**
 
-- **Por hora:** os clientes são cobrados por hora com base nas taxas de definidas pelos editores para os tamanhos de VM. No caso do modelo de **cobrança por hora** dos SKUs, o preço total será a soma do custo do software cobrado pelo editor com o custo de infraestrutura cobrado pela Microsoft. Esse custo total será exibido para o cliente como um preço por hora e mensal quando ele estiver considerando a compra (consulte a captura de tela abaixo). **O editor recebe 80% do custo de software cobrado.** Portanto, faça o cálculo adequadamente antes de definir preços para seus SKUs.
+- **Por hora:** os clientes são cobrados por hora com base nas taxas definidas pelos editores nos tamanhos da VM. No caso do modelo de **cobrança por hora** dos SKUs, o preço total será a soma do custo do software cobrado pelo editor e do custo da infraestrutura cobrado pela Microsoft. Esse custo total será exibido para o cliente como um preço por hora e mensal quando ele estiver considerando a compra (consulte a captura de tela abaixo). **O editor recebe 80% do custo de software cobrado.** Portanto, faça o cálculo adequadamente antes de definir preços para seus SKUs.
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
-- **Avaliação gratuita:** esse é outro tipo de modelo de cobrança por hora. Nesse modelo, o cliente não é cobrado o custo do software pelos primeiros 30 dias (gratuitamente) após implantar a VM. Após os 30 dias, o cliente será cobrado por hora com base nas taxas de definidas pelos editores no modelo por hora.
-- **Traga sua própria licença (BYOL):** os editores gerenciam o licenciamento do software executado na VM.
+- **Avaliação Gratuita:** este é outro tipo de modelo Por hora. Nesse modelo, o cliente não é cobrado o custo do software pelos primeiros 30 dias (gratuitamente) após implantar a VM. Após os 30 dias, o cliente será cobrado por hora com base nas taxas de definidas pelos editores no modelo por hora.
+- **Traga Sua Própria Licença (BYOL):** os editores gerenciam o licenciamento do software executado na VM.
 
-**Importante:** depois que uma oferta/SKU for listada no Azure Marketplace, você não poderá alterar os campos apresentados abaixo.
+**Importante:** depois da oferta/SKU ser listado no Azure Marketplace, você não poderá alterar os campos apresentados abaixo.
 
 - **Alteração de preços de SKUs listados**
 - **Modelos de cobrança de SKUs listados**
 - **Remoção de regiões de cobrança de SKUs listados**
 - **Alteração da contagem de discos de dados dos SKUs listados**
-- **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> selecione sua Oferta -> Imagens de VM -> Identificador da Oferta]
-- **Identificador da SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar uma SKU]
-- **Namespace do Editor:** [portal de Publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (encontrado em "Etapa 2 Registrar") -> Namespace do Editor -> Namespace]
-- **Portas:** [portal de Publicação -> Máquinas Virtuais -> sua Oferta -> guia Imagens de VM -> Abrir Portas]
+- **Identificador da Oferta:** [Portal de publicação -> Máquinas Virtuais -> selecione sua Oferta -> Imagens da VM -> Identificador da Oferta]
+- **Identificador do SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar um SKU]
+- **Namespace do Editor:** [Portal de publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (Encontrado na Etapa 2 Registrar) -> Namespace do Editor -> Namespace]
+- **Portas:** [Portal de publicação -> Máquinas Virtuais -> sua Oferta -> guia Imagens da VM -> Abrir Portas]
 
 ### Países de venda da SKU
 Você precisa considerar com atenção onde você pretende disponibilizar suas SKUs. Alguns países são classificados como "Remessa da Microsoft" e outros são classificados como "Remessa do ISV".
@@ -152,15 +151,15 @@ Você precisa considerar com atenção onde você pretende disponibilizar suas S
 - Em países de "Remessa da Microsoft", a Microsoft coleta os impostos dos clientes e os paga (por remessa) ao governo.
 - Em países de "Remessa do ISV", os parceiros são responsáveis por coletar os impostos dos clientes e pagá-los ao governo. Se optar por vender em países de "Remessa do ISV", você deve poder calcular e pagar impostos nos países selecionados.
 
->[AZURE.NOTE] O SKU não será disponibilizado nos países a menos que você defina seus preços no [portal de Publicação](https://publish.windowsazure.com). Abaixo são fornecidas orientações para definir os preços por hora e de BYOL dos SKUs.
+>[AZURE.NOTE] O SKU não será disponibilizado nos países a menos que você defina seus preços no [Portal de publicação](https://publish.windowsazure.com). Abaixo são fornecidas orientações para definir os preços por hora e de BYOL dos SKUs.
 
 ### 2\.1.1 Como configurar o modelo de preços por hora para uma SKU
 Siga as etapas abaixo para configurar o modelo de preços por hora para uma SKU:
 
-1.	Faça logon no [portal de Publicação](https://publish.windowsazure.com).
+1.	Faça logon no [Portal de publicação](https://publish.windowsazure.com).
 2.	Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
 3.	No menu do lado esquerdo, clique na guia **SKUs**.
-4.	Certifique-se de que a SKU esteja marcada como "Modelo de Cobrança por Hora". Se não estiver, clique no botão **EDITAR** para reverter o modelo de cobrança. Uma janela será aberta. Desmarque a caixa de seleção "A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)" e salve as alterações.
+4.	Certifique-se de que a SKU esteja marcada como "Modelo de Cobrança por Hora". Se não estiver, clique no botão **Editar** para reverter o modelo de cobrança. Uma janela será aberta. Desmarque a caixa de seleção "A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)" e salve as alterações.
 5.	Se quiser habilitar a avaliação gratuita pelos primeiros 30 dias da implantação da SKU, selecione a opção "Um Mês" para a pergunta "Há uma avaliação gratuita disponível?" Caso contrário, selecione a opção "Sem Avaliação". Agora, siga as etapas abaixo.
 6.	No menu do lado esquerdo, clique na guia **PREÇOS**.
 7.	Selecione sua região de base.
@@ -171,7 +170,7 @@ Siga as etapas abaixo para configurar o modelo de preços por hora para uma SKU:
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
 
-9.	Defina os preços para as outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para definir os preços de outras regiões de acordo com a região de base. Para usar esse assistente, clique no botão **DEFINIR PREÇOS PARA OUTROS MERCADOS AUTOMATICAMENTE COM BASE NOS PREÇOS DOS ESTADOS UNIDOS.** **Observação:** o rótulo do botão pode ser diferente dependendo da região selecionada. Como nós selecionamos Estados Unidos durante a criação desse documento, o botão está rotulado como "Definir preços para outros mercados automaticamente com base nos preços dos Estados Unidos" na captura de tela abaixo.
+9.	Defina os preços para as outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para definir os preços de outras regiões de acordo com a região de base. Para usar o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS, clique no botão **DEFINIR PREÇOS PARA OUTROS MERCADOS AUTOMATICAMENTE COM BASE NOS PREÇOS DOS ESTADOS UNIDOS.** **Observação:** o rótulo do botão pode ser diferente dependendo da região selecionada. Como nós selecionamos Estados Unidos durante a criação desse documento, o botão está rotulado como "Definir preços para outros mercados automaticamente com base nos preços dos Estados Unidos" na captura de tela abaixo.
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 
@@ -179,11 +178,11 @@ Siga as etapas abaixo para configurar o modelo de preços por hora para uma SKU:
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
 
-11.	A opção para selecionar os núcleos e planos será exibida na página 2. Selecione os planos desejados e clique no botão "->". Clique no botão **Ativar/Desativar Tudo** para selecionar todos os **Planos de serviço** e **Medidores** ou marcar manualmente as caixas de seleção. **Você deve fornecer o preço para todos os núcleos de uma SKU mesmo que a SKU não ofereça suporte a ele.** Portanto, certifique-se de que todos os tamanhos de núcleo estejam selecionados.
+11.	A opção para selecionar os núcleos e planos será exibida na página 2. Selecione os planos desejados e clique no botão "->". Clique no botão **Ativar/Desativar Tudo** para selecionar todos os **Planos de serviço** e **Medidores** ou você pode marcar manualmente as caixas de seleção. **Você deve fornecer o preço para todos os núcleos de uma SKU mesmo que a SKU não ofereça suporte a ele.** Portanto, certifique-se de que todos os tamanhos de núcleo estejam selecionados.
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 
-12.	A página 3 exibe os mercados/as regiões. Clique no botão **Ativar/Desativar Tudo** para selecionar todas as regiões ou marque as caixas das regiões manualmente. Clique no botão "->" para passar para a próxima página. **Observação:** os países de remessa de impostos da Microsoft são indicados por um símbolo semelhante a uma casa. Para obter mais detalhes, consulte a seção de países de venda da SKU nesta página.
+12.	A página 3 exibe os mercados/as regiões. Clique no botão **Ativar/Desativar Tudo** para selecionar todas as regiões ou marque as caixas das regiões manualmente. Clique no botão "->" para passar para a próxima página. **Observação:** os Países de Remessa de Impostos da Microsoft são indicados por um símbolo semelhante a uma casa. Para obter mais detalhes, consulte a seção de países de venda da SKU nesta página.
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 
@@ -204,7 +203,7 @@ Siga as etapas abaixo para configurar o modelo de preços BYOL para uma SKU:
 
     ![desenho](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
 
-7.	Disponibilize a SKU nas outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para essa finalidade. Consulte os tópicos 9 a 13 (que explica o uso do assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS) na seção **"2.1.1 Como configurar o modelo de preços por hora para uma SKU"** nesta página.
+7.	Disponibilize a SKU nas outras regiões manualmente ou use o assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS para essa finalidade. Consulte os pontos 9 a 13 (que explicam o uso do assistente de DEFINIÇÃO AUTOMÁTICA DE PREÇOS) na seção **"2.1.1 Como configurar o modelo de preços por hora para um SKU"** desta página.
 
 ### 2\.2. Definir seus Preços de serviço do desenvolvedor
 Os planos podem ser qualquer combinação de base + consumo, em que a base é o preço mensal e o excedente é o preço de pagamento por uso. (Consulte a seguir para obter mais detalhes.)
@@ -233,7 +232,7 @@ Os detalhes de contato são usados apenas para comunicações internas entre o p
 A guia **Categorias** fornece uma matriz de seleções. Sua oferta pode estar entre elas e você pode selecionar até cinco categorias.
 
 ## Como seu marketing aparecerá
-Veja abaixo uma exibição detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [Portal do Azure](https://portal.azure.com).
+Abaixo está uma exibição detalhada de como a oferta das informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [portal do Azure](https://portal.azure.com).
 
 ### Site do Azure Marketplace
 ![desenho](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -278,4 +277,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

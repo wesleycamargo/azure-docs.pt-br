@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="08/02/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,15 +23,15 @@
 - [Portal do Azure](cloud-services-how-to-manage-portal.md)
 - [Portal clássico do Azure](cloud-services-how-to-manage.md)
 
+O serviço de nuvem é gerenciado na área **Serviços de Nuvem (clássico)** do portal do Azure. Este artigo descreve algumas ações comuns necessárias ao gerenciamento dos serviços de nuvem. Que inclui a atualização, a exclusão, o dimensionamento e a promoção de uma implantação de teste para produção.
 
-Na área **Serviços de Nuvem** do portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
-
+Obtenha mais informações sobre como dimensionar seu serviço de nuvem [aqui](cloud-services-how-to-scale-portal.md).
 
 ## Como atualizar uma função ou implantação de Serviço de Nuvem
 
-Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem, use **Atualizar** na folha do serviço de nuvem. Você pode atualizar única função ou todas as funções. Você precisará carregar um novo pacote de serviços e o arquivo de configuração do serviço.
+Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem, use **Atualizar** na folha do serviço de nuvem. Você pode atualizar única função ou todas as funções. Para atualizar, você pode carregar um novo pacote de serviços ou o arquivo de configuração do serviço.
 
-1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique no botão **Atualizar**.
 
@@ -43,11 +43,11 @@ Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem
 
 4. **Como opção**, atualize o rótulo de implantação e a conta de armazenamento.
 
-5. Se alguma das funções de serviço tiver uma instância de função, selecione **Implantar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
+5. Se alguma das funções tiver uma instância de função, selecione **Implantar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
 
-	O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada.
+	O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Com duas instâncias de função, uma máquina virtual processará as solicitações do cliente enquanto a outra é atualizada.
 
-6. Marque a opção **Iniciar implantação** se você quiser que a atualização seja aplicada após terminar o upload do pacote.
+6. Marque a opção **Iniciar implantação** para que a atualização seja aplicada após terminar o upload do pacote.
 
 7. Clique em **OK** para iniciar a atualização do serviço.
 
@@ -55,11 +55,11 @@ Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem
 
 ## Como permutar implantações para promover a implantação de preparo para produção
 
-Use **Permutar** para promover uma implantação de preparo de um Serviço de Nuvem para produção. Ao optar por implantar uma nova versão do serviço de nuvem, você pode preparar e testar a nova versão em seu ambiente de preparo do serviço em nuvem enquanto os clientes estão usando a versão atual em produção. Quando estiver pronto para promover a nova versão para produção, você poderá usar **Permutar** para alternar as URLs pelas quais as duas implantações são endereçadas.
+Ao optar por implantar uma nova versão do serviço de nuvem, prepare e teste a nova versão em seu ambiente de preparo. Use **Permutar** para alternar as URLs pelas quais as duas implantações são endereçadas e para promover uma nova versão para produção.
 
 É possível permutar implantações na página **Serviços de Nuvem** ou no painel.
 
-1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique o botão **Trocar**.
 
@@ -73,21 +73,21 @@ Use **Permutar** para promover uma implantação de preparo de um Serviço de Nu
 
 	A permuta da implantação acontece rapidamente pois a única coisa alterada são os endereços IP virtuais (VIP) para as implantações.
 
-	Para economizar custos de computação, você pode excluir a implantação no ambiente de preparo quando tiver certeza que a nova implantação de produção está funcionado como o esperado.
+	Para economizar custos de computação, você pode excluir a implantação de preparo após verificar que sua implantação de produção está funcionando conforme o esperado.
 
 ## Como vincular um recurso a um Serviço de Nuvem
 
-O portal do Azure não vinculada recursos como o portal clássico do Azure atual. Em vez disso, você deve implantar recursos adicionais para o mesmo grupo de recursos que está sendo usado pelo Serviço de Nuvem.
+O portal do Azure não vinculada recursos como o portal clássico do Azure atual. Em vez disso, implante recursos adicionais para o mesmo grupo de recursos que está sendo usado pelo Serviço de Nuvem.
 
 ## Como excluir implantações e um Serviço de Nuvem
 
 Antes de poder excluir um serviço de nuvem, você deve excluir cada implantação existente.
 
-Para economizar custos de computação, você pode excluir a implantação de preparo após verificar que sua implantação de produção está funcionando conforme o esperado. Você é cobrado pelos custos de computação das instâncias de função mesmo que um Serviço de Nuvem não esteja em execução.
+Para economizar custos de computação, você pode excluir a implantação de preparo após verificar que sua implantação de produção está funcionando conforme o esperado. Você será cobrado por custos de computação de instâncias de função implantadas que estejam paradas.
 
 Use o procedimento a seguir para excluir uma implantação ou seu serviço de nuvem.
 
-1. No [portal do Azure][], selecione o serviço de nuvem que você deseja excluir. Isso abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][], selecione o serviço de nuvem que você deseja excluir. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, clique no botão **Excluir**.
 
@@ -102,7 +102,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 5. Para excluir o Serviço de Nuvem, clique em **Excluir o Serviço de Nuvem**. Em seguida, clique em **Sim** no prompt de confirmação.
 
 > [AZURE.NOTE]
-Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o Azure não exclui os dados de monitoramento de sua conta de armazenamento quando você exclui o serviço de nuvem. Você precisará excluir manualmente os dados. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
+Quando um serviço de nuvem for excluído, e o monitoramento detalhado estiver configurado, você deverá excluir manualmente os dados de sua conta de armazenamento. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
 
 [portal do Azure]: https://portal.azure.com
 
@@ -113,4 +113,4 @@ Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o A
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

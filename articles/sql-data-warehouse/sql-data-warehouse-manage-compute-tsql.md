@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)
@@ -45,7 +45,7 @@ Para exibir as configurações atuais de DWU para seus bancos de dados:
 
 1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio 2015.
 2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
-2. Selecione do modo de exibição de gerenciamento dinâmico sys.database\_service\_objectives. Aqui está um exemplo: 
+2. Selecione do modo de exibição de gerenciamento dinâmico sys.database\_service\_objectives. Aqui está um exemplo:
 
 ```
 SELECT
@@ -67,7 +67,7 @@ Para alterar as DWUs:
 
 
 1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
-2. Use a declaração TSQL [ALTER DATABASE][]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
+2. Use a declaração TSQL [ALTER DATABASE][]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -97,4 +97,4 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][]
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

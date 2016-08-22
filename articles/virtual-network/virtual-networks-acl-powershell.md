@@ -3,7 +3,7 @@
    description="Saiba como gerenciar ACLs com o PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Como gerenciar listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell
 
@@ -95,4 +95,4 @@ Em determinados cenários, você talvez queira remover um objeto de ACL de rede 
 
 [O que é uma lista de controle de acesso (ACL) de rede?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

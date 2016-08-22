@@ -3,7 +3,7 @@
    description="Saiba como implantar VMs com um IP público estático usando a CLI do Azure no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Implantar uma VM com um IP público estático usando a CLI do Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -136,7 +136,7 @@ Agora que todos os recursos necessários estão prontos, você pode criar uma no
 
 2. Salve o arquivo de script.
 
-## Etapa 4: executar o script
+## Etapa 4 – Executar o script
 
 Depois de fazer quaisquer alterações necessárias e de compreender o script mostrado acima, execute o script.
 
@@ -227,4 +227,4 @@ Depois de fazer quaisquer alterações necessárias e de compreender o script mo
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

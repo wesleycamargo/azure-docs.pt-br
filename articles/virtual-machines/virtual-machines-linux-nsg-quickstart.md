@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Abertura de pontos de extremidade e de portas
-No Azure, você abre uma porta ou cria um ponto de extremidade criando um filtro de rede que permite o tráfego na porta escolhida por você em uma sub-rede ou interface de rede de máquina virtual (VM). Esses filtros, que controlam o tráfego de entrada e saída, são colocados em um Grupo de Segurança de Rede e anexados ao recurso que receberá o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80.
+No Azure, você abre uma porta ou cria um ponto de extremidade criando um filtro de rede que permite o tráfego na porta escolhida por você em uma sub-rede ou interface de rede de máquina virtual (VM). Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80.
 
 ## Comandos rápidos
-Para criar regras e um Grupo de Segurança de Rede, você precisará da [CLI do Azure](../xplat-cli-install.md) no modo do resource manager (`azure config mode arm`).
+Para criar regras e um Grupo de Segurança de Rede, você precisa da [CLI do Azure](../xplat-cli-install.md) no modo Resource Manager (`azure config mode arm`).
 
 Crie o Grupo de Segurança de Rede da seguinte forma, inserindo seus próprios nomes e localização adequadamente:
 
@@ -28,7 +28,7 @@ Crie o Grupo de Segurança de Rede da seguinte forma, inserindo seus próprios n
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
 ```
 
-Adicione uma regra para permitir o tráfego HTTP para seu servidor Web (isso pode ser ajustado para seu cenário, como conectividade de banco de dados ou acesso SSH):
+Adicione uma regra para permitir o tráfego HTTP para seu servidor Web (ou ajuste para seu próprio cenário, como conectividade de banco de dados ou acesso SSH):
 
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -48,9 +48,9 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 ```
 
 ## Mais informações sobre os Grupos de Segurança de Rede
-Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos seus recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
 
-Os Grupos de Segurança de Rede e as regras ACL também podem ser definidos como parte dos modelos do Azure Resource Manager. Leia mais sobre a [criação de Grupos de Segurança de Rede com modelos](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Você pode definir Grupos de Segurança de Rede e regras de ACL como parte dos modelos do Azure Resource Manager. Leia mais sobre a [criação de Grupos de Segurança de Rede com modelos](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 Se você precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, será necessário usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
@@ -61,4 +61,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 - [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
 - [Visão geral do Azure Resource Manager para balanceadores de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

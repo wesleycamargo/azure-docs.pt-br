@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/10/2016"
 	ms.author="adegeo"/>
 
 # Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
@@ -34,9 +34,9 @@ Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para o
 <p/>
 
 > [AZURE.TIP]
-Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](http://support.microsoft.com/kb/2990804)! Ele acelera a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure ou Sites do Azure.
+Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](http://support.microsoft.com/kb/2990804)! Ele torna rápido a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure.
 
-## Entender os registros CNAME e A
+## Entenda os registros CNAME e A
 
 Os registros CNAME (ou registros de alias) e A permitem que você associe um nome de domínio a um servidor específico (ou serviço neste caso), de qualquer forma, cada um deles funciona de modo diferente. Quando você usa registros com serviços de nuvem do Azure, precisa fazer algumas considerações específicas antes de decidir qual deles usar.
 
@@ -49,7 +49,7 @@ Alguns registradores de domínio só permitem mapear subdomínios ao usar um reg
 
 ### Registro A
 
-Um registro *A* mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como **\*.contoso.com**, para um endereço IP. No caso de um serviço de nuvem do Azure, o IP virtual do serviço. Portanto, o principal benefício de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um curinga, como \***.contoso.com**, que lidaria com as solicitações com vários subdomínios, como **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Um registro *A* mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como ***.contoso.com**, para um endereço IP. No caso de um serviço de nuvem do Azure, o IP virtual do serviço. Portanto, o principal benefício de um registro A em relação a um registro CNAME é que você pode ter uma entrada que usa um curinga, como **.contoso.com**, que lidaria com solicitações para vários subdomínios, como **mail.contoso.com**, **login.contoso.com**, ou **www.contoso.com**.
 
 > [AZURE.NOTE]
 Uma vez que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações ao endereço IP do seu serviço de nuvem. O endereço IP usado pelo seu serviço de nuvem é alocado na primeira vez que você implantar em um slot vazio (produção ou preparo.) Se você excluir a implantação para o slot, o endereço IP será liberado pelo Azure e quaisquer implantações futuras no slot poderão receber um novo endereço IP.
@@ -99,7 +99,7 @@ Um visitante de **www.contoso.com** nunca verá o host verdadeiro (contoso.cloud
 
 ## Adicionar um registro A ao seu domínio personalizado
 
-Para criar um registro, primeiro você deve encontrar o endereço IP do seu serviço de nuvem. Então, em seguida, adicione uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo seu registrador. Cada registrador tem um método semelhante, mas ligeiramente diferente para especificar um registro A, mas os conceitos são os mesmos.
+Para criar um registro, primeiro você deve encontrar o endereço IP do seu serviço em nuvem. Então, em seguida, adicione uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo seu registrador. Cada registrador tem um método semelhante, mas ligeiramente diferente para especificar um registro A, mas os conceitos são os mesmos.
 
 1. Use um dos seguintes métodos para obter o endereço IP do seu serviço de nuvem.
 
@@ -134,7 +134,7 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 | @ | 137\.135.70.239 |
 
 
-Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '\_\_*\_\_' como o subdomínio.
+Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
 
 >[AZURE.WARNING]
 Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejará usar um [endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
@@ -157,4 +157,4 @@ Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejar�
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->
