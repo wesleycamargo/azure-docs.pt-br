@@ -54,7 +54,7 @@ O aplicativo Azure Authenticator está disponível para [Windows Phone](http://w
 - Clique em Concluído.
 
 
-## Adicionando uma conta manualmente
+<h2 id="ptbr">Adicionando uma conta manualmente</h2>
 Se você deseja adicionar uma conta manualmente, selecione o botão Inserir conta manualmente.
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)

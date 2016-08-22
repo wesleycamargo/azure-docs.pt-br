@@ -132,7 +132,7 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a implantação:
 
 -   Quaisquer instâncias de função que ainda não foram atualizadas para a nova versão não serão atualizadas, porque essas instâncias já estão executando a versão de destino do serviço.
--   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
+-   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (\*.cspkg) do serviço ou do arquivo de configuração (\*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 

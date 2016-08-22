@@ -19,12 +19,12 @@
 # Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Gerenciador de Recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Clássico](vpn-gateway-point-to-site-create.md)
 
 Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. A conexão Ponto a Site é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
-As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
+Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do **Gerenciador de Recursos do Azure**. Caso você pretenda configurar a conexão Ponto a Site para uma rede virtual criada usando o Gerenciamento de Serviços (também conhecido como modelo de implantação clássico), confira [Configurar uma conexão VPN ponto a site para uma VNet](vpn-gateway-point-to-site-create.md).
 
 Este artigo se aplica a conexões de Gateway de VPN Ponto a Site para uma rede virtual criada usando o **Modelo de implantação do Resource Manager** (Service Management).
 
@@ -48,8 +48,8 @@ Para esta configuração, usaremos os seguintes valores:
 - Nome: **TestVNet**, usando os espaços de endereço **192.168.0.0/16** e **10.254.0.0/16**. Observe que você pode usar mais de um espaço de endereço para uma rede virtual.
 - Nome da sub-rede: **FrontEnd**, usando **192.168.1.0/24**
 - Nome da sub-rede: **BackEnd**, usando **10.254.1.0/24**
-- Nome da sub-rede: **GatewaySubnet**, usando **192.168.200.0/24**. O nome da Sub-rede *GatewaySubnet* é obrigatório para que o gateway funcione.
-- Pool de endereços do cliente do VPN: **172.16.201.0/24**. Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP desse pool.
+- Nome da sub-rede: **GatewaySubnet**, usando **192.168.200.0/24**. O nome da sub-rede *GatewaySubnet* obrigatório para o gateway funcionar. 
+- Pool de endereços de cliente VPN: **172.16.201.0/24**. Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP desse pool.
 - Assinatura: Verifique se é a assinatura correta, caso você tenha mais de uma.
 - Grupo de Recursos: **TestRG**
 - Local: **Leste dos EUA**

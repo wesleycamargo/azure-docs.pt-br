@@ -45,7 +45,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br>
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Moxtra da galeria
 2. configurar e testar o logon único do AD do Azure

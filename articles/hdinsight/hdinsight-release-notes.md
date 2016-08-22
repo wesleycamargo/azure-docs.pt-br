@@ -1512,8 +1512,8 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 
 **Portas:** as portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço do HDP (plataforma de dados Hortonworks) permitido está agora fora desse intervalo, para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados são conforme descrito a seguir:
 
- **HDInsight 1.6 (HDP 1.1)**<table border="1">
-<tr><th>Name</th><th>Valor</th></tr>
+ **HDInsight 1.6 (HDP 1.1)** <table border="1">
+<tr><th>Nome</th><th>Valor</th></tr>
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
 <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
@@ -1526,7 +1526,7 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 </table><br>
 
  **HDInsight 3.1 e 3.0 (HDP 2.1 e 2.0)** <table border="1">
-<tr><th>Name</th><th>Valor</th></tr>
+<tr><th>Nome</th><th>Valor</th></tr>
 <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
@@ -1637,7 +1637,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 
 
 ### Drivers
-O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
+O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correções de bug
