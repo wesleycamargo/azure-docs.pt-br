@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/08/2016"
 	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Recuperando dados de outro servidor DPM no cofre de backup
@@ -103,4 +103,4 @@ Para recuperar dados de outro servidor DPM:
 ## Próximas etapas:
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -53,6 +53,6 @@ Veja alguns exemplos de uso do PowerShell para gerenciar o Cofre da Chave:
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Cofre da Chave do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
 * Consulte o [Tutorial de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
-* Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
+* Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

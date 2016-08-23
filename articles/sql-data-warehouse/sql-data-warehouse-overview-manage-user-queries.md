@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Monitorar consultas de usuário no SQL Data Warehouse do Azure
@@ -34,18 +34,18 @@ Visão geral sobre considerações, melhores práticas e tarefas para monitorame
 
 ## Próximas etapas
 
-Para obter mais dicas de gerenciamento, acesse a [Visão geral do gerenciamento][].
+Para obter mais dicas de gerenciamento, acesse a [Visão geral de gerenciamento][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Encontrar consultas com execução longa]: ./sql-data-warehouse-manage-monitor.md
-[Gerenciamento de simultaneidade e carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
-[Visão geral do gerenciamento]: ./sql-data-warehouse-overview-manage.md
+[Encontrar consultas com execução longa]: sql-data-warehouse-manage-monitor.md
+[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md
+[Visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

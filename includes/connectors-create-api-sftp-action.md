@@ -10,14 +10,21 @@ Para configurar essa ação, você precisará fornecer as seguintes informaçõe
 
 Vamos começar adicionando a ação para extrair os arquivos se a condição definida anteriormente for avaliada como *True*.
 
-1. Selecione **Adicionar uma ação**. ![Imagem de condição de ação de SFTP 6](./media/connectors-create-api-sftp/condition-6.png)
-- Selecione a ação **SFTP - Extrair Pasta** ![Imagem de condição de ação de SFTP 7](./media/connectors-create-api-sftp/condition-7.png)
-- Selecione **Caminho do arquivo de origem** ![Imagem de condição de ação de SFTP 9](./media/connectors-create-api-sftp/condition-9.png)
-- Selecione o token **Caminho do arquivo**. Isso indica que você usará o caminho do arquivo que o gatilho encontrou como o caminho do arquivo de origem. ![Imagem de condição de ação de SFTP 10](./media/connectors-create-api-sftp/condition-10.png)
-- Selecione **Caminho da pasta de destino** ![Imagem de condição de ação de SFTP 11](./media/connectors-create-api-sftp/condition-11.png)
+1. Selecione **Adicionar uma ação**.  
+![Imagem de condição de ação de SFTP 6](./media/connectors-create-api-sftp/condition-6.png)  
+- Selecione a ação **SFTP - Extrair Pasta**  
+![Imagem de condição de ação de SFTP 7](./media/connectors-create-api-sftp/condition-7.png)  
+- Selecione **Caminho do arquivo de origem**  
+![Imagem de condição de ação de SFTP 9](./media/connectors-create-api-sftp/condition-9.png)  
+- Selecione o token **Caminho do arquivo**. Isso indica que você usará o caminho do arquivo que o gatilho encontrou como o caminho do arquivo de origem.  
+![Imagem de condição de ação de SFTP 10](./media/connectors-create-api-sftp/condition-10.png)  
+- Selecione **Caminho da pasta de destino**  
+![Imagem de condição de ação de SFTP 11](./media/connectors-create-api-sftp/condition-11.png)  
 - Selecione o token **Caminho do arquivo**. Isso indica que você usará o caminho do arquivo que o gatilho encontrou como o caminho de destino para os arquivos extraídos.
-- Digite *\\ExtractedFile* no controle **Caminho da pasta de destino**. Faça isso logo após o token do caminho do arquivo no controle Caminho de pasta de destino. ![Imagem de condição de ação de SFTP 12](./media/connectors-create-api-sftp/condition-12.png)
-- Digite *True* no controle **Substituir?* para indicar que os arquivos existentes deverão ser substituídos se tiverem o mesmo nome que os arquivos extraídos. ![Imagem de condição de ação de SFTP 13](./media/connectors-create-api-sftp/condition-13.png)
+- Digite *\\ExtractedFile* no controle **Caminho da pasta de destino**. Faça isso logo após o token do caminho do arquivo no controle Caminho de pasta de destino.  
+![Imagem de condição de ação de SFTP 12](./media/connectors-create-api-sftp/condition-12.png)  
+- Digite *True* no controle **Substituir?* para indicar que os arquivos existentes deverão ser substituídos se tiverem o mesmo nome que os arquivos extraídos.  
+![Imagem de condição de ação de SFTP 13](./media/connectors-create-api-sftp/condition-13.png)  
 - Salve as alterações no fluxo de trabalho
 
 <!---HONumber=AcomDC_0727_2016-->

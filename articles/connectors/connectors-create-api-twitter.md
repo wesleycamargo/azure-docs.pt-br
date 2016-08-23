@@ -42,8 +42,10 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 Neste exemplo, mostrarei como usar o gatilho **Quando um novo tweet é postado** para procurar #Seattle e, se #Seattle for encontrada, atualizar um arquivo no Dropbox com o texto do tweet. Em um exemplo corporativo, você pode pesquisar o nome da sua empresa e atualizar um banco de dados SQL com o texto do tweet.
 
-1. Digite *twitter* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Twitter – quando um novo tweet é postado** ![Imagem 1 do gatilho Twitter](./media/connectors-create-api-twitter/trigger-1.png)
-- Digite *#Seattle* no controle **Texto de Pesquisa** ![Imagem 2 do gatilho Twitter](./media/connectors-create-api-twitter/trigger-2.png)
+1. Digite *twitter* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Twitter – quando um novo tweet é postado**  
+![Imagem 1 do gatilho Twitter](./media/connectors-create-api-twitter/trigger-1.png)  
+- Digite *#Seattle* no controle **Texto de Pesquisa**  
+![Imagem 2 do gatilho Twitter](./media/connectors-create-api-twitter/trigger-2.png)  
 
 Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho.
 
@@ -52,14 +54,24 @@ Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará
 ## Adicione uma condição
 Uma vez que estamos interessados em tweets de usuários com mais de 50 usuários, uma condição que confirma o número de seguidores deve ser adicionada ao aplicativo lógico.
 
-1. Escolha **+ Nova etapa** para adicionar a ação que deseja tomar quando #Seattle for encontrada em um novo tweet ![Imagem 1 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1.png)
-- Escolha o link **Adicionar uma ação**. ![Imagem 1 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-1.png) Isso abre o controle **Condição**, onde é possível verificar condições como *é igual a*, *é menor que*, *é maior que*, *contém*, etc. ![Imagem 2 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-2.png)
-- Selecione o controle **Escolher um valor**. Nesse controle, é possível selecionar uma ou mais propriedades de quaisquer ações ou gatilhos anteriores como o valor cuja condição será avaliada como verdadeira ou falsa. ![Imagem 3 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-3.png)
-- Escolha **...** para expandir a lista de propriedades, de modo que você possa ver todas as propriedades que estão disponíveis. ![Imagem 4 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-4.png)
-- Escolha a propriedade **Contagem de seguidores**. ![Imagem 5 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-5.png)
-- Observe que a propriedade Contagem de seguidores agora está no controle de valor. ![Imagem 6 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-6.png)
-- Escolha **é maior que** na lista de operadores. ![Imagem 7 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-7.png)
-- Digite 50 como o operando para o operador *é maior que*. Agora a condição está adicionada. Salve seu trabalho usando o link **Salvar** no menu acima. ![Imagem 8 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)
+1. Escolha **+ Nova etapa** para adicionar a ação que deseja tomar quando #Seattle for encontrada em um novo tweet  
+![Imagem 1 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Escolha o link **Adicionar uma ação**.  
+![Imagem 1 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+Isso abre o controle **Condição**, onde é possível verificar condições como *é igual a*, *é menor que*, *é maior que*, *contém*, etc.  
+![Imagem 2 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- Selecione o controle **Escolher um valor**. Nesse controle, é possível selecionar uma ou mais propriedades de quaisquer ações ou gatilhos anteriores como o valor cuja condição será avaliada como verdadeira ou falsa.  
+![Imagem 3 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- Escolha **...** para expandir a lista de propriedades, de modo que você possa ver todas as propriedades que estão disponíveis.  
+![Imagem 4 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- Escolha a propriedade **Contagem de seguidores**.  
+![Imagem 5 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- Observe que a propriedade Contagem de seguidores agora está no controle de valor.  
+![Imagem 6 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- Escolha **é maior que** na lista de operadores.  
+![Imagem 7 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- Digite 50 como o operando para o operador *é maior que*. Agora a condição está adicionada. Salve seu trabalho usando o link **Salvar** no menu acima.  
+![Imagem 8 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
 ## Usar uma ação do Twitter
 
@@ -69,12 +81,16 @@ Agora que você adicionou um gatilho, siga estas etapas para adicionar uma açã
 
 Na próxima etapa, você adicionará uma ação do Twitter que postará um tweet usando algumas das propriedades de cada tweet que foi postado por um usuário com mais de 50 seguidores.
 
-1. Escolha **Adicionar uma ação**. Isso abre o controle de pesquisa, onde é possível procurar outros gatilhos e ações. ![Imagem 9 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-9.png)
-- Insira *twitter* na caixa de pesquisa e escolha a ação **Twitter – postar um tweet**. Isso abre o controle **Postar um tweet**, onde você vai inserir todos os detalhes para o tweet que está sendo postado. ![Imagem de 1 a 5 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)
-- Escolha o controle **Texto do tweet**. Todas as saídas de ações e gatilhos anteriores no aplicativo lógico agora estão visíveis. Você pode escolher qualquer um deles e usá-los como parte do texto do tweet do novo tweet. ![Imagem 2 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-2.png)
+1. Escolha **Adicionar uma ação**. Isso abre o controle de pesquisa, onde é possível procurar outros gatilhos e ações.  
+![Imagem 9 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- Insira *twitter* na caixa de pesquisa e escolha a ação **Twitter – postar um tweet**. Isso abre o controle **Postar um tweet**, onde você vai inserir todos os detalhes para o tweet que está sendo postado.  
+![Imagem de 1 a 5 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- Escolha o controle **Texto do tweet**. Todas as saídas de ações e gatilhos anteriores no aplicativo lógico agora estão visíveis. Você pode escolher qualquer um deles e usá-los como parte do texto do tweet do novo tweet.  
+![Imagem 2 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-2.png)  
 - Escolha **Nome de usuário**
 - Digite *diz:* no controle de texto do tweet. Faça isso logo após o Nome de usuário.
-- Escolha *Texto do tweet*. ![Imagem 3 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)
+- Escolha *Texto do tweet*.  
+![Imagem 3 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)  
 - Salve seu trabalho e envie um tweet com a hashtag #Seattle para ativar o fluxo de trabalho.
 
 ## Detalhes técnicos

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Acompanhar a integridade do serviço usando o Azure insights | Microsoft Azure"
+	pageTitle="Acompanhar a integridade do serviço usando o Azure Insights | Microsoft Azure"
 	description="Saiba quando o Azure sofreu interrupções de serviço ou degradação do desempenho. "
-	authors="stepsic-microsoft-com"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Controlar a integridade do serviço
 
@@ -24,9 +24,9 @@ O Azure publica sempre que há uma degradação no desempenho ou interrupção d
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. Em **Página Inicial** você deve ver um bloco chamado **Integridade do serviço** ![Home](./media/insights-service-health/Insights_Home.png)
+2. Em **Página Inicial** você deve ver um bloco chamado **Integridade do serviço** ![Página inicial](./media/insights-service-health/Insights_Home.png)
 
-3. Ao clicar nesse bloco uma lista com todas as regiões no Azure será exibida. Você pode clicar em qualquer região para ver o histórico de integridade do serviço para essa região. ![Home](./media/insights-service-health/Insights_Regions.png)
+3. Ao clicar nesse bloco uma lista com todas as regiões no Azure será exibida. Você pode clicar em qualquer região para ver o histórico de integridade do serviço para essa região. ![Página inicial](./media/insights-service-health/Insights_Regions.png)
 
 4. Você também pode ver os detalhes de um incidente individual clicando nele na tabela.
 
@@ -52,4 +52,4 @@ O Azure publica sempre que há uma degradação no desempenho ou interrupção d
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

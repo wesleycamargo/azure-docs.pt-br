@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Este tutorial usa o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
@@ -132,7 +132,7 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 <!--Article references-->
 [Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/
 [Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-load-sample-databases.md
+[carregar dados de exemplo manualmente]: sql-data-warehouse-load-sample-databases.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

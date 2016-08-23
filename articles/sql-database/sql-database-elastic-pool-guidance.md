@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/23/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@ Avalie se usar um Pool de Banco de Dados Elástico é econômico com base em pad
 
 - Para ter uma visão geral dos pools, consulte [Pools banco de dados elástico do Banco de Dados SQL](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] Pools elásticos estão disponíveis para o público geral (GA) em todas as regiões do Azure, exceto no Centro-Norte dos EUA, Índia Ocidental e Norte da China, onde ele está atualmente em preview. GA de pools elásticos nessas regiões serão fornecidos assim que possível.
+> [AZURE.NOTE] Os pools elásticos estão disponíveis para o público geral (GA) em todas as regiões do Azure, exceto no Centro-Norte dos EUA e na Índia Ocidental, onde atualmente estão no modo de visualização. GA de pools elásticos nessas regiões serão fornecidos assim que possível.
 
 ## Pools de banco de dados elástico
 
@@ -131,4 +131,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools. Banc
 - [Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço](sql-database-service-tiers.md)
 - [Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -163,4 +163,4 @@ Se tiver configurado o farm do AD FS e a relação de confiança do Azure AD usa
 
 Para obter mais informações, confira [Reparar a relação de confiança](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

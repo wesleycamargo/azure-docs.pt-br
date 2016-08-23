@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo
 
@@ -23,17 +23,17 @@
 
 O backup dos [aplicativos do Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/) pode ser feito como blobs no armazenamento do Azure. O backup também pode conter bancos de dados do aplicativo. Se o aplicativo for excluído por acidente, ou se precisar ser revertido para uma versão anterior, ele poderá ser restaurado a partir de qualquer backup anterior. Os backups podem ser realizados a qualquer momento e sob demanda ou podem ser agendados em intervalos adequados.
 
-Este artigo explicará como fazer backup e restaurar um aplicativo com solicitações de API RESTful. Se você quiser criar e gerenciar backups do aplicativo graficamente no Portal do Azure, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
+Este artigo explica como fazer backup e restaurar um aplicativo com solicitações de API RESTful. Se você quiser criar e gerenciar backups do aplicativo graficamente no Portal do Azure, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
 ## Introdução
-Para enviar solicitações REST, você precisará saber o **nome**, o **grupo de recursos** e a **ID da assinatura** do aplicativo. Essas informações podem ser encontradas clicando em seu aplicativo, na folha **Serviço de Aplicativo** do [Portal do Azure](https://portal.azure.com). Para os exemplos deste artigo, vamos configurar o site **backuprestoreapiexamples.azurewebsites.net**. Ele está armazenado no grupo de recursos Default-Web-WestUS e está em execução em uma assinatura com a ID 00001111-2222-3333-4444-555566667777.
+Para enviar solicitações REST, você precisa saber o **nome**, o **grupo de recursos** e a **ID da assinatura** do aplicativo. Essas informações podem ser encontradas clicando no aplicativo, na folha **Serviço de Aplicativo** do [Portal do Azure](https://portal.azure.com). Para os exemplos deste artigo, vamos configurar o site **backuprestoreapiexamples.azurewebsites.net**. Ele está armazenado no grupo de recursos Default-Web-WestUS e está em execução em uma assinatura com a ID 00001111-2222-3333-4444-555566667777.
 
 ![Informações do site de exemplo][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
 ## Fazer backup e restaurar uma API REST
-Agora, mostraremos vários exemplos de como usar a API REST para fazer backup e restaurar um aplicativo. Cada exemplo incluirá uma URL e um corpo de solicitação HTTP. O exemplo de URL conterá espaços reservados entre chaves, por exemplo, {subscription-id}. Substitua-os por informações correspondentes ao seu aplicativo. Para referência, veja uma explicação de cada espaço reservado que aparece nas URLs de exemplo.
+Agora, mostraremos vários exemplos de como usar a API REST para fazer backup e restaurar um aplicativo. Cada exemplo inclui uma URL e um corpo de solicitação HTTP. A URL de exemplo contém espaços reservados entre chaves, por exemplo, {subscription-id}. Substitua-os por informações correspondentes ao seu aplicativo. Para referência, veja uma explicação de cada espaço reservado que aparece nas URLs de exemplo.
 
 * subscription-id: a ID da assinatura do Azure que contém o aplicativo
 * resource-group-name: o nome do grupo de recursos que contém o aplicativo
@@ -48,7 +48,7 @@ Para fazer backup de um aplicativo imediatamente, envie uma solicitação **POST
 
 Esta é a aparência da URL quando usamos nosso site de exemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-Você deve fornecer um objeto JSON no corpo da solicitação para especificar qual conta de armazenamento deve ser usada para armazenar o backup. O objeto JSON deve ter uma propriedade chamada **storageAccountUrl**, que mantém uma [URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) concedendo acesso de gravação ao contêiner de Armazenamento do Azure que armazenará o blob do backup. Se você quiser fazer backup de seus bancos de dados, também deverá fornecer uma lista contendo os nomes, tipos e cadeias de conexão dos bancos de dados a ser copiado em backup.
+Forneça um objeto JSON no corpo da solicitação para especificar qual conta de armazenamento deve ser usada para armazenar o backup. O objeto JSON deve ter uma propriedade chamada **storageAccountUrl**, que mantém uma [URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) concedendo acesso de gravação ao contêiner de Armazenamento do Azure que armazena o blob de backup. Se você quiser fazer backup de seus bancos de dados, também deverá fornecer uma lista contendo os nomes, tipos e cadeias de conexão dos bancos de dados a ser copiado em backup.
 
 ```
 {
@@ -66,7 +66,7 @@ Você deve fornecer um objeto JSON no corpo da solicitação para especificar qu
 }
 ```
 
-Um backup do aplicativo começará imediatamente após o recebimento da solicitação. O processo de backup pode demorar muito tempo para ser concluído. A resposta HTTP conterá uma ID que você pode usar em outra solicitação para ver o status do backup. Veja um exemplo de corpo da resposta HTTP para nossa solicitação de backup.
+Um backup do aplicativo começa imediatamente após o recebimento da solicitação. O processo de backup pode demorar muito tempo para ser concluído. A resposta HTTP contém uma ID que você pode usar em outra solicitação para ver o status do backup. Veja um exemplo de corpo da resposta HTTP para nossa solicitação de backup.
 
 ```
 {
@@ -127,9 +127,9 @@ O corpo da solicitação deve conter um objeto JSON que especifica a configuraç
 }
 ```
 
-Esse exemplo configura o backup automático do aplicativo a cada 7 dias. Os parâmetros **frequencyInterval** e **frequencyUnit** determinam juntos com que frequência os backups ocorrerão. Os valores válidos para **frequencyUnit** são **hora** e **dia**. Por exemplo, para fazer backup de um aplicativo a cada 12 horas, defina frequencyInterval como 12 e frequencyUnit como hora.
+Este exemplo configura o backup automático do aplicativo a cada sete dias. Os parâmetros **frequencyInterval** e **frequencyUnit** determinam juntos com que frequência os backups ocorrem. Os valores válidos para **frequencyUnit** são **hora** e **dia**. Por exemplo, para fazer backup de um aplicativo a cada 12 horas, defina frequencyInterval como 12 e frequencyUnit como hora.
 
-Os backups antigos serão removidos automaticamente da conta de armazenamento. Você pode controlar por quanto tempo os backups são mantidos definindo o parâmetro **retentionPeriodInDays**. Se você quiser sempre ter pelo menos um backup salvo, independentemente da idade dele, defina **keepAtLeastOneBackup** como true.
+Os backups antigos são removidos automaticamente da conta de armazenamento. Você pode controlar por quanto tempo os backups são mantidos definindo o parâmetro **retentionPeriodInDays**. Se você quiser sempre ter pelo menos um backup salvo, independentemente da idade dele, defina **keepAtLeastOneBackup** como true.
 
 ### Configurar o agendamento de backup automático
 Para obter a configuração de backup de um aplicativo, envie uma solicitação **POST** para a URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
@@ -144,7 +144,7 @@ Para ver o status de um backup específico, envie uma solicitação GET para a U
 
 Em nosso site de exemplo, a URL parecerá com a seguinte. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
-O corpo da resposta conterá um objeto JSON parecido com este exemplo.
+O corpo da resposta contém um objeto JSON parecido com este exemplo.
 
 ```
 {
@@ -170,7 +170,7 @@ O status de um backup é um tipo enumerado. Veja abaixo cada estado possível.
 * 0 – InProgress: o backup foi iniciado, mas ainda não foi concluído.
 * 1 – Failed: o backup não foi bem-sucedido.
 * 2 – Succeeded: o backup foi concluído com êxito.
-* 3 – TimedOut: o backup não foi concluída dentro do prazo e foi cancelado.
+* 3 – TimedOut: o backup não foi concluído dentro do prazo e foi cancelado.
 * 4 – Created: a solicitação de backup está na fila, mas ele não foi iniciado.
 * 5 – Skipped: o backup não prosseguiu devido a uma agenda que disparou muitos backups.
 * 6 – PartiallySucceeded: o backup foi bem-sucedido, mas alguns arquivos não foram copiados no backup, pois não puderam ser lidos. Isso geralmente ocorre devido a um bloqueio exclusivo dos arquivos.
@@ -229,9 +229,9 @@ No corpo da solicitação, envie um objeto JSON que contém a nova URL de SAS. A
 }
 ```
 
->[AZURE.NOTE] Por motivos de segurança, a URL de SAS associada a um backup não é retornada quando você envia uma solicitação GET para um backup específico. Se você quiser exibir a URL de SAS associada a um backup, envie uma solicitação POST para a mesma URL acima e inclua apenas um objeto JSON vazio no corpo da solicitação. A resposta do servidor conterá todas as informações do backup, incluindo sua URL de SAS.
+>[AZURE.NOTE] Por motivos de segurança, a URL de SAS associada a um backup não é retornada quando você envia uma solicitação GET para um backup específico. Se quiser exibir a URL de SAS associada a um backup, envie uma solicitação POST para a mesma URL acima. Inclua um objeto JSON vazio no corpo da solicitação. A resposta do servidor contém todas as informações do backup, incluindo sua URL de SAS.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

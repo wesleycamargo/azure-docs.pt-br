@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -151,7 +151,7 @@ Um clique em **Gerenciar** abre o Portal de Gerenciamento do Controle de Acesso.
 
 A identidade do serviço do Controle de Acesso é um conjunto de credenciais que permitem que aplicativos ou clientes façam autenticação diretamente com o Controle de Acesso e recebam um token.
 
-> [AZURE.IMPORTANT] O Serviço BizTalk usa**Proprietário** para a identidade do serviço padrão e o valor da **Senha**. Se você usar o valor de Chave Simétrica em vez de o valor de Senha, o seguinte erro poderá ocorrer:<br/><br/>*Não foi possível conectar à conta do Serviço de Gerenciamento do Controle de Acesso com as credenciais especificadas*
+> [AZURE.IMPORTANT] O Serviço BizTalk usa**Proprietário** para a identidade do serviço padrão e o valor da **Senha**. Se você usar o valor de Chave Simétrica em vez de o valor de Senha, poderá ocorrer o erro a seguir.<br/><br/>*Não foi possível conectar à conta do Serviço de Gerenciamento do Controle de Acesso com as credenciais especificadas*
 
 [Gerenciando o namespace de seu ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) lista algumas diretrizes e recomendações.
 
@@ -173,7 +173,7 @@ A conta do Azure pode ter várias assinaturas e pode ser gerenciada por qualquer
 </td>
 </tr>
 <tr>
-<td>Banco de Dados SQL do Azure</td>
+<td>Banco de Dados SQL Azure</td>
 <td>Armazena as tabelas, as exibições e os procedimentos armazenados usados pelo Serviço BizTalk do Azure, incluindo o Rastreamento de dados
 <br/><br/>
 Ao criar um Serviço BizTalk, você pode usar um SQL Server do Azure ou um Banco de Dados SQL do Azure ou criar automaticamente um novo servidor ou banco de dados.
@@ -194,7 +194,7 @@ A escala do Banco de Dados SQL é configurada automaticamente. Tipicamente a esc
 </tr>
 
 <tr>
-<td>Conta de armazenamento do Azure</td>
+<td>Conta de Armazenamento do Azure</td>
 <td>Dá acesso às tabelas, aos blobs e às filas usadas pelos Serviços do BizTalk para fazer o seguinte:
 
 <ul>
@@ -254,7 +254,7 @@ As Conexões Híbridas são usadas para conectar um site do Azure ou um serviço
 
 Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md). Seu Serviço BizTalk está pronto para os seus aplicativos. Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Consulte também
+## Confira também
 - [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)<br/>
 - [Serviços BizTalk: gráfico de estado](biztalk-service-state-chart.md)<br/>
 - [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)<br/>
@@ -271,4 +271,4 @@ Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Servi
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

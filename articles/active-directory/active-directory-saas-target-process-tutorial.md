@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o TargetProcess ao Azure AD (
 
 A integração do TargetProcess ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao TargetProcess 
+- Você pode controlar no Azure AD quem tem acesso ao TargetProcess
 - Você pode habilitar seus usuários a fazerem logon automaticamente no TargetProcess (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
@@ -43,7 +43,7 @@ Para configurar a integração do Azure AD com o TargetProcess, você precisa do
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
@@ -51,8 +51,8 @@ O objetivo deste tutorial é permitir que você teste o logon único do Azure AD
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando TargetProcess da galeria 
-2. Configurar e testar o logon único do AD do Azure
+1. Adicionando TargetProcess da galeria
+2. configurar e testar o logon único do AD do Azure
 
 
 ## Adicionando TargetProcess da galeria
@@ -60,7 +60,7 @@ Para configurar a integração do TargetProcess ao Azure AD, você precisa adici
 
 **Para adicionar o TargetProcess por meio da galeria, realize as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -86,7 +86,7 @@ Para configurar a integração do TargetProcess ao Azure AD, você precisa adici
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_10.png)
 
-##  Configurar e testar o logon único do AD do Azure
+##  configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o TargetProcess, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário do TargetPRocess é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TargetProcess.
@@ -96,14 +96,14 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 Para configurar e testar o logon único do AD do Azure com o TargetProcess, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do TargetProcess](#creating-a-targetprocess-test-user)**: para ter um equivalente de Brenda Fernandes no TargetProcess que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do TargetProcess. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do TargetProcess. Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 Para configurar o logon único para o TargetProcess, você precisa de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do TargetProcess pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).
 
@@ -124,9 +124,9 @@ Para configurar o logon único para o TargetProcess, você precisa de um domíni
 	![Configurar o logon único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo TargetProcess (por exemplo: **https://fabrikam.TargetProcess.com/*)).
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo TargetProcess (por exemplo: *https://fabrikam.TargetProcess.com/*).
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
  
  
 4. Na página **Configurar logon único no TargetProcess**, realize as seguintes etapas:
@@ -135,7 +135,7 @@ Para configurar o logon único para o TargetProcess, você precisa de um domíni
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 1. Entre no seu aplicativo TargetProcess como administrador.
@@ -302,4 +302,4 @@ Quando você clica no bloco TargetProcess no Painel de Acesso, você deve ser co
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # Artigos técnicos para VMs do Windows no modelo de implantação clássico
 
 
-Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Windows no modelo de implantação clássico.
+Localize toda a documentação necessária para criar e gerenciar máquinas virtuais do Azure baseadas no Windows no modelo de implantação clássica.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -89,8 +89,6 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 ## Gerenciar
 
 [Gerenciar suas máquinas virtuais usando o Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Comandos equivalentes do Gerenciador de Recursos e de Gerenciamento de Serviços para tarefas de VM com a interface de linha de comando do Azure](virtual-machines-windows-cli-manage.md)
 	
 [Conectar VNets clássicas a VNets novas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 [Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Migração com suporte da plataforma, da clássica para o Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## Referência
 [Comandos da CLI do Azure no modo de Gerenciamento de Serviços](../virtual-machines-command-line-tools.md)
 
@@ -178,7 +179,6 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 [API .NET de Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Documentação de referência de cmdlet do PowerShell de Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
 
 ## Solucionar problemas
 
@@ -192,4 +192,4 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

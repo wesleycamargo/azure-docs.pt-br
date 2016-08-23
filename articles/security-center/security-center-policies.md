@@ -66,7 +66,7 @@ Use a tabela a seguir como uma referência para entender o que cada opção far�
 |----- |-----|
 | Atualizações do Sistema | Diariamente, recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual e recomenda que as atualizações ausentes sejam aplicadas. Verifica as atualizações mais recentes nos sistemas Linux usando o sistema de gerenciamento de pacotes fornecido pela distribuição para determinar quais pacotes têm atualizações disponíveis. Também verifica a segurança e as atualizações críticas das máquinas virtuais dos [Serviços de Nuvem](./cloud-services/cloud-services-how-to-configure.md). |
 | Vulnerabilidades do sistema operacional | Diariamente, analisa as configurações do SO que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para endereçar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
-| Proteção do Ponto de Extremidade | Recomenda que seja fornecida uma proteção do ponto de extremidade para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Algumas configurações específicas estão sendo monitoradas. |
+| Proteção do Ponto de Extremidade | Recomenda que seja fornecida uma proteção do ponto de extremidade para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados.|
 | Criptografia de disco | Recomenda-se habilitar a criptografia de disco em todas as máquinas virtuais para aprimorar a proteção de dados em repouso. 
 | Grupos de segurança de rede | Recomenda que os [NSGs (Grupos de Segurança da Rede)](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as VMs com pontos de extremidade públicos. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
 | Firewall do Aplicativo Web | Recomenda que um Firewall do Aplicativo Web seja fornecido nas máquinas virtuais quando o [ILPIP (IP Público no Nível da Instância)](../virtual-network/virtual-networks-instance-level-public-ip.md) é usado e as Regras de Segurança de Entrada do NSG Associadas são configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md)) |
@@ -89,7 +89,7 @@ Após selecionar o grupo de recursos, a folha **Política de segurança** será 
 > [AZURE.NOTE] No caso de um conflito entre a política de nível de assinatura e a política de nível de grupo de recursos, a política de nível de recursos tem precedência.
 
 
-## Consulte também
+## Confira também
 
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
@@ -100,4 +100,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

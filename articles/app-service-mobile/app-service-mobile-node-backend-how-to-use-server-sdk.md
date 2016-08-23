@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # Como usar o SDK do Node.js para Aplicativos Móveis do Azure
@@ -126,13 +126,24 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
 10. Execute o aplicativo localmente (a API será fornecida em http://localhost:3000) ou publique no Azure.
 
+### <a name="create-node-backend-portal"></a>Como criar um back-end do Node.js usando o Portal do Azure
+
+Você pode criar um novo back-end de aplicativo móvel diretamente no [Portal do Azure].
+
+Você pode seguir as etapas abaixo ou criar um novo cliente e um novo servidor juntos acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md). O tutorial contém uma versão simplificada dessas instruções e funciona melhor para projetos de prova de conceito.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+De volta à folha _Introdução_, em **Criar uma API de tabela**, escolha **Node.js** como a **Linguagem de back-end**. Marque a caixa que diz **Estou ciente de que isso substituirá todo o conteúdo do site.** e clique em **Criar tabela TodoItem**.
+
+
 ### <a name="download-quickstart"></a>Como baixar o projeto de código de início rápido do back-end de Node.js usando Git
 
 Quando você cria um novo back-end de Aplicativo Móvel do Node.js usando a folha **Início Rápido** no portal, um novo projeto do Node.js é criado e implantado em seu site. Você pode adicionar tabelas e APIs e editar arquivos de código para o back-end de Node.js no portal. Você também pode usar uma das várias ferramentas de implantação a fim de baixar o projeto de back-end e adicionar ou modificar tabelas e APIs, e publicar novamente o projeto. Para saber mais, confira o [Guia de implantação do Serviço de Aplicativo do Azure]. o procedimento a seguir usa um repositório Git para baixar o código de projeto de início rápido.
 
 1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) para distribuições específicas de sistemas operacionais e orientações de instalação.
 
-2. Siga as etapas em [Habilitar o repositório de aplicativo do Serviço de Aplicativo](../app-service-web/web-sites-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
+2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service-web/web-sites-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
 
 3. Na folha de seu back-end do Aplicativo Móvel, anote a configuração de **URL de clone de Git**.
 
@@ -160,13 +171,13 @@ O Serviço de Aplicativo do Azure tem recomendações específicas para aplicati
 - Como [especificar a versão do Node]
 - Como [usar módulos do Node]
 
-### <a name="howto-enable-homepage"></a>Como: habilitar uma home page para seu aplicativo
+### <a name="howto-enable-homepage"></a>Como habilitar uma home page para seu aplicativo
 
 Muitos aplicativos são uma combinação de aplicativos Web e móveis, e a estrutura do ExpressJS permite a combinação das duas facetas. Às vezes, no entanto, talvez você queira implementar apenas uma interface móvel. É útil fornecer uma página de aterrissagem para garantir que o serviço de aplicativo esteja em execução. Você pode fornecer sua própria home page ou habilitar uma home page temporária. Para habilitar uma home page temporária, ajuste o construtor do Aplicativo Móvel para o seguinte:
 
     var mobile = azureMobileApps({ homePage: true });
 
-É possível adicionar essa configuração ao arquivo `azureMobile.js` se quiser que essa opção fique disponível apenas durante o desenvolvimento local.
+Será possível adicionar essa configuração ao arquivo `azureMobile.js` se quiser que essa opção fique disponível apenas durante o desenvolvimento local.
 
 ## <a name="TableOperations"></a>Operações de tabela 
 
@@ -627,7 +638,7 @@ O ponto de extremidade do Swagger estará localizado em http://_yoursite_.azurew
 
 Também será possível adicionar a opção do Swagger ao arquivo `azureMobile.js` se quiser o suporte do Swagger apenas durante o desenvolvimento local.
 
-## <a name="push">Notificações por push
+## <a name="push">Notificações por Push
 
 Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
 
@@ -664,7 +675,7 @@ Ao criar um registro de envio por push modelo do cliente, você poderá enviar u
     }
 
 
-###<a name="push-user"></a>Como enviar notificações push para um usuário autenticado usando marcas
+###<a name="push-user"></a>Como enviar notificações por push para um usuário autenticado usando marcações
 
 Quando um usuário autenticado se registra para notificações por push, uma marca de ID de usuário é adicionada automaticamente ao registro. Usando essa marca, você pode enviar notificações por push para todos os dispositivos registrados por um usuário específico. O código abaixo obtém a SID do usuário que fez a solicitação e envia um modelo de notificação por push para cada registro de dispositivo do usuário:
 
@@ -917,4 +928,4 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

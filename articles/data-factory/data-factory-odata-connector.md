@@ -19,16 +19,18 @@
 # Mover dados De uma origem de OData usando o Azure Data Factory
 Este artigo descreve como você pode usar o Copiar Atividade em um Azure Data Factory para mover os dados de uma fonte do OData para outro repositório de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
+> [AZURE.NOTE] Esse conector OData dá suporte à cópia de dados das fontes OData de nuvem e OData local. Para o último, você precisa instalar o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados.
+
 ## Exemplo: copiar dados da origem do OData para o Blob do Azure
 
-Este exemplo mostra como copiar dados de uma fonte do OData para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando Copiar Atividade no Azure Data Factory.
+Este exemplo mostra como copiar dados de uma fonte do OData para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
  
 O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OData](#odata-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [ODataResource](#odata-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](#odata-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de consulta em relação a uma fonte OData para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
@@ -211,15 +213,16 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | -------- | ----------- | -------- | 
 | type | A propriedade de tipo deve ser definida como: **OData** | Sim |
 | url| URL do serviço OData. | Sim |
-| authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados OData. Os valores possíveis são: Anonymous e Basic. | Sim | 
+| authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados OData. <br/><br/> Para o OData de nuvem, os valores possíveis são Anônima e Básica; para o OData local, os valores possíveis são Anônima, Básica e Windows. | Sim | 
 | Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Sim (apenas se você estiver usando a autenticação Básica) | 
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Sim (apenas se você estiver usando a autenticação Básica) | 
+| gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar ao serviço OData local. Só especifique se você estiver copiando dados da fonte OData local. | Não |
 
 ### Usando a autenticação Básica
 
     {
         "name": "inputLinkedService",
-       "properties": 
+        "properties": 
         {
             "type": "OData",
            	"typeProperties": 
@@ -239,10 +242,28 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
        	"properties": 
         {
             "type": "OData",
-           "typeProperties": 
+            "typeProperties": 
             {
                "url": "http://services.odata.org/OData/OData.svc",
                "authenticationType": "Anonymous"
+           }
+       }
+    }
+
+### Usando a autenticação do Windows para acessar uma fonte OData local
+
+    {
+        "name": "inputLinkedService",
+        "properties": 
+        {
+            "type": "OData",
+           	"typeProperties": 
+            {
+               "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
+               "authenticationType": "Windows",
+                "username": "domain\\user",
+               "password": "password",
+               "gatewayName": "mygateway"
            }
        }
     }
@@ -290,4 +311,4 @@ Ao mover dados de repositórios de dados OData, os tipos de dados OData são map
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

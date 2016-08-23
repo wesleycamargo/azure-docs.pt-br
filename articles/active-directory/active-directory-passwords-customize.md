@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Personalização do gerenciamento de senhas para atender às necessidades da sua organização
@@ -851,7 +851,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                   <li class="unordered">
 												Se definido como sim, sempre que um usuário ou administrador redefinir a sua própria senha, ele receberá uma notificação indicando que a senha foi redefinida.<br><br></li>
                   <li class="unordered">
-												Essa notificação é enviada por email para os endereços de email principal e alternativo (ou de autenticação) do usuário que redefinir a senha.<br><br></li>
+												Essa notificação é enviada por email para o nome UPN e para o endereço de email alternativo (ou de autenticação) do usuário que redefinir a senha.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -875,4 +875,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar sua primeira data factory (modelo do ARM) | Microsoft Azure"
+	pageTitle="Criar seu primeiro data factory (modelo do Resource Manager) | Microsoft Azure"
 	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Gerenciador de Recursos do Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -23,23 +23,24 @@
 - [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
+- [Usando a API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Neste artigo, você aprenderá a usar os modelos do Gerenciador de Recursos do Azure (ARM) para criar seu primeiro data factory do Azure.
+Neste artigo, você aprende a usar os modelos do Azure Resource Manager para criar seu primeiro data factory do Azure.
 
 
 ## Pré-requisitos
 Além dos pré-requisitos listados no tópico Visão Geral do Tutorial, você precisa instalar o seguinte:
 
-- Você **deve** ler o artigo [Visão Geral do Tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de pré-requisito antes de continuar.
+- Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de pré-requisito antes de continuar.
 - **Instale o Azure PowerShell**. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para instalar a última versão do Azure PowerShell no computador.
 - Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md).
-- Veja [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Gerenciador de Recursos do Azure (ARM).
+- Veja [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
 
 > [AZURE.IMPORTANT]
-Você deve concluir as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) para fazer o passo a passo deste artigo.
+Conclua as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) para fazer o passo a passo deste artigo.
 
-## Criar um modelo ARM
+## Criar um modelo do Resource Manager
 
 Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
 
@@ -222,20 +223,20 @@ Observe o seguinte:
 
 - O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 - Você pode usar **seu próprio cluster HDInsight** em vez de usar um cluster HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
-- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Esse comportamento é intencional. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
+- O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
 
-	À medida que mais e mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. O nome desses contêineres segue um padrão: "adf**nomedodatafactory**-**nomedoserviçovinculado**-carimbodedatahora". Use ferramentas como [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+	Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomedafábricadedados**-**nomedoserviçovinculado**-carimbodedatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 
-> [AZURE.NOTE] Você pode encontrar outro exemplo de modelo ARM para criar um data factory do Azure no [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
+> [AZURE.NOTE] Você pode encontrar outro exemplo de modelo do Resource Manager para criar um data factory do Azure no [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
 ## Criar um data factory
 
 1. Inicie o **Azure PowerShell** e execute o comando a seguir.
 	- Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
 	- Execute o comando a seguir para selecionar uma assinatura na qual você deseja criar o data factory. Get-AzureRmSubscription -SubscriptionName <NOME DA ASSINATURA> | Set-AzureRmContext
-1. Execute o comando a seguir para implantar entidades do Data Factory usando o modelo do ARM criado na Etapa 1.
+1. Execute o comando a seguir para implantar entidades do Data Factory usando o modelo do Resource Manager criado na Etapa 1.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
@@ -244,13 +245,13 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 1.	Depois de fazer logon no [Portal do Azure](https://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. ![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Na folha **Data Factories**, clique no data factory (**TutorialFactoryARM**) que você criou.
 2.	Na folha **Data Factory** do seu data factory, clique em **Diagrama**. ![Bloco Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4.	Na **Exibição de Diagrama**, você terá uma visão geral dos pipelines e dos conjuntos de dados usados neste tutorial.
+4.	Na **Exibição de Diagrama**, você tem uma visão geral dos pipelines e dos conjuntos de dados usados neste tutorial.
 	
 	![Exibição de diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
-8. Na Exibição de diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
+8. Na Exibição de diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. Observe que a criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.
@@ -261,8 +262,8 @@ Você também pode usar Monitorar e gerenciar aplicativos para monitorar os pipe
 
 > [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
 
-## Modelo do ARM para criar um gateway
-Aqui está um exemplo de modelo do ARM para criar um gateway lógico na parte traseira. Observe que você precisa instalar um gateway em seu computador local ou na VM IaaS do Azure e registrar o gateway no serviço Data Factory usando uma chave. Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes.
+## Modelo do Resource Manager para criar um gateway
+Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógico na parte traseira. Você precisa instalar um gateway em seu computador local ou na VM IaaS do Azure e registrar o gateway no serviço Data Factory usando uma chave. Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -302,10 +303,10 @@ O modelo cria uma data factory chamada GatewayUsingArmDF com um gateway chamado:
 | :---- | :---- |
 | [Atividades de transformação de dados](data-factory-data-transformation-activities.md) | Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. |
 | [Agendamento e execução](data-factory-scheduling-and-execution.md) | Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
-| [Pipelines](data-factory-create-pipelines.md) | Este artigo o ajudará a compreender pipelines e atividades no Azure Data Factory e como aproveitá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
-| [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
+| [Pipelines](data-factory-create-pipelines.md) | Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
+| [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
   
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

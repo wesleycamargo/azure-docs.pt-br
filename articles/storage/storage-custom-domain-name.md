@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,9 @@
 
 ## Visão geral
 
-Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade padrão para o Armazenamento de Blobs é https://<*minha\_conta\_de\_armazenamento*>.blob.core.windows.net. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, logo, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
+Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade para o Armazenamento de Blobs é `<storage-account-name>.blob.core.windows.net`. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, logo, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
+
+>[AZURE.IMPORTANT] O Armazenamento do Azure ainda não suporta HTTPS com domínios personalizados. Estamos cientes de que os clientes estão interessados nesse recurso, e ele estará disponível em uma versão futura.
 
 Existem duas maneiras de apontar seu domínio personalizado para o ponto de extremidade do blob de sua conta de armazenamento. A maneira mais simples é criar um Registro CNAME que mapeia seu domínio e subdomínio personalizados ao ponto de extremidade do blob. Um Registro CNAME é um recurso do DNS que mapeia um domínio de origem a um domínio de destino. Nesse caso, o domínio de origem é o seu domínio e subdomínio personalizados – observe que o subdomínio é sempre necessário. O domínio de destino é o ponto de extremidade do serviço de blobs.
 
@@ -31,9 +33,9 @@ A tabela a seguir mostra exemplos de URLs para acessar os dados do blob em uma c
 
 Tipo de recurso|Formatos de URL
 ---|---
-Conta de armazenamento|**URL padrão:** http://mystorageaccount.blob.core.windows.net<p>**URL do domínio personalizado:** http://www.contoso.com</td>
-Blob|**URL padrão:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL do domínio personalizado:** http://www.contoso.com/mycontainer/myblob
-Contêiner raiz|**URL padrão:** http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**URL do domínio personalizado:** http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob
+Conta de armazenamento|**URL padrão:** http://mystorageaccount.blob.core.windows.net<p>**URL de domínio personalizado:** http://www.contoso.com</td>
+Blob|**URL padrão:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL de domínio personalizado:** http://www.contoso.com/mycontainer/myblob
+Contêiner raiz|**URL padrão:** http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**URL de domínio personalizado:** http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob
 
 ## Registrar um domínio personalizado para sua conta de armazenamento
 
@@ -113,7 +115,7 @@ Por exemplo, você pode usar o seguinte URI para acessar um formulário da Web p
 
 Para cancelar o registro de um domínio personalizado, siga estas etapas:
 
-1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com). 
+1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 2. No painel de navegação, clique em **Armazenamento**.
 
@@ -128,4 +130,4 @@ Para cancelar o registro de um domínio personalizado, siga estas etapas:
 
 -   [Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

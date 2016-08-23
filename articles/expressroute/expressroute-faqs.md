@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -184,21 +184,10 @@ Rota Expressa premium é uma coleção de recursos listados abaixo.
  - Conectividade com serviços do Office 365 e CRM Online.
 
 ### Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
-A tabela a seguir informa os limites aumentados para o número de VNets que você pode conectar a um circuito de Rota Expressa. O limite padrão é 10.
+As tabelas a seguir mostram os limites da Rota Expressa e o número de redes virtuais por circuito de Rota Expressa.
 
-**Limites de circuitos**
 
-| **Tamanho do circuito** | **Número de links de VNet para configuração padrão** | **Número de Links de VNet com Rota Expressa Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | 10 |
-| 100 Mbps | 10 | 20 |
-| 200 Mbps | 10 | 25 |
-| 500 Mbps | 10 | 40 |
-| 1 Gbps | 10 | 50 |
-| 2 Gbps | 10 | 60 |
-| 5 Gbps | 10 | 75 |
-| 10 Gbps | 10 | 100 |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### Como habilito a Rota Expressa premium?
@@ -251,4 +240,4 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 ### O Dynamics AX Online pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

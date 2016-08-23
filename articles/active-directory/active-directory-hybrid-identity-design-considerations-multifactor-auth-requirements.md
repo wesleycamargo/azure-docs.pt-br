@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Determinar os requisitos de autenticação multifator para sua solução de identidade híbrida
@@ -25,7 +25,7 @@ Se você não estiver familiarizado com o MFA e o que ele faz, é altamente reco
 
 Certifique-se de responder ao seguinte:
 
-- Sua empresa está tentando proteger aplicativos Microsoft? 
+- Sua empresa está tentando proteger aplicativos Microsoft?
 - Como esses aplicativos são publicados?
 - Sua empresa oferecer acesso remoto para permitir que os funcionários acessem aplicativos locais?
 
@@ -38,7 +38,7 @@ Em caso afirmativo, que tipo de acesso remoto? Você também precisa avaliar ond
 Depois de compreender esses requisitos, é importante também avaliar os requisitos do usuário para autenticação multifator. Essa avaliação é importante que porque definirá os requisitos para implantaram uma autenticação multifator. Certifique-se de responder às seguintes perguntas:
 
 - O s usuários estão familiarizados com a autenticação multifator?
-- Alguns usos serão necessários para fornecer autenticação adicional?  
+- Alguns usos serão necessários para fornecer autenticação adicional?
  - Em caso afirmativo, o tempo todo, quando se originar de redes externas ou acessar aplicativos específicos ou em outras condições?
 - Os usuários exigirão treinamento sobre como configurar e implementar a autenticação multifator?
 - Quais são os cenários principais que sua empresa quer habilitar a autenticação multifator para seus usuários?
@@ -55,7 +55,7 @@ Depois de responder às perguntas anteriores, você poderá determinar se há au
 [Definir uma estratégia de adoção de identidade híbrida](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 
-## Consulte também
+## Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

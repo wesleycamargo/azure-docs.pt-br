@@ -3,7 +3,7 @@
    description="Saiba como mover VMs e instâncias de função para uma sub-rede diferente"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Como mover uma VM ou instância de função para uma sub-rede diferente.
 
@@ -53,4 +53,4 @@ Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a segui
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

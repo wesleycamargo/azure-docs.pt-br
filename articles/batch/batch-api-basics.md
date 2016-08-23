@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Visão geral do recurso de Lote para desenvolvedores
@@ -87,7 +87,7 @@ Todos os nós de computação no Lote também incluem:
 
 Um pool é uma coleção de nós na qual seu aplicativo é executado. O pool pode ser criado manualmente por você ou automaticamente pelo serviço de Lote quando você especifica o trabalho a ser feito. Você pode criar e gerenciar um pool que atenda às exigências de recursos de seu aplicativo. Um pool pode ser usado somente pela conta do Lote na qual foi criado. Uma conta do Batch pode ter mais de um pool.
 
-Os pools do Lote do Azure são criados na plataforma de computação principal do Azure: os pools do Lote oferecem alocação em larga escala, instalação de aplicativos, distribuição de dados e monitoramento de integridade, além do ajuste flexível do número de nós de computação em um pools ([dimensionamento](#scaling-compute-resources)).
+Os pools do Lote do Azure são criados na plataforma de computação principal do Azure: os pools do Lote oferecem alocação em larga escala, instalação de aplicativos, distribuição de dados e monitoramento de integridade, além do ajuste flexível do número de nós de computação em um pool ([dimensionamento](#scaling-compute-resources)).
 
 Todos os nós adicionados a um pool recebem um nome e um endereço IP exclusivos. Quando um nó é removido de um pool, todas as alterações feitas no sistema operacional ou arquivos são perdidas e seu nome e endereço IP são liberados para o uso futuro. Quando um nó deixa um pool, seu tempo de vida termina.
 
@@ -161,7 +161,7 @@ Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é rea
 
 ### Prioridade do trabalho
 
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] \(REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] \(.NET do Lote).
+Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] (REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] (.NET do Lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
 
@@ -268,9 +268,9 @@ Confira [Dependências de tarefas no Lote do Azure](batch-task-dependencies.md) 
 
 Cada tarefa executada em um trabalho do Lote tem acesso às variáveis de ambiente definidas pelo serviço de Lote (definidas pelo serviço, como descrito na tabela abaixo) e às variáveis de ambiente personalizadas que podem ser definidas para suas tarefas. Os aplicativos e scripts executados nos nós por suas tarefas têm acesso a essas variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] \(API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
 
-O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] \(REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 As seguintes variáveis de ambiente são definidas pelo serviço de Lote e estão disponíveis para acesso por suas tarefas:
 
@@ -357,7 +357,7 @@ Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [
 
 Normalmente, você precisa usar certificados ao criptografar ou descriptografar as informações confidenciais das tarefas, como a chave para uma [conta de Armazenamento do Azure][azure_storage]. Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
 
-Você usa a operação [Adicionar certificado][rest_add_cert] \(REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
+Você usa a operação [Adicionar certificado][rest_add_cert] (REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] (.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
 
 ## Tratamento de erros
 
@@ -432,6 +432,11 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 - Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
 
+- Baixe e compile o projeto de exemplo do [Gerenciador do Lote][github_batchexplorer] a ser usado durante o desenvolvimento de soluções do Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
+  - Monitorar e manipular pools, trabalhos e tarefas em sua conta do Lote
+  - Baixe `stdout.txt`, `stderr.txt` e outros arquivos de nós
+  - Criar usuários em nós e baixar arquivos RDP para logon remoto
+
 - Saiba como [criar pools de nós de computação do Linux](batch-linux-nodes.md).
 
 - Acesse o [Fórum do Lote do Azure][batch_forum] no MSDN. O fórum é um bom lugar para fazer perguntas se você está apenas aprendendo ou se é especialista no Lote.
@@ -444,7 +449,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
@@ -487,4 +492,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

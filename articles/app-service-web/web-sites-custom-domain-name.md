@@ -23,7 +23,7 @@
 
 Este artigo mostra como mapear manualmente um nome de domínio personalizado para seu aplicativo Web, back-end do aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-Seu aplicativo já vem com um subdomínio exclusivo do azurewebsites.net. Por exemplo, se seu aplicativo é chamado **contoso**, o nome de domínio é **contoso.azurewebsites.net**. No entanto, você pode mapear um nome de domínio personalizado para o aplicativo para que a URL, como `www.contoso.com`, reflita sua marca.
+Seu aplicativo já vem com um subdomínio exclusivo do azurewebsites.net. Por exemplo, se o nome do aplicativo for **contoso**, o nome de domínio será **contoso.azurewebsites.net**. No entanto, você pode mapear um nome de domínio personalizado para o aplicativo para que a URL, como `www.contoso.com`, reflita sua marca.
 
 >[AZURE.NOTE] Obtenha ajuda dos especialistas do Azure nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para ter um nível ainda maior de suporte, vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
@@ -63,7 +63,7 @@ Dependendo da necessidade, você pode usar dois tipos diferentes de registros DN
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) - mapeia o nome de domínio personalizado para o endereço IP virtual do aplicativo do Azure diretamente.
 - [CNAME](https://en.wikipedia.org/wiki/CNAME_record) - mapeia o nome de domínio personalizado para o nome de domínio do Azure do seu aplicativo, **&lt;*appname*>.azurewebsites.net**.
 
-A vantagem do CNAME é que ele persiste nas alterações do endereço IP. O endereço IP virtual de seu aplicativo poderá mudar se você excluir e recriar o aplicativo ou mudar de um tipo de preço mais alto de volta para a camada **Compartilhada**. Com essa alteração, um registro CNAME ainda é válido, visto que um registro A deve ser atualizado.
+A vantagem do CNAME é que ele persiste nas alterações do endereço IP. Se você excluir e recriar o aplicativo ou mudar de um tipo de preço mais alto de volta para o tipo **Compartilhado**, o endereço IP virtual do aplicativo poderá mudar. Com essa alteração, um registro CNAME continua sendo válido, enquanto o registro A precisa ser atualizado.
 
 O tutorial mostra as etapas para usar o registro A e também para usar o registro CNAME.
 
@@ -79,7 +79,7 @@ Para mapear um nome de domínio personalizado usando um registro A, você precis
 
 4.	Clique em seu aplicativo, clique em **Configurações** > **Domínios personalizados e SSL** > **Trazer Domínios Externos**.
 
-6.  Anote o endereço IP para um uso posterior.
+6.  Anote o endereço IP.
 
     ![Mapear nome de domínio personalizado com um registro A: obter endereço IP para o aplicativo do Serviço de Aplicativo do Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -90,8 +90,8 @@ Para mapear um nome de domínio personalizado usando um registro A, você precis
 
 Faça logon em seu registrador de domínio e use a ferramenta de controle para inserir um registro A ou CNAME. Cada interface do usuário do registrador é um pouco diferente, portanto, você deve consultar a documentação do provedor. Estas são algumas diretrizes gerais.
 
-1.	Localize a página para gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio**, **DNS** ou **Gerenciamento de servidor de nome**. Normalmente, o link para essa página pode ser encontrado exibindo-se as informações de conta e procurando-se um link como **Meus domínios**.
-2.	Procure um link que permita adicionar ou editar os registros DNS. Pode ser listado como um **Arquivo de zona**, **Registros DNS** ou um link de configuração **Avançado**.
+1.	Localize a página para gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio**, **DNS** ou **Gerenciamento de servidor de nome**. Normalmente, você pode encontrar o link exibindo as informações de conta e procurando um link como **Meus domínios**.
+2.	Procure um link que permita adicionar ou editar os registros DNS. Ele pode ser um **Arquivo de zona**, link de **Registros DNS** ou um link de configuração **Avançado**.
 3.  Crie o registro e salve suas alterações.
     - [As instruções de um registro A estão aqui](#a).
     - [As instruções de um registro CNAME estão aqui](#cname).
@@ -101,7 +101,7 @@ Faça logon em seu registrador de domínio e use a ferramenta de controle para i
 
 Para usar um registro A para mapear para o endereço IP do seu aplicativo do Azure, você precisa realmente criar um registro A e um registro CNAME. O registro A é para a própria resolução de DNS e o registro CNAME é para o Azure verificar se você tem o nome de domínio personalizado.
 
-O registro A deve ser configurado da seguinte maneira (@ normalmente representa o domínio-raiz):
+Configure seu registro A da seguinte maneira (@ normalmente representa o domínio raiz):
  
 <table cellspacing="0" border="1">
   <tr>
@@ -126,7 +126,7 @@ O registro A deve ser configurado da seguinte maneira (@ normalmente representa 
   </tr>
 </table>
 
-O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subdomínio*>.&lt;*domínioraiz*> para awverify.&lt;*subdomínio*>. azurewebsites. Veja os exemplos abaixo:
+O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subdomínio*>.& lt;*domínioraiz*> para awverify.&lt;*subdomínio*>. azurewebsites. Configure o registro CNAME da seguinte maneira:
 
 <table cellspacing="0" border="1">
   <tr>
@@ -142,7 +142,7 @@ O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subd
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>awverify.www</td>
-    <td>awverify.www.&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+    <td>awverify.&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
   </tr>
   <tr>
     <td>*. contoso.com (curinga)</td>
@@ -158,7 +158,7 @@ Se você usa um registro CNAME para mapear para o nome do domínio padrão do se
 
 >[AZURE.IMPORTANT] Não crie um registro CNAME para seu domínio raiz (ou seja, o "registro raiz"). Para saber mais, confira [Por que um registro CNAME não pode ser usado no domínio raiz](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). Para mapear um domínio raiz para o aplicativo do Azure, use um [registro A](#a) em vez disso.
 
-O registro CNAME deve ser configurado da seguinte maneira (@ normalmente representa o domínio-raiz):
+Configure seu registro CNAME da seguinte maneira (@ normalmente representa o domínio raiz):
 
 <table cellspacing="0" border="1">
   <tr>
@@ -181,7 +181,7 @@ O registro CNAME deve ser configurado da seguinte maneira (@ normalmente represe
 <a name="enable"></a>
 ## Etapa 3. Habilitar o nome de domínio personalizado para seu aplicativo
 
-De volta à folha **Trazer Domínios Externos** no portal do Azure (consulte a [Etapa 1](#vip)), você precisa adicionar o nome de domínio totalmente qualificado (FQDN) do seu domínio personalizado à lista.
+De volta à folha **Trazer Domínios Externos** no portal do Azure (consulte a [Etapa 1](#vip)), você precisa adicionar o FQDN (nome de domínio totalmente qualificado) do seu domínio personalizado à lista.
 
 1.	Se não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com).
 
@@ -193,11 +193,11 @@ De volta à folha **Trazer Domínios Externos** no portal do Azure (consulte a [
 
     ![Mapear um nome de domínio personalizado para um aplicativo do Azure: adicionar à lista de nomes de domínio](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
-    >[AZURE.NOTE] O Azure tentará verificar o nome de domínio usado aqui, portanto, verifique se é o mesmo nome de domínio para o qual você criou um registro DNS na [Etapa 2](#createdns). Se você tiver certeza
+    >[AZURE.NOTE] O Azure tentará verificar o nome de domínio que você usar aqui. Certifique-se de que ele seja o mesmo nome de domínio para o qual você criou um registro DNS na [Etapa 2](#createdns).
 
 6.  Clique em **Salvar**.
 
-7.  Depois do novo nome de domínio personalizado estar configurado com êxito, navegue até o nome de domínio personalizado em um navegador. Agora, você deve ver seu aplicativo em execução e seu personalizado
+7.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. Agora, você deve ver seu aplicativo em execução e seu personalizado
 
 <a name="verify"></a>
 ## Verificar propagação de DNS
@@ -209,13 +209,14 @@ Depois de concluir as etapas de configuração, pode levar algum tempo para que 
 > [AZURE.NOTE] A propagação das entradas de DNS pode levar até 48 horas (às vezes, mais). Se você configurou tudo corretamente, você ainda precisa aguardar até que a propagação seja bem-sucedida.
 
 ## Próximas etapas
+Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um certificado SSL no Azure](web-sites-purchase-ssl-web-site.md) ou [usando um certificado SSL de outro lugar](web-sites-configure-ssl-certificate.md).
 
-[Introdução ao Azure DNS](../dns/dns-getstarted-create-dnszone.md) [Criar registros para um aplicativo Web em um domínio personalizado](../dns/dns-web-sites-custom-domain.md) [Delegar domínio para o DNS do Azure](../dns/dns-domain-delegation.md)
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
->[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+[Introdução ao Azure DNS](../dns/dns-getstarted-create-dnszone.md) [Criar registros DNS para um aplicativo Web em um domínio personalizado](../dns/dns-web-sites-custom-domain.md) [Delegar domínio para o DNS do Azure](../dns/dns-domain-delegation.md)
 
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

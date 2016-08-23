@@ -43,6 +43,6 @@ Para obter instruções sobre como alterar a forma de pagamento no Azure, veja [
 
 **Cenário 3**: se o aviso de fatura não foi recebido porque o Administrador da Conta deixou a empresa ou mudou de função, entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
 
-> [AZURE.NOTE] Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for cancelada?](billing-subscription-become-disable.md)
+> [AZURE.NOTE] Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for desabilitada?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Práticas recomendadas de segurança de Internet das Coisas
@@ -35,8 +35,8 @@ Este artigo resume as [Práticas recomendadas de segurança de Internet das Cois
 
 Siga as práticas recomendadas a seguir se você for um fabricante ou integrador de hardware de IoT:
 
-- **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais. 
-- **Tornar o hardware à prova de adulteração**: crie mecanismos para detectar a violação física do hardware, tal como a abertura da tampa do dispositivo, remoção de parte do dispositivo, etc. 
+- **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais.
+- **Tornar o hardware à prova de adulteração**: crie mecanismos para detectar a violação física do hardware, tal como a abertura da tampa do dispositivo, remoção de parte do dispositivo, etc.
 - **Criar em hardware seguro**: se o [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) permitir, crie recursos de segurança, como as funcionalidades de inicialização baseadas no armazenamento seguro e criptografado e no TPM (Trusted Platform Module).
 - **Tornar as atualizações seguras**: atualizar o firmware durante o tempo de vida do dispositivo é inevitável.
 
@@ -46,7 +46,7 @@ Siga as práticas recomendadas a seguir se você for um desenvolvedor de soluç�
 
 - **Seguir a metodologia de desenvolvimento de software seguro**: desenvolver software seguro requer uma consideração inicial desde a concepção do projeto até sua implementação, teste e implantação.
 - **Escolher software livre com cuidado**: software livre fornece uma oportunidade o rápido desenvolvimento de soluções.
-- **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. 
+- **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs.
 
 ## Implantador de soluções IoT
 
@@ -59,10 +59,10 @@ Siga as práticas recomendadas a seguir se você for um implantador de solução
 
 Siga as práticas recomendadas a seguir se você for um operador de solução IoT:
 
-- **Manter sistemas atualizados**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. 
-- **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, aplique as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo. 
+- **Manter sistemas atualizados**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes.
+- **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, aplique as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo.
 - **Auditar frequentemente**: auditar problemas relacionados à infraestrutura de IoT é essencial ao responder a incidentes de segurança.
 - **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos.
-- **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT. 
+- **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

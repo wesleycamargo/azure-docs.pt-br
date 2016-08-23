@@ -23,9 +23,9 @@
 - [Portal do Azure](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-Este artigo fornece instruções para arquivar seu Banco de Dados SQL do Azure para um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o [portal do Azure](https://portal.azure.com).
+Este artigo fornece instruções para arquivar seu Banco de Dados SQL do Azure em um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o [portal do Azure](https://portal.azure.com).
 
-Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, pode exportar o esquema de banco de dados e os dados para um arquivo BACPAC. Um arquivo BACPAC é simplesmente um arquivo ZIP com uma extensão de BACPAC. Um arquivo BACPAC posteriormente pode ser armazenado no armazenamento de blobs do Azure ou no armazenamento local em um local e posteriormente importado novamente no Banco de Dados SQL do Azure ou em uma instalação local do SQL Server.
+Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, pode exportar o esquema de banco de dados e os dados para um arquivo BACPAC. Um arquivo BACPAC é simplesmente um arquivo ZIP com uma extensão de BACPAC. Posteriormente, um arquivo BACPAC poderá ser colocado no armazenamento de blobs do Azure ou no armazenamento local em um local e depois importado novamente para o Banco de Dados SQL do Azure ou uma instalação local do SQL Server.
 
 ***Considerações***
 
@@ -33,7 +33,7 @@ Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, p
 - O tamanho máximo de um arquivo BACPAC arquivado no armazenamento de blobs do Azure é de 200 GB. Use o utilitário de prompt de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para arquivar um arquivo BACPAC maior no armazenamento local. Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
 - Não há suporte para o arquivamento no armazenamento premium do Azure usando um arquivo BACPAC.
 - Se a operação de exportação ficar acima de 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
- - Aumentar temporariamente o nível de serviço
+ - Aumentar temporariamente seu nível de serviço
  - Interromper toda a atividade de leitura e gravação durante a exportação
  - Usar um índice clusterizado em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque os serviços de exportação precisam concluir a verificação de tabela para tentar exportar a tabela inteira
 
@@ -63,7 +63,7 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
     ![exportar banco de dados][2]
 
 6. Selecione seu tipo de autenticação.
-7.  Insira as credenciais de autenticação apropriadas para o SQL Server do Azure contendo o banco de dados sendo exportado.
+7.  Insira as credenciais de autenticação apropriadas para o SQL Server do Azure contendo o banco de dados que está sendo exportado.
 8.  Clique em **OK** para arquivar o banco de dados. Clicar em **OK** cria uma solicitação de exportação de banco de dados e a envia ao serviço. Quanto tempo que a exportação levará depende do tamanho e da complexidade do seu banco de dados e seu nível de serviço. Você receberá uma notificação.
 
     ![exportar notificação][3]
@@ -99,4 +99,4 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -240,7 +240,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -557,4 +557,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 - Saiba mais sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usar logs de auditoria para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 - Confira o modelo para [Dimensionar automaticamente um Conjunto de Dimensionamento da VM que executa um aplicativo Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) que configura uma pilha LAMP para praticar a funcionalidade de dimensionamento automático dos Conjuntos de Dimensionamento da Máquina Virtual.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral do Diagnóstico do Azure"
+	pageTitle="Visão geral do Diagnóstico do Azure | Microsoft Azure"
 	description="Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric"
 	services="multiple"
 	documentationCenter=".net"
@@ -81,4 +81,4 @@ Comece em [Monitorar um aplicativo do Service Fabric](./service-fabric/service-f
 - Saiba como [Rotear informações de diagnóstico do Azure para o Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Se você tiver problemas com o início do diagnóstico ou com a localização de seus dados nas tabelas do Armazenamento do Azure, veja [Solução de Problemas do Diagnóstico do Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

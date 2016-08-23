@@ -1,5 +1,5 @@
 <properties
- pageTitle="Sobre as instâncias A8 a A11 e o Linux | Microsoft Azure"
+ pageTitle="Sobre os tamanhos A8, A9, A10, A11 de VM com Linux | Microsoft Azure"
  description="Obter informações básicas e considerações sobre o uso dos tamanhos A8, A9, A10 e A11 do Azure com computação intensiva para VMs do Linux"
  services="virtual-machines-linux"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # Sobre as instâncias de computação intensiva A8, A9, A10 e A11 
@@ -28,11 +28,11 @@ Apresentamos a seguir informações básicas e algumas considerações sobre o u
 
 Em um único serviço de nuvem ou conjunto de disponibilidade, clusters de VMs Linux de tamanho A8 e A9 que executam uma das seguintes distribuições Linux HPC com suporte e uma implementação MPI com suporte podem acessar a rede RDMA no Azure para executar aplicativos MPI do Linux. Veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md) para obter opções de implantação e etapas de configuração de exemplo.
 
-* **Distribuições** - SUSE Linux Enterprise Server (SLES) 12 para HPC, SLES 12 para HPC (Premium), HPC baseado em CentOS 7.1 ou HPC baseado em CentOS 6.5, implantado com base em uma imagem do Azure Marketplace
+* **Distribuições** — SUSE Linux Enterprise Server (SLES) 12 para HPC, SLES 12 para HPC (Premium), HPC baseado em CentOS 7.1 ou HPC baseado em CentOS 6.5, implantado com base em uma imagem do Azure Marketplace
 
 * **MPI** - Intel MPI Library 5.x
 
-    >[AZURE.NOTE] O Intel MPI 5.1.3.181 já está instalado nas imagens do HPC baseado em CentOS no Marketplace. Para usar o Intel MPI em VMs do HPC SLES 12, é necessário instalá-lo separadamente.
+    >[AZURE.NOTE] O Intel MPI 5.1 já está instalado nas imagens do HPC baseado em CentOS no Marketplace. Para usar o Intel MPI em VMs do HPC SLES 12, é necessário instalá-lo separadamente.
 
 Atualmente, os drivers RDMA do Linux do Azure são instalados apenas quando são implantadas imagens do HPC SLES 12 e HPC baseado em CentOS habilitadas para RDMA no Azure Marketplace. Não é possível instalar os drivers em outras VMs Linux implantadas.
 
@@ -114,4 +114,4 @@ done
 
 * Para se familiarizar com a implantação e o uso das instâncias A8 e A9 com o RDMA no Linux, veja [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

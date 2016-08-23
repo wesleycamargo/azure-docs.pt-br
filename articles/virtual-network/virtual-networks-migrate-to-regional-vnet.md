@@ -3,7 +3,7 @@
    description="Saiba como migrar de grupos de afinidades para VNets regionais"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
 
@@ -66,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

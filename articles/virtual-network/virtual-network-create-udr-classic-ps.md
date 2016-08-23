@@ -3,7 +3,7 @@
    description="Aprenda a controlar o roteamento em VNets usando o PowerShell no modelo de implantação clássica"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Controlar o roteamento e usar dispositivos virtuais (clássico) usando o PowerShell
 
@@ -23,9 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Este artigo aborda o modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -110,4 +108,4 @@ Para habilitar o encaminhamento de IP na VM FW1, siga as etapas abaixo.
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

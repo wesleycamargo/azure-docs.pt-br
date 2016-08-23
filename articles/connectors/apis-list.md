@@ -102,8 +102,8 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Saiba mais sobre a integração corporativa do AS2."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Saiba mais sobre a integração corporativa do X12"
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Saiba mais sobre o arquivo simples de integração corporativa."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Saiba mais sobre a validação de XML de integração corporativa."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Saiba mais sobre a validação de XML de integração corporativa."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa."
 [httpdoc]: ./connectors-native-http.md "Conector HTTP para fazer chamadas HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Ações de solicitação e resposta."
@@ -183,4 +183,4 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

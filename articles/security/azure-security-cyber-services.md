@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Serviços Microsoft em Segurança Cibernética
@@ -37,4 +37,4 @@ Saiba mais sobre os serviços fornecidos pelos Serviços Microsoft:
 
 [Saiba mais](https://aka.ms/cyberserv) sobre serviços de consultoria de segurança dos Serviços da Microsoft.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

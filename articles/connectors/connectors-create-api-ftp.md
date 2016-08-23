@@ -39,9 +39,14 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 Neste exemplo, mostrarei como usar o gatilho **FTP – Quando um arquivo é adicionado ou modificado** para iniciar um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado, ou modificado, em um servidor FTP. Em um exemplo corporativo, você pode usar esse gatilho para monitorar uma pasta FTP em busca de novos arquivos que representam pedidos de clientes. Você pode usar uma ação de conector FTP, como **Obter conteúdo do arquivo** para obter o conteúdo do pedido para processamento posterior e armazenamento em seu banco de dados de pedidos.
 
-1. Insira *ftp* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **FTP – Quando um arquivo é adicionado ou modificado** ![Imagem 1 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-1.png) O controle **Quando um arquivo é adicionado ou modificado** é aberto ![Imagem 2 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-2.png)
-- Escolha **...**, localizado no lado direito do controle. Isso abre o controle de seletor de pasta ![Imagem 3 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-3.png)
-- Escolha **>** (seta para a direita) e procure a pasta que deseja monitorar em busca de arquivos novos ou modificados. Selecione a pasta e observe que a pasta agora é exibida no controle **Pasta**. ![Imagem 4 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-4.png)
+1. Insira *ftp* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **FTP – Quando um arquivo é adicionado ou modificado**  
+![Imagem 1 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+O controle **Quando um arquivo é adicionado ou modificado** é aberto  
+![Imagem 2 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Escolha **...**, localizado no lado direito do controle. Isso abre o controle de seletor de pasta  
+![Imagem 3 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Escolha **>** (seta para a direita) e procure a pasta que deseja monitorar em busca de arquivos novos ou modificados. Selecione a pasta e observe que a pasta agora é exibida no controle **Pasta**.  
+![Imagem 4 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
 Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho quando um arquivo é, ou modificado, ou criado, na pasta FTP específica.
@@ -57,12 +62,18 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 Agora que você adicionou um gatilho, siga estas etapas para adicionar uma ação que obterá o conteúdo do arquivo novo ou modificado encontrado pelo gatilho.
 
 1. Escolha **+ Nova etapa** a fim de adicionar a ação para obter o conteúdo do arquivo no servidor FTP
-- Escolha o link **Adicionar uma ação**. ![Imagem 1 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-1.png)
+- Escolha o link **Adicionar uma ação**.  
+![Imagem 1 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-1.png)  
 - Insira *FTP* para pesquisar todas as ações relacionadas ao FTP.
-- Escolha **FTP – Obter conteúdo do arquivo** como a ação a ser tomada quando um arquivo novo ou modificado é encontrado na pasta FTP. ![Imagem 2 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-2.png) O controle **Obter conteúdo do arquivo** é aberto. **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta no servidor FTP, caso não tenha feito isso anteriormente. ![Imagem 3 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-3.png)
+- Escolha **FTP – Obter conteúdo do arquivo** como a ação a ser tomada quando um arquivo novo ou modificado é encontrado na pasta FTP.   
+![Imagem 2 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-2.png)  
+O controle **Obter conteúdo do arquivo** é aberto. **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta no servidor FTP, caso não tenha feito isso anteriormente.  
+![Imagem 3 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-3.png)  
 - Escolha o controle **Arquivo** (o espaço em branco localizado abaixo de **ARQUIVO***). Aqui, você pode usar qualquer uma das várias propriedades do arquivo novo ou modificado encontrado no servidor FTP.
-- Escolha a opção **Conteúdo do arquivo**. ![Imagem 4 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-4.png)
--  O controle é atualizado, indicando que a ação **FTP – Obter conteúdo do arquivo** obterá o *conteúdo do arquivo* do arquivo novo ou modificado no servidor FTP. ![Imagem 5 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-5.png)
+- Escolha a opção **Conteúdo do arquivo**.  
+![Imagem 4 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  O controle é atualizado, indicando que a ação **FTP – Obter conteúdo do arquivo** obterá o *conteúdo do arquivo* do arquivo novo ou modificado no servidor FTP.  
+![Imagem 5 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-5.png)  
 - Salve seu trabalho e adicione um arquivo à pasta FTP para testar o fluxo de trabalho.
 
 Neste ponto, o aplicativo lógico foi configurado com um gatilho para monitorar uma pasta em um servidor FTP e iniciar o fluxo de trabalho quando encontrar um arquivo novo ou modificado no servidor FTP.

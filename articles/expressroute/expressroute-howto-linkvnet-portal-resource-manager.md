@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/08/2016"
    ms.author="cherylmc" />
 
 # Vincular uma rede virtual a um circuito de Rota Expressa
@@ -44,7 +44,7 @@ Este artigo ajudará você a vincular as redes virtuais (VNets) aos circuitos de
 
 	- Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para criar um [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (siga somente as etapas 1-5).
 
-Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa. Todos os circuitos da Rota Expressa devem estar na mesma região geopolítica. É possível vincular um grande número de redes virtuais ao circuito da Rota Expressa se você tiver habilitado o complemento premium da Rota Expressa. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
+Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de Rota Expressa padrão. Você poderá vincular uma rede virtual fora da região geopolítica do circuito da Rota Expressa ou conectar um grande número de redes virtuais ao circuito de Rota Expressa, se tiver habilitado o complemento premium da Rota Expressa. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 
 ## Conectar uma rede virtual na mesma assinatura a um circuito
 
@@ -80,4 +80,4 @@ Neste momento, você não pode conectar as redes virtuais nas assinaturas usando
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

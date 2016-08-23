@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="08/09/2016"
    ms.author="larryfr"/>
 
 #Use o Modo de Exibição do Hive com o Hadoop no HDInsight.
@@ -65,7 +65,7 @@ Use as etapas a seguir no modo de exibição do Hive para executar uma consulta 
 		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-	Essas instruções executam as seguintes ações:
+	As instruções executam as seguintes ações:
 
 	- **DROP TABLE** - exclui a tabela e o arquivo de dados caso a tabela já exista.
 	- **CREATE EXTERNAL TABLE**: cria uma nova tabela "externa" no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
@@ -95,7 +95,7 @@ Use as etapas a seguir no modo de exibição do Hive para executar uma consulta 
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-	Essas instruções executam as seguintes ações:
+	As instruções executam as seguintes ações:
 
 	- **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, esta é uma tabela interna, que é armazenada no data warehouse do Hive e totalmente gerenciada pelo Hive. Ao contrário das tabelas externas, remover uma tabela interna excluirá também os dados subjacentes.
 	- **STORES AS ORC**: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
@@ -199,4 +199,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

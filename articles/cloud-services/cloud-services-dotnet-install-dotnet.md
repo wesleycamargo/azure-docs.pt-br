@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/10/2016"
    ms.author="adegeo"/>
 
 # Instalar o .NET em uma Função do Serviço de Nuvem 
@@ -29,7 +29,7 @@ O processo de instalação do .NET em suas funções de trabalho e web envolve i
   1. Em **Gerenciador de Soluções**, em **Funções** no projeto de serviço de nuvem, clique com o botão direito do mouse na sua função e selecione **Adicionar>Nova Pasta**. Crie uma pasta chamada *bin*
   2. Clique com o botão direito na pasta **bin** e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
 - Para uma função de trabalho
-  1. Clique com o botão direito na sua função e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à função. 
+  1. Clique com o botão direito na sua função e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à função.
 
 Os arquivos adicionados dessa maneira à pasta de conteúdo de função serão automaticamente adicionados ao pacote de serviço de nuvem e implantados em um local consistente na máquina virtual. Repita esse processo para todas as funções de trabalho e web no seu serviço de nuvem para que todas as funções tenham uma cópia do instalador.
 
@@ -183,4 +183,4 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp (Visualização)
+
+> [AZURE.IMPORTANT]
+O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Este artigo explica como publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp. Essa é uma nova funcionalidade no Azure RemoteApp, atualmente em "visualização particular", e está disponível somente para usuários pioneiros específicos para fins de avaliação.
 
@@ -49,7 +52,7 @@ Em seguida, inicie o console do PowerShell no modo de administrador e execute es
 
 		Add-AzureAccount
 
-Ele solicitará seu nome de usuário e senha do Azure. Depois de conectado, você poderá executar cmdlets do Azure RemoteApp em suas assinaturas do Azure.
+Ele solicitará seu nome de usuário e senha do Azure. Depois de conectado, você poderá executar os cmdlets do RemoteApp do Azure em suas assinaturas do Azure.
 
 ## Como verificar o modo no qual uma coleção está
 
@@ -80,7 +83,7 @@ Execute o cmdlet a seguir:
 
 Isso lista todos os usuários que podem ver o aplicativo.
 
-Observação: você pode ver os aliases de aplicativos (chamados de "alias de aplicativos" na sintaxe acima) executando Get-AzureRemoteAppProgram - CollectionName <collectionName>.
+Observação: você pode ver os aliases do aplicativo (denominados "alias do aplicativo" na sintaxe acima) executando Get-AzureRemoteAppProgram - CollectionName <nomeColeção>.
 
 ## Como atribuir um aplicativo a um usuário
 
@@ -102,4 +105,4 @@ Agradecemos seus comentários e sugestões sobre este recurso de visualização.
 ## Ainda não teve a oportunidade de experimentar o recurso de visualização?
 Se você ainda não participou da visualização, use esta [pesquisa](http://www.instant.ly/s/AY83p) para solicitar acesso.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

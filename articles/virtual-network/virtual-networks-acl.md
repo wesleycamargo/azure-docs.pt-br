@@ -3,7 +3,7 @@
    description="Saiba mais sobre ACLs."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # O que é uma ACL (Lista de Controle de Acesso) do ponto de extremidade?
 
@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

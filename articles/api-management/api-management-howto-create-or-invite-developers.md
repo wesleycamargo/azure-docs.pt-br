@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Como gerenciar contas de usuário no Gerenciamento de API do Azure
@@ -95,7 +95,7 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -110,4 +110,4 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Configurar modelos de email]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

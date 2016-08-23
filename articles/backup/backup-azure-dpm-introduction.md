@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark;markgal"/>
+	ms.date="08/08/2016"
+	ms.author="trinadhk;giridham;jimpark;markgal;adigan"/>
 
 # Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 
@@ -39,39 +39,37 @@ O System Center DPM faz backup dos dados de arquivos e aplicativos. O backup dos
 - **DPM implantado como servidor físico ou máquina virtual local** – se o DPM for implantado como servidor físico ou máquina virtual local Hyper-V, é possível fazer backup dos dados em um cofre dos Serviços de Recuperação além do backup em disco e em fita.
 - **DPM implantado como máquina virtual do Azure** — No System Center 2012 R2 com atualização 3, o DPM pode ser implantado como máquina virtual do Azure. Se o DPM for implantado como uma máquina virtual do Azure, você pode fazer backup de dados em discos do Azure anexados à máquina virtual do DPM Azure, ou você pode descarregar o armazenamento de dados fazendo o backup em um cofre dos Serviços de Recuperação.
 
-## Por que fazer backup de seus servidores DPM?
+## Por que fazer backup do DPM no Azure?
 
 Os benefícios comerciais do uso do Backup do Azure para backup de servidores DPM são:
 
 - Para implantação do DPM no local, você pode usar o Azure como uma alternativa para implantação de longo prazo em fita.
 - Para implantações do DPM no Azure, o Azure Backup permite descarregar armazenamento do disco do Azure, permitindo escalar verticalmente armazenando dados mais antigos no cofre dos Serviços de Recuperação e novos dados no disco.
 
-## Como funciona o backup do servidor DPM?
-Para fornecer proteção de dados baseada em disco, o servidor DPM cria e mantém uma réplica, ou cópia, dos dados que estão nos servidores protegidos. As réplicas são armazenadas no pool de armazenamento, que consiste em um conjunto de discos no servidor DPM ou em um volume personalizado. Se você está protegendo os dados de arquivos ou dados de aplicativo, a proteção começa com a criação da réplica da fonte de dados. A réplica é sincronizada ou atualizada em intervalos regulares de acordo com as configurações que você definir. Quando você usa proteção baseada em disco de curto prazo e a proteção de longo prazo para a nuvem, o DPM pode fazer backup de dados xo volume de réplica para o cofre dos Serviços de Recuperação para que não haja nenhum impacto no computador protegido.
-
 ## Pré-requisitos
 Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
 
 1. **Criar um cofre dos Serviços de Recuperação** – crie um cofre no portal do Azure.
 2. **Baixar credenciais do cofre** – baixe as credenciais que você usa para registrar o servidor DPM no cofre dos Serviços de Recuperação.
-3. **Instalar o Agente de Backup do Azure e registrar o servidor** – No Backup do Azure, instale o agente em cada servidor DPM e registre o servidor DPM no cofre dos Serviços de Recuperação.
+3. **Instalar o Agente de Backup do Azure** — no Backup do Azure, instale o agente em cada servidor DPM.
+4. **Registrar o servidor** — registre o servidor DPM no cofre de Serviços de Recuperação.
 
 ### 1\. Criar um cofre dos Serviços de Recuperação
-Para criar um cofre dos Serviços de Recuperação:
+Para criar um cofre dos serviços de recuperação:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
+2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre de Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
 
     A lista de cofres dos Serviços de Recuperação é exibida.
 
-3. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar**.
+3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    A folha do cofre de Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 
@@ -87,7 +85,7 @@ Para criar um cofre dos Serviços de Recuperação:
 
 ### Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e com [redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -149,13 +147,19 @@ Após a criação do cofre de Backup do Azure, um agente deverá ser instalado e
 
 5.	O agente de Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se ele ainda não estiver disponível) para concluir a instalação.
 
-6.	Depois que o agente estiver instalado, clique no botão **Prosseguir com o Registro** para continuar com o fluxo de trabalho.
+6.	Depois que o agente for instalado, **Feche** a janela.
 
-    ![Registrar](../../includes/media/backup-install-agent/register.png)
+    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
-7. Na tela de credenciais do cofre, procure e selecione o arquivo de credenciais do cofre que foi baixado anteriormente.
+7. Para **Registrar o servidor DPM** no cofre, na guia **Gerenciamento**, clique em **Online**. Em seguida, selecione **Registrar**. Será aberto o Assistente para Registrar a Instalação.
 
-    ![Credenciais do cofre](../../includes/media/backup-install-agent/vc.png)
+8. Se você usar um servidor proxy para se conectar à Internet, na tela **Configuração de Proxy**, insira os detalhes do servidor proxy. Se você usar um proxy autenticado, insira os detalhes de nome de usuário e senha nessa tela.
+
+	![Configuração de proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
+
+9. Na tela de credenciais do cofre, procure e selecione o arquivo de credenciais do cofre que foi baixado anteriormente.
+
+    ![Credenciais do cofre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
     O arquivo de credenciais do cofre é válido somente por 48 horas (após o download do portal). Se você encontrar qualquer erro nessa tela (por exemplo "o arquivo de credenciais do cofre fornecido expirou"), faça logon no Portal do Azure e baixe o arquivo de credenciais do cofre novamente.
 
@@ -163,21 +167,23 @@ Após a criação do cofre de Backup do Azure, um agente deverá ser instalado e
 
     Se você encontrar um erro de credencial de cofre inválida (por exemplo, “Credenciais do cofre fornecidas inválidas”), significa que o arquivo está corrompido ou não tem as últimas credenciais associadas ao serviço de recuperação. Repita a operação depois de baixar um novo arquivo de credencial de cofre no portal. Esse erro normalmente será exibido se o usuário clicar na opção **Baixar credencial de cofre** no portal do Azure, em uma sequência rápida. Nesse caso, apenas o segundo arquivo de credencial de cofre é válido.
 
-8. Na tela **Configuração de criptografia**, você pode gerar uma senha ou fornecer uma (mínio de 16 caracteres). Lembre-se de salvar a senha em um local seguro.
+10. Para controlar o uso da largura de banda durante o trabalho e as horas de folga, na tela **Configuração de Limitação**, você pode definir os limites de uso de largura de banda e definir as horas de trabalho e de folga.
 
-    ![Criptografia](../../includes/media/backup-install-agent/encryption.png)
+    ![Configuração de Limitação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
+
+11. Na tela **Configuração de Pasta de Recuperação**, navegue até a pasta em que os arquivos baixados do Azure serão preparados temporariamente.
+
+    ![Configuração de Pasta de Recuperação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
+
+12. Na tela **Configuração de criptografia**, você pode gerar uma senha ou fornecer uma (mínio de 16 caracteres). Lembre-se de salvar a senha em um local seguro.
+
+    ![Criptografia](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [AZURE.WARNING] Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar na recuperação dos dados de backup. O usuário final é proprietário da senha de criptografia, isto é, a Microsoft não tem visibilidade da senha que é usada pelo usuário final. Salve o arquivo em um local seguro, pois ela é obrigatória durante uma operação de recuperação.
 
-9. Depois de clicar no botão **Concluir**, o computador estará registrado com êxito no cofre e agora você estará pronto para iniciar o backup no Microsoft Azure.
+13. Depois de clicar no botão **Registrar**, o computador estará registrado com êxito no cofre e agora você estará pronto para iniciar o backup no Microsoft Azure.
 
-10. Ao usar o Backup do Microsoft Azure autônomo, você pode modificar as configurações especificadas durante o fluxo de trabalho de registro clicando na opção **Alterar Propriedades** no snap-in do MMC no Backup do Azure.
-
-    ![Alterar propriedades](../../includes/media/backup-install-agent/change.png)
-
-    Como alternativa, ao usar o Data Protection Manager, é possível modificar as configurações especificadas durante o fluxo de trabalho de registro clicando na opção **Configurar** ao selecionar **Online** na guia **Gerenciamento**.
-
-    ![Configurar o Backup do Azure](../../includes/media/backup-install-agent/configure.png)
+14. Ao usar o Data Protection Manager, é possível modificar as configurações especificadas durante o fluxo de trabalho de registro clicando na opção **Configurar** ao selecionar **Online** na guia **Gerenciamento**.
 
 ## Requisitos (e limitações)
 
@@ -209,4 +215,4 @@ E os seguintes não têm suporte:
 
 >[AZURE.NOTE] No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

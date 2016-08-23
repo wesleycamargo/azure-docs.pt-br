@@ -114,7 +114,7 @@ Você pode calcular o percentual de disponibilidade de um serviço em um períod
 Isso é útil para fins de SLA. (O [monitoramento de SLA](#SLA-monitoring) é descrito em mais detalhes mais adiante neste guia). A definição de _tempo de inatividade_ depende do serviço. Por exemplo, o Serviço de Compilação do Visual Studio Team Services define o tempo de inatividade como o período (total de minutos acumulados) durante o qual o Serviço de Compilação está indisponível. Um minuto será considerado indisponível se todas as solicitações HTTP contínuas para o Serviço de Compilação realizar operações iniciadas pelo cliente durante o minuto resultarem em um código de erro ou não retornarem nenhuma resposta.
 
 ## Monitoramento de desempenho
-Conforme o sistema vai sendo colocado cada vez mais sob pressão pelo aumento do volume de usuários e o tamanho dos conjuntos de dados que esses usuários acessam vai crescendo, aumenta a probabilidade de uma possível falha de um ou mais componentes. Frequentemente, a falha de um componente é precedida por uma queda no desempenho. Se você conseguir detectar uma redução desse tipo, poderá tomar medidas proativas para corrigir a situação.
+Conforme o sistema vai sendo colocado cada vez mais sob pressão pelo aumento do volume de usuários, o tamanho dos conjuntos de dados que esses usuários acessam vai crescendo, aumentando a probabilidade de uma possível falha de um ou mais componentes. Frequentemente, a falha de um componente é precedida por uma queda no desempenho. Se você conseguir detectar uma redução desse tipo, poderá tomar medidas proativas para corrigir a situação.
 
 O desempenho do sistema depende de vários fatores. Cada fator normalmente é medido por meio de KPIs (indicadores chave de desempenho), como o número de transações de banco de dados por segundo ou o volume de solicitações de rede que são atendidas com êxito em um determinado período de tempo. Alguns desses KPIs podem estar disponíveis como medidas de desempenho específicas, enquanto outros podem ser derivados de uma combinação de métricas.
 
@@ -469,10 +469,10 @@ Observe que essa é uma exibição simplificada. O serviço de coleta não é ne
 Para serviços e aplicativos do Azure, o Diagnóstico do Azure fornece uma possível solução para a captura de dados. O Diagnóstico do Azure reúne dados das seguintes fontes para cada nó de computação, agrega-os e os carrega no Armazenamento do Azure:
 
 - Logs IIS
-- Logs de solicitação de falha do IIS
+- Logs de solicitação com falha IIS
 - Logs de eventos do Windows
 - Contadores de desempenho
-- Despejos de memória
+- Despejos de falhas
 - Logs de infraestrutura do Diagnóstico do Azure
 - Logs de erros personalizados
 - .NET EventSource
@@ -664,4 +664,4 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 - [Receber notificações de alerta](./azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

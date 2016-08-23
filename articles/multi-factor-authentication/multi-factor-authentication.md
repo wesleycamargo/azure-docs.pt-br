@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -116,7 +116,7 @@ Desvio único| | | *
 Saudações personalizadas para chamadas telefônicas| | | *
 Personalização da ID do chamador para chamadas telefônicas| | | *
 Confirmação de evento| | | *
-IPs Confiáveis| | | *
+IPs confiáveis| | | *
 Lembrar MFA para dispositivos confiáveis |* | * | *
 SDK de MFA | | | * exige o provedor de Multi-Factor Authentication e a assinatura completa do Azure
 MFA para aplicativos locais usando o servidor MFA| | | *
@@ -176,7 +176,7 @@ Em seguida, dependendo de onde os usuários estão localizados, podemos determin
 
 Local do usuário| Solução
 ------------- | :------------- |
-Active Directory do Azure| Autenticação multifator na nuvem|
+Azure Active Directory| Autenticação multifator na nuvem|
 Azure AD e AD local usando federação com AD FS| O MFA na nuvem e o Servidor MFA são opções disponíveis
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - sem sincronização de senha|O MFA na nuvem e o Servidor MFA são opções disponíveis
 Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - com sincronização de senha|Autenticação multifator na nuvem
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,8 +3,8 @@
 	description="Faça backup de Windows servers ou clientes Windows no Azure criando um cofre de backup, baixando credenciais, instalando o agente de backup e concluindo um backup inicial de seus arquivos e pastas."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="cofre de backup; fazer backup de um Windows server; backup do windows;"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
 
@@ -226,4 +226,4 @@ Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, 
 - [Backup de cargas de trabalho no Azure com o Servidor de Backup do Microsoft Azure](backup-azure-microsoft-azure-backup.md)
 - [Fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

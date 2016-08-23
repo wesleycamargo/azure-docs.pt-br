@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Usar o telefone comercial como método de contato com o Azure Multi-Factor Authentication
@@ -30,7 +30,7 @@ Se desejar usar seu telefone comercial como o método de contato principal, voc�
 
 <li>Especifique o seu país na lista suspensa e insira o número do celular.</li>
 <li>Selecione o modo que você prefere usar com o celular — texto ou ligação.</li>
-<li>Clique em Avançar.</li>
+<li>Clique em Próximo.</li>
 <li>Clique no botão Verificar Agora. Isso iniciará uma ligação para o telefone comercial. Fique próximo a ele.
 <li>Clique em Avançar</li>
 <li>Até aqui, você configurou o método de contato e agora é hora de configurar as senhas de aplicativo para aplicativos que não usam navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, clique em **Concluído**. Caso contrário, passe para a próxima etapa.
@@ -44,4 +44,4 @@ Se desejar usar seu telefone comercial como o método de contato principal, voc�
 <center>![Configuração](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

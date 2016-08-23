@@ -291,7 +291,7 @@ Removed as these two are not confirmed / supported under SQLDW
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **Aumentar a classe de recurso:** para adicionar um usuário a uma função de gerenciamento de aumento de carga de trabalho, use a consulta a seguir.
+4. **Aumentar a classe do recurso:** para adicionar um usuário a uma função de gerenciamento de cargas de trabalho maiores, use a consulta a seguir.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
@@ -428,4 +428,4 @@ Para obter mais informações sobre como gerenciar usuários de banco de dados e
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

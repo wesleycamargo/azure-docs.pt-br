@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT. | Análise de Fluxo"
 	description="Marcas e dados de sensor de fluxos IoT com o processamento de dados em tempo real e Stream Analytics"
+    keywords="solução iot, introdução ao ioT"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"
 />
 
@@ -25,7 +26,7 @@ Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo par
 ## Pré-requisitos
 
 -   [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
--   Exemplos de arquivos de consulta e de dados que podem ser baixados de [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
+-   Exemplos de arquivos de consulta e de dados que podem ser baixados de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Cenário
 
@@ -75,7 +76,7 @@ A forma mais simples de consulta é uma passagem que arquivará todos os dados d
 
 ![Consulta de trabalho de arquivamento](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-Baixe agora o arquivo de dados de exemplo do [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) para um local no seu computador. Copie e cole a consulta do arquivo **PassThrough.txt**. Clique no botão Teste abaixo e selecione o arquivo de dados chamado **HelloWorldASA InputStream.json** de seu local de download.
+Baixe agora o arquivo de dados de exemplo do [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) para um local no seu computador. Copie e cole a consulta do arquivo **PassThrough.txt**. Clique no botão Teste abaixo e selecione o arquivo de dados chamado **HelloWorldASA InputStream.json** de seu local de download.
 
 ![Botão Testar no Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -119,4 +120,4 @@ Aqui, estamos usando um **LEFT OUTER JOIN** no mesmo fluxo de dados (associaçã
 
 O objetivo deste tutorial é demonstrar como escrever consultas de linguagem de consulta do Stream Analytics e ver os resultados no navegador. No entanto, isso está apenas começando. Há muito mais que você pode fazer com Stream Analytics. O Stream Analytics dá suporte a várias entradas e saídas e ainda pode aproveitar as funções no Aprendizado de Máquina do Azure, tornando-a uma ferramenta robusta para analisar fluxos de dados. Você pode começar a explorar mais sobre Stream Analytics usando nosso [Mapa de aprendizado](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) e, para obter mais informações sobre como escrever consultas, leia o artigo em [Padrões comuns de consulta](./stream-analytics-stream-analytics-query-patterns.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

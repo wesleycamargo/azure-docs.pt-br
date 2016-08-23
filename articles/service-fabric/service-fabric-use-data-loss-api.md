@@ -46,9 +46,9 @@ O Serviço Análise e Injeção de Falha usa um modelo assíncrono em que você 
 
 Para iniciar um comando, chame a API Start com os argumentos esperados. Todas as APIs Start têm um argumento GUID chamado operationId. É preciso controlar o argumento operationId, uma vez que ele é usado para rastrear o progresso desse comando. Ele deve ser passado para a API "GetProgress" para rastrear o progresso do comando. A operationId deve ser exclusiva.
 
-Depois de chamar a API Start com êxito, a API GetProgress deverá ser chamada em um loop até que a propriedade State do objeto de progresso seja Completed. Todas as [FabricTransientExceptions][fte] e OperationCanceledExceptions devem ser recuperadas. Quando o comando tiver atingido um estado terminal (Completed, Faulted ou Cancelled), a propriedade Result do objeto de progresso retornado terá informações adicionais. Se o estado for Completed, Result.SelectedPartition.PartitionId conterá a id da partição que foi selecionada. Result.Exception será nulo. Se o estado for Faulted, Result.Exception apresentará o motivo pelo qual o comando do Serviço de Análise e Injeção de Falha falhou. Result.SelectedPartition.PartitionId terá a id da partição que foi selecionada. Em algumas situações, o comando pode não ser executado o suficiente para escolher uma partição. Nesse caso, PartitionId será 0. Se o estado for Cancelled, Result.Exception será nulo. Assim como no caso de Faulted, Result.SelectedPartition.PartitionId terá a id da partição que foi escolhida, mas se o comando não tiver prosseguido o suficiente para isso, será 0. Veja também o exemplo abaixo.
+Depois de chamar a API Start com êxito, a API GetProgress deverá ser chamada em um loop até que a propriedade State do objeto de progresso seja Completed. Todas as [FabricTransientException’s][fte] e OperationCanceledException’s devem ser recuperadas. Quando o comando tiver atingido um estado terminal (Completed, Faulted ou Cancelled), a propriedade Result do objeto de progresso retornado terá informações adicionais. Se o estado for Completed, Result.SelectedPartition.PartitionId conterá a id da partição que foi selecionada. Result.Exception será nulo. Se o estado for Faulted, Result.Exception apresentará o motivo pelo qual o comando do Serviço de Análise e Injeção de Falha falhou. Result.SelectedPartition.PartitionId terá a id da partição que foi selecionada. Em algumas situações, o comando pode não ser executado o suficiente para escolher uma partição. Nesse caso, PartitionId será 0. Se o estado for Cancelled, Result.Exception será nulo. Assim como no caso de Faulted, Result.SelectedPartition.PartitionId terá a id da partição que foi escolhida, mas se o comando não tiver prosseguido o suficiente para isso, será 0. Veja também o exemplo abaixo.
 
-O exemplo de código abaixo mostra como iniciar e depois verificar o progresso em um comando para reiniciar uma partição específica.
+O código de exemplo abaixo mostra como iniciar e depois verificar o progresso em um comando para causar a perda de dados em uma partição específica.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@ O exemplo abaixo mostra como usar PartitionSelector para escolher uma partição
 
 Depois que um comando tiver atingido um estado terminal, seus metadados permanecerão no Serviço de Análise e Injeção de Falha por um tempo determinado, antes de ser removido para economia de espaço. Se "GetProgress" for chamado usando operationId de um comando depois que ele tiver sido removido, ele retornará uma FabricException com um ErrorCode de KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/pt-BR/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/pt-BR/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/pt-BR/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/pt-BR/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/pt-BR/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/pt-BR/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/pt-BR/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/pt-BR/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/pt-BR/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

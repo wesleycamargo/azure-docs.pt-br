@@ -26,7 +26,7 @@ Você poderia treinar seu modelo uma vez usando uma versão mesclada de todos os
 
 Essa poderia ser a melhor abordagem, mas você não quer criar 1.000 testes de treinamento no Aprendizado de Máquina do Azure com cada um deles representando um local exclusivo. Além de essa ser uma tarefa árdua, também parece muito ineficiente, já que cada teste teria todos os mesmos componentes, exceto pelo conjunto de dados de treinamento.
 
-A boa notícia é que podemos fazer isso usando a [API de novo treinamento do Aprendizado de Máquina do Azure](machine-learning-retrain-models-programmatically.md) e automatizar a tarefa com o [PowerShell do Aprendizado de Máquina do Azure](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
+A boa notícia é que podemos fazer isso usando a [API de novo treinamento do Aprendizado de Máquina do Azure](machine-learning-retrain-models-programmatically.md) e automatizar a tarefa com o [PowerShell do Aprendizado de Máquina do Azure](machine-learning-powershell-module.md).
 
 > [AZURE.NOTE] Para fazer com que nossa amostra seja executada mais rapidamente, reduziremos o número de locais de 1.000 para 10. No entanto, os mesmos princípios e procedimentos se aplicam aos 1.000 locais. A única diferença é que, se você deseja treinar com base nos 1.000 conjuntos de dados, provavelmente, é mais conveniente pensar em executar os seguintes scripts do PowerShell em paralelo. A forma como isso será feito está além do escopo deste artigo, mas é possível encontrar exemplos de multi-thread do PowerShell na Internet.
 
@@ -161,4 +161,4 @@ Esta é a listagem do código-fonte completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

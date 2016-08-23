@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -97,7 +97,7 @@ Substituir `{application id}` e `{redirect uri}` usando a **ID do cliente** e a 
 
 Depois que os valores são especificados, o exemplo de código deve retornar um token semelhante ao exemplo a seguir.
 
-![A criptografia do token][api-management-arm-token]
+![Token][api-management-arm-token]
 
 Antes de chamar as operações de backup e restauração descritas nas seções a seguir, defina o cabeçalho de solicitação de autorização para a chamada de REST.
 
@@ -131,8 +131,8 @@ O backup é uma operação longa de execução que pode levar vários minutos pa
 **Observação**:
 
 - o **contêiner** especificado no corpo solicitado **deve existir**.
-* Enquanto o backup está em andamento, você **não deve tentar quaisquer operações de gerenciamento de serviço**, como atualização ou downgrade de SKU, alteração do nome do domínio, etc. 
-* A restauração de um **backup é garantida somente por 7 dias** desde o momento de sua criação. 
+* Enquanto o backup está em andamento, você **não deve tentar quaisquer operações de gerenciamento de serviço**, como atualização ou downgrade de SKU, alteração do nome do domínio, etc.
+* A restauração de um **backup é garantida somente por 7 dias** desde o momento de sua criação.
 * Os **dados de uso** usados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][] para recuperar periodicamente os relatórios analíticos por questões de segurança.
 * A frequência com que você executa os backups de serviço afetarão seu objetivo do ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regular, bem como a execução de backups sob demanda depois de fazer alterações importantes para seu serviço de Gerenciamento de API.
 * As **alterações** feitas à configuração de serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto a operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
@@ -169,7 +169,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 ## Próximas etapas
 Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
 
--	[Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+-	[Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 	-	Agradecemos a Gisela por sua contribuição neste artigo.
 -	[Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	A abordagem detalhada por Stuart não coincide com as diretrizes oficiais, mas é muito interessante.
@@ -191,4 +191,4 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="08/09/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: perguntas frequentes
@@ -58,7 +58,22 @@ Cada locatário AD B2C do Azure tem sua própria folha de recursos B2C no Portal
 
 ### Como personalizar os emails de verificação (o conteúdo e o campo "De:") enviados pelo AD B2C do Azure?
 
-Use o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) para personalizar o conteúdo dos emails de verificação. O campo “De:” pode ser alterado por meio do Suporte.
+Você pode usar o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
+
+- **Logotipo do banner**: mostrado no canto inferior direito.
+- **Cor da tela de fundo**: mostrada na parte superior.
+
+	![Captura de tela de um email de verificação personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+
+A assinatura de email contém o nome do locatário B2C que você forneceu ao criar esse locatário pela primeira vez. Você pode alterar o nome usando estas instruções:
+
+- Entre no [Portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura.
+- Navegue até seu locatário B2C.
+- Clique na guia **Configurar**.
+- Altere o campo **Nome** sob a seção **Propriedades do diretório**.
+- Na parte inferior da página, clique em **Salvar**.
+
+Atualmente não há nenhuma maneira de alterar o campo "De:" no email. Se você estiver interessado nesta funcionalidade e em personalizar totalmente o corpo do email de verificação, vote a favor do recurso em [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails).
 
 ### Como posso migrar meus de nomes de usuário, senhas e perfis existentes no meu banco de dados para o AD B2C do Azure?
 
@@ -101,7 +116,7 @@ Não atualmente. Esse recurso está em nosso roteiro. Observe também que verifi
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
 - Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-- Navegue até as folhas de **Aplicativos**, **Provedores de identidade** e **Todas as diretivas** e exclua todas as entradas de cada um deles.
+- Navegue até as folhas de **Aplicativos**, **Provedores de identidade** e **Todas as políticas** e exclua todas as entradas de cada um deles.
 - Agora entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
 - Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C.
 - Clique na guia **Usuários**.
@@ -124,4 +139,4 @@ Veja [Solicitações de suporte a arquivos para o Azure Active Directory B2C](ac
 
 Também convém analisar as [limitações e restrições do serviço](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

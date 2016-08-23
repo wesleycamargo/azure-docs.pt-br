@@ -54,7 +54,7 @@ A chave identifica o recurso, e você a instalará em breve no SDK para direcion
 ## <a name="sdk"></a> Instale o SDK em seu aplicativo
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Uso
@@ -224,4 +224,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

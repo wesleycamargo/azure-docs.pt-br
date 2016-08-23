@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introdução ao Azure | Microsoft Azure"
+	pageTitle="Introdução ao Microsoft Azure | Microsoft Azure"
 	description="Novo no Microsoft Azure? Obtenha uma visão geral básica dos serviços que ele oferece com exemplos de como são úteis."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
+	authors="rboucher"
+	manager=""
 	editor=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 # Apresentando o Microsoft Azure
 
-O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. O objetivo deste artigo é fornecer uma base para compreender os conceitos básicos do Azure, mesmo se você não sabe nada sobre [a computação em nuvem](https://azure.microsoft.com/overview/what-is-cloud-computing/).
+O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública. A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
 
 **Como ler este artigo**
 
@@ -55,7 +55,7 @@ Essas tecnologias podem ser usadas separadamente ou combinadas, conforme a neces
 
 ![Máquinas Virtuais do Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
 
-A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
+A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço (IaaS), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma VM (Máquina Virtual) é executada e criada por meio de um VHD.
 
 Para criar uma VM, você especifica qual VHD usar e o tamanho da VM. Você então paga por cada momento em que a VM estiver em execução. Você paga por minuto e somente enquanto estiver em funcionamento, apesar de existir uma cobrança mínima de armazenamento para manter o VHD disponível. O Azure oferece uma galeria de VHDs em estoque (chamados "imagens") que contêm um sistema operacional inicializável do qual se pode começar. Estas incluem opções da Microsoft e de parceiros, como o Windows Server e Linux, SQL Server, Oracle e muitos outros. Você fica livre para criar VHDs e imagens e então carregá-los, por conta própria. Você pode até mesmo carregar VHDs que contém somente dados e acessá-los a partir de suas VMs em execução.
 
@@ -68,7 +68,7 @@ Essa abordagem geral para computação em nuvem pode ser usada para solucionar m
 **Cenários para máquina virtual**
 
 1.	**Dev/Test** - Você pode usá-las para criar uma plataforma barata de desenvolvimento e teste que pode ser desligada quando tiver terminado de usá-la. Também é possível criar e executar aplicativos que usem qualquer linguagem e biblioteca de sua preferência. Esses aplicativos podem usar qualquer uma das opções de gerenciamento de dados fornecidas pelo Azure e você pode optar por usar o SQL Server ou outro DBMS em uma ou mais máquinas virtuais.
-2.	**Mova os aplicativos para o Azure (arrastar e deslocar)** - “Arrastar e deslocar" refere-se a mover seu aplicativo, como você utilizaria uma empilhadeira para mover um objeto grande. Você “arrasta" o VHD a partir de seu datacenter local e “desloca-o" para o Azure, executando-o de lá. Você normalmente precisará fazer algum trabalho para remover dependências de outros sistemas. Se houver muitas você pode escolher, em vez dessa opção, a opção 3.
+2.	**Mova os aplicativos para o Azure (arrastar e deslocar)** - "Arrastar e deslocar" refere-se a mover seu aplicativo, como você utilizaria uma empilhadeira para mover um objeto grande. Você “arrasta" o VHD a partir de seu datacenter local e “desloca-o" para o Azure, executando-o de lá. Você normalmente precisará fazer algum trabalho para remover dependências de outros sistemas. Se houver muitas você pode escolher, em vez dessa opção, a opção 3.
 3.	**Estenda seu Datacenter** - Use as VMs do Azure como uma extensão do seu datacenter local, executando o SharePoint ou outros aplicativos. Para oferecer suporte a essa opção, é possível criar domínios do Windows na nuvem executando o Active Directory nas VMs do Azure. Você pode utilizar a rede virtual do Azure (mencionada posteriormente) para unir sua rede local à rede do Azure.
 
 
@@ -168,7 +168,7 @@ Um aplicativo que armazena vídeos, arquivos massivos ou outras informações bi
 
 *Figura: importação/exportação do Azure fornece a capacidade de enviar um disco rígido físico para o Azure, ou por meio dele, para importação ou exportação de dados em massa de forma mais rápida e econômica.*
 
-Em alguns casos, você deseja mover um grande volume dados para o Azure. Isso levaria muito tempo, talvez dias, além de usar muita largura de banda. Nesses casos você pode usar a Importação/Exportação do Azure, que permite que você envie discos rígidos SATA de 3,5” criptografados pelo Bitlocker diretamente para os datacenters do Azure, onde a Microsoft irá transferir os dados para armazenamento blob para você. Após o carregamento ter sido concluído, a Microsoft envia as unidades de volta para você. Você também pode solicitar que grandes volumes de dados do Armazenamento de Blob sejam exportados para discos rígidos e enviados de volta a você, por email.
+Em alguns casos, você deseja mover um grande volume dados para o Azure. Isso levaria muito tempo, talvez dias, além de usar muita largura de banda. Nesses casos, você pode usar a Importação/Exportação do Azure, que permite enviar discos rígidos SATA de 3,5” criptografados pelo Bitlocker diretamente para os datacenters do Azure, nos quais a Microsoft vai transferir os dados para armazenamento de blobs para você. Após o carregamento ter sido concluído, a Microsoft envia as unidades de volta para você. Você também pode solicitar que grandes volumes de dados do Armazenamento de Blob sejam exportados para discos rígidos e enviados de volta a você, por email.
 
 **Cenários para importação/exportação**
 
@@ -202,7 +202,7 @@ O Azure é executado hoje em muitos datacenters espalhados pelo mundo. Ao execut
 ### Rede Virtual
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*Figura: redes virtuais fornecem uma rede privada na nuvem, para que serviços diferentes possam se comunicar entre si ou com recursos locais, se você configurar uma conexão VPN entre locais.*
+*Figura: redes virtuais fornecem uma rede privada na nuvem, para que serviços diferentes possam se comunicar entre si ou com recursos locais, caso você configure uma conexão VPN entre locais.*
 
 
 Uma maneira útil de usar uma nuvem pública é tratá-la como uma extensão do seu próprio datacenter.
@@ -402,7 +402,7 @@ O Azure Site Recovery (anteriormente Gerenciador de Recuperação Hyper-V) pode 
 
 Ele monitora continuamente a condição de seus serviços e ajuda a automatizar a recuperação ordenada dos serviços no caso de interrupção no funcionamento do site no datacenter primário. Máquinas virtuais podem ser trazidas de modo organizado para ajudar a restaurar o serviço rapidamente, mesmo para cargas de trabalho complexas e multicamadas.
 
-A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server AlwaysOn. Verifique [Visão geral do Azure Site Recovery](site-recovery/site-recovery-overview.md) para obter mais detalhes.
+O Site Recovery utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server Always On. Verifique [Visão geral do Azure Site Recovery](site-recovery/site-recovery-overview.md) para obter mais detalhes.
 
 ### Serviço de Backup do Azure
 ![Serviço de Backup do Azure](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -430,7 +430,7 @@ Não importa o que esteja fazendo, o código frequentemente precisa interagir co
 
 O enfileiramento é uma ideia simples: um aplicativo coloca uma mensagem na fila e essa mensagem, por fim, é lida por outro aplicativo. Se seu aplicativo precisar apenas desse serviço direto, as Filas do Azure podem ser a melhor opção.
 
-Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você desejaria utilizar um no lugar do outro são explicadas num folheto bastante técnico [Filas do Azure e Filas do Barramento de Serviço - Comparadas e Contrastadas](http://msdn.microsoft.com/library/azure/hh767287.aspx). Na maioria dos cenários, qualquer uma dessas opções funcionará.
+Devido a como o Azure cresceu ao longo do tempo, as Filas de Armazenamento do Azure e Filas do Barramento de Serviço fornecem serviços de enfileiramento similares. Os motivos pelos quais você quer usar um em detrimento do outro são explicados em um documento bastante técnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Filas do Azure e filas do Barramento de Serviço – comparações e contrastes"). Na maioria dos cenários, qualquer uma dessas opções funcionará.
 
 **Cenários para fila**
 
@@ -468,7 +468,7 @@ O Barramento de Serviço oferece um mecanismo de publicação e assinatura chama
 
 **Cenários dos Tópicos e assinaturas do Barramento de Serviço**
 
-Em qualquer momento no qual você realiza a configuração e no qual existem muitas mensagens, todas importantes, mas no qual diversos sistemas downstream só precisam escutar subconjuntos diferentes dessas comunicações, o Barramento de Serviço e Tópico e Assinaturas são boas opções.
+Em qualquer momento no qual você realiza a configuração e no qual existem muitas mensagens, todas importantes, mas no qual diversos sistemas downstream só precisam escutar subconjuntos diferentes dessas comunicações, o Tópico e Assinaturas do Barramento de Serviço são boas opções.
 
 
 ### Serviços do BizTalk
@@ -606,4 +606,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

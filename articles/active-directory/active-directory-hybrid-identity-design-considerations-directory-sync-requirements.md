@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Determinar os requisitos de sincronização de diretório
@@ -34,7 +34,7 @@ Certifique-se de responder às seguintes perguntas:
   - Em caso positivo, os usuários têm um diretório virtual/integração das identidades?
 - Você tem qualquer outro diretório local que deseja sincronizar (por exemplo, diretório LDAP, banco de dados de RH, etc)?
   - Você vai fazer qualquer GALSync?
-  - O que é o estado atual do UPNs na sua organização? 
+  - O que é o estado atual do UPNs na sua organização?
   - Você tem um diretório diferente que os usuários se autenticam?
   - Sua empresa usa o Microsoft Exchange?
     - Planeja de ter uma implantação híbrida de mudança?
@@ -65,7 +65,7 @@ Certifique-se de fazer anotações de cada resposta e entender o raciocínio por
 ## Próximas etapas
 [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## Consulte também
+## Confira também
 [Visão geral de considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

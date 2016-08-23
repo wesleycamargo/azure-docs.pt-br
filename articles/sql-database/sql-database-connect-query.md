@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -82,7 +82,7 @@ Caso seja necessário instalar o Visual Studio, você poderá:
 
 9. Depois que o Visual Studio estiver instalado, na folha **Abrir no Visual Studio**, clique no botão **Abrir no Visual Studio**. O Visual Studio abre.
 
-10. Para o benefício de seu painel **Pesquisador de Objetos do SQL Server**, o Visual Studio solicita que você preencha os campos de cadeia de conexão em uma caixa de diálogo.
+10. O Visual Studio solicitará que você preencha os campos de cadeia de conexão em um diálogo.
  - Escolha **Autenticação do SQL Server**, e não **Autenticação do Windows**.
  - Lembre-se de especificar o banco de dados **AdventureWorksLT** (**Opções** > **Propriedades de Conexão** na caixa de diálogo).
 
@@ -121,4 +121,4 @@ Depois que se conectar ao servidor lógico, você pode se conectar a um banco de
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

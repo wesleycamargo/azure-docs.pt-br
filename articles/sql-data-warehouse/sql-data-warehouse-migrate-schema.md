@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu esquema para o SQL Data Warehouse#
@@ -23,19 +23,19 @@ Os resumos a seguir ajudarão você a entender as diferenças entre o SQL Server
 ### Recursos de tabela
 O SQL Data Warehouse não usa nem oferece suporte a estes recursos:
 
-- Chaves primárias  
-- Chaves estrangeiras  
-- Restrições de verificação  
-- Restrições exclusivas  
-- Índices exclusivos  
-- Colunas computadas  
-- Colunas esparsas  
-- Tipos definidos pelo usuário  
-- Exibições indexadas  
-- Identidades  
-- Sequências  
-- Gatilhos  
-- Sinônimos  
+- Chaves primárias
+- Chaves estrangeiras
+- Restrições de verificação
+- Restrições exclusivas
+- Índices exclusivos
+- Colunas computadas
+- Colunas esparsas
+- Tipos definidos pelo usuário
+- Exibições indexadas
+- Identidades
+- Sequências
+- Gatilhos
+- Sinônimos
 
 
 ### Diferenças de tipo de dados
@@ -142,4 +142,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

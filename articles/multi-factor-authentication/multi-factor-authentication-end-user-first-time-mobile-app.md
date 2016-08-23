@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Usar o aplicativo móvel como método de contato com o Azure Multi-Factor Authentication
@@ -31,7 +31,7 @@ O aplicativo Azure Authenticator está disponível para [Windows Phone](http://w
 ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Selecione Notificação ou Senha de Uso Único e clique em Configurar.
-- No telefone com o aplicativo Azure Authenticator instalado, inicie o aplicativo e clique em Verificar código de barras. Para adicionar uma conta que já tem o Azure MFA ou uma conta de terceiros, consulte <a href="#ptbr">Adicionando uma conta manualmente</a>.
+- No telefone com o aplicativo Azure Authenticator instalado, inicie o aplicativo e clique em Verificar código de barras. Para adicionar uma conta que já tem o Azure MFA ou uma conta de terceiros, consulte [Adicionando uma conta manualmente](#adding-an-account-manually).
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -45,7 +45,7 @@ O aplicativo Azure Authenticator está disponível para [Windows Phone](http://w
 
 - Clique em Fechar. Nesse ponto, sua verificação deve ter sido bem-sucedida.
 - Agora é recomendável inserir o número do celular, caso você perca o acesso ao aplicativo móvel.
-- Especifique o seu país na lista suspensa e insira o número do celular na caixa próxima ao país. Clique em Avançar.
+- Especifique o seu país na lista suspensa e insira o número do celular na caixa próxima ao país. Clique em Próximo.
 - Até aqui, você configurou o método de contato e agora é hora de configurar as senhas de aplicativo para aplicativos que não usam navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, clique em **Concluído**. Caso contrário, passe para a próxima etapa.
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
@@ -73,4 +73,4 @@ Se você estiver usando uma conta de terceiros com o aplicativo móvel, insira o
 >[AZURE.NOTE]Se você vir "Adicionar conta de trabalho", isso é para a Junção de Local de Trabalho, e não para autenticação multifator. Você pode ignorar isso.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -20,7 +20,7 @@
 
 Este artigo mostra como dimensionar seu aplicativo no Serviço de Aplicativo do Azure. Há dois fluxos de trabalho para dimensionamento, escalar verticalmente e escalar horizontalmente, e este artigo explica o fluxo de trabalho de escala vertical.
 
-- [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos adicionais como VMs (máquinas virtuais) dedicadas, domínios e certificados personalizados, slots de preparação, dimensionamento automático e muito mais. Você escala horizontalmente ao alterar o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
+- [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos adicionais como VMs (máquinas virtuais) dedicadas, domínios e certificados personalizados, slots de preparação, dimensionamento automático e muito mais. Você escala verticalmente alterando o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
 - [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumenta o número de instâncias de VM que executam seu aplicativo. Você pode escalar horizontalmente até 20 instâncias, dependendo de seu tipo de preço. [Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md) na camada **Premium** aumentará ainda mais sua contagem de expansão para 50 instâncias. Para saber mais sobre a escala vertical, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md). Lá você encontrará como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e programações predefinidas.
 
 As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Elas não exigem a alteração de seu código ou a reimplantação de seu aplicativo.
@@ -137,4 +137,4 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

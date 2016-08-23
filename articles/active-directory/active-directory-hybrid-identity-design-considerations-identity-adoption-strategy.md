@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -37,7 +37,7 @@ Os cenários descritos acima são:
 
 - **Identidades de nuvem**: são identidades existentes apenas na nuvem. No caso do AD do Azure, elas são armazenadas especialmente nesse serviço.
 - **Identidades sincronizadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure. A senha do usuário é sincronizada do ambiente local para a nuvem, ao que chamamos de hash de senha. A única ressalva para o uso da identidade sincronizada é que, quando um usuário está desabilitado no ambiente local, pode demorar até 3 horas para que o status da conta seja exibido no AD do Azure. Isso se deve ao intervalo de tempo de sincronização.
-- **Identidades federadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.  
+- **Identidades federadas**: são identidades existentes no local e na nuvem. Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.
  
 >[AZURE.NOTE]
 Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
@@ -153,8 +153,8 @@ Para realizar esse processo, as seguintes situações devem ser atendidas:
 Lembre-se de que os itens a seguir não têm suporte e não devem ser escolhidos como implementação:
 
 - Não há suporte para a conexão de vários servidores de sincronização do Azure AD Connect ao mesmo diretório do AD do Azure, mesmo que eles sejam configurados para sincronizar conjuntos de objetos mutuamente exclusivos.
-- Ele não tem suporte para sincronização do mesmo usuário para vários diretórios do AD do Azure. 
-- Ele também não dá suporte para alterar uma configuração para fazer os usuários de um AD do Azure aparecerem como contatos em outro diretório do AD do Azure. 
+- Ele não tem suporte para sincronização do mesmo usuário para vários diretórios do AD do Azure.
+- Ele também não dá suporte para alterar uma configuração para fazer os usuários de um AD do Azure aparecerem como contatos em outro diretório do AD do Azure.
 - Também não há suporte para modificar o Azure AD Connect Sync para se conectar a vários diretórios do AD do Azure.
 - Diretórios do AD do Azure são isolados por padrão. Não há suporte para alterações da configuração do Azure AD Connect Sync para ler dados de outro diretório do AD do Azure como uma tentativa de criar uma GAL comum e unificada entre os diretórios. Também não há suporte para a exportação de usuários como contatos para outro AD local usando o Azure AD Connect Sync.
 
@@ -197,7 +197,7 @@ Você deve garantir que a opção de design de autenticação multifator selecio
 ##Próximas etapas
 [Determinar os requisitos para proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## Consulte também
+## Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

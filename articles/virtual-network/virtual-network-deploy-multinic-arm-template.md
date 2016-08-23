@@ -3,7 +3,7 @@
    description="Saiba como implantar VMs com várias NICs usando um modelo no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Implantar VMs com várias NICs usando um modelo
 
@@ -213,7 +213,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 
 > [AZURE.IMPORTANT] Não deixe de seguir as etapas [necessárias](#Pre-requisites) antes de seguir as instruções abaixo.
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à direita do **grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à direita do ** grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
 
 A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implantação.
 
@@ -292,4 +292,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->
