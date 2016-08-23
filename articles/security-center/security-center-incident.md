@@ -24,17 +24,17 @@ Este documento discute como usar o recurso de alerta de segurança na Central de
 
 ## O que é um incidente de segurança?
 
-Na Central de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com padrões de [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) (cadeia de desativações). Incidentes aparecem no bloco e folha [Alertas de Segurança](security-center-managing-and-responding-alerts.md). Um Incidente revelará a lista de alertas relacionados, o que permite a obtenção de mais informações sobre cada ocorrência.
+Na Central de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da [cadeia de desativações](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Incidentes aparecem no bloco e folha [Alertas de Segurança](security-center-managing-and-responding-alerts.md). Um Incidente revelará a lista de alertas relacionados, o que permite a obtenção de mais informações sobre cada ocorrência.
 
 ## Gerenciamento de incidentes de segurança
 
-Você pode examinar os incidentes atuais de segurança observando o bloco Alertas de segurança. Acesse o Portal do Azure e execute as etapas abaixo para ver mais detalhes sobre cada incidente de segurança:
+Você pode examinar os incidentes atuais de segurança observando o bloco de alertas de segurança. Acesse o Portal do Azure e execute as etapas abaixo para ver mais detalhes sobre cada incidente de segurança:
 
 1. No painel Central de Segurança, você verá o bloco **Alertas de segurança**.
 
     ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Clique neste bloco para expandi-lo e, se um incidente de segurança for detectado, ele será exibido no gráfico de alertas de segurança, conforme mostra a imagem a seguir.
+2.  Clique nesse bloco para expandi-lo e se um incidente de segurança for detectado, ele aparecerá no gráfico de alertas de segurança, como mostrado abaixo:
 
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig2.png)
 
@@ -42,7 +42,7 @@ Você pode examinar os incidentes atuais de segurança observando o bloco Alerta
 
 	![Incidente de segurança](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	Na folha **Incidente de segurança detectado**, você verá mais detalhes sobre esse incidente de segurança, incluindo a descrição completa do incidente, a gravidade (que nesse caso é alta), o estado atual do incidente (nesse caso ele ainda está *ativo*), o recurso atacado (neste caso *VM1*), as etapas de correção e, na parte inferior, estão os alertas que foram incluídos neste incidente. Se você quiser obter mais informações sobre cada alerta, basta clicar nele e outra folha será aberta, conforme mostrado abaixo.
+4. 	Na folha **incidente**, você verá mais detalhes sobre esse incidente de segurança, que inclui uma descrição completa, sua gravidade (que nesse caso é alta), estado atual (nesse caso ainda é *ativo*, que implica que o usuário não tomou uma ação para *ignorar* - isso pode ser feito clicando com o botão direito no incidente na folha **Alertas de segurança**), recurso atacado (nesse caso *VM1*), etapas de correção do incidente e no painel inferior, você tem os alertas que foram incluídos no incidente. Se você quiser obter mais informações sobre cada alerta, basta clicar nele e outra folha será aberta, como mostrado abaixo:
 
 	![Incidente de segurança](./media/security-center-incident/security-center-incident-fig4.png)
 
@@ -63,4 +63,4 @@ Neste documento, você aprendeu a usar os recursos de incidente de segurança na
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço.
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

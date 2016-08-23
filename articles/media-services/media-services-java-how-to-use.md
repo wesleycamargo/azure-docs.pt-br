@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"   
+	ms.date="08/11/2016"   
 	ms.author="robmcm"/>
 
 #Como usar os Serviços de Mídia com o Java
@@ -22,7 +22,7 @@
 
 ##Configurando uma conta do Azure para Serviços de Mídia
 
-Para configurar sua conta dos Serviços de Mídia, use o Portal Clássico do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md). Depois de criar sua conta no Portal Clássico do Azure, você estará pronto para configurar o computador para o desenvolvimento dos Serviços de Mídia.
+Para configurar sua conta dos Serviços de Mídia, use o Portal Clássico do Azure. Consulte o tópico [Como Criar uma Conta de Serviços de Mídia](media-services-create-account.md). Depois de criar sua conta no Portal Clássico do Azure, você estará pronto para configurar o computador para o desenvolvimento dos Serviços de Mídia.
 
 ##Configurando para desenvolvimento de Serviços de Mídia
 
@@ -30,7 +30,7 @@ Esta seção contém os pré-requisitos gerais para desenvolvimento de Serviços
 
 ###Pré-requisitos
 
--   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
+-   Uma conta de Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como Criar uma Conta de Serviços de Mídia](media-services-create-account.md).
 -   As bibliotecas do Azure para Java, que podem ser instaladas na [Central de desenvolvedores de Java no Azure][].
 
 ##Como usar os Serviços de Mídia com o Java
@@ -276,4 +276,4 @@ Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Docu
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

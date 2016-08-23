@@ -12,11 +12,13 @@
 
 	- Para **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do Banco de Dados de Documentos. Se a sua conta tiver apenas uma assinatura, essa conta será selecionada por padrão.
 
-	- Em **Grupo de Recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos. Por padrão, um grupo de Recursos na assinatura do Azure será escolhido. No entanto, você pode criar um novo grupo de recursos ao qual gostaria de adicionar sua conta do Banco de Dados de Documentos. Para saber mais, veja [Como usar o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
+	- Em **Grupo de Recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos. Por padrão, um novo grupo de recursos é criado. Para saber mais, veja [Como usar o portal do Azure para gerenciar os recursos do Azure](../articles/azure-portal/resource-group-portal.md).
 
 	- Use **Local** para especificar a localização geográfica na qual hospedar a sua conta do Banco de Dados de Documentos.
+	
+    - Para fornecer acesso conveniente à sua conta e aos recursos que você criará no futuro, verifique **Fixar no painel**.
 
-4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para criar a conta do Banco de Dados de Documentos. Para verificar o status, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Para verificar o status da implantação, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	Ou então, você pode monitorar o progresso do hub de notificações.
 
@@ -24,7 +26,7 @@
 
 	![Captura de tela do hub de notificações, mostrando que a conta do Banco de Dados de Documentos foi criada com êxito e implantada em um grupo de recursos - Criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	Após criar a conta do Banco de Dados de Documentos, ele está pronto para uso com as configurações padrão no portal online. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como **Sessão**. Você pode ajustar a configuração da consistência padrão clicando no ícone **Configurações** na barra de comandos superior e clicando na entrada **Consistência Padrão** em **Recurso** na folha **Todas as Configurações**.
+5.	Após criar a conta do Banco de Dados de Documentos, ele está pronto para uso com as configurações padrão no portal online. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como **Sessão**. Você pode ajustar a configuração da consistência padrão clicando em **Consistência Padrão** no menu. Para saber mais sobre os níveis de consistência oferecidos pelo Banco de Dados de Documentos, confira [Níveis de consistência no Banco de Dados de Documentos](../articles/azure-portal/resource-group-portal.md)
 
     ![Captura de tela da folha Grupo de Recursos - começar o desenvolvimento do aplicativo](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
@@ -34,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0817_2016-->

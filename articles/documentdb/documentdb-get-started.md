@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -57,7 +57,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Etapa 2: Configurar a sua solução do Visual Studio
+## <a id="SetupVS"></a> Etapa 2: configurar a sua solução do Visual Studio
 
 1. Abra o **Visual Studio 2015** em seu computador.
 2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
@@ -69,7 +69,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código. Você pode encontrar um projeto de código completo deste tutorial no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Etapa 3: Conectar-se a uma conta do Banco de Dados de Documentos
+## <a id="Connect"></a> Etapa 3: conectar-se a uma conta do Banco de Dados de Documentos
 
 Primeiro, adicione essas referências para o início de seu aplicativo C#, no arquivo Program.cs:
 
@@ -96,9 +96,9 @@ Agora, adicione essas duas constantes e sua variável *client* sob sua classe p�
 
 Em seguida, vá para o [Portal do Azure](https://portal.azure.com) para recuperar o URI e a chave primária. O URI do Banco de Dados de Documentos e a chave primária são necessárias para que seu aplicativo entenda onde deve se conectar e para que o Banco de Dados de Documentos confie na conexão do seu aplicativo.
 
-No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos da Etapa 1.
+No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos da Etapa 1 e clique em **Chaves**.
 
-Clique ícone **chaves** na barra **Essentials**. Copie o URI e substitua *<seu URI de ponto de extremidade>* pelo URI copiado em seu programa. Copie a chave primária e substitua *<sua chave>* pela chave copiada em seu programa.
+Copie o URI e substitua *<seu URI de ponto de extremidade>* pelo URI copiado em seu programa. Copie a chave primária e substitua *<sua chave>* pela chave copiada em seu programa.
 
 ![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em C#. Mostra uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
@@ -200,7 +200,7 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você criou um Banco de Dados de Documentos com sucesso!
 
-##<a id="CreateColl"></a>Etapa 5: Criar uma coleção  
+## <a id="CreateColl"></a>Etapa 5: Criar uma coleção  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção com uma taxa de transferência reservada, que tem implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -255,7 +255,7 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você criou uma coleção de documentos do Banco de Dados de Documentos com sucesso!
 
-##<a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
+## <a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
 Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos.
 
 Primeiro, precisamos criar uma classe **Family** que representará os objetos armazenados no Banco de Dados de Documentos neste exemplo. Também criaremos as subclasses **Parent**, **Child**, **Pet** e **Address** que são usadas em **Family**. Observe que os documentos devem ter uma propriedade **Id** serializada como **id** em JSON. Crie essas classes, adicionando as seguintes subclasses internas após o método **GetStartedDemo**.
@@ -443,7 +443,7 @@ Copie e cole o método **ExecuteSimpleQuery** embaixo de seu método **CreateFam
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -612,4 +612,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

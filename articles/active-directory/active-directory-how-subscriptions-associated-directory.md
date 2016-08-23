@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Como as assinaturas do Azure estão associadas ao Active Directory do Azure | Microsoft Azure"
-	description="Entrada no Microsoft Azure e problemas relacionados, como o relacionamento entre uma assinatura do Azure e o Active Directory do Azure."
+	pageTitle="Como as assinaturas do Azure estão associadas ao Azure Active Directory | Microsoft Azure"
+	description="Entrada no Microsoft Azure e problemas relacionados, como o relacionamento entre uma assinatura do Azure e o Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
-# Como as assinaturas do Azure estão associadas ao Active Directory do Azure
+# Como as assinaturas do Azure são associadas ao Azure Active Directory
 
-Este tópico aborda informações sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o Active Directory do Azure (AD do Azure).
+Este tópico aborda informações sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o Azure Active Directory (Azure AD).
 
 ## Contas que você pode usar para entrar
 Vamos começar com as contas que você pode usar para entrar. Há dois tipos: uma conta da Microsoft (anteriormente conhecida como Microsoft Live ID) e uma conta corporativa ou de estudante, que é uma conta armazenada no AD do Azure.
@@ -41,13 +41,13 @@ Para entrar no portal clássico do Azure, msmith@hotmail.com deve ter uma assina
 
 Como esse endereço de Hotmail é de uma conta de consumidor, a entrada é autenticada pelo sistema de identidade de consumidor da conta da Microsoft. O sistema de identidade do AD do Azure confia na autenticação feita pelo sistema de conta da Microsoft e emitirá um token para acessar os serviços do Azure.
 
-## Como uma assinatura do Azure está relacionada ao AD do Azure
+## Como uma assinatura do Azure está relacionada ao Azure AD
 
-Cada assinatura do Azure tem uma relação de confiança com uma instância do AD do Azure. Isso significa que ela confia que esse diretório autentique usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas uma única assinatura confia em apenas um diretório. Você pode ver qual diretório é confiável para sua assinatura na guia Configurações. Você pode [editar as configurações de assinatura](active-directory-understanding-resource-access.md) para alterar o diretório no qual ela confia.
+Cada assinatura do Azure tem uma relação de confiança com uma instância do Azure AD. Isso significa que ela confia que esse diretório autentique usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas uma única assinatura confia em apenas um diretório. Você pode ver qual diretório é confiável para sua assinatura na guia Configurações. Você pode [editar as configurações de assinatura](active-directory-understanding-resource-access.md) para alterar o diretório no qual ela confia.
 
 Essa relação de confiança que uma assinatura tem com um diretório é diferente da relação que uma assinatura tem com todos os outros recursos no Azure (sites, bancos de dados e assim por diante), que são mais similares a recursos filho de uma assinatura. Se uma assinatura expira, o acesso a esses outros recursos associados à assinatura também pára. Mas o diretório permanece no Azure e você pode associar outra assinatura a ele, além de continuar a gerenciar os usuários do diretório.
 
-Do mesmo modo, a extensão do AD do Azure que você pode ver na sua assinatura não funciona como outras extensões no portal clássico do Azure. Outras extensões no portal clássico do Azure limitam-se à assinatura do Azure. O que você vê na extensão do AD do Azure não varia com base na assinatura, mostra somente diretórios com base no usuário que entrou.
+Do mesmo modo, a extensão do Azure AD que você pode ver na sua assinatura não funciona como outras extensões no portal clássico do Azure. Outras extensões no portal clássico do Azure limitam-se à assinatura do Azure. O que você vê na extensão do Azure AD não varia com base na assinatura, mostra somente diretórios com base no usuário que entrou.
 
 Todos os usuários têm um único diretório inicial que os autentica, mas eles também podem ser convidados em outros diretórios. Na extensão do AD do Azure, você verá todos os diretórios dos quais sua conta de usuário é membro. Diretórios dos quais sua conta não é membro não aparecerão. Um diretório pode emitir tokens para contas corporativas ou de estudante no AD do Azure ou para usuários de contas da Microsoft (porque o AD do Azure é federado com o sistema de contas da Microsoft).
 
@@ -56,15 +56,15 @@ Este diagrama mostra uma assinatura de Michael Smith depois que ele se inscreveu
 ![][2]
 
 ## Como gerenciar uma assinatura e um diretório
-As funções administrativas para uma assinatura do Azure gerenciam recursos vinculados à assinatura do Azure. Essas funções e as práticas recomendadas para gerenciar sua assinatura estão descritas em [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles.md).
+As funções administrativas para uma assinatura do Azure gerenciam recursos vinculados à assinatura do Azure. Essas funções e as práticas recomendadas para gerenciar sua assinatura estão descritas em [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Por padrão, a função de administrador de serviços é atribuída a você quando você se inscreve. Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode adicioná-los como coadministradores. O administrador de serviços e os coadministradores podem ser contas da Microsoft ou contas corporativas ou de estudante do diretório ao qual a assinatura do Azure está associada.
 
 O AD do Azure tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade. Por exemplo, o administrador global de um diretório pode adicionar usuários e grupos ao diretório ou exigir autenticação multifator para usuários. A função de administrador global é atribuída a um usuário que cria um diretório e ele pode atribuir funções de administrador a outros usuários.
 
-Assim como acontece com os administradores de assinatura, as funções administrativas do AD do Azure podem ser contas da Microsoft ou contas corporativas ou de estudante. Funções administrativas do AD do Azure também são usadas por outros serviços, como o Office 365 e Microsoft Intune. Para obter mais informações, consulte [Atribuindo funções de administrador](active-directory-assign-admin-roles.md).
+Assim como acontece com os administradores de assinatura, as funções administrativas do Azure AD podem ser contas da Microsoft ou contas corporativas ou de estudante. Funções administrativas do AD do Azure também são usadas por outros serviços, como o Office 365 e Microsoft Intune. Para obter mais informações, consulte [Atribuindo funções de administrador](active-directory-assign-admin-roles.md).
 
-Mas o ponto importante aqui é que os administradores de assinatura do Azure e administradores de diretório do AD do Azure são dois conceitos separados. Os administradores de assinatura do Azure podem gerenciar recursos no Azure e podem exibir a extensão do Active Directory no portal clássico do Azure (porque o portal clássico do Azure é um recurso do Azure). Os administradores de diretório podem gerenciar propriedades no diretório.
+Mas o ponto importante aqui é que os administradores de assinatura do Azure e administradores de diretório do Azure AD são dois conceitos separados. Os administradores de assinatura do Azure podem gerenciar recursos no Azure e podem exibir a extensão do Active Directory no portal clássico do Azure (porque o portal clássico do Azure é um recurso do Azure). Os administradores de diretório podem gerenciar propriedades no diretório.
 
 Uma pessoa pode desempenhar ambas as funções, mas isso não é obrigatório. A função de administrador global do diretório pode ser atribuída a um usuário, mas não é possível atribuir a esse usuário as funções de administrador ou coadministrador de serviços de uma assinatura do Azure. Sem ser um administrador da assinatura, esse usuário não pode entrar no portal clássico do Azure. Porém, o usuário pode executar tarefas de administração de diretório usando outras ferramentas, como o PowerShell do AD do Azure ou o Admin Center do Office 365.
 
@@ -72,7 +72,7 @@ Uma pessoa pode desempenhar ambas as funções, mas isso não é obrigatório. A
 
 Às vezes, um usuário pode tentar entrar no portal clássico do Azure usando uma conta corporativa ou de estudante antes de inscrever-se em uma assinatura do Azure. Nesse caso, o usuário receberá uma mensagem que não há nenhuma assinatura para essa conta. A mensagem incluirá um link para iniciar uma assinatura de avaliação gratuita.
 
-Após a inscrição para a versão de avaliação gratuita, o usuário verá o diretório para a organização no portal clássico do Azure mas não poderá gerenciá-lo (ou seja, não será possível adicionar usuários nem editar as propriedades de quaisquer usuários existentes) porque o usuário não é um administrador global do diretório. A assinatura permite ao usuário usar o portal clássico do Azure e ver a extensão do Active Directory do Azure, mas as permissões adicionais de um administrador global são necessárias para gerenciar o diretório.
+Após a inscrição para a versão de avaliação gratuita, o usuário verá o diretório para a organização no portal clássico do Azure mas não poderá gerenciá-lo (ou seja, não será possível adicionar usuários nem editar as propriedades de quaisquer usuários existentes) porque o usuário não é um administrador global do diretório. A assinatura permite ao usuário usar o portal clássico do Azure e ver a extensão do Azure Active Directory, mas as permissões adicionais de um administrador global são necessárias para gerenciar o diretório.
 
 ## Usando sua conta de trabalho ou escolar para gerenciar uma assinatura do Azure que foi criada usando uma conta da Microsoft
 
@@ -80,7 +80,7 @@ Como prática recomendada, você deve [inscrever-se no Azure como uma organizaç
 
 Contas corporativas ou de estudante também podem ser gerenciadas de mais maneiras do que uma conta da Microsoft. Por exemplo, um administrador pode redefinir a senha de uma conta corporativas ou de estudante, ou exigir a autenticação multifator para ela.
 
-Em alguns casos, você pode querer que um usuário de sua organização possa gerenciar recursos associados a uma assinatura do Azure para uma conta de consumidor da Microsoft. Para obter mais informações sobre como fazer a transição para ter contas diferentes gerenciando assinaturas ou diretórios, consulte [Gerenciar o diretório para sua assinatura do Office 365 no Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
+Em alguns casos, você pode querer que um usuário de sua organização possa gerenciar recursos associados a uma assinatura do Azure para uma conta de consumidor da Microsoft. Para obter mais informações sobre como fazer a transição para ter contas diferentes gerenciando assinaturas ou diretórios, confira [Gerenciar o diretório para sua assinatura do Office 365 no Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
 ## Entrando após ter utilizado seu email de trabalho para sua conta da Microsoft
@@ -89,13 +89,13 @@ Se em algum momento no passado você criou uma conta de consumidor Microsoft usa
 
 ![][3]
 
-Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, consulte [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/pt-BR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, confira [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/pt-BR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gerenciar o diretório para sua assinatura do Office 365 no Azure
 
 Digamos que você tenha se inscrito no Office 365 antes de se inscrever no Azure. Agora você deseja gerenciar o diretório para a assinatura do Office 365 no portal clássico do Azure. Há duas maneiras de fazer isso, dependendo de você ter se inscrito no Azure ou não.
 
-### Eu não tenho uma assinatura do Azure
+### Não tenho uma assinatura do Azure
 
 Nesse caso, apenas [inscreva-se no Azure](sign-up-organization.md) usando a mesma conta corporativa ou de estudante que você usa para entrar no Office 365. As informações relevantes da conta do Office 365 serão preenchidas previamente no formulário de inscrição do Azure. Sua conta será atribuída à função de administrador de serviços da assinatura.
 
@@ -139,4 +139,4 @@ Essas etapas só podem ser realizadas enquanto o usuário está conectado com um
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

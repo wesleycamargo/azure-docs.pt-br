@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # O que é o Banco de Dados SQL? Introdução ao Banco de dados SQL
@@ -59,4 +59,4 @@ Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergun
 - Crie seu primeiro aplicativo em C#, Java, Node.js, PHP, Python ou Ruby: [bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 - Confira um índice de títulos e descrições de [Todos os tópicos do serviço Banco de Dados SQL do Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -124,8 +124,8 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 | | Leste dos EUA | 12076:51004 |
 | | Leste dos EUA 2 | 12076:51005 |
 | | Oeste dos EUA | 12076:51006 |
-| | Oeste dos EUA 2 | 12076:51022 |
-| | Centro-Oeste dos EUA | 12076:51023 |
+| | Oeste dos EUA 2 | 12076:51026 |
+| | Centro-Oeste dos EUA | 12076:51027 |
 | | Centro-Norte dos EUA | 12076:51007 |
 | | Centro-Sul dos Estados Unidos | 12076:51008 |
 | | Centro dos EUA | 12076:51009 |
@@ -175,4 +175,4 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma Rede Virtual do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

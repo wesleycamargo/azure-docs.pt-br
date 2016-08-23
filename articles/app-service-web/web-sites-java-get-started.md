@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
@@ -24,7 +24,7 @@ Este tutorial mostra como criar um [Aplicativo Web Java no Serviço de Aplicativ
 
 > [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio] ou [inscrever-se em uma avaliação gratuita].
 >
-> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo, sem exigência de cartão de crédito e sem compromissos.
+> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo, sem exigência de cartão de crédito e sem compromissos.
 
 ## Opções de aplicativos Java
 
@@ -44,7 +44,7 @@ Há várias maneiras de configurar um aplicativo Java em um aplicativo Web do Se
 	
 	* Seu aplicativo Java requer uma versão do Tomcat ou do Jetty que não tem suporte direto do Serviço de Aplicativo ou que não é fornecido na galeria.
 	* Seu aplicativo Java recebe solicitações HTTP e não é implantado como um WAR em um contêiner da Web já existente.
-	* Você deseja configurar o contêiner da Web do zero por conta própria. 
+	* Você deseja configurar o contêiner da Web do zero por conta própria.
 	* Você deseja usar uma versão do Java que não tem suporte no Serviço de Aplicativo e deseja carregá-la por conta própria.
 
 	Para casos como esse, crie um aplicativo usando o Portal do Azure e forneça manualmente os arquivos de tempo de execução apropriados. Nesse caso, os arquivos serão contados em relação às suas cotas de espaço de armazenamento para seu plano do Serviço de Aplicativo. Para saber mais, consulte [Carregar um aplicativo Web Java personalizado no Azure].
@@ -192,4 +192,4 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

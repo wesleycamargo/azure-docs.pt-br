@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Tutorial do Node.js NoSQL: aplicativo de console Node.js do Banco de Dados de Documentos  
@@ -56,7 +56,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Etapa 2: Configurar o aplicativo Node.js
+## <a id="SetupNode"></a> Etapa 2: configurar o aplicativo Node.js
 
 1. Abra seu terminal favorito.
 2. Localize a pasta ou o diretório em que você deseja salvar o aplicativo do Node.js.
@@ -72,7 +72,7 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tiver uma co
 
 Ótimo! Agora que você terminou a configuração, vamos começar a escrever o código.
 
-##<a id="Config"></a> Etapa 3: Definir as configurações do aplicativo
+## <a id="Config"></a> Etapa 3: definir as configurações do aplicativo
 
 Abra ```config.js``` em seu editor de texto favorito.
 
@@ -598,7 +598,7 @@ Você deverá ver a saída do aplicativo iniciado. A saída deve corresponder ao
 
 Parabéns! Você concluiu o tutorial do Node.js e tem seu primeiro aplicativo de console do Banco de Dados de Documentos!
 
-##<a id="GetSolution"></a> Obter a solução completa do tutorial do Node.js
+## <a id="GetSolution"></a> Obter a solução completa do tutorial do Node.js
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
@@ -621,4 +621,4 @@ Em seguida, no arquivo ```config.js```, atualize os valores config.endpoint e co
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

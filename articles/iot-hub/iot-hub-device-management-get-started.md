@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="08/11/2016"
  ms.author="juanpere"/>
 
 # Introdução ao gerenciamento de dispositivos do Hub IoT do Azure usando C# (visualização)
@@ -23,7 +23,7 @@
 ## Introdução
 Para começar com o gerenciamento de dispositivos de Hub IoT do Azure, você terá de criar um Hub IoT do Azure, provisionar dispositivos no Hub IoT e iniciar vários dispositivos simulados, além de exibir esses dispositivos na interface do usuário de exemplo do gerenciamento de dispositivo. Este tutorial apresenta e explica as etapas a seguir.
 
-> [AZURE.NOTE]  Você precisará criar um novo Hub IoT para habilitar recursos de gerenciamento de dispositivo mesmo se tiver um Hub IoT existente, pois os Hubs IoT existentes ainda não têm recursos de gerenciamento de dispositivo. Depois que o gerenciamento de dispositivos fica disponível, todos os Hubs IoT existentes serão atualizados para obter recursos de gerenciamento de dispositivo.
+> [AZURE.NOTE]  Você precisará criar um novo Hub IoT para habilitar recursos de gerenciamento de dispositivo mesmo se tiver um Hub IoT existente, pois os Hubs IoT existentes ainda não têm esses recursos. Depois que o gerenciamento de dispositivos fica disponível, todos os Hubs IoT existentes serão atualizados para obter recursos de gerenciamento de dispositivo.
 
 ## Pré-requisitos
 
@@ -60,29 +60,29 @@ Você precisa criar um Hub IoT habilitado para gerenciamento de dispositivo ao q
   -   Marque a caixa para **Habilitar o Gerenciamento de Dispositivos**.
   -   Em **Local**, selecione o local para hospedar o hub IoT. O gerenciamento de dispositivos do Hub IoT só está disponível no Leste dos EUA, Europa Setentrional e Ásia Oriental durante a visualização pública. No futuro, ele estará disponível em todas as regiões.
 
-    > [AZURE.NOTE]  Se você não marcar a caixa para **Habilitar o Gerenciamento de Dispositivos**, os exemplos não funcionarão.
+    > [AZURE.NOTE]  Se você não marcar a caixa para **Ativar o Gerenciamento de Dispositivo**, os exemplos não funcionarão.<br/>Ao marcar **Ativar o Gerenciamento de Dispositivo**, você criará uma visualização do Hub IoT com suporte apenas no Leste dos EUA, na Europa Setentrional e na Ásia Oriental e ela não se destinará a cenários de produção. Você não pode migrar dispositivos dentro e fora de hubs com gerenciamento de dispositivo habilitado.
 
-4.  Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu Hub IoT. Para verificar o status, você pode monitorar o progresso no **Quadro inicial** ou no painel **Notificações**.
+4.  Depois de escolher as opções de configuração do Hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu Hub IoT. Para verificar o status, você pode monitorar o progresso no **Quadro Inicial** ou no painel **Notificações**.
 
 	![][img-monitor]
 
-5.  Quando o Hub IoT tiver sido criado com êxito, abra a folha do novo Hub IoT, anote o **Nome do host** e clique no ícone **Chaves**.
+5.  Quando o Hub IoT tiver sido criado com êxito, abra a folha do novo Hub IoT, anote o **Nome do host** e clique em **Políticas de acesso compartilhado**.
 
 	![][img-keys]
 
-6.  Clique na política **iothubowner**, copie e anote a cadeia de conexão na folha **iothubowner**. Copie-o para um local que você pode acessar posteriormente, pois precisará dele para concluir o restante deste tutorial.
+6.  Clique na política **iothubowner**, copie e anote a cadeia de conexão na folha **iothubowner**. Copie-o em um local que você pode acessar posteriormente, pois precisará dele para concluir o restante deste tutorial.
 
  	> [AZURE.NOTE] Em cenários de produção, evite usar as credenciais **iothubowner**.
 
 	![][img-connection]
 
-Você criou um Hub IoT habilitado para gerenciamento de dispositivo. Você precisará da cadeia de conexão para concluir o restante deste tutorial.
+Você criou um Hub IoT habilitado para gerenciamento de dispositivo. Você precisa da cadeia de conexão para concluir o restante deste tutorial.
 
 ## Compilar os exemplos e provisionar dispositivos em seu Hub IoT
 
-Nesta seção, você executará um script que cria o dispositivo simulado e os exemplos e provisiona um conjunto de novas identidades de dispositivo no registro do dispositivo de seu Hub IoT. Um dispositivo somente poderá se conectar ao Hub IoT se tiver uma entrada no registro do dispositivo.
+Nesta seção, você executa um script que cria o dispositivo simulado e os exemplos e provisiona um conjunto de novas identidades de dispositivo no registro do dispositivo de seu Hub IoT. Um dispositivo somente poderá se conectar ao Hub IoT se tiver uma entrada no registro do dispositivo.
 
-Para criar os exemplos e provisionar dispositivos no Hub IoT, siga as etapas abaixo:
+Para criar os exemplos e provisionar dispositivos no Hub IoT, siga estas etapas:
 
 1.  Abra o **Prompt de comando do desenvolvedor para VS2015**.
 
@@ -118,13 +118,13 @@ Usando o prompt de comando do desenvolvedor, na pasta **\\azure-iot-sdks\\csharp
   simulate.bat
   ```
 
-Esse script é executado em uma instância de **iotdm\_simple\_sample.exe** para cada dispositivo listado no arquivo **devicecreds.txt**. O dispositivo simulado continuará sendo executado até você fechar a janela de comando.
+Esse script é executado em uma instância de **iotdm\_simple\_sample.exe** para cada dispositivo listado no arquivo **devicecreds.txt**. O dispositivo simulado continua sendo executado até você fechar a janela de comando.
 
 O aplicativo de exemplo **iotdm\_simple\_sample** é criado usando a biblioteca de cliente de gerenciamento de dispositivo de Hub IoT do Azure para C, que permite a criação de dispositivos IoT que podem ser gerenciados pelo Hub IoT do Azure. Os fabricantes de dispositivos podem usar essa biblioteca para relatar propriedades de dispositivo e implementar as ações de execução exigidas pelos trabalhos do dispositivo. Essa biblioteca é um componente fornecido como parte dos SDKs do Hub IoT de código aberto.
 
-Quando você executa **simulate.bat**, vê um fluxo de dados na janela de saída. Essa saída mostra o tráfego de entrada e saída, além de instruções **printf** nas funções de retorno de chamada específicas do aplicativo. Isso permite que você veja o tráfego de entrada e saída e como o aplicativo de exemplo trata os pacotes decodificados. Quando o dispositivo se conecta ao Hub IoT, o serviço começa a observar os recursos no dispositivo automaticamente. A biblioteca de cliente de mineração de dados de Hub IoT invoca os retornos de chamada do dispositivo para recuperar os valores mais recentes deste.
+Quando você executa **simulate.bat**, vê um fluxo de dados na janela de saída. Essa saída mostra o tráfego de entrada e saída e as instruções **printf** nas funções de retorno de chamada específicas do aplicativo. Essa saída permite que você veja o tráfego de entrada e saída e como o aplicativo de exemplo trata os pacotes decodificados. Quando o dispositivo se conecta ao Hub IoT, o serviço começa a observar os recursos no dispositivo automaticamente. A biblioteca de cliente de mineração de dados de Hub IoT invoca os retornos de chamada do dispositivo para recuperar os valores mais recentes deste.
 
-Abaixo, vemos a saída do aplicativo de exemplo **iotdm\_simple\_sample**. Na parte superior, você vê uma mensagem **REGISTRADO** bem-sucedida mostrando o dispositivo com a Id **Device11-7ce4a850** conectando o Hub IoT.
+A seguir, vemos a saída do aplicativo de exemplo **iotdm\_simple\_sample**. Na parte superior, você vê uma mensagem **REGISTRADO** bem-sucedida mostrando o dispositivo com a Id **Device11-7ce4a850** conectando o Hub IoT.
 
 > [AZURE.NOTE]  Para ter uma saída menos detalhada, compile e execute a configuração comercial.
 
@@ -136,7 +136,7 @@ Deixe todos os dispositivos simulados em execução enquanto você conclui as se
 
 Agora que você tem um Hub IoT e tem vários dispositivos simulados em execução e registrados para gerenciamento, poderá implantar a interface do usuário de exemplo do gerenciamento de dispositivos. A interface do usuário de exemplo do gerenciamento de dispositivos oferece um exemplo prático de como utilizar as APIs do gerenciamento de dispositivos para criar uma experiência de interface do usuário interativa. Para saber mais sobre a interface do usuário de exemplo do gerenciamento de dispositivos, incluindo [Problemas conhecidos](https://github.com/Azure/azure-iot-device-management#knownissues), confira o repositório do GitHub [Interface do usuário do gerenciamento de dispositivos IoT do Azure][lnk-dm-github].
 
-Para recuperar, compilar e executar a interface do usuário de exemplo do gerenciamento de dispositivos, siga as etapas abaixo:
+Para recuperar, compilar e executar a interface do usuário de exemplo do gerenciamento de dispositivos, siga estas etapas:
 
 1. Abra um **Prompt de comando**.
 
@@ -197,4 +197,4 @@ Para saber mais sobre os recursos de gerenciamento de dispositivos do Hub IoT do
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

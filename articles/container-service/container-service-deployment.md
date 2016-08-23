@@ -40,7 +40,7 @@ Insira as seguintes informações:
 - **Assinatura**: selecione uma assinatura do Azure.
 - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo.
 - **Local**: selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
-- **Chave pública SSH**: adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ele deve ser algo semelhante ao seguinte: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obter orientação sobre como criar chaves de SSH (Secure Shell), confira os artigos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Chave pública SSH**: adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ele deve ser algo semelhante ao seguinte: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obter orientação sobre como criar chaves SSH (Secure Shell), confira os artigos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Clique em **OK** quando estiver pronto para continuar.
 
@@ -48,7 +48,7 @@ Clique em **OK** quando estiver pronto para continuar.
 
 Selecione um tipo de Orquestração. As opções são:
 
-- **DC/SO**: implanta um cluster de DC/SO.
+- **DC/OS**: implanta um cluster de DC/OS.
 - **Swarm**: implanta um cluster Docker Swarm.
 
 Clique em **OK** quando estiver pronto para continuar.
@@ -82,7 +82,7 @@ Quando a implantação for concluída, o cluster do Serviço de Contêiner do Az
 
 ## Criar um serviço usando a CLI do Azure
 
-Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter instalado e configurado a CLI do Azure.
+Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter [instalado](../xplat-cli-install.md) e [configurado](../xplat-cli-connect.md) a CLI do Azure.
 
 Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
@@ -195,4 +195,4 @@ Agora que você tem um cluster em funcionamento, confira estes documentos para o
 - [Trabalhar com o Serviço de Contêiner do Azure e o DC/SO](container-service-mesos-marathon-rest.md)
 - [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

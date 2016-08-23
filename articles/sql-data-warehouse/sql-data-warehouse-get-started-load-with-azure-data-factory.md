@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados com o Azure Data Factory 
@@ -212,8 +212,7 @@ Para saber mais, comece exibindo o seguinte:
 Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Eles abordam o Banco de Dados SQL do Azure ou o HDinsight, mas as informações também se aplicam ao SQL Data Warehouse do Azure.
 
 - [Tutorial: introdução ao Azure Data Factory][] Este é o tutorial principal para processar dados com o Azure Data Factory. Neste tutorial, você criará seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente. Observe que não há nenhuma atividade de cópia neste tutorial.
-- [Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL][]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
-- [Tutorial de cenário do mundo real][]. Este é um tutorial detalhado para uso do Azure Data Factory.
+- [Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL][]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 
 <!--Image references-->
 
@@ -229,8 +228,7 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial de cenário do mundo real]: ../data-factory/data-factory-tutorial.md
-[Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL]: ../data-factory/data-factory-get-started
+[Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Tutorial: introdução ao Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
@@ -240,4 +238,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Portal do Azure]: https://portal.azure.com
 [Baixe os dados de exemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

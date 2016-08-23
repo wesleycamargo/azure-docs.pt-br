@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/24/2016"
- ms.author="stevehob"/>
+ ms.date="08/17/2016"
+ ms.author="araguila"/>
 
 # Visão geral da solução pré-configurada de manutenção preditiva
 
@@ -40,7 +40,7 @@ Para entender como o [Azure IoT Suite][lnk_iot_suite] fornece recursos que os cl
 
 A solução aproveita um modelo de Aprendizado de Máquina do Azure existente como modelo para mostrar esses recursos trabalhando desde a telemetria de dispositivo coletada até os serviços IoT Suite. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave e publicou o modelo completo, dados<sup>[1]</sup> e orientações passo a passo sobre como usar o modelo.
 
-A solução pré-configurada de manutenção prevista do IoT do Azure usa o modelo de regressão criado com base neste modelo; ele é implantado em sua assinatura do Azure e exposto por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
+A solução pré-configurada de manutenção prevista do Azure IoT usa o modelo de regressão criado com base neste modelo. Ele é implantado em sua assinatura do Azure e exposto por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
 
 *[1] A. Saxena e K. Goebel (2008). “Turbofan Engine Degradation Simulation Data Set” (Conjunto de dados da simulação de degradação do turbofan), Repositório de dados de prognóstico da NASA Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -66,4 +66,4 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

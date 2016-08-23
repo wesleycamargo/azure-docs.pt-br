@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um SQL Data Warehouse usando o PowerShell
@@ -80,7 +80,7 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [migrar]: ./sql-data-warehouse-overview-migrate.md
 [desenvolver]: ./sql-data-warehouse-overview-develop.md
 [carregar]: ./sql-data-warehouse-load-with-bcp.md
-[carregar os dados de amostra]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[carregar os dados de amostra]: ./sql-data-warehouse-load-sample-databases.md
 [Cmdlets do PowerShell e APIs REST]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
@@ -101,4 +101,4 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

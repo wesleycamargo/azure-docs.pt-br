@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Você pode executar um aplicativo do Windows em qualquer lugar e em qualquer dispositivo, agora, é sério: basta usar o Azure RemoteApp. Seja um aplicativo personalizado escrito há 10 anos ou um aplicativo do Office, os usuários não precisam mais estar vinculados a um sistema operacional específico (como o Windows XP) para esses poucos aplicativos.
 
@@ -112,4 +115,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

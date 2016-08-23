@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="08/15/2016"
 	ms.author="marsma"/>
 
 # Noções básicas de Lote do Azure
@@ -40,7 +40,7 @@ Alguns exemplos de cargas de trabalho que normalmente são processadas usando es
 * Análise de estresse de engenharia
 * Teste de software
 
-O Lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos de [MPI (Interface de Transmissão de Mensagens)](batch-mpi.md).
+O lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos [MPI (nterface de Transmissão de Mensagens)](batch-mpi.md).
 
 Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do Lote e HPC](batch-hpc-solutions.md).
 
@@ -60,7 +60,7 @@ Ao desenvolver soluções de Lote, você usará as contas a seguir no Microsoft 
 
 - **Conta do Lote** - quando os aplicativos interagem com o serviço de Lote, o nome da conta, a URL da conta, e uma chave de acesso são usados como credenciais. Todos os recursos do Lote, como pools, nós de computação, trabalhos e tarefas estão associados a uma conta do Lote. Você pode [criar e gerenciar uma conta do Lote](batch-account-create-portal.md) no portal do Azure.
 
-- **Conta de armazenamento** - o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure][azure_storage]. Quase todos os cenários de Lote usarão o Armazenamento do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Para criar uma conta de Armazenamento, confira [Sobre as contas de armazenamento do Azure](./../storage/storage-create-storage-account.md).
+- **Conta de armazenamento** - o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure][azure_storage]. Quase todos os cenários de Lote usam o Armazenamento do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Para criar uma conta de Armazenamento, confira [Sobre as contas de armazenamento do Azure](./../storage/storage-create-storage-account.md).
 
 ### APIs de desenvolvimento em lotes
 
@@ -71,8 +71,8 @@ Os aplicativos e serviços podem emitir chamadas à API REST diretamente, usar u
 | **REST do Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET do Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python em lotes** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Java do Lote** (visualização) | [github.io][api_java] | [Repositório de instantâneos do Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
+| **Java do Lote** (visualização) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gerenciamento de recursos em lotes
 
@@ -80,9 +80,19 @@ Além das APIs de cliente, você também pode usar os itens a seguir para gerenc
 
 - [Cmdlets do PowerShell do Lote][batch_ps]\: os cmdlets do Lote do Azure no módulo do [Azure PowerShell](../powershell-install-configure.md) permitem que você gerencie recursos do Lote com o PowerShell.
 
-- [CLI do Azure](../xplat-cli-install.md): a CLI do Azure (Interface de linha de comando do Azure) é um conjunto de ferramentas de plataforma cruzada que fornece comandos para interagir com muitos serviços do Azure, incluindo o Lote.
+- [CLI do Azure](../xplat-cli-install.md): a CLI do Azure (Interface de linha de comando do Azure) é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interagir com muitos serviços do Azure, incluindo o Lote.
 
 - Biblioteca de cliente do [.NET de Gerenciamento do Lote](batch-management-dotnet.md): também disponível via [NuGet][api_net_mgmt_nuget]. Use a biblioteca de cliente .NET de Gerenciamento do Lote para gerenciar programaticamente contas, cotas e pacotes de aplicativos do Lote. A referência da biblioteca de gerenciamento está no [MSDN][api_net_mgmt].
+
+### Ferramentas do Lote
+
+Embora não sejam necessárias para compilar soluções usando o Lote, veja algumas ferramentas essenciais para a compilação e depuração de aplicativos e serviços do Lote.
+
+ - [Portal do azure][portal]\: você pode criar, monitorar e excluir pools, trabalhos e tarefas do Lote nas folhas do Lote do portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools (baixar um `stderr.txt` de uma tarefa com falha durante a solução de problemas, por exemplo). Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
+
+ - [Gerenciador do Lote do Azure][batch_explorer]\: o Gerenciador do Lote oferece uma funcionalidade de gerenciamento de recursos do Lote semelhante como no portal do Azure, mas em um aplicativo cliente autônomo do WPF (Windows Presentation Foundation). Um dos aplicativos de exemplo do .NET do Lote disponíveis no [GitHub][github_samples], você pode compilá-lo com o Visual Studio 2015 ou acima e usá-lo para procurar e gerenciar os recursos na sua conta do Lote enquanto desenvolver e depurar suas soluções do Lote. Exiba detalhes da tarefa, do pool e do trabalho, baixe arquivos de nós de computação e se conecte a nós remotamente por meio de arquivos de RDP (Área de Trabalho Remota) que você pode baixar com o Gerenciador do Lote.
+
+ - [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer]\: embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções do Lote.
 
 ## Cenário: escalar horizontalmente uma carga de trabalho paralela
 
@@ -96,11 +106,11 @@ Nesse cenário comum, o aplicativo ou serviço processa uma carga de trabalho co
 
 1. Carregue os **arquivos de entrada** e o **aplicativo** que processará esses arquivos em sua conta de Armazenamento do Azure. Os arquivos de entrada podem ser quaisquer dados que o aplicativo processará, como dados de modelagem financeira ou arquivos de vídeo a serem transcodificados. Os arquivos do aplicativo podem ser qualquer aplicativo que seja usado para processar os dados, como um aplicativo de renderização 3D ou um transcodificador de mídia.
 
-2. Crie um **pool** do Lote de nós de computação em sua conta do Lote. Essas serão as máquinas virtuais que executarão suas tarefas. Especifique propriedades como o [tamanho de nó](./../cloud-services/cloud-services-sizes-specs.md), seu sistema operacional e o local no Armazenamento do Azure do aplicativo para instalação quando os nós ingressarem no pool (o aplicativo que você carregou na etapa 1). Você também pode configurar o pool para [dimensionamento automático](batch-automatic-scaling.md) (ajustar dinamicamente o número de nós de computação no pool) em resposta à carga de trabalho gerada por suas tarefas.
+2. Crie um **pool** do Lote de nós de computação em sua conta do Lote. Esses nós são as máquinas virtuais que executarão suas tarefas. Especifique propriedades, como o [tamanho de nó](./../cloud-services/cloud-services-sizes-specs.md), o sistema operacional e o local no Armazenamento do Azure do aplicativo para instalação quando os nós ingressarem no pool (o aplicativo que você carregou na etapa 1). Você também pode configurar o pool para [dimensionamento automático](batch-automatic-scaling.md) (ajustar dinamicamente o número de nós de computação no pool) em resposta à carga de trabalho gerada por suas tarefas.
 
 3. Crie um **trabalho** do Lote para executar a carga de trabalho no pool de nós de computação. Ao criar um trabalho, você pode associá-lo a um pool do Lote.
 
-4. Adicione **tarefas** ao trabalho. Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada.
+4. Adicione **Tarefas** ao trabalho. Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada.
 
     - 4a. Antes da execução de uma tarefa, ela pode baixar os dados (os arquivos de entrada) que deve processar para o nó de computação ao qual está atribuída. Se o aplicativo ainda não tiver sido instalado no nó (confira a etapa nº 2), ele poderá ser baixado aqui em vez disso. Quando os downloads forem concluídos, as tarefas serão executadas em seus nós atribuídos.
 
@@ -116,9 +126,9 @@ Lembre-se de que essa é apenas uma maneira de usar o Lote, e este cenário desc
 
 Agora que você já viu uma visão geral de alto nível do serviço Lote, é hora de se aprofundar para saber como pode usá-lo para processar suas cargas de trabalho paralelas com uso intensivo de computação.
 
-- Leia a [visão geral do recurso do Lote para desenvolvedores](batch-api-basics.md) para obter informações mais detalhadas sobre os recursos da API que o Lote fornece para o processamento de suas cargas de trabalho. Esta é uma leitura essencial para qualquer pessoa que esteja se preparando para usar o Lote.
+- Leia a [visão geral do recurso do Lote para desenvolvedores](batch-api-basics.md) para obter informações mais detalhadas sobre os recursos da API que o Lote fornece para o processamento de suas cargas de trabalho. Este é um artigo essencial para qualquer pessoa que esteja se preparando para usar o Lote.
 
-- [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Essa deve ser uma de suas primeiras etapas ao aprender a usar o serviço de Lote. Também há uma [Versão do Python](batch-python-tutorial.md) do tutorial.
+- [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Este artigo deve ser uma de suas primeiras etapas ao aprender a usar o serviço de Lote. Também há uma [Versão do Python](batch-python-tutorial.md) do tutorial.
 
 - Baixe os [exemplos de código no GitHub][github_samples] para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.
 
@@ -126,7 +136,7 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
-[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -144,8 +154,11 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[storage_explorer]: http://storageexplorer.com/
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

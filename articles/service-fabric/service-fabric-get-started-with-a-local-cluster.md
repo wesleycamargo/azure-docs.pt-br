@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
-O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você criará um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
+O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você cria um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
 
 > [AZURE.NOTE] Este artigo pressupõe que você já tenha [configurado seu ambiente de desenvolvimento](service-fabric-get-started.md).
 
@@ -26,7 +26,7 @@ Um cluster do Service Fabric representa um conjunto de recursos de hardware em q
 
 O cluster local do Service Fabric não é um simulador ou um emulador. Ele executa o mesmo código de plataforma encontrado em clusters com vários computadores. A única diferença é que ele executa os processos de plataforma normalmente espalhados por cinco computadores em um só.
 
-O SDK fornece duas maneiras de configurar um cluster local: um script do Windows PowerShell e o aplicativo de bandeja do sistema Gerenciador de Cluster Local. Neste tutorial, usaremos o script do PowerShell.
+O SDK fornece duas maneiras de configurar um cluster local: um script do Windows PowerShell e o aplicativo de bandeja do sistema Gerenciador de Cluster Local. Neste tutorial, usamos o script do PowerShell.
 
 > [AZURE.NOTE] Se você já tiver criado um cluster local ao implantar um aplicativo do Visual Studio, poderá ignorar esta seção.
 
@@ -39,7 +39,7 @@ O SDK fornece duas maneiras de configurar um cluster local: um script do Windows
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-    A instalação do cluster levará alguns minutos. Após a conclusão da instalação, você verá uma saída parecida com esta:
+    A instalação do cluster leva alguns minutos. Após a conclusão da instalação, você verá uma saída como esta:
 
     ![Saída da instalação do cluster][cluster-setup-success]
 
@@ -59,14 +59,14 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
-3. Crie um diretório para armazenar o aplicativo que será baixado e implantado, como C:\\ServiceFabric.
+3. Crie um diretório para armazenar o aplicativo baixado e implantado, como C:\\ServiceFabric.
 
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
 
-4. [Baixe o aplicativo WordCount](http://aka.ms/servicefabric-wordcountapp) para o local que você criou. Observação: o navegador Microsoft Edge salvará o arquivo com uma extensão *.zip*. Você precisará alterar a extensão do arquivo para *.sfpkg*.
+4. [Baixe o aplicativo WordCount](http://aka.ms/servicefabric-wordcountapp) para o local que você criou. Observação: o navegador Microsoft Edge salva o arquivo com uma extensão *.zip*. Altere a extensão do arquivo para *.sfpkg*.
 
 5. Conecte-se ao cluster local:
 
@@ -74,7 +74,7 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Invoque o comando de implantação do SDK para criar um novo aplicativo, fornecendo um nome e um caminho para o pacote de aplicativos.
+6. Crie um novo aplicativo usando o comando de implantação do SDK com um nome e um caminho para o pacote de aplicativos.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,11 +84,11 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
 
     ![Implantar um aplicativo no cluster local][deploy-app-to-local-cluster]
 
-7. Para ver o aplicativo em ação, inicie o navegador e navegue até [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Você deverá ver algo assim:
+7. Para ver o aplicativo em ação, inicie o navegador e navegue até [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Você deverá ver:
 
     ![IU do aplicativo implantado][deployed-app-ui]
 
-    O aplicativo WordCount é muito simples. Ele inclui código JavaScript do lado do cliente para gerar "palavras", de cinco caracteres aleatórias, que serão transmitidas para o aplicativo por meio da API Web ASP.NET. Um serviço com estado mantém o controle sobre o número de palavras contadas. Elas serão particionadas com base no primeiro caractere da palavra. Você pode encontrar o código-fonte para o aplicativo WordCount na [introdução de exemplos](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    O aplicativo WordCount é muito simples. Ele inclui código JavaScript do lado do cliente para gerar "palavras", de cinco caracteres aleatórias, que serão transmitidas para o aplicativo por meio da API Web ASP.NET. Um serviço com estado controla o número de palavras contadas. Elas serão particionadas com base no primeiro caractere da palavra. Você pode encontrar o código-fonte para o aplicativo WordCount na [introdução de exemplos](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     O aplicativo que implantamos contém quatro partições. Dessa forma, as palavras de A a G são armazenadas na primeira partição, as palavras iniciadas com H a N são armazenadas na segunda partição e assim por diante.
 
@@ -113,7 +113,7 @@ Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplica
 
     ![Listar serviços para o aplicativo no PowerShell][ps-getsfsvc]
 
-    Observe que o aplicativo é composto de dois serviços, o front-end da Web e o serviço com estado que gerencia as palavras.
+    O aplicativo é composto de dois serviços, o front-end da Web e o serviço com estado que gerencia as palavras.
 
 3. Por fim, dê uma olhada na lista de partições para o WordCountService:
 
@@ -123,7 +123,7 @@ Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplica
 
     ![Exibir as partições de serviço no PowerShell][ps-getsfpartitions]
 
-    O conjunto de comandos que você acabou de usar, como todos os comandos do PowerShell do Service Fabric, estão disponíveis para qualquer cluster ao qual você queira se conectar, local ou remoto.
+    O conjunto de comandos que você usou, como todos os comandos do PowerShell do Service Fabric, estão disponíveis para qualquer cluster ao qual você queira se conectar, local ou remoto.
 
     Para obter uma maneira mais visual de interagir com o cluster, você poderá usar a ferramenta Service Fabric Explorer baseada na Web ao acessar [http://localhost:19080/Explorer](http://localhost:19080/Explorer) no navegador.
 
@@ -134,7 +134,7 @@ Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplica
 ## Atualizar um aplicativo
 O Service Fabric oferece atualizações sem tempo de inatividade por meio do monitoramento da integridade do aplicativo à medida que ele percorre o cluster. Vamos fazer uma atualização simples do aplicativo WordCount.
 
-A nova versão do aplicativo agora contará somente as palavras que comecem por vogal. À medida que a atualização for distribuída, veremos duas alterações no comportamento do aplicativo. Primeiro, a taxa na qual a contagem aumenta deve ficar mais lenta, já que menos palavras serão contadas. Em segundo lugar, como a primeira partição tem duas vogais (A e E) e todas as outras partições contêm apenas uma, sua contagem eventualmente deverá começar a ultrapassar as outras.
+A nova versão do aplicativo agora conta somente as palavras que comecem por vogal. À medida que a atualização for distribuída, veremos duas alterações no comportamento do aplicativo. Primeiro, a taxa na qual a contagem aumenta deve ficar mais lenta, já que menos palavras serão contadas. Em segundo lugar, como a primeira partição tem duas vogais (A e E) e todas as outras partições contêm apenas uma, sua contagem eventualmente deverá começar a ultrapassar as outras.
 
 1. [Baixe o pacote do WordCount v2](http://aka.ms/servicefabric-wordcountappv2) no mesmo local onde você baixou o pacote v1.
 
@@ -144,7 +144,7 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
-    Você deverá ver uma saída no PowerShell semelhante a esta quando a atualização for iniciada.
+    Você deverá ver uma saída no PowerShell semelhante à seguinte quando a atualização for iniciada.
 
     ![Andamento da atualização no PowerShell][ps-appupgradeprogress]
 
@@ -154,7 +154,7 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 
     À medida que a atualização prosseguir em cada domínio, serão executadas verificações de integridade para garantir que o aplicativo está se comportando adequadamente.
 
-4. Se você executar novamente a consulta anterior para o conjunto de serviços incluídos no aplicativo fabric:/WordCount, observará que, enquanto a versão do WordCountService foi alterada, a versão do WordCountWebService não foi:
+4. Se você executar novamente a consulta anterior para o conjunto de serviços no aplicativo fabric:/WordCount, observará que, enquanto a versão do WordCountService foi alterada, mas a versão do WordCountWebService não foi:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -170,7 +170,7 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 
 ## Limpando
 
-Antes da conclusão, é importante lembrar que o cluster local é muito real. Os aplicativos continuarão sendo executados em segundo plano até você removê-los. Dependendo da natureza de seus aplicativos, um aplicativo em execução pode consumir recursos significativos em seu computador. Você tem várias opções para gerenciar isto:
+Antes da conclusão, é importante lembrar que o cluster local é real. Os aplicativos continuam sendo executados em segundo plano até você removê-los. Dependendo da natureza de seus aplicativos, um aplicativo em execução pode consumir recursos significativos em seu computador. Você tem várias opções para gerenciar aplicativos e o cluster:
 
 1. Para remover um aplicativo individual e todos os seus dados, execute o seguinte:
 
@@ -178,11 +178,11 @@ Antes da conclusão, é importante lembrar que o cluster local é muito real. Os
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
 
-    Use a ação **Excluir aplicativo** no Service Fabric Explorer com o menu **AÇÕES** ou o menu contextual na lista de aplicativos exibida no painel esquerdo.
+    Ou exclua o aplicativo do menu **AÇÕES** do Service Fabric Explorer ou do menu de contexto na exibição de lista do aplicativo do painel esquerdo.
 
     ![Excluir um aplicativo no Service Fabric Explorer][sfe-delete-application]
 
-2. Depois de excluir o aplicativo do cluster, em seguida, você poderá cancelar o registro das versões 1.0.0 e 2.0.0 do tipo de aplicativo WordCount. Isso remove os pacotes de aplicativos, inclusive o código e a configuração, do armazenamento de imagens do cluster.
+2. Depois de excluir o aplicativo do cluster, você poderá cancelar o registro das versões 1.0.0 e 2.0.0 do tipo de aplicativo WordCount. A exclusão remove os pacotes de aplicativos, inclusive o código e a configuração, do armazenamento de imagens do cluster.
 
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -193,12 +193,12 @@ Antes da conclusão, é importante lembrar que o cluster local é muito real. Os
 
 3. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 
-4. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Use isso somente se você não pretender usar o cluster local por algum tempo ou se precisar recuperar recursos.
+4. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Só remova o cluster local se você não pretender usá-lo por algum tempo ou se precisar recuperar recursos.
 
 ## Próximas etapas
 - Agora que você implantou e atualizou alguns aplicativos pré-compilados, poderá [tentar compilar seu próprio aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Todas as ações executadas no cluster local neste artigo também podem ser executadas em um [cluster do Azure](service-fabric-cluster-creation-via-portal.md).
-- A atualização que executamos neste artigo foi muito básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a eficiência e a flexibilidade das atualizações do Service Fabric.
+- A atualização que executamos neste artigo foi básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a eficiência e a flexibilidade das atualizações do Service Fabric.
 
 <!-- Images -->
 
@@ -218,4 +218,4 @@ Antes da conclusão, é importante lembrar que o cluster local é muito real. Os
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

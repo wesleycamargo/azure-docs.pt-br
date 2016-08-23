@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Introdução ao Active Directory Premium do Azure
@@ -107,7 +107,7 @@ Nesse caso, o acesso ao Azure será limitado ao Azure Active Directory.
 
 ![Recursos do Azure][7]
 
-Você pode já ter tido acesso ao Azure em uma utilização anterior; além disso, você pode atualizar seu acesso do Active Directory do Azure para acesso completo ao Azure, ao ativar assinaturas adicionais do Azure. Nesses casos, o portal clássico do Azure tem mais recursos.
+Você pode já ter tido acesso ao Azure em uma utilização anterior; além disso, você pode atualizar seu acesso do Azure Active Directory para acesso completo ao Azure, ao ativar assinaturas adicionais do Azure. Nesses casos, o portal clássico do Azure tem mais recursos.
 
 ![Recursos do Azure][8]
 
@@ -160,4 +160,4 @@ A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->
