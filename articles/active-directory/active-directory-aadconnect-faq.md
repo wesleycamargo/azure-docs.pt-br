@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure AD Connect
@@ -24,6 +24,10 @@
 **P: existe uma forma de instalar o Azure Connect AD autônomo?** Somente há suporte para instalar o Azure Connect AD usando o assistente de instalação. Não há suporte para uma instalação silenciosa e autônoma.
 
 **P: Eu tenho uma floresta em que um domínio não pode ser contatado. Como instalo o Azure AD Connect?** Há suporte para isso nas compilações de fevereiro de 2016.
+
+**P: O agente de integridade do AD DS funciona no núcleo do servidor?** Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte commandlet do PowerShell:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
 ## Rede
 **P: Tenho um firewall, dispositivo de rede ou outra coisa que limita o tempo máximo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limiar de tempo limite no lado do cliente ao usar o Azure Connect AD?** Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 5 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Isso também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
@@ -68,4 +72,4 @@ Você também pode configurar o Azure AD para permitir que o mecanismo de sincro
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

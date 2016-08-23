@@ -80,7 +80,7 @@ Depois disso, [reconfigure o servidor DNS para a rede virtual](../active-directo
 
 O failover de teste ocorre em uma rede isolada da rede de produção para que não ocorra impactos nas cargas de trabalho de produção.
 
-A maioria dos aplicativos também exige a presença de um controlador de domínio e um servidor DNS para funcionar; portanto, antes do failover do aplicativo, um controlador de domínio precisa ser criado da rede isolada a ser usada para failover de teste. A maneira mais fácil de fazer isso é habilitar a proteção na máquina virtual do DNS/controlador de domínio com o Site Recovery e executar um failover de teste dessa máquina virtual, antes de executar um failover de teste do plano de recuperação para o aplicativo. Veja como fazer isso:
+A maioria dos aplicativos também exige a presença de um controlador de domínio e um servidor DNS para funcionar; portanto, antes do failover do aplicativo, um controlador de domínio precisa ser criado na rede isolada a ser usada para failover de teste. A maneira mais fácil de fazer isso é habilitar a proteção na máquina virtual do DNS/controlador de domínio com o Site Recovery e executar um failover de teste dessa máquina virtual, antes de executar um failover de teste do plano de recuperação para o aplicativo. Veja como fazer isso:
 
 1. Habilite a proteção na Recuperação de Site da máquina virtual do DNS/controlador de domínio.
 2. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. Recomendamos que o intervalo de endereços IP dessa rede seja o mesmo de sua rede de produção. Não habilite a conectividade site a site nessa rede.
@@ -105,7 +105,7 @@ Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. 
 	- A zona deve ser habilitada para atualizações seguras e não seguras.
 	- O resolvedor da máquina virtual do controlador de domínio deve apontar para o endereço IP da máquina virtual do DNS.
 
-2. Execute o seguinte comando no diretório da máquina virtual do controlador de domínio:
+2. Execute o seguinte comando na máquina virtual do controlador de domínio:
 
 	`nltest /dsregdns`
 
@@ -121,4 +121,4 @@ Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. 
 
 Leia [Quais cargas de trabalho posso proteger?](../site-recovery/site-recovery-workload.md) para saber mais sobre como proteger cargas de trabalho corporativas com o Azure Site Recovery.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

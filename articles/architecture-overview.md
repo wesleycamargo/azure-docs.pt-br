@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Arquitetura de aplicativos no Microsoft Azure" 
+	pageTitle="Arquitetura de aplicativos no Microsoft Azure | Microsoft Azure" 
 	description="Visão geral da arquitetura que aborda os padrões comuns de design" 
 	services="" 
 	documentationCenter="" 
@@ -38,9 +38,9 @@ A Microsoft publica um conjunto de [plantas de arquitetura](http://aka.ms/azblue
 
 Cada planta inclui um
 
-- Arquivo simples baseado em **Visio 2003 2D** que você pode baixar e modificar 
+- Arquivo simples baseado em **Visio 2003 2D** que você pode baixar e modificar
 - Arquivo **PDF de perspectiva 3D** colorido para apresentar a planta para um público menos técnico
-- **Vídeo** que descreve a versão 3D. 
+- **Vídeo** que descreve a versão 3D.
 
 As Plantas usam o [Conjunto de símbolos de nuvem e empresarial](#symbol-and-icon-sets).
 
@@ -54,9 +54,9 @@ As versões 3D das [Plantas de arquitetura da Microsoft](http://aka.ms/azbluepri
 
 O modelo também está disponível fora do curso.
 
-- [Veja o vídeo de treinamento](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer   
+- [Veja o vídeo de treinamento](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer
 - Baixe o [Modelo de planta 3D do Visio da Microsoft](http://aka.ms/3DBlueprintTemplate)
-- Baixe os [Símbolos de Nuvem e Enterprise](#drawing-symbol-and-icon-sets) para usar com o modelo 3D. 
+- Baixe os [Símbolos de Nuvem e Enterprise](#drawing-symbol-and-icon-sets) para usar com o modelo 3D.
 
 Envie um email para [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) com perguntas específicas não respondidas pelos materiais de treinamento ou para fazer algum comentário. A usabilidade é uma das principais metas do modelo, por isso, gostaríamos de saber o que está bom e o que pode ser melhorado.
 
@@ -85,4 +85,4 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

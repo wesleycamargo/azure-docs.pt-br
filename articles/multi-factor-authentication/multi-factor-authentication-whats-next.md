@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -165,7 +165,7 @@ O cache permite que você defina um momento específico período para que tentat
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
-## IPs Confiáveis
+## IPs confiáveis
 
 IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa. Os recursos estão disponíveis para locatários do Azure AD que tenham licenças do Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
 
@@ -319,7 +319,7 @@ Além disso, eles também podem criar senhas de aplicativo posteriormente altera
 
 ![Senhas de aplicativo](./media/multi-factor-authentication-whats-next/app2.png)
 
-### Para criar senhas de aplicativo se você não tiver uma assinatura do Office 365 ou do Azure
+### Para criar senhas de aplicativo se você não tiver uma assinatura do Office 365 ou Azure
 --------------------------------------------------------------------------------
 1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Na parte superior, selecione Perfil.
@@ -376,4 +376,4 @@ Método|Descrição
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

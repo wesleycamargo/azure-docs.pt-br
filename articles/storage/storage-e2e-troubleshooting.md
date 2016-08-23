@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -37,7 +37,7 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 	- **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
-> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) não têm métricas ou funcionalidade de log habilitadas no momento.
+> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento.
 
 - **Portal do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal do Azure](https://portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 
@@ -86,7 +86,7 @@ Ocorre quando uma operação de leitura em um contêiner ou blob falha porque o 
 Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos diferentes de arquivos de log, embora você possa optar por trabalhar com qualquer um desses:
 
 - O **log do servidor** que é criado quando você habilita o log de armazenamento do Azure. O log do servidor contém dados sobre cada operação de chamada com um dos serviços de armazenamento do Azure: blob, fila, tabela e arquivo. O log do servidor indica qual operação foi chamada e o código de status retornado, bem como outros detalhes sobre a solicitação e resposta.
-- O **log do cliente .NET** que é criado quando você habilita o log de cliente de dentro de seu aplicativo .NET. O log de cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
+- O ** log do cliente .NET** que é criado quando você habilita o log de cliente de dentro de seu aplicativo .NET. O log de cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 - O **log de rastreamento de rede HTTP** que coleta dados nos dados de solicitação e resposta HTTP/HTTPS, inclusive para as operações no Armazenamento do Azure. Neste tutorial, vamos gerar o rastreamento de rede por meio do Analisador de Mensagem.
 
 ### Configurar o log de servidor e métricas
@@ -145,14 +145,14 @@ Você pode usar o Analisador de Mensagem para coletar um rastreamento de rede HT
 
 1. Instale o [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie o Fiddler.
-2. Selecione **Ferramentas | Opções do Fiddler**.
-3. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
+2. Selecione **Tools| Fiddler Options**.
+3. Na caixa de diálogo Opções, verifique se **Capturar CONEXÕES HTTPS ** e **Descriptografar Tráfego HTTPS** estão selecionadas, conforme mostrado abaixo.
 
 ![Configurar Opções do Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Analisador de Mensagem e crie uma sessão de análise para analisar os logs e o rastreamento. Para coletar um rastreamento de rede no Analisador de Mensagem:
 
-1. No Analisador de Mensagem, selecione **Arquivo | Rastreamento Rápido | HTTPS Sem Criptografia**.
+1. No Analisador de Mensagem, selecione **Arquivo| Quick Trace | Unencrypted HTTPS**.
 2. O rastreamento será iniciado imediatamente. Selecione **Parar** para parar o rastreamento para que possamos configurá-lo para rastrear apenas o tráfego de armazenamento.
 3. Selecione **Editar** para editar a sessão de rastreamento.
 4. Selecione o link **Configurar** à direita do provedor ETW **Microsoft-Pef-WebProxy**.
@@ -187,9 +187,9 @@ Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquiv
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, confira [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) (Transferir dados com o utilitário de linha de comando do AzCopy).
+O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md).
 
-Para obter informações adicionais sobre como baixar os logs do servidor, confira [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata) (Baixar dados de log do log de armazenamento).
+Para obter informações adicionais sobre como baixar os logs do servidor, confira [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata) (Baixar dados de log do Log de Armazenamento).
 
 ## Usar o Analisador de Mensagem da Microsoft para analisar dados de log
 
@@ -201,7 +201,7 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 
 1. Baixe o [Analisador de Mensagem](http://www.microsoft.com/download/details.aspx?id=44226) no Centro de Download da Microsoft e execute o instalador.
 2. Inicie o Analisador de Mensagem.
-3. No menu **Ferramentas**, selecione **Gerenciador de Ativos**. Na caixa de diálogo **Gerenciador de Ativos**, selecione **Downloads**, em seguida, filtre por **Armazenamento do Azure**. Você verá os ativos de Armazenamento do Azure, conforme mostrado na figura abaixo.
+3. No menu **Ferramentas**, selecione **Gerenciador de Ativos**. Na caixa de diálogo **Gerenciador de Ativos**, escolha **Downloads** e filtre por **Armazenamento do Azure**. Você verá os ativos de Armazenamento do Azure, conforme mostrado na figura abaixo.
 4. Clique em **Sincronizar Todos os Itens Exibidos** para instalar os Ativos de Armazenamento do Azure. Os ativos disponíveis incluem:
 	- **Regras de Cores do Armazenamento do Azure:** as regras de cores do Armazenamento do Azure permitem que você defina filtros especiais que usam estilos de fonte, texto e cor para realçar as mensagens que contêm informações específicas em um rastreamento.
 	- **Gráficos de Armazenamento do Azure:** os gráficos de Armazenamento do Azure são gráficos predefinidos que representam os dados de log do servidor. Observe que para usar os gráficos de Armazenamento do Azure no momento, você pode carregar apenas o log do servidor na Grade de Análise.
@@ -342,18 +342,18 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
 | Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError (todos) |    *StatusCode == 500 |Todos |
-| Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
+| Aumento em PercentTimeoutError (todos) | *StatusCode == 500 | Todos |
+| Aumento em PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
 | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
 | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
 | 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
-| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
+| Problema de autorização de SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
+| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 | Rede |
 | 409 (todos) | *StatusCode == 409 | Todos |
-|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
+| Baixo PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
 | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
-| Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Intervalo de horas nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
+| Intervalo de horas nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas
@@ -366,4 +366,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 - [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

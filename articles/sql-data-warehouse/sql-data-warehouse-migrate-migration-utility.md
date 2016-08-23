@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -22,9 +22,9 @@
 > [AZURE.SELECTOR]
 - [Baixar o Utilitário de Migração][]
 
-O Utilitário de Migração do Data Warehouse é uma ferramenta criada para migrar o esquema e os dados do SQL Server e do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Durante a migração do esquema, a ferramenta mapeia automaticamente o esquema correspondente da origem para o destino. Depois de migrar o esquema, os usuários também verão a opção de mover dados por meio de scripts gerados automaticamente.
+O Utilitário de Migração do Data Warehouse é uma ferramenta criada para migrar o esquema e os dados do SQL Server e do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Durante a migração do esquema, a ferramenta mapeia automaticamente o esquema correspondente da origem para o destino. Depois de migrar o esquema, as ferramentas fornecem a opção de mover os dados com scripts gerados automaticamente.
 
-Além da migração de esquema e de dados, essa ferramenta fornece aos usuários a opção de gerar relatórios de compatibilidade que resumem as incompatibilidades entre as instâncias de origem e de destino que impediriam uma migração simplificada.
+Além do esquema e da migração de dados, essa ferramenta fornece a opção de gerar relatórios de compatibilidade que resumem as incompatibilidades entre as instâncias de origem e destino que impediriam uma migração simplificada.
 
 ## Introdução
 Como um pré-requisito para a instalação, você precisará do utilitário de linha de comando BCP para executar scripts de migração e do Office para exibir o relatório de compatibilidade. Depois de iniciar o arquivo executável baixado, você deverá aceitar o Contrato de Licença de Usuário Final padrão antes de instalar a ferramenta.
@@ -65,4 +65,4 @@ Agora que você já migrou alguns dados, confira como [desenvolvê-los][].
 <!--Other Web references--> 
 [Baixar o Utilitário de Migração]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

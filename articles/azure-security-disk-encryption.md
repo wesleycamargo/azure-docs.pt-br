@@ -385,7 +385,7 @@ Use a tabela de terminologia como referência para entender alguns dos termos co
 | Terminologia | Definição |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AD do Azure | Azure AD significa [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/). Uma conta do AD do Azure é um pré-requisito para autenticar, armazenar e recuperar segredos do Cofre da Chave. |
-| Cofre da Chave do Azure [AKV] | O Cofre da Chave do Azure é um serviço de gerenciamento de chaves de criptografia baseado em Módulos de Segurança de Hardware validados pelo FIPS para proteger suas chaves criptográficas e segredos confidenciais com segurança. Veja a documentação [Cofre da Chave](https://azure.microsoft.com/services/key-vault/) para obter mais detalhes. |
+| Cofre da Chave do Azure [AKV] | O Cofre de Chaves do Azure é um serviço de gerenciamento de chaves de criptografia baseado em Módulos de Segurança de Hardware validados pelo FIPS para proteger suas chaves de criptografia e segredos confidenciais com segurança. Veja a documentação do [Cofre de Chaves](https://azure.microsoft.com/services/key-vault/) para obter mais detalhes. |
 | ARM | Gerenciador de Recursos do Azure |
 | BitLocker | O [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) é uma tecnologia de criptografia de volume do Windows reconhecida pela indústria e usada para habilitar a criptografia de disco em VMs de IaaS do Windows |
 | BEK | As chaves de criptografia do BitLocker são usadas para criptografar o volume de inicialização do sistema operacional e os volumes de dados. As chaves do BitLocker são protegidas no cofre da chave do Azure do cliente como segredos. |
@@ -845,4 +845,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

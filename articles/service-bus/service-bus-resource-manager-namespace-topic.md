@@ -27,9 +27,9 @@ Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Ser
 >[AZURE.NOTE] Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 >
 >-    [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Criar um namespace do Barramento de Serviço com um Hub de Eventos e grupo de consumo](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 >-    [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
+>-    [Criar um namespace do Barramento de Serviço com um Hub de Eventos e grupo de consumo](service-bus-resource-manager-namespace-event-hub.md)
 >
 >Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Barramento de Serviço.
 
@@ -160,4 +160,4 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Modelo de namespace do Barramento de Serviço com tópico e assinatura]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

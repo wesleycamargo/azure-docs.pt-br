@@ -14,20 +14,20 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Tutorial: introdução às soluções pré-configuradas
 
 ## Introdução
 
-As [soluções pré-configuradas][lnk-preconfigured-solutions] do Pacote do Azure IoT combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *monitoramento remoto* conecta-se seus dispositivos e os monitora. Isso o habilita a analisar o fluxo de dados de dispositivos e melhorar os resultados de negócios fazendo com que os processos respondam automaticamente a esse fluxo de dados.
+As [soluções pré-configuradas][lnk-preconfigured-solutions] do Pacote do Azure IoT combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *monitoramento remoto* conecta-se seus dispositivos e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e melhorar os resultados de negócios fazendo com que os processos respondam automaticamente a esse fluxo de dados.
 
-Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Ele também explica os recursos básicos da solução pré-configurada de monitoramento remoto. Você pode acessar muitos desses recursos por meio do painel de solução que é implantado junto com a solução pré-configurada:
+Este tutorial mostra como provisionar a solução pré-configurada de monitoramento remoto. Ele também explica os recursos básicos da solução de monitoramento remoto. Você pode acessar muitos desses recursos por meio do painel de solução que é implantado junto com a solução pré-configurada:
 
 ![Painel de solução pré-configurada de monitoramento remoto][img-dashboard]
 
-Para concluir este tutorial, você precisará de uma assinatura ativa do Azure.
+Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [AZURE.NOTE]  Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 
@@ -67,7 +67,7 @@ A lista de dispositivos mostra todos os dispositivos registrados na solução. V
 
 O painel **Detalhes do Dispositivo** contém três seções:
 
-- A seção **Ações** lista as ações que você pode executar no dispositivo. Se você desabilitar o dispositivo, ele não poderá enviar telemetria ou receber comandos. Se você desabilitar um dispositivo, poderá habilitá-lo novamente. Você pode adicionar uma regra associada ao dispositivo que dispara um alarme quando um valor de telemetria excede um limite. Você também pode enviar um comando a um dispositivo. Quando um dispositivo se conecta pela primeira vez, ele informa à solução os comandos que ele pode responder.
+- A seção **Ações** lista as ações que você pode executar no dispositivo. Se você desabilita o dispositivo, ele não pode mais enviar telemetria ou receber comandos. Se você desabilitar um dispositivo, poderá habilitá-lo novamente. Você pode adicionar uma regra associada ao dispositivo que dispara um alarme quando um valor de telemetria excede um limite. Você também pode enviar um comando a um dispositivo. Quando um dispositivo se conecta pela primeira vez, ele informa à solução os comandos que pode responder.
 - A seção **Propriedades do Dispositivo** lista os metadados do dispositivo. Alguns metadados vêm do próprio dispositivo (por exemplo, o fabricante) e outros são gerados pela solução (como a hora de criação). Você pode editar os metadados do dispositivo a partir daqui.
 - A seção **Chaves de Autenticação** lista as chaves que o dispositivo pode usar para autenticar na solução.
 
@@ -93,11 +93,11 @@ A solução rastreia o status de cada comando enviado. Inicialmente, o resultado
 
 Ao implantar a solução pré-configurada, você provisiona automaticamente os quatro dispositivos de exemplo que pode ver na lista de dispositivos. Esses dispositivos são *dispositivos simulados* em execução em um Trabalho Web do Azure. Com os dispositivos simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar dispositivos físicos reais. Se você quiser conectar um dispositivo real à solução, confira o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm].
 
-As etapas a seguir mostram como adicionar um novo dispositivo simulado à solução:
+As etapas a seguir mostram como adicionar um dispositivo simulado à solução:
 
 1.  Navegue de volta para a lista de dispositivos.
 
-2.  Clique em **+ Adicionar um Dispositivo** no canto inferior esquerdo para adicionar um novo dispositivo.
+2.  Clique em **+ Adicionar um Dispositivo** no canto inferior esquerdo para adicionar um dispositivo.
 
     ![Adicionar um dispositivo à solução pré-configurada][img-adddevice]
 
@@ -105,7 +105,7 @@ As etapas a seguir mostram como adicionar um novo dispositivo simulado à soluç
 
     ![Definir novos detalhes do dispositivo no painel][img-addnew]
     
-    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre isso, confira [Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connect-rm].
+    Além de criar um novo dispositivo simulado, você também poderá adicionar um dispositivo físico se optar por criar um **Dispositivo Personalizado**. Para saber mais sobre como conectar dispositivos físicos à solução, confira [Conectar o dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite][lnk-connect-rm].
 
 4.  Selecione **Deixe-me definir minha própria ID de dispositivo** e adicione um nome de ID de dispositivo exclusivo, como **mydevice\_01**.
 
@@ -143,11 +143,11 @@ Quando o dispositivo se conecta à solução pela primeira vez, ele envia os met
 
 ## Adicionar uma regra para o novo dispositivo
 
-Não existem regras para o novo dispositivo recém-adicionado. Nesta seção, você adicionará uma regra que dispara um alarme quando a temperatura relatada pelo novo dispositivo excede 47 graus. Antes de começar, observe que o histórico de telemetria para o novo dispositivo no painel mostra que a temperatura do dispositivo nunca excede 45 graus.
+Não existem regras para o novo dispositivo recém-adicionado. Nesta seção, você adiciona uma regra que dispara um alarme quando a temperatura relatada pelo novo dispositivo excede 47 graus. Antes de começar, observe que o histórico de telemetria para o novo dispositivo no painel mostra que a temperatura do dispositivo nunca excede 45 graus.
 
 1.  Navegue de volta para a lista de dispositivos.
 
-2.  Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Adicionar regra** para adicionar uma nova regra para o dispositivo.
+2.  Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Adicionar regra** para adicionar uma regra para o dispositivo.
 
 3. Crie uma regra que usa **Temperature** como o campo de dados e **AlarmTemp** como a saída quando a temperatura excede 47 graus:
 
@@ -193,7 +193,7 @@ Ao implantar uma solução pré-configurada, o processo de implantação criará
 
 ![Solução pré-configurada no portal do Azure][img-portal]
 
-Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos. A captura de tela acima mostra as configurações para o Hub IoT usadas na solução pré-configurada.
+Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos.
 
 Você também pode exibir o código-fonte para a solução pré-configurada. O código-fonte da solução pré-configurada de monitoramento remoto está no repositório do GitHub [azure-iot-remote-monitoring][lnk-rmgithub]\:
 
@@ -201,7 +201,7 @@ Você também pode exibir o código-fonte para a solução pré-configurada. O c
 - A pasta **Simulator** contém o código-fonte do dispositivo simulado.
 - A pasta **EventProcessor** contém o código-fonte para o processo de back-end que manipula a telemetria de entrada.
 
-Ao terminar, você poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Isso permitirá excluir facilmente todos os recursos que foram provisionados quando você criou a solução pré-configurada.
+Quando você terminar, poderá excluir a solução pré-configurada de sua assinatura do Azure no site [azureiotsuite.com][lnk-azureiotsuite]. Esse site permite que você exclua facilmente todos os recursos que foram provisionados quando criou a solução pré-configurada.
 
 > [AZURE.NOTE] Para garantir que você excluirá tudo relacionado à solução pré-configurada, exclua-a no site [azureiotsuite.com][lnk-azureiotsuite] e não simplesmente exclua o grupo de recursos no portal.
 
@@ -249,4 +249,4 @@ Agora que você implantou uma solução de trabalho pré-configurada, poderá co
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

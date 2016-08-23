@@ -3,7 +3,7 @@
    description="especificando as configurações DNS personalizadas usando o arquivo de configuração de serviço para uma rede virtual"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="joaoma" />
+   ms.author="jdial" />
 
 # Especificando as configurações de DNS em um arquivo de configuração de serviço
 
@@ -41,4 +41,4 @@ Um arquivo de configuração de serviço pode conter um elemento DnsServers com 
 
 [Sobre as configurações de rede virtual no Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0810_2016-->

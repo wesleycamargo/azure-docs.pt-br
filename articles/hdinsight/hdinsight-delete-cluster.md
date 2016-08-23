@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/20/2016"
+ms.date="08/09/2016"
 ms.author="larryfr"/>
 
 #Como excluir um cluster HDInsight
@@ -32,7 +32,7 @@ A cobrança do cluster do HDInsight começa quando um cluster é criado e é int
 
     ![excluir ícone](./media/hdinsight-delete-cluster/deletecluster.png)
 
-##PowerShell do Azure
+##Azure PowerShell
 
 Em um prompt do PowerShell, use o seguinte comando para excluir o cluster:
 
@@ -48,4 +48,4 @@ Em um prompt, use o seguinte para excluir o cluster:
     
 Substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein" />
 
 # Últimas perguntas frequentes de Web e Business Edition
@@ -55,10 +55,10 @@ A Microsoft também está trocando a experiência de cópia de banco de dados po
 
 ## Como Basic, Standard e Premium melhoram a experiência de cobrança?
 
-Os bancos de dados SQL Basic, Standard e Premium do Azure são cobrados por hora, e você tem a capacidade de dimensionar cada banco de dados para cima ou para baixo quatro vezes dentro de um período de 24 horas. Você será cobrado por uma taxa fixa baseada na maior camada de serviço e nível de desempenho escolhidos para cada hora. Além disso, os níveis de desempenho (exemplo: Basic, S1 e P2) são desmembrados na cobrança para facilitar a visualização do número de dias de banco de dados/horas incorridas em um único mês para cada nível de desempenho. Os bancos de dados Web e Business continuam a ser cobrados usando Unidades de Banco de Dados com base no tamanho do banco de dados. Visite a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) para saber mais sobre os preços e as diferenças entre as novas camadas de serviço.
+Os bancos de dados SQL do Azure Básico, Standard e Premium são cobrados por hora, e você tem a capacidade de dimensionar cada banco de dados verticalmente. Você será cobrado por uma taxa fixa baseada na maior camada de serviço e nível de desempenho escolhidos para cada hora. Além disso, os níveis de desempenho (exemplo: Basic, S1 e P2) são desmembrados na cobrança para facilitar a visualização do número de dias de banco de dados/horas incorridas em um único mês para cada nível de desempenho. Os bancos de dados Web e Business continuam a ser cobrados usando Unidades de Banco de Dados com base no tamanho do banco de dados. Visite a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) para saber mais sobre os preços e as diferenças entre as novas camadas de serviço.
 
 
-## Consulte também
+## Confira também
 
 [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -68,4 +68,4 @@ Os bancos de dados SQL Basic, Standard e Premium do Azure são cobrados por hora
 
 [Atualizar para o Banco de Dados SQL Azure V12](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,23 +1,19 @@
-1. No Portal do Azure, navegue até **Novo** **>** **Rede** **>** **Gateway da rede local**.
+1. No portal, navegue até **Novo** > **Rede** > **Gateway de rede local**.
 
 	![criar gateway de rede local](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. Na **folha Criar gateway da rede local**, especifique um **Nome** para seu objeto de gateway da rede local.
+2. Na **folha Criar gateway de rede local**, especifique um **Nome** para seu objeto de gateway de rede local.
  
-3. Especifique um **endereço IP** para seu gateway. Esse é o endereço IP do dispositivo VPN externo ao qual você deseja se conectar. Ele não pode estar por trás do NAT e deve ser acessível pelo Azure.
+3. Especifique um **endereço IP** público válido para o dispositivo VPN ou gateway de rede virtual ao qual você deseja se conectar.<br>Se essa rede local representa um local, esse é o endereço IP público do dispositivo VPN ao qual você deseja se conectar. Ele não pode estar por trás do NAT e deve poder ser acessado pelo Azure.<br>Se essa rede local representa outra rede virtual, especifique o endereço IP público atribuído ao gateway de rede virtual para essa rede virtual.<br>
 
-4. **Espaço do Endereço** refere-se aos intervalos de endereço em sua rede (normalmente local). Você pode adicionar vários intervalos de espaço de endereço. Os intervalos que você digitar aqui não podem sobrepor nenhum dos intervalos de espaço de endereço que você está usando para qualquer uma das redes virtuais que se comunicarão através do gateway. Será necessário coordenar com sua configuração local, bem como com os espaços de endereço de rede virtual do Azure.
+4. **Espaço de Endereço** refere-se aos intervalos de endereços para a rede que é representada por esse local. Você pode adicionar vários intervalos de espaço de endereço. Verifique se os intervalos que você especifica aqui não se sobrepõem aos intervalos de outras redes com que você deseja se conectar.
  
 5. Para **Assinatura**, verifique se a assinatura correta está sendo exibida.
 
-6. Para **Grupo de Recursos**, selecione o grupo de recursos que você deseja usar. Você pode criar um novo grupo de recursos ou selecionar um que você já criou. Para criar um novo grupo de recursos, digite o nome na caixa. Para selecionar um grupo de recursos que você já criou, clique em **Grupo de Recursos** para abrir a folha **Grupo de Recursos** e selecione o grupo de recursos que você deseja usar.
+6. Para **Grupo de Recursos**, selecione o grupo de recursos que você deseja usar. Você pode criar um novo grupo de recursos ou selecionar um que você já criou.
 
-7. Para **Local**, se você estiver criando um novo gateway de rede local, poderá usar o mesmo local do gateway da rede virtual. Mas, isso não é necessário. O gateway de rede local pode estar em um local diferente.
+7. Em **Local**, selecione o local em que esse objeto será criado. Você pode querer selecionar o mesmo local onde reside a sua rede virtual, mas não é necessário fazê-lo.
 
-8. Deixe "Fixar ao Painel" selecionado se desejar localizar esse gateway de rede local facilmente no painel.
+8. Clique em **Criar** para criar o gateway de rede local.
 
-9. Clique em **Criar** para criar o gateway da rede local. Você verá "Implantando Gateway de Rede Local" no seu painel.
-
-10. Após a criação do gateway de rede local, ele será aberto no portal permitindo que você o visualize.
-
-	
+<!---HONumber=AcomDC_0810_2016-->

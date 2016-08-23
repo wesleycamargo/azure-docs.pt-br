@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Tecnologias e serviços de segurança do Azure
@@ -70,4 +70,4 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 - [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
 - [Proxy de aplicativo do Azure](../active-directory/active-directory-application-proxy-enable.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

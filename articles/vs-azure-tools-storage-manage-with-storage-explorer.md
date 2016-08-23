@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introdução ao Gerenciador de Armazenamento (Preview) | Microsoft Azure"
 	description="Gerenciar os recursos de armazenamento do Azure com o Gerenciador de Armazenamento (Visualização)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/30/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Introdução ao Gerenciador de Armazenamento (Preview)
 
 ## Visão geral 
 
-O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, OSX e Linux. Neste artigo, você aprenderá as várias maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
+O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, OS X e Linux. Neste artigo, você aprenderá as várias maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
 
 ![Gerenciador de Armazenamento do Microsoft Azure (Preview)][15]
 
@@ -32,11 +32,11 @@ O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo aut
 
 O Gerenciador de Armazenamento (Preview) fornece várias maneiras de se conectar às contas de armazenamento. Isso inclui se conectar a contas de armazenamento associadas às suas assinaturas do Azure, conectar-se às contas de contas de armazenamento e serviços compartilhados por outras assinaturas do Azure e até mesmo se conectar e gerenciar o armazenamento local usando o Emulador de Armazenamento do Azure:
 
-- [Conectar-se a uma assinatura do Azure](#connect-to-an-azure-subscription) - Gerencie os recursos de armazenamento que pertencem à sua assinatura do Azure.
+- [Conectar-se a uma assinatura do Azure](#connect-to-an-azure-subscription) - gerencie os recursos de armazenamento que pertencem à sua assinatura do Azure.
 - [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage) - gerencie o armazenamento local usando o Emulador de Armazenamento do Azure.
-- [Anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account) - Gerencie os recursos de armazenamento que pertencem a outra assinatura do Azure usando o nome de conta e a chave da conta de armazenamento.
+- [Anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account) - gerencie os recursos de armazenamento que pertencem a outra assinatura do Azure usando o nome de conta e a chave da conta de armazenamento.
 - [Anexar conta de armazenamento usando SAS](#attach-storage-account-using-sas) - gerencie os recursos que pertencem a outra assinatura do Azure usando um SAS.
-- [Anexar usando SAS](#attach-service-using-sas) - Gerencie um serviço de armazenamento específico (contêiner de blob, fila ou tabela) que pertencem a outra assinatura do Azure usando um SAS.
+- [Anexar usando SAS](#attach-service-using-sas) - gerencie um serviço de armazenamento específico (contêiner de blob, fila ou tabela) que pertencem a outra assinatura do Azure usando um SAS.
 
 ## Conectar-se a uma assinatura do Azure
 
@@ -50,7 +50,7 @@ O Gerenciador de Armazenamento (Preview) fornece várias maneiras de se conectar
 
 	![Adicionar uma conta][1]
 
-1. Depois de entrar com êxito com uma conta da Microsoft, o painel esquerdo preencherá com as assinaturas do Azure associadas à conta. Selecione as assinaturas do Azure com as quais você deseja trabalhar e selecione **Aplicar**. (A escolha dos botões **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure listadas.)
+1. Depois de entrar com êxito com uma conta da Microsoft, o painel esquerdo preencherá com as assinaturas do Azure associadas à conta. Selecione as assinaturas do Azure com as quais você deseja trabalhar e selecione **Aplicar**. (A escolha dos botões **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure listadas).
 
 	![Selecionar assinaturas do Azure][3]
 
@@ -229,4 +229,4 @@ Para limpar a pesquisa, escolha o botão **x** na caixa de pesquisa.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

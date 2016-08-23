@@ -54,6 +54,7 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Banco de Dados de Documentos
 - Clusters do HDInsight
 - Cofre da Chave
+- Serviços de mídia
 - Mobile Engagement
 - Hubs de Notificação
 - Insights Operacionais
@@ -272,4 +273,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Criar uma zona do Azure DNS usando a CLI
@@ -64,7 +64,7 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 
 ### 5\. Criar um grupos de recursos
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
 
 Você pode ignorar esta etapa se está usando um grupo de recursos existente.
 
@@ -109,7 +109,7 @@ Criar uma zona DNS também cria os seguintes registros DNS:
 
 - Os registros NS (name server, servidor de nomes) autoritativos. Eles mostram quais servidores de nome estão hospedando a zona. O DNS do Azure usa um pool de servidores de nomes; dessa forma servidores de nomes diferentes podem ser atribuídos a diferentes zonas no DNS do Azure. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter mais informações.
 
-Para exibir esses registros, use `azure network dns-record-set show`.<BR> *Uso: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
+Para exibir esses registros, use `azure network dns-record-set show`.<BR> *Uso: network dns record-set show <grupo-de-recursos> <nome-zona-dns> <nome> <tipo>*
 
 
 No exemplo abaixo, se você executar o comando com o grupo de recursos *myresourcegroup*, registre o nome do conjunto como *"@"* (para um registro raiz) e digite *SOA*. Isso produzirá a seguinte saída:
@@ -157,7 +157,7 @@ Você pode testar a zona do DNS usando ferramentas do DNS como nslookup, DIG ou 
 
 Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, você precisa direcionar a consulta DNS diretamente para um dos servidores de nome para a zona. Os servidores de nomes da zona são fornecidos nos registros de NS, conforme listado em "azure network dns-record-set show" acima. Certifique-se de substituir os valores corretos para sua zona no comando a seguir.
 
-O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servidores de nome atribuídos à zona DNS. A consulta deve apontar para um nome de servidor para o qual usamos *@<name server for the zone>* e o nome da zona usando DIG.
+O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servidores de nome atribuídos à zona DNS. A consulta deve apontar para um nome de servidor para o qual usamos *@<servidor de nomes para a zona>* e o nome da zona usando DIG.
 
 	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
 	(1 server found)
@@ -185,4 +185,4 @@ O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servi
 
 Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -104,7 +104,7 @@ Quando um novo evento estiver disponível, o alerta sobre eventos de log de audi
 |resourceGroupName|Resource-group-name do recurso afetado|
 |propriedades |Conjunto de pares <Chave, Valor> (ou seja, Dicionário <Cadeia, Cadeia>) que inclui detalhes sobre o evento|
 |evento|Elemento que contém metadados sobre o evento|
-|autorização|Captura as propriedades RBAC do evento. Isso geralmente inclui a “ação”, a “função” e o “escopo”.|
+|authorization|Captura as propriedades RBAC do evento. Isso geralmente inclui a “ação”, a “função” e o “escopo”.|
 |categoria | Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth, Recomendação|
 |chamador|Endereço de email do usuário que realizou a operação, a declaração de UPN ou a declaração de SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas do sistema.|
 |correlationId|	Geralmente um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e geralmente compartilham a mesma correlationId.|
@@ -119,4 +119,4 @@ Quando um novo evento estiver disponível, o alerta sobre eventos de log de audi
 |status|Cadeia de caracteres que descreve o status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido|
 |subStatus|	Geralmente inclui o código de status HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevam um substatus. Os valores de substatus comuns incluem: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

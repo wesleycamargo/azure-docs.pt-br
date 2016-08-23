@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Exemplos
@@ -96,7 +96,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 	3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
 	4. Selecione o **grupo de recursos** para o data factory a ser criado.
 	5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Europa Setentrional** como a **região**.
-	6. Clique em **Próximo**.
+	6. Clique em **Avançar**.
 9. Na página **Configurar armazenamentos de dados**, especifique um **Banco de dados SQL do Azure** e **Conta de armazenamento do Azure** (ou) crie novos e clique em Avançar.
 10. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
 11. Na página **Resumo** revise as configurações e clique em **Avançar**.
@@ -117,4 +117,4 @@ Você deve ter os seguintes itens instalados no seu computador:
 
 Confira [Criar sua primeira data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes sobre como usar o Visual Studio para criar entidades de Data Factory e publicá-las no Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

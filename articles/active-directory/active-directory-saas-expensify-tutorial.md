@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do Expensify com o Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, é possível controlar quem tem acesso ao Expensify
 - Você pode permitir que seus usuários façam logon automaticamente no Expensify (Logon Único) com as contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Expensify da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 
 ## Adicionando o Expensify da galeria
@@ -58,7 +58,7 @@ Para configurar a integração do Expensify ao Azure AD, você precisa adicionar
 
 **Para adicionar o Expensify da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -84,7 +84,7 @@ Para configurar a integração do Expensify ao Azure AD, você precisa adicionar
 
 
 
-##  Configurar e testar o logon único do AD do Azure
+##  configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Expensify, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Expensify é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Expensify. Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD ao valor do **Nome de Usuário** no Expensify.
@@ -218,9 +218,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 ### Criando um usuário de teste do Expensify
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Expensify. O Expensify dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
-
-Não há itens de ação para você nesta seção. Um novo usuário será criado ao acessar o Expensify se ele ainda não existir. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Expensify. Trabalhe com a equipe de suporte do Expensify para adicionar os usuários na plataforma do Expensify.
 
 > [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Expensify.
 
@@ -283,4 +281,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

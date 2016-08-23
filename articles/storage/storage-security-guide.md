@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 #Guia de segurança do Armazenamento do Azure
@@ -538,7 +538,7 @@ Você pode usar o Analisador de Mensagem da Microsoft para exibir e analisar ess
 
 -   [Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem](storage-e2e-troubleshooting.md)
 
-	Esse artigo fala sobre a solução de problemas usando a Análise de Armazenamento e mostra como usar o Analisador de Mensagem da Microsoft.
+	Esse artigo aborda a solução de problemas usando a Análise de Armazenamento e mostra como usar o Analisador de Mensagem da Microsoft.
 
 -   [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 
@@ -614,7 +614,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 	
 	Para saber mais, confira [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Visão geral do MD5 do Blob do Azure).
 
-2.  **E quanto a conformidade com o FIPS do governo norte-americano?**
+2.  **E quanto à conformidade com o padrão FIPS do governo dos EUA norte-americano?**
 
 	O FIPS (Federal Information Processing Standard) dos Estados Unidos da América define algoritmos criptográficos aprovados para uso pelos sistemas de computadores do governo federal dos EUA para proteção de dados confidenciais. Habilitar o modo FIPS em um servidor ou desktop Windows informa ao sistema operacional que apenas algoritmos criptográficos validados pelo FIPS devem ser usados. Se um aplicativo usar algoritmos fora de conformidade, ele será interrompido. Com as versões 4.5.2 ou superiores do .NET Framework, o aplicativo alterna automaticamente os algoritmos da criptografia para usar algoritmos em conformidade com o FIPS quando o computador estiver no modo FIPS.
 
@@ -634,4 +634,4 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
 	Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

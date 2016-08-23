@@ -29,7 +29,7 @@ Este tópico mostra como usar o SDK do servidor de back-end do .NET nos principa
 
 A documentação de referência para o SDK do servidor está localizada aqui: [Referência do .NET dos Aplicativos Móveis do Azure](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>Como; criar um back-end do .NET para o seu aplicativo móvel
+## <a name="create-app"></a>Como criar um back-end do aplicativo móvel do .NET
 
 Se você estiver começando um novo projeto, será possível criar um aplicativo do Serviço de Aplicativo usando o [portal do Azure] ou o Visual Studio. Esta seção ajudará você a usar um destes métodos para criar um novo back-end de aplicativo móvel que hospeda uma API de lista de tarefas pendentes simples. Você pode executar isso localmente ou publicar o projeto em seu aplicativo móvel do Serviço de Aplicativo baseado em nuvem.
 
@@ -37,11 +37,13 @@ Se você estiver adicionando recursos móveis a um projeto existente, veja a se�
 
 ### Criar um back-end do .NET usando o Portal do Azure
 
-Você pode criar um novo aplicativo móvel diretamente no [portal do Azure]. Você pode seguir as etapas abaixo ou criar um novo cliente e um novo servidor juntos acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md).
+Você pode criar um novo back-end de aplicativo móvel diretamente no [Portal do Azure].
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+Você pode seguir as etapas abaixo ou criar um novo cliente e um novo servidor juntos acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md). O tutorial contém uma versão simplificada dessas instruções e funciona melhor para projetos de prova de conceito; o tutorial pode criar apenas um back-end Node.js.
 
-De volta à folha _Introdução_, em **Criar uma API de tabela**, escolha **C#** como a **Linguagem de back-end**. Clique em **Download**, extraia os arquivos compactados do projeto em seu computador e abra a solução no Visual Studio.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+De volta à folha _Introdução_, em **Criar uma API de tabela**, escolha **C#** como a **Linguagem de back-end**. Clique em **Download**, extraia os arquivos compactados do projeto em seu computador local e abra a solução no Visual Studio.
 
 ### Criar um back-end do .NET usando o Visual Studio 2013 e o Visual Studio 2015
 
@@ -386,7 +388,7 @@ Você pode adicionar notificações por push ao seu projeto do servidor estenden
 
 Neste ponto, você pode usar o cliente de Hubs de Notificação para enviar notificações por push para dispositivos registrados. Para obter mais informações, veja [Adicionar notificações por push ao seu aplicativo](app-service-mobile-ios-get-started-push.md). Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, confira [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Como adicionar marcas à instalação de um dispositivo para habilitar o envio por push direcionado
+##<a name="tags"></a>Como adicionar marcações à instalação de um dispositivo para habilitar o envio por push direcionado
 
 Os Hubs de Notificação permitem que você envie notificações direcionadas para registros específicos usando marcas. Uma marca que é criada automaticamente é a ID de instalação, que é específica de uma instância do aplicativo em um determinado dispositivo. Um registro com ID de instalação também é chamado de *instalação*. Você pode usar a ID de instalação para gerenciar a instalação, por exemplo, para adicionar marcas. A ID de instalação pode ser acessada na propriedade **installationId** do **MobileServiceClient**.
 
@@ -402,7 +404,7 @@ O exemplo a seguir mostra como usar uma ID de instalação para adicionar uma ma
 	    }
 	});
 
-Observe que qualquer marca fornecida pelo cliente durante o registro de notificação por push é ignorada pelo back-end ao criar a instalação. Para habilitar um cliente a adicionar marcas à instalação, você deverá criar uma nova API personalizada que adiciona marcas usando o padrão acima. Para obter um exemplo de um controlador de API personalizado que permite que os clientes adicionem marcas a uma instalação, confira [Marcas de notificação por push adicionadas por cliente](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) no exemplo de início rápido concluído para os Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
+Observe que qualquer marca fornecida pelo cliente durante o registro de notificação por push é ignorada pelo back-end ao criar a instalação. Para habilitar um cliente a adicionar marcas à instalação, você deverá criar uma nova API personalizada que adiciona marcas usando o padrão acima. Para obter um exemplo de um controlador de API personalizado que permite que os clientes adicionem marcações a uma instalação, confira [Marcações de notificação por push adicionadas por cliente](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) no exemplo de início rápido concluído para os Aplicativos Móveis do Serviço de Aplicativo para back-end do .NET.
 
 ##<a name="push-user"></a>Como enviar notificações por push para um usuário autenticado
 
@@ -479,4 +481,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

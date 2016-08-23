@@ -1,7 +1,8 @@
 
-Este artigo explica como mover uma VM entre as assinaturas. Isso pode ser útil se você tiver criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
 
-> [AZURE.NOTE] Novas IDs de recurso serão criadas como parte da mudança. Após a mudança da VM, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recurso.
+## Usar o portal para mover uma VM para uma assinatura diferente
+
+Você pode mover uma VM e recursos associados para uma assinatura diferente usando o portal.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Clique em **Procurar** > **Máquinas virtuais** e selecione a VM que deseja mover na lista.
@@ -17,10 +18,18 @@ Este artigo explica como mover uma VM entre as assinaturas. Isso pode ser útil 
 6. Escolha um **Grupo de recursos** existente ou digite um nome para criar um novo.
 7. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**.
 
+## Usar o portal para mover uma VM para outro grupo de recursos
 
+Você pode mover uma VM e recursos associados para outro grupo de recursos usando o portal.
 
-## Próximas etapas
+1. Abra o [Portal do Azure](https://portal.azure.com).
+2. Clique em **Procurar** > **Grupos de recursos** e selecione o grupo de recursos que contém a VM.
+3. Na folha **Grupo de recursos**, selecione **Mover** no menu.
+	
+	![Captura de tela do botão Mover no menu Grupos de recursos.](./media/virtual-machines-common-move-vm/move-rg.png)
+	
+3. Na folha **Mover recursos**, selecione nome do grupo de recursos a ser movido e digite um recurso existente ou escolha criar um novo grupo de recursos. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**
+	
+	![Captura de tela da folha Mover recursos.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../articles/resource-group-move-resources.md).
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

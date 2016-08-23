@@ -3,7 +3,7 @@
    description="Saiba como configurar uma rede virtual para usar endereços IP públicos"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Espaço de endereço IP público em uma rede Virtual (VNet)
 
@@ -45,6 +45,6 @@ Há alguns intervalos de endereços IP que não são permitidos:
 
 ## Próximas etapas
 
-[Como gerenciar servidores DNS usados por uma VNet](../virtual-networks-manage-dns-in-vnet)
+[Como gerenciar servidores DNS usados por uma VNet](virtual-networks-manage-dns-in-vnet.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

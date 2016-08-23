@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Gerenciamento de API do Azure
@@ -150,4 +150,4 @@ Sim. Siga as etapas abaixo:
 
 Se você estiver usando o Gerenciador de Credenciais do GIT ou tentando clonar o repositório por meio do Visual Studio, talvez você se depare com um problema com o diálogo de credencial do Windows, que limita o tamanho da senha para somente 127 caracteres e, portanto, trunca a senha que geramos. Estamos trabalhando para encurtar a senha. Por enquanto, use o GIT Bash para clonar.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -30,7 +30,7 @@ A integração corporativa dá suporte a três padrões de protocolo/transporte:
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (em breve)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Por que usar contratos
 Alguns dos benefícios comuns do uso de contratos são:
@@ -65,4 +65,4 @@ Você pode excluir qualquer contrato seguindo estas etapas de dentro da conta de
 ## Próximas etapas
 - [Criar um contrato AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

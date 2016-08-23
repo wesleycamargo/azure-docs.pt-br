@@ -102,7 +102,7 @@ Para enviar notificações por push para aplicativos da UWP, você deve associar
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p>Selecione a opção <b>Serviços de Notificação</b> e a opção <b>Windows (WNS)</b>. Em seguida, insira a senha do <b>Segredo do aplicativo</b> no campo <b>Chave de Segurança</b> campo. Insira o valor do <b>SID do Pacote</b> obtido do WNS na seção anterior e clique em <b>Salvar</b>.</p>
 </li>
 </ol>
@@ -200,7 +200,7 @@ Para enviar notificações usando um aplicativo de console .NET, siga estas etap
 
    	![][13]
 
-	Isso adiciona um novo aplicativo de console do Visual C# à solução. Você também pode fazer isso em uma solução separada.
+	Isso adiciona um novo aplicativo do console do Visual C# à solução. Você também pode fazer isso em uma solução separada.
 
 2. No Visual Studio, clique em **Ferramentas**, em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**.
 
@@ -244,7 +244,7 @@ Para enviar notificações usando um aplicativo de console .NET, siga estas etap
 
 	Você receberá uma notificação do sistema em todos os dispositivos registrados. Clique ou toque no banner de notificação do sistema carrega o aplicativo.
 
-Você pode encontrar todas as cargas suportadas nos tópicos do [catálogo de notificações do sistema], no [catálogo de blocos] e na [visão geral de emblema] no MSDN.
+Você pode encontrar todos os conteúdos suportados nos tópicos do [catálogo de notificações do sistema], [catálogo de blocos] e [visão geral da notificação] no MSDN.
 
 ##Próximas etapas
 
@@ -273,6 +273,6 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira [Di
 
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[visão geral de emblema]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[visão geral da notificação]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
    description="Saiba como gerenciar NSGs existentes usando a CLI do Azure no Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Gerenciar NSGs usando a CLI do Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -180,7 +180,7 @@ Para excluir a regra criada acima, execute o comando `azure network nsg rule del
 		--name allow-https \
 		--quiet
 
->[AZURE.NOTE] O parâmetro **-quiet** garante que você não precise confirmar a exclusão.
+>[AZURE.NOTE] O parâmetro **-quiet** garante que você não precisa confirmar a exclusão.
 
 Saída esperada:
 
@@ -234,7 +234,7 @@ Para desassociar o NSG **NSG-FrontEnd** da NIC **TestNICWeb1**, execute o comand
 
 	azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
 
->[AZURE.NOTE] Observe o valor "" (vazio) do parâmetro **network-security-group-id**. É assim que se remove uma associação de uma NSG. Não é possível fazer o mesmo com o parâmetro **network-security-group-name**.
+>[AZURE.NOTE] Observe o valor "" (vazio) do parâmetro **network-security-group-id**. É assim que se remove uma associação de um NSG. Não é possível fazer o mesmo com o parâmetro **network-security-group-name**.
 
 Resultado esperado:
 
@@ -322,7 +322,7 @@ Saída esperada:
 Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso. Para excluir um NSG, siga as etapas abaixo.
 
 1. Para verificar os recursos associados a um NSG, execute `azure network nsg show` conforme mostrado em [Exibir associações de NSGs](#View-NSGs-associations).
-2. Se o NSG estiver associado a alguma NIC, execute `azure network nic set` para cada NIC, conforme mostrado em [Desassociar um NSG de uma NIC](#Dissociate-an-NSG-from-a-NIC). 
+2. Se o NSG estiver associado a alguma NIC, execute `azure network nic set` para cada NIC, conforme mostrado em [Desassociar um NSG de uma NIC](#Dissociate-an-NSG-from-a-NIC).
 3. Se o NSG estiver associado a alguma sub-rede, execute `azure network vnet subnet set` para cada sub-rede, conforme mostrado em [Desassociar um NSG de uma sub-rede](#Dissociate-an-NSG-from-a-subnet).
 4. Para excluir o NSG, execute o comando `azure network nsg delete`, como mostrado abaixo.
 
@@ -339,4 +339,4 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 
 - [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

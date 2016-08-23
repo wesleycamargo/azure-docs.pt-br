@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Classificação de dados para o Azure
@@ -26,9 +26,9 @@ A classificação de dados bem-sucedida em uma organização exige amplo conheci
  
 Os dados existem em um destes três estados básicos:
 
-- Em repouso 
-- Em andamento 
-- Em trânsito 
+- Em repouso
+- Em andamento
+- Em trânsito
  
 Todos os três estados exigem soluções técnicas exclusivas para classificação de dados, mas os princípios aplicados da classificação de dados devem ser os mesmos para cada um deles. Os dados classificados como confidenciais precisam permanecer confidenciais quando em repouso, em andamento e em trânsito.
  
@@ -70,7 +70,7 @@ Embora você seja responsável por classificar seus dados, os provedores de nuve
 
 - Os requisitos dos **provedores de IaaS** são limitados a garantir que o ambiente virtual possa acomodar recursos de classificação de dados e requisitos de conformidade do cliente. Os provedores de IaaS têm uma função menor na classificação de dados, pois só precisam garantir que os dados do cliente atendam aos requisitos de conformidade. No entanto, os provedores ainda devem garantir que seus ambientes virtuais atendam a requisitos de classificação de dados, além de proteger seus datacenters.
 - As responsabilidades dos **provedores de PaaS** podem ser combinadas, pois a plataforma pode ser usada em uma abordagem em camadas para fornecer segurança a uma ferramenta de classificação. Os provedores de PaaS podem ser responsáveis pela autenticação e, possivelmente, por algumas regras de autorização e devem fornecer recursos de segurança e classificação de dados para sua camada de aplicativo. De forma semelhante aos provedores de IaaS, os provedores de PaaS precisam garantir que sua plataforma esteja em conformidade com quaisquer requisitos de classificação de dados relevantes.
-- Os **provedores de SaaS** frequentemente são considerados como parte de uma cadeia de autorização e precisam garantir que os dados armazenados no aplicativo SaaS possam ser controlados por tipo de classificação. Os aplicativos SaaS podem ser usados para aplicativos de LOB e, por sua própria natureza, precisam fornecer os meios para autenticar e autorizar os dados que são usados e armazenados. 
+- Os **provedores de SaaS** frequentemente são considerados como parte de uma cadeia de autorização e precisam garantir que os dados armazenados no aplicativo SaaS possam ser controlados por tipo de classificação. Os aplicativos SaaS podem ser usados para aplicativos de LOB e, por sua própria natureza, precisam fornecer os meios para autenticar e autorizar os dados que são usados e armazenados.
 
 ## Processo de classificação 
 
@@ -78,10 +78,10 @@ Muitas organizações que compreendem a necessidade de classificação de dados 
 
 Uma maneira simples e eficiente de implementar a classificação de dados é usar o modelo PLANEJAR, FAZER, VERIFICAR, AGIR do [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). A figura a seguir mostra as tarefas que são necessárias para implementar com êxito a classificação de dados nesse modelo.
 
-1. **PLANEJAR**. Identifique os ativos de dados e um custodiante de dados para implantar o programa de classificação e desenvolva perfis de proteção. 
-2. **FAZER**. Depois que as políticas de classificação de dados forem acordadas, implante o programa e implemente tecnologias de imposição conforme necessário para dados confidenciais.  
-3. **VERIFICAR**. Verifique e valide os relatórios para assegurar que as ferramentas e os métodos que estão sendo usados estão abordando com eficiência as políticas de classificação. 
-4. **ACT**. Examine o status do acesso a dados e examine arquivos e dados que exigem revisão usando uma metodologia de revisão e reclassificação para adotar alterações e lidar com novos riscos.  
+1. **PLANEJAR**. Identifique os ativos de dados e um custodiante de dados para implantar o programa de classificação e desenvolva perfis de proteção.
+2. **FAZER**. Depois que as políticas de classificação de dados forem acordadas, implante o programa e implemente tecnologias de imposição conforme necessário para dados confidenciais.
+3. **VERIFICAR**. Verifique e valide os relatórios para assegurar que as ferramentas e os métodos que estão sendo usados estão abordando com eficiência as políticas de classificação.
+4. **ACT**. Examine o status do acesso a dados e examine arquivos e dados que exigem revisão usando uma metodologia de revisão e reclassificação para adotar alterações e lidar com novos riscos.
 
 ![Planejar, Fazer, Verificar, Agir](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
  
@@ -103,11 +103,11 @@ Este artigo introduz dois modelos de terminologia generalizada com base em model
 
 As informações que são classificadas como confidenciais ou restritas incluem dados que podem ser catastróficos para uma ou mais pessoas e/ou organizações caso sejam comprometidos ou perdidos. Com frequência, essas informações são fornecidas apenas para "divulgação restrita àqueles diretamente interessados" e podem incluir:
 
-- Dados pessoais, incluindo informações de identificação pessoal, como números de Previdência Social ou de identificação nacional, números de passaporte, números de cartão de crédito, números de carteira de motorista, registros médicos e números de ID de apólice de seguros de saúde.  
-- Registros financeiros, incluindo números de contas financeiras, como números de verificação ou de contas de investimentos. 
-- Material de negócios, como documentos ou dados que são exclusivos ou propriedade intelectual específica.  
-- Dados legais, incluindo material potencialmente privilegiado de advogados. 
-- Dados de autenticação, incluindo chaves de criptografia particular, pares de nome de usuário e senha ou outras sequências de identificação, como arquivos de chave biométrica particulares. 
+- Dados pessoais, incluindo informações de identificação pessoal, como números de Previdência Social ou de identificação nacional, números de passaporte, números de cartão de crédito, números de carteira de motorista, registros médicos e números de ID de apólice de seguros de saúde.
+- Registros financeiros, incluindo números de contas financeiras, como números de verificação ou de contas de investimentos.
+- Material de negócios, como documentos ou dados que são exclusivos ou propriedade intelectual específica.
+- Dados legais, incluindo material potencialmente privilegiado de advogados.
+- Dados de autenticação, incluindo chaves de criptografia particular, pares de nome de usuário e senha ou outras sequências de identificação, como arquivos de chave biométrica particulares.
 
 Frequentemente, os dados classificados como confidenciais têm requisitos regulatórios e de conformidade para manipulação de dados.
 
@@ -115,7 +115,7 @@ Frequentemente, os dados classificados como confidenciais têm requisitos regula
  
 Informações que são classificadas com um nível de sigilo médio incluem arquivos e dados que não causariam um impacto grave para um indivíduo e/ou uma organização caso perdidos ou destruídos. Essas informações podem incluir:
 
-- Emails, a maioria dos quais pode ser excluída ou distribuída sem causar uma crise (excluindo caixas de correio ou email de pessoas que são identificadas na classificação confidencial).  
+- Emails, a maioria dos quais pode ser excluída ou distribuída sem causar uma crise (excluindo caixas de correio ou email de pessoas que são identificadas na classificação confidencial).
 - Documentos e arquivos que não têm dados confidenciais.
  
 Em geral, essa classificação inclui tudo o que não é confidencial. Essa classificação pode incluir a maioria dos dados de negócios, pois a maioria dos arquivos que são gerenciados ou usadas no dia a dia pode ser classificada como sigilosa. Com exceção de dados que são tornados feitos públicos ou confidenciais, todos os dados em uma organização de negócios podem ser classificados como sigilosos por padrão.
@@ -134,7 +134,7 @@ As informações que são classificadas como públicas incluem dados e arquivos 
 | Custodiante | | | X | | |
 | Administrador | | | | | X |
 | Usuário* | | X | | X | |
-****Os usuários podem receber direitos adicionais, como editar e excluir, de um custodiante*
+**Os usuários podem receber direitos adicionais, como editar e excluir, de um custodiante*
 
 > [AZURE.NOTE] esta tabela não fornece uma lista completa de funções e direitos, mas apenas uma amostra representativa.
 
@@ -144,12 +144,12 @@ O **proprietário do ativo de dados** é o criador original dos dados, que pode 
 
 O **custodiante de ativos de dados** é atribuído pelo proprietário do ativo (ou seu representante) para gerenciar o ativo de acordo com contratos com o proprietário do ativo ou de acordo com os requisitos de política aplicáveis. Idealmente, a função de custodiante pode ser implementada em um sistema automatizado. Um custodiante de ativo garante que os controles de acesso necessários sejam fornecidos e é responsável por gerenciar e proteger ativos delegados aos seus cuidados. As responsabilidades do custodiante de ativos podem incluir:
 
-- Proteger o ativo de acordo com a orientação do proprietário do ativo ou de acordo com o proprietário do ativo 
-- Garantir que as políticas de classificação sejam cumpridas 
-- Informar os proprietários dos ativos de quaisquer alterações feitas em controles aprovados e/ou procedimentos de proteção antes que essas alterações entrem em vigor 
-- Relatar ao proprietário do ativo as alterações ou a remoção das responsabilidades do custodiante do ativo 
-- Um **administrador** representa um usuário que é responsável por garantir que a integridade seja mantida, mas ele não é um proprietário de ativos de dados, um custodiante nem um usuário. De fato, muitas funções de administrador fornecem serviços de gerenciamento de contêiner de dados sem ter acesso aos dados. A função de administrador inclui backup e restauração dos dados, manutenção de registros de ativos e escolha, aquisição e operação dos dispositivos e do armazenamento que contêm os ativos. 
-- O usuário do ativo inclui qualquer pessoa que receba acesso a dados ou a um arquivo. A atribuição de acesso muitas vezes é delegada pelo proprietário ao custodiante do ativo.  
+- Proteger o ativo de acordo com a orientação do proprietário do ativo ou de acordo com o proprietário do ativo
+- Garantir que as políticas de classificação sejam cumpridas
+- Informar os proprietários dos ativos de quaisquer alterações feitas em controles aprovados e/ou procedimentos de proteção antes que essas alterações entrem em vigor
+- Relatar ao proprietário do ativo as alterações ou a remoção das responsabilidades do custodiante do ativo
+- Um **administrador** representa um usuário que é responsável por garantir que a integridade seja mantida, mas ele não é um proprietário de ativos de dados, um custodiante nem um usuário. De fato, muitas funções de administrador fornecem serviços de gerenciamento de contêiner de dados sem ter acesso aos dados. A função de administrador inclui backup e restauração dos dados, manutenção de registros de ativos e escolha, aquisição e operação dos dispositivos e do armazenamento que contêm os ativos.
+- O usuário do ativo inclui qualquer pessoa que receba acesso a dados ou a um arquivo. A atribuição de acesso muitas vezes é delegada pelo proprietário ao custodiante do ativo.
 
 ### Implementação
   
@@ -167,8 +167,8 @@ Idealmente, essa iniciativa garantiria que os detalhes de uma alteração sejam 
  
 A reclassificação de dados automática usa a mesma regra geral que a classificação manual. A exceção é que soluções automatizadas podem garantir que as regras sejam seguidas e aplicadas conforme necessário. A classificação de dados pode ser feita como parte de uma política de imposição de classificação de dados, que pode ser imposta quando dados são armazenados em uso e em trânsito usando a tecnologia de autorização.
 
-- Baseada em aplicativo. O uso de determinados aplicativos por padrão define um nível de classificação. Por exemplo, dados de software de CRM (gerenciamento de relacionamento com o cliente), RH e ferramentas de gerenciamento de registro de saúde são confidenciais por padrão. 
-- Baseada em local. O local dos dados pode ajudar a identificar a confidencialidade dos dados. Por exemplo, é mais provável que os dados armazenados por um departamento financeiro ou de RH sejam de natureza confidencial.  
+- Baseada em aplicativo. O uso de determinados aplicativos por padrão define um nível de classificação. Por exemplo, dados de software de CRM (gerenciamento de relacionamento com o cliente), RH e ferramentas de gerenciamento de registro de saúde são confidenciais por padrão.
+- Baseada em local. O local dos dados pode ajudar a identificar a confidencialidade dos dados. Por exemplo, é mais provável que os dados armazenados por um departamento financeiro ou de RH sejam de natureza confidencial.
  
 ### Retenção, recuperação e descarte de dados 
 
@@ -200,9 +200,9 @@ Uma solução para impedir a perda de dados é o software de gerenciamento de di
 
 Alguns dos benefícios do software de gerenciamento de direitos incluem:
 
-- Informações confidenciais protegidas. Os usuários podem proteger seus dados diretamente usando aplicativos habilitados para gerenciamento de direitos. Não são necessárias etapas adicionais. A criação de documentos, o envio de email e a publicação de dados oferecem uma experiência de proteção de dados consistente. 
-- A proteção acompanha os dados. Os clientes permanecem no controle de quem tem acesso aos dados, seja na nuvem, na infraestrutura de TI existente ou na área de trabalho do usuário. As organizações podem optar por criptografar os dados e restringir o acesso de acordo com seus requisitos de negócios. 
-- Políticas de proteção de informações padrão. Os administradores e usuários podem usar políticas padrão para muitos cenários comerciais comuns, como "Confidencial da Empresa – Somente Leitura" e "Não Encaminhar". Há suporte a um conjunto avançado de direitos de uso, como ler, copiar, imprimir, salvar, editar e encaminhar, para permitir flexibilidade na definição de direitos de uso personalizados. 
+- Informações confidenciais protegidas. Os usuários podem proteger seus dados diretamente usando aplicativos habilitados para gerenciamento de direitos. Não são necessárias etapas adicionais. A criação de documentos, o envio de email e a publicação de dados oferecem uma experiência de proteção de dados consistente.
+- A proteção acompanha os dados. Os clientes permanecem no controle de quem tem acesso aos dados, seja na nuvem, na infraestrutura de TI existente ou na área de trabalho do usuário. As organizações podem optar por criptografar os dados e restringir o acesso de acordo com seus requisitos de negócios.
+- Políticas de proteção de informações padrão. Os administradores e usuários podem usar políticas padrão para muitos cenários comerciais comuns, como "Confidencial da Empresa – Somente Leitura" e "Não Encaminhar". Há suporte a um conjunto avançado de direitos de uso, como ler, copiar, imprimir, salvar, editar e encaminhar, para permitir flexibilidade na definição de direitos de uso personalizados.
 
 > [AZURE.TIP] você pode proteger dados no Armazenamento do Azure usando a [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) para Dados em Repouso. Você também pode usar a [Azure Disk Encryption](azure-security-disk-encryption.md) para proteger dados contidos em discos virtuais usados para Máquinas Virtuais do Azure.
 
@@ -223,20 +223,20 @@ As tecnologias de DLP (prevenção de perda de dados) podem ajudar a garantir qu
  
 As tecnologias de DLP podem executar uma análise profunda de conteúdo por meio de correspondências de palavras-chave, correspondências de dicionário, avaliação de expressões regulares e exame de outro conteúdo para detectar conteúdo que viola as políticas de DLP organizacionais. Por exemplo, a DLP pode ajudar a evitar a perda dos seguintes tipos de dados:
 
-- Números de Previdência Social e de identificação nacional 
-- Informações bancárias 
-- Números de cartão de crédito  
-- Endereços IP 
+- Números de Previdência Social e de identificação nacional
+- Informações bancárias
+- Números de cartão de crédito
+- Endereços IP
 
 Algumas tecnologias de DLP também fornecem a capacidade de substituir a configuração de DLP (por exemplo, se uma organização precisar transmitir informações de números do seguro social para um processador de folha de pagamento). Além disso, é possível configurar a DLP para que os usuários sejam notificados antes mesmo que tentem enviar informações confidenciais que não devam ser transmitidas.
 
 > [AZURE.TIP] você pode usar os recursos de DLP do Office 365 para proteger seus documentos. Leia [Controles de conformidade do Office 365: prevenção de perda de dados](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) para saber mais.
 
-## Consulte também
+## Confira também
 
 - [Práticas Recomendadas de Criptografia de Dados do Azure](azure-security-data-encryption-best-practices.md)
 - [Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso](azure-security-identity-management-best-practices.md)
 - [Blog da equipe de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

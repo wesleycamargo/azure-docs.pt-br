@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Habilitando métricas do Armazenamento do Azure e exibição de dados de métricas
@@ -46,7 +46,7 @@ Os cmdlets que controlam as métricas de armazenamento usam os seguintes parâme
 
 - Os valorespossíveis de MetricsType são hora e minuto.
 
-- Os valores possíveis de ServiceType são Blob, Fila e Tabela.
+- ServiceType: os possíveis valores são Blob, Fila e Tabela.
 
 - MetricsLevel: os valores possíveis são None, Serviço e ServiceAndApi.
 
@@ -213,4 +213,4 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 ## Próximas etapas:
 [Habilitando o armazenamento de log e acessando os dados de log](https://msdn.microsoft.com/library/dn782840.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

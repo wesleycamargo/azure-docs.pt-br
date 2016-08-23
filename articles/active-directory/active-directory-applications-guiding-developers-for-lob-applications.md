@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
-# Azure AD e aplicativos: desenvolver uma linha de aplicativos de negócios
+# Azure AD e aplicativos: desenvolver aplicativos de linha de negócios
 
-Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linhas de negócios) do AD (Active Directory) do Azure e foi escrito especificamente para os administradores globais do Active Directory/Office 365.
+Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (de linha de negócios) do Azure AD (Active Directory). O público-alvo são os administradores globais do Active Directory/Office 365.
 
 ## Visão geral
 
-A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no AD do Azure dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (autenticação multifator), consulte o seguinte documento: [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md)
+A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no Azure AD dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (Multi-Factor Authentication), consulte [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
 
-Seu aplicativo precisa ser registrado para usar o Active Directory do Azure. Registrar o aplicativo permite que os desenvolvedores na sua organização autentiquem os membros de sua organização usando o AD do Azure e solicitem acesso aos seus recursos de usuário como email, calendário, documentos etc.
+Registre seu aplicativo com o Azure Active Directory. Registrar o aplicativo significa que seus desenvolvedores podem usar o Azure AD para autenticar usuários e solicitar acesso a recursos de usuário como email, calendário e documentos.
 
 Qualquer membro do diretório (não convidados) pode registrar um aplicativo, também conhecido como *criação de um objeto de aplicativo*.
 
@@ -38,16 +38,13 @@ Registrar um aplicativo permite que qualquer usuário faça o seguinte:
   - Active Directory do Azure como servidor de autorização oAuth (proteger uma API exposta pelo aplicativo)
 
 - Declarar as permissões exigidas necessárias para que o aplicativo funcione conforme o esperado, incluindo:
-	  - Permissões de aplicativo (somente administradores globais). Por exemplo:
-	    - Associação de função em outro aplicativo do AD do Azure ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
-	  - Permissões (qualquer usuário). Por exemplo:
-	    - (AD do Azure) Entrar e ler o perfil
-	    - (Exchange) Ler emails, enviar email
-	    - (SharePoint) Leitura
+	  - Permissões de aplicativo (somente administradores globais). Por exemplo: associação de função em outro aplicativo do Azure AD ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
+	  - Permissões (qualquer usuário). Por exemplo: Azure AD, Entrar e Ler o Perfil
 
-> [AZURE.NOTE]Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, confira o documento [Como os aplicativos são adicionados ao AD do Azure](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-Aqui está o que você, o administrador global, precisará fazer para ajudar os desenvolvedores a preparar o aplicativo para produção:
+> [AZURE.NOTE]Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, consulte [Como os aplicativos são adicionados ao Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+
+Aqui está o que você, o administrador global, precisa fazer para ajudar os desenvolvedores a preparar o aplicativo para produção:
 
 - Configurar regras de acesso (política de acesso/MFA)
 - Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
@@ -55,15 +52,15 @@ Aqui está o que você, o administrador global, precisará fazer para ajudar os 
 
 ## Configurar regras de acesso
 
-Configurar regras de acesso por aplicativo para seus aplicativos de SaaS. Isso pode incluir exigir MFA ou somente permitir o acesso a usuários em redes confiáveis. Os detalhes para isso estão disponíveis no documento [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
+Configurar regras de acesso por aplicativo para seus aplicativos de SaaS. Por exemplo você pode exigir MFA ou somente permitir o acesso a usuários em redes confiáveis. Os detalhes para isso estão disponíveis no documento [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
 
 ## Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
 
-Por padrão, a atribuição de usuário não é necessária para que ele acesse um aplicativo. No entanto, se o aplicativo expõe funções ou se você deseja que o aplicativo seja exibido no painel de acesso do usuário, você deve exigir a atribuição de usuário e atribuir usuários e/ou grupos.
+Por padrão, os usuários podem acessar aplicativos sem ser atribuídos. No entanto, se o aplicativo expõe funções ou se você deseja que o aplicativo seja exibido no painel de acesso do usuário, você deve exigir a atribuição de usuário.
 
 [Exigindo atribuição do usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-Se você for um assinante do AD do Azure Premium ou Enterprise Mobility Suite (EMS), é altamente recomendável utilizar grupos. A atribuição de grupos ao aplicativo permite delegar o gerenciamento de acesso contínuo ao proprietário do grupo. Você pode criar o grupo ou, se preferir, pedir à parte responsável da sua organização para criar o grupo usando o recurso de gerenciamento de grupos.
+Caso você seja um assinante do Azure AD Premium ou EMS (Enterprise Mobility Suite), é altamente recomendável usar grupos. A atribuição de grupos ao aplicativo permite delegar o gerenciamento de acesso contínuo ao proprietário do grupo. Você pode criar o grupo ou, se preferir, pedir à parte responsável da sua organização para criar o grupo usando o recurso de gerenciamento de grupos.
 
 [Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md)
 
@@ -82,4 +79,4 @@ Para saber mais sobre o consentimento do usuário e sobre a experiência de cons
 - [Gerenciando o acesso a aplicativos usando o Azure AD](active-directory-managing-access-to-apps.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->
