@@ -84,7 +84,9 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Pa
 
 	![Botão Implantar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Depois que o serviço vinculado for implantado com êxito, a janela **Rascunho-1** desaparecerá e você verá **AzureStorageLinkedService** no modo de exibição de árvore à esquerda. ![Serviço Vinculado de Armazenamento no menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Depois que o serviço vinculado for implantado com êxito, a janela **Rascunho-1** desaparecerá e você verá **AzureStorageLinkedService** no modo de exibição de árvore à esquerda.
+
+	![Serviço Vinculado de Armazenamento no menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Criar o serviço vinculado do Azure HDInsight
@@ -309,6 +311,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive**.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
+
 	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
