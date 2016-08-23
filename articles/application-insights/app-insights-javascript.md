@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas da Web
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Saiba mais sobre o desempenho e o uso de sua página da Web ou aplicativo. Adicione o Application Insights do Visual Studio a seu script de página e você obterá os tempos de carregamento de página e chamadas AJAX, contagens e detalhes de exceções de navegador e falhas de AJAX, bem como contagens de usuários e sessões. Todos esses itens podem ser segmentados por página, sistema operacional cliente e versão do navegador, localização geográfica e outras dimensões. Você também pode definir alertas para contagens de falhas ou carregamento de páginas lento.
+Saiba mais sobre o desempenho e o uso de sua página da Web ou aplicativo. Se adicionar o Visual Studio Application Insights ao script de página, você obterá intervalos de carregamentos de página e chamadas AJAX, contagens e detalhes de exceções de navegador e falhas de AJAX, bem como contagens de usuários e sessões. Todos esses itens podem ser segmentados por página, sistema operacional cliente e versão do navegador, localização geográfica e outras dimensões. Você também pode definir alertas para contagens de falhas ou carregamento de páginas lento.
 
 Você pode usar o Application Insights com todas as páginas da Web: basta adicionar um breve trecho de JavaScript. Se o serviço Web for [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md), você poderá integrar a telemetria de seu servidor e clientes.
 
-Você precisará de uma assinatura do [Microsoft Azure](https://azure.com). Se sua equipe tiver uma assinatura organizacional, peça ao proprietário que adicione sua Conta da Microsoft a ela. Há um tipo de preços gratuito; portanto, o desenvolvimento e o uso em pequena escala não custam nada.
+Você precisa de uma assinatura do [Microsoft Azure](https://azure.com). Se sua equipe tiver uma assinatura organizacional, peça ao proprietário que adicione sua Conta da Microsoft a ela. Há um tipo de preços gratuito; portanto, o desenvolvimento e o uso em pequena escala não custam nada.
 
 
 ## Configurar o Application Insights para sua página da Web
 
-Talvez você já o possua. Se seu aplicativo é um novo projeto ASP.NET e você optou por adicionar o Application Insights na caixa de diálogo Novo Projeto no Visual Studio, o script já terá sido adicionado, e você está pronto para começar.
+Primeiro, você precisa adicionar o Application Insights a páginas da Web? Você pode já ter feito isso. Se você optou por adicioná-lo ao aplicativo Web na caixa de diálogo Novo Projeto no Visual Studio, o script foi adicionado então. Nesse caso, você não precisa fazer mais nada.
 
 Caso contrário, você precisará adicionar um trecho de código a suas páginas da Web da maneira indicada a seguir.
 
@@ -71,7 +71,7 @@ O script contém a chave de instrumentação que direciona os dados para o recur
 
 ## Configuração detalhada
 
-Há vários [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que você pode definir, embora, na maioria dos casos, isso não seja preciso. Por exemplo, você pode desabilitar ou limitar o número de chamadas Ajax relatadas por modo de exibição de página (para reduzir o tráfego) ou pode definir o modo de depuração para que a telemetria se mova rapidamente pelo pipeline sem sendo realizada em lotes.
+Há vários [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que você pode definir, embora, na maioria dos casos, isso não seja preciso. Por exemplo, você pode desabilitar ou limitar o número de chamadas Ajax relatadas por exibição de página (para reduzir o tráfego). Ou então, você pode definir o modo de depuração para que a telemetria se mova rapidamente pelo pipeline sem sendo colocada em lotes.
 
 Para definir esses parâmetros, procure esta linha no trecho de código e adicione mais itens separados por vírgula depois dela:
 
@@ -205,17 +205,17 @@ Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
 Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "..." para ver mais detalhes.
 
-> [AZURE.NOTE] Se você usar [Pesquisar](app-insights-diagnostic-search.md), observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
+> [AZURE.NOTE] Se você usar [Pesquisar](app-insights-diagnostic-search.md), observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre".
 
-> [Saiba mais sobre pesquisa de diagnóstico](app-insights-diagnostic-search.md)
+Você também pode usar a poderosa [linguagem de consulta da análise](app-insights-analytics-tour.md) para pesquisar exibições de página.
 
 ### Propriedades de exibição de página
 
-* **Duração do modo de exibição de página** 
+* **Duração do modo de exibição de página**
 
  * Por padrão, o tempo necessário para carregar a página, desde a solicitação do cliente até o carregamento completo (incluindo arquivos auxiliares, mas excluindo tarefas assíncronas, como chamadas do Ajax).
  * Se você definir `overridePageViewDuration` no [configuração de página](#detailed-configuration), o intervalo entre a solicitação do cliente e a execução do primeiro `trackPageView`. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
- * Se `overridePageViewDuration` for definido e um argumento de duração for fornecido na chamada `trackPageView()`, o valor do argumento será usado em vez disso. 
+ * Se `overridePageViewDuration` for definido e um argumento de duração for fornecido na chamada `trackPageView()`, o valor do argumento será usado em vez disso.
 
 
 ## Contagens da página personalizada
@@ -226,7 +226,7 @@ Insira uma chamada do JavaScript como essa no ponto apropriado no código do seu
 
     appInsights.trackPageView(myPageName);
 
-O nome da página pode conter os mesmos caracteres da URL, mas nada após o "#" ou "?" será ignorado.
+O nome da página pode conter os mesmos caracteres da URL, mas nada após o "#" ou "?" é ignorado.
 
 
 
@@ -249,4 +249,4 @@ Quer saber o que os usuários fazem com seu aplicativo?
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

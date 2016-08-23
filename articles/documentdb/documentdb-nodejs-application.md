@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/18/2016" 
+	ms.date="08/15/2016" 
 	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
@@ -165,11 +165,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -183,7 +179,9 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection aceita um parâmetro de requestOptions opcional que pode ser usado para especificar o Tipo de Oferta para a Coleção. Se nenhum valor de requestOptions.offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão. Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de Desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md)
+    > [AZURE.TIP] createCollection aceita um parâmetro de requestOptions opcional que pode ser usado para especificar o Tipo de Oferta para a Coleção. Se nenhum valor de requestOptions.offerType for fornecido, a coleção será criada usando o Tipo de Oferta padrão.
+    >
+    > Para obter mais informações sobre os Tipos de Oferta do Banco de Dados de Documentos, consulte [Níveis de Desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md)
 		
 3. Salve e feche o arquivo **docdbUtils.js**.
 
@@ -570,4 +568,4 @@ Para saber mais, consulte o [Centro de desenvolvedores do Node.js](https://azure
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

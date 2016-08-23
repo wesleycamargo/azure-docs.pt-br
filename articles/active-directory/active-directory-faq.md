@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="08/16/2016"
 	ms.author="markusvi"/>
 
 # Perguntas frequentes sobre o Azure Active Directory
@@ -34,7 +34,7 @@ Para saber mais, confira [O que é o Azure Active Directory?](active-directory-w
 
 Para obter mais informações, consulte:
 
-- [Como as assinaturas do Azure estão associadas ao Active Directory do Azure](active-directory-how-subscriptions-associated-directory.md)
+- [Como as assinaturas do Azure são associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Gerenciar o diretório para sua assinatura do Office 365 no Azure](active-directory-manage-o365-subscription.md)
 
@@ -42,9 +42,9 @@ Para obter mais informações, consulte:
 
 **P: qual é a relação entre o Azure AD, o Office 365 e o Azure?**
 
-**R:** o Azure Active Directory fornece recursos comuns de identidade e acesso a todos os serviços online da Microsoft. Se está usando o Office 365, o Microsoft Azure, o Intune ou outros itens, você já está usando o Azure AD para habilitar a entrada e o gerenciamento de acesso para todos esses serviços.
+**R:** o Azure Active Directory fornece recursos comuns de identidade e acesso a todos os serviços online da Microsoft. Se estiver usando o Office 365, o Microsoft Azure, o Intune ou outras ferramentas, você já estará usando o Azure AD para habilitar a entrada e o gerenciamento de acesso para todos esses serviços.
 
-De fato, todos os usuários que você habilitou para o Microsoft Online Services são definidos como contas de usuário em uma ou mais instâncias do Azure AD. Você pode habilitar essas contas para recursos gratuitos do Azure AD, como o acesso a aplicativos na nuvem.
+De fato, todos os usuários que você habilitou para o Microsoft Online Services são definidos como contas de usuário em uma ou mais instâncias do Azure AD. Você pode habilitar essas contas para receber recursos gratuitos do Azure AD, como o acesso a aplicativos na nuvem.
  
 Além disso, os serviços pagos do Azure AD (por exemplo: Azure AD Basic, Premium, EMS, etc.) complementam outros serviços online, como o Office 365 e o Microsoft Azure, com soluções abrangentes de gerenciamento e segurança de escala empresarial.
 
@@ -60,14 +60,14 @@ Além disso, os serviços pagos do Azure AD (por exemplo: Azure AD Basic, Premiu
 
 **R**: você pode conectar o diretório local ao Azure AD usando o **Azure AD Connect**.
 
-Para saber mais, confira [Integrar identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
+Para saber mais, confira [Integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
 
 
 ---
 
 **P: como configurar o SSO entre meu diretório local e meus aplicativos de nuvem?**
 
-**R:** você só precisa configurar o SSO entre seu diretório local e o Azure AD. Contanto que você possa acessar seus aplicativos na nuvem por meio do Azure AD, o serviço direciona de forma automática os usuários para que se autentiquem corretamente com suas credenciais locais.
+**R:** você só precisa configurar o SSO entre seu diretório local e o Azure AD. Contanto que você acesse seus aplicativos na nuvem por meio do Azure AD, o serviço direciona os usuários automaticamente para que se autentiquem corretamente com suas credenciais locais.
 
 A implementação do SSO do local pode ser facilmente realizada com soluções de federação, como o ADFS, ou configurando a sincronização de hash de senha. Você pode implantar facilmente as duas opções usando o assistente de configuração do Azure AD Connect.
   
@@ -89,7 +89,7 @@ Para saber mais, confira [Introdução ao Painel de Acesso](active-directory-saa
 
 **P: o Azure AD me ajuda a gerenciar a infraestrutura local?**
 
-**R:** sim, ele faz isso. O Azure AD Premium Edition fornece o **Connect Health**. O Azure AD Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local e os serviços de sincronização.
+**R:** Sim, ele faz isso. O Azure AD Premium Edition fornece o **Connect Health**. O Azure AD Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local e os serviços de sincronização.
 
 Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](active-directory-aadconnect-health.md).
 
@@ -139,7 +139,7 @@ Para obter uma lista completa dos aplicativos pré-integrados, confira o [Active
 Para obter mais informações, consulte:
 
 - [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](active-directory-saas-custom-apps.md)
-- [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md) 
+- [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
 
 
 ---
@@ -156,7 +156,7 @@ Para obter mais informações, consulte:
 
 - Links profundos a aplicativos federados, baseado em senha, ou existentes
 
-Para saber mais, confira [Implantar o aplicativos integrados do Azure AD para usuários](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Para saber mais, confira [Implantar os aplicativos integrados do Azure AD para usuários](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 
 
 ---
@@ -194,12 +194,12 @@ Para saber mais, confira [Proteger o acesso ao Office 365 e a outros aplicativos
 
 ---
 
-**P: o que é o provisionamento automatizado de usuário para aplicativos de SaaS?**
+**P: O que é o provisionamento automatizado de usuário para aplicativos SaaS?**
 
-**R:** o Azure Active Directory permite automatizar a criação, a manutenção e a remoção de identidades de usuário em muitos aplicativos de nuvem (SaaS) populares.
+**R:** O Azure Active Directory permite automatizar a criação, a manutenção e a remoção de identidades de usuários em vários aplicativos de nuvem (SaaS) populares.
 
 Para saber mais, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 ---
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -64,7 +64,7 @@ Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Stan
 | [Limpeza rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Pré-carregamento de ativos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Análise principal](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Gerenciamento via [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) ou [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Relatórios avançados de HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Estatísticas em tempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -75,7 +75,7 @@ Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Stan
 
 Para começar a usar a CDN, confira [Usar a CDN do Azure](./cdn-create-new-endpoint.md).
 
-Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
+Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [portal do Microsoft Azure](https://portal.azure.com) ou do [PowerShell](cdn-manage-powershell.md).
 
 Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
@@ -83,4 +83,4 @@ Saiba como automatizar a CDN do Azure com [.NET](./cdn-app-dev-net.md) ou [Node.
 
 Para obter informações sobre preços, confira [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

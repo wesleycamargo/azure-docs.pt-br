@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # O que são as imagens de modelo do RemoteApp do Azure?
+
+> [AZURE.IMPORTANT]
+O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 
@@ -24,7 +27,7 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 - Microsoft Office 365 ProPlus (assinatura do Office 365 necessária)
 - Microsoft Office 2013 Professional Plus (somente avaliação)
 
-> [AZURE.IMPORTANT]Sua assinatura do Azure RemoteApp concede o acesso ao software nas imagens, com exceção do Office 365 ProPlus, que requer uma assinatura separada, e o Office 2013, que não pode ser usado na produção. Isso significa que você pode compartilhar os programas ou aplicativos nas imagens de modelo com seus usuários. Por exemplo, se você criar uma coleção que usa a imagem do Windows Server 2012 R2, poderá publicar o System Center Endpoint Protection para que os usuários acessem por meio do RemoteApp.
+> [AZURE.IMPORTANT]Sua assinatura do RemoteApp do Azure concede o acesso ao software nas imagens, com exceção do Office 365 ProPlus, que requer uma assinatura separada, e do Office 2013, que não pode ser usado na produção. Isso significa que você pode compartilhar os programas ou aplicativos nas imagens de modelo com seus usuários. Por exemplo, se você criar uma coleção que usa a imagem do Windows Server 2012 R2, poderá publicar o System Center Endpoint Protection para que os usuários acessem por meio do RemoteApp.
 >
 > Confira os [Detalhes de licenciamento do RemoteApp](remoteapp-licensing.md) para obter mais informações. Consulte também [Usando o Office com o RemoteApp do Azure](remoteapp-o365.md) para obter informações de licenciamento do Office.
 
@@ -80,7 +83,7 @@ E os seguintes aplicativos, assim:
 - PowerMap
 
 
-Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Ainda tem dúvidas? Confira as informações do [Office 365 + RemoteApp](remoteapp-o365.md). Verifique também o novo artigo, [Como usar sua assinatura do Office 365 com o Azure RemoteApp](remoteapp-officesubscription.md).
+Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Ainda tem dúvidas? Confira as informações do [Office 365 + RemoteApp](remoteapp-o365.md). Verifique também o novo artigo, [Como usar sua assinatura do Office 365 com o RemoteApp do Azure](remoteapp-officesubscription.md).
 
 Observe que você precisa licenciar o Office 365 ProPlus, o Visio Pro e o Project Pro separadamente - cada um deles tem sua própria licença.
 
@@ -102,6 +105,6 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Word
 - Revisores de texto do Microsoft Office
 
-> [AZURE.IMPORTANT]**Informações legais:** esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o RemoteApp do Azure](remoteapp-o365.md)
+> [AZURE.IMPORTANT]**Informações legais:** esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o RemoteApp do Azure](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,20 +12,20 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Visão geral dos Hubs de Eventos do Azure
 
 Muitas soluções modernas pretendem fornecer experiências adaptáveis para os clientes ou para aperfeiçoar os produtos por meio de comentários contínuos e telemetria automatizada. Essas soluções enfrentam o desafio de saber como processar de forma segura e confiável grandes quantidades de informações de vários editores simultâneos. O Hub de Evento do Microsoft Azure é um serviço de plataforma gerenciada que fornece uma base para inserção de dados em grande escala em uma ampla variedade de cenários. Exemplos dessas situações rastreamento de comportamento de aplicativos móveis, informações de tráfego de farms da web, captura de eventos de jogos em jogos de console ou dados de telemetria coletados de máquinas industriais ou veículos conectados. A função comum que o Hub de Evento desempenha em arquiteturas de solução é que ele atua como a "porta da frente" de um pipeline de evento, geralmente chamado de *ingestor de eventos*. Um ingestor de eventos é um componente ou serviço que fica entre os editores de eventos e consumidores de eventos para desacoplar a produção de uma transmissão de eventos do consumo desses eventos.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759856.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759856.png)
 
-O Hub de Evento do Azure é um serviço de processamento de eventos que fornece entrada de telemetria e eventos na nuvem em grande escala, com baixa latência e alta confiabilidade. Esse serviço, usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT). O Hub de Evento fornece um recurso de manipulação de fluxo de mensagens e, embora um Hub de eventos seja uma entidade similar a filas e tópicos, ele tem características que são muito diferentes das mensagens corporativas tradicionais. Cenários de mensagens corporativas, geralmente, exigem vários recursos sofisticados, como sequenciamento, mensagens mortas, suporte a transações e fortes garantias de entrega, enquanto a preocupação dominante para entrada de evento é alta taxa de transferência e flexibilidade de processamento para fluxos de eventos. Portanto, os recursos de Hubs de Eventos são diferentes de tópicos do Barramento de Serviço, no sentido de que são eficientes nos cenários de alta produtividade e processamento de eventos. Dessa forma, os Hubs de Eventos não implementam alguns dos recursos de mensagens que estão disponíveis para tópicos. Se você precisar desses recursos, os tópicos continuam sendo a melhor opção.
+O Hub de Evento do Azure é um serviço de processamento de eventos que fornece entrada de telemetria e eventos na nuvem em grande escala, com baixa latência e alta confiabilidade. Esse serviço, usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT). O Hubs de Eventos fornece um recurso de manipulação de fluxo de mensagens e, embora um Hub de Eventos seja uma entidade similar a filas e tópicos, ele tem características que são muito diferentes das mensagens corporativas tradicionais. Cenários de mensagens corporativas, geralmente, exigem recursos sofisticados, como sequenciamento, mensagens mortas, suporte a transações e fortes garantias de entrega, enquanto a preocupação dominante para entrada de evento é alta taxa de transferência e flexibilidade de processamento para fluxos de eventos. Portanto, os recursos de Hubs de Eventos são diferentes de tópicos do Barramento de Serviço, no sentido de que são eficientes nos cenários de alta produtividade e processamento de eventos. Dessa forma, os Hubs de Evento não implementam alguns dos recursos de mensagens que estão disponíveis para tópicos. Se você precisa desses recursos, os tópicos continuam sendo a melhor opção.
 
-Um Hub de Evento é criado no nível de namespace no Barramento de Serviço, como filas e tópicos. O Hubs de Evento usa HTTP e AMQP como suas interfaces de API principais. O diagrama a seguir mostra a relação entre o Hubs de Eventos e o Barramento de Serviço.
+Um Hub de Eventos é criado no nível de namespace do Hubs de Eventos, semelhante a filas e tópicos do Barramento de Serviço. O Hubs de Evento usa HTTP e AMQP como suas interfaces de API principais. O diagrama a seguir mostra a relação entre o Hubs de Eventos e o Barramento de Serviço.
 
-![Hubs de Evento](./media/event-hubs-overview/IC741188.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC741188.png)
 
 ## Visão geral conceitual
 
@@ -35,15 +35,15 @@ O Hub de Evento fornece um fluxo de mensagens por meio de um padrão de consumid
 
 Uma partição é uma sequência ordenada de eventos que é mantida em um Hub de Eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
 
-![Hubs de Evento](./media/event-hubs-overview/IC759857.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759857.png)
 
 As partições retém dados por um período de retenção configurado que é definido no nível do Hub de Eventos. Essa configuração aplica-se a todas as partições no Hub de Eventos. Eventos expiram periodicamente; não é possível excluí-los explicitamente. Um Hub de Eventos contém várias partições. Cada partição é independente e contém sua própria sequência de dados. Como resultado, partições geralmente aumentam em taxas diferentes.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759858.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759858.png)
 
 O número de partições é especificado no momento da criação do Hub de Eventos e deve estar entre 2 e 32 (o padrão é quatro). As partições são um mecanismo de organização de dados e estão mais relacionadas ao grau de paralelismo de downstream necessário em aplicativos de consumo que de consumo de Hubs de Evento. Isso torna a escolha do número de partições em um Hub de Eventos diretamente relacionado ao número de leitores simultâneos que você espera ter. Após a criação do Hub de Eventos, a contagem de partições não é alterável; você deve considerar esse número em termos de escala esperada de longo prazo. Você pode aumentar o limite de 32 partições entrando em contato com a equipe do Barramento de Serviço.
 
-Enquanto as partições podem ser identificadas e podem ser enviadas diretamente, geralmente, é melhor evitar o envio de dados para partições específicas. Em vez disso, você pode usar construções de nível superior abordadas nas seções [Editor de eventos](#event-publisher) e [Política de editor](#capacity-and-security).
+Enquanto as partições podem ser identificadas e podem ser enviadas diretamente é melhor evitar o envio de dados para partições específicas. Em vez disso, você pode usar construções de nível superior abordadas nas seções [Editor de eventos](#event-publisher) e [Política de editor](#capacity-and-security).
 
 No contexto dos Hubs de Evento, as mensagens são denominadas *dados de evento*. Os dados do evento contêm o corpo do evento, um recipiente de propriedades definidas pelo usuário e diversos metadados sobre o evento, como seu deslocamento na partição e seu número na sequência de fluxo. As partições são preenchidas com uma sequência de dados de evento.
 
@@ -71,7 +71,7 @@ A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP re
 
 Uma chave de partição é um valor que é usado para mapear dados de evento de entrada em partições específicas para fins de organização de dados. A chave de partição é um valor fornecido pelo remetente passado para um Hub de Eventos. Ela é processada por meio de uma função de hash estática, cujo resultado cria a atribuição de partição. Se você não especificar uma chave de partição ao publicar um evento, uma atribuição de round robin será usada. Ao usar chaves de partição, o editor de eventos só está ciente da sua chave de partição, não da partição para a qual os eventos são publicados. Essa desassociação de chave e partição isenta o remetente da necessidade de saber muito sobre o armazenamento de eventos e o processamento de downstream. As chaves de partição são importantes para organizar dados para processamento de downstream, mas, basicamente, não são relacionadas às partições em si. Uma identidade por dispositivo ou exclusiva do usuário é uma boa chave de partição, mas outros atributos, como geografia, também podem ser usados para agrupar eventos relacionados em uma única partição. A imagem a seguir mostra os remetentes de evento usando chaves de partição para se fixar a partições.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759859.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759859.png)
 
 Os Hubs de Eventos garantem que todos os eventos que compartilham o mesmo valor de chave de partição sejam entregues na ordem e para a mesma partição. É importante lembrar que, se forem usadas chaves de partição com políticas de editor, descritas na próxima seção, a identidade do editor e o valor da chave de partição devem corresponder. Caso contrário, ocorrerá um erro.
 
@@ -90,13 +90,13 @@ Veja estes exemplos de convenção de URI de grupo de consumidores:
 
 A imagem a seguir mostra os consumidores de evento dentro de grupos de consumidores.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759860.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759860.png)
 
 #### Deslocamentos de fluxo
 
 Um deslocamento é a posição de um evento dentro de uma partição. Você pode pensar em um deslocamento como um cursor do lado do cliente. O deslocamento é uma numeração em bytes do evento. Isso permite que um consumidor de eventos (leitor) especifique um ponto no fluxo de eventos a partir do qual deseja começar a ler eventos. Você pode especificar o deslocamento como um carimbo de data hora ou um valor de deslocamento. Os consumidores são responsáveis por armazenar seu próprios valores de deslocamento fora do serviço de Hubs de Evento.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759861.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759861.png)
 
 Dentro de uma partição, cada evento inclui um deslocamento. Esse deslocamento é usado pelos consumidores para mostrar a localização na sequência de eventos para uma determinada partição. Os deslocamentos podem ser passados para o Hub de Eventos como um número ou um valor de carimbo de data e hora quando um leitor se conecta.
 
@@ -116,29 +116,29 @@ Para consumir eventos de um Hub de Eventos, um consumidor deve se conectar a uma
 
 Depois de uma sessão do AMQP 1.0 e o link ser aberto para uma partição específica, os eventos são entregues ao cliente AMQP 1.0 pelo serviço de Hubs de Evento. Esse mecanismo de entrega permite uma maior taxa de transferência e menor latência que mecanismos baseado em pull, como HTTP GET. Como os eventos são enviados para o cliente, cada instância de dados do evento contém metadados importantes, como o deslocamento e número da sequência que são usados para facilitar o ponto de verificação na sequência de eventos.
 
-![Hubs de Evento](./media/event-hubs-overview/IC759862.png)
+![Hubs de Eventos](./media/event-hubs-overview/IC759862.png)
 
-É responsabilidade do usuário gerenciar esse deslocamento da melhor maneira para gerenciar o progresso ao processar o fluxo.
+É sua responsabilidade gerenciar esse deslocamento da melhor maneira para gerenciar o progresso ao processar o fluxo.
 
 ## Capacidade e segurança
 
-O Hub de Eventos é uma arquitetura paralela altamente dimensionável para entrada de fluxo. Por isso, há vários aspectos importantes a considerar ao dimensionar e escalar uma solução baseada em Hubs de Evento. O primeiro desses controles de capacidade é a *unidade de transferência*, descrito na seção a seguir.
+O Hub de Eventos é uma arquitetura paralela altamente dimensionável para entrada de fluxo. Por isso, há vários aspectos importantes a considerar ao dimensionar e escalar uma solução baseada em Hubs de Evento. O primeiro desses controles de capacidade é chamado de *unidade de produtividade*, descrito na seção a seguir.
 
 ### Unidades de transferência
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas unidades de transferência. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única unidade de transferência inclui o seguinte:
 
-- Entrada: até 1 MB por segundo ou 1.000 eventos por segundo.
+- Entrada: até 1 MB por segundo ou mil eventos por segundo.
 
 - Saída: até 2 MB por segundo.
 
 A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no [portal clássico do Azure][]. Você também pode alterar essa configuração usando as APIs do Azure.
 
-Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace do Barramento de Serviço, e há um limite de conta do Azure de 20 unidades de transferência. Essas unidades de transferência são compartilhadas em todos os Hubs de Evento em um namespace específico.
+Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace dos Hubs de Eventos, e há um limite de conta do Azure de 20 unidades de produtividade. Essas unidades de transferência são compartilhadas em todos os Hubs de Evento em um namespace específico.
 
-As unidades de taxa de transferência são provisionadas da melhor maneira possível e podem não estar sempre disponíveis para compra imediata. Se você precisar de um recurso específico, é recomendável adquirir essas unidades de transferência com antecedência. Se precisar de mais de 20 unidades de produtividade, você pode entrar em contato com o suporte do Barramento de Serviço para adquirir mais unidades de produtividade em uma base de compromisso em blocos de 20 até as 100 primeiras unidades de produtividade. Além disso, você também pode comprar blocos de 100 unidades de transferência.
+As unidades de taxa de transferência são provisionadas da melhor maneira possível e podem não estar sempre disponíveis para compra imediata. Se você precisar de um recurso específico, é recomendável adquirir essas unidades de transferência com antecedência. Se precisar de mais de 20 unidades de produtividade, você pode entrar em contato com o suporte do Azure para adquirir mais unidades de produtividade em uma base de compromisso em blocos de 20 até as 100 primeiras unidades de produtividade. Além disso, você também pode comprar blocos de 100 unidades de transferência.
 
-É recomendável balancear criteriosamente partições e unidades de transferência para obter uma escala ideal com Hubs de Evento. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de transferência deve ser menor ou igual ao número de partições em um Hub de Eventos.
+É recomendável balancear criteriosamente partições e unidades de transferência para obter uma escala ideal com Hubs de Eventos. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de transferência deve ser menor ou igual ao número de partições em um Hub de Eventos.
 
 Para obter informações sobre preços, consulte [Preços de Hubs de Evento](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -168,4 +168,4 @@ Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
 <tags 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 #Escolha a solução de segurança multifator para você
 
 Como há vários tipos de Azure Multi-Factor Authentication, precisamos determinar algumas coisas para descobrir qual versão é a correta para usar. Esses elementos são:
 
--	<a href="#1">O que estou tentando proteger</a>
--	<a href="#2">Onde os usuários estão localizados</a>
+-	[O que estou tentando proteger](#what-am-i-trying-to-secure)
+-	[Onde os usuários estão localizados](#where-are-the-users-located)
 
 As seções a seguir fornecem orientações sobre como determinar a cada um deles.
 
-<h2 id="1">O que estou tentando proteger</h2>
+## O que estou tentando proteger?
 
 Para determinar a solução de autenticação multifator correta, precisamos responder primeiro à pergunta de o que você está tentando proteger com um segundo método de autenticação. É um aplicativo no Azure? Ou é um sistema de acesso remoto, por exemplo. Ao determinar o que estamos tentando proteger, passaremos a responder à pergunta de onde a autenticação multifator precisa ser habilitada.
 
@@ -40,7 +40,7 @@ Acesso remoto, como VPN, RDG| |* |
 
 
 
-<h2 id="2">Onde os usuários estão localizados</h2>
+## Onde os usuários estão localizados
 
 Em seguida, dependendo de onde os usuários estão localizados, podemos determinar a solução correta a ser usada, seja a autenticação multifator na nuvem ou no local, usando o Servidor MFA.
 
@@ -81,4 +81,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

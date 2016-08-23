@@ -49,7 +49,7 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta&#151. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento nós a seguiremos, até um máximo de 10 redirecionamentos.
+- **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta&#151. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
 - **Analisar solicitações dependentes**: imagens, scripts, arquivos de estilo e outros recursos da página são solicitados como parte do teste. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro.
 - **Habilitar tentativas**: quando o teste falha, ele é repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. (Recomendamos essa configuração. Em média, aproximadamente 80% das falhas desaparecem na repetição.)
 - **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
@@ -128,7 +128,7 @@ Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio
 
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
 
-Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduzirá o cenário em intervalos e verificará as respostas.
+Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduz o cenário em intervalos e verifica as respostas.
 
 Observe que você não pode usar funções codificadas em seus testes: as etapas do cenário devem estar contidas como um script no arquivo .webtest.
 
@@ -198,7 +198,7 @@ Plug-ins de teste da Web fornecem uma maneira de gerar tempos parametrizados.
 
     ![Escolha Adicionar plug-ins de teste da Web e selecione um tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Neste exemplo, vamos usar duas instâncias do plug-in de Data e Hora. É uma instância de "15 minutos atrás" e outra de "agora".
+    Neste exemplo, usamos duas instâncias do plug-in de Data e Hora. É uma instância de "15 minutos atrás" e outra de "agora".
 
 2. Abra as propriedades de cada plug-in. Atribua um nome e configure-o para usar a hora atual. Para um deles, defina Add Minutes = -15.
 
@@ -208,18 +208,42 @@ Plug-ins de teste da Web fornecem uma maneira de gerar tempos parametrizados.
 
     ![No parâmetro de teste, use {{nome do plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas as execuções do teste.
+Agora, carregue seu teste no portal. Ele usa os valores dinâmicos em todas as execuções do teste.
 
 ## Lidando com a entrada
 
 Se os usuários entrarem em seu aplicativo, você terá várias opções para simular entradas para poder testar as páginas por trás da entrada. A abordagem usada dependerá do tipo de segurança fornecida pelo aplicativo.
 
-Em todos os casos, você deverá criar uma conta somente para fins de teste. Se possível, restrinja suas permissões para que ela seja somente leitura.
+Em todos os casos, você deve criar uma conta no aplicativo apenas para fins de teste. Se possível, restrinja as permissões da conta de teste para que não haja possibilidade de que os testes na Web afetem usuários reais.
 
-* Nome de usuário e senha mais simples: registre um teste na Web da maneira usual. Exclua os cookies primeiro.
-* Autenticação SAML. Use o plug-in do SAML que está disponível para testes na Web.
-* Segredo do cliente: se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-a. O Azure Active Directory fornece uma entrada com segredo do cliente.
-* Autenticação Aberta - por exemplo, entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth oferecem a alternativa do segredo do cliente e, portanto, a primeira tática é investigar isso. Se o teste tiver de entrar usando OAuth, a abordagem geral será:
+### Senha e nome de usuário simples
+
+Grave um teste na Web da maneira usual. Exclua os cookies primeiro.
+
+### Autenticação de SAML
+
+Use o plug-in do SAML que está disponível para testes na Web.
+
+### Segredo do cliente
+
+Se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use-a. O AAD (Azure Active Directory) é um exemplo de um serviço que fornece uma entrada de segredo do cliente. No AAD, o segredo do cliente é a Chave do Aplicativo.
+
+Aqui está um teste na Web de exemplo de um aplicativo Web que usa uma chave de aplicativo:
+
+![Exemplo de segredo do cliente](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Obtenha o token do AAD usando o segredo do cliente (AppKey).
+2. Extraia o token de portador da resposta.
+3. Chame a API usando o token de portador no cabeçalho de autorização.
+
+Verifique se o teste na Web é um cliente real, ou seja, se ele tem seu próprio aplicativo no AAD, e use seu clientId + appkey. O serviço que está sendo testado também tem seu próprio aplicativo no AAD: o URI appID desse aplicativo é refletido no teste na Web no campo "recurso".
+
+### Autenticação Aberta
+
+Um exemplo de autenticação aberta é entrar com sua conta da Microsoft ou do Google. Muitos aplicativos que usam OAuth fornecem a alternativa de segredo do cliente. Portanto, sua primeira tática deve ser investigar essa possibilidade.
+
+Se o teste tiver de entrar usando OAuth, a abordagem geral será:
+
  * Use uma ferramenta como o Fiddler para examinar o tráfego entre o navegador da web, o site de autenticação e seu aplicativo.
  * Executar duas ou mais entradas usando computadores ou navegadores diferentes ou em longos intervalos (para permitir que os tokens expirem).
  * Ao comparar sessões diferentes, identifique o token passado de volta ao site de autenticação, que será então passado para o servidor de aplicativos após a entrada.
@@ -253,7 +277,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 * *Posso chamar o código através do meu teste na Web?*
 
-    Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Mas há uma série de plug-ins que você pode achar úteis.
+    Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
 
 * *Há suporte para HTTPS?*
 
@@ -309,4 +333,4 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

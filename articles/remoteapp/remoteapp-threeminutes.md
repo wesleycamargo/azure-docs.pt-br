@@ -13,19 +13,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos
 
+> [AZURE.IMPORTANT]
+O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+
 Deseja ver o RemoteApp do Azure em seu dispositivo? Você pode acessar nossa implantação de demonstração por 10 minutos, desde que tenha uma conta da Microsoft. Temos o Office e alguns outros aplicativos disponíveis. Essa é uma ótima maneira de avaliar a experiência do usuário para o RemoteApp do Azure em menos de 3 minutos.
 
 Interessado?
 
 1. Acesse [http://remoteapp.azure.com](http://remoteapp.azure.com).
-2. Clique em **Instalar Cliente** no canto superior direito.  
+2. Clique em **Instalar Cliente** no canto superior direito.
 3. O sistema automaticamente detecta o dispositivo e você é levado para o cliente para o seu dispositivo. Instale o cliente.
 4. Retorne para [http://remoteapp.azure.com](http://remoteapp.azure.com) e entre com sua conta da Microsoft.
 
@@ -35,4 +38,4 @@ Sua opinião é importante. No final de cada sessão, você verá uma caixa de d
 
 >[AZURE.NOTE] Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

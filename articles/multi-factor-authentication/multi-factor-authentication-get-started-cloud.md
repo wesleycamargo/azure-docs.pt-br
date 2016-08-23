@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
@@ -29,7 +29,7 @@ Os seguintes pré-requisitos são necessários antes de habilitar a Autenticaç�
 
 
 
-- [Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tiver uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, use uma assinatura de avaliação.
+- [Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tem uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, poderá usar uma assinatura de avaliação.
 2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [AZURE.NOTE]  As licenças estão disponíveis para os usuários que têm o Azure MFA, Azure AD Premium ou EMS (Enterprise Mobility Suite). O MFA está incluído no Azure AD Premium e no EMS. Se você possui licenças suficientes, não precisa criar um provedor de autenticação.
@@ -44,9 +44,9 @@ Use o procedimento a seguir para habilitar o MFA para os usuários.
 --------------------------------------------------------------------------------
 1.  Entre no **portal clássico do Azure** como Administrador.
 2.  À esquerda, clique em **Active Directory**.
-3.  Em, **Diretório**, clique no diretório do usuário que você deseja habilitar. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+3.  Em **Diretório**, clique no diretório do usuário que deseja habilitar. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  Na parte superior, clique em **Usuários**.
-5.  Na parte inferior da página, clique em **Gerenciar Autenticação Multifator**. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+5.  Na parte inferior da página, clique em **Gerenciar Multi-Factor Auth**. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  Isso abrirá uma nova guia do navegador. Localize o usuário que deseja habilitar para o Multi-Factor Authentication. Talvez seja necessário alterar o modo de exibição na parte superior. Verifique se o status é **desabilitado.** ![Habilitar o usuário](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  Coloque uma **marca** na caixa ao lado do nome.
 7.  À direita, clique em **Habilitar**. ![Habilitar o usuário](./media/multi-factor-authentication-get-started-cloud/user1.png)
@@ -90,4 +90,4 @@ Para obter mais informações sobre os estados do usuário, confira [Estados do 
 ## Próximas etapas
 Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Consulte [Configurando a Autenticação Multifator do Azure.]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

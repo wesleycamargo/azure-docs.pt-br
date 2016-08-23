@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Criar conjuntos de registros DNS e registros usando a CLI
@@ -38,7 +38,7 @@ Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.c
 
 Para criar conjunto de registros, use `azure network dns record-set create`. Especifique o grupo de recursos, o nome da zona, o nome relativo do conjunto de registros, o tipo de registro e o TTL. Se o parâmetro `--ttl` não for definido, o valor usará o padrão quatro (em segundos). Depois de concluir esta etapa, você terá um conjunto de registros "www" vazio.
 
-*Uso: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Uso: network dns record-set create <grupo-de-recursos> <nome-zona-dns> <nome> <tipo> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
@@ -50,7 +50,7 @@ Os parâmetros para adicionar registros a um conjunto de registros variam depend
 
 Você pode adicionar os registros do IPv4 *A* ao conjunto de registros usando o seguinte comando:
 
-*Uso: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Uso: network dns record-set add-record <grupo-de-recursos> <nome-zona-dns> <nome-conjunto-de-recursos> <tipo>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
@@ -66,4 +66,4 @@ Para gerenciar seus registros e conjunto de registros, confira [Gerenciar regist
 
 Para saber mais sobre o Azure DNS, confira [Visão geral do Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->
