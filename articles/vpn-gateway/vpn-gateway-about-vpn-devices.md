@@ -120,7 +120,8 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
 | Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
 | Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Consulte *Ofertas de SA (Associação de Segurança) de IPsec do Gateway baseado em Rota* (abaixo) |
-| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group 1, 2, 5, 14, 24) | | Detecção de Par Inativo | Sem suporte | Com suporte |
+| PFS (Perfect Forward Secrecy) | Não | Sim (DH Group 1, 2, 5, 14, 24) |
+| Detecção de Par Inativo | Sem suporte | Com suporte |
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -152,4 +153,4 @@ A tabela a seguir lista as Ofertas de Criptografia e Autenticação IPsec SA. Of
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->
