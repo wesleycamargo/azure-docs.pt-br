@@ -157,38 +157,39 @@ Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é
 	4.	Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
-Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:
-1. 	And – operador condicional
-2. 	Or – operador condicional
-3. 	does\_not\_exist
-4. 	exists
-5. 	false
-6. 	is\_equal\_to
-7. 	is\_greater\_than
-8. 	is\_greater\_than\_equal\_to
-9. 	is\_in
-10. is\_less\_than
-11. is\_less\_than\_equal\_to
-12. is\_not\_in
-13. is\_not\_equal\_to
-14. mod
-15. verdadeiro
+Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional).
+A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:  
+1. 	And – operador condicional  
+2. 	Or – operador condicional  
+3. 	does\_not\_exist  
+4. 	exists  
+5. 	false  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
+14. mod  
+15. verdadeiro  
 
-A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:
-1.	equals
-2.	false
-3.	verdadeiro
-4.	halt
-5.	mod
-6.	nulo
-7.	atualizar
+A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:  
+1.	equals  
+2.	false  
+3.	verdadeiro  
+4.	halt  
+5.	mod  
+6.	nulo  
+7.	atualizar  
 
 As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
 ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:
-   1.	update <definição de vocabulário> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:  
+   1.	update <definição de vocabulário> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
    2.	Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\\desabilitar regras
