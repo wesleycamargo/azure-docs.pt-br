@@ -181,4 +181,4 @@ As ações e os gatilhos anteriores podem retornar um ou mais dos seguintes cód
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->
