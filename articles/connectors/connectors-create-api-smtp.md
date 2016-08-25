@@ -37,13 +37,17 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **Salesforce – quando um objeto é criado**. Esse gatilho será ativado quando um novo objeto for criado no Salesforce. Em nosso exemplo, nós o configuraremos de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá por meio do conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
 
-1. Digite *salesforce* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Salesforce – quando um objeto é criado**. ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)
+1. Digite *salesforce* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Salesforce – quando um objeto é criado**.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. O controle **Quando um objeto é criado** é exibido. ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)
+2. O controle **Quando um objeto é criado** é exibido.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. Escolha o **Tipo de Objeto** e escolha *Cliente Potencial* na lista de objetos. Nessa etapa, você está indicando que está criando um gatilho que notificará seu aplicativo lógico sempre que um novo cliente potencial for criado no Salesforce. ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)
+3. Escolha o **Tipo de Objeto** e escolha *Cliente Potencial* na lista de objetos. Nessa etapa, você está indicando que está criando um gatilho que notificará seu aplicativo lógico sempre que um novo cliente potencial for criado no Salesforce.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. O gatilho foi criado. ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)
+4. O gatilho foi criado.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## Usar uma ação de SMTP
 
@@ -51,15 +55,19 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação de SMTP que ocorrerá quando um novo cliente potencial for criado no Salesforce.
 
-1. Escolha **+ Nova etapa** para adicionar a ação que deseja executar quando um novo cliente potencial é criado. ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)
+1. Escolha **+ Nova etapa** para adicionar a ação que deseja executar quando um novo cliente potencial é criado.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, onde é possível procurar qualquer ação que você deseja realizar. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)
+2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, onde é possível procurar qualquer ação que você deseja realizar.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
 3. Digite *smtp* para pesquisar todas as ações relacionadas ao SMTP.
 
-4. Escolha **SMTP – enviar email** como a ação a ser tomada quando o novo cliente potencial é criado. O bloco de controle de ação é aberto. Você terá que estabelecer a conexão smtp no bloco de designer, caso não tenha feito isso anteriormente. ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)
+4. Escolha **SMTP – enviar email** como a ação a ser tomada quando o novo cliente potencial é criado. O bloco de controle de ação é aberto. Você terá que estabelecer a conexão smtp no bloco de designer, caso não tenha feito isso anteriormente.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
-5. Insira suas informações de email desejadas no bloco **SMTP – enviar email**. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)
+5. Insira suas informações de email desejadas no bloco **SMTP – enviar email**.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
 6. Salve seu trabalho para ativar o fluxo de trabalho.
 
