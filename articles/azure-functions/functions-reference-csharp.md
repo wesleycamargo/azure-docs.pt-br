@@ -24,7 +24,7 @@
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
  
-A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como agente de função e tokens de cancelamento.
+A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como função logger e tokens de cancelamento.
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -32,9 +32,9 @@ Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor 
 
 O formato `.csx` permite escrever menos "clichê" e se concentrar em escrever apenas uma função C#. Para o Azure Functions, inclua as referências de assembly e namespaces que você precisa na parte superior, como de costume, e em vez de encapsular tudo em um namespace e classe, você pode apenas definir seu método `Run`. Se você precisar incluir alguma classe, por exemplo, para definir objetos POCO, você poderá incluir uma classe dentro do mesmo arquivo.
 
-## Associando a argumentos
+## Binding para argumentos
 
-Várias associações estão vinculadas a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada associação possui seus próprios tipos com suporte, que estão documentados por associação; por exemplo, um gatilho de blob pode dar suporte a cadeia de caracteres, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
+Vários bindings estão vinculadas a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada binding possui seus próprios tipos com suporte, que estão documentados por binding; por exemplo, um gatilho de blob pode dar suporte a uma string, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -76,7 +76,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## Token de cancelamento
 
-Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora sempre seja melhor escrever o código que pode lidar com as falhas, em casos em que você deseja lidar com solicitações de desligamento normal, defina um argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
+Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora sempre seja melhor escrever o código que pode lidar com as falhas, em casos em que você deseja manipular as solicitações de desligamento, defina um argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -146,7 +146,7 @@ Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas es
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Se precisar fazer referência a um assembly particular, você poderá carregar o arquivo do assembly em uma pasta `bin` relativa à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta de função, consulte a seção a seguir sobre gerenciamento de pacotes.
+Se precisar fazer referência a um assembly particular, você poderá carregar o arquivo do assembly em uma pasta `bin` relativa à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta da função, consulte a seção a seguir sobre gerenciamento de pacotes.
 
 ## Gerenciamento de pacote
 
@@ -256,6 +256,6 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
-* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+* [Gatilhos e bindings do Azure Functions](functions-triggers-bindings.md)
 
 <!---HONumber=AcomDC_0615_2016-->
