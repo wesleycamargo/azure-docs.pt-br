@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gatilhos e associações do Azure Functions | Microsoft Azure"
-	description="Entenda como usar gatilhos e associações no Azure Functions."
+	pageTitle="Gatilhos e bindings do Azure Functions | Microsoft Azure"
+	description="Entenda como usar gatilhos e bindings no Azure Functions."
 	services="functions"
 	documentationCenter="na"
 	authors="christopheranderson"
@@ -18,20 +18,20 @@
 	ms.date="05/27/2016"
 	ms.author="chrande"/>
 
-# Referências de gatilhos e de associações do Azure Functions para desenvolvedores
+# Referências de gatilhos e de bindings do Azure Functions para desenvolvedores
 
-Os artigos a seguir explicam como configurar e codificar gatilhos e associações no Azure Functions. Os artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md) ou do [Node.js](functions-reference-node.md) para desenvolvedores.
+Os artigos a seguir explicam como configurar e codificar gatilhos e bindings no Azure Functions. Os artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md) ou do [Node.js](functions-reference-node.md) para desenvolvedores.
 
-## Artigos sobre gatilhos e associações
+## Artigos sobre gatilhos e bindings
 
-* [Gatilhos e associações HTTP e WebHook](functions-bindings-http-webhook.md)
+* [Gatilhos e bindings HTTP e WebHook](functions-bindings-http-webhook.md)
 * [Gatilho de temporizador](functions-bindings-timer.md)
-* [Gatilhos e associações do Armazenamento do Azure (filas, blobs, tabelas)](functions-bindings-storage.md)
-* [Gatilhos e associações (filas, tópicos) do Barramento de Serviço do Azure](functions-bindings-service-bus.md)
-* [Associações do Banco de Dados de Documentos do Azure](functions-bindings-documentdb.md)
-* [Associações do Hub de Eventos do Azure](functions-bindings-event-hubs.md)
-* [Associações de Aplicativos Móveis do Azure](functions-bindings-mobile-apps.md)
-* [Associação de saída do Hub de Notificação do Azure](functions-bindings-notification-hubs.md)
+* [Gatilhos e bindings do Armazenamento do Azure (filas, blobs, tabelas)](functions-bindings-storage.md)
+* [Gatilhos e bindings (filas, tópicos) do Barramento de Serviço do Azure](functions-bindings-service-bus.md)
+* [Bindings do Azure DocumentDB](functions-bindings-documentdb.md)
+* [Bindings do Hub de Eventos do Azure](functions-bindings-event-hubs.md)
+* [Bindings de Aplicativos Móveis do Azure](functions-bindings-mobile-apps.md)
+* [Bindings de saída do Hub de Notificação do Azure](functions-bindings-notification-hubs.md)
 
 ## Próximas etapas
 
