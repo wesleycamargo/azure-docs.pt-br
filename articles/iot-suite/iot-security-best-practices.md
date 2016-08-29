@@ -1,5 +1,5 @@
 <properties
- pageTitle="Práticas Recomendadas de Segurança de IoT | Microsoft Azure"
+ pageTitle="Práticas recomendadas de segurança de IoT | Microsoft Azure"
  description="Práticas recomendadas de segurança para proteger sua infraestrutura de IoT"
  services=""
  suite="iot-suite"
@@ -29,7 +29,7 @@ Para saber mais sobre como proteger sua solução IoT, confira:
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 - [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
-- [Perguntas frequentes sobre o IoT Suite][lnk-faq]
+- [Perguntas frequentes sobre o Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +37,4 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

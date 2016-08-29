@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Construindo cadeias de caracteres de filtro para o designer de tabela
@@ -36,7 +36,7 @@ Os seguintes operadores lógicos têm suporte para todos os tipos de propriedade
 |le|Menor ou igual a|Preço le 100|
 |ne|Diferente de|City ne 'London'|
 |e|e|Preço le 200 e Preço gt 3,5|
-|ou|Ou|Preço le 3,5 ou Preço gt 200|
+|ou o|Ou|Preço le 3,5 ou Preço gt 200|
 |não|Not|não isAvailable|
 
 Ao construir uma cadeia de caracteres de filtro, as regras a seguir são importantes:
@@ -99,4 +99,4 @@ O exemplo a seguir retorna entidades nas quais a propriedade CustomerSince é ig
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

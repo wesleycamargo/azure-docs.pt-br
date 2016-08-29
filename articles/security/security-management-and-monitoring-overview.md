@@ -1,6 +1,6 @@
 <properties
    pageTitle="Visão geral de monitoramento e gerenciamento de segurança do Azure | Microsoft Azure"
-   description="O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monitoramento de serviços de nuvem e máquinas virtuais do Azure. Este artigo fornece uma visão geral desses recursos e serviços de segurança básicos."
+   description=" O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monitoramento de serviços de nuvem e máquinas virtuais do Azure. Este artigo fornece uma visão geral desses recursos e serviços de segurança básicos. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Visão geral de monitoramento e gerenciamento de segurança do Azure
@@ -63,7 +63,7 @@ Também há suporte para o SEP (Symantec End Point Protection) no Azure. Por mei
 Saiba mais:
 
 - [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../azure-security-antimalware.md)
+- [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../security/azure-security-antimalware.md)
 - [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/) (Novas opções de antimalware para proteção das Máquinas Virtuais do Azure – McAfee Endpoint Protection)
@@ -134,4 +134,4 @@ Saiba mais:
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

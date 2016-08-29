@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -61,7 +61,7 @@ Consulte [aqui](sql-database-transact-sql-information.md) para obter um pequeno 
 
 > [AZURE.IMPORTANT] A partir de **junho de 2016**, os bancos de dados criados *recentemente* no Banco de Dados SQL V12 terão seu início de nível de compatibilidade em 130, que coincide com o do Microsoft SQL Server 2016 GA.
 > 
-> Obviamente, você poderá usar `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` se preferir.
+> Você poderá usar `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` se preferir.
 > 
 > Os bancos de dados criados antes de junho de 2016 não terão o nível de compatibilidade alterado por essa mudança de padrão. Nem o nível de um banco de dados será alterado ao atualizá-lo da V11 para a V12.
 
@@ -99,10 +99,10 @@ Clique [aqui](sql-database-develop-direct-route-ports-adonet-v12.md) para obter 
 ## Melhor suporte para fornecedores de SaaS na nuvem
 
 
-Somente na V12, lançamos o novo nível de desempenho padrão S3 e a demonstração pública do [Pool de Banco de Dados Elástico](sql-database-elastic-pool.md). Essa é uma solução projetada especificamente para os fornecedores de SaaS de nuvem. Com o Pool de Banco de Dados Elástico, você pode:
+Somente na V12, lançamos o novo nível de desempenho padrão S3 e a demonstração pública do [Pool de Banco de Dados Elástico](sql-database-elastic-pool.md). Os Pools de Banco de Dados Elástico são uma solução projetada para fornecedores de SaaS de nuvem. Com o Pool de Banco de Dados Elástico, você pode:
 
 
-- Compartilhar DTUs entre bancos de dados para reduzir os custos para um grande número de bancos de dados.
+- Compartilhar DTUs entre bancos de dados para reduzir os custos para grandes quantidades de bancos de dados.
 - Executar [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md) para gerenciar bancos de dados em escala.
 
 
@@ -125,7 +125,7 @@ A segurança é uma preocupação para qualquer pessoa que execute os seus negó
 ## Maior continuidade dos negócios quando a recuperação for necessária
 
 
-A V12 oferece objetivos de ponto de recuperação (RPOs) significativamente aprimorados e tempos de recuperação estimados (ERTs):
+A V12 oferece RPOs (objetivos de ponto de recuperação) e ERTs (tempos de recuperação estimados) aprimorados:
 
 
 | Recursos da continuidade dos negócios | Versão anterior | V12 |
@@ -143,7 +143,7 @@ Consulte [Continuidade de negócios do banco de dados SQL](sql-database-business
 Existem vários bons motivos pelos quais os clientes devem atualizar agora da V11 para a V12 do Banco de Dados SQL do Azure:
 
 
-- A V12 do Banco de dados SQL tem uma longa lista de recursos além daqueles já existentes na V11.
+- A V12 do Banco de dados SQL tem uma longa lista de recursos além daqueles da V11.
 - Continuamos a adicionar novos recursos à V12, mas nenhum recurso novo será adicionado à V11.
 - A maioria dos novos recursos é lançada na V12 do Banco de Dados SQL antes de eles serem lançados para o Microsoft SQL Server.
 
@@ -183,4 +183,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

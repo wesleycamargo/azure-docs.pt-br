@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Como alterar o cartão de crédito usado para pagar uma assinatura do Azure
@@ -25,6 +25,8 @@
 Se o seu cartão de crédito for renovado e o número permanecer o mesmo, você poderá simplesmente atualizar os detalhes do cartão de crédito existente, como a data de vencimento.
 
 Se seu número de cartão de crédito for alterado devido a perda, roubo ou vencimento, você precisará adicionar o novo cartão de crédito à sua conta. Isso ocorre porque o código de segurança CVV do cartão é alterado quando o número de cartão de crédito muda.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Editar informações de pagamento para um cartão de crédito existente
 1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta. No [portal do Azure](https://portal.azure.com), você pode acessar o Centro de Contas selecionando **Assinatura**>*o nome da assinatura*>**Gerenciar**.
@@ -49,6 +51,8 @@ Se seu número de cartão de crédito for alterado devido a perda, roubo ou venc
 1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
 2. Em **Clique em uma assinatura para exibir detalhes e uso**, selecione a assinatura para a qual você deseja atualizar a forma de pagamento.
 3. No lado direito da página, clique em **Alterar forma de pagamento**.
-4. Na página **Escolher forma de pagamento**, clique na seta suspensa ao lado do cartão de crédito, selecione o cartão de crédito que deseja usar e em seguida, selecione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para fechar a janela.
+4. Na página **Escolher forma de pagamento**, clique na seta suspensa ao lado do cartão de crédito, selecione o cartão de crédito que deseja usar e selecione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para fechar a janela.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Para remover um cartão de crédito que você não usa mais como um método de pagamento do Azure, envie um tíquete de suporte para solicitar assistência. Para criar um tíquete de suporte e remover um cartão de crédito, confira o artigo [Como criar um tíquete de Suporte para problemas de assinatura e cobrança do Azure](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0817_2016-->

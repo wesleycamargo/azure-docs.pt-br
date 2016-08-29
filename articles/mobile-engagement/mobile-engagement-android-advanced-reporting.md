@@ -13,25 +13,28 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Opções de relatório com o Engagement no Android
+# Relatório avançado com o Engagement no Android
 
 > [AZURE.SELECTOR]
+- [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-advanced-reporting.md)
 
-Este tópico descreve cenários de relatório adicionais em seu aplicativo Android. Estas são opções que você pode optar por aplicar ao aplicativo criado no tutorial [Introdução](mobile-engagement-android-get-started.md).
+Este tópico descreve cenários de relatório adicionais em seu aplicativo Android. Você pode aplicar estas opções ao aplicativo criado no tutorial [Introdução](mobile-engagement-android-get-started.md).
 
 ## Pré-requisitos
 
 [AZURE.INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
 
-O tutorial que você concluiu foi deliberadamente simples e direto, mas há uma série de opções dentre as quais você pode escolher.
+O tutorial que você concluiu era deliberadamente simples e direto, mas há opções avançadas dentre as quais você pode escolher.
 
-## Modificando as classes `Activity`
+## Modificação das classes `Activity`
 
-No [Tutorial de Introdução](mobile-engagement-android-get-started.md), era necessário apenas fazer com que as subclasses `*Activity` herdassem das classes `Engagement*Activity` correspondentes (por exemplo, se sua atividade herdada estendesse `ListActivity`, você faria com que ela estendesse `EngagementListActivity`).
+No [tutorial Introdução](mobile-engagement-android-get-started.md), era necessário apenas fazer com que as subclasses `*Activity` herdassem das classes `Engagement*Activity` correspondentes. Por exemplo, se sua atividade herdada tiver estendido o `ListActivity`, você a faria estender `EngagementListActivity`.
 
 > [AZURE.IMPORTANT] Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada para `requestWindowFeature(...);` seja feita antes da chamada para `super.onCreate(...);`, caso contrário, ocorrerá uma falha.
 
@@ -39,9 +42,9 @@ Você pode encontrar essas classes na pasta `src` e copiá-las para seu projeto.
 
 ## Método alternativo: chame `startActivity()` e `endActivity()` manualmente
 
-Se você não pode ou não quer sobrecarregar as classes `Activity`, é possível iniciar e encerrar suas atividades chamando diretamente os métodos de `EngagementAgent`.
+Se você não puder ou não quiser sobrecarregar as classes `Activity`, será possível iniciar e encerrar suas atividades chamando diretamente os métodos de `EngagementAgent`.
 
-> [AZURE.IMPORTANT] O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, aplicativos nunca são, na verdade, fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
+> [AZURE.IMPORTANT] O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, os aplicativos nunca são fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
 
 Aqui está um exemplo:
 
@@ -63,11 +66,11 @@ Aqui está um exemplo:
 	  }
 	}
 
-Este exemplo é muito semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
+Este exemplo é semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
 
 ## Usando Application.onCreate()
 
-Qualquer código que você colocar em `Application.onCreate()` e em outros retornos de chamada do aplicativo será executado para todos os processos de seu aplicativo, incluindo o serviço do Engagement. Ele pode ter efeitos colaterais indesejados, como alocações de memória desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados.
+Qualquer código que você colocar em `Application.onCreate()`, e em outros retornos de chamada do aplicativo, será executado para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados, como alocações de memória desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados.
 
 Caso você substitua `Application.onCreate()`, recomenda-se adicionar o seguinte trecho de código no início da função `Application.onCreate()`:
 
@@ -85,7 +88,7 @@ Você também pode estender `EngagementApplication` em vez de ampliar `Applicati
 
 ## Marcas no arquivo AndroidManifest.xml
 
-Na marcação de serviço no arquivo AndroidManifest.xml, o atributo `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela “Serviços em execução” de seus respectivos telefones. É recomendável definir esse atributo como `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
+Na marcação de serviço no arquivo AndroidManifest.xml, o atributo `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela "Serviços em execução" de seus respectivos telefones. É recomendável definir esse atributo como `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
 
 Especificar o atributo `android:process` garante que o serviço do Engagement será executado em seu próprio processo (executando o Engagement no mesmo processo que seu aplicativo fará o thread/interface de usuário principal potencialmente menos responsivos).
 
@@ -98,4 +101,4 @@ Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter 
 	<methods>;
  	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

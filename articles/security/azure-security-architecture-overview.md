@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Visão geral da arquitetura de segurança
@@ -26,4 +26,4 @@ Nesta seção, você verá artigos sobre arquitetura de segurança do Azure que 
 - [Arquitetura de aplicativos no Microsoft Azure](security-application-architecture-on-azure.md)
 - [Padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

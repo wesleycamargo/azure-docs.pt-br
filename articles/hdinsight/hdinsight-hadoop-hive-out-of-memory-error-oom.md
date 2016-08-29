@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="05/18/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Corrigir um erro OOM (memória insuficiente) com as configurações de memória do Hive no Hadoop no Azure HDInsight
 
@@ -122,4 +122,4 @@ Baseada nessas configurações, a consulta foi executada com êxito em menos de 
 
 O recebimento de um erro de memória insuficiente não significa necessariamente que o tamanho do contêiner é muito pequeno. Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado para pelo menos 80% do tamanho da memória do contêiner.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

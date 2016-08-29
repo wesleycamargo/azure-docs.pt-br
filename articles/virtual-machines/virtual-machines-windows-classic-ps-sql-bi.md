@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Business Intelligence do SQL Server | Microsoft Azure"
-	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de Business Intelligence (BI) disponíveis para o SQL Server em execução em máquinas virtuais do Azure (VMs)."
+	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de BI (Business Intelligence) disponíveis para o SQL Server em execução em VMs (máquinas virtuais) do Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-A galeria de Máquinas Virtuais do Microsoft Azure inclui imagens com instalações do SQL Server. As edições do SQL Server com suporte nas imagens da galeria são os mesmos arquivos de instalação que você pode instalar em computadores e em máquinas virtuais locais. Este tópico resume os Recursos de Business Intelligence (BI) do SQL Server instalados nas imagens e as etapas de configuração exigidas após o provisionamento de uma máquina virtual. Este tópico também descreve as topologias de implantação com suporte para recursos de BI e as práticas recomendadas.
+A galeria de Máquinas Virtuais do Microsoft Azure inclui imagens com instalações do SQL Server. As edições do SQL Server com suporte nas imagens da galeria são os mesmos arquivos de instalação que você pode instalar em computadores e em máquinas virtuais locais. Este tópico resume os Recursos de BI (Business Intelligence) do SQL Server instalados nas imagens e as etapas de configuração exigidas após o provisionamento de uma máquina virtual. Este tópico também descreve as topologias de implantação com suporte para recursos de BI e as práticas recomendadas.
 
 ## Considerações sobre licenças
 
@@ -319,7 +319,7 @@ Ou execute C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.e
 
 >[AZURE.NOTE] Quando você executar pela primeira vez a instalação do SQL Server, é possível que outros arquivos de instalação sejam baixados e exijam a reinicialização da máquina virtual e da instalação do SQL Server.
 >
->Se você precisar personalizar repetidamente a imagem selecionada da Máquina Virtual do Microsoft Azure, considere a criação de sua própria imagem do SQL Server. A funcionalidade SysPrep do Analysis Services foi habilitada com o SQL Server 2012 SP1 CU2. Para saber mais, consulte [Considerações sobre a instalação do SQL Server usando SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Se você precisar personalizar repetidamente a imagem selecionada da Máquina Virtual do Microsoft Azure, considere a criação de sua própria imagem do SQL Server. A funcionalidade SysPrep do Analysis Services foi habilitada com o SQL Server 2012 SP1 CU2. Para saber mais, consulte [Considerações sobre a instalação do SQL Server usando SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) e [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### Para instalar o modo de tabela do Analysis Services
 
@@ -436,4 +436,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

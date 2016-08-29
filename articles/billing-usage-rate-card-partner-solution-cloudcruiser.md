@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
@@ -54,7 +54,7 @@ Para demonstrar este caso de uso, imagine uma carga de trabalho de várias inst�
 
 As pastas de trabalho do Cloud Cruiser fornecem uma forma automatizada para coletar e processar informações da API RateCard. As pastas de trabalho do ETL (extrair, transformar e carregar) permitem configurar a coleta, transformação e publicação de dados no banco de dados do Cloud Cruiser.
 
-Cada pasta de trabalho pode ter uma ou várias coleções. Isso permite que você correlacione informações de diferentes fontes para complementar ou aumentar os dados de uso. Nas duas capturas de tela abaixo, estamos mostrando a criação de uma novo *coleção* em uma pasta de trabalho existente e a importação de informações para a *coleção* da API RateCard:
+Cada pasta de trabalho pode ter uma ou várias coleções. Isso permite que você correlacione informações de diferentes fontes para complementar ou aumentar os dados de uso. As duas capturas de tela abaixo mostram como criar uma nova *coleção* em uma pasta de trabalho existente e como importar as informações para a *coleção* na API do RateCard:
 
 ![Figura 1 - Criação de uma nova coleção][1]
 
@@ -144,11 +144,11 @@ No lado da cobrança, o Cloud Cruiser automatiza o processo de Showback/Chargeba
  
 
 ### Criando um grupo de recursos com marcas no Microsoft Azure
-A primeira etapa neste tutorial é criar um novo Grupo de Recursos no Portal do Azure e, em seguida, criar novas marcas para associar aos recursos. Neste exemplo, criaremos as seguintes marcas: Departamento, Ambiente, Proprietário, Projeto.
+A primeira etapa neste tutorial é criar um novo Grupo de Recursos no portal do Azure, em seguida, criar novas marcações para associar aos recursos. Neste exemplo, criaremos as seguintes marcas: Departamento, Ambiente, Proprietário, Projeto.
 
-A captura de tela abaixo do Portal do Azure mostra um exemplo de Grupo de Recursos com as marcas associadas.
+A captura de tela abaixo do portal do Azure mostra um exemplo de Grupo de Recursos com as marcações associadas.
 
-![Figura 11 - Grupo de Recursos com marcas associadas no Portal do Azure][11]
+![Figura 11 - Grupo de Recursos com as marcações associadas no portal do Azure][11]
 
 A próxima etapa é efetuar pull das informações da API de Uso para o Cloud Cruiser. No momento, a API de Uso fornece respostas em formato JSON. Veja um exemplo dos dados recuperados:
 
@@ -232,9 +232,9 @@ A melhor parte é que você só precisa passar por esse processo uma vez. Quando
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 - Planejamento de pasta de trabalho"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Relatório de exemplo para o cenário de comparação de custo de carga de trabalho"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figura 10 - Relatório com divisões usando marcas"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figura 11 - Grupo de Recursos com marcas associadas no Portal do Azure"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figura 11 - Grupo de Recursos com as marcações associadas no portal do Azure"
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 - Dados da API de Uso importados para a planilha UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Criar novos campos para as informações de marcas"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Preenchendo a estrutura da conta com as informações das pesquisas"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

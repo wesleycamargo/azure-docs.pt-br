@@ -19,6 +19,9 @@
 # Configuração avançada do SDK do Azure Mobile Engagement para Android
 
 > [AZURE.SELECTOR]
+- [Universal do Windows](mobile-engagement-windows-store-advanced-configuration.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-logging.md)
 
 Este procedimento descreve como definir várias opções de configuração para aplicativos Azure Mobile Engagement do Android.
@@ -28,9 +31,9 @@ Este procedimento descreve como definir várias opções de configuração para 
 [AZURE.INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## Requisitos de permissão
-Um número de opções exigem permissões específicas, que estão relacionadas aqui para referência, bem como alinhadas com o recurso específico. Adicionar essas permissões ao AndroidManifest.xml do projeto imediatamente anteriores ou posteriores à marcação `<application>`.
+Algumas opções exigem permissões específicas, todas relacionadas aqui para referência, e alinhadas ao recurso específico. Adicionar essas permissões ao AndroidManifest.xml do projeto imediatamente anteriores ou posteriores à marcação `<application>`.
 
-O código de permissão deve se parecer com o código a seguir, no qual você preenche a permissão apropriada da tabela abaixo.
+O código de permissão deve se parecer com o código a seguir, no qual você preenche a permissão apropriada da tabela a seguir.
 
 	<uses-permission android:name="android.permission.[specific permission]"/>
 
@@ -40,7 +43,7 @@ O código de permissão deve se parecer com o código a seguir, no qual você pr
 | INTERNET | Obrigatório. Para relatório básico |
 | ACCESS\_NETWORK\_STATE | Obrigatório. Para relatório básico |
 | RECEIVE\_BOOT\_COMPLETED | Obrigatório. Para mostrar o centro de notificações após a reinicialização do dispositivo |
-| WAKE\_LOCK | Altamente recomendável. Habilita a coleta de dados ao usar Wi-Fi ou quando a tela estiver desligada |
+| WAKE\_LOCK | Recomendável. Habilita a coleta de dados ao usar Wi-Fi ou quando a tela estiver desligada |
 | VIBRATE | Opcional. Habilita a vibração após o recebimento de notificações |
 | DOWNLOAD\_WITHOUT\_NOTIFICATION | Opcional. Habilita a notificação de visão geral do Android |
 | WRITE\_EXTERNAL\_STORAGE | Opcional. Habilita a notificação de visão geral do Android |
@@ -55,21 +58,21 @@ Se você já estiver usando o ``ACCESS_FINE_LOCATION``, não precisará usar o `
 
 ### Relatório de falha
 
-Se você deseja desabilitar relatórios de falha, adicione (entre as marcas `<application>` e `</application>`):
+Para desabilitar relatórios de falha, adicione este código entre as marcas `<application>` e `</application>`:
 
 	<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
 ### Limite de intermitência
 
-Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de intermitência"). Para fazer isso, adicione este código entre as marcações `<application>` e `</application>`:
+Por padrão, o serviço Engagement reporta logs em tempo real. Se os logs de relatório de seu aplicativo variam com muita frequência, convém armazená-los em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de disparo contínuo"). Para fazer isso, adicione este código entre as marcas `<application>` e `</application>`:
 
 	<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
-O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s).
+O modo de disparo contínuo aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). O limite de disparo contínuo não deve ser maior do que 30.000 (30 s).
 
 ### Tempo limite da sessão
 
-Por padrão, uma sessão é encerrada 10s após o término de sua última atividade (que geralmente ocorre pressionando a tecla Página Inicial ou Voltar, definindo o telefone como ocioso ou indo diretamente para outro aplicativo). Isso é para evitar uma divisão de sessão cada vez que o usuário sair e retornar para o aplicativo rapidamente (o que pode acontecer quando ele pegar uma imagem, verificar uma notificação, etc.). Convém modificar esse parâmetro. Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
+ Você pode finalizar uma atividade pressionando a tecla **Home** ou **Voltar**, definindo o telefone como ocioso ou acessando diretamente outro aplicativo. Por padrão, uma sessão será encerrada dez segundos após o término de sua última atividade. Isso serve para evitar uma divisão de sessão sempre que o usuário sair e retornar ao aplicativo rapidamente, o que pode acontecer quando ele pegar uma imagem, verificar uma notificação etc. Convém modificar esse parâmetro. Para fazer isso, adicione este código entre as marcas `<application>` e `</application>`:
 
 	<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
@@ -83,7 +86,7 @@ Se desejar que o Engagement pare de enviar logs, você pode chamar:
 
 Essa chamada é persistente: ela utiliza um arquivo de preferências compartilhado.
 
-Se o Engagement está ativo quando você chama essa função, pode levar um minuto para parar o serviço. No entanto, ele nem sequer abrirá o serviço na próxima vez que você iniciar o aplicativo.
+Se o Engagement estiver ativo quando você chamar essa função, a parada do serviço poderá demorar um minuto. No entanto, ele nem sequer abrirá o serviço na próxima vez que você iniciar o aplicativo.
 
 Você pode habilitar o log de relatórios novamente chamando a mesma função com `true`.
 
@@ -94,7 +97,7 @@ Em vez de chamar essa função, você também pode integrar esta configuração 
 Você pode configurar o Engagement para usar o arquivo de preferências (com o modo desejado) no arquivo `AndroidManifest.xml` com `application meta-data`:
 
 -   A chave `engagement:agent:settings:name` é usada para definir o nome do arquivo de preferências compartilhado.
--   A chave `engagement:agent:settings:mode` é usada para definir o modo do arquivo de preferências compartilhado. Você deve usar o mesmo modo que em seu `PreferenceActivity`. O modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total.
+-   A chave `engagement:agent:settings:mode` é usada para definir o modo do arquivo de preferências compartilhado. Use o mesmo modo que em seu `PreferenceActivity`. O modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total.
 
 O Engagement sempre usa a chave booliana `engagement:key` dentro do arquivo de preferências para gerenciar esta configuração.
 
@@ -118,4 +121,4 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 	  android:summaryOn="Engagement is enabled."
 	  android:summaryOff="Engagement is disabled." />
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

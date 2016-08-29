@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/27/2016"
+ ms.date="08/16/2016"
  ms.author="larryfr"/>
 
 # Usar o Power BI para visualizar dados de uma topologia do Apache Storm
@@ -146,7 +146,7 @@ A topologia continuará sendo executado até você pará-la ou excluir o Storm n
 
 2. Selecione o botão **Eliminar** para interromper a topologia.
 
-    ![Botão Eliminar no resumo de topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)
+    ![Botão Eliminar no resumo da topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## Excluir o cluster
 
@@ -158,4 +158,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia do Storm para
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

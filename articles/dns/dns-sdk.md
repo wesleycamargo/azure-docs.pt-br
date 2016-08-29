@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,7 +25,7 @@ Você pode automatizar operações para criar, excluir ou atualizar zonas DNS, c
 
 Para usar o cliente DNS, você precisará instalar o pacote NuGet **Biblioteca de gerenciamento do DNS do Azure** e adicionar os namespaces de gerenciamento do DNS a seu projeto.
  
-1. No **Visual Studio**, abra um projeto ou um novo projeto. 
+1. No **Visual Studio**, abra um projeto ou um novo projeto.
 
 2. Vá para **Ferramentas** **>** **Gerenciador de Pacotes do NuGet** **>** **Console do Gerenciador de Pacotes**.
 
@@ -113,4 +113,4 @@ O exemplo a seguir mostra como obter uma lista de zonas DNS e conjuntos de regis
 
 [Projeto de exemplo do Visual Studio SDK](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

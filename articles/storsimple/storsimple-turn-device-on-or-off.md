@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Ativar e desativar o dispositivo StorSimple 
@@ -241,4 +241,4 @@ Você pode se conectar ao Windows PowerShell para StorSimple por meio do console
 
 [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

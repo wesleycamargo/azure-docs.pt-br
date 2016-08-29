@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Validar o VNET do Azure para usar com o RemoteApp do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Antes de usar um VNET do Azure com o RemoteApp do Azure, é recomendado validar o VNET. Isso ajuda a evitar problemas com conectividade.
 
@@ -37,4 +40,4 @@ Para obter mais informações sobre o fluxo de trabalho de coleção híbrido de
 - [Criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md)
 - [Implantar a coleção do RemoteApp do Azure à sua Rede Virtual do Azure (com suporte para Rota Expressa)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -31,6 +31,12 @@ Além do Gateway de Gerenciamento de Dados, você também precisa instalar o dri
 
 > [AZURE.NOTE] Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
+## Assistente de cópia de dados
+A maneira mais fácil de criar um pipeline que copia dados de uma fonte ODBC é usar o Assistente para cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+
+Os exemplos a seguir fornecem as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de uma fonte ODBC para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+
+
 ## Exemplo: Copiar dados do armazenamento de dados ODBC para o Blob do Azure
 
 Este exemplo mostra como copiar dados de um repositório de dados ODBC para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
@@ -40,12 +46,12 @@ O exemplo tem as seguintes entidades de data factory:
 1.	Um serviço vinculado do tipo [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](#odbc-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](#odbc-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de um resultado de consulta em um armazenamento de dados ODBC para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Serviço vinculado a ODBC** Esse exemplo usa a autenticação Básica. Veja a seção [Serviço vinculado a ODBC](#odbc-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
@@ -305,7 +311,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
 
-No caso da Atividade de Cópia, quando a fonte é do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estão disponíveis na seção typeProperties:
+No caso da Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
@@ -346,7 +352,7 @@ Você cria um serviço vinculado de ODBC para vincular um armazenamento de dados
 	    }
 	}
 
-É necessário instalar o Gateway de Gerenciamento de Dados em um computador local e registrar o gateway no portal. O gateway instalado no computador local usa o driver ODBC para GE Historian para se conectar ao armazenamento de dados GE Historian, portanto instale o driver, se ele já não estiver instalado no computador do gateway. Consulte a seção [Habilitando a conectividade](#enabling-connectivity) para obter detalhes.
+É necessário instalar o Gateway de Gerenciamento de Dados em um computador local e registrar o gateway no portal. O gateway instalado no computador local usa o driver ODBC para GE Historian para se conectar ao armazenamento de dados GE Historian, portanto instale o driver, se ele já não estiver instalado no computador do gateway. Veja a seção [Habilitando a conectividade](#enabling-connectivity) para obter detalhes.
 
 Antes de usar o repositório GE Historian em uma solução de Data Factory, verifique se o gateway pode se conectar ao armazenamento de dados usando instruções na próxima seção.
 
@@ -366,6 +372,6 @@ Use a guia **Diagnósticos** do **Gerenciador de Configuração de Gateway de Ge
 5. Clique em **Testar Conexão** para testar a conexão com o armazenamento de dados.
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

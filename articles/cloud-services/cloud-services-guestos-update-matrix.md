@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
    ms.date="07/13/2016"
-   ms.author="yuemlu"/>
+   ms.author="raiye"/>
 
 # Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações o ajudarão a planejar seu caminho de atualização antes de um SO convidado ser desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][], não é essencial ler esta página.
@@ -28,6 +28,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## Notícias atualizadas
+###### **9 de agosto de 2016**
+A distribuição do SO convidado de agosto está começando em 9 de agosto de 2016 e deve ser lançada em 8 de setembro de 2016.
+
 ###### **13 de julho de 2016**
 A distribuição do SO Convidado de julho começa em 13 de julho de 2016 e está planejado para ser lançado em 12 de agosto de 2016.
 
@@ -63,9 +66,10 @@ O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para i
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.34\_201607-01 | 12 de agosto de 2016* | Post 4.36 | TBD |
+| WA-GUEST-OS-4.35\_201608-01 | 8 de setembro de 2016* | Post 4.37 | TBD |
+| WA-GUEST-OS-4.34\_201607-01 | 8 de agosto de 2016 | Post 4.36 | TBD |
 | WA-GUEST-OS-4.33\_201606-01 | 13 de julho de 2016 | Post 4.35 | TBD |
-| WA-GUEST-OS-4.32\_201605-01 | 10 de junho de 2016 | Post 4.34 | TBD |
+| WA-GUEST-OS-4.32\_201605-01 | 10 de junho de 2016 | 8 de setembro de 2016 | TBD |
 | WA-GUEST-OS-4.31\_201604-01 | 2 de maio de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | 10 de julho de 2016 | TBD |
 | WA-GUEST-OS-4.29\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
@@ -91,9 +95,10 @@ O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para i
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.41\_201607-01 | 12 de agosto de 2016* | Post 3.43 | TBD |
+| WA-GUEST-OS-3.42\_201608-01 | 8 de setembro de 2016* | Post 3.44 | TBD |
+| WA-GUEST-OS-3.41\_201607-01 | 8 de agosto de 2016 | Post 3.43 | TBD |
 | WA-GUEST-OS-3.40\_201606-01 | 13 de julho de 2016 | Post 3.42 | TBD |
-| WA-GUEST-OS-3.39\_201605-01 | 10 de junho de 2016 | Post 3.41 | TBD |
+| WA-GUEST-OS-3.39\_201605-01 | 10 de junho de 2016 | 8 de setembro de 2016 | TBD |
 | WA-GUEST-OS-3.38\_201604-01 | 2 de maio de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | 10 de julho de 2016 | TBD |
 | WA-GUEST-OS-3.36\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
@@ -120,9 +125,10 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.53\_201607-01 | 12 de agosto de 2016* | Post 2.55 | TBD |
+| WA-GUEST-OS-2.54\_201608-01 | 8 de setembro de 2016* | Post 2.56 | TBD |
+| WA-GUEST-OS-2.53\_201607-01 | 8 de agosto de 2016 | Post 2.55 | TBD |
 | WA-GUEST-OS-2.52\_201606-01 | 13 de julho de 2016 | Post 2.54 | TBD |
-| WA-GUEST-OS-2.51\_201605-01 | 10 de junho de 2016 | Post 2.53 | TBD |
+| WA-GUEST-OS-2.51\_201605-01 | 10 de junho de 2016 | 8 de setembro de 2016 | TBD |
 | WA-GUEST-OS-2.50\_201604-01 | 2 de maio de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | 10 de julho de 2016 | TBD |
 | WA-GUEST-OS-2.48\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
@@ -143,7 +149,7 @@ A lista de correções incluídas em cada lançamento mensal de SO convidado est
 
 ## Suporte a SDK
 
-Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, famílias de SO Convidado específicas permitem que você use versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
+Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO Convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
 
 | Família do SO convidado | Versões compatíveis do SDK |
 | --------------- | ----------------------- |
@@ -153,22 +159,22 @@ Embora a [política de desativação do SDK do Azure][retire policy sdk] indique
 | 1 | Versão 1.0+ |
 
 ## Informações de versão do SO convidado
-Existem três datas que são importantes para as versões de SO Convidado: data de **lançamento**, data de **desabilitação** e data de **validade**. Um SO convidado será considerado disponível quando estiver no Portal e puder ser selecionado como o SO convidado de destino. Quando um SO Convidado chegar à data de **desabilitação**, ele será removido do Azure. No entanto, qualquer Serviço de nuvem que tiver o SO convidado como algo ainda funcionará normalmente.
+Existem três datas que são importantes para as versões de SO Convidado: data de **lançamento**, data de **desabilitação** e data de **validade**. Um SO convidado será considerado disponível quando estiver no Portal e puder ser selecionado como o SO convidado de destino. Quando um SO Convidado chega à data de **desabilitação**, ele é removido do Azure. No entanto, qualquer Serviço de nuvem que tiver o SO convidado como algo ainda funcionará normalmente.
 
-A janela entre a data de **desabilitação** e a de **validade** fornecem um intervalo para que você faça a transição facilmente de um SO Convidado para uma mais recente. Se estiver usando *automático* como o SO Convidado, você sempre estará na versão mais recente e não precisará se preocupar com sua validade.
+A janela entre a data de **desabilitação** e a de **validade** fornece um intervalo para que você faça a transição facilmente de um SO Convidado para um mais recente. Se você estiver usando *automático* como o SO Convidado, sempre estará na versão mais recente e não precisará se preocupar com sua validade.
 
-Quando a data de **validade** passar, qualquer Serviço de Nuvem que usar o SO Convidado será interrompido, excluído ou forçado a atualizar. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
+Quando a data de **validade** vence, qualquer Serviço de Nuvem ainda usando o SO Convidado será interrompido, excluído ou forçado a atualizar. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
 
 ## Família do SO convidado, explicação de versão
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os serviços de nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
-- **Família do SO Convidado** Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
+- **Família de SO Convidado** Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 
-- **Versão do SO Convidado** Específica da imagem de uma família de SO Convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO Convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
+- **Versão do SO Convidado** Específica da imagem da família de SO Convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO Convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 
-- **Versão do SO convidado** Um relançamento de uma versão de SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+- **Versão do SO convidado** Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 
@@ -214,4 +220,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

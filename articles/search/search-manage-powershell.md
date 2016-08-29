@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Gerencie o serviço de Pesquisa do Azure com o PowerShell
@@ -129,9 +129,9 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 	
 Agora que o serviço foi criado, é possível executar as próximas etapas: compilar um [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md) e, por fim, criar e gerenciar seu próprio aplicativo de pesquisa que usa a Pesquisa do Azure.
 
-- [Criar um índice de Pesquisa do Azure no Portal do Azure](search-create-index-portal.md)
+- [Criar um índice de Pesquisa do Azure no portal do Azure](search-create-index-portal.md)
 
-- [Consultar um índice de Pesquisa do Azure usando o Gerenciador de Pesquisa no Portal do Azure](search-explorer.md)
+- [Consultar um índice da Pesquisa do Azure usando o Gerenciador de Pesquisa no portal do Azure](search-explorer.md)
 
 - [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
 
@@ -139,4 +139,4 @@ Agora que o serviço foi criado, é possível executar as próximas etapas: comp
 
 - [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

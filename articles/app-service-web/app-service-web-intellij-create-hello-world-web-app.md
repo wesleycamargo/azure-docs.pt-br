@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Criar um aplicativo Web Hello World para o Azure no IntelliJ
@@ -98,15 +98,15 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. No menu suspenso **Contêiner da Web**, selecione o software apropriado ao seu aplicativo.
 
-        No momento, você pode escolher entre o Tomcat 8, Tomcat 7 ou Jetty 9. Uma distribuição recente do software selecionado será fornecida pelo Azure e ele será executado em uma distribuição recente do JDK 8 criado pela Oracle e fornecido pelo Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
   1. No menu suspenso **Assinatura**, selecione a assinatura que deseja usar para essa implantação.
 
   1. No menu suspenso **Grupo de Recursos**, selecione o Grupo de Recursos com o qual deseja associar seu Aplicativo Web.
 
-        Observação: os Grupos de Recursos do Azure lhe permitem agrupar recursos relacionados para que, por exemplo, possam ser excluídos juntos.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        Você pode selecionar um Grupo de Recursos existente (se houver) e ignorar a etapa g abaixo ou usar as seguintes etapas para criar um novo Grupo de Recursos:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
       * Clique em **Novo...**
 
@@ -122,9 +122,9 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. O menu suspenso **Plano do Serviço de Aplicativo** lista os planos do serviço de aplicativo associados ao Grupo de Recursos selecionado.
 
-        Observação: um Plano do Serviço de Aplicativo especifica informações como o local de seu Aplicativo Web, o tipo de preço e o tamanho da instância de computação. Um único Plano do Serviço de Aplicativo pode ser usado para vários Aplicativos Web, por isso, ele é mantido separadamente de uma implantação de Aplicativo Web específica.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        Você pode selecionar um Plano do Serviço de Aplicativo existente (se houver) e ignorar a etapa h abaixo ou usar as seguintes etapas para criar um novo Plano do Serviço de Aplicativo:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
       * Clique em **Novo...**
 
@@ -146,7 +146,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. Clique em **OK** para concluir a criação do novo contêiner do Aplicativo Web.
 
-        Aguarde alguns segundos para a lista de contêineres de Aplicativo Web ser atualizada. O contêiner do aplicativo Web recém-criado agora deve ser selecionado na lista.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. Agora você está pronto para concluir a implantação inicial do seu aplicativo Web no Azure. Clique em **OK** para implantar seu aplicativo Java no contêiner do aplicativo Web selecionado.
 
@@ -268,4 +268,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

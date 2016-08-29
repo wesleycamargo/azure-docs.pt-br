@@ -23,8 +23,10 @@ description="Saiba como gerar e usar chaves SSH em um computador Windows para se
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
+
 Este tópico descreve como criar e usar arquivos de chave pública e privada com formato **ssh-rsa** e **.pem** no Windows, que você pode usar para se conectar a suas VMs Linux no Azure com o comando **ssh**. Se já tiver arquivos **.pem** criados, você pode usá-los para criar VMs Linux às quais pode se conectar usando **ssh**. Vários outros comandos usam o protocolo **SSH** e arquivos de chave para realizar o trabalho com segurança, especialmente **scp** ou [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), que podem copiar com segurança os arquivos entre computadores que dão suporte a conexões **SSH**.
 
+> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
 
 ## De quais programas de criação de chave e SSH você precisa?
 
@@ -58,7 +60,7 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 
 ###Usar Git para Windows###
 
-1.	Baixe e instale o Git para Windows no seguinte local: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+1.	Baixe e instale o Git para Windows na seguinte localização: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
 2.	Execute o Git Bash do Menu Iniciar > Todos os Aplicativos > Git Shell
 
 > [AZURE.NOTE] É possível encontrar o seguinte erro ao executar os comandos `openssl` acima:
@@ -166,4 +168,4 @@ A maneira mais fácil de resolver esse problema é definir a variável de ambien
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

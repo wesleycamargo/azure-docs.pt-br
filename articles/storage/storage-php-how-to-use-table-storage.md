@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Como usar o armazenamento de tabela do PHP
 
-[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Visão geral
 
@@ -41,14 +41,14 @@ Neste guia, você usa os recursos de serviço Tabela que podem ser chamados de d
 
 ## Configurar seu aplicativo para acessar o serviço de Tabela
 
-Para usar as APIs do serviço de Tabela do Azure, você precisa:
+Para usar as APIs do serviço Tabela do Azure, você precisa:
 
 1. Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require_once], e
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [AZURE.NOTE] Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você tiver instalado as bibliotecas manualmente, precisará fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code>.
+> [AZURE.NOTE] Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se tiver instalado as bibliotecas manualmente, você precisará fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code>.
 
 	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -87,7 +87,7 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
 ## Criar uma tabela
 
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, consulte [Definindo Tempos Limite para Operações de Serviço Tabela][table-service-timeouts].)
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, confira [Setting Timeouts for Table Service Operations][table-service-timeouts] (Definindo tempos limite para operações do serviço Tabela.))
 
 	require_once 'vendor\autoload.php';
 
@@ -109,7 +109,7 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-Para obter informações sobre restrições em nomes de tabelas, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela][table-data-model].
+Para obter informações sobre restrições em nomes de tabelas, confira [Understanding the Table Service Data Model][table-data-model] (Noções básicas sobre o modelo de dados do serviço Tabela).
 
 ## Adicionar uma entidade a uma tabela
 
@@ -250,7 +250,7 @@ As consultas de entidades são construídas usando filtros (para obter mais info
 
 ## Recuperar um subconjunto de entidades em uma partição
 
-O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recupera é determinado pelo filtro usado (para obter mais informações, consulte [Consultando Tabelas e Entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e um `DueDate` menor do que uma data especificada.
+O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recupera é determinado pelo filtro usado (para obter mais informações, confira [Consultando tabelas e entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e um `DueDate` menor do que uma data especificada.
 
 	require_once 'vendor/autoload.php';
 
@@ -478,4 +478,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

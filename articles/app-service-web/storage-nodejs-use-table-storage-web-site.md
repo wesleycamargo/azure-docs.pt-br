@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Aplicativo Web Node.js com o Serviço Tabela do Azure
@@ -68,7 +68,7 @@ Crie uma conta de armazenamento do Azure. O aplicativo usará essa conta para ar
 
 ##Instalar módulos e gerar scaffolding
 
-Nesta seção você criará um novo aplicativo de nó e usará o npm para adicionar pacotes de módulo. Para este aplicativo, você usará os módulos [Express] e [Azure]. O módulo Express fornece uma estrutura de Controlador da Exibição do Modelo para o nó, enquanto que os módulos do Azure fornecem a conectividade ao serviço Tabela.
+Nesta seção você criará um novo aplicativo de nó e usará o npm para adicionar pacotes de módulo. Para este aplicativo, você usará os módulos [Express] e [Azure]. O módulo Express fornece uma estrutura de Controlador da Exibição do Modelo para o nó, enquanto que os módulos do Azure fornecem a conectividade ao serviço de Tabela.
 
 ### Instalar o express e gerar scaffolding
 
@@ -545,7 +545,7 @@ Nesta etapa, você irá adicionar variáveis de ambiente à configuração do ap
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua **<chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
+Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua ** <chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
 
 Como alternativa, você pode definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com/):
 
@@ -637,4 +637,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

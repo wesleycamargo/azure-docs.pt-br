@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
@@ -101,7 +101,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 
 9. Clique em **Propriedades**. Na caixa de diálogo **Propriedades**, clique em **Adicionar Sessão**.
 10. Na caixa de diálogo **Conectar ao Destino**, marque a caixa de seleção **Habilitar vários caminhos**. Clique em **Avançado**.
-11. Na caixa de diálogo **Configurações Avançadas**:										
+11. Na caixa de diálogo **Configurações Avançadas**:
 	-  Na lista suspensa **Adaptador local**, selecione o Iniciador do Microsoft iSCSI.
 	-  Na lista suspensa **IP do Iniciador**, selecione o endereço IP correspondente do host. Neste caso, você está conectando duas interfaces de rede no dispositivo a uma interface de rede no host. Portanto, essa interface é igual à fornecida para a primeira sessão.
 	-  Na lista suspensa **IP do Portal de Destino**, selecione o endereço IP para a segunda interface de dados habilitada no dispositivo.
@@ -173,4 +173,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 Saiba mais sobre [usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

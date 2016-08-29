@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o Armazenamento de Tabela do Java | Microsoft Azure"
-	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um armazenamento de dados NoSQL."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Como usar o Armazenamento de Tabela do Java
 
-[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Visão geral
 
@@ -35,7 +35,7 @@ Observação: um SDK está disponível para os desenvolvedores que usam o Armaze
 
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para isso, você vai precisar instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## Configurar seu aplicativo para acessar o armazenamento de tabelas
 
@@ -232,7 +232,7 @@ Algumas outras observações sobre as operações em lote:
 
 ## Como recuperar todas as entidades em uma partição
 
-Para consultar uma tabela de todas as entidades em uma partição, use **TableQuery**. Chame **TableQuery.from** para criar uma consulta em uma determinada tabela que retorna um tipo de resultado especificado. O código a seguir especifica um filtro para as entidades em que 'Smith’ é a chave de partição. **TableQuery.generateFilterCondition** é um método auxiliar para criar filtros para consultas. Chame **where** na referência retornada pelo método **TableQuery.from** para aplicar o filtro à consulta. Quando a chamada é executada com uma chamada para **execute** no objeto **CloudTable**, ela retorna um **Iterator** com o tipo de resultado **CustomerEntity** especificado. Com isso, você pode usar o **Iterator** retornado em cada loop para consumir os resultados. Esse código imprime os campos de cada entidade nos resultados da consulta no console.
+Para consultar uma tabela de todas as entidades em uma partição, use **TableQuery**. Chame **TableQuery.from** para criar uma consulta em uma determinada tabela que retorna um tipo de resultado especificado. O código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. **TableQuery.generateFilterCondition** é um método auxiliar para criar filtros para consultas. Chame **where** na referência retornada pelo método **TableQuery.from** para aplicar o filtro à consulta. Quando a chamada é executada com uma chamada para **execute** no objeto **CloudTable**, ela retorna um **Iterator** com o tipo de resultado **CustomerEntity** especificado. Com isso, você pode usar o **Iterator** retornado em cada loop para consumir os resultados. Esse código imprime os campos de cada entidade nos resultados da consulta no console.
 
     try
     {
@@ -413,7 +413,7 @@ Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de e
 
 ## Como: consultar um subconjunto de propriedades de entidade
 
-Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir usa o método **select** para retornar apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados em um coleção de **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo nas entidades retornadas do servidor. Você pode aprender mais sobre projeção em [Tabelas do Azure: Introdução ao inserir e projeção de consulta][]. Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela.
+Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir usa o método **select** para retornar apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados em um coleção de **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo nas entidades retornadas do servidor. Saiba mais sobre projeção em [Azure Tables: Introducing Upsert and Query Projection][] (Tabelas do Azure: apresentando a projeção de upsert e de consulta). Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela.
 
     try
     {
@@ -454,7 +454,7 @@ Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma enti
 
 ## Como: inserir ou substituir uma entidade
 
-Em geral, você deseja adicionar uma entidade a uma tabela sem saber se ela já existe na tabela. Uma operação de inserção ou substituição permite que você faça uma única solicitação para inserir a entidade, se ela não existir, ou para substituir a entidade existente, se ela existir. Com base nos exemplos anteriores, o código a seguir insere ou substitui a entidade para "Walter Harp". Depois de criar uma nova entidade, esse código chamará o método **TableOperation.insertOrReplace**. Em seguida, esse código chamará **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar somente parte de uma entidade, o método **TableOperation.insertOrMerge** pode ser usado em vez disso. Observe que inserir ou substituir não tem suporte com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela. Você pode aprender mais sobre inserção ou substituição e inserção ou mesclagem nestas [Tabelas do Azure: Introdução ao inserir e projeção de consulta][].
+Em geral, você deseja adicionar uma entidade a uma tabela sem saber se ela já existe na tabela. Uma operação de inserção ou substituição permite que você faça uma única solicitação para inserir a entidade, se ela não existir, ou para substituir a entidade existente, se ela existir. Com base nos exemplos anteriores, o código a seguir insere ou substitui a entidade para "Walter Harp". Depois de criar uma nova entidade, esse código chamará o método **TableOperation.insertOrReplace**. Em seguida, esse código chamará **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar somente parte de uma entidade, o método **TableOperation.insertOrMerge** pode ser usado em vez disso. Observe que inserir ou substituir não tem suporte com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela. Saiba mais sobre inserção ou substituição e inserção ou mesclagem em [Azure Tables: Introducing Upsert and Query Projection][] (Tabelas do Azure: apresentando a projeção de upsert e de consulta).
 
     try
     {
@@ -561,6 +561,6 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[Tabelas do Azure: Introdução ao inserir e projeção de consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

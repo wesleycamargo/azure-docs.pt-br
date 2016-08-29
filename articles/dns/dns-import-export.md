@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Importar e exportar um arquivo de zona DNS usando a CLI do Azure
@@ -95,7 +95,7 @@ Para verificar o formato de um arquivo de zona sem realmente importá-lo, use a 
 
 Para importar um arquivo de zona para a zona **contoso.com**.
 
-1. Faça logon em sua assinatura do Azure usando a CLI do Azure.
+1. Entre em sua assinatura do Azure usando a CLI do Azure.
 
 		azure login
 
@@ -177,7 +177,7 @@ Como acontece com a importação de zona, você primeiro precisa fazer logon, es
 ### Para exportar um arquivo de zona
 
 
-1. Faça logon em sua assinatura do Azure usando a CLI do Azure.
+1. Entre em sua assinatura do Azure usando a CLI do Azure.
 
 		azure login
 
@@ -193,4 +193,4 @@ Como acontece com a importação de zona, você primeiro precisa fazer logon, es
 
 		azure network dns zone export myresourcegroup contoso.com contoso.com.txt
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

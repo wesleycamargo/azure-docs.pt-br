@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="adrianha"/>
 
 # Atualizar seu Serviço Móvel do Azure Node.js para o Serviço de Aplicativo
@@ -106,7 +106,7 @@ Durante a implantação, você precisará fazer o seguinte:
  
 	Você pode selecionar outro plano de Serviço de Aplicativo ou criar um novo. Para saber mais sobre planos de Serviços de Aplicativos e como criar um novo plano em um tipo de preço e em seu local desejado, confira [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. Para o **plano do Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). As configurações de plano do Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo.
+4. Para o **plano de Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo.
 
 	Depois de decidir o plano, clique em **Criar**. Isso cria o back-end de Aplicativo Móvel.
 
@@ -191,4 +191,4 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

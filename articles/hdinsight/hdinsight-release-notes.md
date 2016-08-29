@@ -14,11 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/17/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas de versão de 17/08/2016 do R Server no HDInsight
+
+• R Server 8.0.5 – principalmente uma versão de correção de bugs. Confira as [Notas de versão do R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) para obter mais informações. • Pacote AzureML no nó de borda – [esse pacote R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) habilita os modelos R a serem publicados e consumidos como um serviço Web ML do Azure. Confira a seção ["Operacionalizar um modelo"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) do artigo ["Visão geral do R Server no HDInsight"](hdinsight-hadoop-r-server-overview.md) para obter mais informações. • Dependências do Linux dos [100 pacotes R mais populares](https://github.com/metacran/cranlogs) – essas dependências do pacote Linux agora são pré-instaladas. • Opção para usar o repositório CRAN ao adicionar pacotes R aos nós de dados. Confira a seção ["Instalar pacotes R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) do artigo ["Começar a usar o R Server no HDInsight"](hdinsight-hadoop-r-server-get-started.md) para obter mais informações. • Foi aprimorada a confiabilidade de provisionamento do R Server quando os clusters são criados.
+
 
 ## Notas da versão de 01/08/2016 do HDInsight
 
@@ -1512,8 +1517,8 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 
 **Portas:** as portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço do HDP (plataforma de dados Hortonworks) permitido está agora fora desse intervalo, para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados são conforme descrito a seguir:
 
- **HDInsight 1.6 (HDP 1.1)** <table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
+ **HDInsight 1.6 (HDP 1.1)**<table border="1">
+<tr><th>Name</th><th>Valor</th></tr>
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
 <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
@@ -1526,7 +1531,7 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 </table><br>
 
  **HDInsight 3.1 e 3.0 (HDP 2.1 e 2.0)** <table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
+<tr><th>Name</th><th>Valor</th></tr>
 <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
@@ -1637,7 +1642,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 
 
 ### Drivers
-O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correções de bug
@@ -1679,4 +1684,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

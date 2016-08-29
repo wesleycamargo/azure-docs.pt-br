@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configurando credenciais de autenticação nomeadas | Microsoft Azure"
-   description="Saiba como fornecer credenciais que o Visual Studio pode usar para autenticar solicitações no Azure para publicar um aplicativo no Azure do Visual Studio ou para monitorar um serviço de nuvem existente."
+   description="Saiba como fornecer credenciais que o Visual Studio pode usar para autenticar solicitações no Azure para publicar um aplicativo no Azure do Visual Studio ou para monitorar um serviço de nuvem existente. "
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configurando credenciais de autenticação nomeadas
@@ -71,4 +71,4 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
 
     1. Cole o caminho completo do arquivo .cer que você acabou de criar e, em seguida, digite a senha que especificou.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

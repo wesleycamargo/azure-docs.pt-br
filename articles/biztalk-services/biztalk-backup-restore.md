@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -55,9 +55,9 @@ Um backup pode ser obtido a qualquer momento e é totalmente controlado por voc�
 [Agendar um backup](#backupschedule)
 
 #### <a name="backupnow"></a>Backup sob demanda
-1. No portal clássico do Azure, selecione **Serviços BizTalk** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
+1. No portal clássico do Azure, selecione **Serviços BizTalk ** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
 2. Na guia **Painel**, selecione **Backup** na parte inferior da página.
-3. Insira um nome de backup. Por exemplo, insira *meuServiçoBizTalk*BU*Data*.
+3. Insira um nome de backup. Por exemplo, insira *myBizTalkService*BU*Data*.
 4. Escolha uma conta de armazenamento de blob e selecione a marca de seleção para iniciar o backup.
 
 Quando o backup for concluído, um contêiner com o nome do backup inserido será criado na conta de armazenamento. Esse contêiner contém a configuração de backup do Serviço do BizTalk.
@@ -65,7 +65,7 @@ Quando o backup for concluído, um contêiner com o nome do backup inserido ser�
 #### <a name="backupschedule"></a>Agendar um backup
 
 1. No portal clássico do Azure, selecione **Serviços BizTalk**, selecione o nome do Serviço BizTalk do qual você deseja fazer backup e, em seguida, selecione a guia **Configurar**.
-2. Defina o **Status de Backup** para **Automático**. 
+2. Defina o **Status de Backup** para **Automático**.
 3. Selecione a **Conta de Armazenamento** para armazenar o backup, insira a **Frequência** para criar o backup, e quanto tempo manter os backups (**Dias de retenção**):
 
 	![][AutomaticBU]
@@ -235,4 +235,4 @@ Para criar os Serviços BizTalk do Azure no portal clássico do Azure, confira [
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

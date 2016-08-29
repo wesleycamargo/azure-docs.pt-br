@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Instalar o Endpoint Protection na Central de Segurança do Azure
@@ -32,11 +32,11 @@ A Central de Segurança do Azure recomendará que você provisione um programa a
 
 4. Informações adicionais sobre a solução antimalware são exibidas. Selecione **Criar**. ![Criar solução antimalware][4]
 
-5. Insira as configurações necessárias na folha **Adicionar Extensão** e selecione **OK**. Para saber mais sobre as definições de configuração, confira [Configuração de Antimalware personalizada e padrão](../azure-security-antimalware.md#default-and-custom-antimalware-configuration).
+5. Insira as configurações necessárias na folha **Adicionar Extensão** e selecione **OK**. Para saber mais sobre as definições de configuração, veja [Configuração personalizada e padrão de antimalware](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 O [Antimalware da Microsoft](../azure-security-antimalware.md) agora está ativo na VM selecionada.
 
-## Consulte também
+## Confira também
 
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Instalar Endpoint Protection". Para saber mais sobre como habilitar um programa antimalware no Azure, consulte o seguinte:
 
@@ -58,4 +58,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

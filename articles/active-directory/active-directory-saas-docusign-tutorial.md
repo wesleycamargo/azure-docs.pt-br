@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,16 +93,16 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 3. Na página **Definir Configurações do Aplicativo**, execute as seguintes etapas:
 
-	![Configurando o logon único][9]
+	![Configurando o logon único][61]
 
-	a. Na caixa de texto **URL de Logon**, digite a URL de seu locatário Docusign usando o seguinte padrão: para o ambiente de produção, a URL padrão será de **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"** Para o ambiente de demonstração, a URL padrão será **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"**
+	a. Na caixa de texto **URL de Entrada**, digite `https://account.docusign.com/*`.
 
-	b. Na caixa de texto **Identificador**, digite a URL do Emissor Docusign usando o seguinte padrão: para o ambiente de produção, a URL padrão será **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2"** Para ambiente de demonstração, a URL padrão será **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2"**
+	b. Na caixa de texto **Identificador**, digite `https://account.docusign.com/*`.
+   
+	c. Clique em **Avançar**.
 
-	c. Clique em **Próximo**.
 
-
-    > [AZURE.TIP] Se você não souber qual é a URL do aplicativo para o seu locatário, tente entrar em contato com a Docusign via [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com) para obter a URL de SSO iniciada no SP para o seu locatário.
+    > [AZURE.TIP] A URL de Logon e os valores de identificador são apenas espaços reservados. Instruções sobre como recuperar os valores reais para seu ambiente são abordadas mais adiante neste tópico.
  
 
 4. Na página **Configurar logon único no Docusign**, clique em **Baixar certificado** e salve o arquivo de certificado localmente em seu computador.
@@ -113,71 +113,81 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 5. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do **portal de administração do DocuSign** como administrador.
 
 
-6. No menu de navegação esquerdo, clique em **Domínios**
+6. No menu de navegação à esquerda, clique em **Domínios**.
 
 	![Configurando o logon único][51]
 
-7. No painel direito, clique agora no botão **SOLICITAR DOMÍNIO**.
+7. No painel direito, clique em **Solicitar Domínio**.
 
 	![Configurando o logon único][52]
 
-8. Na janela pop-up, insira o nome de domínio da empresa e clique em solicitar. Verifique o domínio e confira se ele mostra o status como ativo.
+8. Na caixa de diálogo **Solicitar um domínio**, na caixa de texto **Nome de Domínio**, digite o domínio de sua empresa e clique em **Solicitar**. Verifique o domínio e confira se o status está ativo.
 
 	![Configurando o logon único][53]
 
-9. No menu de navegação esquerdo, clique em **Provedores de Identidade**
+9. No menu à esquerda, clique em **Provedores de Identidade**
 
 	![Configurando o logon único][54]
 
-10. No painel direito, clique no botão "ADICIONAR PROVEDOR DE IDENTIDADE". Isso abrirá a página de Configurações de SSO.
+10. No painel direito, clique em **Adicionar Provedor de Identidade**.
 	
 	![Configurando o logon único][55]
 
-11. Na página Configurações do Provedor de Identidade, execute as ações a seguir.
-
-	a. Forneça o nome exclusivo para sua configuração. Não use espaços entre as palavras.
-
-	b. Na caixa de texto **Emissor do Provedor de Identidade**, insira o valor de **URL do Emissor** do assistente de configuração de aplicativo do Azure AD.
-
-	c. Na caixa de texto **URL de Logon do Provedor de Identidade**, insira o valor de **URL de Logon Remoto** do assistente de configuração de aplicativo do Azure AD.
-
-	d. Na caixa de texto **URL de Logoff do Provedor de Identidade**, insira o valor de **URL de Logoff Remoto** do assistente de configuração de aplicativo do Azure AD.
-
-	e. Marque a caixa de seleção **Assinar Solicitação AuthN**.
-
-	f. Verifique se a opção **Enviar solicitação AuthN por:** está definida como **POST**
-
-	g. Verifique se a opção **Enviar solicitação de logoff por:** está definida como **POST**
+11. Na página **Configurações do Provedor de Identidade**, execute as seguintes etapas:
 
 	![Configurando o logon único][56]
 
-12. Na seção **Mapeamento de Atributo Personalizado**, escolha o campo que você deseja mapear com a Declaração do Azure AD. Por exemplo, usamos a declaração **emailaddress** mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Esse é o nome de declaração padrão do Azure AD para a declaração de email.
 
-	> [AZURE.NOTE] Use o identificador de Usuário apropriado para mapear o usuário do Azure AD para o mapeamento de usuário do Docusign. Selecione o campo adequado e insira o valor apropriado com base nas configurações de sua organização.
+	a. Na caixa de texto **Nome**, digite um nome exclusivo para sua configuração. Não use espaços.
+
+	b. No portal clássico do Azure, copie a URL do Emissor e cole-a na caixa de texto **URL do Provedor de Identidade**.
+
+	c. No portal clássico do Azure, copie a **URL de Logon Remoto** e cole-a na caixa de texto **URL de Logon do Provedor de Identidade**.
+
+	d. No portal clássico do Azure, copie a **URL de Logoff Remoto** e cole-a na caixa de texto **URL de Logoff de Provedor de Identidade**.
+
+	e. Selecione **Assinar Solicitação AuthN**.
+
+	f. Para **Enviar solicitação AuthN por**, selecione **POST**.
+
+	g. Para **Enviar solicitação de logoff por**, selecione **POST**.
+
+
+12. Na seção **Mapeamento de Atributo Personalizado**, escolha o campo que você deseja mapear com a Declaração do Azure AD. Neste exemplo, a declaração **emailaddress** é mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Esse é o nome de declaração padrão do Azure AD para a declaração de email.
+
+	> [AZURE.NOTE] Use o **identificador de Usuário** apropriado para mapear o usuário do Azure AD para o mapeamento de usuário do Docusign. Selecione o campo adequado e insira o valor apropriado com base nas configurações de sua organização.
 
 	![Configurando o logon único][57]
 
-13. Na seção **Certificado do Provedor de Identidade**, clique no botão **ADICIONAR CERTIFICADO** e carregue o certificado que você baixou do assistente de configuração de aplicativo do Azure AD.
+13. Na seção **Certificado do Provedor de Identidade**, clique em **Adicionar Certificado** e carregue o certificado que você baixou do portal clássico do Azure AD.
 
 	![Configurando o logon único][58]
 
-14. Agora, clique no botão **Salvar** para salvar todas as configurações.
+14. Clique em **Salvar**.
 
-15. Na seção **Provedores de Identidade**, clique no botão **Ações** e clique em **Pontos de Extremidade**
+15. Na seção **Provedores de Identidade**, clique em **Ações** e em **Pontos de Extremidade**.
 
 	![Configurando o logon único][59]
 
-16. Na seção **Exibir Pontos de Extremidade do SAML 2.0**, execute as etapas a seguir.
 
-	a. Copie a **URL do Emissor de Provedor de Serviço** e insira-a na caixa de texto **Identificador** do assistente de configuração do Azure AD.
 
-	b. Copie a **URL de Logon do Provedor de Serviço** e insira-a na caixa de texto **URL de Logon** do assistente de configuração do Azure AD.
+10. No portal clássico do Azure, volte para a página **Definir Configurações de Aplicativo**.
+
+16. Em **Portal de administração do DocuSign**, na seção **Exibir Pontos de Extremidade do SAML 2.0**, execute as seguintes etapas:
 
 	![Configurando o logon único][60]
 
+	a. Copie a **URL do Emissor de Provedor de Serviço** e cole-a na caixa de texto **Identificador** no portal clássico do Azure.
+
+	b. Copie a **URL de Logon do Provedor de Serviço** e cole-a na caixa de texto **URL de logon** no portal clássico do Azure.
+
 	c. Clique em **Fechar**
 
-15. No portal clássico do Azure, selecione a confirmação de **configuração de logon único** e clique em **Avançar**.
+
+10. No portal clássico do Azure, clique em **Avançar**.
+
+
+15. No Portal Clássico do Azure, selecione a **Confirmação de configuração de logon único** e clique em **Avançar**.
 
 	![Aplicativos][14]
 
@@ -192,7 +202,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 ### Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1. No **portal clássico do Azure**, na página de **integração de aplicativos do DocuSign**, clique em **Configurar provisionamento de contas** para abrir o diálogo Configurar Provisionamento de Usuários.
+1. No **portal clássico do Azure**, na página de **integração de aplicativos do DocuSign**, clique em **Configurar provisionamento de contas** para abrir a caixa de diálogo Configurar Provisionamento de Usuários.
 
 	![Configurando o provisionamento de contas][30]
 
@@ -215,7 +225,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 ### Para atribuir usuários ao DocuSign, execute as etapas a seguir:
 
-1. No **Portal clássico do Azure**, crie uma conta de teste.
+1. No **portal clássico do Azure**, crie uma conta de teste.
 
 2. Na página **Integração de aplicativos do Docusign**, clique em **Atribuir usuários**.
 
@@ -287,5 +297,6 @@ Para obter mais detalhes sobre o Painel de Acesso, confira: Introdução ao Pain
 [58]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_26.png
 [59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
+[61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

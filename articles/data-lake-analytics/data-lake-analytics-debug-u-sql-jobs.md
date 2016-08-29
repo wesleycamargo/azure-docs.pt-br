@@ -84,4 +84,4 @@ Depois de concluir a depuração do código U-SQL, você pode reenviar o trabalh
 - [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

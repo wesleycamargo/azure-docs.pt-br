@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Como atualizar sua própria senha
 Se não souber como gerenciar a senha de sua conta de trabalho ou escola, você veio ao lugar certo! Leia abaixo para saber como executar etapas comuns, como a alteração de uma senha, a redefinição de uma senha ou o registro para a redefinição de senha.
 
-* [**Como registrar-se para redefinição de senha**](#how-to-register-for-password-reset)
+* [**Não perca o acesso à sua conta!**](#how-to-register-for-password-reset)
 * [**Como alterar sua senha do Office365**](#how-to-change-your-password-from-o365)
 * [**Como alterar sua senha do painel de acesso**](#how-to-change-your-password-from-the-access-panel)
 * [**Como redefinir sua senha**](#how-to-reset-your-password)
 * [**Como desbloquear sua conta**](#how-to-unlock-your-account)
 * [**Problemas comuns e suas soluções**](#common-problems-and-their-solutions)
 
-## Como registrar-se para a redefinição de senha
+## Não perca o acesso à sua conta!
 
 > [AZURE.IMPORTANT]
 **Por que estou vendo isto?** Se você seguiu um link para chegar aqui, provavelmente está vendo isto porque o administrador requer que você se registre para redefinir a senha e obter acesso ao aplicativo. Você pode ser solicitado a fornecer o telefone ou o email ou definir perguntas de segurança. Não se preocupe: não usaremos essas informações para lhe enviar spam, apenas para manter sua conta mais segura. As etapas apresentadas aqui devem ajudá-lo a alcançar seu objetivo.
@@ -261,4 +261,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

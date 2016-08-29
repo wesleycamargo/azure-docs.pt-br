@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -60,7 +60,7 @@ Os Serviços BizTalk fornecem uma experiência de configuração fácil de usar 
 
 1. Uma mensagem EDI é recebida do parceiro comercial Fabrikam. Para receber mensagens EDI de parceiros comerciais, os Serviços BizTalk dão suporte a protocolos de transporte como FTP, SFTP, AS2 e HTTP/S.
 
-2. O processamento do lado de recebimento do acordo entre parceiros comerciais desmonta a mensagem EDI para o formato XML. Você pode rotear a mensagem EDI desmontada (no formato XML) para pontos de extremidade do barramento de serviço como um ponto de extremidade de Retransmissão do Barramento de Serviço, tópico do barramento de serviço, fila do barramento de serviço ou uma ponte dos Serviços BizTalk.
+2. O processamento do lado de recebimento do acordo entre parceiros comerciais desmonta a mensagem EDI para o formato XML. Você pode rotear a mensagem EDI desmontada (no formato XML) para os pontos de extremidade do Barramento de Serviço como um ponto de extremidade de Retransmissão do Barramento de Serviço, Tópico do Barramento de Serviço, Fila do Barramento de Serviço ou Ponte dos Serviços BizTalk.
 
 3. As mensagens XML desmontadas podem então ser recebidas no ponto de extremidade para processamento personalizado posterior. Esses pontos de extremidade podem ser processados por um componente local ou uma instância de computação do Microsoft Azure para processar posteriormente a mensagem em um serviço de fluxo de trabalho do Windows (WF) ou o Windows Communication Foundation (WCF), por exemplo.
 
@@ -76,9 +76,9 @@ No BizTalk Server, você define os locais e as portas de recebimento para recebe
 
 No EDI do BizTalk Server, pipelines são entidades de processamento de mensagem que também podem incluir lógica personalizada para recursos específicos de processamento, conforme exigido pelo aplicativo. Para os Serviços BizTalk, o equivalente seria uma ponte EDI. No entanto, nos Serviços BizTalk, por enquanto, as pontes EDI estão "fechadas". Ou seja, você não pode adicionar suas próprias atividades personalizadas a uma ponte EDI. Qualquer processamento personalizado deve ser feito fora da ponte EDI no seu aplicativo, antes ou depois que a mensagem entra na ponte configurada como parte do acordo entre parceiros comerciais. Pontes EAI têm a opção de fazer o processamento personalizado. Se você quiser um processamento personalizado, você pode usar pontes EAI antes ou depois que a mensagem é processada pela ponte EDI. Para obter mais informações, consulte [Como incluir código personalizado em pontes](https://msdn.microsoft.com/library/azure/dn232389.aspx).
 
-Você pode inserir um fluxo de publicação/assinatura com código personalizado e/ou usar filas e tópicos de mensagem do barramento de serviço antes que o acordo entre parceiros comerciais receba a mensagem ou depois que o contrato processa a mensagem e a encaminha a um ponto de extremidade do barramento de serviço.
+Você pode inserir um fluxo de publicação/assinatura com código personalizado e/ou usar Filas e Tópicos de mensagem do Barramento de Serviço antes que o acordo entre parceiros comerciais receba a mensagem ou depois do contrato processar a mensagem e encaminhá-la para um ponto de extremidade do Barramento de Serviço.
 
-Consulte **Cenários/fluxo de mensagens** neste tópico para obter o padrão de fluxo de mensagens.
+Consulte **Cenários/Fluxo de Mensagens** neste tópico para obter o padrão do fluxo de mensagens.
 
 ## Contratos
 
@@ -112,7 +112,7 @@ Você também pode examinar uma amostra por Sandro Pereira, MVP do BizTalk, sobr
 
 Se você precisar migrar o processamento de orquestração do BizTalk Server para o Microsoft Azure, as orquestrações precisariam ser regravadas porque o Microsoft Azure não oferece suporte à execução de orquestrações do BizTalk Server. Você poderia reescrever a funcionalidade de orquestração em um serviço do Windows Workflow Foundation 4.0 (WF4). Isso seria uma regravação completa, pois não há nenhuma migração de orquestrações do BizTalk Server para o WF4 atualmente. Aqui estão alguns recursos do Windows Workflow:
 
-- [*Como integrar um serviço de fluxo de trabalho do WCF com tópicos e filas do barramento de serviço*](https://msdn.microsoft.com/library/azure/hh709041.aspx) por Paolo Salvatori. 
+- [*Como integrar um Serviço do Fluxo de Trabalho do WCF com Tópicos e Filas do Barramento de Serviço*](https://msdn.microsoft.com/library/azure/hh709041.aspx) de Paolo Salvatori.
 
 - [Sessão *Criando aplicativos com o Windows Workflow Foundation e o Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) da conferência Build 2011.
 
@@ -126,11 +126,11 @@ A seguir estão algumas considerações que você deve fazer ao usar os Serviço
 
 ### Acordos de fallback
 
-O processamento de EDI do BizTalk Server tem o conceito de "Acordos de Fallback". Os Serviços BizTalk ainda **não** têm um conceito de acordo de fallback. Consulte os tópicos da documentação do BizTalk [A função dos acordos no processamento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configuração das propriedades de acordos globais ou de fallback](https://msdn.microsoft.com/library/bb245981.aspx) para obter informações sobre como os acordos de fallback são usados no BizTalk Server.
+O processamento de EDI do BizTalk Server tem o conceito de "Acordos de Fallback". Os Serviços BizTalk ainda **não** têm um conceito de acordo de fallback. Consulte os tópicos da documentação do BizTalk [A Função dos Acordos no Processamento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurando as Propriedades dos Acordos Globais ou de Fallback](https://msdn.microsoft.com/library/bb245981.aspx) para obter informações sobre como os Acordos de Fallback são usados no BizTalk Server.
 
 ### Roteamento para vários destinos
 
-As pontes dos Serviços BizTalk, em seu estado atual, não oferecem suporte para rotear mensagens para vários destinos usando um modelo de publicação-assinatura. Em vez disso, você pode encaminhar mensagens de uma ponte dos Serviços BizTalk para um tópico do barramento de serviço, que pode ter várias assinaturas para receber a mensagem em mais de um ponto de extremidade.
+As pontes dos Serviços BizTalk, em seu estado atual, não oferecem suporte para rotear mensagens para vários destinos usando um modelo de publicação-assinatura. Em vez disso, você pode rotear as mensagens de uma ponte dos Serviços BizTalk para um tópico do Barramento de Serviço, que pode ter várias assinaturas para receber a mensagem em mais de um ponto de extremidade.
 
 ## Conclusão
 
@@ -142,4 +142,4 @@ Os Serviços BizTalk do Microsoft Azure são atualizados em etapas regulares par
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

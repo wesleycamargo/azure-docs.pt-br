@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="05/23/2016"
+   ms.date="08/15/2016"
    ms.author="brjohnst"/>
 
 # Como usar a Pesquisa do Azure de um aplicativo .NET
@@ -31,7 +31,7 @@ A biblioteca de cliente define classes como `Index`, `Field` e `Document`, e ope
 
 A versão atual do SDK .Net da Pesquisa do Azure está disponível para o público geral. Se você quer fornecer comentários para que possamos incorporar na próxima versão, visite nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search/).
 
-O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Agora, esta versão inclui suporte para a sintaxe de consulta Lucene e analisadores de idioma da Microsoft. Recursos mais novos que *não* fazem parte dessa versão, como o suporte ao parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira em [Controle de versão do serviço de pesquisa](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Atualizações mais recentes da Pesquisa do Azure](search-latest-updates.md) para obter atualizações do status de um desses recursos.
+O SDK do .NET dá suporte à versão `2015-02-28` da API REST da Pesquisa do Azure, documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Agora, esta versão inclui suporte para a sintaxe de consulta Lucene e analisadores de idioma da Microsoft. Recursos mais novos que *não* fazem parte dessa versão, como o suporte ao parâmetro de pesquisa `moreLikeThis`, estão em [visualização](search-api-2015-02-28-preview.md) e ainda não estão disponíveis no SDK. Confira novamente [Azure Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) (Controle de versão do serviço da Pesquisa do Azure) para obter atualizações de status sobre um desses recursos.
 
 Outros recursos que não têm suporte neste SDK incluem:
 
@@ -39,7 +39,7 @@ Outros recursos que não têm suporte neste SDK incluem:
 
 ## Atualizando para a última versão do SDK
 
-Se você já estiver usando uma versão mais antiga do SDK do .NET da Pesquisa do Azure e se quiser atualizar para a versão disponível para o público geral, [este artigo](search-dotnet-sdk-migration.md) explicará como fazer isso.
+Se você já estiver usando uma versão mais antiga do SDK do .NET da Pesquisa do Azure e quiser atualizar para a versão disponível para o público geral, [este artigo](search-dotnet-sdk-migration.md) explicará como fazer isso.
 
 ## Requisitos para o SDK
 
@@ -83,7 +83,7 @@ O exemplo de aplicativo que vamos explorar cria um novo índice chamado "hotéis
         Console.WriteLine("{0}", "Creating index...\n");
         CreateHotelsIndex(serviceClient);
 
-        SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
@@ -121,7 +121,7 @@ As próximas linhas chamam métodos para criação de um índice chamado "hotéi
 
 Em seguida, o índice precisa ser preenchido. Para fazer isso, precisaremos de um `SearchIndexClient`. Há duas maneiras de obter um: construindo ou chamando `Indexes.GetClient` no `SearchServiceClient`. Usaremos o último por conveniência.
 
-        SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 > [AZURE.NOTE] Em um aplicativo típico de pesquisa, o gerenciamento e o preenchimento do índice é tratado por um componente separado das consultas de pesquisa. `Indexes.GetClient` é conveniente para o preenchimento de um índice porque poupa o trabalho de fornecer outras `SearchCredentials`. Ele faz isso passando a chave de administrador que você usou para criar o `SearchServiceClient` ao novo `SearchIndexClient`. No entanto, na parte do aplicativo que executa consultas, é melhor criar o `SearchIndexClient` diretamente para que você possa passar uma chave de consulta em vez de uma chave de administrador. Isso está de acordo com o princípio de privilégios mínimos e ajuda a tornar seu aplicativo mais seguro. Você pode saber mais sobre chaves de administração e chaves de consulta [aqui](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -208,9 +208,9 @@ Esse método cria um novo objeto `Index` com uma lista de objetos `Field` que de
 
 ### Preenchendo o índice
 
-A próxima etapa no `Main` é preencher o índice recentemente criado. Isso é feito com o método a seguir:
+A próxima etapa no `Main` é popular o índice recém-criado. Isso é feito com o método a seguir:
 
-    private static void UploadDocuments(SearchIndexClient indexClient)
+    private static void UploadDocuments(ISearchIndexClient indexClient)
     {
         var documents =
             new Hotel[]
@@ -294,9 +294,9 @@ A próxima etapa no `Main` é preencher o índice recentemente criado. Isso é f
 
 Este método tem quatro partes. O primeiro cria uma matriz de objetos `Hotel` que servirá como nossos dados de entrada para carregamento do índice. Esses dados são codificados para manter a simplicidade. Em seu próprio aplicativo, provavelmente seus dados virão de uma fonte de dados externa, como um banco de dados SQL.
 
-A segunda parte cria um `IndexBatch` com os documentos. Especifique a operação que você deseja aplicar ao lote no momento da criação dele, nesse caso, chamando `IndexBatch.Upload`. O lote é então carregado para o índice da Pesquisa do Azure pelo método `Documents.Index`.
+A segunda parte cria um `IndexBatch` com os documentos. Especifique a operação que você quer aplicar ao lote no momento da criação dele, nesse caso, chamando `IndexBatch.Upload`. O lote é então carregado para o índice da Pesquisa do Azure pelo método `Documents.Index`.
 
-> [AZURE.NOTE] Neste exemplo, estamos carregando apenas documentos. Se você quisesse mesclar alterações em documentos existentes ou excluir documentos, poderia criar lotes chamando `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ou `IndexBatch.Delete`. Também é possível combinar diferentes operações em um único lote chamando `IndexBatch.New`, que usa uma coleção de objetos `IndexAction`, e cada um deles informa à Pesquisa do Azure para executar uma operação específica em um documento. Você pode criar cada `IndexAction` com sua própria operação chamando o método correspondente como `IndexAction.Merge`, `IndexAction.Upload` e assim por diante.
+> [AZURE.NOTE] Neste exemplo, estamos carregando apenas documentos. Se você quiser mesclar alterações em documentos existentes ou excluir documentos, poderá criar lotes chamando `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ou `IndexBatch.Delete`. Também é possível combinar diferentes operações em um único lote chamando `IndexBatch.New`, que usa uma coleção de objetos `IndexAction`, com cada um deles informando à Pesquisa do Azure para executar uma operação específica em um documento. Você pode criar cada `IndexAction` com sua própria operação chamando o método correspondente como `IndexAction.Merge`, `IndexAction.Upload` e assim por diante.
 
 A terceira parte desse método é um bloco catch que trata um caso de erro importante para indexação. Se o serviço de Pesquisa do Azure não indexar alguns documentos no lote, uma `IndexBatchException` será lançada por `Documents.Index`. Isso pode acontecer se você estiver indexando documentos enquanto o serviço estiver sob carga pesada. **É altamente recomendável a manipulação explícita desse caso em seu código.** Você pode atrasar e repetir a indexação de documentos que falharam, ou você pode registrar em log e continuar, como faz o exemplo, ou pode alguma outra coisa, dependendo dos requisitos de consistência de dados do aplicativo.
 
@@ -340,7 +340,7 @@ Você pode estar se perguntando como o SDK do .NET da Pesquisa do Azure é capaz
 
 A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença fundamental: o nome de cada campo começa com uma letra minúscula ("minúsculas concatenadas"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("maiúsculas concatenadas"). Esse é um cenário comum em aplicativos .NET que executam associação de dados quando o esquema de destino está fora do controle do desenvolvedor do aplicativo. Em vez de violar as diretrizes de nomenclatura do .NET, usando minúscula para os nomes de propriedade, você pode informar ao SDK para mapear automaticamente os nomes de propriedade como minúscula com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
-> [AZURE.NOTE] O SDK do .NET da Pesquisa do Azure usa a biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e desserializar os objetos de modelo personalizados de e para JSON. Se necessário, você pode personalizar essa serialização. Encontre mais detalhes [aqui](search-dotnet-sdk-migration.md#WhatsNew).
+> [AZURE.NOTE] O SDK do .NET de Pesquisa do Azure usa a biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e desserializar os objetos de modelo personalizados para e a partir do JSON. Se necessário, você pode personalizar essa serialização. Encontre mais detalhes [aqui](search-dotnet-sdk-migration.md#WhatsNew).
 
 Um segundo fator importante sobre a classe `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET dessas propriedades são mapeados para seus tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade de cadeia de caracteres `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Há mapeamentos de tipo semelhantes entre `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` etc. As regras específicas para o mapeamento de tipos estão documentadas com o método `Documents.Get` no [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
 
@@ -350,9 +350,9 @@ Essa capacidade de usar suas próprias classes como documentos funciona em ambas
 
 **Uma observação importante sobre os tipos de dados**
 
-Ao criar suas próprias classes de modelo para mapear para um índice de Pesquisa do Azure, sugerimos declarar as propriedades de tipos de valor como `bool` e `int` para serem anuláveis (por exemplo, `bool?` em vez de `bool`). Se você usar uma propriedade não anulável, será preciso **garantir** que nenhum documento no índice contenha um valor nulo para o campo correspondente. Nem o SDK, nem o serviço Pesquisa do Azure ajudarão você a impor isso.
+Ao criar suas próprias classes de modelo para mapear para um índice de Pesquisa do Azure, sugerimos declarar as propriedades dos tipos de valor como `bool` e `int` para serem anuláveis (por exemplo, `bool?` em vez de `bool`). Se você usar uma propriedade não anulável, será preciso **assegurar** que nenhum documento no índice contenha um valor nulo para o campo correspondente. Nem o SDK, nem o serviço Pesquisa do Azure ajudarão você a impor isso.
 
-Isso não é apenas uma preocupação hipotética: imagine um cenário em que você adiciona um novo campo a um índice existente que é do tipo `Edm.Int32`. Depois de atualizar a definição de índice, todos os documentos terão um valor nulo para esse novo campo (já que todos os tipos são anuláveis na Pesquisa do Azure). Ao usar uma classe de modelo com uma propriedade `int` não anulável para esse campo, você obterá uma `JsonSerializationException` como esta ao tentar recuperar documentos:
+Isso não é apenas uma preocupação hipotética: imagine um cenário em que você adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Depois de atualizar a definição de índice, todos os documentos terão um valor nulo para esse novo campo (já que todos os tipos são anuláveis na Pesquisa do Azure). Ao usar uma classe de modelo com uma propriedade não anulável `int` para esse campo, você obterá uma `JsonSerializationException` como esta ao tentar recuperar os documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
@@ -362,7 +362,7 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 
 A última etapa no exemplo de aplicativo é procurar por documentos no índice. O método a seguir faz isso:
 
-    private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
+    private static void SearchDocuments(ISearchIndexClient indexClient, string searchText, string filter = null)
     {
         // Execute search based on search text and optional filter
         var sp = new SearchParameters();
@@ -426,221 +426,225 @@ Aqui está o código-fonte completo do aplicativo de exemplo usado neste passo a
 
 Program.cs:
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
-    using Microsoft.Spatial;
+```csharp
+using System;
+using System.Configuration;
+using System.Linq;
+using System.Threading;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
 
-    namespace AzureSearch.SDKHowTo
+namespace AzureSearch.SDKHowTo
+{
+    class Program
     {
-        class Program
+        // This sample shows how to delete, create, upload documents and query an index
+        static void Main(string[] args)
         {
-            // This sample shows how to delete, create, upload documents and query an index
-            static void Main(string[] args)
+            // Put your search service name here. This is the hostname portion of your service URL.
+            // For example, if your service URL is https://myservice.search.windows.net, then your
+            // service name is myservice.
+            string searchServiceName = "myservice";
+
+            string apiKey = "Put your API admin key here.";
+
+            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
+
+            Console.WriteLine("{0}", "Deleting index...\n");
+            DeleteHotelsIndexIfExists(serviceClient);
+
+            Console.WriteLine("{0}", "Creating index...\n");
+            CreateHotelsIndex(serviceClient);
+
+            ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+
+            Console.WriteLine("{0}", "Uploading documents...\n");
+            UploadDocuments(indexClient);
+
+            Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
+            SearchDocuments(indexClient, searchText: "fancy wifi");
+
+            Console.WriteLine("\n{0}", "Filter documents with category 'Luxury'...\n");
+            SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
+
+            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+            Console.ReadKey();
+        }
+
+        private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+        {
+            if (serviceClient.Indexes.Exists("hotels"))
             {
-                // Put your search service name here. This is the hostname portion of your service URL.
-                // For example, if your service URL is https://myservice.search.windows.net, then your
-                // service name is myservice.
-                string searchServiceName = "myservice";
-
-                string apiKey = "Put your API admin key here."
-
-                SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
-
-                Console.WriteLine("{0}", "Deleting index...\n");
-                DeleteHotelsIndexIfExists(serviceClient);
-
-                Console.WriteLine("{0}", "Creating index...\n");
-                CreateHotelsIndex(serviceClient);
-
-                SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-
-                Console.WriteLine("{0}", "Uploading documents...\n");
-                UploadDocuments(indexClient);
-
-                Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
-                SearchDocuments(indexClient, searchText: "fancy wifi");
-
-                Console.WriteLine("\n{0}", "Filter documents with category 'Luxury'...\n");
-                SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
-
-                Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-                Console.ReadKey();
+                serviceClient.Indexes.Delete("hotels");
             }
+        }
 
-            private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+        private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+        {
+            var definition = new Index()
             {
-                if (serviceClient.Indexes.Exists("hotels"))
+                Name = "hotels",
+                Fields = new[]
                 {
-                    serviceClient.Indexes.Delete("hotels");
+                    new Field("hotelId", DataType.String)                       { IsKey = true },
+                    new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
+                    new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
+                    new Field("category", DataType.String)                      { IsSearchable = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
+                    new Field("tags", DataType.Collection(DataType.String))     { IsSearchable = true, IsFilterable = true, IsFacetable = true },
+                    new Field("parkingIncluded", DataType.Boolean)              { IsFilterable = true, IsFacetable = true },
+                    new Field("lastRenovationDate", DataType.DateTimeOffset)    { IsFilterable = true, IsSortable = true, IsFacetable = true },
+                    new Field("rating", DataType.Int32)                         { IsFilterable = true, IsSortable = true, IsFacetable = true },
+                    new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
                 }
-            }
+            };
 
-            private static void CreateHotelsIndex(SearchServiceClient serviceClient)
-            {
-                var definition = new Index()
+            serviceClient.Indexes.Create(definition);
+        }
+
+        private static void UploadDocuments(ISearchIndexClient indexClient)
+        {
+            var documents =
+                new Hotel[]
                 {
-                    Name = "hotels",
-                    Fields = new[]
+                    new Hotel()
                     {
-                        new Field("hotelId", DataType.String)                       { IsKey = true },
-                        new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
-                        new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
-                        new Field("category", DataType.String)                      { IsSearchable = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
-                        new Field("tags", DataType.Collection(DataType.String))     { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-                        new Field("parkingIncluded", DataType.Boolean)              { IsFilterable = true, IsFacetable = true },
-                        new Field("lastRenovationDate", DataType.DateTimeOffset)    { IsFilterable = true, IsSortable = true, IsFacetable = true },
-                        new Field("rating", DataType.Int32)                         { IsFilterable = true, IsSortable = true, IsFacetable = true },
-                        new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
+                        HotelId = "1058-441",
+                        HotelName = "Fancy Stay",
+                        BaseRate = 199.0,
+                        Category = "Luxury",
+                        Tags = new[] { "pool", "view", "concierge" },
+                        ParkingIncluded = false,
+                        LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                        Rating = 5,
+                        Location = GeographyPoint.Create(47.678581, -122.131577)
+                    },
+                    new Hotel()
+                    {
+                        HotelId = "666-437",
+                        HotelName = "Roach Motel",
+                        BaseRate = 79.99,
+                        Category = "Budget",
+                        Tags = new[] { "motel", "budget" },
+                        ParkingIncluded = true,
+                        LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
+                        Rating = 1,
+                        Location = GeographyPoint.Create(49.678581, -122.131577)
+                    },
+                    new Hotel()
+                    {
+                        HotelId = "970-501",
+                        HotelName = "Econo-Stay",
+                        BaseRate = 129.99,
+                        Category = "Budget",
+                        Tags = new[] { "pool", "budget" },
+                        ParkingIncluded = true,
+                        LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
+                        Rating = 4,
+                        Location = GeographyPoint.Create(46.678581, -122.131577)
+                    },
+                    new Hotel()
+                    {
+                        HotelId = "956-532",
+                        HotelName = "Express Rooms",
+                        BaseRate = 129.99,
+                        Category = "Budget",
+                        Tags = new[] { "wifi", "budget" },
+                        ParkingIncluded = true,
+                        LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
+                        Rating = 4,
+                        Location = GeographyPoint.Create(48.678581, -122.131577)
+                    },
+                    new Hotel()
+                    {
+                        HotelId = "566-518",
+                        HotelName = "Surprisingly Expensive Suites",
+                        BaseRate = 279.99,
+                        Category = "Luxury",
+                        ParkingIncluded = false
                     }
                 };
 
-                serviceClient.Indexes.Create(definition);
+            try
+            {
+                var batch = IndexBatch.Upload(documents);
+                indexClient.Documents.Index(batch);
+            }
+            catch (IndexBatchException e)
+            {
+                // Sometimes when your Search service is under load, indexing will fail for some of the documents in
+                // the batch. Depending on your application, you can take compensating actions like delaying and
+                // retrying. For this simple demo, we just log the failed document keys and continue.
+                Console.WriteLine(
+                    "Failed to index some of the documents: {0}",
+                    String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
             }
 
-            private static void UploadDocuments(SearchIndexClient indexClient)
+            // Wait a while for indexing to complete.
+            Thread.Sleep(2000);
+        }
+
+        private static void SearchDocuments(ISearchIndexClient indexClient, string searchText, string filter = null)
+        {
+            // Execute search based on search text and optional filter
+            var sp = new SearchParameters();
+
+            if (!String.IsNullOrEmpty(filter))
             {
-                var documents =
-                    new Hotel[]
-                    {
-                        new Hotel()
-                        {
-                            HotelId = "1058-441",
-                            HotelName = "Fancy Stay",
-                            BaseRate = 199.0,
-                            Category = "Luxury",
-                            Tags = new[] { "pool", "view", "concierge" },
-                            ParkingIncluded = false,
-                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
-                            Rating = 5,
-                            Location = GeographyPoint.Create(47.678581, -122.131577)
-                        },
-                        new Hotel()
-                        {
-                            HotelId = "666-437",
-                            HotelName = "Roach Motel",
-                            BaseRate = 79.99,
-                            Category = "Budget",
-                            Tags = new[] { "motel", "budget" },
-                            ParkingIncluded = true,
-                            LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-                            Rating = 1,
-                            Location = GeographyPoint.Create(49.678581, -122.131577)
-                        },
-                        new Hotel()
-                        {
-                            HotelId = "970-501",
-                            HotelName = "Econo-Stay",
-                            BaseRate = 129.99,
-                            Category = "Budget",
-                            Tags = new[] { "pool", "budget" },
-                            ParkingIncluded = true,
-                            LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
-                            Rating = 4,
-                            Location = GeographyPoint.Create(46.678581, -122.131577)
-                        },
-                        new Hotel()
-                        {
-                            HotelId = "956-532",
-                            HotelName = "Express Rooms",
-                            BaseRate = 129.99,
-                            Category = "Budget",
-                            Tags = new[] { "wifi", "budget" },
-                            ParkingIncluded = true,
-                            LastRenovationDate = new DateTimeOffset(1995, 7, 1, 0, 0, 0, TimeSpan.Zero),
-                            Rating = 4,
-                            Location = GeographyPoint.Create(48.678581, -122.131577)
-                        },
-                        new Hotel()
-                        {
-                            HotelId = "566-518",
-                            HotelName = "Surprisingly Expensive Suites",
-                            BaseRate = 279.99,
-                            Category = "Luxury",
-                            ParkingIncluded = false
-                        }
-                    };
-
-                try
-                {
-                    var batch = IndexBatch.Upload(documents);
-                    indexClient.Documents.Index(batch);
-                }
-                catch (IndexBatchException e)
-                {
-                    // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-                    // the batch. Depending on your application, you can take compensating actions like delaying and
-                    // retrying. For this simple demo, we just log the failed document keys and continue.
-                    Console.WriteLine(
-                        "Failed to index some of the documents: {0}",
-                        String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-                }
-
-                // Wait a while for indexing to complete.
-                Thread.Sleep(2000);
+                sp.Filter = filter;
             }
 
-            private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
+            DocumentSearchResult<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
+            foreach (SearchResult<Hotel> result in response.Results)
             {
-                // Execute search based on search text and optional filter
-                var sp = new SearchParameters();
-
-                if (!String.IsNullOrEmpty(filter))
-                {
-                    sp.Filter = filter;
-                }
-
-                DocumentSearchResult<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-                foreach (SearchResult<Hotel> result in response.Results)
-                {
-                    Console.WriteLine(result.Document);
-                }
+                Console.WriteLine(result.Document);
             }
         }
     }
+}
+```
 
 Hotel.cs:
 
-    using System;
-    using Microsoft.Azure.Search.Models;
-    using Microsoft.Spatial;
+```csharp
+using System;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
 
-    namespace AzureSearch.SDKHowTo
+namespace AzureSearch.SDKHowTo
+{
+    [SerializePropertyNamesAsCamelCase]
+    public class Hotel
     {
-        [SerializePropertyNamesAsCamelCase]
-        public class Hotel
+        public string HotelId { get; set; }
+
+        public string HotelName { get; set; }
+
+        public double? BaseRate { get; set; }
+
+        public string Category { get; set; }
+
+        public string[] Tags { get; set; }
+
+        public bool? ParkingIncluded { get; set; }
+
+        public DateTimeOffset? LastRenovationDate { get; set; }
+
+        public int? Rating { get; set; }
+
+        public GeographyPoint Location { get; set; }
+
+        public override string ToString()
         {
-            public string HotelId { get; set; }
-
-            public string HotelName { get; set; }
-
-            public double? BaseRate { get; set; }
-
-            public string Category { get; set; }
-
-            public string[] Tags { get; set; }
-
-            public bool? ParkingIncluded { get; set; }
-
-            public DateTimeOffset? LastRenovationDate { get; set; }
-
-            public int? Rating { get; set; }
-
-            public GeographyPoint Location { get; set; }
-
-            public override string ToString()
-            {
-                return String.Format(
-                    "ID: {0}\tName: {1}\tCategory: {2}\tTags: [{3}]",
-                    HotelId,
-                    HotelName,
-                    Category,
-                    (Tags != null) ? String.Join(", ", Tags) : String.Empty);
-            }
+            return String.Format(
+                "ID: {0}\tName: {1}\tCategory: {2}\tTags: [{3}]",
+                HotelId,
+                HotelName,
+                Category,
+                (Tags != null) ? String.Join(", ", Tags) : String.Empty);
         }
     }
+}
+```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

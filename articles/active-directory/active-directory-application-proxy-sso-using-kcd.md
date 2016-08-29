@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/10/2016"
 	ms.author="kgremban"/>
 
 
@@ -23,7 +23,7 @@ O logon único é um elemento fundamental do Proxy de Aplicativo do Azure AD. El
 
 1. Um usuário entra na nuvem
 2. Todas as validações de segurança acontecem na nuvem (pré-autenticação)
-3. Quando a solicitação é enviada ao aplicativo local, o Conector do Proxy de Aplicativo representa o usuário para que o aplicativo de back-end pense que se trata de um usuário normal proveniente de um dispositivo ingressado no domínio.
+3. Quando a solicitação é enviada ao aplicativo local, o Conector de Proxy de Aplicativo representa o usuário. O aplicativo de back-end acha que se trata de um usuário normal proveniente de um dispositivo de domínio.
 
 ![Diagrama de acesso do usuário final, por meio do Proxy de Aplicativo, à rede corporativa](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -57,7 +57,7 @@ Antes de começar com o SSO para o Proxy de aplicativo, certifique-se de que seu
 
 - Todos os seus aplicativos têm nomes de entidade de serviço.
 
-- O servidor que executa o Conector e o servidor que executa o aplicativo que você está publicando são ingressados em domínio e fazem parte desse mesmo domínio. Para obter mais informações sobre o ingresso no domínio, consulte [Ingressar um computador em um domínio](https://technet.microsoft.com/library/dd807102.aspx).
+- O servidor que executa o Conector e o servidor que executa o aplicativo que você está publicando são ingressados em domínio e fazem parte desse mesmo domínio ou em domínios confiáveis. Para obter mais informações sobre o ingresso no domínio, consulte [Ingressar um computador em um domínio](https://technet.microsoft.com/library/dd807102.aspx).
 
 - O servidor que executa o conector tem acesso de leitura ao TokenGroupsGlobalAndUniversal para usuários. Isso é uma configuração padrão que talvez seja afetada pela segurança que protege o ambiente. Obter mais ajuda sobre isso em [KB2009157](https://support.microsoft.com/pt-BR/kb/2009157).
 
@@ -155,7 +155,7 @@ Isso também ajuda com aplicativos que não aceitam endereços na forma de ender
 Se houver um erro no processo de SSO, ele aparecerá no log de eventos do computador do conector conforme explicado na [Solução de problemas](active-directory-application-proxy-troubleshoot.md). Porém, em alguns casos, a solicitação será enviada com êxito para o aplicativo de back-end embora este aplicativo responderá em várias outras respostas HTTP. Nesses casos, a solução de problemas deve começar examinando o número de evento 24029 na máquina do conector no log de eventos de sessão do Proxy de Aplicativo. A identidade do usuário que foi usada para delegação será exibida no campo "usuário" nos detalhes do evento. Para ativar o log de sessão, selecione **Mostrar logs analíticos e de depuração** no menu de exibição do visualizador de eventos.
 
 
-## Consulte também
+## Confira também
 
 - [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
@@ -169,4 +169,4 @@ Para ver as últimas notícias e atualizações, confira o [blog Application Pro
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

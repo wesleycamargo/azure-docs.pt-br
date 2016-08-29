@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -110,7 +110,7 @@ Quando a sua instância de função estiver pronta, você poderá fazer logon re
 
 > [AZURE.NOTE] Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
 
-## Veja também
+## Consulte também
 
 [Kit de ferramentas do Azure para Eclipse][]
 
@@ -135,4 +135,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

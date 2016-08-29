@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Compilação de linha de comando do Azure
@@ -62,4 +62,4 @@ Se você quiser usar um diretório alternativo para o pacote armazenado e arquiv
 
 Depois que o pacote é compilado, você pode implantá-lo no Azure. Para obter um tutorial que demonstre esse processo, consulte o site do Azure. Para obter informações sobre como automatizar esse processo, consulte [Entrega contínua de serviços de nuvem no Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -25,9 +25,9 @@ Logs de operação é um recurso dos Serviços de Gerenciamento disponível no p
 > [AZURE.NOTE] Esse recurso captura apenas os logs de operações de gerenciamento nos Serviços BizTalk, por exemplo, quando o serviço foi iniciado, sofreu backup etc. Essas operações são acompanhadas independentemente se são executadas no portal clássico do Azure ou usando as [APIs REST do Serviço BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Para obter uma lista completa das operações que são acompanhadas usando os Serviços de Gerenciamento, consulte [Operações acompanhadas usando os Serviços de Gerenciamento do Azure](#bizops).<br/><br/> Isso não captura os logs de atividades relacionadas ao tempo de execução do Serviço BizTalk (como mensagens processadas pelas pontes etc.) Para exibir esses logs, use a exibição Acompanhamento do portal de Serviços BizTalk. Para obter mais informações, consulte [Acompanhando mensagens](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 
 ## Exibir os logs de operações dos Serviços BizTalk
-1. No portal clássico do Azure, clique em **Serviços de Gerenciamento** e, em seguida, clique na guia **Logs de Operação**.
-2. Você pode filtrar os logs com base em diferentes parâmetros, como assinatura, intervalo de dados, tipo de serviço (por exemplo, Serviços do BizTalk), nome do serviço ou status da operação (Obteve êxito, Com falha)
-3. Clique na marca de seleção para exibir a lista filtrada. A ilustração a seguir mostra as atividades relacionadas ao testbiztalkservice: ![Exibir logs de operação][ViewLogs] 
+1. No portal clássico do Azure, clique em **Serviços de Gerenciamento ** e, em seguida, clique na guia **Logs de Operação**.
+2. Você pode filtrar os logs com base em diferentes parâmetros, como assinatura, intervalo de datas, tipo de serviço (por exemplo, Serviços BizTalk), nome do serviço ou status da operação (Êxito, Falha).
+3. Clique na marca de seleção para exibir a lista filtrada. A ilustração a seguir mostra as atividades relacionadas ao testbiztalkservice: ![Exibir logs de operação][ViewLogs]
 4. Para ver mais sobre uma operação específica, selecione a linha e clique em **Detalhes** na barra de tarefas na parte inferior da página.
 
 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operação para limpar backups do Serviço BizTalk f
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

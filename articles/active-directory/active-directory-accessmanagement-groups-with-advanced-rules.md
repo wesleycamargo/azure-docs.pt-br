@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -72,7 +72,7 @@ A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorre
 |-----------------------|-------------------|-----------------------------|
 | Erro: O atributo não tem suportado. | (user.invalidProperty -eq "Valor") | (user.department -eq "value") A propriedade <br/> deve corresponder a uma na [lista de propriedades com suporte](#supported-properties). |
 | Erro: Operador não é tem suportada no atributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) A propriedade <br/> é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
-| Erro: Erro de compilação de consulta. | (user.department - eq "Sales")- e (user.department - eq "Marketing") (user.userPrincipalName-match "*@domain.ext") | (user.department - eq "Sales")- e o operador lógico (user.department - eq "Marketing")<br/>Ele deve corresponder a uma lista de propriedades com suporte acima. (user.userPrincipalName -match ".*@domain.ext") ou (user.userPrincipalName -match "@domain.ext$")Erro na expressão regular. |
+| Erro: Erro de compilação de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Operador lógico deve corresponder a um na lista de propriedades com suporte acima. (user.userPrincipalName-corresponde a ".*@domain.ext") ou (user.userPrincipalName-correspondência "@domain.ext$") Error na expressão regular. |
 | Erro: Expressão binária não está no formato correto. | user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") | (user.accountEnabled -eq true) -e (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -e (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 
@@ -168,7 +168,7 @@ Os atributos de extensão são sincronizados a partir do AD do Windows Server lo
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Os Atributos Personalizados são sincronizados a partir do AD do Windows Server local ou de um aplicativo SaaS conectado e têm formato "user.extension\_[GUID]\_\_[Atributo]", onde [GUID] é o identificador exclusivo no AAD para o aplicativo que criou o atributo no AAD e [Atributo] é o nome do atributo como ele foi criado. Um exemplo de uma regra que usa um atributo personalizado:
+Os Atributos Personalizados são sincronizados do Windows Server AD local ou de um aplicativo SaaS conectado e têm formato "user.extension_[GUID]\__[Atributo]", onde [GUID] é o identificador exclusivo no AAD para o aplicativo que criou o atributo no AAD e [Atributo] é o nome do atributo como ele foi criado. Um exemplo de uma regra que usa um atributo personalizado:
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -181,9 +181,9 @@ Agora você pode preencher os membros de um grupo com base no atributo gerenciad
 
 1. No portal clássico do Azure, clique em **Active Directory** e no nome do diretório de sua organização.
 
-2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
+2. Selecione a guia **Grupos** e abra o grupo que deseja editar.
 
-3. Selecione a guia **Configurar** e, em seguida, selecione **REGRA AVANÇADA**.
+3. Selecione a guia **Configurar** e selecione **REGRA AVANÇADA**.
 
 4. Digite a regra com a seguinte sintaxe:
 
@@ -194,6 +194,23 @@ Agora você pode preencher os membros de um grupo com base no atributo gerenciad
 	onde “62e19b97-8b3d-4d4a-a106-4ce66896a863” é a objectID do gerente. A ID de objeto pode ser encontrada no Azure AD na **guia Perfil** da página de usuário para o usuário que for o gerente.
 
 3. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Pode levar alguns minutos para o preenchimento inicial do grupo.
+
+
+## Usar atributos para criar regras para objetos de dispositivo
+
+Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Os seguintes atributos de dispositivo podem ser usados:
+
+| Propriedades | Valores permitidos | Uso |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName | qualquer valor de cadeia de caracteres | (device.displayName -eq "Rob Iphone”) |
+| deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | qualquer valor de cadeia de caracteres | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
 
 
 ## Informações adicionais
@@ -209,4 +226,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

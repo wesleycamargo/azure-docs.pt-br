@@ -14,7 +14,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     ![O comando Criar máquina virtual](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
 
-1. Na página **Escolher uma assinatura**, selecione uma assinatura a ser usada ao criar uma máquina virtual e, em seguida, clique em **Próximo**.
+1. Na página **Escolher uma assinatura**, selecione uma assinatura a ser usada ao criar uma máquina virtual e clique em **Próximo**.
 
     Se você não tiver entrado no Azure, clique em **Entrar** para entrar. Em seguida, selecione sua assinatura do Azure na caixa de listagem suspensa, se ela ainda não estiver selecionada.
 
@@ -36,7 +36,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     >[AZURE.NOTE] Não é possível adicionar imagens de máquinas virtuais às listas **Imagens públicas** ou **Imagens MSDN** porque elas são somente leitura. Todas as máquinas virtuais que você cria são adicionadas na lista **Imagens privadas**.
 
-    Se você for assinante do MSDN com uma assinatura do nível do Visual Studio, pode criar uma máquina virtual do Azure pré-criada que contém o Visual Studio, além de várias outras imagens. Para obter mais informações, consulte [Criar uma máquina virtual no Visual Studio usando imagens da Galeria de imagens do Visual Studio 2013 para assinantes do MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e [Assinaturas do MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
+    Se for assinante do MSDN com uma assinatura do nível do Visual Studio, você poderá criar uma máquina virtual do Azure pré-criada que contém o Visual Studio, além de várias outras imagens. Para obter mais informações, confira [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) (Criar uma máquina virtual no Visual Studio usando imagens da galeria de imagens do Visual Studio 2013 para assinantes do MSDN) e [Assinaturas do MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
 
 1. Na página **Configurações básicas de máquina Virtual**, insira um nome de máquina e, em seguida, adicione as especificações para a máquina virtual, incluindo o tamanho e um nome de usuário e senha. Quando terminar, clique em **Próximo**.
 
@@ -44,7 +44,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     >[AZURE.NOTE] Se você escolher tamanhos maiores para a máquina virtual, podem aplicar encargos adicionais. Consulte [Detalhes de preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para obter mais informações.
 
-1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](../articles/storage/storage-introduction/).
+1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](../articles/storage/storage-introduction.md).
 
 1. Se você quiser especificar uma rede virtual (que é opcional), selecione-a nas caixas de listagem suspensa da Sub-rede e Rede Virtual.
 
@@ -157,3 +157,5 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 ## Próximas etapas
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
+
+<!---HONumber=AcomDC_0817_2016-->

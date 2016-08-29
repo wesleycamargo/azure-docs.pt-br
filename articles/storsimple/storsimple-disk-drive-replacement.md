@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/28/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Substituir uma unidade de disco em seu dispositivo StorSimple
@@ -35,7 +35,7 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
 
 #### Para destravar o bloqueio antiviolação
 
-1. Cuidadosamente, insira a chave de bloqueio (uma chave de fenda T10 "à prova de violações" fornecidos pela Microsoft) no encaixe da abertura da alça. 
+1. Cuidadosamente, insira a chave de bloqueio (uma chave de fenda T10 "à prova de violações" fornecidos pela Microsoft) no encaixe da abertura da alça.
 
     >[AZURE.NOTE] Se o bloqueio antiviolação estiver ativado, o indicador vermelho ficará visível na abertura.
 
@@ -124,4 +124,4 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

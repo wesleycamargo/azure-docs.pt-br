@@ -32,15 +32,20 @@ Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dado
 
 > [AZURE.NOTE] Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
+## Assistente de cópia de dados
+A maneira mais fácil de criar um pipeline que copie dados de/para um banco de dados Oracle para qualquer um dos repositórios de dados compatíveis é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de/para um banco de dados Oracle de/para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+
 ## Exemplo: copiar dados do Oracle para o Blob do Azure
-Este exemplo mostra como copiar dados de um banco de dados Oracle local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+Este exemplo mostra como copiar dados de um banco de dados Oracle local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
  
 O exemplo tem as seguintes entidades de data factory:
 
 1.	Um serviço vinculado do tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como fonte e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como coletor.
 
 O exemplo copia dados de uma tabela em um banco de dados Oracle local para um blob a cada hora. Para obter mais informações sobre várias propriedades usadas no exemplo abaixo, consulte a documentação sobre as diferentes propriedades nas seções após os exemplos.
@@ -436,7 +441,7 @@ O **OracleSink** é compatível com as seguintes propriedades:
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo 00:30:00 (30 minutos). | Não
+writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). | Não
 writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. | Inteiro (número de linhas)| Não (padrão: 10000)  
 sqlWriterCleanupScript | A consulta especificada pelo usuário para a Atividade de cópia ser executada para assegurar que os dados de uma fatia específica serão limpos. | Uma instrução de consulta. | Não
 sliceIdentifierColumnName | Nome de coluna especificado pelo usuário para a Atividade de cópia preencher com o identificador de fatia gerado automaticamente, que será usado para limpar os dados de uma fatia específica quando executado novamente. | Nome de uma coluna com tipo de dados de binário (32). | Não
@@ -493,7 +498,7 @@ XML | Cadeia de caracteres
 1. Se você não instalou o Provedor do .NET para o Oracle, [instale-o](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e repita o cenário.
 2. Se você receber a mensagem de erro mesmo depois de instalar o provedor, faça o seguinte:
 	1. Abra a configuração do computador do .NET 2.0 na pasta: <disco do sistema>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Procure por **Provedor de dados Oracle para .NET** que você deverá conseguir encontrar uma entrada como abaixo em **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+	2. Procure por **Provedor de dados Oracle para .NET** que você deverá conseguir encontrar uma entrada como abaixo em **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
 2.	Copie esta entrada no arquivo machine.config na seguinte pasta v4.0: <disco do sistema>: \\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config e altere a versão para 4.xxx.x.x.
 3.	Instale “<Caminho Instalado do ODP.NET> \\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” no GAC (cache de assembly global), executando “gacutil /i [provider path]”.
 
@@ -503,6 +508,6 @@ XML | Cadeia de caracteres
 
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho do movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

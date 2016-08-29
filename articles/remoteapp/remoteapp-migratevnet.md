@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Como migrar uma coleção híbrida de um VNET RemoteApp para uma VNET do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Boas notícias! Habilitamos você para implantar as coleções híbridas de RemoteApp diretamente para as redes virtuais (VNETs) do Azure existentes em vez de criar VNETs específicas do RemoteApp. Isso permite a você aproveitar os recursos mais recentes do VNET (como Rota Expressa) e dar a suas coleções híbridas acesso direto de rede a outros serviços do Azure e máquinas virtuais implantadas nessa VNET. (Isso apresenta um desempenho melhor e mais fácil instalação que configurações de VNET para VNET).
 
@@ -49,4 +52,4 @@ E pronto!
 
 Se você tiver dúvidas ou precisar de ajuda especial, envie um email para [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

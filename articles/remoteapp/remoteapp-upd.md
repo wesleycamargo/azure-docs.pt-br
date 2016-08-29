@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Como o Azure RemoteApp salva configurações e dados de usuário?
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 O Azure RemoteApp salva personalizações e a identidade do usuário em dispositivos e sessões. Esses dados de usuário são armazenados em um disco por coleção por usuário, conhecido como um disco de perfil de usuário (UDP). O disco segue o usuário e lhe garante uma experiência consistente, independentemente de onde ele entra.
 
@@ -31,7 +34,7 @@ Continue lendo para obter informações específicas sobre os dados de perfil do
 
 ## Como um administrador pode chegar aos dados?
 
-Se você precisar acessar os dados para um dos seus usuários (para recuperação de desastres ou se o usuário sair da empresa), entre em contato com o [Azure RemoteApp](mailto:remoteappforum@microsoft.com) e forneça as informações de assinatura para a coleta e a identidade do usuário. A equipe do Azure RemoteApp fornece uma URL para o VHD. Baixe esse VHD e recupere quaisquer documentos ou arquivos que você precisa. Observe que o VHD é de 50 GB, por isso levará algum tempo para baixá-lo.
+Se você precisar acessar os dados para um dos seus usuários (para recuperação de desastres ou se o usuário sair da empresa), entre em contato com o Suporte do Azure e forneça as informações de assinatura para a coleta e a identidade do usuário. A equipe do Azure RemoteApp fornece uma URL para o VHD. Baixe esse VHD e recupere quaisquer documentos ou arquivos que você precisa. Observe que o VHD é de 50 GB, por isso levará algum tempo para baixá-lo.
 
 
 ## É feito backup dos dados?
@@ -117,7 +120,7 @@ Se você quiser executar um script de inicialização, comece criando uma tarefa
 
 ![Criar uma tarefa do sistema que seja executada quando um usuário fizer logon](./media/remoteapp-upd/upd2.png)
 
-Na guia **Geral**, altere a **Conta de Usuário** em Segurança para "BUILTIN\\Usuários".
+Na guia **Geral**, certifique-se de alterar a **Conta de Usuário** em Segurança para "BUILTIN\\Usuários".
 
 ![Alterar a conta de usuário para um grupo](./media/remoteapp-upd/upd4.png)
 
@@ -155,4 +158,4 @@ Você também pode salvar suas credenciais executando o seguinte:
 
 Isso permite ignorar o parâmetro -Credential no cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

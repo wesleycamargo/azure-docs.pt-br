@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/14/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos
@@ -27,13 +27,13 @@ Para obter todas as informações sobre os preços dos Hubs de Eventos, consulte
 
 ## Como os eventos de entrada de Hubs de Eventos são calculados?
 
-Cada evento enviado a um Hub de Eventos conta como uma mensagem faturável. Um *evento de entrada* é definido como uma unidade de dados menor que ou igual a 64 KB. Qualquer evento menor que ou igual a 64 KB de tamanho é considerado um evento faturável. Se o evento for maior que 64 KB, o número de eventos passíveis de cobrança é calculado de acordo com o tamanho do evento, em múltiplos de 64 KB. Por exemplo, um evento de 8 KB enviado para o Hub de Eventos é cobrado como um evento, mas uma mensagem de 96 KB enviada para o Hub de Eventos é cobrada como dois eventos.
+Cada evento enviado a um Hub de Eventos conta como uma mensagem faturável. Um *evento de entrada* é definido como uma unidade de dados menor ou igual a 64 KB. Qualquer evento menor ou igual a 64 KB de tamanho é considerado um evento faturável. Se o evento for maior que 64 KB, o número de eventos passíveis de cobrança será calculado de acordo com o tamanho do evento, em múltiplos de 64 KB. Por exemplo, um evento de 8 KB enviado para o Hub de Eventos é cobrado como um evento, mas uma mensagem de 96 KB enviada para o Hub de Eventos é cobrada como dois eventos.
 
 Eventos consumidos a partir de um Hub de Eventos, bem como operações de gerenciamento e chamadas de controle, como pontos de verificação, não são contadas como eventos de entrada faturáveis, mas se acumulam no limite de unidade de produtividade.
 
 ## O que são unidades de produtividade dos Hubs de Eventos?
 
-As unidades de produtividade dos Hubs de Eventos são selecionadas explicitamente pelo usuário, por meio do portal clássico do Azure ou dos modelos do gerenciador de recursos dos Hubs de Eventos. Unidades de produtividade se aplicam a todos os Hubs de Eventos em um namespace do Barramento de Serviço, e cada unidade de produtividade proporciona ao namespace os seguintes recursos:
+Você seleciona unidades de taxa de transferência de Hubs de Eventos de forma explícita, por meio do Portal do Azure ou de modelos do gerenciador de recursos de Hubs de Eventos. Unidades de produtividade se aplicam a todos os Hubs de Eventos em um namespace de Hubs de Eventos, e cada unidade de produtividade proporciona ao namespace os seguintes recursos:
 
 - Até 1 MB por segundo de eventos de entrada (eventos enviados para um Hub de Eventos), mas não mais de 1.000 eventos de entrada, operações de gerenciamento ou chamadas de controle à API por segundo.
 
@@ -49,7 +49,7 @@ Se a produtividade de entrada total ou a taxa de eventos de entrada total em tod
 
 Se a produtividade de saída total ou a taxa de eventos de saída total em todos os Hubs de Eventos em um namespace exceder os limites de unidades de produtividade totais, os receptores serão limitados e receberão erros indicando que a cota de saída foi excedida. As cotas de entrada e saída são aplicadas separadamente, para que nenhum remetente possa fazer com que o consumo de eventos se torne lento e para que um receptor não possa evitar que eventos sejam enviados para um Hub de Eventos.
 
-A seleção de unidades de produtividade é independente do número de partições de Hubs de Eventos. Embora cada partição ofereça uma produtividade máxima de 1 MB por segundo de entrada (com um máximo de 1.000 eventos por segundo) e 2 MB por segundo de saída, há uma cobrança fixa pelas próprias partições. A cobrança é pelas unidades de produtividade agregadas em todos os Hubs de Eventos em um namespace do Barramento de Serviço. Com esse padrão, você pode criar partições suficientes para dar suporte à carga máxima prevista para seus sistemas, sem gerar cobranças por unidades de produtividade até que a carga de eventos no sistema realmente exija números mais altos de produtividade e sem a necessidade de alterar a estrutura e a arquitetura de seus sistemas conforme a carga no sistema aumenta.
+A seleção de unidades de produtividade é independente do número de partições de Hubs de Eventos. Embora cada partição ofereça uma produtividade máxima de 1 MB por segundo de entrada (com um máximo de 1.000 eventos por segundo) e 2 MB por segundo de saída, há uma cobrança fixa pelas próprias partições. A cobrança é pelas unidades de produtividade agregadas em todos os Hubs de Eventos em um namespace de Hubs de Eventos. Com esse padrão, você pode criar partições suficientes para dar suporte à carga máxima prevista para seus sistemas, sem gerar cobranças por unidades de produtividade até que a carga de eventos no sistema realmente exija números mais altos de produtividade e sem a necessidade de alterar a estrutura e a arquitetura de seus sistemas conforme a carga no sistema aumenta.
 
 ## Há um limite para o número de unidades de produtividade que podem ser selecionadas?
 
@@ -57,7 +57,7 @@ Há uma cota padrão de 20 unidades de produtividade por namespace. Você pode s
 
 ## Há um custo para a retenção de eventos de Hubs de Eventos por mais de 24 horas?
 
-O nível Standard dos Hubs de Eventos permite a retenção de mensagens por períodos de mais de 24 horas, por um máximo de 30 dias. Se a quantidade total de eventos armazenados exceder o limite de armazenamento para o número de unidades de produtividade selecionadas (84 GB por unidade de produtividade), o tamanho que exceder o limite será cobrado com base na taxa de armazenamento de Blog do Azure publicada. O limite de armazenamento em cada unidade de produtividade cobre todos os custos de armazenamento para períodos de retenção de 24 horas (o padrão) mesmo que a unidade de produtividade seja usada até o limite máximo de entrada.
+O nível Standard dos Hubs de Eventos permite a retenção de mensagens por períodos de mais de 24 horas, por um máximo de 30 dias. Se o número total de eventos armazenados exceder o limite de armazenamento para o número de unidades de produtividade selecionadas (84 GB por unidade de produtividade), o tamanho que exceder o limite será cobrado com base na taxa de armazenamento de Blobs do Azure publicada. O limite de armazenamento em cada unidade de produtividade cobre todos os custos de armazenamento para períodos de retenção de 24 horas (o padrão) mesmo que a unidade de produtividade seja usada até o limite máximo de entrada.
 
 ## Qual é o período de retenção máximo?
 
@@ -69,7 +69,7 @@ O tamanho total de todos os eventos armazenados, incluindo eventuais sobrecargas
 
 ## Posso usar uma única conexão AMQP para enviar e receber de Hubs de Eventos e filas/tópicos do Barramento de Serviço?
 
-Sim, contanto que os Hubs de Eventos, filas e tópicos estejam no mesmo namespace do Barramento de Serviço. Dessa forma, você pode implementar conectividade agenciada bidirecional com muitos dispositivos, com latências inferiores a um segundo, de forma econômica e altamente dimensionável.
+Sim, contanto que todos os Hubs de Eventos, filas e tópicos estejam no mesmo namespace. Dessa forma, você pode implementar conectividade agenciada bidirecional com muitos dispositivos, com latências inferiores a um segundo, de forma econômica e altamente escalonável.
 
 ## Cobranças por conexões agenciadas são aplicadas aos Hubs de Eventos?
 
@@ -77,7 +77,7 @@ Para remetentes, cobranças de conexão são aplicadas somente quando o protocol
 
 ## Qual é a diferença entre os níveis Basic e Standard dos Hubs de Eventos?
 
-O nível Standard dos Hubs de Eventos fornecem recursos adicionais aos disponíveis nos Hubs de Eventos Basic, bem como em alguns sistemas concorrentes. Esses recursos incluem períodos de retenção de mais de 24 horas e a capacidade de usar uma única conexão AMQP para enviar comandos para um grande número de dispositivos com latências inferiores a um segundo, bem como para enviar telemetria desses dispositivos para os Hubs de Eventos. Para obter a lista de recursos, confira os [detalhes do preço dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+O nível Standard dos Hubs de Eventos fornecem recursos adicionais aos disponíveis nos Hubs de Eventos Basic e em alguns sistemas concorrentes. Esses recursos incluem períodos de retenção de mais de 24 horas e a capacidade de usar uma única conexão AMQP para enviar comandos para um grande número de dispositivos com latências inferiores a um segundo, bem como para enviar telemetria desses dispositivos para os Hubs de Eventos. Para obter a lista de recursos, confira os [detalhes do preço dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Disponibilidade geográfica
 
@@ -96,7 +96,7 @@ Os Hubs de Eventos estão disponíveis nas seguintes regiões:
 
 Suporte técnico para os Hubs de Eventos está disponível por meio dos [fóruns da comunidade](https://social.msdn.microsoft.com/forums/azure/home). O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
 
-Para saber mais sobre nosso SLA, visite a página de [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
+Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
 ## Próximas etapas
 
@@ -110,4 +110,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

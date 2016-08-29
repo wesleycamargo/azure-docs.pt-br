@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/19/2016"
+	ms.date="08/15/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,19 +23,20 @@
 - [Portal do Azure](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-Este artigo fornece instruções para arquivar seu Banco de Dados SQL do Azure em um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o [portal do Azure](https://portal.azure.com).
+Este artigo fornece instruções para arquivar seu Banco de Dados SQL Azure em um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o [portal do Azure](https://portal.azure.com).
 
 Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, pode exportar o esquema de banco de dados e os dados para um arquivo BACPAC. Um arquivo BACPAC é simplesmente um arquivo ZIP com uma extensão de BACPAC. Posteriormente, um arquivo BACPAC poderá ser colocado no armazenamento de blobs do Azure ou no armazenamento local em um local e depois importado novamente para o Banco de Dados SQL do Azure ou uma instalação local do SQL Server.
 
 ***Considerações***
 
-- Para um arquivo morto ser transacionalmente consistente, você deve assegurar que nenhuma atividade de gravação esteja ocorrendo durante a exportação ou exportação de uma [cópia transacionalmente consistente](sql-database-copy.md) de seu Banco de Dados SQL do Azure.
-- O tamanho máximo de um arquivo BACPAC arquivado no armazenamento de blobs do Azure é de 200 GB. Use o utilitário de prompt de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para arquivar um arquivo BACPAC maior no armazenamento local. Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
+- Para um arquivo morto ser transacionalmente consistente, você deve assegurar que nenhuma atividade de gravação esteja ocorrendo durante a exportação ou que você esteja exportando de uma [cópia transacionalmente consistente](sql-database-copy.md) de seu Banco de Dados SQL Azure.
+- O tamanho máximo de um arquivo BACPAC arquivado no Armazenamento de Blobs do Azure é de 200 GB. Para arquivar um arquivo BACPAC maior no armazenamento local, use o utilitário de prompt de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
 - Não há suporte para o arquivamento no armazenamento premium do Azure usando um arquivo BACPAC.
-- Se a operação de exportação ficar acima de 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
- - Aumentar temporariamente seu nível de serviço
- - Interromper toda a atividade de leitura e gravação durante a exportação
- - Usar um índice clusterizado em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque os serviços de exportação precisam concluir a verificação de tabela para tentar exportar a tabela inteira
+- Se a operação de exportação exceder 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
+ - Aumentar temporariamente seu nível de serviço.
+ - Interromper toda a atividade de leitura e gravação durante a exportação.
+ - Use um [índice clusterizado](https://msdn.microsoft.com/library/ms190457.aspx) com valores não nulos em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque o serviço de exportação precisa concluir a verificação da tabela para tentar exportar a tabela inteira. Uma boa maneira de determinar se as tabelas são otimizadas para exportação é executar **DBCC SHOW\_STATISTICS** e certificar-se de que o *RANGE\_HI\_KEY* não é nulo e seu valor tem boa distribuição. Para obter mais detalhes, consulte [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx) no MSDN.
+
 
 > [AZURE.NOTE] BACPACs não devem ser usados para operações de backup e restauração. O Banco de Dados SQL do Azure cria automaticamente backups de todos os bancos de dados de usuário. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
@@ -99,4 +100,4 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

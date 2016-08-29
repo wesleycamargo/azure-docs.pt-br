@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
 # Criar e compartilhar um espaço de trabalho de Aprendizado de Máquina do Azure
 
-Esse menu liga os tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo Processo de Análise do Cortana (CAP).
+Esse menu vincula-se aos tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo CAPS (Processo Cortana Analytics).
 
 [AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
 
@@ -31,7 +31,7 @@ Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um e
 
 1. Entre no [portal clássico do Microsoft Azure].
 
-> [AZURE.NOTE] Para entrar, você precisa ser um administrador de assinatura do Azure. Ser o proprietário de um espaço de trabalho de aprendizado de máquina não concede acesso ao [portal clássico do Microsoft Azure]. Consulte [Privilégios do administrador de assinatura do Azure e proprietário do espaço de trabalho](#subscriptionvsworkspace) para obter mais detalhes.
+> [AZURE.NOTE] Para entrar, você precisa ser um administrador de assinatura do Azure. Ser o proprietário de um espaço de trabalho de aprendizado de máquina não concede acesso ao [portal clássico do Microsoft Azure]. Confira [Privilégios do administrador de assinatura do Azure e proprietário do espaço de trabalho](#subscriptionvsworkspace) para obter mais detalhes.
 
 2. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 
@@ -72,9 +72,9 @@ Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerencia
 
 ## <a name="subscriptionvsworkspace"></a>Privilégios do administrador de assinatura do Azure e proprietário do espaço de trabalho
 
-Abaixo está uma tabela esclarece a diferença entre um administrador de assinatura do Azure e o proprietário de um espaço de trabalho.
+Veja abaixo uma tabela que esclarece a diferença entre um administrador de assinatura do Azure e o proprietário de um espaço de trabalho.
 
-| Ações | Administrador da assinatura do Azure | Proprietário do espaço de trabalho |
+| Ações | Administrador de assinatura do Azure | Proprietário do espaço de trabalho |
 | --------------			|:------------------------:| :----------------:|
 | Acessar o [Portal Clássico do Microsoft Azure]| Sim | Não |
 | Criar um novo espaço de trabalho | Sim | Não |
@@ -105,4 +105,4 @@ Abaixo está uma tabela esclarece a diferença entre um administrador de assinat
 [Estúdio de Aprendizado de Máquina]: https://studio.azureml.net/
 [portal clássico do Microsoft Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

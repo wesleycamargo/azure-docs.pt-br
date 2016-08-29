@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Cmdlets de visualização do Azure Active Directory para gerenciamento de grupos
@@ -223,4 +223,4 @@ Você pode encontrar mais documentação do PowerShell do Azure Active Directory
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Como usar sua assinatura do Office 365 com o Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Você sabia que você pode usar sua assinatura do Office 365 existente no Azure RemoteApp para compartilhar aplicativos do Office da nuvem? Continue lendo para obter informações sobre as opções do Office 365 com o Azure RemoteApp, incluindo links para artigos sobre o Office 365 que ajudarão você a aproveitar ao máximo sua assinatura.
 
@@ -97,7 +100,7 @@ Agora, o arquivo de configuração deve conter estas linhas:
 
 Há muitas razões para atualizar a imagem em sua coleção. Veja abaixo algumas delas:
 
-- Obter as atualizações mais recentes do Windows 
+- Obter as atualizações mais recentes do Windows
 - Obter as atualizações mais recentes do aplicativo Office 365 ProPlus
 - Atualizar seu aplicativo personalizado
 - Alterar outras definições de configuração da própria imagem
@@ -123,4 +126,4 @@ Precisa de mais informações sobre como usar a Ferramenta de implantação do O
 - [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

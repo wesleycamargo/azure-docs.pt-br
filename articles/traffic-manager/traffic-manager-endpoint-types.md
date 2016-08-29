@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Tipos de Ponto de Extremidade do Gerenciador de Tráfego | Microsoft Azure"
    description="Este artigo explica os diferentes tipos de pontos de extremidade que podem ser usados com o Gerenciador de Tráfego do Azure"
    services="traffic-manager"
@@ -6,7 +6,7 @@
    authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -41,7 +41,7 @@ Os pontos de extremidade do Azure são usados para configurar os serviços basea
 
 - VMs IaaS 'Clássicas' e serviços de nuvem PaaS.
 - Aplicativos Web
-- Recursos PublicIPAddress (que podem ser conectados às VMs diretamente ou por meio de um Azure Load Balancer)
+- Recursos PublicIPAddress (que podem ser conectados às VMs diretamente ou por meio de um Azure Load Balancer). Observe que o publicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Os recursos PublicIPAddress são recursos do Azure Resource Manager; eles não existem nas APIs de Gerenciamento de Serviços do Azure. Assim, eles são apenas suportados nas experiências do Azure Resource Manager do Gerenciador de Tráfego. Os outros tipos de ponto de extremidade são suportados por meio das experiências do Gerenciador de Recursos e do Gerenciamento de Serviços no Gerenciador de Tráfego.
 
@@ -104,7 +104,7 @@ Para outros tipos de ponto de extremidade, é possível usar o Gerenciador de Tr
 
 No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [RBAC (controle de acesso baseado em função) do Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
 
-No Gerenciamento de Serviços, o Gerenciador de Tráfego requer que qualquer Serviço de Nuvem ou Aplicativo Web configurado como um ponto de extremidade do Azure resida na mesma assinatura do perfil do Gerenciador de Tráfego. Os pontos de extremidade do Serviço de Nuvem em outras assinaturas podem ser adicionados ao Gerenciador de Tráfego como pontos de extremidade 'externos' (eles ainda serão cobrados na taxa do ponto de extremidade 'interno').
+No Gerenciamento de Serviços, o Gerenciador de Tráfego requer que qualquer serviço de nuvem ou aplicativo Web configurado como um ponto de extremidade do Azure resida na mesma assinatura do perfil do Gerenciador de Tráfego. Os pontos de extremidade do serviço de nuvem em outras assinaturas podem ser adicionados ao Gerenciador de Tráfego como pontos de extremidade 'externos' (eles ainda serão cobrados na taxa do ponto de extremidade 'interno').
 
 ### Posso usar o Gerenciador de Tráfego com os slots de 'Preparo' do Serviço de Nuvem?
 Sim. Os slots de 'preparo' do Serviço de Nuvem podem ser configurados no Gerenciador de Tráfego como pontos de extremidade externos.
@@ -144,4 +144,4 @@ No caso dos Aplicativos Web, os pontos de extremidade do Azure do Gerenciador de
 
 - Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) do Gerenciador de Tráfego.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Como redirecionar dispositivos USB no Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 O redirecionamento de dispositivo permite que os usuários usem os dispositivos USB conectados ao seu computador ou tablet com os aplicativos no Azure RemoteApp. Por exemplo, se você compartilhou o Skype por meio do Azure RemoteApp, os usuários terão de conseguir usar as câmeras de seus dispositivos.
 
@@ -75,6 +78,6 @@ Agora, use a ID de instância no seguinte cmdlet:
 
 
 ### Ajude-nos a ajudar você 
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

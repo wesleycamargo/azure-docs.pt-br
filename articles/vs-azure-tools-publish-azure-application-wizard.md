@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Assistente Publicar aplicativo do Azure
@@ -39,11 +39,11 @@ Antes de publicar seu aplicativo Web no Azure, você precisa ter uma conta da Mi
 
 1. Quando estiver pronto para publicar seu aplicativo, abra o menu de atalho para o projeto de serviço de nuvem do Azure e escolha **Publicar**. As etapas a seguir mostram o assistente Publicar aplicativo do Azure.
 
-## Escolhendo sua assinatura
+## Como escolher sua assinatura
 
 ### Para escolher uma assinatura
 
-1. Antes de usar o assistente pela primeira vez, você deve entrar. Clique no link **Entrar**. Entre no portal do Azure quando solicitado e forneça seu nome e senha de usuário do Azure. 
+1. Antes de usar o assistente pela primeira vez, você deve entrar. Clique no link **Entrar**. Entre no portal do Azure quando solicitado e forneça seu nome e senha de usuário do Azure.
 
     ![Essa é uma das telas do assistente de publicação](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
@@ -57,7 +57,7 @@ Antes de publicar seu aplicativo Web no Azure, você precisa ter uma conta da Mi
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. Escolha o botão **Avançar** para continuar. 
+1. Escolha o botão **Avançar** para continuar.
 
     Se não houver serviços de nuvem em sua assinatura, você terá de criar um serviço de nuvem no Azure para hospedar seu projeto. A caixa de diálogo **Criar Serviço de Nuvem e Conta de Armazenamento** é exibida.
 
@@ -139,4 +139,4 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
 [Teste de desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

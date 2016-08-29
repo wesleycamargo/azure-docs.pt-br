@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/11/2016" 
 	ms.author="ccompy"/>
 
 # Integrar seu aplicativo Web a uma Rede Virtual do Azure #
@@ -23,38 +23,40 @@ Este documento descreve o recurso de visualização de integração de rede virt
 O Serviço de Aplicativo do Azure tem duas formas.
 
 1. Os sistemas de vários locatários que dão suporte a toda a gama de planos de preço.
-1. O recurso premium do ASE (Ambiente do Serviço de Aplicativo) que implanta em sua VNET.  
+1. O recurso premium do ASE (Ambiente do Serviço de Aplicativo) que implanta em sua VNET.
 
-Este artigo não descreve a colocação de ASE em uma VNET V2. Que ainda não tem suporte e não tem relação com este artigo. Este artigo é sobre a habilitação de seus aplicativos para consumir recursos em uma VNET V1 ou V2.
+Este documento passa pela Integração VNET e não pelo Ambiente de Serviço de Aplicativo. Se você quiser saber mais sobre o recurso ASE, comece com as informações fornecidas aqui: [Introdução ao Ambiente de Serviço de Aplicativo][ASEintro].
 
-A integração VNET concede ao seu aplicativo Web acesso a recursos da sua rede virtual, mas não concede acesso privado ao seu aplicativo Web por meio da rede virtual. Um cenário comum onde você usaria esse recurso seria habilitar o acesso de seu aplicativo Web a um banco de dados ou serviços Web que são executados em uma máquina virtual na sua rede virtual do Azure. Com a integração VNET, você não precisa expor um ponto de extremidade público para aplicativos em sua VM, mas pode usar, em vez disso, endereços roteáveis privados fora da Internet.
+A integração VNET concede ao seu aplicativo Web acesso a recursos da sua rede virtual, mas não concede acesso privado ao seu aplicativo Web por meio da rede virtual. O acesso de site privado só está disponível com um ASE configurado com um ILB (Balanceador de carga interno). Para obter detalhes sobre como usar um ASE com ILB, comece com este artigo: [Criação e uso de um ASE com ILB][ILBASE].
+
+Um cenário comum de uso da Integração VNET é a habilitação do acesso de seu aplicativo Web a um banco de dados ou serviços Web em execução em uma máquina virtual em sua rede virtual do Azure. Com a integração VNET, você não precisa expor um ponto de extremidade público para aplicativos em sua VM, mas pode usar, em vez disso, endereços roteáveis privados fora da Internet.
 
 O recurso de integração VNET:
 
-- requer um plano de preços Standard ou Premium 
-- funcionará com VNET V1(Clássica) ou V2(Gerenciador de Recursos) 
+- requer um plano de preços Standard ou Premium
+- funcionará com VNET Clássica (V1) ou Resource Manager(V2)
 - dá suporte a TCP e UDP
 - funciona com aplicativos Web, móveis e de API
 - permite que um aplicativo se conecte somente a uma VNET por vez
-- permite a integração de até cinco VNETs com um Plano de Serviço de Aplicativo 
+- permite a integração de até cinco VNETs com um Plano de Serviço de Aplicativo
 - permite que a mesma VNET seja usada por vários aplicativos em um Plano de Serviço de Aplicativo
 - dá suporte a um SLA de 99,9% devido a uma dependência no Gateway de VNET
 
 Há algumas coisas a que a integração VNET não dá suporte, incluindo:
 
 - montagem de unidade
-- integração ao AD 
+- integração ao AD
 - NetBios
 - acesso a site privado
 
 ### Introdução ###
 Veja aqui algumas coisas para se ter em mente antes de conectar seu aplicativo Web a uma rede virtual:
 
-- A integração VNET só funciona com aplicativos em um plano de preços **Standard** ou **Premium**. Se você habilitar o recurso e dimensionar seu Plano de Serviço de Aplicativo para um plano de preços sem suporte, seus aplicativos perderão suas conexões com as VNETs que estão usando.  
+- A integração VNET só funciona com aplicativos em um plano de preços **Standard** ou **Premium**. Se você habilitar o recurso e dimensionar seu Plano de Serviço de Aplicativo para um plano de preços sem suporte, seus aplicativos perderão suas conexões com as VNETs que estão usando.
 - Se a sua rede virtual de destino já existe, ela deve ter a VPN ponto a site habilitada com um gateway de roteamento dinâmico antes que possa ser conectada a um aplicativo. Você não pode habilitar a opção ponto a site da VPN (rede virtual privada) com se o gateway está configurado com roteamento estático.
-- A VNET deve estar na mesma assinatura que o ASP (Plano de Serviço de Aplicativo).  
+- A VNET deve estar na mesma assinatura que o ASP (Plano do Serviço de Aplicativo).
 - Os aplicativos que se integram a uma VNET usarão o DNS específico daquela VNET.
-- Por padrão, os aplicativos integrados apenas rotearão o tráfego em sua VNET baseados nas rotas que são definidas em sua VNET.  
+- Por padrão, os aplicativos integrados apenas rotearão o tráfego em sua VNET baseados nas rotas que são definidas em sua VNET.
 
 
 ## Habilitando a integração VNET ##
@@ -73,9 +75,9 @@ Se seu aplicativo não estiver no plano de preços correto, a interface do usuá
 ![][1]
  
 ###Habilitando a integração VNET com uma VNET já existente###
-A interface de usuário de integração de VNET permite que você selecione em uma lista de suas VNETs. As VNETs V1 estarão identificadas com a palavra "Clássica" entre parênteses ao lado do nome da Rede Virtual. A lista é classificada de modo que as Redes Virtuais V2 sejam listadas primeiro. Na imagem abaixo, você pode ver que somente uma VNET pode ser selecionada. Há vários motivos para uma VNET ficar esmaecida, incluindo:
+A interface de usuário de integração de VNET permite que você selecione em uma lista de suas VNETs. As VNETs Clássicas estarão identificadas com a palavra "Clássica" entre parênteses ao lado do nome da Rede Virtual. A lista é classificada de modo que as Redes Virtuais do Resource Manager estarão listadas primeiro. Na imagem abaixo, você pode ver que somente uma VNET pode ser selecionada. Há vários motivos para uma VNET ficar esmaecida, incluindo:
 
-- a rede virtual está em outra assinatura à qual sua conta não tem acesso
+- a VNET está em outra assinatura à qual sua conta tem acesso
 - a VNET não tem um ponto a Site habilitado
 - a VNET não tem um gateway de roteamento dinâmico
 
@@ -84,19 +86,19 @@ A interface de usuário de integração de VNET permite que você selecione em u
 
 Para habilitar a integração, simplesmente clique na VNET que deseja integrar. Depois de selecionar a VNET, o aplicativo será reiniciado automaticamente para que as alterações entrem em vigor.
 
-##### Habilitar Ponto a Site em uma VNET V1 #####
-Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso primeiro. Para fazer isso para uma VNET V1, vá para o [Portal do Azure][AzurePortal] e exiba a lista de Redes Virtuais (clássicas). Em seguida, clique na rede com que você deseja integrar e clique na caixa grande em Essentials chamada Conexões VPN. A partir daqui, você pode criar sua VPN ponto a site e até mesmo fazê-la criar um gateway. Depois de passar pelo ponto a site com a experiência de criação do gateway, demora cerca de 30 minutos até que ele fique pronto.
+##### Habilitar Ponto a Site em uma VNET Clássica #####
+Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso primeiro. Para fazer isso para uma VNET Clássica, vá para o [Portal do Azure][AzurePortal] e exiba a lista de Redes Virtuais (clássicas). Em seguida, clique na rede com que você deseja integrar e clique na caixa grande em Essentials chamada Conexões VPN. A partir daqui, você pode criar sua VPN ponto a site e até mesmo fazê-la criar um gateway. Depois de passar pelo ponto a site com a experiência de criação do gateway, demora cerca de 30 minutos até que ele fique pronto.
 
 ![][8]
 
-##### Habilitando Ponto a Site em uma VNET V2 #####
+##### Habilitar Ponto a Site em uma VNET do Resource Manager #####
 
-Para configurar uma VNET V2 com um gateway e um Ponto a Site, você precisa usar o PowerShell conforme documentado aqui, [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell][V2VNETP2S]. A interface do usuário para executar esse recurso ainda não está disponível.
+Para configurar uma VNET do Resource Manager com um gateway e um Ponto a Site, você precisa usar o PowerShell conforme documentado aqui, [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell][V2VNETP2S]. A interface do usuário para executar esse recurso ainda não está disponível.
 
 ### Criar uma VNET pré-configurada ###
-Se você quiser criar uma nova VNET que esteja configurada com um gateway e um Ponto a Site, a interface do usuário de rede do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para VNET V2. Se você quiser criar uma VNET V1 com um gateway e um Ponto a Site, precisará fazer isso manualmente por meio da interface do usuário de rede.
+Se você quiser criar uma nova VNET que esteja configurada com um gateway e um Ponto a Site, a interface do usuário de rede do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para VNET de Resource Manager. Se você quiser criar uma VNET Clássica com um gateway e um Ponto a Site, precisará fazer isso manualmente por meio da interface do usuário de rede.
 
-Para criar uma VNET V2 por meio da interface do usuário de Integração VNET, basta selecionar **Criar Nova Rede Virtual** e fornecer:
+Para criar uma VNET de Resource Manager por meio da interface do usuário de Integração VNET, basta selecionar **Criar Nova Rede Virtual** e fornecer:
 
 - Nome da VNET
 - Bloco de endereço da VNET
@@ -107,21 +109,21 @@ Para criar uma VNET V2 por meio da interface do usuário de Integração VNET, b
 
 Se você quiser que essa VNET se conecte a qualquer outra rede, deverá evitar escolher um espaço de endereço IP que se sobreponha a essas redes.
 
->[AZURE.NOTE] A criação de VNET V2 com um gateway leva cerca de 30 minutos e atualmente não integrará a VNET com o seu aplicativo. Depois que sua VNET é criada com o gateway, você precisa voltar para a interface do usuário de integração de VNET do seu aplicativo e selecionar sua nova VNET.
+>[AZURE.NOTE] A criação da VNET de Resource Manager com um gateway leva cerca de 30 minutos e atualmente não integrará a VNET com o seu aplicativo. Depois que sua VNET é criada com o gateway, você precisa voltar para a interface do usuário de integração de VNET do seu aplicativo e selecionar sua nova VNET.
 
 ![][3]
 
 As redes virtuais do Azure normalmente são criadas dentro de endereços de rede privada. Por padrão, o recurso Integração de rede virtual roteará o tráfego destinado aos intervalos de endereços IP em sua rede virtual. Os intervalos de endereços IP privados são:
 
 - 10\.0.0.0/8 - esse é o mesmo que 10.0.0.0 - 10.255.255.255
-- 172\.16.0.0/12 - é o mesmo que 172.16.0.0 - 172.31.255.255 
+- 172\.16.0.0/12 - é o mesmo que 172.16.0.0 - 172.31.255.255
 - 192\.168.0.0/16 - é o mesmo que 192.168.0.0 - 192.168.255.255
  
 O espaço de endereço de rede virtual precisa ser especificado na notação CIDR. Se você não estiver familiarizado com notação CIDR, é um método para especificar blocos de endereço usando um endereço IP e um número inteiro que representa a máscara de rede. Como uma referência rápida, considere que 10.1.0.0/24 seria 256 endereços e 10.1.0.0/25 seria 128 endereços. Um endereço IPv4 com um /32 seria apenas 1 endereço.
 
 Se você definir as informações do servidor DNS aqui, elas serão definidas para sua rede virtual. Após a criação da rede virtual, você poderá editar essas informações nas experiências de usuário da rede virtual.
 
-Quando você cria uma VNET V1 usando a interface de usuário de integração de rede virtual, ela criará uma rede virtual no mesmo grupo de recursos do seu aplicativo.
+Quando você cria uma VNET Clássica usando a interface de usuário de integração VNET, ela criará uma rede virtual no mesmo grupo de recursos do seu aplicativo.
 
 ## Como o sistema funciona ##
 De modo oculto este recurso se baseia na tecnologia VPN Ponto a site para se conectar ao aplicativo à sua VNET. Aplicativos no Serviço de Aplicativo do Azure têm uma arquitetura de sistema multilocatário, que impede o provisionamento de um aplicativo diretamente em uma VNET, como ocorre com máquinas virtuais. Ao desenvolver uma tecnologia ponto a site, limitamos o acesso à rede apenas à máquina virtual que está hospedando o aplicativo. O acesso à rede é ainda mais limitado nestes hosts do aplicativo, de modo que seus aplicativos poderão acessar apenas as redes que você configurar para eles acessarem.
@@ -144,12 +146,12 @@ As informações que você tem no aplicativo na interface do usuário da Integra
 - Nome da VNET – esse link abre a interface do usuário da rede
 - Local – reflete o local da sua rede virtual. É possível fazer a integração a uma rede virtual em outro local.
 - Status do certificado – há certificados usados para proteger a conexão VPN entre o aplicativo e a rede virtual. Isso é um teste para garantir que eles estejam em sincronia.
-- Status do gateway – se os gateways ficarem inativos por algum motivo, seu aplicativo não poderá acessar recursos na rede virtual.  
-- Espaço de endereço da VNET – é o espaço de endereço IP para sua rede virtual.  
-- Espaço de endereço ponto a site – é o espaço de endereço IP ponto a site para sua rede virtual. Seu aplicativo mostrará a comunicação como proveniente de um dos IPs nesse espaço de endereço.  
+- Status do gateway – se os gateways ficarem inativos por algum motivo, seu aplicativo não poderá acessar recursos na rede virtual.
+- Espaço de endereço da VNET – é o espaço de endereço IP para sua rede virtual.
+- Espaço de endereço ponto a site – é o espaço de endereço IP ponto a site para sua rede virtual. Seu aplicativo mostrará a comunicação como proveniente de um dos IPs nesse espaço de endereço.
 - Espaço de endereço site a site – você pode usar as VPNs site a site para conectar sua rede virtual a seus recursos locais ou a outras redes virtuais. Se estiver configurado, os intervalos de IP definidos com aquela conexão VPN serão exibidos aqui.
 - Servidores DNS – se você tiver servidores DNS configurados com sua rede virtual, eles serão listados aqui.
-- IPs roteados para a rede virtual – há uma lista de endereços IP para os quais sua rede virtual definiu o roteamento. Esses endereços serão exibidos aqui.  
+- IPs roteados para a rede virtual – há uma lista de endereços IP para os quais sua rede virtual definiu o roteamento. Esses endereços serão exibidos aqui.
 
 A única operação que você pode executar no modo de exibição de aplicativo da integração de rede virtual é desconectar-se da rede virtual à qual seu aplicativo está atualmente conectado. Para fazer isso, simplesmente clique em Desconectar na parte superior. Essa ação não altera sua rede virtual. A VNET e sua configuração, incluindo os gateways, permanece inalterada. Se você quiser excluir sua rede virtual, precisa primeiro excluir os recursos nela, incluindo os gateways.
 
@@ -175,7 +177,7 @@ Em relação a ações, existem duas ações primárias. A primeira é a capacid
 
 Um dos benefícios do recurso Integração de rede virtual é que, se a rede virtual estiver conectado à rede local com uma VPN Site a Site, seus aplicativos podem ter acesso aos recursos locais usando seu aplicativo. Para isso funcionar, talvez seja necessário atualizar o gateway de VPN local com as rotas para o intervalo de IP ponto a site. Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a site. Se você adicionar a VPN ponto a site depois de criar a VPN site a site, precisará atualizar as rotas manualmente. Os detalhes sobre como fazer isso variam de acordo com o gateway e não são descritos aqui.
 
->[AZURE.NOTE] Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação. Isso é verdadeiro ao fazer a integração com uma VNET V1 ou V2. Se você precisar acessar recursos por meio de uma VPN de Rota Expressa, poderá usar um ASE que pode ser executado em sua VNET.
+>[AZURE.NOTE] Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação. Isso é verdadeiro ao integrar com uma VNET Clássica ou do Resource Manager. Se você precisar acessar recursos por meio de uma VPN de Rota Expressa, poderá usar um ASE que pode ser executado em sua VNET.
 
 ##Detalhes de preço##
 Existem algumas nuances de preço que você deve levar em conta ao usar o recurso Integração VNET. Há três cobranças relacionadas ao uso desse recurso:
@@ -212,7 +214,13 @@ Essa ferramenta informará se você pode acessar um host e uma porta específico
 
 ####Depurando o acesso a recursos hospedados por VNET####
 
-Há várias coisas que podem impedir que seu aplicativo alcance um host e uma porta específicos. Para dividir o problema, comece com coisas simples, como:
+Há várias coisas que podem impedir que seu aplicativo alcance um host e uma porta específicos. Na maioria das vezes, é uma dentre três coisas:
+
+- **Há um firewall no caminho** Se houver um firewall no caminho, você atingirá o tempo limite de TCP. Nesse caso, de 21 segundos. Use a ferramenta tcpping para testar a conectividade. Tempos limite de TCP podem ocorrer por muitos motivos, além de firewalls, mas comece com isso.
+- **DNS não está acessível** O tempo limite do DNS é de três segundos por servidor DNS. Se você tiver dois servidores DNS, será de seis segundos. Use nameresolver para ver se o DNS está funcionando. Lembre-se de que você não pode usar nslookup, pois ele não usa o DNS com o qual sua VNET está configurada.
+- **Intervalo IP P2S inválido ** O intervalo IP ponto a site deve estar dentro dos intervalos IP privados RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255) Se o intervalo usa IPs fora disso, nada funcionará.
+
+Se esses itens não resolverem seu problema, procure por coisas simples primeiro, como:
 
 - O Gateway é mostrado como estando em execução no Portal?
 - Os certificados são mostrados como sincronizados?
@@ -222,25 +230,24 @@ Se o gateway estiver inativo, ative-o. Se os certificados estiverem fora de sinc
 
 Se tudo estiver bem, você precisará se aprofundar um pouco mais:
 
-- Há outros aplicativos usando essa rede virtual com êxito para acessar um recurso remoto? 
-- Você consegue ir ao console do aplicativo e usar tcpping para alcançar recursos na sua VNET?  
+- Há outros aplicativos que usam a Integração VNET para acessar recursos na mesma VNET?
+- Você consegue ir ao console do aplicativo e usar tcpping para acessar outros recursos na sua VNET?
 
-Se alguma das opções acima é verdadeira, a integração de rede virtual está boa e o problema está em outro lugar. Você também pode simplesmente não ter uma resposta de dois itens acima porque não tem algo na sua rede virtual para acessar. Essa hipótese é mais complicada, já que não há uma maneira simples de ver por que você não consegue acessar o host:porta. Algumas das causas incluem:
+Se alguma das opções acima é verdadeira, a integração de rede virtual está boa e o problema está em outro lugar. Essa hipótese é mais complicada, já que não há uma maneira simples de ver por que você não consegue acessar o host:porta. Algumas das causas incluem:
 
+- você tem um firewall no seu host que impede o acesso à porta do aplicativo usando o intervalo de IP ponto a site. O cruzamento de sub-redes geralmente exige acesso Público.
 - o host de destino está inoperante
 - seu aplicativo está inoperante
 - você tinha o IP ou nome de host incorreto
-- seu aplicativo está escutando em uma porta diferente da que você esperava. Você pode verificar isso indo até o host e usando "netstat - aon" no prompt de comando. Isso mostrará qual ID de processo está escutando em qual porta.  
-- você tem um firewall no seu host que impede o acesso à porta do aplicativo usando o intervalo de IP ponto a site
+- seu aplicativo está escutando em uma porta diferente da que você esperava. Você pode verificar isso indo até o host e usando "netstat - aon" no prompt de comando. Isso mostrará qual ID de processo está escutando em qual porta.
 - os grupos de segurança de rede estão configurados de modo a impedir o acesso ao host do aplicativo e à porta do intervalo de IP ponto a site.
 
 Lembre-se de que você não sabe quais IPs no intervalo de IP ponto a site seu aplicativo usará; portanto, é necessário permitir o acesso a todo o intervalo.
 
 As etapas de depuração adicionais incluem:
 
-- fazer logon em outra VM na rede virtual e tentar acessar o host:porta do recurso a partir daí. Existem alguns utilitários de ping do TCP que você pode usar para essa finalidade, ou até mesmo usar o telnet, se for o caso. O objetivo aqui é somente determinar se há conectividade de outra máquina virtual. 
-- colocar um aplicativo em outra VM e testar o acesso àquele host e porta usando o console do aplicativo  
-
+- fazer logon em outra VM na rede virtual e tentar acessar o host:porta do recurso a partir daí. Existem alguns utilitários de ping do TCP que você pode usar para essa finalidade, ou até mesmo usar o telnet, se for o caso. O objetivo aqui é somente determinar se há conectividade de outra máquina virtual.
+- colocar um aplicativo em outra VM e testar o acesso àquele host e porta usando o console do aplicativo
 ####Recursos locais####
 Se não puder acessar os recursos locais, a primeira coisa a fazer será verificar se pode acessar um recurso na VNET. Se isso estiver funcionando, as próximas etapas são muito fáceis. De uma VM em sua rede virtual, você precisa tentar acessar o aplicativo local. Você pode usar o telnet ou um utilitário de ping de TCP. Se sua VM não puder acessar seu recurso local primeiro verifique se a conexão de VPN Site a Site está funcionando. Se ela estiver funcionando, verifique as mesmas coisas observadas anteriormente, bem como a configuração e o status do gateway local.
 
@@ -263,9 +270,9 @@ O recurso Ambiente de Serviço de Aplicativo permite a execução de uma instân
 
 Embora haja sobreposição de caso de uso, nenhum desses recursos pode substituir o outro. Saber qual recurso usar está vinculado às suas necessidades e como você deseja usá-lo. Por exemplo:
 
-- Se você for um desenvolvedor e quiser simplesmente executar um site no Azure que acesse o banco de dados na estação de trabalho na sua mesa, a coisa mais fácil de usar é o Conexões Híbridas.  
-- Se você tem uma grande organização que deseja colocar um grande número de propriedades da Web na nuvem pública e gerenciá-las em sua própria rede, a melhor opção é o Ambiente de Serviço de Aplicativo.  
-- Se você tiver uma quantidade de aplicativos hospedados no Serviço de Aplicativo e simplesmente quiser acessar recursos na VNET, a melhor opção será a Integração VNET.  
+- Se você for um desenvolvedor e quiser simplesmente executar um site no Azure que acesse o banco de dados na estação de trabalho na sua mesa, a coisa mais fácil de usar é o Conexões Híbridas.
+- Se você tem uma grande organização que deseja colocar um grande número de propriedades da Web na nuvem pública e gerenciá-las em sua própria rede, a melhor opção é o Ambiente de Serviço de Aplicativo.
+- Se você tiver uma quantidade de aplicativos hospedados no Serviço de Aplicativo e simplesmente quiser acessar recursos na VNET, a melhor opção será a Integração VNET.
 
 Além dos casos de uso, há alguns aspectos relativos à simplicidade. Se sua rede virtual já está conectada à sua rede local, o uso da Integração de rede virtual ou de um Ambiente de Serviço de Aplicativo é uma maneira fácil de consumir recursos locais. Por outro lado, se sua rede virtual não estiver conectada à sua rede local, é muito mais trabalhoso configurar uma VPN site a site com a VNET do que instalar o HCM.
 
@@ -290,5 +297,7 @@ Além das diferenças funcionais, há também diferenças de preço. O recurso A
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
+[ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

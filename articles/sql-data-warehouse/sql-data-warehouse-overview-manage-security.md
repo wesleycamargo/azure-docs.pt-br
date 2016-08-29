@@ -63,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obter mais informações sobre como fazer a autenticação em um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][]. Para obter mais detalhes sobre como usar a visualização do Azure AD para SQL Data Warehouse, consulte [Conectando o SQL Data Warehouse usando a autenticação do Azure Active Directory][].
+Para obter mais informações sobre como fazer a autenticação em um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][]. Para obter mais detalhes sobre como usar a preview do Azure AD para SQL Data Warehouse, consulte [Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory][].
 
 
 ## Autorização
@@ -83,7 +83,7 @@ Existem maneiras de limitar ainda mais o que um usuário pode fazer com o Banco 
 - [Funções de banco de dados][] diferentes de db\_datareader e db\_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes. As funções internas de banco de dados fixo fornecem uma maneira fácil para conceder permissões, mas podem resultar na concessão de mais permissões do que o necessário.
 - [Procedimentos armazenados][] podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
-O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para saber mais sobre esse tópico, confira [Controle de acesso baseado em função no portal do Azure][].
+O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para obter mais informações sobre esse tópico, consulte [Controle de acesso baseado em função no Portal do Azure][].
 
 ## Criptografia
 
@@ -103,15 +103,15 @@ Você também pode habilitar a Transparent Data Encryption nas configurações d
 A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a manter a conformidade normativa e a identificar atividades suspeitas. A Auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua conta de armazenamento do Azure. A Auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL][].
 
 ## Próximas etapas
-Para obter detalhes e exemplos sobre como conectar o SQL Data Warehouse com protocolos diferentes, consulte [Conectar-se ao SQL Data Warehouse][].
+Para obter detalhes e exemplos sobre como se conectar o SQL Data Warehouse com protocolos diferentes, consulte [Conectar-se ao SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
-[Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-overview-auditing.md
+[Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-auditing-overview.md
 [Introdução ao TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
-[Conectando o SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Firewall do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -125,6 +125,6 @@ Para obter detalhes e exemplos sobre como conectar o SQL Data Warehouse com prot
 [Portal do Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Controle de acesso baseado em função no portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
+[Controle de acesso baseado em função no Portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

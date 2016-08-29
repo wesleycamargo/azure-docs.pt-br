@@ -40,12 +40,12 @@ Faça uma cópia da chave de instrumentação que identifica o recurso.
 Em seu computador com o servidor Unix:
 
 1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
-2. Baixe o [plug-in do gravador collectd do Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Observe o número de versão.
+2. Baixe o [plug-in do gravador collectd do Application Insights](https://aka.ms/aijavasdk). Observe o número de versão.
 3. Copie o plug-in JAR em `/usr/share/collectd/java`.
 3. Edite `/etc/collectd/collectd.conf`:
  * Verifique se [o plug-in do Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
  * Atualize o JVMArg para java.class.path de modo a incluir o JAR a seguir. Atualize o número de versão para corresponder àquela que você baixou:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Adicione esse trecho usando a chave de instrumentação do seu recurso:
 
 ```
@@ -71,7 +71,7 @@ Veja o exemplo de parte de um arquivo de configuração:
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@ Por padrão, o plug-in do Application Insights enviará todos os dados coletados
 
 Para excluir dados de plug-ins ou fontes de dados específicos:
 
-* Edite o arquivo de configuração. 
+* Edite o arquivo de configuração.
 * Em `<Plugin ApplicationInsightsWriter>`, adicione linhas diretivas como esta:
 
 Diretiva | Efeito
@@ -143,4 +143,4 @@ Diretivas separadas por uma nova linha.
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

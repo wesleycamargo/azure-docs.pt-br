@@ -1,6 +1,6 @@
 <properties
     pageTitle="Como usar o armazenamento de Tabela (C++) | Microsoft Azure"
-	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um armazenamento de dados NoSQL."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -18,7 +18,7 @@
 
 # Como usar o armazenamento de Tabela por meio do C++
 
-[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Visão geral  
 Este guia mostra como executar cenários comuns usando o serviço de Armazenamento de Tabela do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abordados incluem a **criação e a exclusão de uma tabela** e o **trabalho com entidades de tabela**.
@@ -241,7 +241,7 @@ Se não desejar consultar todas as entidades em uma partição, você poderá es
 	}  
 
 ## Recuperar uma única entidade
-Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa uma **table\_operation::retrive\_entity** para especificar o cliente “João Rodrigues”. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado está em **table\_result**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço Tabela.
+Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa uma **table\_operation::retrive\_entity** para especificar o cliente “João Rodrigues”. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado está em **table\_result**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço Table.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -414,4 +414,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
 -	[Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

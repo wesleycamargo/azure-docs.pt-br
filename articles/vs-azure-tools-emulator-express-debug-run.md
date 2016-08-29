@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -54,4 +54,4 @@ Antes de usar o Emulator Express, você deve estar ciente de algumas limitaçõe
 
 [Depurando serviços de nuvem](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

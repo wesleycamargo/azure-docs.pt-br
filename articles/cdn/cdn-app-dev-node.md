@@ -22,7 +22,7 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-Você pode usar o [SDK da CDN do Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar a criação e o gerenciamento de pontos de extremidade e perfis de CDN. Este tutorial o orientará na criação de um aplicativo de console simples do Node.js, que demonstra várias das operações disponíveis. Este tutorial não se destina a descrever em detalhes todos os aspectos do SDK da CDN do Azure para Node.js.
+Você pode usar o [SDK da CDN do Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar a criação e o gerenciamento de pontos de extremidade e perfis de CDN. Este tutorial o orienta na criação de um aplicativo de console simples do Node.js, que demonstra várias operações disponíveis. Este tutorial não se destina a descrever em detalhes todos os aspectos do SDK da CDN do Azure para Node.js.
 
 Para concluir este tutorial, você já deve ter o [Node.js](http://www.nodejs.org) **4.x.x** ou posterior instalado e configurado. Você pode usar qualquer editor de texto que desejar para criar o aplicativo do Node.js. Para escrever este tutorial, usei o [Visual Studio Code](https://code.visualstudio.com).
 
@@ -38,16 +38,16 @@ Crie uma pasta para armazenar o aplicativo. Em um console com as ferramentas do 
 	
 	npm init
 	
-Em seguida, será apresentada uma série de perguntas para inicializar o projeto. Para o **ponto de entrada**, este tutorial usará *app.js*. Você pode ver minhas outras opções no exemplo a seguir.
+Em seguida, será apresentada uma série de perguntas para inicializar o projeto. Para o **ponto de entrada**, este tutorial usa *app.js*. Você pode ver minhas outras opções no exemplo a seguir.
 
 ![Saída de NPM init](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Agora, o projeto é inicializado com um arquivo *packages.json*. Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NPM. Usaremos o Tempo de Execução do Cliente do Azure para Node.js (ms-rest-azure) e a Biblioteca de Cliente de CDN do Azure para Node.js (azure-arm-cd). Vamos adicioná-los ao projeto como dependências.
+Agora, o projeto é inicializado com um arquivo *packages.json*. Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NPM. Usaremos a Execução do Cliente do Azure para Node.js (ms-rest-azure) e a Biblioteca de Clientes de CDN do Azure para Node.js (azure-arm-cd). Vamos adicioná-los ao projeto como dependências.
  
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-Depois que os pacotes terminar de ser instalados, o arquivo *package.json* deverá ser semelhante a este exemplo (os números de versão podem ser diferentes):
+Depois dos pacotes terminarem de ser instalados, o arquivo *package.json* deverá ser semelhante a este exemplo (os números de versão podem diferir):
 
 ``` json
 {
@@ -114,10 +114,10 @@ Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.
 	Substitua os itens entre **&lt;colchetes angulares&gt;** pelas informações corretas. Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
 	
 
-4.  O aplicativo de console do Node.js usará alguns parâmetros de linha de comando. Validaremos que pelo menos um parâmetro foi passado.
+4.  O aplicativo de console do Node.js usará alguns parâmetros da linha de comando. Validaremos que pelo menos um parâmetro foi passado.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -129,7 +129,7 @@ Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.
 	}
 	```
 
-5. Isso nos leva para a parte principal do programa, em que faremos a ramificação para outras funções com base nos parâmetros passados.
+5. Isso nos leva para a parte principal do programa, na qual fazemos a ramificação para outras funções com base nos parâmetros passados.
 
 	```javascript
 	switch(parms[0].toLowerCase())
@@ -213,7 +213,7 @@ Agora que a estrutura básica do programa foi escrita, devemos criar as funçõe
 
 ## Relacione os perfis CDN e os pontos de extremidade
 
-Vamos começar com o código para listar os perfis e os pontos de extremidade existentes. Fornecerei comentários de código com a sintaxe esperada para que saibamos qual parâmetro deve ser usado.
+Vamos começar com o código para listar os perfis e os pontos de extremidade existentes. Os comentários do código fornecem a sintaxe esperada para que saibamos onde fica cada parâmetro.
 
 ```javascript
 // list profiles
@@ -341,7 +341,7 @@ function cdnDelete() {
 
 Agora podemos executar o programa do Node.js usando o depurador que preferirmos ou no console.
 
-> [AZURE.TIP] Se estiver usando o Código do Visual Studio como depurador, você precisará configurar o ambiente para passar os parâmetros de linha de comando. O Código do Visual Studio faz isso no arquivo **lanuch.json**. Procure uma propriedade chamada **args** e adicione uma matriz de valores de cadeia de caracteres aos parâmetros, para que seja semelhante a isto: `"args": ["list", "profiles"]`.
+> [AZURE.TIP] Se você estiver usando o Código do Visual Studio como depurador, precisará configurar o ambiente para passar os parâmetros da linha de comando. O Código do Visual Studio faz isso no arquivo **lanuch.json**. Procure uma propriedade chamada **args** e adicione uma matriz de valores de cadeia de caracteres aos parâmetros, para que seja semelhante a isto: `"args": ["list", "profiles"]`.
 
 Vamos começar listando os perfis.
 
@@ -367,4 +367,6 @@ Para ver a referência do SDK da CDN do Azure para Node.js, exiba a [referência
 
 Para localizar documentação adicional sobre o SDK do Azure para Node.js, exiba a [referência completa](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gerencie seus recursos CDN com o [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
@@ -120,8 +120,6 @@ Selecione o módulo Gravador e preencha o painel de propriedades.
 
 ## Próximas etapas
 
-Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][].
-
 Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][].
 
 <!--Image references-->
@@ -137,7 +135,6 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Article references-->
 
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
 [Criar tutorial de teste]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Tutorial de criação de experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
@@ -150,4 +147,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

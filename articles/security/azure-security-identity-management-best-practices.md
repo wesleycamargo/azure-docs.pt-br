@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
@@ -134,4 +134,4 @@ Em contraste, a proteção de identidade do Azure AD é um sistema de monitorame
 
 As organizações que não monitoram ativamente os seus sistemas de identidade estão em risco de ter as credenciais de usuários comprometidas. Sem o conhecimento de que atividades suspeitas estão ocorrendo usando essas credenciais, as organizações não serão capazes de reduzir esse tipo de ameaça. Você pode saber mais sobre a proteção de identidade do Azure lendo [Proteção de Identidade do Azure Active Directory](../active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

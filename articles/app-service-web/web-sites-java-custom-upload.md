@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Carregar um aplicativo Web Java personalizado no Azure
@@ -257,4 +257,4 @@ Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores 
 <!-- External Links -->
 [Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

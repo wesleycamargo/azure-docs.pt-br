@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Cmdlets do PowerShell e as APIs REST para SQL Data Warehouse
@@ -93,7 +93,7 @@ Para obter uma lista de todas as tarefas que podem ser automatizadas com o Power
 <!--Article references-->
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 [Criar um SQL Data Warehouse usando o PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restauração do banco de dados]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Restauração do banco de dados]: ./sql-data-warehouse-restore-database-powershell.md
 [Gerenciar escalabilidade com REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
@@ -114,4 +114,4 @@ Para obter uma lista de todas as tarefas que podem ser automatizadas com o Power
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

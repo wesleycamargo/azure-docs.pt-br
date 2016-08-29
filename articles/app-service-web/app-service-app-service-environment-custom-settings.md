@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/17/2016"
 	ms.author="stefsch"/>
 
 # Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
@@ -49,7 +49,7 @@ O atributo **clusterSettings** pode ser incluído em um modelo do Resource Manag
 ## Usar o Gerenciador de Recursos do Azure para atualizar um Ambiente de Serviço de Aplicativo
 Como alternativa, você pode atualizar o Ambiente de Serviço de Aplicativo usando o [Gerenciador de Recursos do Azure](https://resources.azure.com).
 
-1. No Gerenciador de Recursos, acesse o nó para Ambiente de Serviço de Aplicativo (**assinaturas** > **resourceGroups** > **provedores** > **Micrososft.Web** > **hostingEnvironments**). Em seguida, clique no Ambiente de Serviço de Aplicativo específico que você deseja atualizar.
+1. No Gerenciador de Recursos, acesse o nó para Ambiente de Serviço de Aplicativo (**assinaturas** > **resourceGroups** > **provedores** > **Microsoft.Web** > **hostingEnvironments**). Em seguida, clique no Ambiente de Serviço de Aplicativo específico que você deseja atualizar.
 
 2. No painel à direita, clique em **Leitura/gravação** na barra de ferramentas superior para permitir a edição interativa no Gerenciador de Recursos.
 
@@ -85,7 +85,7 @@ Outra pergunta feita pelos clientes é se eles podem modificar a lista de cripto
             }
         ],
 
-> [AZURE.WARNING]  Se valores incorretos forem definidos para o pacote de criptografia e o SChannel não puder entendê-los, toda a comunicação TLS com o servidor poderá parar de funcionar. Nesse caso, você precisará remover a entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** e enviar o modelo atualizado do ARM para reverter para as configurações padrão do pacote de criptografia. Use esta funcionalidade com cuidado.
+> [AZURE.WARNING]  Se valores incorretos forem definidos para o pacote de criptografia e o SChannel não puder entendê-los, toda a comunicação TLS com o servidor poderá parar de funcionar. Nesse caso, você precisará remover a entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** e enviar o modelo atualizado do Resource Manager para reverter para as configurações padrão do pacote de criptografia. Use esta funcionalidade com cuidado.
 
 ## Introdução
 O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a definição básica para a [criação de um Ambiente de Serviço de Aplicativo](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -95,4 +95,4 @@ O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a def
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

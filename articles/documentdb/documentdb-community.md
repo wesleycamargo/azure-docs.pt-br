@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="07/06/2016"
+  ms.date="08/17/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -76,7 +76,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 - [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *por Howard Edidin*
 
-- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *por Yoichi Kawasaki*
+- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) – *por Yoichi Kawasaki*
 
 - [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *por Peter Mannerhult*
 
@@ -120,7 +120,9 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Grupo de usuários do .NET de Capital City](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, FL | 1º de setembro de 2016 | n/d |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu e Tara Jana | Atlanta, GA | 26 a 30 de setembro de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | Nova Iorque, NY | 26 a 29 de setembro de 2016 | [#StrataConf](https://twitter.com/strataconf) |
 
 
 *Você está participando como palestrante ou organizando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
@@ -229,7 +231,7 @@ Siga-nos no twitter [@DocumentDB](https://twitter.com/DocumentDB) e mantenha-se 
 
 ![Equipe](./media/documentdb-community/documentdb-team.png)
 
-Você precisa de ajuda técnica? Tem dúvidas? Quer saber se o NoSQL é ideal para você? Você pode [agendar um chat individual diretamente com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Você também pode nos enviar um [email](mailto:askdocdb@microsoft.com) ou um Tweet para [@DocumentDB](https://twitter.com/DocumentDB).
+Você precisa de ajuda técnica? Tem dúvidas? Quer saber se o NoSQL é ideal para você? Você pode [agendar um bate-papo presencial diretamente com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Você também poderá entrar em contato conosco por [e-mail](mailto:askdocdb@microsoft.com) ou enviar um tweet para [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Projetos de software livre
 
@@ -266,4 +268,4 @@ Assistente | Imagem
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

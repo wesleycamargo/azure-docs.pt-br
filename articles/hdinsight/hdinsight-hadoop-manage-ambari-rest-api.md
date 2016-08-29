@@ -23,8 +23,6 @@
 
 O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight baseados em Linux e é usado para monitorar o cluster e fazer alterações de configuração. Neste documento, você aprenderá os fundamentos de como trabalhar com a API REST do Ambari realizando tarefas comuns, como encontrar o nome de domínio totalmente qualificado dos nós do cluster ou localizar a conta de armazenamento padrão usada pelo cluster.
 
-> [AZURE.NOTE] As informações deste artigo só se aplicam a clusters HDInsight baseados em Linux. Para os clusters HDInsight baseados no Windows, apenas um subconjunto da funcionalidade de monitoramento está disponível pela API REST do Ambari. Consulte [Monitorar Hadoop baseado em Windows no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
-
 ##Pré-requisitos
 
 * [cURL](http://curl.haxx.se/): o cURL é um utilitário de plataforma cruzada que pode ser usado para trabalhar com APIs REST na linha de comando. Neste documento, ele é usado para se comunicar com a API REST do Ambari.
@@ -170,7 +168,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
     
     Curl recupera o documento JSON e, depois, jq é usado para fazer algumas modificações para criar um modelo que podemos usar para adicionar/modificar valores de configuração. Especificamente, ele faz o seguinte:
     
-    * Cria um valor exclusivo que contém a cadeia de caracteres “version” e a data, que é armazenada em __newtag__
+    * Cria um valor exclusivo que contém a cadeia de caracteres "version" e a data, que é armazenada em __newtag__
     * Cria um documento raiz para a nova configuração desejada
     * Obtém o conteúdo da matriz .items e o adiciona no elemento __desired\_config__.
     * Exclui os elementos __href__, __version__ e __Config__, pois eles não são necessários para enviar uma nova configuração
@@ -255,4 +253,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

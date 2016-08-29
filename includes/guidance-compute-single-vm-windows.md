@@ -353,7 +353,7 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [boot-diagnostics]: https://azure.microsoft.com/pt-BR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/pt-BR/library/dn595129.aspx
@@ -393,4 +393,4 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Única arquitetura de VM do Windows no Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

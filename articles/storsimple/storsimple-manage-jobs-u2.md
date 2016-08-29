@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar trabalhos do StorSimple (Atualização 2)
@@ -93,4 +93,4 @@ Este trabalho agora está cancelado.
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

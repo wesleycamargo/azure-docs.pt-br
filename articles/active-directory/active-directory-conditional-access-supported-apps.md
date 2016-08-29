@@ -4,8 +4,8 @@
 	description="Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,15 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="08/12/2016"
+	ms.author="markvi"/>
 
 
 # Suporte de acesso condicional para aplicativos
 
-As regras de Acesso Condicional têm suporte em aplicativos conectados do Azure AD, aplicativos SaaS federados pré-integrados, aplicativos que usam senha de logon único e a linha de aplicativos de negócios e o Proxy de aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos em que você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). O acesso condicional funciona com aplicativos móveis e da área de trabalho que usam autenticação moderna. Este tópico explica o que tem suporte em relação à versão móvel e para desktop desses aplicativos.
+As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, aplicativos SaaS federados pré-integrados, aplicativos que usam senha de logon único e a linha de aplicativos de negócios e o Proxy de aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos em que você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). O acesso condicional funciona com aplicativos móveis e da área de trabalho que usam autenticação moderna. Este tópico explica o que tem suporte em relação à versão móvel e para desktop desses aplicativos.
 
- Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
+Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
 
 ## Aplicativos que usam autenticação moderna
 Os aplicativos a seguir foram testados com MFA (autenticação multifator) e a política de localização definida no serviço de destino.
@@ -39,11 +39,34 @@ Os aplicativos a seguir foram testados com MFA (autenticação multifator) e a p
 | Aplicativo Yammer|Yammer| Windows Mobile 10, iOS, Android|
 |Aplicativo Remoto do Azure|Serviço de Aplicativo Remoto do Azure|Windows 10, Windows 8.1, Windows 7, Mac, iOS, Android|
 
+
+
+
+
+Os seguintes aplicativos dão suporte a política baseada em dispositivo definida no serviço de destino:
+
+| Aplicativo | Serviço de Destino | Plataforma |
+| :--                                     | :--            | :--      |
+| Email/Calendário/Pessoas | Exchange | Windows 10, Windows Mobile 10 |
+| Office Universal: Word/Excel/PowerPoint | SharePoint | Windows 10, Windows Mobile 10 |
+| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
+|Outlook 2013 (exige autenticação moderna para ser habilitado) | Exchange | Windows 8.1, Windows 7 |
+
+
+Os seguintes aplicativos não dão suporte a política baseada em dispositivo definida no serviço de destino.
+
+| Aplicativo | Serviço de Destino | Plataforma |
+| :--                                     | :--            | :--      |
+| One Drive for Business usando o NGSC (Next Generation Sync Client) (Meu site e Sites de equipe) | SharePoint | Windows 10, Windows Mobile 10 |
+| Aplicativo Meus aplicativos | Qualquer | iOS, Android |
+
+
 ## Aplicativos que não usam autenticação moderna
 
 Atualmente, os aplicativos que não usam autenticação moderna devem ter acesso bloqueado ao usar outros métodos, pois eles não são impostos por acesso condicional. Isso é basicamente uma consideração para acesso ao Exchange e SharePoint, pois versões anteriores do aplicativo foram compiladas usando protocolos mais antigos.
 
 ## SharePoint
+
 Protocolos herdados podem ser desabilitados no SharePoint, usando o cmdlet Set-SPOTenant. Esse cmdlet impedirá que os clientes do Office usando os protocolos de autenticação não modernas acessem recursos do SharePoint Online.
 
 **Comando de exemplo**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
@@ -107,4 +130,4 @@ Regra 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

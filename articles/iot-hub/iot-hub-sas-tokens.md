@@ -78,14 +78,33 @@ Essa é uma função de Nó que calcula o token a partir das entradas `resourceU
         // console.log("signature:" + token);
         return token;
     };
+ 
+ Para fins de comparação, o código Python equivalente é:
+ 
+    from base64 import b64encode, b64decode
+    from hashlib import sha256
+    from hmac import HMAC
+    from urllib import urlencode
+    
+    def generate_sas_token(uri, key, policy_name='device', expiry=3600):
+        ttl = time() + expiry
+        sign_key = "%s\n%d" % (uri, int(ttl))
+        signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+     
+        return 'SharedAccessSignature ' + urlencode({
+            'sr' :  uri,
+            'sig': signature,
+            'se' : str(int(ttl)),
+            'skn': policy_name
+        })
 
 > [AZURE.NOTE] Como o prazo de validade do token é validado em máquinas do Hub IoT, é importante que o descompasso no relógio do computador que gera o token seja mínimo.
 
 ## Usar tokens SAS como um dispositivo
 
-Há duas maneiras de obter as permissões **DeviceConnect** com o Hub IoT com tokens de segurança: usando uma chave de identidade do dispositivo, ou uma chave de política de acesso compartilhado.
+Há duas maneiras de obter as permissões **DeviceConnect** com o Hub IoT com tokens de segurança: usando uma chave de identidade do dispositivo ou uma chave de política de acesso compartilhado.
 
-Além disso, é importante observar que qualquer funcionalidade acessível a partir de dispositivos fica exposta por padrão em pontos de extremidade com o prefixo `/devices/{deviceId}`.
+Além disso, é importante observar que qualquer funcionalidade acessível por meio de dispositivos fica exposta por padrão em pontos de extremidade com o prefixo `/devices/{deviceId}`.
 
 > [AZURE.IMPORTANT] A única maneira de o Hub IoT autenticar um dispositivo específico é usando a chave simétrica de identidade do dispositivo. Em casos nos quais uma política de acesso compartilhado é usada para acessar a funcionalidade do dispositivo, a solução deve considerar o componente emissor do token de segurança como um subcomponente confiável.
 
@@ -118,7 +137,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
-> [AZURE.NOTE] É possível gerar um token seguro usando a ferramenta [Device Explorer][lnk-device-explorer] do .NET.
+> [AZURE.NOTE] É possível gerar um token seguro usando a ferramenta [Gerenciador de Dispositivos][lnk-device-explorer] do .NET.
 
 ### Usar uma política de acesso compartilhado
 
@@ -150,7 +169,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device
 
-Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, simplesmente definindo o URI do recurso como `myhub.azure-devices.net/devices`.
+Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, simplesmente definindo o URI do recurso para `myhub.azure-devices.net/devices`.
 
 ## Usar tokens de segurança de componentes de serviço
 
@@ -186,7 +205,7 @@ Você pode usar qualquer certificado X.509 para autenticar um dispositivo com o 
 
 -   **Um certificado X.509 existente**. Talvez um dispositivo já tenha um certificado X.509 associado a ele. O dispositivo pode usar este certificado para se autenticar no Hub IoT.
 
--   **Um certificado gerado automaticamente e um X-509 autoassinado**. Um fabricante de dispositivos ou um implantador interno pode gerar esses certificados e armazenar a chave privada correspondente (e o certificado) no dispositivo. Você pode usar ferramentas como o [OpenSSL] e o utilitário [SelfSignedCertificate do Windows] para essa finalidade.
+-   **Um certificado X-509 gerado automaticamente e autoassinado**. Um fabricante de dispositivos ou um implantador interno pode gerar esses certificados e armazenar a chave privada correspondente (e o certificado) no dispositivo. Você pode usar ferramentas como o [OpenSSL] e o utilitário [SelfSignedCertificate do Windows] para essa finalidade.
 
 -   **Certificado X.509 assinado por autoridade de certificação**. Você também pode usar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA) para identificar um dispositivo e autenticar um dispositivo no Hub IoT.
 
@@ -194,11 +213,11 @@ Um dispositivo pode usar um certificado X.509 ou um token de segurança para aut
 
 ## Registrar um certificado de cliente X.509 para um dispositivo
 
-O [SDK do Serviço Azure IoT para C#][lnk-service-sdk] \(versão 1.0.8 ou superior) oferece suporte ao registro de um dispositivo que usa um certificado de cliente X.509 para autenticação. Outras APIs, como a importação/exportação de dispositivos também oferece suporte a certificados de cliente X.509.
+O [SDK do Serviço IoT do Azure para C#][lnk-service-sdk] (versão 1.0.8 ou superior) oferece suporte ao registro de um dispositivo que usa um certificado de cliente X.509 para autenticação. Outras APIs, como a importação/exportação de dispositivos também oferece suporte a certificados de cliente X.509.
 
 ### Suporte a C#
 
-A classe **RegistryManager** fornece uma maneira programática de registrar um dispositivo. Em particular, os métodos **AddDeviceAsync** e **UpdateDeviceAsync** permitem que um usuário registre e atualize um dispositivo no registro de identidades de dispositivos do Hub Iot. Esses dois métodos têm uma instância de **Dispositivo** como entrada. A classe **Dispositivo** inclui uma propriedade **Autenticação** permite que o usuário especifique as impressões digitais de certificado X.509 primárias e secundárias. A impressão digital representa um hash SHA-1 do certificado X.509 (armazenado usando a codificação binária DER). Os usuários têm a opção de especificar uma impressão digital primária ou uma impressão digital secundária ou ambas. As impressões digitais primárias e secundárias têm suporte para lidar com cenários de substituição do certificado.
+A classe **RegistryManager** fornece uma maneira programática de registrar um dispositivo. Em particular, os métodos **AddDeviceAsync** e **UpdateDeviceAsync** permitem que um usuário registre e atualize um dispositivo no registro de identidades de dispositivos do Hub Iot. Esses dois métodos têm uma instância **Dispositivo** como entrada. A classe **Dispositivo** inclui uma propriedade **Autenticação** que permite ao usuário especificar as impressões digitais de certificado X.509 primárias e secundárias. A impressão digital representa um hash SHA-1 do certificado X.509 (armazenado usando a codificação binária DER). Os usuários têm a opção de especificar uma impressão digital primária ou uma impressão digital secundária ou ambas. As impressões digitais primárias e secundárias têm suporte para lidar com cenários de substituição do certificado.
 
 > [AZURE.NOTE] O Hub IoT Hub não exige ou armazena o certificado de cliente X.509 inteiro, somente a impressão digital.
 
@@ -221,11 +240,11 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usar um certificado de cliente X.509 durante operações em tempo de execução
 
-O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] \(versão 1.0.11 ou superior) dá suporte ao uso de certificados de cliente X.509.
+O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
 
 ### Suporte a C#
 
-A classe **DeviceAuthenticationWithX509Certificate** dá suporte à criação de instâncias de **DeviceClient** usando um certificado de cliente X.509.
+A classe **DeviceAuthenticationWithX509Certificate** oferece suporte à criação de instâncias **DeviceClient** usando um certificado de cliente X.509.
 
 Veja um trecho de código de exemplo:
 
@@ -246,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

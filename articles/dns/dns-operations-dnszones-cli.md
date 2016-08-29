@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Como gerenciar as zonas DNS usando a CLI
@@ -67,4 +67,4 @@ Antes de excluir uma zona DNS no DNS do Azure, você precisará excluir todos os
 ## Próximas etapas
 Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

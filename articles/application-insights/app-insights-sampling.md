@@ -40,7 +40,7 @@ Há três módulos de amostragem alternativos:
 
 * A **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Ela é padrão desde o SDK v 2.0.0-beta3.
 * A **amostragem de taxa fixa** reduz o volume de telemetria enviado do seu servidor ASP.NET e dos navegadores dos seus usuários. Você define a taxa.
-* A **amostragem de ingestão** reduz o volume de telemetria mantido pelo serviço do Application Insights a uma taxa definida por você. Ela não reduz o tráfego de telemetria, mas ajuda você a se manter em sua cota mensal. 
+* A **amostragem de ingestão** reduz o volume de telemetria mantido pelo serviço do Application Insights a uma taxa definida por você. Ela não reduz o tráfego de telemetria, mas ajuda você a se manter em sua cota mensal.
 
 ## Amostragem de ingestão
 
@@ -130,7 +130,7 @@ Remova o nó `AdaptiveSamplingTelemetryProcessor` do arquivo .config.
 
     // Optional: here you can adjust the settings from their defaults.
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     
     builder.UseAdaptiveSampling(
          adaptiveSamplingSettings,
@@ -196,7 +196,7 @@ O algoritmo de amostragem retém os itens relacionados. Para cada evento de soli
 
 No Metrics Explorer, as taxas como as contagens de solicitações e de exceções são multiplicadas por um fator para compensar a taxa de amostragem, para que elas sejam aproximadamente corretas.
 
-1. **Atualize os pacotes NuGet do seu projeto** para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web. 
+1. **Atualize os pacotes NuGet do seu projeto** para a versão de *pré-lançamento* mais recente do Application Insights. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, marque a opção **Incluir pré-lançamento** e procure por Microsoft.ApplicationInsights.Web.
 
 2. **Desabilitar a amostragem adaptável**: em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remova ou comente o nó `AdaptiveSamplingTelemetryProcessor`.
 
@@ -266,9 +266,9 @@ A amostragem não é necessária para a maioria dos aplicativos de pequeno e mé
  
 As principais vantagens da amostragem são:
 
-* O serviço Application Insights remove (“limita”) os pontos de dados quando o aplicativo envia uma taxa muito alta de telemetria em um curto intervalo de tempo. 
-* Permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço. 
-* Para reduzir o tráfego de rede da coleção de telemetria. 
+* O serviço Application Insights remove (“limita”) os pontos de dados quando o aplicativo envia uma taxa muito alta de telemetria em um curto intervalo de tempo.
+* Permanecer dentro da [cota](app-insights-pricing.md) de pontos de dados para o seu tipo de preço.
+* Para reduzir o tráfego de rede da coleção de telemetria.
 
 ### Que tipo de amostragem eu devo usar?
 
@@ -283,7 +283,7 @@ As principais vantagens da amostragem são:
 
 * Você estiver usando o SDK do Application Insights para os serviços Web do ASP.NET versão 2.0.0 ou posterior e
 * Você quiser uma amostragem sincronizada entre cliente e servidor, para que quando estiver investigando eventos na [Pesquisa](app-insights-diagnostic-search.md), você possa navegar entre os eventos relacionados no cliente e no servidor, por exemplo, exibições de página e solicitações http.
-* Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações. 
+* Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações.
 
 
 **Use a amostragem adaptável:**
@@ -324,7 +324,7 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 *Por que a amostragem não se trata apenas de “coletar X% de cada tipo de telemetria”?*
 
- *  Embora essa abordagem de amostragem forneceria uma precisão muito alta em aproximações de métrica, ela interromperia a capacidade de correlacionar dados de diagnóstico por usuário, sessão e solicitação, que são essenciais para o diagnóstico. Portanto, a amostragem funciona melhor com a lógica “coletar todos os itens de telemetria para X% de usuários do aplicativo” ou “coletar toda a telemetria para X% das solicitações do aplicativo”. Para os itens de telemetria não associados às solicitações (como o processamento assíncrono em segundo plano), o fallback é “coletar X% de todos os itens para cada tipo de telemetria”. 
+ *  Embora essa abordagem de amostragem forneceria uma precisão muito alta em aproximações de métrica, ela interromperia a capacidade de correlacionar dados de diagnóstico por usuário, sessão e solicitação, que são essenciais para o diagnóstico. Portanto, a amostragem funciona melhor com a lógica “coletar todos os itens de telemetria para X% de usuários do aplicativo” ou “coletar toda a telemetria para X% das solicitações do aplicativo”. Para os itens de telemetria não associados às solicitações (como o processamento assíncrono em segundo plano), o fallback é “coletar X% de todos os itens para cada tipo de telemetria”.
 
 *O percentual de amostragem pode ser alterado com o tempo?*
 
@@ -334,7 +334,7 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 *Se eu usar a amostragem de taxa fixa, como saber qual percentual de amostragem funcionará melhor para o meu aplicativo?*
 
-* Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa. 
+* Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa.
 
     Caso contrário, é preciso adivinhar. Analise o uso atual da telemetria na AI, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugerirá quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
 
@@ -356,4 +356,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

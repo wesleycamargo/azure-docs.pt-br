@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -136,7 +136,7 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 
 1. Para exibir relatórios de criação de perfil para uma instância, escolha a função no serviço, abra o menu de atalho para uma instância específica e, em seguida, escolha **Exibir Relatório de Criação de Perfil**.
 
-    O relatório, um arquivo .vsp, agora é baixado do Azure e o status do download é exibido no log de atividades do Azure. Quando o download é concluído, o relatório de criação de perfil é exibido em uma guia no editor do Visual Studio denominada <Role name>\_<Instance Number>\_<identifier>.vsp. Serão exibidos dados de resumo para o relatório.
+    O relatório, um arquivo .vsp, agora é baixado do Azure e o status do download é exibido no log de atividades do Azure. Quando o download é concluído, o relatório de criação de perfil é exibido em uma guia no editor do Visual Studio denominada <Nome da função>_<Número da instância>_<identificador>.vsp. Serão exibidos dados de resumo para o relatório.
 
 1. Para mostrar diferentes modos de exibição do relatório, na lista Modo de Exibição Atual, escolha o tipo de exibição desejado. Para saber mais, consulte [Exibições de relatório de ferramentas de criação de perfil](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
@@ -146,4 +146,4 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/16/2016"
 	ms.author="sethm"/>
 
-# Introdução aos Hubs de Evento
+# Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
@@ -65,7 +65,7 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Analisar dados do sensor com o Storm e do HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -38,9 +38,9 @@ As seguintes funções de administrador estão disponíveis:
 
 - **Administrador de usuários**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
 
-- **Leitor de segurança**: acesso somente leitura a um número de recursos de segurança do Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Proteção do Office 365.
+- **Leitor de segurança**: acesso somente leitura a um número de recursos de segurança do Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
 
-- **Administrador de segurança**: todas as permissões somente leitura da função **Leitor de segurança**, mais um número de permissões administrativas adicionais para os mesmos serviços: Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Proteção do Office 365.
+- **Administrador de segurança**: todas as permissões somente leitura da função **Leitor de segurança**, mais um número de permissões administrativas adicionais para os mesmos serviços: Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
 
 ## Permissões de administrador
 
@@ -76,19 +76,19 @@ O que ele pode fazer | O que não pode fazer
 
 ### Leitor de segurança
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 ------------- | -------------
 Identity Protection Center | Ler todos os relatórios de segurança e informações de configurações para recursos de segurança<ul><li>Antispam<li>Criptografia<li>Prevenção contra perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de mensagens
 Privileged Identity Management | <p>Tem acesso somente leitura a todas as informações exibidas no Azure AD PIM: políticas e relatórios de atribuições de função do Azure AD, análises de segurança e, no futuro, acesso de leitura aos dados de política e relatórios para cenários além da atribuição de função do Azure AD.<p>**Não pode** se inscrever no Azure AD PIM nem fazer alterações nele. No portal do PIM ou por meio do PowerShell, alguém nesta função poderá ativar funções adicionais (por exemplo, administrador global ou administrador com função com privilégios) se o usuário for um candidato a elas.
-<p>Monitorar Integridade de Serviço do Office 365</p><p>Centro de proteção do Office 365</p> | <ul><li>Ler e gerenciar alertas<li>ler políticas de segurança<li>Ler inteligência de ameaças, Cloud App Discovery e Quarentena ao Pesquisar e Investigar<li>Ler todos os relatórios
+<p>Monitorar a integridade do serviço do Office 365</p><p>Centro de Conformidade e Segurança do Office 365</p> | <ul><li>Ler e gerenciar alertas<li>ler políticas de segurança<li>Ler inteligência de ameaças, Cloud App Discovery e Quarentena ao Pesquisar e Investigar<li>Ler todos os relatórios
 
 ### Administrador de segurança
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 ------------- | -------------
 Identity Protection Center | <ul><li>Todas as permissões da função de Leitor de Segurança.<li>Além disso, a capacidade de executar todas as operações de IPC, exceto para a redefinição de senhas.
 Privileged Identity Management | <ul><li>Todas as permissões da função de leitor de segurança.<li>**Não é possível** gerenciar associações de função ou configurações do Azure AD.
-<p>Monitorar Integridade de Serviço do Office 365</p><p>Proteção do Office 365 | <ul><li>Todas as permissões da função de Leitor de Segurança.<li>Pode configurar todas as configurações no recurso de Proteção avançada contra ameaças (proteção contra malware e vírus, configuração de URL mal-intencionado, rastreamento de URL, etc).
+<p>Monitorar a integridade do serviço do Office 365</p><p>Centro de Conformidade e Segurança do Office 365 | <ul><li>Todas as permissões da função de Leitor de Segurança.<li>Pode configurar todas as configurações no recurso de Proteção avançada contra ameaças (proteção contra malware e vírus, configuração de URL mal-intencionado, rastreamento de URL, etc).
 
 ## Detalhes sobre a função de administrador global
 
@@ -116,7 +116,7 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)
 
-- Para obter mais informações sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, consulte [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Gerenciar usuários](active-directory-create-users.md)
 
@@ -124,4 +124,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

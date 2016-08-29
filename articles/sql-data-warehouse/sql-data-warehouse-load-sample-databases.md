@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carregar dados de amostra no SQL Data Warehouse
@@ -45,7 +45,7 @@ Siga estas etapas simples para carregar e consultar o banco de dados de exemplo 
 
 ##Consultar dados de exemplo
 
-Agora que você carregou alguns dados de exemplo no SQL Data Warehouse, poderá executar rapidamente algumas consultas. Para executar uma consulta, conecte-se ao banco de dados da Adventure Works recém-criado no SQL DW do Azure usando o Visual Studio e o SSDT, conforme descrito no documento para [conectar][].
+Agora que você carregou alguns dados de exemplo no SQL Data Warehouse, poderá executar rapidamente algumas consultas. Para executar uma consulta, conecte-se ao banco de dados da Adventure Works recém-criado no SQL DW do Azure usando o Visual Studio e o SSDT, conforme descrito no documento sobre a [consulta com Visual Studio][].
 
 Exemplo de instrução select simples para obter todas as informações dos funcionários:
 
@@ -80,15 +80,15 @@ Agora que você teve a oportunidade de experimentar algumas consultas com dados 
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: ./sql-data-warehouse-overview-migrate.md
-[desenvolver]: ./sql-data-warehouse-overview-develop.md
-[carregar]: ./sql-data-warehouse-overview-load.md
-[conectar]: ./sql-data-warehouse-get-started-connect.md
-[migrar o código]: ./sql-data-warehouse-migrate-code.md
-[instalar o bcp]: ./sql-data-warehouse-load-with-bcp.md
-[instalar o sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[migrar]: sql-data-warehouse-overview-migrate.md
+[desenvolver]: sql-data-warehouse-overview-develop.md
+[carregar]: sql-data-warehouse-overview-load.md
+[consulta com Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[migrar o código]: sql-data-warehouse-migrate-code.md
+[instalar o bcp]: sql-data-warehouse-load-with-bcp.md
+[instalar o sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Scripts de exemplo da Adventure Works para o SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configurar proxy da web para seu dispositivo StorSimple
@@ -57,7 +57,7 @@ Você pode usar o assistente de instalação para guiá-lo durante as etapas de 
 
     `Invoke-HcsSetupWizard`
 
-2. Se esta for a primeira vez que usa o assistente de instalação para o registro de dispositivos, você precisará definir todas as configurações de rede necessárias até atingir a configuração de proxy Web. Se o dispositivo já estiver registrado, você poderá aceitar todas as configurações de rede definidas até atingir a configuração de proxy Web. No assistente de instalação, quando for solicitado a definir as configurações de proxy Web, digite **Sim**.
+2. Se esta for a primeira vez que usa o assistente de instalação para o registro de dispositivos, você precisará definir todas as configurações de rede necessárias até atingir a configuração de proxy Web. Se o dispositivo já estiver registrado, você poderá aceitar todas as configurações de rede definidas até alcançar a configuração de proxy Web. No assistente de instalação, quando solicitado a definir as configurações de proxy da web, digite **Sim**.
 
 3. Para a **URL de Proxy Web**, especifique o endereço IP ou o FQDN (nome de domínio totalmente qualificado) do servidor proxy Web e número de porta TCP que você deseja que seu dispositivo use ao se comunicar com a nuvem. Use o seguinte formato:
 
@@ -142,7 +142,7 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 
 > [AZURE.NOTE] 
 > 
-> -  A lista de mensagens de erro acima não é exaustiva. 
+> -  A lista de mensagens de erro acima não é exaustiva.
 > - Erros relacionados às configurações de proxy Web não serão exibidos no Portal clássico do Azure do serviço StorSimple Manager. Se houver um problema com o proxy Web depois que a configuração for concluída, o status do dispositivo será alterado para **Offline** no Portal Clássico.|
 
 ## Próximas etapas
@@ -151,4 +151,4 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 
 - Para saber como usar o serviço StorSimple Manager, acesse [Use o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->
