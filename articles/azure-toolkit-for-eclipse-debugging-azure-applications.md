@@ -48,12 +48,13 @@ Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de s
     1. Para **Projeto Java para depuração**, selecione o projeto **MyHelloWorld**.
     1. Em **Configuração depuração para**, marque **Nuvem do Azure (preparo)**.
     1. Certifique-se de que a opção **Emulador de computação do Azure** esteja desmarcada.
-    1. Em **Host**, digite o nome DNS de sua implantação em estágios, mas sem o **http://** anterior. Por exemplo (use seu GUID no lugar do GUID exibido aqui): ** 4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Em **Host**, digite o nome DNS de sua implantação em estágios, mas sem o **http://** anterior. Por exemplo (use seu GUID no lugar do GUID exibido aqui): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Clique em **OK** para fechar a caixa de diálogo **Configuração de Depuração do Azure**.
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Se você não tiver um ponto de interrupção definido em index.jsp, configure-o:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir: ![][ic551537]
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:  
+        ![][ic551537]
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.
 1. Na caixa de diálogo **Configurações de Depuração**, expanda **Aplicativo Java Remoto** no painel esquerdo, selecione **Nuvem do Azure (WorkerRole1)** e clique em **Depurar**.
 1. Em seu navegador, execute o aplicativo preparado, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, substituindo o GUID de seu nome DNS por *&lt;guid&gt;*. Caso receba uma solicitação de uma caixa de diálogo **Confirmar Alternância de Perspectiva**, clique em **Sim**. Agora, a sua sessão de depuração deve ser executada a partir da linha de código na qual o ponto de interrupção foi definido.
@@ -94,8 +95,8 @@ Quando você souber o número de porta pública atribuído a essa instância, fa
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Defina um ponto de interrupção em index.jsp:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir: ![][ic551537]
-
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:
+        ![][ic551537]
        Um ponto de interrupção será definido se você vir um ícone de ponto de interrupção na barra azul à esquerda do código Java.
 1. Inicie o aplicativo no emulador de computação clicando no botão **Executar no Emulador do Azure** na barra de ferramentas do Azure.
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.

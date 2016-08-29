@@ -29,7 +29,8 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 
 1. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
 2. Na folha da conta, clique em **Consistência Padrão**.
-3. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**. ![Sessão de consistência padrão][5]
+3. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**. 
+![Sessão de consistência padrão][5]
 
 ## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
 Quando você cria uma conta do Banco de Dados de Documentos, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Banco de Dados de Documentos é acessada. Ao fornecer as duas chaves de acesso, o Banco de Dados de Documentos permite regenerar as chaves sem interrupção para a sua conta do Banco de Dados de Documentos.
@@ -59,10 +60,12 @@ Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de D
 1. Atualize as chaves de acesso no código do aplicativo para fazer referência à chave de acesso secundária da conta do Banco de Dados de Documentos.
 2. Regenere a chave de acesso primária de sua conta do Banco de Dados de Documentos. No [Portal do Azure](https://portal.azure.com/), acesse sua conta do Banco de Dados de Documentos.
 3. Na folha **Conta do Banco de Dados de Documentos**, clique em **Chaves**.
-4. Na folha de **Chaves**, clique no comando **Regenerar Principal** e, em seguida, clique em **Ok** para confirmar que você quer gerar uma nova chave. ![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-keys.png)
+4. Na folha de **Chaves**, clique no comando **Regenerar Principal** e, em seguida, clique em **Ok** para confirmar que você quer gerar uma nova chave. 
+![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-keys.png)
 
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente 5 minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
-6. Regenere a chave de acesso secundária. ![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-secondary-key.png)
+6. Regenere a chave de acesso secundária. 
+![Regenerar chaves de acesso](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] Levará alguns minutos para que a chave gerada recentemente possa ser usada para acessar sua conta do Banco de Dados de Documentos.
@@ -98,7 +101,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
-[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

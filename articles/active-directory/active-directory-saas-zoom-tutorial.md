@@ -78,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Zoom**, digite a URL usando o padrão "*http://company.zoom.us*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Zoom**, digite a URL usando o padrão "**http://company.zoom.us**" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configurar a URL do Aplicativo
 ")

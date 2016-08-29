@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usar um certificado de cliente X.509 durante operações em tempo de execução
 
-O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
+O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] \(versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
 
 ### Suporte a C#
 

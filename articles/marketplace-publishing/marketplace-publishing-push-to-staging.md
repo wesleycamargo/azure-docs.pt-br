@@ -125,7 +125,7 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 | Serviço do desenvolvedor | Sim | Sim | Sim |
 
 ### 2\.1. Definir seus preços da VM
-No momento, para as máquinas virtuais, temos os ** três tipos de modelos de cobrança a seguir:**
+No momento, para as máquinas virtuais, temos os **três tipos de modelos de cobrança a seguir:**
 
 - **Por hora:** os clientes são cobrados por hora com base nas taxas definidas pelos editores nos tamanhos da VM. No caso do modelo de **cobrança por hora** dos SKUs, o preço total será a soma do custo do software cobrado pelo editor e do custo da infraestrutura cobrado pela Microsoft. Esse custo total será exibido para o cliente como um preço por hora e mensal quando ele estiver considerando a compra (consulte a captura de tela abaixo). **O editor recebe 80% do custo de software cobrado.** Portanto, faça o cálculo adequadamente antes de definir preços para seus SKUs.
 

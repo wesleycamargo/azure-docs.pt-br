@@ -29,7 +29,7 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
 * Um JDK (Java Developer Kit) versão 1.7 ou posterior.
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
-* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/pt-BR/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
+* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
 * O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse].
 
 ## Para criar um aplicativo Hello World

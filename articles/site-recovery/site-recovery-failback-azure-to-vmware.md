@@ -38,7 +38,7 @@ Use essa arquitetura quando o servidor de processo é local e você está usando
 
 Use essa arquitetura quando o servidor de processo está no Azure e você tem uma VPN ou uma conexão de Rota Expressa.
 
-![Diagrama da arquitetura da VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagrama da arquitetura da VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Para ver a lista completa de portas e o diagrama da arquitetura de failback, consulte a imagem abaixo
 
@@ -252,4 +252,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0817_2016---->

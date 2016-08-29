@@ -282,7 +282,8 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 ### Criação de um usuário de teste do SuccessFactors
   
-Para permitir que os usuários do AD do Azure façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors. No caso do SuccessFactors, o provisionamento será uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors.  
+No caso do SuccessFactors, o provisionamento será uma tarefa manual.
   
 Para obter os usuários criados no SuccessFactors, você precisará entrar em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/en_us/support.html).
 

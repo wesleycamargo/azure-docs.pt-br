@@ -181,7 +181,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos do **Dropbox for Business **, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **Dropbox for Business**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Atribuir usuários")
 
@@ -203,7 +203,8 @@ Um ciclo de provisionamento de usuário concluído com êxito é indicado por um
 ![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Atribuir usuários")
 
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.
+Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 

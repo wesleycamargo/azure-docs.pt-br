@@ -102,7 +102,7 @@ Quando a sua instância de função estiver pronta, você poderá fazer logon re
 
     * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos:
 
-        ![][ic659273]
+    ![][ic659273]
 
     * Depois de clicar no botão **Conectar**, você receberá uma solicitação para abrir um arquivo RDP. Abra o arquivo e siga os prompts. (Você pode também salvar esse arquivo em seu computador local e depois executar o arquivo clicando duas vezes nele para fazer logon remoto em sua máquina virtual sem a necessidade de acessar primeiro o portal de gerenciamento).
 

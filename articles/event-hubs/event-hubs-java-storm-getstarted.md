@@ -64,7 +64,7 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 

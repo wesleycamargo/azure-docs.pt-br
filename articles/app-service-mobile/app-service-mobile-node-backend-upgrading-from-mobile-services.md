@@ -172,7 +172,7 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Conceitos de Autenticação]: ../app-service/app-service-authentication-overview.md
 [Início Rápido da Autenticação]: app-service-mobile-auth.md

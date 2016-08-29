@@ -78,10 +78,10 @@ Este tutorial presume que você esteja usando um dispositivo [Texas Instruments 
 
 Antes de começar, você deve se certificar de que pode conectar seu dispositivo Edison à sua rede sem fio. Para configurar seu dispositivo Edison, você precisa se conectar a um computador host. A Intel fornece guias de introdução para os seguintes sistemas operacionais:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introdução à placa Intel® Edison no Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introdução à placa Intel® Edison no Linux).
 
 Para configurar seu dispositivo Edison e se familiarizar com ele, você deve concluir todas as etapas nesses artigos de “Introdução” exceto a última etapa "Choose IDE" (Escolher a IDE), que não é necessária para o tutorial atual. No final do processo de configuração da placa Edison, você:
 

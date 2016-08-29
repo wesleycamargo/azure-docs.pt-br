@@ -545,7 +545,7 @@ Nesta etapa, você irá adicionar variáveis de ambiente à configuração do ap
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua ** <chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
+Substitua **<nome da conta de armazenamento>** com o nome do armazenamento de conta que você criou anteriormente e substitua **<chave de acesso de armazenamento>** com a chave de acesso primário para sua conta de armazenamento. (Use os mesmos valores do arquivo config.json que você criou anteriormente.)
 
 Como alternativa, você pode definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com/):
 

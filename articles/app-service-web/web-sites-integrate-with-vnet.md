@@ -218,7 +218,7 @@ Há várias coisas que podem impedir que seu aplicativo alcance um host e uma po
 
 - **Há um firewall no caminho** Se houver um firewall no caminho, você atingirá o tempo limite de TCP. Nesse caso, de 21 segundos. Use a ferramenta tcpping para testar a conectividade. Tempos limite de TCP podem ocorrer por muitos motivos, além de firewalls, mas comece com isso.
 - **DNS não está acessível** O tempo limite do DNS é de três segundos por servidor DNS. Se você tiver dois servidores DNS, será de seis segundos. Use nameresolver para ver se o DNS está funcionando. Lembre-se de que você não pode usar nslookup, pois ele não usa o DNS com o qual sua VNET está configurada.
-- **Intervalo IP P2S inválido ** O intervalo IP ponto a site deve estar dentro dos intervalos IP privados RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255) Se o intervalo usa IPs fora disso, nada funcionará.
+- **Intervalo IP P2S inválido** O intervalo IP ponto a site deve estar dentro dos intervalos IP privados RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255) Se o intervalo usa IPs fora disso, nada funcionará.
 
 Se esses itens não resolverem seu problema, procure por coisas simples primeiro, como:
 

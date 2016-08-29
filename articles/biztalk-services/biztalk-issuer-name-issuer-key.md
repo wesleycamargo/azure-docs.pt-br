@@ -53,7 +53,7 @@ Você também pode selecionar **Abrir Portal de Gerenciamento ACS** para recuper
 2. No painel de navegação à esquerda, selecione **Serviços do BizTalk**.
 3. Selecione o Serviço do BizTalk.
 4. Selecione o botão Informações de Conexão e selecione **Abrir Portal de Gerenciamento ACS**.
-5. No Portal, em **Configurações de Serviço**, selecione ** Identidades de Serviço**. Isso exibe sua Identidade de Serviço, que é o valor do Nome do Emissor do Controle de Acesso. Selecione o link da Identidade do Serviço para consultar a Senha, que é o valor da Chave do Emissor. Os valores podem ser copiados.<br/><br/> Por exemplo, em **Identidades de Serviço**, você verá "proprietário". "Proprietário" é o nome do emissor de Controle de Acesso. Quando você clica no link "proprietário", você verá a **Senha**. Quando você clica no link "Senha", você verá o valor. O valor dessa Senha é sua Chave do Emissor do Controle de Acesso.
+5. No Portal, em **Configurações de Serviço**, selecione **Identidades de Serviço**. Isso exibe sua Identidade de Serviço, que é o valor do Nome do Emissor do Controle de Acesso. Selecione o link da Identidade do Serviço para consultar a Senha, que é o valor da Chave do Emissor. Os valores podem ser copiados.<br/><br/> Por exemplo, em **Identidades de Serviço**, você verá "proprietário". "Proprietário" é o nome do emissor de Controle de Acesso. Quando você clica no link "proprietário", você verá a **Senha**. Quando você clica no link "Senha", você verá o valor. O valor dessa Senha é sua Chave do Emissor do Controle de Acesso.
 
 Resumindo: Nome do Emissor = nome da Identidade do Serviço Chave do Emissor = valor da Senha
 
@@ -71,7 +71,9 @@ O nome e a chave do emissor do Barramento de Serviço são usados pelos Serviço
 2. No painel de navegação esquerdo, selecione **Barramento de Serviço**.
 3. Selecione seu namespace. Na barra de tarefas, selecione **Informações da Conexão**. Isso exibe o **Emissor padrão** (Nome do Emissor) e a **Chave Padrão** (Chave do Emissor). Os valores podem ser copiados.
 
-Resumindo: Nome do Emissor = Emissor Padrão Chave do Emissor = Chave Padrão
+Resumindo:  
+Nome do Emissor = Emissor Padrão  
+Chave do Emissor = Chave Padrão
 
 ## Avançar
 Tópicos adicionais dos Serviços BizTalk do Azure:

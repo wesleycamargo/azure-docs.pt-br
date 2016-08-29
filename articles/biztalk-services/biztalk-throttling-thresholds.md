@@ -42,7 +42,8 @@ Os Serviços BizTalk do Azure acompanham o status da limitação (estado normal 
 
 Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte ocorre:
 
-- A limitação ocorre por instância de função. Por exemplo:<br/>InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na InstânciadeFunçãoA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/> **O servidor está ocupado. Tente novamente.**<br/><br/>
+- A limitação ocorre por instância de função. Por exemplo:<br/>InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na InstânciadeFunçãoA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/>
+**O servidor está ocupado. Tente novamente.**<br/><br/>
 - Nenhuma origem de pull pode pesquisar ou baixar uma mensagem. Por exemplo:<br/> um pipeline puxa as mensagens de uma origem de FTP externa. A instância de função que faz puxa entra em estado de limitação. Nessa situação, o pipeline interrompe o download de mensagens adicionais até que a instância de função saia da limitação.
 - Uma resposta é enviada ao cliente para que ele reenvie a mensagem.
 - Você deve aguardar até que a limitação seja resolvida. Especificamente, você deve aguardar até que o limite baixo seja atingido.

@@ -19,7 +19,9 @@
 #Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce. As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce. Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce.  
+As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.  
+Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -78,7 +80,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, "*`http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, "`http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurar a URL do Aplicativo")
 
@@ -114,9 +116,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     
     b. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     
-    c. Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade**, digite a **URL de Logon que deve estar no seguinte formato: `http://company.my.salesforce.com`
+    c. Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade**, digite a **URL de Logon** que deve estar no seguinte formato: `http://company.my.salesforce.com`
     
-    d. Clique em **Procurar** para carregar o certificado baixado.
+    	d. Clique em **Procurar** para carregar o certificado baixado.
     
     e. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
     

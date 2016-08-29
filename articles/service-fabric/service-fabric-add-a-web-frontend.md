@@ -254,6 +254,6 @@ Para saber como configurar valores diferentes para um ambiente diferente, confir
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/pt-BR/services/api-management/
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
 <!---HONumber=AcomDC_0817_2016-->

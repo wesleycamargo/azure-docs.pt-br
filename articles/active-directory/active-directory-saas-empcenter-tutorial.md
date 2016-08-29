@@ -96,7 +96,8 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     ![Configurar o logon único](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles deverão ser provisionados no EmpCenter. No caso do EmpCenter, as contas de usuário precisam ser criadas pela equipe de suporte do EmpCenter.
+Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles deverão ser provisionados no EmpCenter.  
+No caso do EmpCenter, as contas de usuário precisam ser criadas pela equipe de suporte do EmpCenter.
 
 >[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do EmpCenter ou as APIs fornecidas pelo EmpCenter para provisionar as contas de usuário do Active Directory do Azure.
 
