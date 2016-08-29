@@ -94,6 +94,11 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java ante
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1.8.1](#1.8.1) | 30 de junho de 2016 |---
+| [1.8.0](#1.8.0) | 14 de junho de 2016 |---
+| [1.7.1](#1.7.1) | 30 de abril de 2016 |---
+| [1.7.0](#1.7.0) | 27 de abril de 2016 |---
+| [1.6.0](#1.6.0) | 29 de março de 2016 |---
 | [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |---
 | [1\.4.0](#1.4.0) | 05 de outubro de 2015 |---
 | [1\.3.0](#1.3.0) | 05 de outubro de 2015 |---
