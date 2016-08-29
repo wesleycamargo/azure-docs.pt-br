@@ -32,7 +32,7 @@
 <tr><td>***Baixe o SDK***</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
 <tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Introdução**</td><td>[Introdução ao SDK do Java](documentos-java-application.md)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao SDK do Java]( documentos-java-application.md)</td></tr>
 <tr><td>**Tempo de execução atual com suporte**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
@@ -99,6 +99,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java ante
 | [1.7.1](#1.7.1) | 30 de abril de 2016 |---
 | [1.7.0](#1.7.0) | 27 de abril de 2016 |---
 | [1.6.0](#1.6.0) | 29 de março de 2016 |---
+| [1.5.1](#1.5.1) | 10 de dezembro de 2015 |--- 
 | [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |---
 | [1\.4.0](#1.4.0) | 05 de outubro de 2015 |---
 | [1\.3.0](#1.3.0) | 05 de outubro de 2015 |---
